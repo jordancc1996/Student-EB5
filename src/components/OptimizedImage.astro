@@ -1,0 +1,60 @@
+---
+interface Props {
+  src: string | { src: string };
+  alt: string;
+  webpSrc?: string | { src: string };
+  className?: string;
+  width?: number;
+  height?: number;
+  loading?: 'lazy' | 'eager';
+  fetchPriority?: 'low' | 'high' | 'auto';
+  title?: string;
+  sizes?: string;
+}
+
+function resolveAssetSrc(value: string | { src: string }): string {
+  return typeof value === 'string' ? value : value.src;
+}
+
+const {
+  src,
+  alt,
+  webpSrc,
+  className = '',
+  width,
+  height,
+  loading = 'lazy',
+  fetchPriority = 'low',
+  title,
+  sizes = '100vw',
+} = Astro.props;
+
+const resolvedSrc = resolveAssetSrc(src);
+const resolvedWebpSrc = webpSrc ? resolveAssetSrc(webpSrc).trim() : undefined;
+const hasWebpVariant = Boolean(resolvedWebpSrc);
+const mimeType = resolvedSrc.match(/\.png$/i)
+  ? 'image/png'
+  : resolvedSrc.match(/\.webp$/i)
+    ? 'image/webp'
+    : 'image/jpeg';
+---
+
+<picture>
+  {
+    hasWebpVariant && (
+      <source srcset={resolvedWebpSrc} type="image/webp" sizes={sizes} />
+    )
+  }
+  <source srcset={resolvedSrc} type={mimeType} sizes={sizes} />
+  <img
+    src={resolvedSrc}
+    alt={alt}
+    class={className}
+    width={width}
+    height={height}
+    loading={loading}
+    decoding="async"
+    fetchpriority={fetchPriority}
+    title={title}
+  />
+</picture>

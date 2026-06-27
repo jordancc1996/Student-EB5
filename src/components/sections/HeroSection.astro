@@ -1,0 +1,63 @@
+---
+import heroVideo from '@/assets/hero-background-video.mp4';
+import heroBackground from '@/assets/hero-background.jpg';
+
+const pathways = [
+  {
+    title: 'I am on an H-1B Visa',
+    subtitle: 'Escape the backlog and layoff anxiety with concurrent filing.',
+    link: '/pathways/h1b-to-green-card',
+    cta: 'View H-1B Pathway',
+  },
+  {
+    title: 'I am an F-1 Student',
+    subtitle: 'Bypass the H-1B lottery and secure your post-grad future.',
+    link: '/pathways/f1-to-eb5-self-sponsored-green-card',
+    cta: 'View Student Pathway',
+  },
+];
+---
+
+<section class="hero-section" id="home">
+  <div
+    class="absolute inset-0 w-full h-full"
+    style="aspect-ratio: 16/9; min-height: 100vh;"
+  >
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="absolute inset-0 w-full h-full object-cover opacity-60"
+      poster={heroBackground.src}
+      width={1920}
+      height={1080}
+    >
+      <source src={heroVideo} type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="hero-content fade-in">
+    <h1 class="hero-title">Your Green Card Shouldn't Take 50 Years.</h1>
+
+    <p class="hero-subtitle max-w-2xl mx-auto">
+      The EB-5 program offers a direct path to U.S. permanent residency. Choose your current status to see your specific timeline.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10 max-w-3xl mx-auto">
+      {pathways.map((p) => (
+        <a
+          href={p.link}
+          class="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-left hover:-translate-y-1 transition-transform duration-300"
+        >
+          <h3 class="text-white text-lg font-semibold mb-2">{p.title}</h3>
+          <p class="text-white/70 text-sm mb-4 leading-relaxed">{p.subtitle}</p>
+          <span class="inline-flex items-center gap-1.5 text-white text-sm font-medium group-hover:gap-2.5 transition-all">
+            {p.cta}
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+---
+import universityImage from '@/assets/university-building.jpg';
+import universityImageWebp from '@/assets/university-building.webp';
+---
+
+<section class="section-content">
+  <h2 class="section-title">Our Philosophy</h2>
+
+  <p class="section-text">
+    The EB-5 program provides international students, professionals, and global families an opportunity for freedom via permanent residency in the United States through investment.
+  </p>
+
+  <p class="section-text">
+    We believe this program provides an unparalleled opportunity for students facing OPT expiration, professionals experiencing H1B uncertainty, and global families who have been living in the United States for years behind unfair employment-based green card backlogs, a long-term and sustainable plan for staying in the United States. Student EB-5 helps international students and families understand this EB-5 process and everything that encompasses a successful application, including:
+  </p>
+
+  <ul class="section-text list-disc pl-6 space-y-2">
+    <li>Concurrent filing</li>
+    <li>Adjustment of status</li>
+    <li>Work authorization</li>
+    <li>The difference between rural and high-unemployment EB-5 opportunities</li>
+  </ul>
+
+  <p class="section-text">
+    Our team has spent years researching the EB-5 program and building relationships with EB-5 attorneys, regional centers, and industry professionals so we can provide clients with the most in-depth information on everything EB-5 on the internet.
+  </p>
+
+  <picture>
+    <source srcset={universityImageWebp.src} type="image/webp" sizes="(max-width: 768px) 100vw, 637px" />
+    <source srcset={universityImage.src} type="image/jpeg" sizes="(max-width: 768px) 100vw, 637px" />
+    <img
+      src={universityImage.src}
+      alt="Gothic university chapel with wildflower meadow representing academic excellence and growth"
+      class="section-image"
+      loading="lazy"
+      width={637}
+      height={425}
+      decoding="async"
+      fetchpriority="low"
+    />
+  </picture>
+</section>

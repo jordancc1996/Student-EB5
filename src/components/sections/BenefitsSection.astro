@@ -1,0 +1,79 @@
+---
+import mosqueImage from '@/assets/mosque-reflection.jpg';
+
+const benefits = [
+  {
+    title: "Permanent Residency",
+    description: "Secure your future with a green card that leads to US citizenship"
+  },
+  {
+    title: "No Job Sponsorship Needed",
+    description: "Skip the H-1B lottery and visa uncertainties forever"
+  },
+  {
+    title: "Bring Your Family",
+    description: "Include your spouse and unmarried children under 21"
+  },
+  {
+    title: "Unlimited Work Freedom",
+    description: "Work for any employer or start your own business"
+  },
+  {
+    title: "Live Anywhere in the US",
+    description: "No geographical restrictions on where you can live"
+  },
+  {
+    title: "Travel Freely",
+    description: "Enter and exit the US without visa restrictions"
+  },
+  {
+    title: "Fast Processing",
+    description: "Faster approval times compared to other immigration pathways"
+  }
+];
+---
+
+<section id="benefits" class="section-padding bg-gradient-subtle">
+  <div class="container mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="section-title">EB-5 Advantages</h2>
+      <p class="section-subtitle">
+        The EB-5 program offers international students the most direct path
+        from F-1 status to permanent residency, with benefits that last a lifetime. Learn more in our <a href="/faq" class="text-primary hover:underline">comprehensive FAQ</a> or explore our <a href="/resources" class="text-primary hover:underline">resource library</a>.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-16 items-center mb-16">
+      <div class="order-2 lg:order-1">
+        <img
+          src={mosqueImage.src}
+          alt="Beautiful mosque minaret reflecting in water at sunset, symbolizing global opportunities"
+          class="rounded-2xl shadow-medium w-full h-auto"
+          loading="lazy"
+          width={600}
+          height={400}
+          decoding="async"
+          fetchpriority="low"
+        />
+      </div>
+
+      <div class="order-1 lg:order-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {benefits.map((benefit) => (
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm feature-card border-0">
+            <div class="p-6">
+              <div>
+                <h3 class="font-serif font-semibold text-lg mb-2 text-primary">
+                  {benefit.title}
+                </h3>
+                <p class="text-muted-foreground text-sm leading-relaxed">
+                  {benefit.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

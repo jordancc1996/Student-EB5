@@ -1,0 +1,47 @@
+---
+const stats = [
+  { value: "1,000+", label: "Successful EB-5 Petition Approvals", sublabel: "I-526E, I-829 & more" },
+  { value: "20+ Years", label: "Combined Industry Experience", sublabel: "At the highest levels of the EB-5 market" },
+  { value: "I-926F", label: "USCIS-Certified Regional Centers", sublabel: "Approved & compliant" },
+  { value: "$800K", label: "TEA Investment Threshold", sublabel: "Minimum qualifying investment" },
+];
+---
+
+<section id="partner-credibility" class="py-20 px-8 bg-[hsl(0,0%,97%)]">
+  <div class="container mx-auto">
+    <h2 class="font-serif font-medium text-3xl md:text-4xl leading-tight max-w-3xl mx-auto text-center mb-8 text-foreground">
+      Connected to the Most Experienced EB-5 Legal and Investment Partners in the Industry
+    </h2>
+
+    <div class="max-w-3xl mx-auto space-y-6 mb-16 text-center">
+      <p class="text-muted-foreground font-sans leading-relaxed">
+        Understanding the EB-5 program is only half the equation. The other half is making sure that when you're ready to move forward, you're working with professionals who have actually done this — thousands of times.
+      </p>
+      <p class="text-muted-foreground font-sans leading-relaxed">
+        The immigration law firms and regional centers we connect investors with through this platform have spent over 20 years operating at the highest levels of the EB-5 market. Their combined portfolio includes more than 1,000 successful EB-5 petition approvals — I-526Es, I-829s, and everything in between — for investors from India, China, South Korea, Nigeria, and beyond.
+      </p>
+      <p class="text-muted-foreground font-sans leading-relaxed">
+        Their regional center partners carry <strong class="text-foreground">USCIS I-926F approval</strong>, a designation that signals rigorous compliance, legitimate job creation methodology, and a project structure that meets the full legal standard for EB-5 investment. Choosing an I-926F approved regional center isn't a preference — it's how experienced investors protect their capital and their green card timeline.
+      </p>
+      <p class="text-muted-foreground font-sans leading-relaxed">
+        For international students and H-1B professionals navigating the EB-5 landscape, access to this level of institutional experience is rare. The resources on this site exist to bridge that gap — connecting you to qualified EB-5 attorneys and vetted regional centers with the credentials and case history to back it up.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+      {stats.map((stat) => (
+        <div class="bg-white border border-[hsl(0,0%,90%)] rounded-2xl shadow-[0_2px_10px_-2px_rgba(0,0,0,0.1)] p-6 md:p-8 text-center">
+          <div class="font-serif font-bold text-foreground text-4xl leading-none mb-2">
+            {stat.value}
+          </div>
+          <div class="font-sans font-semibold text-sm text-foreground mb-1">
+            {stat.label}
+          </div>
+          <div class="font-sans text-xs text-muted-foreground">
+            {stat.sublabel}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

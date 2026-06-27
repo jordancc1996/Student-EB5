@@ -1,0 +1,221 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import OptimizedImage from '@/components/OptimizedImage.astro';
+import { ConsultationCTA } from '@/components/ConsultationCTA';
+import { Toaster } from '@/components/ui/toaster';
+import { getCollection } from 'astro:content';
+import blogHero from '@/assets/blog-hero.jpg';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateBlogSchema } from '@/lib/seo/structured-data';
+
+const blogPostsArray = (await getCollection('blog'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .map((entry) => entry.data);
+
+const featuredPost = blogPostsArray[0];
+const gridPosts = blogPostsArray.slice(1);
+
+const title = 'EB-5 Research: Expert Articles for Students & H-1B Professionals';
+const description =
+  'Expert EB-5 visa articles, policy updates, and success stories. Immigration insights for F-1 students and H-1B workers seeking green cards.';
+const pageCanonical = `${SITE_CONFIG.url}/research`;
+const ogTitle = 'EB-5 Immigration Research: Insights for Students & Professionals';
+const ogDescription =
+  'Stay informed with expert EB-5 articles covering investment strategies, policy updates, processing timelines, and real success stories from students and H-1B professionals who secured their green cards.';
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const keywords = [
+  'EB-5 research',
+  'immigration articles',
+  'F-1 student visa',
+  'H-1B alternatives',
+  'green card success stories',
+  'EB-5 policy updates',
+];
+
+const structuredData = [generateBlogSchema()];
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+    {structuredData.map((data) => (
+      <script type="application/ld+json" set:html={JSON.stringify(data).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
+    ))}
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+
+    <!-- Hero Section - matches home/contact pattern (offsets global body padding-top:120px) -->
+    <section class="relative h-[55vh] min-h-[450px] flex items-center justify-center -mt-[120px] pt-[120px]">
+      <div class="absolute inset-0">
+        <img
+          src={blogHero.src}
+          alt="New York City skyline at dusk representing opportunity and ambition"
+          class="w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60"></div>
+      </div>
+
+      <div class="relative z-10 container mx-auto px-6 text-center text-white">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 drop-shadow-lg">
+          EB-5 Investment Visa & U.S. Residency Research
+        </h1>
+        <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto drop-shadow">
+          Comprehensive analysis of the EB-5 Immigrant Investor Program for foreign investors. Navigate regional center projects, understand minimum investment requirements, and secure your US Green Card through investment with confidence.
+        </p>
+      </div>
+    </section>
+
+    <main class="container mx-auto px-6 pt-4 pb-12">
+      <Breadcrumb client:load initialPathname="/research" />
+      <div class="max-w-4xl mx-auto">
+        <!-- Header Section - Removed duplicate h1 -->
+        <div class="text-center mb-12">
+          <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Your trusted source for EB-5 investment immigration insights, strategies, and success stories.
+          </p>
+        </div>
+
+        <!-- Introduction Section -->
+        <div class="mb-12 prose prose-lg max-w-none">
+          <h2 class="text-2xl font-serif font-bold mb-4 text-foreground">
+            Expert Guidance for Your Immigration Journey
+          </h2>
+          <p class="text-muted-foreground mb-4">
+            Welcome to the StudentEB5 research hub, where we provide comprehensive resources and expert analysis on the EB-5 Investor Visa Program. Whether you're an international student exploring pathways to permanent residency, an H-1B professional seeking alternatives to visa uncertainty, or a family planning for your children's educational future in the United States, our research hub offers the insights you need to make informed decisions.
+          </p>
+          <p class="text-muted-foreground mb-4">
+            Our articles cover everything from understanding <a href="/research/complete-2027-eb5-guide" class="text-primary hover:underline">EB-5 program requirements</a> and investment strategies to navigating the application process and staying current with policy updates. We share real success stories from students and professionals who have successfully obtained their green cards through the EB-5 program, providing practical guidance based on actual experiences.
+          </p>
+          <p class="text-muted-foreground mb-6">
+            Explore our latest articles below, or <a href="/contact" class="text-primary hover:underline">contact our team</a> for personalized guidance on your EB-5 journey. You can also learn more <a href="/about" class="text-primary hover:underline">about StudentEB5</a> and our mission to help international students achieve their American dream.
+          </p>
+        </div>
+
+        <!-- Latest Articles Section -->
+        <h2 class="text-2xl font-serif font-bold mb-8 text-foreground">
+          Latest Articles
+        </h2>
+
+        <!-- Featured Post -->
+        <div class="mb-16">
+          <a href={`/research/${featuredPost.slug}`} class="block">
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <div class="md:flex">
+                <div class="md:w-1/2">
+                  <OptimizedImage
+                    src={featuredPost.image}
+                    alt={featuredPost.imageAlt}
+                    className="w-full h-64 md:h-full object-cover"
+                    loading="eager"
+                    fetchPriority="high"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <div class="md:w-1/2 p-8">
+                  <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 mb-4">
+                    Featured Post
+                  </div>
+                  <h2 class="text-2xl font-serif font-bold mb-4">
+                    {featuredPost.title}
+                  </h2>
+                  <p class="text-muted-foreground mb-6">
+                    {featuredPost.excerpt}
+                  </p>
+                  <div class="flex flex-wrap items-center justify-between text-base font-medium text-muted-foreground gap-2">
+                    <span>Published {featuredPost.date}{featuredPost.updatedDate && featuredPost.updatedDate !== featuredPost.date ? ` · Updated ${featuredPost.updatedDate}` : ''}</span>
+                    <span>{featuredPost.readTime}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Blog Posts Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {
+            gridPosts.map((post) => (
+              <a href={`/research/${post.slug}`} class="block">
+                <div class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div class="aspect-video overflow-hidden">
+                    <OptimizedImage
+                      src={post.image}
+                      alt={post.imageAlt}
+                      title={post.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div class="flex flex-col space-y-1.5 p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                      <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground">
+                        {post.category}
+                      </div>
+                      <span class="text-base text-muted-foreground">
+                        {post.readTime}
+                      </span>
+                    </div>
+                    <h3 class="text-2xl font-medium leading-none font-serif">
+                      {post.title}
+                    </h3>
+                  </div>
+                  <div class="p-6 pt-0">
+                    <p class="text-muted-foreground mb-4">
+                      {post.excerpt}
+                    </p>
+                    <span class="text-base font-medium text-muted-foreground">
+                      Published {post.date}{post.updatedDate && post.updatedDate !== post.date ? ` · Updated ${post.updatedDate}` : ''}
+                    </span>
+                  </div>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="mt-16 text-center">
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-8">
+            <h3 class="text-2xl font-serif font-bold mb-4">
+              Stay Updated on EB-5 News
+            </h3>
+            <p class="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Get the latest insights, regulatory updates, and success stories
+              delivered directly to your inbox.
+            </p>
+            <a
+              href="/contact"
+              class="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+            >
+              Subscribe to Updates
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <ConsultationCTA client:visible />
+    <Footer client:visible />
+  </div>
+  <Toaster client:load />
+</Layout>
