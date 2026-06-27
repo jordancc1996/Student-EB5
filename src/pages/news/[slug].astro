@@ -1,0 +1,91 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { ConsultationCTA } from '@/components/ConsultationCTA';
+import { Toaster } from '@/components/ui/toaster';
+import Eb5LandscapeMay2026Content from '@/components/news/Eb5LandscapeMay2026Content';
+import UscisAdjustmentMemoContent from '@/components/news/UscisAdjustmentMemoContent';
+import JulyBulletinQ3Content from '@/components/news/JulyBulletinQ3Content';
+import { getNewsArticle, newsArticleSlugs } from '@/data/newsArticles';
+import { getNewsFaqSchema } from '@/data/newsFaqSchemas';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateArticleSchema } from '@/lib/seo/structured-data';
+
+export const getStaticPaths: GetStaticPaths = () =>
+  newsArticleSlugs.map((slug) => ({
+    params: { slug },
+  }));
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  throw new Error('News article slug is required');
+}
+
+const article = getNewsArticle(slug);
+
+if (!article) {
+  throw new Error(`Unknown news article slug: ${slug}`);
+}
+
+const pageCanonical = `${SITE_CONFIG.url}/news/${slug}`;
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+
+const articleSchema = {
+  ...generateArticleSchema({
+    headline: article.title,
+    description: article.metaDescription,
+    image: ogImage,
+    datePublished: article.datePublished,
+    dateModified: article.datePublished,
+    author: 'StudentEB5',
+    keywords: article.schemaKeywords,
+  }),
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': pageCanonical,
+  },
+};
+
+const faqSchema = getNewsFaqSchema(slug);
+const structuredData = faqSchema ? [articleSchema, faqSchema] : [articleSchema];
+
+const ContentComponent =
+  slug === 'eb5-visa-landscape-news-update-may-2026'
+    ? Eb5LandscapeMay2026Content
+    : slug === 'uscis-adjustment-of-status-memo-eb5-investors'
+      ? UscisAdjustmentMemoContent
+      : JulyBulletinQ3Content;
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{article.metaTitle}</title>
+    <meta name="description" content={article.metaDescription} />
+    <meta name="keywords" content={article.keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={article.title} />
+    <meta property="og:description" content={article.metaDescription} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={article.title} />
+    <meta name="twitter:description" content={article.metaDescription} />
+    <meta name="twitter:image" content={ogImage} />
+    {structuredData.map((data) => (
+      <script type="application/ld+json" set:html={JSON.stringify(data).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
+    ))}
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+    <ContentComponent />
+    <ConsultationCTA client:visible />
+    <Footer client:visible />
+    <Toaster client:load />
+  </div>
+</Layout>

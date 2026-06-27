@@ -116,10 +116,15 @@ Consult these guides before working on related tasks:
 - Fixed Tailwind content glob in `tailwind.config.ts` to scan `.astro` files (was previously only scanning `.tsx/.ts` from the old Vite folder structure) — this was the root cause of missing CSS (washed-out hero, broken section backgrounds) on the first converted page. This fix applies project-wide, so future page conversions should not hit the same CSS issue.
 - Migrated research articles from `src/data/researchPosts.ts` to an Astro content collection at `src/content/blog/`, verified byte-identical against the original JSON export and fully tested per the standard verification checklist. Original file preserved as `researchPosts.ts.deprecated`.
 - Privacy Policy page renders its entire body as a client:load React island, unlike other static pages, because TOC navigation and hash-scroll-on-load require useEffect + onClick handlers tightly coupled to the content. This is an intentional exception, not an oversight — the alternative would require duplicating section structure across static and island layers for no real benefit on a low-traffic legal page.
+- News section audit confirmed 8 total entries in News.tsx, 5 of which are placeholder/fake content (no real URLs, no article bodies, route guard sends them back to /news). Per user confirmation, only the 3 real articles are migrated: july-2026-visa-bulletin-eb5-q3-outlook, uscis-adjustment-of-status-memo-eb5-investors, and eb5-visa-landscape-news-update-may-2026. The 5 placeholders are permanently excluded, not deferred.
 
 ## Known issues
 
 - FAQ detail page related-FAQ cards have nested `<a>` tags (outer card link wraps inner links from the answer excerpt's `dangerouslySetInnerHTML`/`set:html` content). This is invalid HTML, but currently causes no visible bug since `FaqDetailContent` renders as static SSR (no client hydration to conflict). It DID cause a false-positive duplicate-card reading in an early verification script (browser HTML-repair artifacts), confirmed resolved as a script bug, not a real page bug, on 2026-06-27. Worth a future structural fix (e.g. truncating excerpt HTML to strip inner `<a>` tags) if strict HTML validity becomes a priority, but not currently blocking.
+
+## Pending for SEO finalization phase
+
+- When building the sitemap during SEO layer finalization (per the revised conversion order), ensure `/news` and all 3 real article URLs (`july-2026-visa-bulletin-eb5-q3-outlook`, `uscis-adjustment-of-status-memo-eb5-investors`, `eb5-visa-landscape-news-update-may-2026`) are included. Do NOT include the 5 placeholder slugs that were excluded from migration.
 
 ## Known issue: stale Vite cache after config changes
 
