@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import NotFoundMainContent from '@/components/NotFoundMainContent';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'Page Not Found - 404 Error | StudentEB5';
+const description =
+  "The page you're looking for doesn't exist. Return to StudentEB5 homepage for EB-5 investment immigration services.";
+const pageCanonical = `${SITE_CONFIG.url}/404`;
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta name="robots" content="noindex, nofollow" />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+    <NotFoundMainContent client:load />
+    <Footer client:visible />
+  </div>
+</Layout>
