@@ -100,7 +100,7 @@ const structuredData = generateFAQSchema(faqSchemaItems);
     <main class="container mx-auto px-6 pt-4 pb-8">
       <Breadcrumb client:load initialPathname="/faq" />
       <LegalDisclaimer className="max-w-6xl mx-auto mb-6" />
-      <FaqListing client:load faqs={faqListingItems} />
+      <FaqListing client:only="react" faqs={faqListingItems} />
     </main>
 
     <ConsultationCTA client:visible />

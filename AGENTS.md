@@ -116,6 +116,10 @@ Consult these guides before working on related tasks:
 - Fixed Tailwind content glob in `tailwind.config.ts` to scan `.astro` files (was previously only scanning `.tsx/.ts` from the old Vite folder structure) — this was the root cause of missing CSS (washed-out hero, broken section backgrounds) on the first converted page. This fix applies project-wide, so future page conversions should not hit the same CSS issue.
 - Migrated research articles from `src/data/researchPosts.ts` to an Astro content collection at `src/content/blog/`, verified byte-identical against the original JSON export and fully tested per the standard verification checklist. Original file preserved as `researchPosts.ts.deprecated`.
 
+## Known issues
+
+- FAQ detail page related-FAQ cards have nested `<a>` tags (outer card link wraps inner links from the answer excerpt's `dangerouslySetInnerHTML`/`set:html` content). This is invalid HTML, but currently causes no visible bug since `FaqDetailContent` renders as static SSR (no client hydration to conflict). It DID cause a false-positive duplicate-card reading in an early verification script (browser HTML-repair artifacts), confirmed resolved as a script bug, not a real page bug, on 2026-06-27. Worth a future structural fix (e.g. truncating excerpt HTML to strip inner `<a>` tags) if strict HTML validity becomes a priority, but not currently blocking.
+
 ## Known issue: stale Vite cache after config changes
 
 - Symptom: After changing astro.config.mjs, tailwind.config.ts, or similar 
