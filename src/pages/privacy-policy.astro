@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import PrivacyPolicyMainContent from '@/components/PrivacyPolicyMainContent';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateWebPageSchema } from '@/lib/seo/structured-data';
+
+const title = 'Privacy Policy | StudentEB5 EB-5 Immigration Advisors';
+const description =
+  'StudentEB5 privacy policy: how our EB-5 immigration advisors collect, use, and safeguard your information with strict confidentiality and CCPA compliance.';
+const pageCanonical = `${SITE_CONFIG.url}/privacy-policy`;
+const ogTitle = 'Privacy Policy | StudentEB5 EB-5 Immigration Advisors';
+const ogDescription =
+  'StudentEB5 privacy policy: how our EB-5 immigration advisors collect, use, and safeguard your information with strict confidentiality and CCPA compliance.';
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const keywords = ['studenteb5 privacy policy', 'eb5 immigration advisors', 'data protection', 'CCPA compliance'];
+
+const structuredData = generateWebPageSchema(
+  'Privacy Policy | StudentEB5',
+  'StudentEB5 Privacy Policy - How we collect, use, and protect your personal information',
+  `${SITE_CONFIG.url}/privacy-policy`
+);
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+
+    <main class="container mx-auto px-6 py-16 max-w-5xl">
+      <PrivacyPolicyMainContent client:load />
+    </main>
+
+    <Footer client:visible />
+  </div>
+</Layout>
