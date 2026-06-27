@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import ContactForm from '@/components/ContactForm';
+import { Toaster } from '@/components/ui/toaster';
+import OptimizedImage from '@/components/OptimizedImage.astro';
+import contactHero from '@/assets/contact-hero-new.jpg';
+import contactHeroWebp from '@/assets/contact-hero-new.webp';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateContactPageSchema } from '@/lib/seo/structured-data';
+
+const title = 'Schedule EB-5 Consultation with Expert EB-5 Advisors';
+const description =
+  'Schedule an EB-5 investment consultation with expert EB-5 broker and elite EB-5 immigration advisors. Start your EB-5 process with premium guidance today.';
+const pageCanonical = `${SITE_CONFIG.url}/contact`;
+const ogTitle = 'Schedule EB-5 Consultation with Expert EB-5 Advisors';
+const ogDescription =
+  'Schedule an EB-5 investment consultation with expert EB-5 broker and elite EB-5 immigration advisors. Start your EB-5 process with premium guidance today.';
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const keywords = [
+  'schedule eb5 consultation',
+  'eb5 investment consultation',
+  'start eb5 process',
+  'eb5 immigration advisors',
+  'expert eb5 broker',
+];
+
+const structuredData = generateContactPageSchema();
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+
+    <section class="relative h-[70vh] min-h-[500px] flex items-center justify-center -mt-[120px] pt-[120px]">
+      <div class="absolute inset-0">
+        <OptimizedImage
+          src={contactHero}
+          webpSrc={contactHeroWebp}
+          alt="Golden Gate Bridge at dusk representing the path to American opportunity"
+          className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          sizes="100vw"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60"></div>
+      </div>
+      <div class="relative z-10 container mx-auto px-6 text-center text-white">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 max-w-4xl mx-auto leading-tight">
+          Contact StudentEB5 for Expert EB-5 News
+        </h1>
+        <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          Learn how to transform your F-1 Student or H-1B work status into a U.S. Green Card. We specialize in
+          informing international students and H-1B professionals about EB-5 options, concurrent filing options
+          and the adjustment of status process to secure your future in America.
+        </p>
+      </div>
+    </section>
+
+    <main class="container mx-auto px-6 pt-4 pb-12">
+      <Breadcrumb client:load initialPathname="/contact" />
+      <div class="max-w-2xl mx-auto">
+        <ContactForm client:load />
+
+        <div class="mt-8 text-center text-sm text-muted-foreground space-y-3">
+          <p>
+            By submitting this form, you agree to be contacted by StudentEB5 regarding your EB-5 investment
+            and immigration needs. We respect your privacy and will never share your information with third
+            parties.
+          </p>
+          <p class="font-medium text-foreground/80">
+            Join 500+ families we've helped and informed about U.S. residency.
+          </p>
+          <p>
+            Have questions before reaching out? Visit our
+            <a href="/faq/how-studenteb5-can-help" class="text-primary hover:underline">
+              FAQ on how StudentEB5 can help
+            </a>
+            or browse our
+            <a href="/faq" class="text-primary hover:underline">complete FAQ</a>
+            for answers to common EB-5 questions.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <Footer client:visible />
+    <Toaster client:load />
+  </div>
+</Layout>
