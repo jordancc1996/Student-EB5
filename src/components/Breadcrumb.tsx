@@ -23,6 +23,12 @@ const routeNames: Record<string, string> = {
   '2026-eb5-investment-feasibility-calculator': 'EB-5 Feasibility Calculator',
   'source-of-funds-calculator': 'Source of Funds Calculator',
   'h1b-lottery-odds-calculator': 'H-1B Lottery Odds Calculator',
+  'eb5-direct-vs-regional-center': 'Direct vs. Regional Center',
+  'eb5-concurrent-filing-eligibility': 'Concurrent Filing Eligibility',
+  'eb5-cspa-calculator': 'CSPA Calculator',
+  'eb5-source-of-funds-checklist': 'Source of Funds Checklist',
+  'eb5-i829-lifecycle-tracker': 'I-829 Lifecycle Tracker',
+  'eb5-regional-center-scorecard': 'Regional Center Scorecard',
 };
 
 const pathOverrides: Record<string, string> = {
