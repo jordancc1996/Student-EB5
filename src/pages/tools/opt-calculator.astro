@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import OPTCalculatorMainContent from '@/components/OPTCalculatorMainContent';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'OPT Expiring Alternatives: Best EB-5 Strategy';
+const description =
+  'OPT expiring alternatives and the best EB-5 strategy for STEM OPT students: a backup plan after OPT expiration to stay in America after STEM OPT via EB-5.';
+const pageCanonical = `${SITE_CONFIG.url}/tools/opt-calculator`;
+const ogTitle = 'OPT Calculator | StudentEB5';
+const ogDescription =
+  'Premium tool for F-1 students to calculate OPT application deadlines, start dates, and work authorization timelines based on USCIS regulations.';
+const ogImage = `${SITE_CONFIG.url}/images/opt-calculator-og.jpg`;
+const keywords = [
+  'opt expiring alternatives',
+  'backup plan after opt expiration',
+  'eb5 after stem opt',
+  'how to stay in america after stem opt',
+  'best eb5 strategy for stem opt students',
+];
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+  </Fragment>
+
+  <Header client:load />
+
+  <section class="relative -mt-[120px] pt-[120px] bg-slate-900">
+    <div class="mx-auto px-10 py-6 max-w-[900px]">
+      <Breadcrumb
+        client:load
+        customTitle="OPT Calculator"
+        variant="dark"
+        initialPathname="/tools/opt-calculator"
+      />
+    </div>
+  </section>
+
+  <OPTCalculatorMainContent client:load />
+
+  <Footer client:visible />
+</Layout>

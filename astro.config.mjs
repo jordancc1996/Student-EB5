@@ -12,6 +12,7 @@ export default defineConfig({
   integrations: [react()],
   redirects: {
     '/grandfathering-countdown': '/tools/grandfathering-countdown',
+    '/opt-calculator': '/tools/opt-calculator',
   },
   vite: {
     resolve: {
