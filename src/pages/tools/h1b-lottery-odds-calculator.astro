@@ -1,0 +1,76 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import H1BLotteryCalculatorMainContent from '@/components/H1BLotteryCalculatorMainContent';
+import { Toaster } from '@/components/ui/toaster';
+import heroImage from '@/assets/h1b-lottery-hero.jpg';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'H-1B Lottery Odds: EB-5 Backup After Lottery Failure';
+const description =
+  'Calculate your H-1B lottery odds, then see EB-5 after H-1B lottery failure: the best backup plan for H-1B holders and EB-5 instead of H-1B sponsorship.';
+const pageCanonical = `${SITE_CONFIG.url}/tools/h1b-lottery-odds-calculator`;
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const keywords = [
+  'eb5 after h1b lottery failure',
+  'avoid h1b lottery stress',
+  'h1b uncertainty solutions',
+  'best backup plan for h1b holders',
+  'eb5 instead of h1b sponsorship',
+];
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+
+    <section
+      class="relative -mt-[120px] pt-[120px] min-h-[50vh] flex items-center justify-center bg-cover bg-center"
+      style={`background-image: url(${heroImage.src})`}
+    >
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
+
+      <div class="relative z-10 text-center px-4 py-16 md:py-24">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-4">
+          2026 H-1B Lottery<br />
+          <span class="italic font-light">Odds Calculator</span>
+        </h1>
+        <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
+          Calculate your selection odds under the new wage-weighted lottery system
+        </p>
+      </div>
+    </section>
+
+    <main class="container mx-auto px-4 md:px-8 pt-4 pb-12">
+      <Breadcrumb
+        client:load
+        customTitle="H-1B Lottery Odds Calculator"
+        initialPathname="/tools/h1b-lottery-odds-calculator"
+      />
+
+      <H1BLotteryCalculatorMainContent client:load />
+    </main>
+
+    <Footer client:visible />
+    <Toaster client:load />
+  </div>
+</Layout>
