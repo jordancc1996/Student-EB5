@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import RegionalCenterScorecardMainContent from '@/components/RegionalCenterScorecardMainContent';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 Regional Center Due Diligence Scorecard | StudentEB5';
+const description =
+  'Objectively evaluate and compare EB-5 Regional Centers. Input track record data, approval history, and compliance records to generate a proprietary Trust Score.';
+const pageCanonical = `${SITE_CONFIG.url}/tools/eb5-regional-center-scorecard`;
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const keywords = [
+  'EB-5 regional center scorecard',
+  'regional center due diligence',
+  'EB-5 trust score',
+  'regional center comparison',
+  'EB-5 I-829 approvals',
+  'EB-5 SEC compliance',
+];
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+
+    <section class="relative -mt-[120px] pt-[120px] bg-slate-900">
+      <div class="container mx-auto px-4 py-6">
+        <Breadcrumb
+          client:load
+          customTitle="Regional Center Due Diligence Scorecard"
+          variant="dark"
+          initialPathname="/tools/eb5-regional-center-scorecard"
+        />
+      </div>
+    </section>
+
+    <RegionalCenterScorecardMainContent client:load />
+
+    <Footer client:visible />
+  </div>
+</Layout>
