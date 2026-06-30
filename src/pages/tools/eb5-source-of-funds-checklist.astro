@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import SourceOfFundsChecklistMainContent from '@/components/SourceOfFundsChecklistMainContent';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 Source of Funds Checklist Generator | StudentEB5';
+const description =
+  'Generate a customized checklist for your EB-5 Source of Funds (SOF) documentation. Tailored requirements for gifts, property sales, salary, and investment liquidation.';
+const pageCanonical = `${SITE_CONFIG.url}/tools/eb5-source-of-funds-checklist`;
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const keywords = [
+  'EB-5 source of funds checklist',
+  'EB-5 SOF documentation',
+  'EB-5 gift documentation',
+  'EB-5 property sale source of funds',
+  'EB-5 lawful source of funds',
+];
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+
+    <section class="relative -mt-[120px] pt-[120px] bg-slate-900">
+      <div class="container mx-auto px-4 py-6">
+        <Breadcrumb
+          client:load
+          customTitle="EB-5 Source of Funds Checklist"
+          variant="dark"
+          initialPathname="/tools/eb5-source-of-funds-checklist"
+        />
+      </div>
+    </section>
+
+    <SourceOfFundsChecklistMainContent client:load />
+
+    <Footer client:visible />
+  </div>
+</Layout>
