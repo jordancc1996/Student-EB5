@@ -14,6 +14,7 @@ export default defineConfig({
     '/grandfathering-countdown': '/tools/grandfathering-countdown',
     '/opt-calculator': '/tools/opt-calculator',
     '/tuition-calculator': '/tools/tuition-calculator',
+    '/guides/source-of-funds-strategies': '/tools/source-of-funds-calculator',
   },
   vite: {
     resolve: {

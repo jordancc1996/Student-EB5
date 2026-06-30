@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import SourceOfFundsCalculatorMainContent from '@/components/SourceOfFundsCalculatorMainContent';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'Best EB-5 Source of Funds: Gifted, Loaned & Crypto';
+const description =
+  'Best EB-5 source of funds strategy for Indian investors: EB-5 gifted funds, EB-5 loaned funds, can parents gift EB-5 money, and can I use crypto for EB-5.';
+const pageCanonical = `${SITE_CONFIG.url}/tools/source-of-funds-calculator`;
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const keywords = [
+  'eb5 gifted funds',
+  'eb5 loaned funds',
+  'best eb5 source of funds strategy',
+  'can parents gift eb5 money',
+  'best source of funds strategy for indian eb5 investors',
+  'can i use crypto for eb5',
+];
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+  </Fragment>
+
+  <div class="min-h-screen bg-gradient-to-b from-background to-muted/20">
+    <Header client:load />
+
+    <section class="relative -mt-[120px] pt-[120px] bg-slate-900">
+      <div class="container mx-auto px-4 py-6">
+        <Breadcrumb
+          client:load
+          customTitle="Source of Funds Calculator"
+          variant="dark"
+          initialPathname="/tools/source-of-funds-calculator"
+        />
+      </div>
+    </section>
+
+    <SourceOfFundsCalculatorMainContent client:load />
+
+    <Footer client:visible />
+  </div>
+</Layout>
