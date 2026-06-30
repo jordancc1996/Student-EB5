@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import CSPACalculatorMainContent from '@/components/CSPACalculatorMainContent';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = "EB-5 CSPA Age Calculator: Predict Child 'Age-Out' Risk";
+const description =
+  "Estimate your child's CSPA age under the 2026 USCIS rules. Use our EB-5 calculator to determine if derivative children are protected from aging out before residency.";
+const pageCanonical = `${SITE_CONFIG.url}/tools/eb5-cspa-calculator`;
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const keywords = [
+  'EB-5 CSPA calculator',
+  'CSPA age calculator',
+  'Child Status Protection Act',
+  'EB-5 derivative child age out',
+  'CSPA EB-5 2026',
+];
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+
+    <section class="relative -mt-[120px] pt-[120px] bg-slate-900">
+      <div class="container mx-auto px-4 py-6">
+        <Breadcrumb
+          client:load
+          customTitle="EB-5 CSPA Age Calculator"
+          variant="dark"
+          initialPathname="/tools/eb5-cspa-calculator"
+        />
+      </div>
+    </section>
+
+    <CSPACalculatorMainContent client:load />
+
+    <Footer client:visible />
+  </div>
+</Layout>
