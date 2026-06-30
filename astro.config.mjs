@@ -15,6 +15,7 @@ export default defineConfig({
     '/opt-calculator': '/tools/opt-calculator',
     '/tuition-calculator': '/tools/tuition-calculator',
     '/guides/source-of-funds-strategies': '/tools/source-of-funds-calculator',
+    '/tools/concurrent-filing-checker': '/tools/eb5-concurrent-filing-eligibility',
   },
   vite: {
     resolve: {
