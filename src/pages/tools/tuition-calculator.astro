@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import TuitionCalculatorMainContent from '@/components/TuitionCalculatorMainContent';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'F1 to EB5: Best Visa Pathway After F1 for Students';
+const description =
+  'F1 to EB5: the best visa pathway after F1 and an education-driven immigration strategy for how Indian students can stay in America permanently.';
+const pageCanonical = `${SITE_CONFIG.url}/tools/tuition-calculator`;
+const ogImage = `${SITE_CONFIG.url}/images/tuition-comparison.png`;
+const keywords = [
+  'f1 to eb5',
+  'best visa pathway after f1',
+  'education driven immigration strategy',
+  'how indian students can stay in america permanently',
+];
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+  </Fragment>
+
+  <div class="min-h-screen bg-gradient-to-br from-background to-secondary/20">
+    <Header client:load />
+
+    <section class="relative -mt-[120px] pt-[120px] bg-slate-900">
+      <div class="container mx-auto px-6 py-6">
+        <Breadcrumb
+          client:load
+          customTitle="Tuition Savings Calculator"
+          variant="dark"
+          initialPathname="/tools/tuition-calculator"
+        />
+      </div>
+    </section>
+
+    <TuitionCalculatorMainContent client:load />
+
+    <Footer client:visible />
+  </div>
+</Layout>

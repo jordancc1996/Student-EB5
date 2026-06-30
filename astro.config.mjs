@@ -13,6 +13,7 @@ export default defineConfig({
   redirects: {
     '/grandfathering-countdown': '/tools/grandfathering-countdown',
     '/opt-calculator': '/tools/opt-calculator',
+    '/tuition-calculator': '/tools/tuition-calculator',
   },
   vite: {
     resolve: {
