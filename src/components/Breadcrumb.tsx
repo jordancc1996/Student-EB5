@@ -29,6 +29,10 @@ const routeNames: Record<string, string> = {
   'eb5-source-of-funds-checklist': 'Source of Funds Checklist',
   'eb5-i829-lifecycle-tracker': 'I-829 Lifecycle Tracker',
   'eb5-regional-center-scorecard': 'Regional Center Scorecard',
+  'pathways': 'Pathways',
+  'h1b-to-green-card': 'H-1B to Green Card',
+  'f1-to-eb5-self-sponsored-green-card': 'F-1 to Green Card',
+  'h1b-60-day-clock': 'H-1B 60-Day Clock',
 };
 
 const pathOverrides: Record<string, string> = {

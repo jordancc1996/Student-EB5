@@ -1,0 +1,210 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import OptimizedImage from '@/components/OptimizedImage.astro';
+import H1B60DayClockStaticContent from '@/components/H1B60DayClockStaticContent';
+import H1B60DayClockInteractive from '@/components/H1B60DayClockInteractive';
+import { ConsultationCTA } from '@/components/ConsultationCTA';
+import { Toaster } from '@/components/ui/toaster';
+import { getCollection } from 'astro:content';
+import h1bHeroImage from '@/assets/h1b-pathway-hero.jpg';
+import h1bHeroImageWebp from '@/assets/h1b-pathway-hero.webp';
+import logoImg from '@/assets/studenteb5-logo.png';
+import logoImgWebp from '@/assets/studenteb5-logo.webp';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
+
+const title = '60-Day H-1B Grace Period: EB-5 Protection Strategy | StudentEB5';
+const description =
+  'Laid off on H-1B? You have 60 days to secure your status. Learn how an $800,000 EB-5 investment with concurrent filing can protect you before time runs out.';
+const pageCanonical = `${SITE_CONFIG.url}/pathways/h1b-60-day-clock`;
+const ogTitle = title;
+const ogDescription = description;
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const keywords = [
+  'H-1B layoff',
+  '60-day grace period',
+  'H-1B EB-5',
+  'concurrent filing',
+  'tech layoff protection',
+  'H-1B grace period EB-5',
+];
+
+const teaInvestmentFormatted = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 0,
+}).format(TEA_INVESTMENT_THRESHOLD);
+
+const pathwayFont = "'Inter', 'Helvetica Neue', sans-serif";
+const currentYear = new Date().getFullYear();
+
+/** Migrated slug map: reference `eb5-indian-professionals-green-card` was a dead slug (never in researchPosts). */
+const PATHWAY_BLOG_SLUGS = [
+  'h1b-tech-layoffs-eb5-entrepreneurship',
+  'eb5-lifeline-h1b-workers',
+  '5-reasons-switch-h1b-to-eb5',
+  'h1b-eb5-financial-planning',
+  'h1b-alternatives-o1-eb1-eb5',
+  'eb5-guide-indian-professionals-2026',
+] as const;
+
+const allBlogPosts = await getCollection('blog');
+const blogPostsBySlug = new Map(allBlogPosts.map((entry) => [entry.data.slug, entry.data]));
+const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(slug))
+  .filter((post): post is NonNullable<typeof post> => Boolean(post))
+  .slice(0, 3);
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <nav class="border-b border-border/40 py-4">
+      <div class="container mx-auto px-4">
+        <a href="/" aria-label="StudentEB5 Home">
+          <OptimizedImage src={logoImg} webpSrc={logoImgWebp} alt="StudentEB5" className="h-8 w-auto" />
+        </a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="relative min-h-[60vh] flex items-center justify-center">
+        <div class="absolute inset-0">
+          <OptimizedImage
+            src={h1bHeroImage}
+            webpSrc={h1bHeroImageWebp}
+            alt="Golden Gate Bridge at sunset representing the pathway from H-1B to permanent residency"
+            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            sizes="100vw"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60"></div>
+        </div>
+        <div class="relative z-10 container mx-auto px-4 py-20 text-center">
+          <div
+            class="inline-flex items-center rounded-full border border-transparent bg-destructive text-destructive-foreground mb-6 text-sm px-4 py-1.5 font-semibold"
+          >
+            Urgent: Tech Layoff Protection
+          </div>
+          <p class="text-white/60 text-sm uppercase tracking-widest mb-4 font-sans">Pathways → H-1B Professionals</p>
+          <h1
+            class="font-sans text-4xl md:text-5xl lg:text-[60px] font-bold text-white mb-6 max-w-4xl mx-auto leading-tight"
+          >
+            You Have 60 Days.<br />Here's How to Make Them Count.
+          </h1>
+          <p
+            class="text-white/80 text-base md:text-lg max-w-2xl mx-auto font-sans font-normal"
+            style={`font-family: ${pathwayFont}`}
+          >
+            If your H-1B employer lays you off, you have a 60-day grace period to secure your status. With an{' '}
+            {teaInvestmentFormatted} EB-5 investment, you can file I-526E and I-485 concurrently and have your EAD in hand
+            before your grace period expires.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+            <a
+              href="#consultation-form"
+              class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-md text-sm font-semibold uppercase tracking-wide hover:bg-primary/90 transition-colors"
+            >
+              Get Your Free Evaluation
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-4 w-4"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+            <button
+              type="button"
+              id="guide-download-trigger"
+              class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white px-8 py-3 rounded-md text-sm font-semibold uppercase tracking-wide hover:bg-white/20 transition-colors"
+            >
+              Download the EB-5 Guide
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <H1B60DayClockStaticContent teaInvestmentFormatted={teaInvestmentFormatted} />
+
+      <section class="py-16 bg-background">
+        <div class="container mx-auto px-6 max-w-6xl">
+          <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center" style={`font-family: ${pathwayFont}`}>
+            Relevant Blog Articles
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {
+              relevantBlogPosts.map((post) => (
+                <div class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
+                  <a href={`/research/${post.slug}`} class="block">
+                    <div class="aspect-video overflow-hidden">
+                      <OptimizedImage
+                        src={post.image}
+                        alt={post.imageAlt}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold border-transparent bg-secondary text-secondary-foreground mb-2">
+                        {post.category}
+                      </span>
+                      <h3
+                        class="font-bold text-lg mb-2 line-clamp-2 hover:text-primary transition-colors"
+                        style={`font-family: ${pathwayFont}`}
+                      >
+                        {post.title}
+                      </h3>
+                      <div class="flex items-center justify-between text-sm text-muted-foreground">
+                        <span>{post.date}</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <ConsultationCTA client:visible />
+    <H1B60DayClockInteractive client:load />
+    <Toaster client:load />
+
+    <footer class="border-t border-border/40 py-6">
+      <div class="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-muted-foreground">
+        <span>© {currentYear} StudentEB5. All rights reserved.</span>
+        <a href="/privacy-policy" class="hover:text-foreground transition-colors hover:underline"> Privacy Policy </a>
+      </div>
+    </footer>
+  </div>
+</Layout>
