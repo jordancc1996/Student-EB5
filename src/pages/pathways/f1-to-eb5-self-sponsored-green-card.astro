@@ -1,0 +1,530 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import OptimizedImage from '@/components/OptimizedImage.astro';
+import InlineTuitionCalculator from '@/components/InlineTuitionCalculator';
+import StudentToGreenCardInteractive from '@/components/StudentToGreenCardInteractive';
+import LucideIcon from '@/components/LucideIcon';
+import { Toaster } from '@/components/ui/toaster';
+import { getCollection } from 'astro:content';
+import studentHeroImage from '@/assets/student-pathway-hero.jpg';
+import studentHeroImageWebp from '@/assets/student-pathway-hero.webp';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'F1 to EB5: Self-Sponsored Green Card for Students';
+const description =
+  'F1 to EB5 is the best visa pathway after F1: avoid the H-1B lottery through EB-5, parents can gift EB-5 funds, a self-sponsored green card without an employer.';
+const pageCanonical = `${SITE_CONFIG.url}/pathways/f1-to-eb5-self-sponsored-green-card`;
+const ogTitle = title;
+const ogDescription = description;
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const keywords = [
+  'F1 to EB5',
+  'avoid H-1B lottery through EB-5',
+  'can parents gift EB-5 funds',
+  'green card for students without employer sponsorship',
+  'self sponsored green card for students',
+  'best visa pathway after F1',
+];
+
+const pathwayFont = "'Inter', 'Helvetica Neue', sans-serif";
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'F-1 to EB-5: Self-Sponsored Green Card for Students',
+    url: pageCanonical,
+    description: 'How F-1 international students use the EB-5 visa to bypass the H-1B lottery and obtain a self-sponsored green card.',
+    isPartOf: { '@type': 'WebSite', name: SITE_CONFIG.name, url: SITE_CONFIG.url },
+    about: { '@type': 'Thing', name: 'EB-5 Immigrant Investor Program' },
+    audience: { '@type': 'Audience', audienceType: 'F-1 international students' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_CONFIG.url },
+      { '@type': 'ListItem', position: 2, name: 'Pathways', item: `${SITE_CONFIG.url}/pathways` },
+      { '@type': 'ListItem', position: 3, name: 'F-1 to Green Card', item: pageCanonical },
+    ],
+  },
+];
+
+const timelineSteps = [
+  {
+    phase: 'Phase 1',
+    title: 'During Your Degree (or OPT)',
+    description:
+      'Begin source-of-funds documentation and family financial planning. Consult with an EB-5 attorney to evaluate your eligibility.',
+    timing: 'Year 1–2 of studies or during OPT',
+  },
+  {
+    phase: 'Phase 2',
+    title: 'File I-526E Petition',
+    description: 'Select a qualified EB-5 project, invest the $800,000 minimum, and file your I-526E petition with USCIS.',
+    timing: 'Ideally before OPT expiration',
+  },
+  {
+    phase: 'Phase 3',
+    title: 'Concurrent Filing (I-485)',
+    description:
+      'File for Adjustment of Status simultaneously. Receive your EAD (work permit) and Advance Parole (travel permit) within months.',
+    timing: '3–6 months after filing',
+  },
+  {
+    phase: 'Phase 4',
+    title: 'Green Card Approval',
+    description:
+      'Once your I-526E is approved and a visa number is available, your green card is issued. No lottery, no sponsorship needed.',
+    timing: '2–4 years total',
+  },
+];
+
+const PATHWAY_BLOG_SLUGS = [
+  'f1-students/f1-to-eb5-green-card',
+  '5-reasons-switch-h1b-to-eb5',
+  'ways-to-fund-eb5-investment-2026',
+] as const;
+
+const allBlogPosts = await getCollection('blog');
+const blogPostsBySlug = new Map(allBlogPosts.map((entry) => [entry.data.slug, entry.data]));
+const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(slug)).filter(
+  (post): post is NonNullable<typeof post> => Boolean(post),
+);
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+
+    <main>
+      <section class="relative -mt-[120px] pt-[120px] min-h-[60vh] flex items-center justify-center">
+        <div class="absolute inset-0">
+          <OptimizedImage
+            src={studentHeroImage}
+            webpSrc={studentHeroImageWebp}
+            alt="Graduate holding cap in front of university representing the student pathway to permanent residency"
+            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            sizes="100vw"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60"></div>
+        </div>
+        <div class="relative z-10 container mx-auto px-4 py-20 text-center">
+          <p class="text-white/60 text-sm uppercase tracking-widest mb-4 font-sans">Pathways → International Students</p>
+          <h1 class="font-sans text-4xl md:text-5xl lg:text-[60px] font-bold text-white mb-6 max-w-4xl mx-auto leading-tight">
+            Build Your Career in the USA<br />Without the H-1B Lottery.
+          </h1>
+          <p
+            class="text-white/80 text-base md:text-lg max-w-2xl mx-auto font-sans font-normal"
+            style={`font-family: ${pathwayFont}`}
+          >
+            The EB-5 green card gives international students in-state tuition, unrestricted employment, and permanent residency, all without a sponsor.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+            <button
+              type="button"
+              id="student-lead-tuition-trigger"
+              class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-full text-sm font-semibold uppercase tracking-wide hover:bg-primary/90 transition-colors"
+            >
+              Calculate Your Tuition Savings
+              <LucideIcon name="ArrowRight" className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              id="student-lead-guide-trigger"
+              class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white px-8 py-3 rounded-full text-sm font-semibold uppercase tracking-wide hover:bg-white/20 transition-colors"
+            >
+              Download the Student's EB-5 Guide
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <div
+            class="bg-white border-l-4 border-l-black border-t-0 border-r-0 border-b-0 rounded-none shadow-none"
+            style="padding: 20px 24px; padding-left: 40px;"
+          >
+            <p
+              class="font-sans mb-3"
+              style="font-size: 13px; letter-spacing: 0.15em; color: #000000; text-transform: uppercase;"
+            >
+              Market Update, April 2026
+            </p>
+            <h2 class="font-serif text-2xl font-bold mb-3" style="color: #000000;">
+              The Filing Window for International Students Is Open NOW
+            </h2>
+            <p class="font-serif text-base leading-relaxed" style="color: #000000;">
+              EB-5 reserved categories are current on the most recent Visa Bulletin. International students on F-1/OPT can <span class="underline">file I-526E and I-485 concurrently</span> and bypass the H-1B lottery entirely. Petitions filed before September 30, 2026 are grandfathered under current provisions. After that date, these protections disappear.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4 text-center" style={`font-family: ${pathwayFont}`}>
+            The Tuition ROI: Save $80,000–$160,000
+          </h2>
+          <p class="text-muted-foreground text-center mb-12 max-w-3xl mx-auto text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
+            EB-5 green card holders qualify as domestic students at public universities. The difference in tuition between international and in-state rates is staggering.
+          </p>
+
+          <div class="grid md:grid-cols-3 gap-6 mb-10">
+            <div class="bg-card border border-border rounded-lg p-6 text-center">
+              <LucideIcon name="DollarSign" size={32} className="text-primary mx-auto mb-3" />
+              <p class="text-3xl font-bold text-foreground mb-1" style={`font-family: ${pathwayFont}`}>$20K–$40K</p>
+              <p class="text-sm text-muted-foreground" style={`font-family: ${pathwayFont}`}>Saved per year on tuition at a public university</p>
+            </div>
+            <div class="bg-card border border-border rounded-lg p-6 text-center">
+              <LucideIcon name="GraduationCap" size={32} className="text-primary mx-auto mb-3" />
+              <p class="text-3xl font-bold text-foreground mb-1" style={`font-family: ${pathwayFont}`}>$80K–$160K</p>
+              <p class="text-sm text-muted-foreground" style={`font-family: ${pathwayFont}`}>Total savings over a 4-year degree</p>
+            </div>
+            <div class="bg-card border border-border rounded-lg p-6 text-center">
+              <LucideIcon name="CheckCircle" size={32} className="text-primary mx-auto mb-3" />
+              <p class="text-3xl font-bold text-foreground mb-1" style={`font-family: ${pathwayFont}`}>Up to 50%</p>
+              <p class="text-sm text-muted-foreground" style={`font-family: ${pathwayFont}`}>Of the EB-5 investment cost offset by tuition savings alone</p>
+            </div>
+          </div>
+
+          <div class="p-6 bg-primary/5 border border-primary/20 rounded-lg">
+            <p class="text-foreground font-medium text-center text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
+              <strong>Pro Tip:</strong> The savings on a 4-year degree at a public university can pay for nearly half of the $800,000 EB-5 investment. When you factor in tuition ROI, the true net cost of a green card drops dramatically.
+            </p>
+          </div>
+
+          <InlineTuitionCalculator client:visible />
+        </div>
+      </section>
+
+      <section class="py-20 bg-muted/30">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4 text-center" style={`font-family: ${pathwayFont}`}>
+            The Hiring Advantage
+          </h2>
+          <p class="text-muted-foreground text-center mb-12 max-w-3xl mx-auto text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
+            Many top employers won't interview F-1 students because of the cost and risk of H-1B sponsorship. A green card eliminates that barrier entirely.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="border border-destructive/30 rounded-lg p-6 bg-destructive/5">
+              <h3 class="font-sans text-xl font-medium text-foreground mb-4" style={`font-family: ${pathwayFont}`}>As an F-1 Student</h3>
+              <ul class="space-y-3">
+                {
+                  [
+                    'Limited to employers willing to sponsor H-1B',
+                    'Many job postings explicitly exclude visa candidates',
+                    'OPT/CPT work restrictions and time limits',
+                    'Must leave the country if H-1B lottery fails',
+                  ].map((item) => (
+                    <li class="flex items-start gap-2 text-muted-foreground text-sm" style={`font-family: ${pathwayFont}`}>
+                      <span class="text-destructive mt-0.5">✕</span> {item}
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div class="border border-primary/30 rounded-lg p-6 bg-primary/5">
+              <h3 class="font-sans text-xl font-medium text-foreground mb-4" style={`font-family: ${pathwayFont}`}>With an EB-5 Green Card</h3>
+              <ul class="space-y-3">
+                {
+                  [
+                    'Apply to any employer — no sponsorship needed',
+                    'Equal standing with U.S. citizens in hiring',
+                    'Start your own business or freelance freely',
+                    'Never worry about visa status or deportation',
+                  ].map((item) => (
+                    <li class="flex items-start gap-2 text-foreground text-sm" style={`font-family: ${pathwayFont}`}>
+                      <LucideIcon name="CheckCircle" size={16} className="text-primary flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4" style={`font-family: ${pathwayFont}`}>
+            The Numbers Don't Lie. What's Your Best Path?
+          </h2>
+          <p class="text-muted-foreground mb-8 max-w-2xl mx-auto text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
+            See how your visa status, OPT timeline, and family assets stack up in under 2 minutes.
+          </p>
+          <button
+            type="button"
+            id="student-eligibility-trigger"
+            class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-full text-sm font-semibold uppercase tracking-wide hover:bg-primary/90 transition-colors"
+          >
+            Check My Eligibility
+            <LucideIcon name="ArrowRight" className="h-4 w-4" />
+          </button>
+        </div>
+      </section>
+
+      <section class="py-20">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <div class="flex flex-col md:flex-row gap-8 items-start">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <LucideIcon name="Gift" size={32} className="text-primary" />
+            </div>
+            <div>
+              <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4" style={`font-family: ${pathwayFont}`}>
+                The Gifted Funds Path for Families
+              </h2>
+              <div class="space-y-4 text-muted-foreground text-base" style={`font-family: ${pathwayFont}; line-height: 1.75;`}>
+                <p>
+                  For most international students, the $800,000 investment comes as a gift from parents or family members. This is fully permitted under EB-5 regulations — but requires meticulous documentation.
+                </p>
+                <p>
+                  Parents in India or elsewhere must demonstrate the <strong class="text-foreground">lawful source of their funds</strong> through business records, property sales, tax returns, and bank statements going back 5–7 years. A formal gift letter and wire transfer documentation complete the paper trail.
+                </p>
+                <p>
+                  This process typically takes <strong class="text-foreground">1–3 months</strong> and should be started well before the EB-5 filing deadline. Working with an experienced immigration attorney who understands international source-of-funds documentation is critical.
+                </p>
+              </div>
+              <div class="mt-6 flex flex-wrap items-center gap-4">
+                <a
+                  href="/tools/source-of-funds-calculator"
+                  class="inline-flex items-center gap-2 text-primary font-medium text-sm uppercase tracking-wider hover:underline"
+                  style={`font-family: ${pathwayFont}`}
+                >
+                  Explore Source of Funds Strategies
+                  <LucideIcon name="ArrowRight" size={16} />
+                </a>
+                <button
+                  type="button"
+                  id="student-gifted-funds-trigger"
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-full px-6"
+                  style={`font-family: ${pathwayFont}`}
+                >
+                  See If Our Family Qualifies
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20 bg-muted/30">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4 text-center" style={`font-family: ${pathwayFont}`}>
+            The Student EB-5 Timeline
+          </h2>
+          <p class="text-muted-foreground text-center mb-12 max-w-2xl mx-auto text-base" style={`font-family: ${pathwayFont}`}>
+            When to file to ensure you never have to leave the country after graduation.
+          </p>
+
+          <div class="space-y-6">
+            {
+              timelineSteps.map((step, i) => (
+                <div class="flex gap-6">
+                  <div class="flex flex-col items-center">
+                    <div class="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0" style={`font-family: ${pathwayFont}`}>
+                      {i + 1}
+                    </div>
+                    {i < timelineSteps.length - 1 && <div class="w-px flex-1 bg-border mt-2" />}
+                  </div>
+                  <div class="pb-8">
+                    <p class="text-xs text-primary font-medium uppercase tracking-wider mb-1" style={`font-family: ${pathwayFont}`}>{step.phase} — {step.timing}</p>
+                    <h3 class="font-sans text-xl font-medium text-foreground mb-2" style={`font-family: ${pathwayFont}`}>{step.title}</h3>
+                    <p class="text-muted-foreground text-sm" style={`font-family: ${pathwayFont}; line-height: 1.75;`}>
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="mt-8 text-center">
+            <a
+              href="/timelines/f1-student-eb5-timeline"
+              class="inline-flex items-center gap-2 text-primary font-medium text-sm uppercase tracking-wider hover:underline"
+              style={`font-family: ${pathwayFont}`}
+            >
+              View the Full Student Timeline
+              <LucideIcon name="ArrowRight" size={16} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-40 bg-muted/30">
+        <div class="container mx-auto px-4 max-w-3xl">
+          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-8 text-center" style={`font-family: ${pathwayFont}`}>
+            What Students and Families Are Saying
+          </h2>
+          <div class="space-y-8">
+            <div class="bg-card border border-border rounded-xl p-8 md:p-10">
+              <blockquote class="text-foreground italic mb-6 text-base" style={`font-family: ${pathwayFont}; line-height: 1.85;`}>
+                "Everyone in my program was obsessing over the H-1B lottery. I watched seniors with perfect GPAs and FAANG return offers get rejected three years in a row. My parents and I decided to file I-526E during my junior year. By the time I graduated, I had my EAD in hand. I walked into my first day at a top-tier tech company as a permanent resident while my classmates were still refreshing their lottery results. No sponsorship conversations, no cap-gap anxiety, nothing. It changed everything."
+              </blockquote>
+              <p class="text-muted-foreground text-sm" style={`font-family: ${pathwayFont}`}>
+                F-1 Student, Computer Science, University of Texas at Austin, EB-5 filed March 2025
+              </p>
+            </div>
+
+            <div class="bg-card border border-border rounded-xl p-8 md:p-10">
+              <blockquote class="text-foreground italic mb-6 text-base" style={`font-family: ${pathwayFont}; line-height: 1.85;`}>
+                "As a parent, the source-of-funds process was the part I was most worried about. We had savings across multiple accounts, some real estate, and a family business back home. The attorneys walked us through every document, every bank statement, every transfer. It took about two months to get the full paper trail together, but once it was done, the I-526E filing was straightforward. My daughter now has her green card and is starting medical school without any visa limitations. Worth every hour of paperwork."
+              </blockquote>
+              <p class="text-muted-foreground text-sm" style={`font-family: ${pathwayFont}`}>
+                Parent of F-1 Student, Gift of Funds, EB-5 filed January 2025
+              </p>
+            </div>
+
+            <div class="bg-card border border-border rounded-xl p-8 md:p-10">
+              <blockquote class="text-foreground italic mb-6 text-base" style={`font-family: ${pathwayFont}; line-height: 1.85;`}>
+                "I was on OPT with about 14 months left before I'd need to either win the H-1B lottery or leave the country. Filed I-526E and I-485 concurrently through a rural TEA project. Got my EAD combo card five months later, two months before my OPT was set to expire. I didn't even enter the H-1B lottery. My employer was relieved, I was relieved, and now I'm building my career on my own terms. If you're on OPT and have the resources, stop waiting."
+              </blockquote>
+              <p class="text-muted-foreground text-sm" style={`font-family: ${pathwayFont}`}>
+                OPT Student, Electrical Engineering, Georgia Tech, EB-5 filed June 2025
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20">
+        <div class="container mx-auto px-4 max-w-3xl">
+          <div class="bg-card border border-border rounded-2xl p-8 md:p-12 text-center">
+            <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4" style={`font-family: ${pathwayFont}`}>
+              From Student to Permanent Resident
+            </h2>
+            <p class="text-muted-foreground mb-6 max-w-2xl mx-auto text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
+              While your classmates worry about H-1B lotteries and visa extensions,
+              you'll have the security and freedom that comes with permanent residency. Read our{' '}
+              <a href="/resources" class="text-primary font-medium hover:underline">resources</a> on how we help students learn about the EB-5 pathway.
+            </p>
+            <p class="text-foreground font-semibold text-lg" style={`font-family: ${pathwayFont}`}>
+              Stop worrying about your visa status. Start building your future.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-primary/5">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4" style={`font-family: ${pathwayFont}`}>
+            Start the Conversation with Your Family
+          </h2>
+          <p class="text-muted-foreground mb-8 max-w-xl mx-auto text-base" style={`font-family: ${pathwayFont}`}>
+            Schedule a free consultation for students and parents. We'll walk you through the timeline, costs, and documentation required.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md font-medium hover:bg-primary/90 transition-colors"
+              style={`font-family: ${pathwayFont}`}
+            >
+              <LucideIcon name="UserCheck" size={18} />
+              Schedule a Family Consultation
+            </a>
+            <a
+              href="/tools/tuition-calculator"
+              class="inline-flex items-center gap-2 border border-border bg-card text-foreground px-6 py-3 rounded-md font-medium hover:bg-muted transition-colors"
+              style={`font-family: ${pathwayFont}`}
+            >
+              Calculate Tuition Savings
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-32 bg-background">
+        <div class="container mx-auto px-6 max-w-6xl">
+          <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center" style={`font-family: ${pathwayFont}`}>
+            Relevant Blog Articles
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {
+              relevantBlogPosts.map((post) => (
+                <div class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
+                  <a href={`/research/${post.slug}`} class="block">
+                    <div class="aspect-video overflow-hidden">
+                      <OptimizedImage
+                        src={post.image}
+                        alt={post.imageAlt}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold border-transparent bg-secondary text-secondary-foreground mb-2">
+                        {post.category}
+                      </span>
+                      <h3
+                        class="font-bold text-lg mb-2 line-clamp-2 hover:text-primary transition-colors"
+                        style={`font-family: ${pathwayFont}`}
+                      >
+                        {post.title}
+                      </h3>
+                      <div class="flex items-center justify-between text-sm text-muted-foreground">
+                        <span>{post.date}</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section id="consultation-form" class="py-16 bg-primary/5">
+        <div class="container mx-auto px-4 max-w-6xl">
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+              <h2 class="text-3xl md:text-4xl font-medium">
+                Ready to Skip the H-1B Lottery?
+              </h2>
+              <p class="text-lg text-muted-foreground">
+                Book a free 30-minute call for you and your family. We'll walk through your timeline, the gifted funds process, and your next step.
+              </p>
+              <div class="space-y-3">
+                <p class="font-medium">Honest assessment of your situation</p>
+                <p class="font-medium">We'll tell you if it's not a fit</p>
+                <p class="font-medium">No obligation</p>
+              </div>
+            </div>
+            <div id="student-bottom-form-root"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer client:visible />
+    <StudentToGreenCardInteractive client:load />
+    <Toaster client:load />
+  </div>
+</Layout>
