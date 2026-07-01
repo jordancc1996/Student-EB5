@@ -1,0 +1,542 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import OptimizedImage from '@/components/OptimizedImage.astro';
+import GatedFeasibilityCalculator from '@/components/GatedFeasibilityCalculator';
+import H1BToGreenCardInteractive from '@/components/H1BToGreenCardInteractive';
+import LucideIcon from '@/components/LucideIcon';
+import { ConsultationCTA } from '@/components/ConsultationCTA';
+import { Toaster } from '@/components/ui/toaster';
+import { getCollection } from 'astro:content';
+import h1bHeroImage from '@/assets/h1b-pathway-hero.jpg';
+import h1bHeroImageWebp from '@/assets/h1b-pathway-hero.webp';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'H-1B to Green Card via EB-5 | StudentEB5';
+const description =
+  'How H-1B professionals use the EB-5 visa to escape green card backlogs. Concurrent Filing, source of funds, and a path to residency.';
+const pageCanonical = `${SITE_CONFIG.url}/pathways/h1b-to-green-card`;
+const ogTitle = title;
+const ogDescription = description;
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const keywords = [
+  'H-1B to green card',
+  'H-1B EB-5',
+  'concurrent filing',
+  'EB-5 for tech workers',
+  'H-1B backlog solution',
+];
+
+const pathwayFont = "'Inter', 'Helvetica Neue', sans-serif";
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'H-1B to Green Card via EB-5',
+    url: pageCanonical,
+    description: 'How H-1B professionals use the EB-5 visa to escape green card backlogs through concurrent filing and source-of-funds planning.',
+    isPartOf: { '@type': 'WebSite', name: SITE_CONFIG.name, url: SITE_CONFIG.url },
+    about: { '@type': 'Thing', name: 'EB-5 Immigrant Investor Program' },
+    audience: { '@type': 'Audience', audienceType: 'H-1B visa holders' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_CONFIG.url },
+      { '@type': 'ListItem', position: 2, name: 'Pathways', item: `${SITE_CONFIG.url}/pathways` },
+      { '@type': 'ListItem', position: 3, name: 'H-1B to Green Card', item: pageCanonical },
+    ],
+  },
+];
+
+const comparisonData = [
+  {
+    category: 'Job Freedom',
+    h1b: 'Tied to a single employer',
+    eb5: 'Work for anyone, or start your own company',
+  },
+  {
+    category: 'Layoff Risk',
+    h1b: '60-day grace period to find new sponsor',
+    eb5: 'Protected by Concurrent Filing (EAD/AP)',
+  },
+  {
+    category: 'Green Card Wait (India)',
+    h1b: '15–20+ years in EB-2/EB-3 backlog',
+    eb5: '2–4 years via EB-5 Rural/High-Unemployment',
+  },
+  {
+    category: 'Spouse Work Rights',
+    h1b: 'H-4 EAD is uncertain and frequently challenged',
+    eb5: 'Unrestricted work authorization via EAD',
+  },
+  {
+    category: 'Children Aging Out',
+    h1b: 'Risk of children aging out at 21',
+    eb5: 'File before they age out for a separate green card',
+  },
+];
+
+const sourcesOfFunds = [
+  {
+    icon: 'TrendingUp' as const,
+    title: 'RSUs & Stock Options',
+    description:
+      'Vested restricted stock units from your employer can be liquidated and documented as a lawful source of investment capital.',
+  },
+  {
+    icon: 'Briefcase' as const,
+    title: '401(k) Loans',
+    description:
+      'You may borrow against your 401(k) balance. The loan proceeds can serve as part of your investment, with proper documentation.',
+  },
+  {
+    icon: 'Home' as const,
+    title: 'Home Equity',
+    description:
+      'A home equity line of credit (HELOC) or cash-out refinance on U.S. or foreign property can fund your EB-5 investment.',
+  },
+  {
+    icon: 'Shield' as const,
+    title: 'Savings & Income',
+    description:
+      'Accumulated savings from your professional income, documented with tax returns and bank statements over the past 5–7 years.',
+  },
+];
+
+const PATHWAY_BLOG_SLUGS = [
+  'h1b-tech-layoffs-eb5-entrepreneurship',
+  '5-reasons-switch-h1b-to-eb5',
+  'h1b-alternatives-o1-eb1-eb5',
+] as const;
+
+const allBlogPosts = await getCollection('blog');
+const blogPostsBySlug = new Map(allBlogPosts.map((entry) => [entry.data.slug, entry.data]));
+const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(slug)).filter(
+  (post): post is NonNullable<typeof post> => Boolean(post),
+);
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+
+    <main>
+      <section class="relative -mt-[120px] pt-[120px] min-h-[60vh] flex items-center justify-center">
+        <div class="absolute inset-0">
+          <OptimizedImage
+            src={h1bHeroImage}
+            webpSrc={h1bHeroImageWebp}
+            alt="Golden Gate Bridge at sunset representing the pathway from H-1B to permanent residency"
+            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            sizes="100vw"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60"></div>
+        </div>
+        <div class="relative z-10 container mx-auto px-4 py-20 text-center">
+          <p class="text-white/60 text-sm uppercase tracking-widest mb-4 font-sans">Pathways → H-1B Professionals</p>
+          <h1 class="font-sans text-4xl md:text-5xl lg:text-[60px] font-bold text-white mb-6 max-w-4xl mx-auto leading-tight">
+            H-1B Is a Temporary Visa.<br />EB-5 Is Permanent Freedom.
+          </h1>
+          <p
+            class="text-white/80 text-base md:text-lg max-w-2xl mx-auto font-sans font-normal md:leading-normal leading-snug text-[0.9rem] md:text-lg"
+            style={`font-family: ${pathwayFont}`}
+          >
+            Your EB-2/EB-3 backlog could stretch 50+ years. With an $800,000 EB-5 investment, you can file I-526E and I-485 concurrently and have your EAD/AP combo card in hand within months.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+            <button
+              type="button"
+              id="h1b-calc-lead-trigger"
+              class="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-cta-navy text-white px-8 py-3 rounded-md text-sm font-semibold uppercase tracking-wide hover:bg-cta-navy/90 transition-colors"
+            >
+              Calculate Your EB-5 Feasibility
+              <LucideIcon name="ArrowRight" className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              id="h1b-guide-trigger"
+              class="hidden sm:inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white px-8 py-3 rounded-md text-sm font-semibold uppercase tracking-wide hover:bg-white/20 transition-colors"
+            >
+              Download the Tech Worker's Guide
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="md:hidden sticky top-[120px] z-40 bg-foreground/95 backdrop-blur-sm border-b border-border">
+        <a
+          href="#feasibility-calculator"
+          class="flex items-center justify-center gap-2 py-3 text-background text-sm font-semibold uppercase tracking-wider"
+          style={`font-family: ${pathwayFont}`}
+        >
+          <LucideIcon name="ArrowRight" size={14} className="rotate-90" />
+          Jump to Calculator
+        </a>
+      </div>
+
+      <section class="py-20">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <div
+            class="bg-white border-l-4 border-l-black border-t-0 border-r-0 border-b-0 rounded-none shadow-none"
+            style="padding: 20px 24px; padding-left: 40px;"
+          >
+            <p
+              class="font-sans mb-3"
+              style="font-size: 13px; letter-spacing: 0.15em; color: #000000; text-transform: uppercase;"
+            >
+              Market Update, April 2026
+            </p>
+            <h2 class="font-serif text-2xl font-bold mb-3" style="color: #000000;">
+              A Rare Window for EB-5 Investors: Concurrent Filing is Open NOW
+            </h2>
+            <p class="font-serif text-base leading-relaxed" style="color: #000000;">
+              EB-5 reserved categories are current on the most recent March 2026 Visa Bulletin. This means that eligible investors in the United States can <span class="underline">file I-526E and I-485 at the same time</span> and bypass years of waiting in other visa categories. Petitions filed before September 30, 2026, will be grandfathered under current provisions and protect EB-5 investors from any future lapse or congressional inaction. After September 30, 2026, these protections disappear.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-40" style="background-color: #FFFFFF;">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <h2 class="font-serif text-2xl md:text-[28px] font-bold mb-4 text-center" style="color: #000000;">
+            H-1B vs. EB-5: A Side-by-Side Reality Check
+          </h2>
+          <p class="text-center mb-12 max-w-2xl mx-auto" style={`font-family: ${pathwayFont}; line-height: 1.7; color: #000000; font-size: 15px;`}>
+            The H-1B was never designed as a permanent solution. Here is how the two paths compare for Indian professionals.
+          </p>
+
+          <div class="hidden md:block overflow-x-auto">
+            <table class="w-full" style="border-collapse: collapse; border-radius: 0;">
+              <thead>
+                <tr>
+                  <th class="text-left w-1/4" style={`padding: 12px 12px; font-family: ${pathwayFont}; font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; color: #000000; border-bottom: 2px solid #000000;`}></th>
+                  <th class="text-left w-[37.5%]" style={`padding: 12px 12px; font-family: ${pathwayFont}; font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; color: #000000; border-bottom: 2px solid #000000;`}>H-1B Path</th>
+                  <th class="text-left w-[37.5%]" style={`padding: 12px 12px; font-family: ${pathwayFont}; font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; color: #000000; border-bottom: 2px solid #000000;`}>EB-5 Path</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  comparisonData.map((row, index) => (
+                    <tr key={row.category} style={`border-top: ${index === 0 ? '2px' : '1px'} solid #000000; background-color: #FFFFFF;`}>
+                      <td style={`padding: 20px 12px; font-family: ${pathwayFont}; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; color: #000000; vertical-align: top;`}>{row.category}</td>
+                      <td style="padding: 20px 12px; vertical-align: top;">
+                        <span style={`font-family: ${pathwayFont}; font-size: 15px; color: #000000;`}>{row.h1b}</span>
+                      </td>
+                      <td style="padding: 20px 12px; vertical-align: top;">
+                        <span style={`font-family: ${pathwayFont}; font-size: 15px; color: #000000;`}>{row.eb5}</span>
+                      </td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+
+          <div class="md:hidden space-y-4">
+            {
+              comparisonData.map((row) => (
+                <div class="border border-border rounded-sm overflow-hidden">
+                  <div class="bg-foreground px-4 py-3">
+                    <span class="text-background text-xs font-semibold uppercase tracking-widest" style={`font-family: ${pathwayFont}`}>{row.category}</span>
+                  </div>
+                  <div class="px-4 py-3" style="background-color: hsl(0 70% 97%);">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1" style={`font-family: ${pathwayFont}`}>H-1B Path</span>
+                    <p class="text-sm text-foreground" style={`font-family: ${pathwayFont}`}>{row.h1b}</p>
+                  </div>
+                  <div class="px-4 py-3 border-t border-border" style="background-color: hsl(150 30% 96%);">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1" style={`font-family: ${pathwayFont}`}>EB-5 Path</span>
+                    <p class="text-sm text-foreground" style={`font-family: ${pathwayFont}`}>{row.eb5}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="mt-12 text-center">
+            <h3 class="font-serif text-xl md:text-2xl font-bold mb-3" style="color: #000000;">
+              The Numbers Don't Lie. What's Your Best Path?
+            </h3>
+            <p class="mb-6 max-w-xl mx-auto" style={`font-family: ${pathwayFont}; line-height: 1.7; color: #000000; font-size: 15px;`}>
+              See how your salary, visa status, and priority date stack up in under 2 minutes.
+            </p>
+            <button
+              type="button"
+              id="h1b-feasibility-trigger-comparison"
+              class="inline-flex items-center gap-2 px-8 py-3 text-sm font-semibold uppercase tracking-wide transition-colors"
+              style={`font-family: ${pathwayFont}; background-color: #000000; color: #FFFFFF; border-radius: 0;`}
+            >
+              Check Your Feasibility <LucideIcon name="ArrowRight" size={16} />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-40 bg-muted/30">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4 text-center" style={`font-family: ${pathwayFont}`}>
+            Concurrent Filing: The Killer Feature
+          </h2>
+          <p class="text-muted-foreground text-center mb-12 max-w-3xl mx-auto text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
+            This is the #1 reason H-1B holders choose EB-5. Concurrent Filing allows you to submit your green card application and receive work/travel authorization while your I-526E petition is still being processed.
+          </p>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-card border border-border rounded-lg p-6 text-center">
+              <LucideIcon name="FileText" size={32} className="text-primary mx-auto mb-4" />
+              <h3 class="font-sans text-lg font-medium text-foreground mb-2" style={`font-family: ${pathwayFont}`}>Form I-485</h3>
+              <p class="text-sm text-muted-foreground" style={`font-family: ${pathwayFont}`}>
+                Adjustment of Status: your actual green card application, filed at the same time as your I-526E.
+              </p>
+            </div>
+            <div class="bg-card border border-border rounded-lg p-6 text-center">
+              <LucideIcon name="Briefcase" size={32} className="text-primary mx-auto mb-4" />
+              <h3 class="font-sans text-lg font-medium text-foreground mb-2" style={`font-family: ${pathwayFont}`}>Form I-765 (EAD)</h3>
+              <p class="text-sm text-muted-foreground" style={`font-family: ${pathwayFont}`}>
+                Employment Authorization Document: work for any employer, start a business, or change jobs freely.
+              </p>
+            </div>
+            <div class="bg-card border border-border rounded-lg p-6 text-center">
+              <LucideIcon name="Shield" size={32} className="text-primary mx-auto mb-4" />
+              <h3 class="font-sans text-lg font-medium text-foreground mb-2" style={`font-family: ${pathwayFont}`}>Form I-131 (AP)</h3>
+              <p class="text-sm text-muted-foreground" style={`font-family: ${pathwayFont}`}>
+                Advance Parole: travel internationally and re-enter the U.S. without risking your pending application.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-10 p-6 bg-primary/5 border border-primary/20 rounded-lg">
+            <p class="text-foreground font-medium text-center text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
+              <strong>The bottom line:</strong> Within months of filing, you can receive an EAD and AP combo card, effectively freeing you from H-1B employer dependency while your green card is processed. If you get laid off, you are protected.
+            </p>
+          </div>
+
+          <div class="mt-12 text-center">
+            <h3 class="font-sans text-xl md:text-2xl font-medium text-foreground mb-3" style={`font-family: ${pathwayFont}`}>
+              Your Concurrent Filing Timeline Starts With One Call
+            </h3>
+            <p class="text-muted-foreground text-base mb-6 max-w-xl mx-auto" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
+              Every situation is different. Let an experienced EB-5 attorney map out your personal filing timeline, EAD receipt estimate, and next steps.
+            </p>
+            <button
+              type="button"
+              id="h1b-qualification-trigger"
+              class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-md text-sm font-semibold uppercase tracking-wide hover:bg-primary/90 transition-colors"
+              style={`font-family: ${pathwayFont}`}
+            >
+              See If I Qualify for Concurrent Filing <LucideIcon name="ArrowRight" size={16} />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="feasibility-calculator" class="py-40 scroll-mt-[140px]">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4 text-center" style={`font-family: ${pathwayFont}`}>
+            Source of Funds for Professionals
+          </h2>
+          <p class="text-muted-foreground text-center mb-12 max-w-3xl mx-auto text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
+            Many H-1B professionals already have access to the $800,000 minimum investment through a combination of existing assets. Here are the most common sources.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            {
+              sourcesOfFunds.map((source) => (
+                <div class="flex gap-4 p-6 border border-border rounded-lg bg-card">
+                  <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <LucideIcon name={source.icon} size={24} className="text-primary" />
+                  </div>
+                  <div>
+                    <h3 class="font-sans text-lg font-medium text-foreground mb-1" style={`font-family: ${pathwayFont}`}>{source.title}</h3>
+                    <p class="text-sm text-muted-foreground" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
+                      {source.description}
+                    </p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+
+          <GatedFeasibilityCalculator client:visible />
+        </div>
+      </section>
+
+      <section class="py-40 bg-muted/30">
+        <div class="container mx-auto px-4 max-w-3xl">
+          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-8 text-center" style={`font-family: ${pathwayFont}`}>
+            What H-1B Holders Are Actually Saying
+          </h2>
+          <div class="space-y-8">
+            <div class="bg-card border border-border rounded-xl p-8 md:p-10">
+              <blockquote class="text-foreground italic mb-6 text-base" style={`font-family: ${pathwayFont}; line-height: 1.85;`}>
+                "PD is Oct 2013, EB-2 India. Did the math last year and realized I'm looking at another 8 to 10 years minimum. Wife can't work, kids are in school, and every time there's a round of layoffs I'm doing the mental math on how many days I have left on my visa. A friend in my WhatsApp group had just filed concurrently and had his EAD in hand in 5 months. I talked to an attorney, liquidated some NFLX and RSUs, wired 800K to a rural project, and filed I-526E and I-485 the same day. Got my EAD 4 months later. Wife started consulting the next week. Changed jobs without telling my old employer anything. Still waiting on the full GC but honestly the EAD alone changed everything."
+              </blockquote>
+              <p class="text-muted-foreground text-sm" style={`font-family: ${pathwayFont}`}>
+                Senior SWE, H-1B, TC 380K, EB-5 filed October 2025
+              </p>
+            </div>
+
+            <div class="bg-card border border-border rounded-xl p-8 md:p-10">
+              <blockquote class="text-foreground italic mb-6 text-base" style={`font-family: ${pathwayFont}; line-height: 1.85;`}>
+                "8 years at the same big tech company. Good TC, good reviews, PD stuck at 2015. The 2023 layoffs hit my team and I realized I was one reorg away from having 60 days to figure out my entire life. I had enough in RSUs to make EB-5 work so I stopped overthinking it. Picked a rural project with I-956F approval, filed I-526E and I-485 concurrently. Had EAD and AP in under 6 months. Wife is working now. Switched to a startup I actually wanted to join. No H-1B transfer, no asking my employer for anything. Cheap loan in exchange for a green card is exactly what it is."
+              </blockquote>
+              <p class="text-muted-foreground text-sm" style={`font-family: ${pathwayFont}`}>
+                FAANG SWE, H-1B to EAD, EB-5 filed September 2024
+              </p>
+            </div>
+
+            <div class="bg-card border border-border rounded-xl p-8 md:p-10">
+              <blockquote class="text-foreground italic mb-6 text-base" style={`font-family: ${pathwayFont}; line-height: 1.85;`}>
+                "EB-2 PD 2014. TC 400K. NW around 2M. I was the guy saying EB-5 is too risky. Then I watched three friends get their EADs while I was still refreshing the Visa Bulletin every month. Filed I-526E and I-485 same day in early 2024. EAD came through in 5 months. Wife started her own business. I'm still on the conditional green card path but I'm not one layoff away from leaving the country anymore. That peace of mind is real."
+              </blockquote>
+              <p class="text-muted-foreground text-sm" style={`font-family: ${pathwayFont}`}>
+                Staff Engineer, ex-FAANG, EB-5 filed December 2024
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-40">
+        <div class="container mx-auto px-4 max-w-3xl">
+          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-8 text-center" style={`font-family: ${pathwayFont}`}>
+            Backed by Attorneys and Regional Centers With a Proven Track Record
+          </h2>
+
+          <div class="space-y-6 text-muted-foreground text-base" style={`font-family: ${pathwayFont}; line-height: 1.85;`}>
+            <p>
+              The EB-5 process is one of the most consequential financial and legal decisions an H-1B professional will make. Guidance from the wrong team, or the wrong regional center, can mean years of delays, denied petitions, or lost capital.
+            </p>
+            <p>
+              The immigration attorneys and USCIS-approved regional centers behind the resources on this site bring more than two decades of experience in EB-5 investment immigration. Together, they have successfully processed over 1,000 approved EB-5 petitions, representing investors from across the globe seeking U.S. permanent residency.
+            </p>
+            <p>
+              The regional center partners featured here have I-926F approvals from USCIS, the most rigorous vetting a regional center can undergo, and a credential that fewer than a fraction of entities in the EB-5 market can claim. Their investment projects span targeted employment areas (TEAs), rural set-asides, and high-unemployment designations, precisely the categories that give H-1B investors like you a faster path to a green card.
+            </p>
+            <p>
+              When you schedule a consultation through this site, you're connected to legal and investment partners who have been navigating USCIS policy changes, priority date fluctuations, and EB-5 Reform Act requirements since before most current H-1B holders arrived in the U.S.
+            </p>
+          </div>
+
+          <div class="mt-10 bg-primary/5 border border-primary/20 rounded-xl p-8 md:p-10 text-center">
+            <div class="flex flex-wrap justify-center gap-8 mb-6">
+              <div>
+                <span class="block text-3xl font-bold text-primary" style={`font-family: ${pathwayFont}`}>1,000+</span>
+                <span class="text-sm text-muted-foreground" style={`font-family: ${pathwayFont}`}>Approved Petitions</span>
+              </div>
+              <div>
+                <span class="block text-3xl font-bold text-primary" style={`font-family: ${pathwayFont}`}>I-926F</span>
+                <span class="text-sm text-muted-foreground" style={`font-family: ${pathwayFont}`}>USCIS Approved RCs</span>
+              </div>
+              <div>
+                <span class="block text-3xl font-bold text-primary" style={`font-family: ${pathwayFont}`}>20+</span>
+                <span class="text-sm text-muted-foreground" style={`font-family: ${pathwayFont}`}>Years in EB-5</span>
+              </div>
+            </div>
+            <p class="text-foreground font-medium text-base max-w-2xl mx-auto" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
+              The attorneys and regional centers connected through this platform have built one of the most documented EB-5 track records in the industry.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-32 bg-primary/5">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4" style={`font-family: ${pathwayFont}`}>
+            Ready to Take the First Step?
+          </h2>
+          <p class="text-muted-foreground mb-8 max-w-xl mx-auto text-base" style={`font-family: ${pathwayFont}`}>
+            Download our free H-1B to EB-5 Strategy Checklist, or schedule a consultation to discuss your specific situation.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md font-medium hover:bg-primary/90 transition-colors"
+              style={`font-family: ${pathwayFont}`}
+            >
+              Schedule a Consultation
+            </a>
+            <button
+              type="button"
+              id="h1b-feasibility-trigger-bottom"
+              class="inline-flex items-center gap-2 border border-border bg-card text-foreground px-6 py-3 rounded-md font-medium hover:bg-muted transition-colors"
+              style={`font-family: ${pathwayFont}`}
+            >
+              Check Your Feasibility
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-32 bg-background">
+        <div class="container mx-auto px-6 max-w-6xl">
+          <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center" style={`font-family: ${pathwayFont}`}>
+            Relevant Blog Articles
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {
+              relevantBlogPosts.map((post) => (
+                <div class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
+                  <a href={`/research/${post.slug}`} class="block">
+                    <div class="aspect-video overflow-hidden">
+                      <OptimizedImage
+                        src={post.image}
+                        alt={post.imageAlt}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold border-transparent bg-secondary text-secondary-foreground mb-2">
+                        {post.category}
+                      </span>
+                      <h3
+                        class="font-bold text-lg mb-2 line-clamp-2 hover:text-primary transition-colors"
+                        style={`font-family: ${pathwayFont}`}
+                      >
+                        {post.title}
+                      </h3>
+                      <div class="flex items-center justify-between text-sm text-muted-foreground">
+                        <span>{post.date}</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <ConsultationCTA client:visible />
+    <Footer client:visible />
+    <H1BToGreenCardInteractive client:load />
+    <Toaster client:load />
+  </div>
+</Layout>

@@ -1,18 +1,28 @@
 import {
   ArrowRight,
+  Briefcase,
   CheckCircle,
   DollarSign,
+  FileText,
   Gift,
   GraduationCap,
+  Home,
+  Shield,
+  TrendingUp,
   UserCheck,
 } from 'lucide-react';
 
 const ICONS = {
   ArrowRight,
+  Briefcase,
   CheckCircle,
   DollarSign,
+  FileText,
   Gift,
   GraduationCap,
+  Home,
+  Shield,
+  TrendingUp,
   UserCheck,
 } as const;
 
