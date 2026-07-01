@@ -11,6 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   integrations: [react()],
   redirects: {
+    '/tools': '/eb5-investment-immigration-tools',
     '/grandfathering-countdown': '/tools/grandfathering-countdown',
     '/opt-calculator': '/tools/opt-calculator',
     '/tuition-calculator': '/tools/tuition-calculator',

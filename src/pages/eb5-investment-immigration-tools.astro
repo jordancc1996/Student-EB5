@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import ToolsHubMainContent from '@/components/ToolsHubMainContent';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 & H-1B Immigration Tools: Calculators, Wage Map, TEA Explorer | StudentEB5';
+const description =
+  'Fastest way to get EB-5 work permit, how long for EB-5 EAD, rural EB-5 for Indian nationals, and the fastest path to permanent residency for Indians.';
+const pageCanonical = `${SITE_CONFIG.url}/eb5-investment-immigration-tools`;
+const ogTitle = title;
+const ogDescription = description;
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const keywords = [
+  'fastest way to get eb5 work permit',
+  'how long for eb5 ead',
+  'rural eb5 for indian nationals',
+  'fastest path to permanent residency for indian nationals',
+];
+
+const toolsList = [
+  { href: '/tools/tuition-calculator', name: 'Tuition Savings Calculator' },
+  { href: '/tools/grandfathering-countdown', name: 'Grandfathering Countdown' },
+  { href: '/tools/opt-calculator', name: 'OPT Calculator' },
+  { href: '/tools/h1b-lottery-odds-calculator', name: 'H-1B Lottery Odds Calculator' },
+  { href: '/tools/2026-eb5-investment-feasibility-calculator', name: 'EB-5 Feasibility Calculator' },
+  { href: '/tools/source-of-funds-calculator', name: 'Source of Funds Calculator' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'EB-5 & H-1B Immigration Tools',
+    url: pageCanonical,
+    description:
+      'Free EB-5 immigration calculators and tools for international students and H-1B professionals, including the EB-5 Feasibility Calculator, OPT Calculator, Grandfathering Countdown, and more.',
+    isPartOf: { '@type': 'WebSite', name: SITE_CONFIG.name, url: SITE_CONFIG.url },
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: toolsList.map((t, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: t.name,
+        url: `${SITE_CONFIG.url}${t.href}`,
+      })),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_CONFIG.url },
+      { '@type': 'ListItem', position: 2, name: 'Tools', item: pageCanonical },
+    ],
+  },
+];
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+    {
+      structuredData.map((data) => (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(data).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)}
+        />
+      ))
+    }
+  </Fragment>
+
+  <div class="min-h-screen bg-gradient-to-br from-background to-secondary/20">
+    <Header client:load />
+
+    <ToolsHubMainContent>
+      <Breadcrumb client:load initialPathname="/eb5-investment-immigration-tools" />
+    </ToolsHubMainContent>
+
+    <Footer client:visible />
+  </div>
+</Layout>
