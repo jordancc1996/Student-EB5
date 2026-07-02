@@ -1,27 +1,33 @@
 import {
+  AlertTriangle,
   ArrowRight,
   Briefcase,
   CheckCircle,
+  CreditCard,
   DollarSign,
   FileText,
   Gift,
   GraduationCap,
   Home,
   Shield,
+  ShieldCheck,
   TrendingUp,
   UserCheck,
 } from 'lucide-react';
 
 const ICONS = {
+  AlertTriangle,
   ArrowRight,
   Briefcase,
   CheckCircle,
+  CreditCard,
   DollarSign,
   FileText,
   Gift,
   GraduationCap,
   Home,
   Shield,
+  ShieldCheck,
   TrendingUp,
   UserCheck,
 } as const;

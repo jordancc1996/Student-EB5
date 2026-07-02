@@ -1,0 +1,164 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import LucideIcon from '@/components/LucideIcon';
+import PathwaysCountdownBanner from '@/components/PathwaysCountdownBanner';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 Pathways to Green Card | StudentEB5';
+const description =
+  'Find the right EB-5 investment immigration pathway for your situation. Guides for H-1B professionals and F-1 international students seeking U.S. permanent residency.';
+const pageCanonical = `${SITE_CONFIG.url}/pathways`;
+const ogTitle = title;
+const ogDescription = description;
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const keywords = [
+  'EB-5 pathways',
+  'H-1B to green card',
+  'student to green card',
+  'immigration pathways',
+  'EB-5 visa routes',
+];
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+
+    <main>
+      <section class="relative -mt-[120px] pt-[120px] min-h-[50vh] flex items-center justify-center bg-hero-dark">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70"></div>
+        <div class="relative z-10 container mx-auto px-4 py-20 text-center">
+          <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            Where Are You on Your Journey?
+          </h1>
+          <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto" style="font-family: Georgia, serif;">
+            Select your current situation and we'll guide you to the right EB-5 pathway for permanent residency.
+          </p>
+        </div>
+      </section>
+
+      <section class="py-20">
+        <div class="container mx-auto px-4 max-w-5xl">
+          <div class="grid md:grid-cols-2 gap-8">
+            <a
+              href="/pathways/h1b-to-green-card"
+              class="group relative border-2 border-border rounded-xl p-10 hover:border-primary hover:shadow-medium transition-all duration-300 bg-card text-center"
+            >
+              <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <LucideIcon name="Briefcase" size={32} className="text-primary" />
+              </div>
+              <h2 class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                I Am an H-1B Professional
+              </h2>
+              <p class="text-muted-foreground leading-relaxed" style="font-family: Georgia, serif; line-height: 1.75;">
+                Tired of the backlog? Worried about layoffs? Explore Concurrent Filing and take control of your immigration future.
+              </p>
+              <span class="inline-block mt-6 text-primary font-medium text-sm uppercase tracking-wider group-hover:underline">
+                Explore This Pathway →
+              </span>
+            </a>
+
+            <a
+              href="/pathways/f1-to-eb5-self-sponsored-green-card"
+              class="group relative border-2 border-border rounded-xl p-10 hover:border-primary hover:shadow-medium transition-all duration-300 bg-card text-center"
+            >
+              <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <LucideIcon name="GraduationCap" size={32} className="text-primary" />
+              </div>
+              <h2 class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                I Am an International Student
+              </h2>
+              <p class="text-muted-foreground leading-relaxed" style="font-family: Georgia, serif; line-height: 1.75;">
+                Looking for a path after graduation? Skip the H-1B lottery and stay in the USA with a direct green card.
+              </p>
+              <span class="inline-block mt-6 text-primary font-medium text-sm uppercase tracking-wider group-hover:underline">
+                Explore This Pathway →
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-muted/30">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+          <h2 class="font-serif text-3xl font-bold text-foreground mb-12">
+            Why EB-5?
+          </h2>
+          <div class="grid md:grid-cols-3 gap-10">
+            <div class="flex flex-col items-center">
+              <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <LucideIcon name="ShieldCheck" size={28} className="text-primary" />
+              </div>
+              <h3 class="font-serif text-lg font-bold text-foreground mb-2">No Lottery</h3>
+              <p class="text-muted-foreground text-sm" style="font-family: Georgia, serif;">
+                No randomized selection process. File your petition and get in line — deterministic, not luck-based.
+              </p>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <LucideIcon name="UserCheck" size={28} className="text-primary" />
+              </div>
+              <h3 class="font-serif text-lg font-bold text-foreground mb-2">No Sponsorship</h3>
+              <p class="text-muted-foreground text-sm" style="font-family: Georgia, serif;">
+                You are your own sponsor. No employer dependency, no layoff anxiety, no visa transfers.
+              </p>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <LucideIcon name="CreditCard" size={28} className="text-primary" />
+              </div>
+              <h3 class="font-serif text-lg font-bold text-foreground mb-2">Direct Green Card</h3>
+              <p class="text-muted-foreground text-sm" style="font-family: Georgia, serif;">
+                A clear, direct path to lawful permanent residency for you and your immediate family.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-8 bg-foreground">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-center md:text-left">
+            <LucideIcon name="AlertTriangle" size={24} className="text-yellow-400 flex-shrink-0" />
+            <div>
+              <p class="text-background font-bold text-sm uppercase tracking-wider">
+                Grandfathering Deadline: September 30, 2026
+              </p>
+              <p class="text-background/70 text-sm" style="font-family: Georgia, serif;">
+                File your I-526E petition before this date to ensure processing under current rules.
+              </p>
+            </div>
+            <PathwaysCountdownBanner client:visible />
+            <a
+              href="/tools/grandfathering-countdown"
+              class="text-primary text-sm font-medium underline underline-offset-4 flex-shrink-0"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer client:visible />
+  </div>
+</Layout>
