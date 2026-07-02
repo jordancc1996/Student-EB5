@@ -112,17 +112,6 @@ export function generateProfessionalServiceSchema() {
             url: `${SITE_CONFIG.url}/resources`,
           },
         },
-        {
-          '@type': 'Offer',
-          price: '0',
-          priceCurrency: 'USD',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Free EB-5 Report',
-            description: 'Downloadable EB-5 investment report',
-            url: `${SITE_CONFIG.url}/eb5-report`,
-          },
-        },
       ],
     },
   };
@@ -210,7 +199,6 @@ export function generateSiteNavigationSchema() {
     { name: 'FAQ', url: `${SITE_CONFIG.url}/faq` },
     { name: 'Resources', url: `${SITE_CONFIG.url}/resources` },
     { name: 'Tools', url: `${SITE_CONFIG.url}/eb5-investment-immigration-tools` },
-    { name: 'EB-5 Report', url: `${SITE_CONFIG.url}/eb5-report` },
     { name: 'About', url: `${SITE_CONFIG.url}/about` },
     { name: 'Contact', url: `${SITE_CONFIG.url}/contact` },
   ];

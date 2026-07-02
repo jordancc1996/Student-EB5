@@ -37,9 +37,9 @@ The Reform and Integrity Act introduced a mechanism for the minimum investment t
 
 ## The Strategic Visa Advantage
 
-Lower EB-5 fees are only valuable if there are visas available. The RIA created reserved EB-5 set aside categories for projects in rural areas, high unemployment areas and infrastructure projects. Explore these opportunities with our <a href="/tools/tea-project-explorer">TEA Project Explorer</a>. As of December 2025, these categories remain current for all countries.
+Lower EB-5 fees are only valuable if there are visas available. The RIA created reserved EB-5 set aside categories for projects in rural areas, high unemployment areas and infrastructure projects. Explore these opportunities with our TEA Project Explorer. As of December 2025, these categories remain current for all countries.
 
-This is extremely valuable for investors from countries with long-standing backlogs in the unreserved EB-5 category such as China and India. Check your country's status with our <a href="/tools/visa-backlog-checker">Visa Backlog Checker</a>. Investing in these set-aside programs allows the investors to bypass long standing backlogs and gain a front of line advantage over other visa applicants. This combination of lower fees, pre-inflation adjustment and current visa status makes the present moment especially attractive for investors. This advantage is not guaranteed to last indefinitely.
+This is extremely valuable for investors from countries with long-standing backlogs in the unreserved EB-5 category such as China and India. Check your country's status with our Visa Backlog Checker. Investing in these set-aside programs allows the investors to bypass long standing backlogs and gain a front of line advantage over other visa applicants. This combination of lower fees, pre-inflation adjustment and current visa status makes the present moment especially attractive for investors. This advantage is not guaranteed to last indefinitely.
 
 ## The Critical Upcoming Deadline
 
@@ -95,7 +95,7 @@ The EB-5 process generally takes between 2 to 3 years to receive conditional per
 
 ### Are any countries excluded from applying for the EB-5 program?
 
-No. Citizens from any country can apply for the EB-5 program as long as they meet the program's investment and source of funds requirements. However, investors from certain countries may experience longer wait times for visa availability due to per-country visa allocation limits. For example, investors from high EB-5 demand countries like India and China may face retrogression for the unreserved visa category if it is not current by the time they apply. Check your country's current visa availability with our <a href="/tools/visa-backlog-checker">Visa Backlog Checker</a>.
+No. Citizens from any country can apply for the EB-5 program as long as they meet the program's investment and source of funds requirements. However, investors from certain countries may experience longer wait times for visa availability due to per-country visa allocation limits. For example, investors from high EB-5 demand countries like India and China may face retrogression for the unreserved visa category if it is not current by the time they apply. Check your country's current visa availability with our Visa Backlog Checker.
 
 ## Sources
 

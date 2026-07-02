@@ -13,8 +13,6 @@ keywords:
 links:
   - text: Detailed guide on EB-5 investment requirements
     url: /research/complete-2027-eb5-guide
-  - text: Download our EB-5 Investment Report
-    url: /eb5-report
 relatedFaqs:
   - what-is-eb5-visa-program
   - what-is-regional-center

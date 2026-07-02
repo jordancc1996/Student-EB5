@@ -59,7 +59,7 @@ This places the true economic cost for a family seeking permanent residency thro
 
 ## The Value Proposition
 
-The value proposition of the EB-5 program hinges on the perceived worth of its primary benefit. For families facing <a href="/tools/visa-backlog-checker">visa backlogs</a>, job uncertainty, limited opportunities in their home country and have children the value is immense. It provides:
+The value proposition of the EB-5 program hinges on the perceived worth of its primary benefit. For families facing visa backlogs, job uncertainty, limited opportunities in their home country and have children the value is immense. It provides:
 
 - **Stability and peace of mind**
 - **Elimination of anxieties associated with temporary visas**
@@ -99,7 +99,7 @@ The <a href="/research/post-reform-integrity-act-analysis">Reform and Integrity 
 
 ### Rural Projects
 
-Rural projects reserve 20% of the annual EB-5 visa quota and these petitions receive priority processing from USCIS which potentially shortens the timeline to residency by over a year. Explore available projects with our <a href="/tools/tea-project-explorer">TEA Project Explorer</a>. This makes rural projects very attractive for investors.
+Rural projects reserve 20% of the annual EB-5 visa quota and these petitions receive priority processing from USCIS which potentially shortens the timeline to residency by over a year. Explore available projects with our TEA Project Explorer. This makes rural projects very attractive for investors.
 
 ### Infrastructure Projects
 
@@ -119,4 +119,4 @@ Mitigating risk requires thorough <a href="/research/19-questions-rural-eb5-proj
 
 ### What intangible benefits does the EB-5 program offer to families considering U.S. permanent residency?
 
-The <a href="/research/complete-2027-eb5-guide">EB-5 program</a> provides immense value beyond financial considerations, especially for families facing decade long <a href="/tools/visa-backlog-checker">visa backlogs</a>, job uncertainty, or limited opportunities in their home country. Key intangible benefits include stability and peace of mind, elimination of anxieties associated with temporary visas, access to world class education for children, freedom to work for any employer or to start a business and a clear path to U.S. citizenship. These benefits contribute significantly to the overall ROI of the program.
+The <a href="/research/complete-2027-eb5-guide">EB-5 program</a> provides immense value beyond financial considerations, especially for families facing decade long visa backlogs, job uncertainty, or limited opportunities in their home country. Key intangible benefits include stability and peace of mind, elimination of anxieties associated with temporary visas, access to world class education for children, freedom to work for any employer or to start a business and a clear path to U.S. citizenship. These benefits contribute significantly to the overall ROI of the program.

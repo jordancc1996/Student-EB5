@@ -41,7 +41,7 @@ International students currently in the United States on an F-1 visa and plannin
 
 The minimum capital required for an EB-5 investment is determined by the location of the commercial enterprise receiving the funds. Use our <a href="/tools/2026-eb5-investment-feasibility-calculator">EB-5 Investment Feasibility Calculator</a> to assess your financial readiness. The EB-5 Reform and Integrity act of 2022 (RIA) established two primary investment tiers:
 
-**1. Targeted Employment Area (TEA) Investment:** The minimum investment for the Targeted Employment Area is $800,000. A TEA is defined as a rural area or an area experiencing high unemployment. Rural targeted employment areas qualify for priority processing. Explore available projects with our <a href="/tools/tea-project-explorer">TEA Project Explorer</a>.
+**1. Targeted Employment Area (TEA) Investment:** The minimum investment for the Targeted Employment Area is $800,000. A TEA is defined as a rural area or an area experiencing high unemployment. Rural targeted employment areas qualify for priority processing. Explore available projects with our TEA Project Explorer.
 
 **2. Non-Targeted Employment Area Investment:** The minimum investment is $1,050,000. This applies to all other areas that are not designated as targeted employment areas.
 

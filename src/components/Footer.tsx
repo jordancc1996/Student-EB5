@@ -18,7 +18,6 @@ const Footer = () => {
   ];
 
   const resourceLinks = [
-    { name: "EB-5 Report", href: "/eb5-report" },
     { name: "Resources", href: "/resources" },
     { name: "Research", href: "/research" }
   ];

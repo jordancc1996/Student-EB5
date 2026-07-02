@@ -40,7 +40,7 @@ Filing before September 30, 2026 locks in the investor's place in the program an
 
 The grandfathering deadline is set for 2026, but the current authorization for the EB-5 regional center program extends until September 30, 2027. For those who file after the 2026 cutoff, their investment may be safe, but their path to a green card becomes contingent on Congress reauthorizing the program in 2027. If your investment is made after the grandfathering date, your green card could be in limbo.
 
-RIA introduced a mechanism for the minimum investment threshold to be adjusted for inflation every five years, with the first adjustment scheduled for January 1, 2027. The current minimum investment amount is $800,000 for <a href="/tools/tea-project-explorer">Targeted Employment Areas</a>. Experts anticipate a significant upward adjustment at the start of 2027.
+RIA introduced a mechanism for the minimum investment threshold to be adjusted for inflation every five years, with the first adjustment scheduled for January 1, 2027. The current minimum investment amount is $800,000 for Targeted Employment Areas. Experts anticipate a significant upward adjustment at the start of 2027.
 
 If investors file before September 2026, they effectively lock in the current lower investment amount, providing a substantial financial advantage before the increase takes effect. Use our <a href="/tools/2026-eb5-investment-feasibility-calculator">EB-5 Investment Feasibility Calculator</a> to assess your financial readiness.
 
@@ -58,7 +58,7 @@ This proactive approach can secure adjudication certainty and the current more f
 
 ### Step 1: Locate an EB-5 Project
 
-We are assuming the investor is going the Regional Center route because of processing times and ease. The EB-5 visa applicant must first find a suitable project after doing the necessary due diligence on the sponsoring regional center. Explore available projects with our <a href="/tools/tea-project-explorer">TEA Project Explorer</a>.
+We are assuming the investor is going the Regional Center route because of processing times and ease. The EB-5 visa applicant must first find a suitable project after doing the necessary due diligence on the sponsoring regional center. Explore available projects with our TEA Project Explorer.
 
 After finding a suitable project, regional center investors file Form I-526E. The initial petition also includes proving the Lawful Source of Funds. This documentation must trace the funds from their original source through any intermediate transactions and finally into the U.S. commercial enterprise.
 

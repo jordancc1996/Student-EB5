@@ -35,12 +35,6 @@ const resourceCategories: {
         external: false,
       },
       {
-        name: 'EB-5 Investment Report',
-        description: 'Download our comprehensive guide to EB-5 investments',
-        url: '/eb5-report',
-        external: false,
-      },
-      {
         name: 'Research Articles',
         description: 'Expert research and latest updates on EB-5 for students',
         url: '/research',
@@ -165,11 +159,7 @@ const ResourcesMainContent = () => {
           <a href="/research" className="text-primary hover:underline font-medium">
             research articles
           </a>{' '}
-          for expert insights or download our{' '}
-          <a href="/eb5-report" className="text-primary hover:underline font-medium">
-            EB-5 Investment Report
-          </a>
-          . Have questions? Check our{' '}
+          for expert insights. Have questions? Check our{' '}
           <a href="/faq" className="text-primary hover:underline font-medium">
             FAQ page
           </a>{' '}
@@ -242,7 +232,7 @@ const ResourcesMainContent = () => {
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           <a
-            href="/timelines/h1b-eb5-processing-timeline"
+            href="/pathways/h1b-to-green-card"
             className="p-5 bg-primary/5 border border-primary/20 rounded-lg hover:shadow-md transition-shadow"
           >
             <span className="text-xs font-medium text-primary uppercase">Timeline</span>
@@ -281,14 +271,6 @@ const ResourcesMainContent = () => {
             <h3 className="font-semibold text-foreground mt-1 mb-2">H-1B to EB-5 Financial Planning</h3>
             <p className="text-sm text-muted-foreground">Strategic financial considerations for the transition.</p>
           </a>
-          <a
-            href="/infographics"
-            className="p-5 bg-card border border-border rounded-lg hover:shadow-md transition-shadow"
-          >
-            <span className="text-xs font-medium text-muted-foreground uppercase">Visual Guide</span>
-            <h3 className="font-semibold text-foreground mt-1 mb-2">EB-5 Infographics Library</h3>
-            <p className="text-sm text-muted-foreground">Downloadable charts, timelines, and comparisons.</p>
-          </a>
         </div>
       </div>
 
@@ -316,14 +298,6 @@ const ResourcesMainContent = () => {
             <span className="text-xs font-medium text-primary uppercase">Financial</span>
             <h3 className="font-semibold mb-2 mt-1">Source of Funds Strategies</h3>
             <p className="text-sm text-muted-foreground">Investment funding and documentation</p>
-          </a>
-          <a
-            href="/infographics"
-            className="p-4 bg-card rounded-lg hover:shadow-md transition-shadow text-center"
-          >
-            <span className="text-xs font-medium text-primary uppercase">Visual</span>
-            <h3 className="font-semibold mb-2 mt-1">Infographics Library</h3>
-            <p className="text-sm text-muted-foreground">Charts, timelines, and visual guides</p>
           </a>
         </div>
       </div>

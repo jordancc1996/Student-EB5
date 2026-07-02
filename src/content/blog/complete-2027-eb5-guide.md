@@ -143,7 +143,7 @@ After maintaining permanent resident status for five years, EB-5 investors becom
 
 ## What is the Difference Between Rural and Urban Projects? And What is a Targeted Employment Area?
 
-The <a href="/research/post-reform-integrity-act-analysis">EB-5 Reform and Integrity Act of 2022</a> placed a significant emphasis on investments in targeted employment areas and created a system of reserved visas. Use our <a href="/tools/tea-project-explorer">TEA Project Explorer</a> to find qualifying projects.
+The <a href="/research/post-reform-integrity-act-analysis">EB-5 Reform and Integrity Act of 2022</a> placed a significant emphasis on investments in targeted employment areas and created a system of reserved visas. Use our TEA Project Explorer to find qualifying projects.
 
 A **Targeted Employment Area (TEA)** is either:
 - A **rural area** (outside a metropolitan statistical area or outside the boundary of any city or town with a population of 20,000 or more)

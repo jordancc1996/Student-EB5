@@ -52,7 +52,7 @@ Many F-1 students apply for optional practical training after they graduate, whi
 
 The most common next step for F-1 students after OPT is to find an employer willing to sponsor them for the H-1B visa. The demand for H-1B visas far exceeds the annual supply which leads to a competitive lottery system. The chances of being selected in the H-1B lottery are dismally low and leaves many highly qualified graduates with no choice but to leave the country. For students serious about <a href="/pathways/f1-to-eb5-self-sponsored-green-card">bypassing the H-1B lottery</a>, the EB-5 program offers a far more predictable alternative.
 
-The road to a Green Card through employment-based categories like EB-2 and EB-3 are incredibly long even for those fortunate enough to secure an H-1B visa. The backlogs for EB-2 and EB-3 stretch for years and in some cases decades for individuals from certain countries. This lengthy and uncertain process puts careers and lives on hold and makes it nearly impossible for foreign nationals to plan for their future. Check your wait time with our <a href="/tools/visa-backlog-checker">Visa Backlog Checker</a>.
+The road to a Green Card through employment-based categories like EB-2 and EB-3 are incredibly long even for those fortunate enough to secure an H-1B visa. The backlogs for EB-2 and EB-3 stretch for years and in some cases decades for individuals from certain countries. This lengthy and uncertain process puts careers and lives on hold and makes it nearly impossible for foreign nationals to plan for their future. Check your wait time with our Visa Backlog Checker.
 
 ## What is The EB-5 Immigrant Investor Program?
 
@@ -62,7 +62,7 @@ The EB-5 immigrant investor program was created by congress in 1990 and offers a
 
 The EB-5 Reform and Integrity Act of 2022 updated the minimum investment amounts. As of February 9, 2026 the investment requirements are $800,000 in a Targeted Employment Area and $1,050,000 in a Non-Targeted Employment Area.
 
-A targeted employment area (TEA) is either a rural area or an area with high unemployment. The lower investment threshold for Targeted Employment Areas is designed to encourage investment in areas that need it the most. Explore available TEA projects with our <a href="/tools/tea-project-explorer">TEA Project Explorer</a>.
+A targeted employment area (TEA) is either a rural area or an area with high unemployment. The lower investment threshold for Targeted Employment Areas is designed to encourage investment in areas that need it the most. Explore available TEA projects with our TEA Project Explorer.
 
 ## What is the EB-5 Process
 

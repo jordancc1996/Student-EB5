@@ -78,7 +78,7 @@ Before an investor can commit to an EB-5 project they must focus on documenting 
 
 This level of documentation is required for all sources of funds which can include employment income, business ownership, gifts from family, property sales and loans. Each source has its own complexities that must be carefully navigated.
 
-Rushing this process creates risk. The pressure of the <a href="/grandfathering-countdown">September 30, 2026 deadline</a> can tempt investors to take shortcuts such as filing an incomplete or "skeleton" petition, but this is a dangerous strategy that can lead to significant delays and even denial.
+Rushing this process creates risk. The pressure of the <a href="/tools/grandfathering-countdown">September 30, 2026 deadline</a> can tempt investors to take shortcuts such as filing an incomplete or "skeleton" petition, but this is a dangerous strategy that can lead to significant delays and even denial.
 
 A skeleton petition is one that is filed quickly to secure a filing date but lacks the comprehensive documentation required by USCIS and can result in RFEs (Request for Evidence), NOIDs (Notice of Intent to Deny) and outright denials.
 

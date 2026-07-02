@@ -32,7 +32,7 @@ relatedPosts:
 
 ## The H-1B Program: Benefits and Challenges
 
-The <a href="/research/h1b-alternatives-o1-eb1-eb5">H-1B visa program</a> has enabled thousands of qualified foreign nationals to advance their careers and lives in the United States while providing a broader talent pool for specialty positions. The H-1B visa has become especially popular in the tech industry. Engineers, software developers and computer science specialists have been the bread-and-butter occupations for skilled H-1B employees. Check H-1B salary data in your area with our <a href="/tools/h1bwagemap">H-1B Wage Map</a>.
+The <a href="/research/h1b-alternatives-o1-eb1-eb5">H-1B visa program</a> has enabled thousands of qualified foreign nationals to advance their careers and lives in the United States while providing a broader talent pool for specialty positions. The H-1B visa has become especially popular in the tech industry. Engineers, software developers and computer science specialists have been the bread-and-butter occupations for skilled H-1B employees. Check H-1B salary data in your area with our H-1B Wage Map.
 
 ## The Current Crisis
 
@@ -44,7 +44,7 @@ The tech industry has been severely impacted by multiple factors in the last 3-5
 - Increased Automation and AI Implementation: Technology replacing roles
 - Current Administration Pressures: Policy changes affecting visa holders
 
-These factors have combined to create a market that has been extremely unfavorable to the H-1B employee. Research H-1B sponsoring employers with our <a href="/tools/h1b-jobdatahub">H-1B Job Datahub</a>. When H-1B workers lose their job, they face an immediate crisis. Upon termination or role elimination the H-1B employee has 60 days to:
+These factors have combined to create a market that has been extremely unfavorable to the H-1B employee. Research H-1B sponsoring employers with our H-1B Job Datahub. When H-1B workers lose their job, they face an immediate crisis. Upon termination or role elimination the H-1B employee has 60 days to:
 
 1. Find another role at the same company
 2. Secure a job at another company willing to sponsor their visa
@@ -88,7 +88,7 @@ The EB-5 program offers expedited processing compared to many immigration altern
 
 ### The Set-Aside Solution
 
-To bypass the EB-5 visa queue investors from high demand countries can qualify for reserved visas. These visas are set aside from the total annual pool and reserved for investors in <a href="/tools/tea-project-explorer">Targeted Employment Area Projects</a>. Check your country's current visa availability with our <a href="/tools/visa-backlog-checker">Visa Backlog Checker</a>.
+To bypass the EB-5 visa queue investors from high demand countries can qualify for reserved visas. These visas are set aside from the total annual pool and reserved for investors in Targeted Employment Area Projects. Check your country's current visa availability with our Visa Backlog Checker.
 
 ### Set Aside Categories and Allocations
 

@@ -45,7 +45,7 @@ A regional center's track record is a correlated indicator of future performance
 
 ## Project Viability and Financial Structure
 
-The success of an EB-5 investment is intrinsically linked to the viability of the underlying project. Investors must complete due diligence on the regional center project and critically evaluate the business plan and economic assumptions of the project to determine its feasibility. Use our <a href="/tools/tea-project-explorer">TEA Project Explorer</a> to research available projects. Projects that are already under construction and have pre-sales are generally considered lower risk than those still in the planning stages. The financial structure of the project also warrants scrutiny. Ideally, the EB-5 capital should constitute a smaller percentage of the total project funding with the capital stack being a majority developer equity and bank loans. This capital stack reduces reliance on EB-5 funds and enhances project stability. The prospective investor should also understand the escrow agreement and how investment funds are managed and disbursed.
+The success of an EB-5 investment is intrinsically linked to the viability of the underlying project. Investors must complete due diligence on the regional center project and critically evaluate the business plan and economic assumptions of the project to determine its feasibility. Use our TEA Project Explorer to research available projects. Projects that are already under construction and have pre-sales are generally considered lower risk than those still in the planning stages. The financial structure of the project also warrants scrutiny. Ideally, the EB-5 capital should constitute a smaller percentage of the total project funding with the capital stack being a majority developer equity and bank loans. This capital stack reduces reliance on EB-5 funds and enhances project stability. The prospective investor should also understand the escrow agreement and how investment funds are managed and disbursed.
 
 ## Transparency and Communication
 
@@ -57,7 +57,7 @@ The EB-5 immigrant investor program post 2022 (<a href="/research/post-reform-in
 
 ### What are visa backlogs?
 
-Countries like India and China face decade long backlogs for employment-based visa categories such as EB-2. Check your country's backlog status with our <a href="/tools/visa-backlog-checker">Visa Backlog Checker</a>. The EB-5 program offers a significantly expedited pathway to a Green Card. The RIA introduced reserved visa categories for rural areas (20%) high unemployment areas (10%) and infrastructure projects (2%). These set asides are current for all countries including India and China where these backlogs are decades long. This is a crucial advantage for EB-2 Indian nationals with a priority date (PD) as far back as December 2015 because they are still likely facing these decade long waits for a Green Card.
+Countries like India and China face decade long backlogs for employment-based visa categories such as EB-2. Check your country's backlog status with our Visa Backlog Checker. The EB-5 program offers a significantly expedited pathway to a Green Card. The RIA introduced reserved visa categories for rural areas (20%) high unemployment areas (10%) and infrastructure projects (2%). These set asides are current for all countries including India and China where these backlogs are decades long. This is a crucial advantage for EB-2 Indian nationals with a priority date (PD) as far back as December 2015 because they are still likely facing these decade long waits for a Green Card.
 
 ### What are the benefits of Concurrent Filing?
 
@@ -139,11 +139,11 @@ The most vital selection criteria is USCIS compliance and operational history wh
 
 ### Why is the financial structure of a regional center project important for EB-5 investors?
 
-The success of an <a href="/research/complete-2027-eb5-guide">EB-5 investment</a> is closely tied to project viability and financial structure. Ideally, EB-5 capital should be a smaller percentage of total funding and the capital stack is primarily composed of developer equity and bank loans to reduce reliance on EB-5 funds and enhance stability. Investors should also understand the escrow agreement and how funds are managed and disbursed as projects already under construction with pre-sales are considered lower risk. Use our <a href="/tools/tea-project-explorer">TEA Project Explorer</a> to research available projects.
+The success of an <a href="/research/complete-2027-eb5-guide">EB-5 investment</a> is closely tied to project viability and financial structure. Ideally, EB-5 capital should be a smaller percentage of total funding and the capital stack is primarily composed of developer equity and bank loans to reduce reliance on EB-5 funds and enhance stability. Investors should also understand the escrow agreement and how funds are managed and disbursed as projects already under construction with pre-sales are considered lower risk. Use our TEA Project Explorer to research available projects.
 
 ### Who is the ideal candidate for the post-RIA EB-5 program?
 
-Ideal candidates include recently laid off tech <a href="/research/eb5-lifeline-h1b-workers">H-1B holders</a> seeking security and a swift path to permanent residency or H-1B holders who face substantial <a href="/tools/visa-backlog-checker">visa backlogs</a> and want to bypass decades of waiting. EB-5 also benefits student visa holders that are nearing graduation and want to stay in the United States after they graduate.
+Ideal candidates include recently laid off tech <a href="/research/eb5-lifeline-h1b-workers">H-1B holders</a> seeking security and a swift path to permanent residency or H-1B holders who face substantial visa backlogs and want to bypass decades of waiting. EB-5 also benefits student visa holders that are nearing graduation and want to stay in the United States after they graduate.
 
 ---
 

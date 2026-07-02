@@ -38,7 +38,7 @@ The RIA was designed to address long standing criticism regarding the lack of ov
 
 ## Economic Impact
 
-One of the primary goals of the RIA has been the successful redistribution of investment into rural areas and second-tier cities. Data indicates that projects are now being launched in states that had never previously received EB-5 capital. Use our <a href="/tools/tea-project-explorer">TEA Project Explorer</a> to discover these opportunities. The economic contributions of the program are significant:
+One of the primary goals of the RIA has been the successful redistribution of investment into rural areas and second-tier cities. Data indicates that projects are now being launched in states that had never previously received EB-5 capital. Use our TEA Project Explorer to discover these opportunities. The economic contributions of the program are significant:
 
 **Job Creation:** The program created over 1.7 million jobs for American communities between 2016 and 2019. Current data shows that the average investor creates 45 jobs which far exceeds the requirement of 10 jobs.
 
@@ -64,7 +64,7 @@ Investors already in the United States can file their I-485 adjustment of status
 
 ### Rural Priority Processing
 
-The RIA mandates priority processing for investors in rural Targeted Employment Areas. While unemployment (urban) projects often face delays of 16 to 36 months, rural petitions are being approved in as little as 4 to 8 months. This speed has made rural projects the most popular choice for investors from backlogged countries like India and China who wish to leapfrog the traditional employment-based visa waiting times. Check your country's backlog status with our <a href="/tools/visa-backlog-checker">Visa Backlog Checker</a>.
+The RIA mandates priority processing for investors in rural Targeted Employment Areas. While unemployment (urban) projects often face delays of 16 to 36 months, rural petitions are being approved in as little as 4 to 8 months. This speed has made rural projects the most popular choice for investors from backlogged countries like India and China who wish to leapfrog the traditional employment-based visa waiting times. Check your country's backlog status with our Visa Backlog Checker.
 
 ## Due Diligence
 

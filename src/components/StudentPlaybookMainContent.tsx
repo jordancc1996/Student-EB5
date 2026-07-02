@@ -2,7 +2,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import {
   BookOpen,
   GraduationCap,
-  Briefcase,
   DollarSign,
   Globe,
   FileText,
@@ -24,12 +23,6 @@ const playbookSections: {
     link: '/research/f1-students/f1-to-eb5-green-card',
   },
   {
-    icon: Briefcase,
-    title: 'Career Path Planning',
-    description: 'Navigate H-1B lotteries, cap-exempt employers, and alternative work authorization strategies.',
-    link: '/tools/h1bwagemap',
-  },
-  {
     icon: DollarSign,
     title: 'Financial Considerations',
     description: 'Compare tuition costs, understand investment requirements, and plan your funding strategy.',
@@ -39,13 +32,13 @@ const playbookSections: {
     icon: Globe,
     title: 'EB-5 as a Pathway',
     description: 'Discover how EB-5 investment immigration can provide a direct path to permanent residency.',
-    link: '/eb5-report',
+    link: '/research/complete-2027-eb5-guide',
   },
   {
     icon: FileText,
     title: 'Timeline & Deadlines',
     description: 'Critical dates for OPT applications, visa transitions, and EB-5 grandfathering provisions.',
-    link: '/timelines/f1-student-eb5-timeline',
+    link: '/pathways/f1-to-eb5-self-sponsored-green-card',
   },
 ];
 
@@ -53,14 +46,8 @@ const relatedClusterContent = [
   {
     title: 'F-1 to Green Card Visual Timeline',
     description: 'Step-by-step visual guide from F-1 graduation to EB-5 green card approval.',
-    link: '/timelines/f1-student-eb5-timeline',
+    link: '/pathways/f1-to-eb5-self-sponsored-green-card',
     type: 'Timeline',
-  },
-  {
-    title: 'EB-5 Infographics for Students',
-    description: 'Visual comparison charts and process flowcharts for student immigration.',
-    link: '/infographics',
-    type: 'Visual Guide',
   },
   {
     title: 'Complete 2027 EB-5 Guide',
@@ -178,18 +165,6 @@ const StudentPlaybookMainContent = () => {
             <div>
               <h3 className="font-semibold">EB-5 Feasibility Tool</h3>
               <p className="text-sm text-muted-foreground">Evaluate your EB-5 investment readiness</p>
-            </div>
-          </a>
-          <a
-            href="/tools/visa-backlog-checker"
-            className="p-4 bg-card rounded-lg hover:shadow-md transition-shadow flex items-center gap-4"
-          >
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <Briefcase className="h-5 w-5 text-primary" />
-            </div>
-            <div>
-              <h3 className="font-semibold">Visa Backlog Checker</h3>
-              <p className="text-sm text-muted-foreground">Check current wait times by country</p>
             </div>
           </a>
         </div>

@@ -1,6 +1,6 @@
 import { Link } from '@/components/RouterLink';
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, MapPin, Database, GraduationCap, Clock, Map, Globe, Calendar, DollarSign, Wallet, Dice5, Briefcase, Route, Scale, FileCheck, Baby, ListChecks, Milestone, ShieldCheck } from 'lucide-react';
+import { Menu, X, ChevronDown, GraduationCap, Clock, Calendar, DollarSign, Wallet, Dice5, Briefcase, Route, FileCheck, Baby, ListChecks, ShieldCheck } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -55,7 +55,6 @@ const Header = ({ transparent = false }: HeaderProps) => {
     { name: 'Research', href: '/research' },
     { name: 'News', href: '/news' },
     { name: 'Tools', href: '/eb5-investment-immigration-tools' },
-    { name: 'Infographics', href: '/infographics' },
     { name: 'FAQ', href: '/faq' },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
@@ -65,15 +64,15 @@ const Header = ({ transparent = false }: HeaderProps) => {
     {
       label: 'For Students',
       links: [
-        { name: 'The F-1 Student Guide', href: '/guides/f1-student-eb5-green-card' },
-        { name: 'Student Timeline (Step-by-Step)', href: '/timelines/f1-student-eb5-timeline' },
+        { name: 'The F-1 Student Guide', href: '/student-playbook' },
+        { name: 'Student Timeline (Step-by-Step)', href: '/pathways/f1-to-eb5-self-sponsored-green-card' },
       ],
     },
     {
       label: 'For Professionals',
       links: [
-        { name: 'The H-1B to EB-5 Guide', href: '/guides/h1b-to-eb5-transition' },
-        { name: 'H-1B Processing Timeline', href: '/timelines/h1b-eb5-processing-timeline' },
+        { name: 'The H-1B to EB-5 Guide', href: '/resources' },
+        { name: 'H-1B Processing Timeline', href: '/pathways/h1b-to-green-card' },
       ],
     },
     {
@@ -91,21 +90,15 @@ const Header = ({ transparent = false }: HeaderProps) => {
   ];
 
   const toolLinks = [
-    { name: 'H1B Wage Map', href: '/tools/h1bwagemap', icon: MapPin },
-    { name: 'H-1B Job Datahub', href: '/tools/h1b-jobdatahub', icon: Database },
     { name: 'H-1B Lottery Calculator', href: '/tools/h1b-lottery-odds-calculator', icon: Dice5 },
     { name: 'Tuition Savings Calculator', href: '/tools/tuition-calculator', icon: GraduationCap },
     { name: 'Grandfathering Countdown', href: '/tools/grandfathering-countdown', icon: Clock },
-    { name: 'TEA Project Explorer', href: '/tools/tea-project-explorer', icon: Map },
-    { name: 'Visa Backlog Checker', href: '/tools/visa-backlog-checker', icon: Globe },
     { name: 'OPT Calculator', href: '/tools/opt-calculator', icon: Calendar },
     { name: 'EB-5 Feasibility Tool', href: '/tools/2026-eb5-investment-feasibility-calculator', icon: DollarSign },
     { name: 'Source of Funds Calculator', href: '/tools/source-of-funds-calculator', icon: Wallet },
-    { name: 'Direct vs. Regional Center', href: '/tools/eb5-direct-vs-regional-center', icon: Scale },
     { name: 'Concurrent Filing Checker', href: '/tools/eb5-concurrent-filing-eligibility', icon: FileCheck },
     { name: 'CSPA Age Calculator', href: '/tools/eb5-cspa-calculator', icon: Baby },
     { name: 'Source of Funds Checklist', href: '/tools/eb5-source-of-funds-checklist', icon: ListChecks },
-    { name: 'I-829 Lifecycle Tracker', href: '/tools/eb5-i829-lifecycle-tracker', icon: Milestone },
     { name: 'Regional Center Scorecard', href: '/tools/eb5-regional-center-scorecard', icon: ShieldCheck },
   ];
 
@@ -253,8 +246,6 @@ const Header = ({ transparent = false }: HeaderProps) => {
               </DropdownMenu>
             </div>
 
-            <span className={dotClasses} aria-hidden="true">•</span>
-            <Link to="/infographics" className={linkClasses}>Infographics</Link>
             <span className={dotClasses} aria-hidden="true">•</span>
             <Link to="/about" className={linkClasses}>About</Link>
             <span className={dotClasses} aria-hidden="true">•</span>

@@ -60,20 +60,6 @@ export const PAGE_ROUTES: PageRoute[] = [
     changefreq: 'monthly',
   },
   {
-    path: '/eb5-report',
-    title: 'Free EB-5 Investor Report: Rural Strategy & Source of Funds Playbook',
-    description: 'Rural EB-5 India report: best rural EB-5 strategy, best source of funds strategy for Indian EB-5 investors, and the fastest path to permanent residency.',
-    priority: 0.7,
-    changefreq: 'monthly',
-  },
-  {
-    path: '/infographics',
-    title: 'EB-5 Infographics: Timelines, Processing & Concurrent Filing Visuals',
-    description: 'Rural EB-5 processing time, fastest green card via rural EB-5, EB-5 advance parole timeline, and how concurrent filing changes EB-5 for Indian nationals.',
-    priority: 0.8,
-    changefreq: 'weekly',
-  },
-  {
     path: '/privacy-policy',
     title: 'Privacy Policy | StudentEB5 EB-5 Immigration Advisors',
     description: 'StudentEB5 privacy policy: how our EB-5 immigration advisors collect, use, and safeguard your information with strict confidentiality and CCPA compliance.',
