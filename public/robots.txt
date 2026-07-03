@@ -1,0 +1,19 @@
+# Exclude Cloudflare email protection paths (third-party service)
+User-agent: *
+Disallow: /cdn-cgi/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /cdn-cgi/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /cdn-cgi/
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+Sitemap: https://studenteb5.com/sitemap-index.xml
