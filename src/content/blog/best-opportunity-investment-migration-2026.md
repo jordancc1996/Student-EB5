@@ -27,7 +27,7 @@ relatedPosts:
   - f1-students/f1-to-eb5-green-card
 ---
 
-The EB-5 regional center investor program has usually been characterized by rising costs, regulatory uncertainty and political scrutiny. However, 2026 is primed to be the most investor friendly year in the last decade. This window of opportunity is defined by a convergence of three factors: critical legislative deadlines, strategic advantage of current visa availability and 2026 being the last year before inflation adjustment requirements. Use our <a href="/tools/2026-eb5-investment-feasibility-calculator">EB-5 Investment Feasibility Calculator</a> to assess your financial readiness.
+<intro>2026 is the last year to file an EB-5 petition at the current $800,000 TEA minimum before the scheduled January 1, 2027 inflation adjustment, and the September 30, 2026 grandfathering deadline is the final date to lock in adjudication protection under existing program rules regardless of what Congress does afterward. Rural TEA set-aside visa categories remain current for all countries including India and China as of late 2025, allowing backlogged nationals to bypass decades-long waits in the unreserved category. The sections below explain set-aside visa mechanics, the grandfathering deadline, and the step-by-step filing process for international students entering the program this year.</intro>
 
 ## The Regulatory and Financial Arbitrage Opportunity
 

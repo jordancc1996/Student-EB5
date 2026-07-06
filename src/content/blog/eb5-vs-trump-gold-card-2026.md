@@ -27,9 +27,7 @@ relatedPosts:
   - 5-reasons-switch-h1b-to-eb5
 ---
 
-The goal of permanent residency in the United States is shared by many ambitious international groups. These groups include high net worth investors looking to expand their business, H-1B professionals looking to stay in the United States, and international students at prestigious boarding schools and American universities planning their futures. The United States offers various immigration routes but few are as known, proven and reliable as the EB-5 investor program.
-
-The current administration has recently proposed a new high-cost, fast-track residency dubbed the "Trump Gold Card". This new program has been met with widespread skepticism and criticism due to its legal ambiguity and uncertain path to a Green Card. For those seeking stability, the EB-5 program's established structure and clear benefits make it the overwhelmingly more attractive option than its alternatives.
+<intro>The EB-5 program requires a recoupable $800,000 investment that covers the investor, spouse, and all unmarried children under 21 in a single filing, while the proposed Trump Gold Card demands a non-refundable $1 million contribution per family member, meaning a family of four would pay at least $4 million with no capital return. EB-5 has operated under U.S. law since 1990 with a dedicated visa category and clear grandfathering protections; the Gold Card proposal routes applicants through already backlogged EB-1 and EB-2 queues, undermining its marketed fast-track promise. For H-1B professionals, international students, and investor families, the choice is between a proven investment structure and an untested donation with ambiguous legal status. The comparison below covers track record, family coverage, visa category mechanics, and the specific drawbacks that make the Gold Card a high-risk alternative to EB-5.</intro>
 
 ## The Need for Certainty
 

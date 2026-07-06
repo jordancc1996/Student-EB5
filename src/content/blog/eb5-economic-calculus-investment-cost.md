@@ -32,7 +32,7 @@ relatedPosts:
   - choosing-rural-eb5-regional-center-guide
 ---
 
-The <a href="/research/complete-2027-eb5-guide">EB-5 immigrant investor program</a> offers a unique way for foreign nationals to get U.S. permanent residency. The program is a straightforward, stable, transactional proposition offering a green card for significant capital investment in U.S. commercial enterprise. Is the EB-5 program worth it? The answer transcends a simple yes or no and requires a nuanced analysis of direct costs, opportunity costs and intangible benefits of U.S. residency. This article will dive into the financial principles underpinning the EB-5 program and dissect its economic and opportunity cost.
+<intro>The economic cost of an EB-5 green card is not fully captured by the $800,000 TEA minimum; investors also budget $60,000 to $80,000 in regional center admin fees, and face opportunity cost from locking $800,000 in a low yield project for five to seven years instead of deploying it in a conventional portfolio. The article compares alternative return scenarios at 4%, 7%, and 10%+ annually and estimates the forgone gain on the principal alone in a range of $275,000 to $500,000 depending on risk appetite, separate from the $800,000 itself, which remains at risk and is assumed to be returned only if the project succeeds. The sections below break down direct fees, the opportunity cost math, the qualitative value proposition for families facing visa backlogs, and the due diligence criteria that reduce project failure risk.</intro>
 
 ## The True Economic Cost of the EB-5 Program
 

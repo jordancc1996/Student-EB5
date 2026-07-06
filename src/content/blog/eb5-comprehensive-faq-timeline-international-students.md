@@ -31,9 +31,7 @@ relatedPosts:
   - eb5-grandfathering-2026-2027-deadlines
 ---
 
-The EB-5 immigrant investor program is administered by the United States Citizenship and Immigration Services (USCIS) and offers a direct pathway to a U.S. Green Card (Permanent Residency) for foreign nationals who make a qualifying investment in a U.S. commercial Enterprise.
-
-International students currently in the United States on an F-1 visa and planning to stay in the United States post-graduation and apply for OPT or sponsorship via an H-1B visa can benefit from the EB-5 program. The EB-5 program has recently become increasingly attractive due to the 2022 <a href="/research/post-reform-integrity-act-analysis">Reform and Integrity Act</a> and its addition of concurrent filing. This comprehensive FAQ and Timeline analysis addresses the most critical questions international students and their families have about leveraging the EB-5 program. For a complete overview, see our <a href="/research/complete-2027-eb5-guide">Complete 2027 EB-5 Guide</a>.
+<intro>International students on F-1 visas can pursue a U.S. green card through EB-5 by investing $800,000 in a rural or high-unemployment Targeted Employment Area project, or $1,050,000 in a standard-area project, and filing their I-526E and I-485 concurrently to receive work and travel authorization within 3 to 6 months. Rural TEA projects also qualify for USCIS priority processing, with I-526E approvals typically landing in 6 to 12 months and I-485 adjudication following 6 to 8 months after that. Gifted or borrowed funds are permitted provided every dollar is traceable to a lawful source. The sections below answer the financial, filing, and timeline questions international students and their families ask most often before committing to the program.</intro>
 
 ## Section 1: Financial Requirements and Investment Options
 

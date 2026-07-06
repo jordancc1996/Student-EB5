@@ -28,9 +28,7 @@ relatedPosts:
   - h1b-alternatives-o1-eb1-eb5
 ---
 
-The United States hosts the top universities in the world and attracts students from every country. A degree from a prestigious United States university opens doors to career opportunities, business opportunities and to the American dream. For international students, these barriers limit their potential and strangle their opportunities. These restrictions force international students to focus on alternative visa routes like the <a href="/research/complete-2027-eb5-guide">EB-5 immigrant investor visa</a>. Read inspiring stories of how <a href="/research/golden-visa-global-education-student-stories">investment migration has transformed students' educational journeys globally</a>.
-
-The EB-5 visa program can dramatically lower education costs, grant access to scholarships and eliminate visa uncertainty and provides a clear pathway to building a legacy in America after graduation.
+<intro>A green card obtained through the $800,000 EB-5 program can save an international student $200,000 or more in tuition over four years by qualifying them for in-state rates, and families with multiple children pursuing U.S. education can see combined savings of $400,000 to $600,000, enough to self-fund a substantial portion of the investment before capital is returned in five to seven years. Concurrent filing of I-526E and I-485 delivers work and travel authorization within months, eliminating dependence on the H-1B lottery and the visa interview backlogs that have left some Indian applicants waiting over 500 days for a consulate appointment. Green card holders also access merit scholarships, federal financial aid, and federal student loans at 5 to 7% interest instead of 10 to 11% private international rates. The guide below covers program mechanics, tuition tier structure, scholarship eligibility, internship freedom, and why permanent residency is the structural fix for the constraints international students face from admission through graduation.</intro>
 
 ## Understanding the EB-5 Immigration Program
 
