@@ -18,6 +18,10 @@ links:
     url: /pathways/h1b-to-green-card
   - text: Complete 2027 EB-5 Guide
     url: /research/complete-2027-eb5-guide
+  - text: F-1 Student to Green Card Pathway
+    url: /pathways/f1-to-eb5-self-sponsored-green-card
+  - text: EB-5 CSPA Calculator
+    url: /tools/eb5-cspa-calculator
 relatedFaqs:
   - family-members-included
   - can-f1-students-apply-eb5

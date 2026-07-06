@@ -32,7 +32,7 @@ relatedPosts:
 
 The EB-5 program grants conditional permanent residency to investors who place $800,000 in a qualifying project located in a Targeted Employment Area and create at least 10 full-time U.S. jobs. The investment amount is fixed by statute, but the way the capital is sourced is not. USCIS only requires that every dollar be traced through lawful channels for the seven years preceding the petition. How a student-age applicant assembles that capital is a planning question, not a regulatory one.
 
-For the mechanics of the F-1 to EB-5 transition itself — concurrent filing, the I-485 adjustment of status, EAD and Advance Parole timing — see our <a href="/research/f1-students/f1-to-eb5-green-card">comprehensive F-1 to EB-5 guide</a>. This article focuses narrowly on where the money comes from.
+For the mechanics of the F-1 to EB-5 transition itself — concurrent filing, the I-485 adjustment of status, EAD and Advance Parole timing — see our <a href="/research/f1-students/f1-to-eb5-green-card">comprehensive F-1 to EB-5 guide</a>, or start with the <a href="/pathways/f1-to-eb5-self-sponsored-green-card">step-by-step F-1 student pathway</a> for a timeline-first overview. This article focuses narrowly on where the money comes from.
 
 ## How student-age investors compare across visa categories
 
@@ -44,7 +44,7 @@ The structural advantage of EB-5 is that the constraint is financial rather than
 
 ## Concurrent filing protects the student during the funding period
 
-Investors already in the United States on a lawful nonimmigrant status can file the I-485 adjustment of status concurrently with the I-526E. This is what allows an F-1 student to receive an Employment Authorization Document and Advance Parole within four to eight months of filing — eliminating dependence on the H-1B lottery and the 60-day departure clock that follows a layoff. The full mechanics of concurrent filing, the 90-day rule, and maintaining F-1 status during adjudication are covered in the <a href="/research/f1-students/f1-to-eb5-green-card">F-1 to EB-5 guide</a>. What matters for funding strategy is timing: the capital needs to be assembled, traced, and ready to deploy before the I-526E is filed, not after.
+Investors already in the United States on a lawful nonimmigrant status can file the I-485 adjustment of status concurrently with the I-526E. This is what allows an F-1 student to receive an Employment Authorization Document and Advance Parole within four to eight months of filing — eliminating dependence on the H-1B lottery and the 60-day departure clock that follows a layoff. If you are still on OPT, <a href="/tools/opt-calculator">calculate your remaining OPT timeline</a> before you commit to a filing strategy. The full mechanics of concurrent filing, the 90-day rule, and maintaining F-1 status during adjudication are covered in the <a href="/research/f1-students/f1-to-eb5-green-card">F-1 to EB-5 guide</a>. What matters for funding strategy is timing: the capital needs to be assembled, traced, and ready to deploy before the I-526E is filed, not after.
 
 ## Funding Route 1: Home Equity Line of Credit (HELOC)
 

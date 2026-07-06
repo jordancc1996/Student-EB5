@@ -16,6 +16,8 @@ links:
     url: /research/h1b-alternatives-o1-eb1-eb5
   - text: Learn who can benefit from EB-5
     url: /about
+  - text: F-1 Student to Green Card Pathway
+    url: /pathways/f1-to-eb5-self-sponsored-green-card
 relatedFaqs:
   - what-is-eb5-visa-program
   - family-members-included

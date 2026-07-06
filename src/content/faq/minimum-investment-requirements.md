@@ -13,6 +13,8 @@ keywords:
 links:
   - text: Detailed guide on EB-5 investment requirements
     url: /research/complete-2027-eb5-guide
+  - text: EB-5 Investment Feasibility Calculator
+    url: /tools/2026-eb5-investment-feasibility-calculator
 relatedFaqs:
   - what-is-eb5-visa-program
   - what-is-regional-center

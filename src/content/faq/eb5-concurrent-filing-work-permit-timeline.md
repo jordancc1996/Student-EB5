@@ -19,6 +19,10 @@ links:
     url: /pathways/h1b-to-green-card
   - text: Complete 2027 EB-5 Guide
     url: /research/complete-2027-eb5-guide
+  - text: F-1 Student to Green Card Pathway
+    url: /pathways/f1-to-eb5-self-sponsored-green-card
+  - text: Concurrent Filing Eligibility Checker
+    url: /tools/eb5-concurrent-filing-eligibility
 relatedFaqs:
   - h1b-self-sponsor-green-card-eb5
   - eb5-process-timeline

@@ -109,7 +109,7 @@ The EB-5 visa has no work authorization barriers, is more attractive to employer
 
 ## The H-1B Nightmare for International Graduates
 
-Most international students dread facing the stressful reality after graduation of finding a H-1 sponsor. The H-1B lottery has extremely low odds and with new expected policy changes the odds will get even lower. If an applicant is not accepted the international student must leave the United States or scramble for alternatives. A student with a green card does not have to get H-1B sponsorship and has the flexibility to choose their own job, career or start a business if they decide to do so. Learn more about <a href="/pathways/f1-to-eb5-self-sponsored-green-card">securing US residency after graduation</a> through the EB-5 pathway.
+Most international students dread facing the stressful reality after graduation of finding a H-1 sponsor. <a href="/tools/opt-calculator">Calculate your OPT expiration date</a> to see how much runway you have before the H-1B lottery becomes your only option. The H-1B lottery has extremely low odds and with new expected policy changes the odds will get even lower. If an applicant is not accepted the international student must leave the United States or scramble for alternatives. A student with a green card does not have to get H-1B sponsorship and has the flexibility to choose their own job, career or start a business if they decide to do so. Learn more about <a href="/pathways/f1-to-eb5-self-sponsored-green-card">securing US residency after graduation</a> through the EB-5 pathway.
 
 ## Watch: EB-5 Investment Immigration Explained
 

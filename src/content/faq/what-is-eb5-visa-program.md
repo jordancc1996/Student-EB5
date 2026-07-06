@@ -16,6 +16,8 @@ links:
     url: /research/complete-2027-eb5-guide
   - text: Learn more about StudentEB5
     url: /about
+  - text: EB-5 Investment Feasibility Calculator
+    url: /tools/2026-eb5-investment-feasibility-calculator
 relatedFaqs:
   - minimum-investment-requirements
   - eb5-process-timeline

@@ -134,6 +134,7 @@ Consult these guides before working on related tasks:
 ## Known issues
 
 - FAQ detail page related-FAQ cards have nested `<a>` tags (outer card link wraps inner links from the answer excerpt's `dangerouslySetInnerHTML`/`set:html` content). This is invalid HTML, but currently causes no visible bug since `FaqDetailContent` renders as static SSR (no client hydration to conflict). It DID cause a false-positive duplicate-card reading in an early verification script (browser HTML-repair artifacts), confirmed resolved as a script bug, not a real page bug, on 2026-06-27. Worth a future structural fix (e.g. truncating excerpt HTML to strip inner `<a>` tags) if strict HTML validity becomes a priority, but not currently blocking.
+- golden-visas-vs-eb5-elite-students.md contains a typo: 'Optical Practical Training' should be 'Optional Practical Training' (line ~30). Flag for content fix pass.
 
 ## Pending for SEO finalization phase
 

@@ -13,6 +13,8 @@ keywords:
 links:
   - text: Read our complete EB-5 guide
     url: /research/complete-2027-eb5-guide
+  - text: Grandfathering Countdown
+    url: /tools/grandfathering-countdown
 relatedFaqs:
   - what-is-eb5-visa-program
   - minimum-investment-requirements

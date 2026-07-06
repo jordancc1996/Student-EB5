@@ -17,6 +17,8 @@ links:
     url: /research/complete-2027-eb5-guide
   - text: Source of Funds Checklist
     url: /tools/eb5-source-of-funds-checklist
+  - text: F-1 Student to Green Card Pathway
+    url: /pathways/f1-to-eb5-self-sponsored-green-card
 relatedFaqs:
   - minimum-investment-requirements
   - can-f1-students-apply-eb5

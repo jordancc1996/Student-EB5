@@ -95,7 +95,7 @@ For a deeper checklist, see our <a href="/research/19-questions-rural-eb5-projec
 
 ## What to Expect Next
 
-Once you have confirmed accredited investor status, organized your source-of-funds documentation with counsel, and selected a vetted rural TEA project with an approved I-956F, you are ready to move into the filing phase: subscription documents, capital wire, and Form I-526E (with concurrent I-485, I-765, and I-131 if you are already in the United States on a valid H-1B or F-1 status). <a href="/research/investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b">Part 2 of this series</a> covers attorney selection, the full cost breakdown, and frequently asked questions.
+Once you have confirmed accredited investor status, organized your source-of-funds documentation with counsel, and selected a vetted rural TEA project with an approved I-956F, you are ready to move into the filing phase: subscription documents, capital wire, and Form I-526E (with concurrent I-485, I-765, and I-131 if you are already in the United States on a valid H-1B or F-1 status). F-1 students can follow the dedicated <a href="/pathways/f1-to-eb5-self-sponsored-green-card">F-1 to EB-5 pathway</a> before moving into <a href="/research/investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b">Part 2 of this series</a>, which covers attorney selection, the full cost breakdown, and frequently asked questions.
 
 If you would like to discuss your specific eligibility or review project options, <a href="/contact">contact the StudentEB5 team</a> for a free, independent educational consultation.
 
