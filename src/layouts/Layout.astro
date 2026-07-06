@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import CookieConsentBanner from '@/components/CookieConsentBanner';
+import WhatsAppCTA from '@/components/WhatsAppCTA';
 ---
 
 <!doctype html>
@@ -38,6 +39,7 @@ import CookieConsentBanner from '@/components/CookieConsentBanner';
 		>
 		<!-- End Google Tag Manager (noscript) -->
 		<slot />
+		<WhatsAppCTA />
 		<CookieConsentBanner client:load />
 	</body>
 </html>
