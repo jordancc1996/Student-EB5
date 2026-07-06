@@ -31,6 +31,8 @@ relatedPosts:
   - h1b-eb5-financial-planning
 ---
 
+<intro>A safe EB-5 regional center must pass five checks before you commit $800,000: active USCIS designation with clean compliance history, I-526E and I-829 approval rates above 95%, an I-956F-approved project with a diversified capital stack, transparent communication with verifiable past investors, and a management team with no regulatory or bankruptcy history. A regional center that fails any one of these criteria puts both your capital and your green card timeline at risk. The framework below walks through exactly what to verify in each category and the questions to ask during due diligence.</intro>
+
 The decision to invest in the <a href="/research/complete-2027-eb5-guide">EB-5 immigrant investor program</a> is a significant life changing decision for prospective investors. A critical component of this journey is the selection of a reputable and reliable regional center. Every regional center is vying for investors' attention, and each proclaims exceptional service and sound investments. Prospective investors must undertake thorough due diligence to safeguard their investment and protect their immigration goals. For a comprehensive framework, see our guide on <a href="/research/19-questions-rural-eb5-project-due-diligence">19 Questions to Analyze an EB-5 Deal</a>. The following article provides a framework as well as important questions to ask when the investor is going through their due diligence period.
 
 ## USCIS Compliance and Operational History

@@ -29,6 +29,8 @@ relatedPosts:
   - f1-students/f1-to-eb5-green-card
 ---
 
+<intro>H-1B professionals are switching to EB-5 for five structural reasons: permanent residency instead of a six-year temporary cap, no employer sponsorship or $100,000 new-applicant fee, bypass of a lottery where fewer than 20% of 470,000+ annual registrations are selected, concurrent filing that delivers work authorization within months, and a direct green card path that does not depend on decade-long EB-2 or EB-3 backlogs. The switch requires an $800,000 investment in a qualifying TEA project and documented source of funds, but it eliminates the single point of failure that defines H-1B status — your employer. Each reason is unpacked below with the specific immigration and career constraints it resolves.</intro>
+
 The H-1B visa has been popular among foreign workers in the last decade due to it being an employment-based visa that is granted to a skilled professional. While this may be a fast track to living in the U.S. for some people, it is temporary and comes with a lot of limitations. For those who move to the United States with their family, the H-1B's temporary nature may not be as desirable compared to a more permanent solution. It's for this reason that many foreign professionals are turning to the <a href="/research/complete-2027-eb5-guide">EB-5 visa program</a> and as the immigration landscape evolves, there may be no better time to consider making the switch. If you're ready to explore <a href="/pathways/h1b-to-green-card">escaping the H-1B backlog</a>, a comprehensive pathway guide is available.
 
 ## H-1B vs EB-5

@@ -30,9 +30,7 @@ relatedPosts:
   - h1b-eb5-financial-planning
 ---
 
-<intro>The EB-5 immigrant investor program presents a viable and reliable path for foreign nationals seeking to gain permanent residency in the United States. By investing substantial capital into a U.S. commercial enterprise, investors and their families are able to begin the process to permanent residency and U.S. citizenship. However, the journey to a successful EB-5 investment is complex with one of the most critical components to success is understanding the capital stack of the chosen investment.
-
-The capital stack is the structure of all the different sources of financing for an investment. Its composition directly impacts an investor's risk, the priority of their repayment and the overall stability of the project. We hope that today we can help prospective investors understand the basics of a capital stack, the role of the EB-5 funds within it and the key consideration for EB-5 investors to make informed decisions that align with their immigration and investment goals.</intro>
+<intro>The EB-5 capital stack is the layered financing structure of a project — senior debt, mezzanine debt, preferred equity, and common equity — and it determines where your $800,000 investment sits in the repayment queue if the project underperforms. EB-5 funds should occupy a subordinate position behind bank debt and developer equity, not be the primary or sole source of project financing. A project where EB-5 capital makes up more than half of total project financing carries materially higher repayment risk. The sections below explain each layer, how intercreditor agreements protect (or fail to protect) EB-5 investors, and the capital stack red flags to screen during due diligence.</intro>
 
 ## Capital Stack 101
 

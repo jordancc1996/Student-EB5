@@ -34,9 +34,7 @@ relatedPosts:
   - eb5-grandfathering-2026-2027-deadlines
 ---
 
-The United States represents a beacon of opportunity for individuals and families around the world. The country can bring economic prosperity, world-class education, and familial legacy to its inhabitants. The stable democratic society continues to draw millions who dream of building a new life on American soil. One of the most direct and well-established routes for foreign investors is the EB-5 immigrant investor program. This program offers a unique opportunity to obtain a U.S. green card in exchange for a significant investment in a U.S. commercial enterprise. For <a href="/research/f1-students/f1-to-eb5-green-card">F-1 students</a> and <a href="/research/eb5-lifeline-h1b-workers">H-1B professionals</a>, this pathway provides unprecedented stability.
-
-This comprehensive guide will dive deep into the intricacies of the EB-5 program, explore its rich history as well as any recent legislative changes and the various investment options available to prospective immigrants.
+<intro>The EB-5 immigrant investor program grants U.S. permanent residency to foreign nationals who invest $800,000 in a rural or high-unemployment Targeted Employment Area project — or $1,050,000 in a standard-area project — and create at least 10 full-time U.S. jobs. Since the 2022 Reform and Integrity Act, investors already in the U.S. on F-1, H-1B, or similar status can file their I-485 adjustment of status concurrently with their I-526E petition and receive work and travel authorization within 3–6 months. Filing before September 30, 2026 locks in current program rules under the grandfathering provision. The sections below cover every requirement, the step-by-step filing process, rural set-aside visas, and the 2027 reauthorization deadline.</intro>
 
 ## What is the EB-5 Immigrant Investor Program?
 

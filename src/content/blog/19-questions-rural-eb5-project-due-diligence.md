@@ -34,7 +34,7 @@ relatedPosts:
   - complete-2027-eb5-guide
 ---
 
-<intro>Prospective investors should ask relevant questions to understand the risks involved when investing in an EB-5 deal. This article will explore questions to ask, the ideal answer and the justification behind the question and answer to help investors understand the process of analyzing EB-5 deals. For a complete overview of the EB-5 program, see our <a href="/research/complete-2027-eb5-guide">Complete 2027 EB-5 Guide</a>. For guidance on choosing a regional center, read our <a href="/research/choosing-rural-eb5-regional-center-guide">regional center selection guide</a>.</intro>
+<intro>Before investing $800,000 in any EB-5 project, you need verified answers to 19 questions covering the regional center's track record, I-956F approval status, job creation methodology, capital stack position, developer equity commitment, and exit strategy. A project that cannot produce clear documentation on any one of these — particularly I-956F approval, meaningful developer equity in the project, and a defined capital return mechanism — should be disqualified immediately. The questions below state what to ask, the ideal answer for each, and why USCIS or your immigration counsel will care about the response.</intro>
 
 **Get the clarity and support you need to navigate EB-5 at <a href="/">StudentEB5.com</a>**
 

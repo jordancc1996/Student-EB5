@@ -24,6 +24,8 @@ keywords:
   - green card investment
 ---
 
+<intro>EB-5 grandfathering means that if you file your I-526E petition on or before September 30, 2026, USCIS must continue adjudicating it even if Congress lets the regional center program expire or changes the rules afterward. Filing after that date leaves your green card path dependent on a September 30, 2027 reauthorization vote, and the minimum investment is scheduled to increase from $800,000 on January 1, 2027. If you are considering EB-5, the September 2026 filing deadline is the date that locks in both program protection and the current investment threshold. Read on for the full timeline, the 2027 reauthorization risk, and what to do now.</intro>
+
 ## EB-5 Grandfathering Explained: Why 2026 and 2027 are Critical for Investors
 
 The modern EB-5 landscape was reshaped by the <a href="/research/post-reform-integrity-act-analysis">EB-5 Reform and Integrity Act of 2022 (RIA)</a>. While the RIA brought stability and oversight to the program, it also introduced two critical non-negotiable deadlines that have profound implications for prospective investors. Track the countdown with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>. These two deadlines are September 30, 2026 and September 30, 2027. The distinction between these dates is essential for everyone considering the EB-5 path to a United States Green Card.

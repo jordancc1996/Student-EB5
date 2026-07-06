@@ -30,6 +30,8 @@ relatedPosts:
   - h1b-eb5-financial-planning
 ---
 
+<intro>The EB-5 program is the only self-sponsored green card path that removes H-1B employer dependency — allowing you to file concurrently with your I-526E petition, receive an Employment Authorization Document and Advance Parole within months, and work for any employer without lottery risk or a 60-day grace period after a layoff. An $800,000 investment in a rural TEA project also qualifies for the 20% rural visa set-aside, which can reduce wait times to 4–8 months for backlogged nationals from India and China. Filing before September 30, 2026 locks in grandfathering protection under current program rules. The sections below compare EB-5 against H-1B on sponsorship, job mobility, family inclusion, and concurrent filing mechanics.</intro>
+
 ## The H-1B Program: Benefits and Challenges
 
 The <a href="/research/h1b-alternatives-o1-eb1-eb5">H-1B visa program</a> has enabled thousands of qualified foreign nationals to advance their careers and lives in the United States while providing a broader talent pool for specialty positions. The H-1B visa has become especially popular in the tech industry. Engineers, software developers and computer science specialists have been the bread-and-butter occupations for skilled H-1B employees. Check H-1B salary data in your area with our H-1B Wage Map.

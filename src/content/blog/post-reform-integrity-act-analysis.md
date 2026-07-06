@@ -30,6 +30,8 @@ relatedPosts:
   - eb5-grandfathering-2026-2027-deadlines
 ---
 
+<intro>The EB-5 Reform and Integrity Act of 2022 gave investors three concrete advantages: concurrent filing of I-526E and I-485 for immediate work and travel authorization, priority processing of rural TEA petitions in as little as 4–8 months, and mandatory I-956F project pre-approval before investor petitions are adjudicated. Together, these changes made EB-5 the fastest employment-based green card route for backlogged nationals from India and China — without employer sponsorship. The analysis below covers each provision, who benefits most, and what project due diligence looks like in the post-RIA era.</intro>
+
 The 2022 enactment of the EB-5 Reform and Integrity Act has fundamentally reshaped the landscape of US investment immigration. The EB-5 has transitioned into a transparent and regulated program with investor safety being the main focus. The material improvements introduced by the RIA have made the EB-5 program much more attractive to prospective investors (rarely do governments make investment migration programs better!). This article will explore the improvements and the shifting demographics because of these improvements and the economic effect of redirected capital in this post RIA era. For a comprehensive overview, see our <a href="/research/complete-2027-eb5-guide">Complete 2027 EB-5 Guide</a>.
 
 ## The Legislative Framework
