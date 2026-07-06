@@ -46,7 +46,9 @@ The F-1 visa is a nonimmigrant visa that allows foreign students to pursue full 
 
 ## Optional Practical Training (OPT)
 
-Many F-1 students apply for optional practical training after they graduate, which allows the student to work for up to 12 months in a job directly related to their field of study. Students with degrees in science, technology, engineering and mathematics usually take the additional 24 month extension to get 36 total months of OPT. OPT provides valuable work experience but is only a band aid to the long-term prospects of international students. When OPT ends the pressure to secure a more permanent visa status intensifies. Use our <a href="/tools/opt-calculator">OPT Calculator</a> to understand your timeline.
+Many F-1 students apply for optional practical training after they graduate, which allows the student to work for up to 12 months in a job directly related to their field of study. Students with degrees in science, technology, engineering and mathematics usually take the additional 24 month extension to get 36 total months of OPT. OPT provides valuable work experience but is only a band aid to the long-term prospects of international students. When OPT ends the pressure to secure a more permanent visa status intensifies.
+
+<aside class="not-prose my-10 border border-border bg-primary/5 px-8 py-6 rounded-sm"><p class="text-[10px] font-bold tracking-[0.22em] uppercase text-muted-foreground mb-3">Interactive Tool · OPT Calculator</p><h3 class="font-serif text-xl font-semibold text-foreground mb-3">Map Your OPT Expiration Date</h3><p class="text-muted-foreground text-base leading-relaxed mb-5">STEM extensions, grace periods, and the gap before H-1B cap season all depend on one date: when your work authorization ends. Plug in your program end date and OPT type to see how many months of runway you actually have.</p><a href="/tools/opt-calculator" class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-none text-sm font-semibold hover:bg-primary/90 transition-colors duration-150">Calculate My OPT Timeline →</a></aside>
 
 ## H-1B Lottery
 

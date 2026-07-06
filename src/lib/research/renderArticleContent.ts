@@ -48,6 +48,10 @@ export function renderArticleContentLines(contentLines: string[]): string {
         return '<div style="height:0.75em"></div>';
       }
 
+      if (/^<aside[\s>]/.test(line.trim())) {
+        return line;
+      }
+
       return `<p>${formatLine(line)}</p>`;
     })
     .join('');

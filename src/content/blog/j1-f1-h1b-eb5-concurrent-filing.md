@@ -72,6 +72,8 @@ Prior to the Reform and Integrity Act an EB-5 investor had to wait for the appro
 
 These interim benefits are typically approved within 4-8 months of filing, establishing an independent legal status in the United States while the underlying EB-5 petition is adjudicated.
 
+<aside class="not-prose my-10 border border-border bg-primary/5 px-8 py-6 rounded-sm"><p class="text-[10px] font-bold tracking-[0.22em] uppercase text-muted-foreground mb-3">Interactive Tool · Concurrent Filing Checker</p><h3 class="font-serif text-xl font-semibold text-foreground mb-3">Could You File I-526E and I-485 Together?</h3><p class="text-muted-foreground text-base leading-relaxed mb-5">Concurrent filing depends on your current visa, country of chargeability, and whether a visa number is immediately available. Answer a few questions to see if you meet the conditions described above — before you spend months on source-of-funds documentation.</p><a href="/tools/eb5-concurrent-filing-eligibility" class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-none text-sm font-semibold hover:bg-primary/90 transition-colors duration-150">Check My Concurrent Filing Eligibility →</a></aside>
+
 ## Strategic Recommendations for H-1B, J-1 and F-1 visas
 
 For Indian and Chinese professionals on J-1, F-1, and H-1B visas, the Post-RIA EB-5 program represents a predictable self-sponsored alternative to decades-long employment backlogs. The ability to file concurrently provides immediate professional mobility, entrepreneurial freedom, and family stability within months of filing.

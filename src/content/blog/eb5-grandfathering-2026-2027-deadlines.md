@@ -36,6 +36,8 @@ The Reform and Integrity Act sought to rectify this systemic problem by adding a
 
 Filing before September 30, 2026 locks in the investor's place in the program and insulates them from future political or legislative changes. This is the single most compelling reason for new investors to act with urgency in the beginning of 2026.
 
+<aside class="not-prose my-10 border border-border bg-primary/5 px-8 py-6 rounded-sm"><p class="text-[10px] font-bold tracking-[0.22em] uppercase text-muted-foreground mb-3">Interactive Tool · Grandfathering Countdown</p><h3 class="font-serif text-xl font-semibold text-foreground mb-3">How Many Days Until the Grandfathering Deadline?</h3><p class="text-muted-foreground text-base leading-relaxed mb-5">You just read what grandfathering protects — now see exactly how much time remains before September 30, 2026. Enter today's date and get a live countdown to the filing cutoff that locks in adjudication protection.</p><a href="/tools/grandfathering-countdown" class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-none text-sm font-semibold hover:bg-primary/90 transition-colors duration-150">Track the Sept 30 Deadline →</a></aside>
+
 ## Importance of 2027
 
 The grandfathering deadline is set for 2026, but the current authorization for the EB-5 regional center program extends until September 30, 2027. For those who file after the 2026 cutoff, their investment may be safe, but their path to a green card becomes contingent on Congress reauthorizing the program in 2027. If your investment is made after the grandfathering date, your green card could be in limbo.
