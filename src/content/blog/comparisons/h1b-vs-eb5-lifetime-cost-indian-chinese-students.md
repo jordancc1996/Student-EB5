@@ -56,6 +56,31 @@ Immigrants are highly entrepreneurial. 55% of U.S. startup companies valued at $
 
 <aside class="not-prose my-10 border-l-2 border-foreground bg-card px-8 py-6"><p class="text-[10px] font-bold tracking-[0.22em] uppercase text-muted-foreground mb-4">Research Finding · Immigrant Entrepreneurship</p><p class="font-serif italic text-lg leading-relaxed text-foreground">"Immigrants are 80 percent more likely to start a business than native-born Americans. These effects on business creation and innovation are just so enormous. And they show up in business formation. They show up in rates of innovation and patenting."</p><p class="mt-4 text-[11px] font-bold tracking-[0.14em] uppercase text-foreground">Stanford Graduate School of Business <span class="font-normal italic text-muted-foreground normal-case tracking-normal">· Research on Immigrant Entrepreneurship</span></p></aside>
 
+## Top H-1B Sponsors and the Tech Layoff Wave in 2026
+
+Amazon has cut the most and they have cut at least 30,000 jobs since October, which represents about 10% of its corporate and tech workforce. Amidst the mass layoff announcements, Amazon has added rolling layoffs across the company at a smaller scale, with roughly 16,000 corporate roles being eliminated in Q1 2026 alone. This is extremely disheartening for H-1B Indian and Chinese nationals because this represents a new paradigm in tech where smaller and leaner teams will be more prevalent.
+
+![USCIS H-1B Employer Data Hub showing FY2026 top employers by beneficiaries approved, with Amazon ranked first at 4,831 approvals](/images/uscis-h1b-employer-datahub-fy2026.png)
+
+*USCIS H-1B Employer Data Hub*
+
+The same ten companies dominating FY2026 H-1B approvals are the ones cutting and leaving H-1Bs to fend for themselves:
+
+- **Amazon:** #1 H-1B sponsor (4,831 approvals) and 30,000+ jobs cut since October, plus rolling cuts between announcements
+- **Meta:** 1,606 approvals and cutting 10% of its workforce (with more to follow)
+- **Cognizant:** 2,657 approvals while preparing 12,000 to 15,000 cuts under Project Leap
+- **Microsoft:** 2,273 approvals alongside first-ever buyouts and a shrinking headcount plan
+
+And the layoffs are sporadic by design.
+
+### Sources
+
+- USCIS. H-1B Employer Data Hub. <a href="https://www.uscis.gov/tools/reports-and-studies/h-1b-employer-data-hub" target="_blank" rel="noopener noreferrer">https://www.uscis.gov/tools/reports-and-studies/h-1b-employer-data-hub</a>
+- CNBC. Amazon layoffs: 16,000 jobs to be cut in latest anti-bureaucracy push. <a href="https://www.cnbc.com/2026/01/28/amazon-layoffs-anti-bureaucracy-ai.html" target="_blank" rel="noopener noreferrer">https://www.cnbc.com/2026/01/28/amazon-layoffs-anti-bureaucracy-ai.html</a>
+- CNBC. Meta will cut 10% of workforce as company pushes deeper into AI. <a href="https://www.cnbc.com/2026/04/23/meta-will-cut-10percent-of-workforce-as-it-pushes-more-into-ai.html" target="_blank" rel="noopener noreferrer">https://www.cnbc.com/2026/04/23/meta-will-cut-10percent-of-workforce-as-it-pushes-more-into-ai.html</a>
+- The Hindu BusinessLine. Cognizant launches Project Leap, signals layoffs and shift to AI-led pyramid model. <a href="https://www.thehindubusinessline.com/info-tech/cognizant-launches-project-leap-for-ai-led-future-signals-layoffs-and-reshaping-of-pyramid-model/article70921384.ece" target="_blank" rel="noopener noreferrer">https://www.thehindubusinessline.com/info-tech/cognizant-launches-project-leap-for-ai-led-future-signals-layoffs-and-reshaping-of-pyramid-model/article70921384.ece</a>
+- CNN. Microsoft axes about 4,800 jobs, including major cuts to Xbox. <a href="https://www.cnn.com/2026/07/06/tech/microsoft-layoffs-xbox" target="_blank" rel="noopener noreferrer">https://www.cnn.com/2026/07/06/tech/microsoft-layoffs-xbox</a>
+
 ## The EB-5 Advantage and the 2026 Grandfathering Deadline
 
 The EB-5 immigrant investor program provides a direct and predictable path to a green card and circumvents both the H-1B lottery and the employment-based backlogs. The program requires a standard investment of $800,000 in a Targeted Employment Area or $1,050,000 in a non-targeted area. Most importantly, EB-5 is self-sponsored and removes the employer dependence from the immigrant investor equation.
