@@ -1,9 +1,20 @@
+/**
+ * Post-deploy TOC / color-scheme gate — run against production preview after every deploy.
+ *
+ *   PREVIEW_URL=https://student-eb-5.vercel.app node scripts/verify-toc-live-deploy.mjs
+ *   npm run verify:post-deploy
+ */
 import { configurePlaywrightBrowsersPath, launchChromium } from './lib/playwright-env.mjs';
 import { verifyColorSchemes, browserColorSchemeAudit } from './lib/verify-color-scheme.mjs';
+import {
+  verifyTocBreakpoints,
+  verifyTocCssOnlyAtDesktop,
+} from './lib/verify-toc-breakpoints.mjs';
 
 configurePlaywrightBrowsersPath();
 
 const BASE = process.env.PREVIEW_URL || 'https://student-eb-5.vercel.app';
+const ARTICLE = '/research/complete-2027-eb5-guide';
 
 async function check(name, pass, detail = '') {
   console.log(`${pass ? 'PASS' : 'FAIL'}: ${name}${detail ? ` — ${detail}` : ''}`);
@@ -16,6 +27,8 @@ const browser = await launchChromium();
 const results = [];
 
 results.push(...(await verifyColorSchemes(browser, BASE, check)));
+results.push(...(await verifyTocBreakpoints(browser, BASE, ARTICLE, check)));
+results.push(...(await verifyTocCssOnlyAtDesktop(browser, BASE, ARTICLE, check)));
 
 // Report per-scheme TOC link colors for the task deliverable.
 for (const scheme of ['light', 'dark']) {
