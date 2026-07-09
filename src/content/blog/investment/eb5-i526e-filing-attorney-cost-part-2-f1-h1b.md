@@ -40,7 +40,7 @@ Selecting the right legal representation to file the EB-5 petition is almost as 
 
 An experienced attorney will guide you on the exact documents necessary to file your petition and avoid Requests for Evidence (RFEs) and Notices of Intent to Deny (NOIDs), how to structure your capital transfers, and how to best present your financial history in a way an adjudicator can easily understand. Attempting to file an EB-5 petition without specialized legal counsel is a recipe for disaster.
 
-![Google headquarters signage in Silicon Valley, illustrating the H-1B tech worker audience pursuing EB-5 as a backup to employer-sponsored green cards](/dev-server/src/assets/faqs-studenteb5-greencard-eb5.jpg)
+![Google headquarters signage in Silicon Valley, illustrating the H-1B tech worker audience pursuing EB-5 as a backup to employer-sponsored green cards](../../../assets/faqs-studenteb5-greencard-eb5.jpg)
 
 ### StudentEB5 Recommendation: Use Attorney Project Insight
 
@@ -104,6 +104,6 @@ No. EB-5 is completely independent of the investor's employer. The employer does
 
 Speak with a StudentEB5 advisor to discuss project opportunities, immigration strategies, and the steps required to move from F-1 or H-1B status to permanent residency. <a href="/contact">Schedule your consultation today</a>.
 
-![Golden Gate Bridge tower with San Francisco skyline behind, representing the path to U.S. permanent residency through EB-5](/dev-server/src/assets/studenteb5-greencard-faqs-eb5.jpg)
+![Golden Gate Bridge tower with San Francisco skyline behind, representing the path to U.S. permanent residency through EB-5](../../../assets/studenteb5-greencard-faqs-eb5.jpg)
 
 *The opinions expressed on this website are solely those of the author/presenter. The information provided is for general informational purposes only and should not be considered professional or legal advice. Student EB5 and its contributors do not endorse or take responsibility for any actions taken based on the information presented here. Visitors are strongly advised to consult with qualified immigration attorneys and financial advisors before making any EB-5 investment decisions or taking any actions based on the content on this website.*
