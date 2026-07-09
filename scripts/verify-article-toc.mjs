@@ -1,4 +1,5 @@
 import { PLAYWRIGHT_BROWSERS_PATH, configurePlaywrightBrowsersPath, launchChromium } from './lib/playwright-env.mjs';
+import { verifyColorSchemes } from './lib/verify-color-scheme.mjs';
 
 configurePlaywrightBrowsersPath();
 
@@ -298,6 +299,8 @@ async function main() {
   await fewH2Page.goto(`${BASE}${ARTICLE_WITH_TOC}`, { waitUntil: 'networkidle' });
   await fewH2Page.waitForTimeout(500);
   results.push(await check('No console errors on TOC article', consoleErrors.length === 0, consoleErrors.join('; ')));
+
+  results.push(...(await verifyColorSchemes(browser, BASE, check)));
 
   await fewH2Page.close();
   await browser.close();
