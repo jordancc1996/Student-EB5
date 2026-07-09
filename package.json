@@ -7,9 +7,10 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/verify-dist-asset-urls.mjs",
     "preview": "astro preview",
     "astro": "astro",
+    "verify:assets": "node scripts/verify-dist-asset-urls.mjs",
     "verify:toc": "node scripts/verify-article-toc.mjs",
     "verify:post-deploy": "node scripts/verify-toc-live-deploy.mjs"
   },

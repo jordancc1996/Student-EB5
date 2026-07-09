@@ -1,4 +1,5 @@
 import { extractArticleH2s } from './articleHeadings';
+import { resolveInlineArticleImageSrc } from './resolveInlineArticleImage';
 
 const convertLinks = (text: string) =>
   text.replace(
@@ -31,7 +32,8 @@ export function renderArticleContentLines(contentLines: string[], headingIds?: s
       const imageMatch = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
       if (imageMatch) {
         const [, alt, src] = imageMatch;
-        return `<figure class="my-8"><img src="${src}" alt="${alt}" class="w-full rounded-lg shadow-md" loading="lazy" /><figcaption class="article-caption mt-2">${alt}</figcaption></figure>`;
+        const resolvedSrc = resolveInlineArticleImageSrc(src);
+        return `<figure class="my-8"><img src="${resolvedSrc}" alt="${alt}" class="w-full rounded-lg shadow-md" loading="lazy" /><figcaption class="article-caption mt-2">${alt}</figcaption></figure>`;
       }
 
       if (isH2Line(line)) {
