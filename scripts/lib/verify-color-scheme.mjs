@@ -38,9 +38,12 @@ export function browserColorSchemeAudit() {
     return getComputedStyle(document.body).backgroundColor;
   };
 
+  const details = document.querySelector('details.article-contents');
+  if (details) details.open = true;
+
   const targets = [
-    { name: 'TOC link', selector: 'nav.article-toc .article-toc__link' },
-    { name: 'TOC CTA', selector: 'nav.article-toc .article-toc__cta-link' },
+    { name: 'Contents link', selector: '.article-contents__link' },
+    { name: 'Contents CTA', selector: '.article-contents__cta-link' },
     { name: 'Article body', selector: '.article-content p' },
     { name: 'Legal disclaimer', selector: '.article-legal-disclaimer' },
   ].map(({ name, selector }) => {
@@ -60,7 +63,6 @@ export function browserColorSchemeAudit() {
 
   const htmlStyle = getComputedStyle(document.documentElement);
   const bodyStyle = getComputedStyle(document.body);
-  const rail = document.querySelector('nav.article-toc');
 
   return {
     prefersDark: window.matchMedia('(prefers-color-scheme: dark)').matches,
@@ -70,7 +72,7 @@ export function browserColorSchemeAudit() {
     htmlHasDarkClass: document.documentElement.classList.contains('dark'),
     mutedForegroundToken: htmlStyle.getPropertyValue('--muted-foreground').trim(),
     foregroundToken: htmlStyle.getPropertyValue('--foreground').trim(),
-    railScrollbar: rail ? getComputedStyle(rail).scrollbarColor : null,
+    railGone: !document.querySelector('nav.article-toc, .article-with-toc'),
     targets,
   };
 }
@@ -120,11 +122,7 @@ export async function verifyColorSchemes(browser, baseUrl, check) {
       ),
     );
     results.push(
-      await check(
-        `${scheme}: rail scrollbar hidden until hover spec`,
-        audit.railScrollbar === 'rgba(0, 0, 0, 0) rgba(0, 0, 0, 0)',
-        audit.railScrollbar,
-      ),
+      await check(`${scheme}: desktop rail removed`, audit.railGone),
     );
 
     for (const target of audit.targets) {
@@ -141,11 +139,11 @@ export async function verifyColorSchemes(browser, baseUrl, check) {
       );
     }
 
-    const tocLink = audit.targets.find((t) => t.name === 'TOC link');
+    const tocLink = audit.targets.find((t) => t.name === 'Contents link');
     if (tocLink && !tocLink.missing) {
       results.push(
         await check(
-          `${scheme}: TOC link not white-on-white`,
+          `${scheme}: Contents link not white-on-white`,
           !(tocLink.color === 'rgb(255, 255, 255)' && tocLink.background === 'rgb(255, 255, 255)'),
           `${tocLink.color} on ${tocLink.background}`,
         ),

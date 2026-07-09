@@ -18,8 +18,7 @@ import {
   resolveAbsoluteAssetUrl,
 } from '@/lib/research/renderArticleContent';
 import { extractArticleH2s, buildTocItems } from '@/lib/research/articleHeadings';
-import ArticleTocMobile from '@/components/research/ArticleTocMobile.astro';
-import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
+import ArticleContents from '@/components/research/ArticleContents.astro';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getCollection('blog');
@@ -209,21 +208,15 @@ const relatedPosts = allPosts
             )
           }
 
-          <ArticleTocMobile items={tocItems} category={post.category} />
-        </div>
-      </div>
+          <ArticleContents items={tocItems} category={post.category} />
 
-      <article>
-        <ArticleTocRail items={tocItems} category={post.category}>
-          <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
-          <div class="article-content" set:html={firstHalfHtml} />
-          {showMidSplit && <MidArticleCTA client:visible category={post.category} />}
-          {secondHalfHtml && <div class="article-content" set:html={secondHalfHtml} />}
-        </ArticleTocRail>
-      </article>
+          <article>
+            <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
+            <div class="article-content" set:html={firstHalfHtml} />
+            {showMidSplit && <MidArticleCTA client:visible category={post.category} />}
+            {secondHalfHtml && <div class="article-content" set:html={secondHalfHtml} />}
+          </article>
 
-      <div class="container mx-auto px-6">
-        <div class="max-w-4xl mx-auto">
           <!-- Disclaimer -->
           <div class="mt-12 p-6 bg-muted/50 border border-border rounded-lg max-w-[42rem] mx-auto">
             <p class="article-bottom-disclaimer text-muted-foreground leading-relaxed m-0">

@@ -3,8 +3,7 @@ import type { NewsArticleMeta } from '@/data/newsArticles';
 import type { TocItem } from '@/lib/research/articleHeadings';
 import OptimizedImage from '@/components/OptimizedImage.astro';
 import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
-import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
-import ArticleTocMobile from '@/components/research/ArticleTocMobile.astro';
+import ArticleContents from '@/components/research/ArticleContents.astro';
 
 interface Props {
   article: NewsArticleMeta;
@@ -74,18 +73,14 @@ const { article, tocItems } = Astro.props;
           </ol>
         </nav>
 
-        <ArticleTocMobile items={tocItems} category={article.category} />
-      </div>
-    </div>
+        <ArticleContents items={tocItems} category={article.category} />
 
-    <article>
-      <ArticleTocRail items={tocItems} category={article.category}>
-        <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
-        <div class="article-content">
-          <slot />
-        </div>
-        <div class="container mx-auto px-6 mt-12">
-          <div class="max-w-4xl mx-auto">
+        <article>
+          <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
+          <div class="article-content">
+            <slot />
+          </div>
+          <div class="mt-12">
             <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-8 border-border">
               <h2 class="text-2xl font-serif font-bold mb-4 text-foreground">{article.ctaTitle}</h2>
               <p class="text-muted-foreground mb-6">{article.ctaDescription}</p>
@@ -97,8 +92,8 @@ const { article, tocItems } = Astro.props;
               </a>
             </div>
           </div>
-        </div>
-      </ArticleTocRail>
-    </article>
+        </article>
+      </div>
+    </div>
   </main>
 </>
