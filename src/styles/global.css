@@ -10,6 +10,7 @@
 html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
+  color-scheme: light;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -20,6 +21,8 @@ html {
 
 @layer base {
   :root {
+    color-scheme: light;
+
     /* Minimalist Color Palette */
     --background: 0 0% 100%;
     --foreground: 0 0% 15%;
@@ -65,23 +68,6 @@ html {
     /* Smooth Transitions */
     --transition-smooth: all 0.3s ease;
 
-  }
-  
-  .dark {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 95%;
-    --hero-dark: 0 0% 5%;
-    --primary: 0 0% 95%;
-    --primary-foreground: 0 0% 8%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 95%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 60%;
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 95%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 95%;
   }
 }
 
@@ -496,11 +482,6 @@ html {
   .article-content hr {
     margin: 2rem auto;
     max-width: 39.375rem;
-  }
-  
-  .dark .article-content a {
-    @apply text-blue-400 decoration-blue-400/50;
-    @apply hover:text-blue-300 hover:decoration-blue-400;
   }
   
   /* Prevent page shift when overlays lock scroll — html only (see Step 1 gutter audit) */
