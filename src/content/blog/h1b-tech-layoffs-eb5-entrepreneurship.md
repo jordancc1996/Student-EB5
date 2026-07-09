@@ -28,6 +28,8 @@ relatedPosts:
   - eb5-lifeline-h1b-workers
   - 5-reasons-switch-h1b-to-eb5
   - h1b-eb5-financial-planning
+tocLabels:
+  what-is-the-eb-5-application-process-for-u-s-based-applicants: Staying in the U.S. while the petition is pending
 ---
 
 <intro>The H-1B visa is a temporary employment nonimmigrant visa with the only routes to permanent residency being the EB-2 and EB-3 categories. EB-2 and EB-3 are characterized by substantial backlogs for foreign nationals from certain countries. The EB-5 immigrant investor program offers an alternative path to circumvent these substantial backlogs. This path is predictable and 2026 marks the perfect time for prospective investors to get involved with the EB-5 program.</intro>

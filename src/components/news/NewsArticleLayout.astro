@@ -1,0 +1,104 @@
+---
+import type { NewsArticleMeta } from '@/data/newsArticles';
+import type { TocItem } from '@/lib/research/articleHeadings';
+import OptimizedImage from '@/components/OptimizedImage.astro';
+import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
+import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
+import ArticleTocMobile from '@/components/research/ArticleTocMobile.astro';
+
+interface Props {
+  article: NewsArticleMeta;
+  tocItems: TocItem[];
+}
+
+const { article, tocItems } = Astro.props;
+---
+
+<>
+  <section
+    class={`relative -mt-[120px] pt-[120px] ${article.heroMinHeightClass} flex items-center justify-center overflow-hidden`}
+  >
+    <OptimizedImage
+      src={article.heroImage}
+      alt={article.heroImageAlt}
+      title={article.title}
+      className="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      fetchPriority="high"
+      sizes="100vw"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/75"></div>
+    <div class="relative z-10 container mx-auto px-6 py-16 text-center text-white max-w-5xl">
+      <div
+        class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 mb-5 bg-white/20 text-white border-white/30 uppercase tracking-[0.18em]"
+      >
+        {article.category}
+      </div>
+      <h1 class={article.heroTitleClass}>{article.title}</h1>
+      <p class="text-lg md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto mb-8 drop-shadow">
+        {article.heroSubtitle}
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-base text-white/90 font-medium">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+          <span>Published {article.date}</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>{article.readTime}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="pt-4 pb-8">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto">
+        <nav aria-label="Breadcrumb" class="py-4 mb-6">
+          <ol class="flex flex-wrap items-center gap-0 text-sm">
+            <li class="flex items-center">
+              <a href="/" class="text-muted-foreground/70 hover:text-foreground transition-colors font-medium tracking-wide uppercase text-[11px]">
+                Home
+              </a>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 mx-2 text-muted-foreground/30" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </li>
+            <li class="flex items-center">
+              <a href="/news" class="text-muted-foreground/70 hover:text-foreground transition-colors font-medium tracking-wide uppercase text-[11px]">
+                EB-5 News
+              </a>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 mx-2 text-muted-foreground/30" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </li>
+            <li class="flex items-center">
+              <span class="text-foreground font-serif text-base font-semibold">{article.breadcrumbLabel}</span>
+            </li>
+          </ol>
+        </nav>
+
+        <ArticleTocMobile items={tocItems} category={article.category} />
+      </div>
+    </div>
+
+    <article>
+      <ArticleTocRail items={tocItems} category={article.category}>
+        <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
+        <div class="article-content">
+          <slot />
+        </div>
+        <div class="container mx-auto px-6 mt-12">
+          <div class="max-w-4xl mx-auto">
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-8 border-border">
+              <h2 class="text-2xl font-serif font-bold mb-4 text-foreground">{article.ctaTitle}</h2>
+              <p class="text-muted-foreground mb-6">{article.ctaDescription}</p>
+              <a
+                href={article.ctaHref}
+                class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-primary-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground"
+              >
+                {article.ctaLabel}
+              </a>
+            </div>
+          </div>
+        </div>
+      </ArticleTocRail>
+    </article>
+  </main>
+</>

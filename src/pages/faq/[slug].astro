@@ -1,104 +1,233 @@
----
-import type { GetStaticPaths } from 'astro';
-import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import FaqDetailContent from '@/components/FaqDetailContent';
-import { ConsultationCTA } from '@/components/ConsultationCTA';
-import { Toaster } from '@/components/ui/toaster';
-import { SITE_CONFIG } from '@/lib/seo/config';
-import { generateBreadcrumbSchema } from '@/lib/seo/structured-data';
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const faqs = await getCollection('faq');
-  return faqs.map((entry) => ({
-    params: { slug: entry.data.slug },
-    props: { entry },
-  }));
-};
-
-interface Props {
-  entry: CollectionEntry<'faq'>;
-}
-
-const { entry } = Astro.props;
-const faq = entry.data;
-const slug = faq.slug;
-
-if (!entry.body) {
-  throw new Error(`FAQ entry missing body: ${slug}`);
-}
-
-const allFaqs = await getCollection('faq');
-const relatedFaqs = faq.relatedFaqs
-  ? allFaqs
-      .filter((item) => faq.relatedFaqs?.includes(item.data.slug))
-      .sort((a, b) => a.data.id - b.data.id)
-      .map((item) => ({ ...item.data, answer: item.body ?? '' }))
-  : [];
-
-const pageCanonical = `${SITE_CONFIG.url}/faq/${slug}`;
-const metaTitle = faq.metaTitle.includes('StudentEB5')
-  ? faq.metaTitle
-  : `${faq.metaTitle} | StudentEB5`;
-
-const breadcrumbs = [
-  { name: 'Home', url: SITE_CONFIG.url },
-  { name: 'FAQs', url: `${SITE_CONFIG.url}/faq` },
-  { name: faq.question, url: pageCanonical },
-];
-
-const qaSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: entry.body.replace(/<[^>]*>/g, ''),
-      },
-    },
-  ],
-  breadcrumb: generateBreadcrumbSchema(breadcrumbs),
-};
----
-
-<Layout>
-  <Fragment slot="head">
-    <title>{metaTitle}</title>
-    <meta name="description" content={faq.metaDescription} />
-    <meta name="keywords" content={faq.keywords.join(', ')} />
-    <link rel="canonical" href={pageCanonical} />
-    <meta property="og:title" content={faq.metaTitle} />
-    <meta property="og:description" content={faq.metaDescription} />
-    <meta property="og:url" content={pageCanonical} />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content={`${SITE_CONFIG.url}/og-image.jpg`} />
-    <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={faq.metaTitle} />
-    <meta name="twitter:description" content={faq.metaDescription} />
-    <meta name="twitter:image" content={`${SITE_CONFIG.url}/og-image.jpg`} />
-    <script type="application/ld+json" set:html={JSON.stringify(qaSchema).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
-  </Fragment>
-
-  <div class="min-h-screen bg-gradient-to-br from-background to-secondary/20">
-    <Header client:load />
-    <FaqDetailContent
-      faq={{
-        category: faq.category,
-        question: faq.question,
-        links: faq.links,
-      }}
-      answer={entry.body}
-      relatedFaqs={relatedFaqs}
-    />
-    <ConsultationCTA client:visible />
-    <Footer client:visible />
-    <Toaster client:load />
-  </div>
-</Layout>
+---
+import type { GetStaticPaths } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
+import { ConsultationCTA } from '@/components/ConsultationCTA';
+import { Toaster } from '@/components/ui/toaster';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateBreadcrumbSchema } from '@/lib/seo/structured-data';
+import { extractArticleH2s, buildTocItems } from '@/lib/research/articleHeadings';
+import ArticleTocMobile from '@/components/research/ArticleTocMobile.astro';
+import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const faqs = await getCollection('faq');
+  return faqs.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+};
+
+interface Props {
+  entry: CollectionEntry<'faq'>;
+}
+
+const { entry } = Astro.props;
+const faq = entry.data;
+const slug = faq.slug;
+
+if (!entry.body) {
+  throw new Error(`FAQ entry missing body: ${slug}`);
+}
+
+const allFaqs = await getCollection('faq');
+const relatedFaqs = faq.relatedFaqs
+  ? allFaqs
+      .filter((item) => faq.relatedFaqs?.includes(item.data.slug))
+      .sort((a, b) => a.data.id - b.data.id)
+      .map((item) => ({ ...item.data, answer: item.body ?? '' }))
+  : [];
+
+const pageCanonical = `${SITE_CONFIG.url}/faq/${slug}`;
+const metaTitle = faq.metaTitle.includes('StudentEB5')
+  ? faq.metaTitle
+  : `${faq.metaTitle} | StudentEB5`;
+
+const breadcrumbs = [
+  { name: 'Home', url: SITE_CONFIG.url },
+  { name: 'FAQs', url: `${SITE_CONFIG.url}/faq` },
+  { name: faq.question, url: pageCanonical },
+];
+
+const qaSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: entry.body.replace(/<[^>]*>/g, ''),
+      },
+    },
+  ],
+  breadcrumb: generateBreadcrumbSchema(breadcrumbs),
+};
+
+const tocItems = buildTocItems(extractArticleH2s(entry.body), faq.tocLabels);
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{metaTitle}</title>
+    <meta name="description" content={faq.metaDescription} />
+    <meta name="keywords" content={faq.keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={faq.metaTitle} />
+    <meta property="og:description" content={faq.metaDescription} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content={`${SITE_CONFIG.url}/og-image.jpg`} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={faq.metaTitle} />
+    <meta name="twitter:description" content={faq.metaDescription} />
+    <meta name="twitter:image" content={`${SITE_CONFIG.url}/og-image.jpg`} />
+    <script type="application/ld+json" set:html={JSON.stringify(qaSchema).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
+  </Fragment>
+
+  <div class="min-h-screen bg-gradient-to-br from-background to-secondary/20 research-article-page">
+    <Header client:load />
+
+    <main class="pt-4 pb-16">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <nav class="flex items-center gap-2 text-sm text-muted-foreground mb-8" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-foreground transition-colors inline-flex items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Home
+            </a>
+            <span>/</span>
+            <a href="/faq" class="hover:text-foreground transition-colors">FAQs</a>
+            <span>/</span>
+            <span class="text-foreground">{faq.question.substring(0, 50)}...</span>
+          </nav>
+
+          <a
+            href="/faq"
+            class="inline-flex items-center text-muted-foreground hover:text-foreground mb-8 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            Back to All FAQs
+          </a>
+
+          <ArticleTocMobile items={tocItems} category={faq.category} />
+        </div>
+      </div>
+
+      <article>
+        <ArticleTocRail items={tocItems} category={faq.category}>
+          <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
+
+          <header class="mb-8">
+            <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 mb-4">
+              {faq.category}
+            </div>
+            <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6 leading-tight">
+              {faq.question}
+            </h1>
+          </header>
+
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm mb-8">
+            <div class="p-6 pt-6">
+              <div class="article-content prose prose-lg max-w-none">
+                <p
+                  class="text-lg leading-relaxed text-muted-foreground [&_a]:text-primary [&_a]:hover:underline"
+                  set:html={entry.body}
+                />
+              </div>
+
+              {
+                faq.links && faq.links.length > 0 && (
+                  <div class="mt-6 pt-6 border-t">
+                    <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-primary" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+                      Related Resources
+                    </h2>
+                    <ul class="space-y-3">
+                      {
+                        faq.links.map((link) => (
+                          <li>
+                            <a
+                              href={link.url}
+                              class="text-primary hover:text-primary/80 hover:underline inline-flex items-center gap-2"
+                            >
+                              <span class="text-primary">→</span>
+                              {link.text}
+                            </a>
+                          </li>
+                        ))
+                      }
+                    </ul>
+                  </div>
+                )
+              }
+            </div>
+          </div>
+
+          {
+            relatedFaqs.length > 0 && (
+              <div class="mb-8">
+                <h2 class="text-2xl font-serif font-bold mb-6">Related Questions</h2>
+                <div class="grid gap-4">
+                  {
+                    relatedFaqs.map((relatedFaq) => (
+                      <a href={`/faq/${relatedFaq.slug}`} class="block">
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-lg transition-shadow">
+                          <div class="flex flex-col space-y-1.5 p-6">
+                            <h3 class="text-lg font-semibold hover:text-primary transition-colors">
+                              {relatedFaq.question}
+                            </h3>
+                          </div>
+                          <div class="p-6 pt-0">
+                            <p
+                              class="text-muted-foreground line-clamp-2 [&_a]:text-primary [&_a]:hover:underline"
+                              set:html={relatedFaq.answer}
+                            />
+                          </div>
+                        </div>
+                      </a>
+                    ))
+                  }
+                </div>
+              </div>
+            )
+          }
+
+          <div class="rounded-lg border bg-primary/5 border-primary/20">
+            <div class="p-6 pt-6 text-center">
+              <h3 class="text-2xl font-serif font-bold mb-4">Still Have Questions?</h3>
+              <p class="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Our team of EB-5 specialists is here to help you navigate your immigration journey.
+                Get personalized guidance tailored to your situation.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="/contact"
+                  class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8"
+                >
+                  Contact Us
+                </a>
+                <a
+                  href="/resources"
+                  class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8"
+                >
+                  Browse Resources
+                </a>
+              </div>
+            </div>
+          </div>
+        </ArticleTocRail>
+      </article>
+    </main>
+
+    <ConsultationCTA client:visible />
+    <Footer client:visible />
+    <Toaster client:load />
+  </div>
+</Layout>

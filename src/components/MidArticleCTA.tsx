@@ -42,16 +42,16 @@ const MidArticleCTA = ({ category }: MidArticleCTAProps) => {
   };
 
   return (
-    <div className="my-10 rounded-lg border border-border bg-muted/40 p-6 md:p-8 not-prose">
+    <div className="article-page-form my-10 rounded-lg border border-border bg-muted/40 p-6 md:p-8 not-prose">
       <div className="flex flex-col gap-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">Free Resource</p>
-          <h3 className="text-lg md:text-xl font-serif font-bold text-foreground leading-snug">{headline}</h3>
-          <p className="text-sm text-muted-foreground mt-1">{description}</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-1">Free Resource</p>
+          <h3 className="article-form-headline font-serif font-bold text-foreground leading-snug">{headline}</h3>
+          <p className="text-base text-muted-foreground mt-1">{description}</p>
         </div>
 
         {submitted ? (
-          <div className="text-sm text-foreground font-medium">
+          <div className="text-base text-foreground font-medium">
             ✓ You're in! <Link to={pathwayUrl} className="text-primary underline underline-offset-2 font-semibold">Explore your pathway now →</Link>
           </div>
         ) : (
@@ -63,7 +63,7 @@ const MidArticleCTA = ({ category }: MidArticleCTAProps) => {
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 required
-                className="h-10 flex-1 text-sm"
+                className="h-10 flex-1 text-base"
               />
               <Input
                 type="email"
@@ -71,7 +71,7 @@ const MidArticleCTA = ({ category }: MidArticleCTAProps) => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="h-10 flex-1 text-sm"
+                className="h-10 flex-1 text-base"
               />
             </div>
             <div className="flex flex-col sm:flex-row gap-2">
@@ -80,9 +80,9 @@ const MidArticleCTA = ({ category }: MidArticleCTAProps) => {
                 placeholder="Phone number"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="h-10 flex-1 text-sm"
+                className="h-10 flex-1 text-base"
               />
-              <Button type="submit" disabled={submitting} size="sm" className="h-10 px-5 whitespace-nowrap font-semibold text-sm">
+              <Button type="submit" disabled={submitting} size="sm" className="h-10 px-5 whitespace-nowrap font-semibold text-base">
                 {submitting ? 'Sending…' : 'Get My Free Guide'}
                 {!submitting && <ArrowRight className="ml-1.5 h-3.5 w-3.5" />}
               </Button>
@@ -90,7 +90,7 @@ const MidArticleCTA = ({ category }: MidArticleCTAProps) => {
           </form>
         )}
 
-        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+        <div className="article-form-microcopy flex items-center gap-1.5 text-muted-foreground">
           <Shield className="h-3 w-3" />
           <span>100% confidential. We never contact your employer.</span>
         </div>

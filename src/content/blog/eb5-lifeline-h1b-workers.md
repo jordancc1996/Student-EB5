@@ -28,6 +28,8 @@ relatedPosts:
   - 5-reasons-switch-h1b-to-eb5
   - h1b-alternatives-o1-eb1-eb5
   - h1b-eb5-financial-planning
+tocLabels:
+  the-eb-5-visa-solution: A green card without employer sponsorship
 ---
 
 <intro>The EB-5 program is the only self-sponsored green card path that removes H-1B employer dependency — allowing you to file concurrently with your I-526E petition, receive an Employment Authorization Document and Advance Parole within months, and work for any employer without lottery risk or a 60-day grace period after a layoff. An $800,000 investment in a rural TEA project also qualifies for the 20% rural visa set-aside, which can reduce wait times to 4–8 months for backlogged nationals from India and China. Filing before September 30, 2026 locks in grandfathering protection under current program rules. The sections below compare EB-5 against H-1B on sponsorship, job mobility, family inclusion, and concurrent filing mechanics.</intro>

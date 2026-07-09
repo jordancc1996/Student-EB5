@@ -32,6 +32,9 @@ relatedPosts:
   - complete-2027-eb5-guide
   - eb5-comprehensive-faq-timeline-international-students
   - eb5-grandfathering-2026-2027-deadlines
+tocLabels:
+  forms-filed-concurrently-as-an-f-1-student: Can F-1 students apply?
+  optional-practical-training-opt: When OPT is running out
 ---
 
 <intro>The EB-5 Immigrant Investor program offers F-1 international students a powerful alternative to the limitations that are attached to the F-1 visa and H-1B visa. The program grants green cards to investors who commit $800,000 in a Targeted Employment area (or $1,050,000 elsewhere) and create at least 10 full time U.S. jobs. In 2022, the EB-5 program was revamped and made significantly more attractive to prospective investors by allowing F-1 students to simultaneously file their investor petition and green card application which allowed the investor to gain the benefits of the green card without having the green card within just 3-6 months. Two critical deadlines are looming in the next 12-36 months that threaten the current EB-5 opportunity. Filing by September 30, 2026 guarantees petition processing while the program itself is authorized only through September 30, 2027. F-1 students with the financial means are urged to act quickly and file before the 2026 deadline to secure a green card before the current environment is changed.</intro>

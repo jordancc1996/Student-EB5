@@ -32,6 +32,8 @@ relatedPosts:
   - choosing-rural-eb5-regional-center-guide
   - eb5-economic-calculus-investment-cost
   - complete-2027-eb5-guide
+tocLabels:
+  7-what-s-the-typical-payback-period: How and when investors are repaid
 ---
 
 <intro>Before investing $800,000 in any EB-5 project, you need verified answers to 19 questions covering the regional center's track record, I-956F approval status, job creation methodology, capital stack position, developer equity commitment, and exit strategy. A project that cannot produce clear documentation on any one of these — particularly I-956F approval, meaningful developer equity in the project, and a defined capital return mechanism — should be disqualified immediately. The questions below state what to ask, the ideal answer for each, and why USCIS or your immigration counsel will care about the response.</intro>

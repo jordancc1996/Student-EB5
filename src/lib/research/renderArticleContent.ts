@@ -1,14 +1,22 @@
+import { extractArticleH2s } from './articleHeadings';
+
 const convertLinks = (text: string) =>
   text.replace(
     /(?<!href="|href='|>)(https?:\/\/[^\s<]+)/g,
-    '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline break-all">$1</a>',
+    '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>',
   );
 
 const convertBold = (text: string) => text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
 const formatLine = (text: string) => convertLinks(convertBold(text));
 
-export function renderArticleContentLines(contentLines: string[]): string {
+function isH2Line(line: string): boolean {
+  return line.startsWith('## ') || line.startsWith('# ');
+}
+
+export function renderArticleContentLines(contentLines: string[], headingIds?: string[]): string {
+  let h2Index = 0;
+
   return contentLines
     .map((line) => {
       const introMatch = line.match(/^<intro>(.+)<\/intro>$/);
@@ -23,14 +31,14 @@ export function renderArticleContentLines(contentLines: string[]): string {
       const imageMatch = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
       if (imageMatch) {
         const [, alt, src] = imageMatch;
-        return `<figure class="my-8"><img src="${src}" alt="${alt}" class="w-full rounded-lg shadow-md" loading="lazy" /><figcaption class="text-center text-sm text-muted-foreground mt-2">${alt}</figcaption></figure>`;
+        return `<figure class="my-8"><img src="${src}" alt="${alt}" class="w-full rounded-lg shadow-md" loading="lazy" /><figcaption class="article-caption mt-2">${alt}</figcaption></figure>`;
       }
 
-      if (line.startsWith('# ')) {
-        return `<h2 class="text-3xl font-serif font-bold mt-10 mb-4">${formatLine(line.substring(2))}</h2>`;
-      }
-      if (line.startsWith('## ')) {
-        return `<h2>${formatLine(line.substring(3))}</h2>`;
+      if (isH2Line(line)) {
+        const raw = line.startsWith('## ') ? line.slice(3) : line.slice(2);
+        const id = headingIds?.[h2Index++];
+        const idAttr = id ? ` id="${id}"` : '';
+        return `<h2${idAttr}>${formatLine(raw)}</h2>`;
       }
       if (line.startsWith('### ')) {
         return `<h3>${formatLine(line.substring(4))}</h3>`;
@@ -63,8 +71,10 @@ export function splitArticleContent(content: string): {
   showMidSplit: boolean;
 } {
   const lines = content.split('\n');
+  const allHeadingIds = extractArticleH2s(content).map((h) => h.slug);
+
   const headingIndices = lines.reduce<number[]>((acc, line, i) => {
-    if (line.startsWith('## ')) acc.push(i);
+    if (isH2Line(line)) acc.push(i);
     return acc;
   }, []);
   const midTarget = Math.floor(lines.length / 2);
@@ -76,16 +86,26 @@ export function splitArticleContent(content: string): {
         )
       : -1;
 
+  const renderSlice = (sliceLines: string[], idOffset: number) => {
+    const h2Count = sliceLines.filter(isH2Line).length;
+    const ids = allHeadingIds.slice(idOffset, idOffset + h2Count);
+    return renderArticleContentLines(sliceLines, ids);
+  };
+
   if (midHeadingIdx > 0) {
+    const firstLines = lines.slice(0, midHeadingIdx);
+    const secondLines = lines.slice(midHeadingIdx);
+    const firstH2Count = firstLines.filter(isH2Line).length;
+
     return {
-      firstHalfHtml: renderArticleContentLines(lines.slice(0, midHeadingIdx)),
-      secondHalfHtml: renderArticleContentLines(lines.slice(midHeadingIdx)),
+      firstHalfHtml: renderSlice(firstLines, 0),
+      secondHalfHtml: renderSlice(secondLines, firstH2Count),
       showMidSplit: true,
     };
   }
 
   return {
-    firstHalfHtml: renderArticleContentLines(lines),
+    firstHalfHtml: renderSlice(lines, 0),
     secondHalfHtml: null,
     showMidSplit: false,
   };

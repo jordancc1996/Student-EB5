@@ -214,7 +214,7 @@ I'd appreciate:
             ))}
           </div>
           
-          <p className="mt-3 text-xs text-muted-foreground">
+          <p className="mt-3 text-sm text-muted-foreground">
             Click to copy a formatted prompt, then paste it into your preferred AI assistant.
           </p>
         </div>

@@ -29,6 +29,9 @@ keywords:
 relatedPosts:
   - f1-students/f1-to-eb5-green-card
   - eb5-grandfathering-2026-2027-deadlines
+tocLabels:
+  section-1-financial-requirements-and-investment-options: How long does the work permit take?
+  section-2-concurrent-filing: Traveling while the case is pending
 ---
 
 <intro>International students on F-1 visas can pursue a U.S. green card through EB-5 by investing $800,000 in a rural or high-unemployment Targeted Employment Area project, or $1,050,000 in a standard-area project, and filing their I-526E and I-485 concurrently to receive work and travel authorization within 3 to 6 months. Rural TEA projects also qualify for USCIS priority processing, with I-526E approvals typically landing in 6 to 12 months and I-485 adjudication following 6 to 8 months after that. Gifted or borrowed funds are permitted provided every dollar is traceable to a lawful source. The sections below answer the financial, filing, and timeline questions international students and their families ask most often before committing to the program.</intro>

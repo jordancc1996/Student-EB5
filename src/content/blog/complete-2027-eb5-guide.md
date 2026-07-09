@@ -32,6 +32,8 @@ relatedPosts:
   - post-reform-integrity-act-analysis
   - choosing-rural-eb5-regional-center-guide
   - eb5-grandfathering-2026-2027-deadlines
+tocLabels:
+  what-is-the-eb-5-immigrant-investor-program: EB-5 Program Overview
 ---
 
 <intro>The EB-5 immigrant investor program grants U.S. permanent residency to foreign nationals who invest $800,000 in a rural or high-unemployment Targeted Employment Area project — or $1,050,000 in a standard-area project — and create at least 10 full-time U.S. jobs. Since the 2022 Reform and Integrity Act, investors already in the U.S. on F-1, H-1B, or similar status can file their I-485 adjustment of status concurrently with their I-526E petition and receive work and travel authorization within 3–6 months. Filing before September 30, 2026 locks in current program rules under the grandfathering provision. The sections below cover every requirement, the step-by-step filing process, rural set-aside visas, and the 2027 reauthorization deadline.</intro>

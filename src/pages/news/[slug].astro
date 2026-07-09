@@ -5,11 +5,13 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
-import Eb5LandscapeMay2026Content from '@/components/news/Eb5LandscapeMay2026Content';
-import UscisAdjustmentMemoContent from '@/components/news/UscisAdjustmentMemoContent';
-import JulyBulletinQ3Content from '@/components/news/JulyBulletinQ3Content';
+import Eb5LandscapeMay2026Body from '@/components/news/Eb5LandscapeMay2026Body';
+import UscisAdjustmentMemoBody from '@/components/news/UscisAdjustmentMemoBody';
+import JulyBulletinQ3Body from '@/components/news/JulyBulletinQ3Body';
+import NewsArticleLayout from '@/components/news/NewsArticleLayout.astro';
 import { getNewsArticle, newsArticleSlugs } from '@/data/newsArticles';
 import { getNewsFaqSchema } from '@/data/newsFaqSchemas';
+import { getNewsTocItems } from '@/lib/news/newsArticleHeadings';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateArticleSchema } from '@/lib/seo/structured-data';
 
@@ -32,6 +34,7 @@ if (!article) {
 
 const pageCanonical = `${SITE_CONFIG.url}/news/${slug}`;
 const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const tocItems = getNewsTocItems(slug, article.tocLabels);
 
 const articleSchema = {
   ...generateArticleSchema({
@@ -51,13 +54,6 @@ const articleSchema = {
 
 const faqSchema = getNewsFaqSchema(slug);
 const structuredData = faqSchema ? [articleSchema, faqSchema] : [articleSchema];
-
-const ContentComponent =
-  slug === 'eb5-visa-landscape-news-update-may-2026'
-    ? Eb5LandscapeMay2026Content
-    : slug === 'uscis-adjustment-of-status-memo-eb5-investors'
-      ? UscisAdjustmentMemoContent
-      : JulyBulletinQ3Content;
 ---
 
 <Layout>
@@ -81,9 +77,19 @@ const ContentComponent =
     ))}
   </Fragment>
 
-  <div class="min-h-screen bg-background">
+  <div class="min-h-screen bg-background research-article-page">
     <Header client:load />
-    <ContentComponent />
+    <NewsArticleLayout article={article} tocItems={tocItems}>
+      {
+        slug === 'eb5-visa-landscape-news-update-may-2026' ? (
+          <Eb5LandscapeMay2026Body />
+        ) : slug === 'uscis-adjustment-of-status-memo-eb5-investors' ? (
+          <UscisAdjustmentMemoBody />
+        ) : (
+          <JulyBulletinQ3Body />
+        )
+      }
+    </NewsArticleLayout>
     <ConsultationCTA client:visible />
     <Footer client:visible />
     <Toaster client:load />

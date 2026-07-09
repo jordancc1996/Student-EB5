@@ -1,0 +1,29 @@
+---
+import { resolveTocCta } from '@/lib/research/tocCta';
+
+interface Props {
+  category?: string;
+  variant?: 'rail' | 'mobile';
+  standalone?: boolean;
+}
+
+const { category, variant = 'rail', standalone = false } = Astro.props;
+const cta = resolveTocCta(category);
+---
+
+<div
+  class:list={[
+    'article-toc__cta',
+    variant === 'mobile' && 'article-toc__cta--mobile',
+    standalone && 'article-toc__cta--standalone',
+  ]}
+>
+  <a
+    href={cta.href}
+    class="article-toc__cta-link"
+    data-toc-cta
+    data-toc-category={category ?? ''}
+  >
+    {cta.label}
+  </a>
+</div>

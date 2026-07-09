@@ -18,7 +18,11 @@ const VISA_STATUS_OPTIONS = [
   'Green Card Holder', 'US Citizen', 'Other'
 ];
 
-export const ConsultationCTA = () => {
+interface ConsultationCTAProps {
+  articleForm?: boolean;
+}
+
+export const ConsultationCTA = ({ articleForm = false }: ConsultationCTAProps) => {
   const [step, setStep] = useState<1 | 2>(1);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -107,12 +111,12 @@ export const ConsultationCTA = () => {
   }
 
   return (
-    <section id="consultation-form" className="py-16 bg-primary/5">
+    <section id="consultation-form" className={`py-16 bg-primary/5${articleForm ? ' article-page-form' : ''}`}>
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left side - Content */}
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-medium">
+            <h2 className={articleForm ? 'article-form-headline font-medium' : 'text-3xl md:text-4xl font-medium'}>
               Talk to Someone Who Knows EB-5
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -131,7 +135,7 @@ export const ConsultationCTA = () => {
               {step === 1 && (
                 <form onSubmit={handleStepOne} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="consultation-name">Full Name *</Label>
+                    <Label htmlFor="consultation-name" className={articleForm ? 'text-base' : undefined}>Full Name *</Label>
                     <Input
                       id="consultation-name"
                       type="text"
@@ -139,11 +143,12 @@ export const ConsultationCTA = () => {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required
+                      className={articleForm ? 'text-base md:text-base' : undefined}
                     />
                   </div>
 
                   <div className="space-y-1">
-                    <Label htmlFor="consultation-email">Personal Email *</Label>
+                    <Label htmlFor="consultation-email" className={articleForm ? 'text-base' : undefined}>Personal Email *</Label>
                     <Input
                       id="consultation-email"
                       type="email"
@@ -154,21 +159,23 @@ export const ConsultationCTA = () => {
                         setEmailError('');
                       }}
                       required
+                      className={articleForm ? 'text-base md:text-base' : undefined}
                     />
-                    <p className="text-xs text-muted-foreground">100% confidential. We never contact your employer.</p>
+                    <p className={articleForm ? 'article-form-microcopy text-muted-foreground' : 'text-xs text-muted-foreground'}>100% confidential. We never contact your employer.</p>
                     {emailError && (
                       <p className="text-sm text-destructive animate-fade-in">{emailError}</p>
                     )}
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="consultation-phone">Phone Number (optional)</Label>
+                    <Label htmlFor="consultation-phone" className={articleForm ? 'text-base' : undefined}>Phone Number (optional)</Label>
                     <Input
                       id="consultation-phone"
                       type="tel"
                       placeholder="+1 (555) 123-4567"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
+                      className={articleForm ? 'text-base md:text-base' : undefined}
                     />
                   </div>
 
@@ -176,7 +183,7 @@ export const ConsultationCTA = () => {
                     Get My Free Evaluation
                   </Button>
 
-                  <p className="text-xs text-muted-foreground text-center">
+                  <p className={articleForm ? 'article-form-microcopy text-muted-foreground text-center' : 'text-xs text-muted-foreground text-center'}>
                     By submitting, you agree to receive communications about EB-5 programs.
                   </p>
                 </form>

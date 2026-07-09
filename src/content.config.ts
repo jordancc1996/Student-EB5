@@ -42,6 +42,7 @@ const blog = defineCollection({
       author: z.string(),
       keywords: z.array(z.string()),
       relatedPosts: z.array(z.string()).optional(),
+      tocLabels: z.record(z.string()).optional(),
     }),
 });
 
@@ -66,6 +67,7 @@ const faq = defineCollection({
       category: z.string(),
       links: z.array(faqLinkSchema).optional(),
       relatedFaqs: z.array(z.string()).optional(),
+      tocLabels: z.record(z.string()).optional(),
     }),
 });
 

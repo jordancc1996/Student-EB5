@@ -28,6 +28,9 @@ relatedPosts:
   - 5-reasons-switch-h1b-to-eb5
   - h1b-alternatives-o1-eb1-eb5
   - h1b-eb5-financial-planning
+tocLabels:
+  backlogs-and-the-failure-of-the-cspa: If your child turns 21 before approval
+  the-eb-5-visa-a-strategic-investment-in-certainty: Options for H-4 children
 ---
 
 <intro>Children of H-1B and employment-based green card applicants lose their dependent status when they turn 21, and for families from India and China, the Child Status Protection Act often fails because visa backlogs of 10 to 20 years mean the priority date is not current until the child has already aged out. An EB-5 investment of $800,000 in a rural TEA project with a current set-aside visa category allows the entire family to file concurrently, lock in the child's CSPA age on the I-526E filing date, and receive an Employment Authorization Document within months while the I-485 remains pending. Filing the I-485 is what prevents a dependent from aging out regardless of how long adjudication takes. The sections below explain why CSPA fails under the employment-based system, how rural set-asides bypass the backlog, and why the $800,000 capital requirement is justified against the cost of a child losing their place in the United States.</intro>

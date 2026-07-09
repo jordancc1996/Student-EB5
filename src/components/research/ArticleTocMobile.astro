@@ -1,0 +1,36 @@
+---
+import type { TocItem } from '@/lib/research/articleHeadings';
+import ArticleTocCta from '@/components/research/ArticleTocCta.astro';
+
+interface Props {
+  items: TocItem[];
+  category?: string;
+}
+
+const { items, category } = Astro.props;
+const hasContents = items.length >= 1;
+---
+
+{
+  hasContents ? (
+    <details class="article-toc-mobile">
+      <summary>Contents</summary>
+      <ol class="article-toc-mobile__list">
+        {
+          items.map((item) => (
+            <li>
+              <a href={`#${item.slug}`} class="article-toc-mobile__link" data-toc-link={item.slug}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+      <ArticleTocCta category={category} variant="mobile" />
+    </details>
+  ) : (
+    <div class="article-toc-mobile article-toc-mobile--cta-only">
+      <ArticleTocCta category={category} variant="mobile" standalone />
+    </div>
+  )
+}

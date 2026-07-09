@@ -29,6 +29,7 @@ export interface NewsArticleMeta {
   ctaDescription: string;
   ctaHref: string;
   ctaLabel: string;
+  tocLabels?: Record<string, string>;
 }
 
 export const newsArticles: NewsArticleMeta[] = [
