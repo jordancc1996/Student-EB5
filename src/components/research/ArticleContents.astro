@@ -1,0 +1,40 @@
+---
+import type { TocItem } from '@/lib/research/articleHeadings';
+import ArticleTocCta from '@/components/research/ArticleTocCta.astro';
+
+interface Props {
+  items: TocItem[];
+  category?: string;
+}
+
+const { items, category } = Astro.props;
+const hasContents = items.length >= 1;
+/** Expanded by default for short TOCs; long lists start collapsed. */
+const openByDefault = hasContents && items.length <= 8;
+---
+
+{
+  hasContents ? (
+    <details class="article-contents" {...(openByDefault ? { open: true } : {})}>
+      <summary>Contents</summary>
+      <ol class="article-contents__list">
+        {
+          items.map((item) => (
+            <li>
+              <a href={`#${item.slug}`} class="article-contents__link" data-toc-link={item.slug}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+      <ArticleTocCta category={category} />
+    </details>
+  ) : (
+    <div class="article-contents article-contents--cta-only">
+      <ArticleTocCta category={category} standalone />
+    </div>
+  )
+}
+
+<script src="../../scripts/article-toc.ts"></script>

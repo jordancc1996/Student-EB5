@@ -1,20 +1,17 @@
 /**
- * Post-deploy TOC / color-scheme gate — run against production preview after every deploy.
+ * Post-deploy Contents / color-scheme gate — run against production preview after every deploy.
  *
  *   PREVIEW_URL=https://student-eb-5.vercel.app node scripts/verify-toc-live-deploy.mjs
  *   npm run verify:post-deploy
  */
 import { configurePlaywrightBrowsersPath, launchChromium } from './lib/playwright-env.mjs';
 import { verifyColorSchemes, browserColorSchemeAudit } from './lib/verify-color-scheme.mjs';
-import {
-  verifyTocBreakpoints,
-  verifyTocCssOnlyAtDesktop,
-} from './lib/verify-toc-breakpoints.mjs';
 
 configurePlaywrightBrowsersPath();
 
 const BASE = process.env.PREVIEW_URL || 'https://student-eb-5.vercel.app';
 const ARTICLE = '/research/complete-2027-eb5-guide';
+const VIEWPORTS = [375, 1024, 1440];
 
 async function check(name, pass, detail = '') {
   console.log(`${pass ? 'PASS' : 'FAIL'}: ${name}${detail ? ` — ${detail}` : ''}`);
@@ -27,10 +24,45 @@ const browser = await launchChromium();
 const results = [];
 
 results.push(...(await verifyColorSchemes(browser, BASE, check)));
-results.push(...(await verifyTocBreakpoints(browser, BASE, ARTICLE, check)));
-results.push(...(await verifyTocCssOnlyAtDesktop(browser, BASE, ARTICLE, check)));
 
-// Report per-scheme TOC link colors for the task deliverable.
+for (const width of VIEWPORTS) {
+  const page = await browser.newPage({ viewport: { width, height: 900 } });
+  const res = await page.goto(`${BASE}${ARTICLE}`, { waitUntil: 'networkidle', timeout: 60000 });
+  results.push(await check(`${width}px: page returns 200`, res?.ok() === true, String(res?.status())));
+
+  const state = await page.evaluate(() => {
+    const block = document.querySelector('.article-contents');
+    const rail = document.querySelector('nav.article-toc, .article-with-toc');
+    const cta = document.querySelector('.article-contents__cta-link');
+    return {
+      contentsVisible: !!block && getComputedStyle(block).display !== 'none',
+      railGone: !rail,
+      linkCount: document.querySelectorAll('.article-contents__link').length,
+      ctaHref: cta?.getAttribute('href') ?? null,
+      scrollWidth: document.documentElement.scrollWidth,
+      clientWidth: document.documentElement.clientWidth,
+    };
+  });
+
+  results.push(await check(`${width}px: Contents block visible`, state.contentsVisible));
+  results.push(await check(`${width}px: rail removed`, state.railGone));
+  results.push(
+    await check(`${width}px: TOC links present`, state.linkCount >= 1, `${state.linkCount} links`),
+  );
+  results.push(
+    await check(`${width}px: CTA → /pathways`, state.ctaHref === '/pathways', String(state.ctaHref)),
+  );
+  results.push(
+    await check(
+      `${width}px: no horizontal scrollbar`,
+      state.scrollWidth <= state.clientWidth + 1,
+      `scroll=${state.scrollWidth} client=${state.clientWidth}`,
+    ),
+  );
+  await page.close();
+}
+
+// Report per-scheme Contents link colors
 for (const scheme of ['light', 'dark']) {
   const context = await browser.newContext({
     colorScheme: scheme,
@@ -41,11 +73,10 @@ for (const scheme of ['light', 'dark']) {
     waitUntil: 'networkidle',
     timeout: 60000,
   });
-  await page.evaluate(() => window.scrollTo(0, 650));
   const audit = await page.evaluate(browserColorSchemeAudit);
-  const tocLink = audit.targets.find((t) => t.name === 'TOC link');
+  const tocLink = audit.targets.find((t) => t.name === 'Contents link');
   console.log(
-    `\n${scheme} scheme — .article-toc__link: ${tocLink?.color ?? 'missing'} on ${tocLink?.background ?? 'n/a'} (${tocLink?.ratio ?? 'n/a'}:1)`,
+    `\n${scheme} scheme — .article-contents__link: ${tocLink?.color ?? 'missing'} on ${tocLink?.background ?? 'n/a'} (${tocLink?.ratio ?? 'n/a'}:1)`,
   );
   await context.close();
 }

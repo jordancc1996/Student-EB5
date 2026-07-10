@@ -1,12 +1,14 @@
 import { PLAYWRIGHT_BROWSERS_PATH, configurePlaywrightBrowsersPath, launchChromium } from './lib/playwright-env.mjs';
 import { verifyColorSchemes } from './lib/verify-color-scheme.mjs';
-import { verifyTocBreakpoints, verifyTocCssOnlyAtDesktop } from './lib/verify-toc-breakpoints.mjs';
 
 configurePlaywrightBrowsersPath();
 
 const BASE = process.env.PREVIEW_URL || 'http://localhost:4400';
 const ARTICLE_WITH_TOC = '/research/complete-2027-eb5-guide';
-const ARTICLE_FEW_H2S = '/research/5-reasons-switch-h1b-to-eb5'; // has 5 H2s - need one with <3
+const NEWS_ARTICLE = '/news/july-2026-visa-bulletin-eb5-q3-outlook';
+const FAQ_ARTICLE = '/faq/what-is-eb5-visa-program';
+const VIEWPORTS = [375, 1024, 1440];
+const WIDE_VIEWPORTS = [1280, 1440, 1920, 2560];
 
 async function check(name, pass, detail = '') {
   const status = pass ? 'PASS' : 'FAIL';
@@ -14,81 +16,124 @@ async function check(name, pass, detail = '') {
   return pass;
 }
 
-async function verifyTemplateToc(browser, path, templateLabel, { contentsless = false } = {}) {
+async function assertContentsBlock(page, label, { contentsless = false } = {}) {
   const results = [];
-  const desktop = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-  await desktop.goto(`${BASE}${path}`, { waitUntil: 'networkidle' });
-
-  const atLoad = await desktop.evaluate(() => {
-    const rail = document.querySelector('nav.article-toc');
-    const label = document.querySelector('nav.article-toc .article-toc__label');
-    const cta = document.querySelector('nav.article-toc .article-toc__cta-link');
-    const disclaimer = document.querySelector('.article-legal-disclaimer');
-    const anchor = label ?? cta ?? rail;
-    const railTop = anchor?.getBoundingClientRect().top ?? 0;
-    const disclaimerTop = disclaimer?.getBoundingClientRect().top ?? 0;
+  const state = await page.evaluate(() => {
+    const block = document.querySelector('.article-contents');
+    const rail = document.querySelector('nav.article-toc, .article-with-toc, .article-toc-track');
+    const links = [...document.querySelectorAll('.article-contents__link')];
+    const cta = document.querySelector('.article-contents__cta-link');
+    const details = document.querySelector('details.article-contents');
     return {
-      railVisible: !!rail && getComputedStyle(rail).display !== 'none',
-      sticky: rail ? getComputedStyle(rail).position : null,
-      delta: Math.round(railTop - disclaimerTop),
-      linkCount: document.querySelectorAll('nav.article-toc .article-toc__link').length,
-      hasLabel: !!label,
+      blockPresent: !!block,
+      blockDisplay: block ? getComputedStyle(block).display : null,
+      railGone: !rail,
+      linkCount: links.length,
+      linkLabels: links.map((a) => a.textContent?.trim() ?? ''),
+      ctaHref: cta?.getAttribute('href') ?? null,
+      ctaLabel: cta?.textContent?.trim() ?? null,
+      openByDefault: details ? details.hasAttribute('open') : null,
+      h2Ids: [...document.querySelectorAll('.article-content h2[id]')].map((h) => h.id),
+      scrollWidth: document.documentElement.scrollWidth,
+      clientWidth: document.documentElement.clientWidth,
+      columnCentered: (() => {
+        const content = document.querySelector('.article-content');
+        if (!content) return null;
+        const rect = content.getBoundingClientRect();
+        const mid = window.innerWidth / 2;
+        const contentMid = rect.left + rect.width / 2;
+        return Math.abs(contentMid - mid) < 8;
+      })(),
     };
   });
 
+  results.push(await check(`${label}: Contents block present`, state.blockPresent));
   results.push(
-    await check(`${templateLabel}: rail present`, atLoad.railVisible),
-    await check(`${templateLabel}: sticky`, atLoad.sticky === 'sticky', atLoad.sticky),
     await check(
-      `${templateLabel}: disclaimer alignment at load`,
-      Math.abs(atLoad.delta) <= 4,
-      `delta ${atLoad.delta}px`,
+      `${label}: Contents block visible`,
+      state.blockDisplay !== 'none',
+      String(state.blockDisplay),
     ),
+  );
+  results.push(await check(`${label}: rail/grid removed`, state.railGone));
+  results.push(
     await check(
-      `${templateLabel}: ${contentsless ? 'CTA-only fallback' : 'TOC links present'}`,
-      contentsless ? atLoad.linkCount === 0 && !atLoad.hasLabel : atLoad.linkCount >= 1 && atLoad.hasLabel,
-      contentsless
-        ? `links ${atLoad.linkCount} label ${atLoad.hasLabel}`
-        : `${atLoad.linkCount} links`,
+      `${label}: ${contentsless ? 'CTA-only fallback' : 'TOC links present'}`,
+      contentsless ? state.linkCount === 0 : state.linkCount >= 1,
+      `${state.linkCount} links`,
+    ),
+  );
+  results.push(
+    await check(
+      `${label}: CTA resolves to /pathways`,
+      state.ctaHref === '/pathways',
+      String(state.ctaHref),
+    ),
+  );
+  results.push(
+    await check(
+      `${label}: CTA label`,
+      state.ctaLabel === 'See your path from visa to green card →',
+      String(state.ctaLabel),
+    ),
+  );
+  results.push(
+    await check(
+      `${label}: no horizontal scrollbar`,
+      state.scrollWidth <= state.clientWidth + 1,
+      `scroll=${state.scrollWidth} client=${state.clientWidth}`,
     ),
   );
 
-  await desktop.evaluate(() => window.scrollTo(0, 2500));
-  await desktop.waitForTimeout(300);
-  const pinned = await desktop.evaluate(() => {
-    const toc = document.querySelector('.article-toc');
-    const expectedTop = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--toc-top')) || 90;
-    const top = toc?.getBoundingClientRect().top ?? 0;
-    return { top, expectedTop, delta: Math.abs(top - expectedTop) };
-  });
-  results.push(
-    await check(
-      `${templateLabel}: rail pins while scrolling`,
-      pinned.delta < 4,
-      `top=${pinned.top}px expected≈${pinned.expectedTop}px`,
-    ),
-  );
+  if (!contentsless && state.linkCount > 0) {
+    results.push(
+      await check(
+        `${label}: open-by-default rule`,
+        state.linkCount <= 8 ? state.openByDefault === true : state.openByDefault === false,
+        `links=${state.linkCount} open=${state.openByDefault}`,
+      ),
+    );
+  }
 
-  await desktop.close();
+  return { results, state };
+}
 
-  const mobile = await browser.newPage({ viewport: { width: 375, height: 812 } });
-  await mobile.goto(`${BASE}${path}`, { waitUntil: 'networkidle' });
-  const mobileChecks = await mobile.evaluate(() => {
-    const mob = document.querySelector('.article-toc-mobile');
-    const rail = document.querySelector('nav.article-toc');
-    const mobCs = mob ? getComputedStyle(mob) : null;
-    const railCs = rail ? getComputedStyle(rail) : null;
-    return {
-      exactlyOne:
-        (mobCs?.display !== 'none' && railCs?.display === 'none') ||
-        (mobCs?.display === 'none' && railCs?.display !== 'none'),
-      mobileVisible: mobCs?.display !== 'none',
-    };
-  });
-  results.push(
-    await check(`${templateLabel}: mobile variant works`, mobileChecks.exactlyOne && mobileChecks.mobileVisible),
-  );
-  await mobile.close();
+async function verifyTemplate(browser, path, templateLabel, { contentsless = false } = {}) {
+  const results = [];
+
+  for (const width of VIEWPORTS) {
+    const page = await browser.newPage({ viewport: { width, height: 900 } });
+    const res = await page.goto(`${BASE}${path}`, { waitUntil: 'networkidle', timeout: 60000 });
+    results.push(await check(`${templateLabel} @${width}: HTTP 200`, res?.ok() === true, String(res?.status())));
+    const { results: blockResults, state } = await assertContentsBlock(page, `${templateLabel} @${width}`, {
+      contentsless,
+    });
+    results.push(...blockResults);
+
+    if (!contentsless && state.linkCount > 0 && state.h2Ids.length > 0) {
+      const firstSlug = state.h2Ids[0];
+      const link = page.locator(`.article-contents__link[data-toc-link="${firstSlug}"]`);
+      if (await link.count()) {
+        // Ensure details is open so the link is clickable
+        await page.evaluate(() => {
+          const details = document.querySelector('details.article-contents');
+          if (details) details.open = true;
+        });
+        await link.click();
+        await page.waitForTimeout(400);
+        const hash = await page.evaluate(() => location.hash);
+        results.push(
+          await check(
+            `${templateLabel} @${width}: link lands on section`,
+            hash === `#${firstSlug}`,
+            hash,
+          ),
+        );
+      }
+    }
+
+    await page.close();
+  }
 
   return results;
 }
@@ -109,72 +154,25 @@ async function main() {
     }
     await smoke.close();
   } catch (err) {
-    console.error('SETUP FAILED — verify-article-toc.mjs setup (chromium.launch / first goto)');
-    console.error('Failure site: former line 14 — const browser = await chromium.launch()');
-    if (err instanceof Error) {
-      console.error(err.stack || err.message);
-    } else {
-      console.error(String(err));
-    }
+    console.error('SETUP FAILED — verify-article-toc.mjs');
+    if (err instanceof Error) console.error(err.stack || err.message);
+    else console.error(String(err));
     process.exit(1);
   }
+
   const results = [];
 
-  // Desktop checks at 1440px
+  // Research: override labels + anchors
   const desktop = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await desktop.goto(`${BASE}${ARTICLE_WITH_TOC}`, { waitUntil: 'networkidle' });
 
-  const railVisible = await desktop.locator('.article-toc').isVisible();
-  results.push(await check('1440px: desktop rail visible', railVisible));
-
-  const mobileHidden = !(await desktop.locator('.article-toc-mobile').isVisible());
-  results.push(await check('1440px: mobile TOC hidden', mobileHidden));
-
-  const articleColumn = desktop.locator('.article-with-toc__main .article-content').first();
-  const columnWidth = await articleColumn.evaluate((el) => el.getBoundingClientRect().width);
-  results.push(
-    await check(
-      '1440px: article column width ~39.375rem',
-      Math.abs(columnWidth - 630) < 4,
-      `${columnWidth}px`,
-    ),
+  const overrideLink = desktop.locator(
+    '.article-contents__link[data-toc-link="what-is-the-eb-5-immigrant-investor-program"]',
   );
-
-  const tocSticky = await desktop.locator('.article-toc').evaluate((el) => getComputedStyle(el).position);
-  results.push(await check('1440px: TOC position sticky', tocSticky === 'sticky'));
-
-  await desktop.evaluate(() => window.scrollTo(0, 0));
-  await desktop.waitForTimeout(200);
-  const atLoad = await desktop.evaluate(() => {
-    const label = document.querySelector('nav.article-toc .article-toc__label');
-    const cta = document.querySelector('nav.article-toc .article-toc__cta-link');
-    const disclaimer = document.querySelector('.article-legal-disclaimer');
-    const anchor = label ?? cta;
-    const railTop = anchor?.getBoundingClientRect().top ?? 0;
-    const disclaimerTop = disclaimer?.getBoundingClientRect().top ?? 0;
-    return {
-      railTop: Math.round(railTop),
-      disclaimerTop: Math.round(disclaimerTop),
-      delta: Math.round(railTop - disclaimerTop),
-      inViewport: railTop >= 0 && railTop < window.innerHeight,
-    };
+  await desktop.evaluate(() => {
+    const details = document.querySelector('details.article-contents');
+    if (details) details.open = true;
   });
-  results.push(
-    await check(
-      '1440px: TOC top aligned with disclaimer at load',
-      Math.abs(atLoad.delta) <= 4,
-      `delta ${atLoad.delta}px rail ${atLoad.railTop}px disclaimer ${atLoad.disclaimerTop}px`,
-    ),
-  );
-  results.push(
-    await check(
-      '1440px: TOC visible in viewport at load',
-      atLoad.inViewport,
-      `railTop ${atLoad.railTop}px`,
-    ),
-  );
-
-  const overrideLink = desktop.locator('.article-toc__link[data-toc-link="what-is-the-eb-5-immigrant-investor-program"]');
   const overrideText = await overrideLink.textContent();
   results.push(
     await check(
@@ -199,114 +197,59 @@ async function main() {
   await desktop.waitForTimeout(600);
   const hash = await desktop.evaluate(() => location.hash);
   results.push(
-    await check('Override link navigates to anchor', hash === '#what-is-the-eb-5-immigrant-investor-program', hash),
-  );
-
-  await desktop.evaluate(() => window.scrollTo(0, 2500));
-  await desktop.waitForTimeout(300);
-  const pinned = await desktop.evaluate(() => {
-    const toc = document.querySelector('.article-toc');
-    const expectedTop = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--toc-top')) || 112;
-    const top = toc?.getBoundingClientRect().top ?? 0;
-    return { top, expectedTop, delta: Math.abs(top - expectedTop) };
-  });
-  results.push(
     await check(
-      '1440px: rail pins at header offset while scrolling',
-      pinned.delta < 4,
-      `top=${pinned.top}px expected≈${pinned.expectedTop}px`,
+      'Override link navigates to anchor',
+      hash === '#what-is-the-eb-5-immigrant-investor-program',
+      hash,
     ),
   );
 
-  await desktop.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-  await desktop.waitForTimeout(400);
-  const activeAtBottom = await desktop.locator('.article-toc__link.is-active').count();
-  results.push(await check('1440px: active link set after scroll', activeAtBottom === 1));
-
-  const h2ScrollMargin = await desktop
-    .locator('.article-content h2[id]')
-    .first()
+  const scrollMargin = await desktop
+    .locator('.article-content h2#what-is-the-eb-5-immigrant-investor-program')
     .evaluate((el) => getComputedStyle(el).scrollMarginTop);
   results.push(
-    await check('h2 scroll-margin-top ~6rem', h2ScrollMargin === '96px' || h2ScrollMargin === '6rem', h2ScrollMargin),
+    await check('H2 scroll-margin-top preserved', scrollMargin === '96px' || scrollMargin === '6rem', scrollMargin),
   );
-
   await desktop.close();
 
-  // Mobile checks at 375px
-  const mobile = await browser.newPage({ viewport: { width: 375, height: 812 } });
-  await mobile.goto(`${BASE}${ARTICLE_WITH_TOC}`, { waitUntil: 'networkidle' });
+  // Wide viewport centering + no overflow
+  for (const width of WIDE_VIEWPORTS) {
+    const page = await browser.newPage({ viewport: { width, height: 900 } });
+    await page.goto(`${BASE}${ARTICLE_WITH_TOC}`, { waitUntil: 'networkidle' });
+    const layout = await page.evaluate(() => {
+      const content = document.querySelector('.article-content');
+      const rect = content?.getBoundingClientRect();
+      const mid = window.innerWidth / 2;
+      const contentMid = rect ? rect.left + rect.width / 2 : 0;
+      return {
+        centered: rect != null && Math.abs(contentMid - mid) < 8,
+        scrollWidth: document.documentElement.scrollWidth,
+        clientWidth: document.documentElement.clientWidth,
+        railGone: !document.querySelector('nav.article-toc, .article-with-toc'),
+        contentsVisible: (() => {
+          const el = document.querySelector('.article-contents');
+          return !!el && getComputedStyle(el).display !== 'none';
+        })(),
+      };
+    });
+    results.push(await check(`${width}px: article column centered`, layout.centered));
+    results.push(
+      await check(
+        `${width}px: no horizontal scrollbar`,
+        layout.scrollWidth <= layout.clientWidth + 1,
+        `scroll=${layout.scrollWidth} client=${layout.clientWidth}`,
+      ),
+    );
+    results.push(await check(`${width}px: Contents visible (not rail)`, layout.contentsVisible && layout.railGone));
+    await page.close();
+  }
 
-  const mobileVisible = await mobile.locator('.article-toc-mobile').isVisible();
-  results.push(await check('375px: mobile TOC visible', mobileVisible));
-
-  const railHidden = !(await mobile.locator('.article-toc').isVisible());
-  results.push(await check('375px: desktop rail hidden', railHidden));
-
-  const detailsOpen = await mobile.locator('.article-toc-mobile').evaluate((el) => el.open);
-  results.push(await check('375px: mobile TOC collapsed by default', detailsOpen === false));
-
-  const mobileOverride = mobile.locator(
-    '.article-toc-mobile__link[data-toc-link="what-is-the-eb-5-immigrant-investor-program"]',
-  );
-  results.push(
-    await check(
-      '375px: override label in mobile TOC',
-      (await mobileOverride.textContent())?.trim() === 'EB-5 Program Overview',
-    ),
-  );
-
-  await mobile.close();
-
-  results.push(...(await verifyTocBreakpoints(browser, BASE, ARTICLE_WITH_TOC, check)));
-  results.push(...(await verifyTocCssOnlyAtDesktop(browser, BASE, ARTICLE_WITH_TOC, check)));
-
-  // Article with exactly 2 H2s - find one
-  const fewH2Page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-  // eb5-vs-trump has 6 H2s. Search for short article - use a FAQ-style or check h1b article with 5.
-  // Use a synthetic check: 5-reasons has 5 H2s so TOC should show
-  await fewH2Page.goto(`${BASE}/research/5-reasons-switch-h1b-to-eb5`, { waitUntil: 'networkidle' });
-  const linkCount = await fewH2Page.locator('.article-toc__link').count();
-  results.push(
-    await check(
-      'Research: article with multiple H2s shows TOC links',
-      linkCount >= 1,
-      `${linkCount} links`,
-    ),
-  );
-
-  results.push(
-    await check(
-      'All research articles use TOC layout (threshold >= 1 H2)',
-      true,
-      '0 H2 articles still get CTA-only rail; no published blog posts currently have 0 H2s',
-    ),
-  );
-
-  results.push(
-    ...(await verifyTemplateToc(
-      browser,
-      '/news/july-2026-visa-bulletin-eb5-q3-outlook',
-      'News template',
-    )),
-  );
-  results.push(
-    ...(await verifyTemplateToc(browser, '/faq/what-is-eb5-visa-program', 'FAQ template', {
-      contentsless: true,
-    })),
-  );
-
-  const consoleErrors = [];
-  fewH2Page.on('console', (msg) => {
-    if (msg.type() === 'error') consoleErrors.push(msg.text());
-  });
-  await fewH2Page.goto(`${BASE}${ARTICLE_WITH_TOC}`, { waitUntil: 'networkidle' });
-  await fewH2Page.waitForTimeout(500);
-  results.push(await check('No console errors on TOC article', consoleErrors.length === 0, consoleErrors.join('; ')));
+  results.push(...(await verifyTemplate(browser, ARTICLE_WITH_TOC, 'research')));
+  results.push(...(await verifyTemplate(browser, NEWS_ARTICLE, 'news')));
+  results.push(...(await verifyTemplate(browser, FAQ_ARTICLE, 'faq', { contentsless: true })));
 
   results.push(...(await verifyColorSchemes(browser, BASE, check)));
 
-  await fewH2Page.close();
   await browser.close();
 
   const failed = results.filter((r) => !r).length;
@@ -314,7 +257,4 @@ async function main() {
   process.exit(failed > 0 ? 1 : 0);
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+main();

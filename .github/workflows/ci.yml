@@ -47,6 +47,4 @@ jobs:
           exit 1
 
       - name: Run verification suite
-        run: |
-          node scripts/verify-article-toc.mjs
-          node scripts/verify-toc-reposition.mjs
+        run: node scripts/verify-article-toc.mjs
