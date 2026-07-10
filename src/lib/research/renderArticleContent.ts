@@ -11,6 +11,35 @@ const convertBold = (text: string) => text.replace(/\*\*([^*]+)\*\*/g, '<strong>
 
 const formatLine = (text: string) => convertLinks(convertBold(text));
 
+function isInlineArticleDisclaimerLine(line: string): boolean {
+  const trimmed = line.trim();
+  if (!trimmed) return false;
+  const text =
+    trimmed.startsWith('*') && trimmed.endsWith('*') && trimmed.length > 2
+      ? trimmed.slice(1, -1).trim()
+      : trimmed;
+  return /the opinions expressed on this website are solely those of the author/i.test(text);
+}
+
+/** Remove trailing italic disclaimer copied from legacy researchPosts.ts into markdown bodies. */
+export function stripInlineArticleDisclaimer(content: string): string {
+  const lines = content.split('\n');
+
+  while (lines.length > 0 && lines[lines.length - 1].trim() === '') {
+    lines.pop();
+  }
+
+  if (lines.length > 0 && isInlineArticleDisclaimerLine(lines[lines.length - 1])) {
+    lines.pop();
+  }
+
+  while (lines.length > 0 && lines[lines.length - 1].trim() === '') {
+    lines.pop();
+  }
+
+  return lines.join('\n');
+}
+
 function isH2Line(line: string): boolean {
   return line.startsWith('## ') || line.startsWith('# ');
 }
@@ -72,7 +101,7 @@ export function splitArticleContent(content: string): {
   secondHalfHtml: string | null;
   showMidSplit: boolean;
 } {
-  const lines = content.split('\n');
+  const lines = stripInlineArticleDisclaimer(content).split('\n');
   const allHeadingIds = extractArticleH2s(content).map((h) => h.slug);
 
   const headingIndices = lines.reduce<number[]>((acc, line, i) => {
