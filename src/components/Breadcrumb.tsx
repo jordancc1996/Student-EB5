@@ -33,10 +33,13 @@ const routeNames: Record<string, string> = {
   'h1b-to-green-card': 'H-1B to Green Card',
   'f1-to-eb5-self-sponsored-green-card': 'F-1 to Green Card',
   'h1b-60-day-clock': 'H-1B 60-Day Clock',
+  'eb5-investment-process': 'EB-5 Investment Process',
+  'process': 'EB-5 Investment Process',
 };
 
 const pathOverrides: Record<string, string> = {
   'tools': '/eb5-investment-immigration-tools',
+  'process': '/eb5-investment-process',
 };
 
 interface BreadcrumbProps {

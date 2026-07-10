@@ -33,6 +33,7 @@ export default defineConfig({
     }),
   ],
   redirects: {
+    '/process': '/eb5-investment-process',
     '/tools': '/eb5-investment-immigration-tools',
     '/grandfathering-countdown': '/tools/grandfathering-countdown',
     '/opt-calculator': '/tools/opt-calculator',

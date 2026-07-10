@@ -86,7 +86,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
   const pathwayLinks = [
     { name: 'H-1B to Green Card', href: '/pathways/h1b-to-green-card', icon: Briefcase },
     { name: 'International Student to Green Card', href: '/pathways/f1-to-eb5-self-sponsored-green-card', icon: GraduationCap },
-    { name: 'The EB-5 Process', href: '/process', icon: Route },
+    { name: 'The EB-5 Process', href: '/eb5-investment-process', icon: Route },
   ];
 
   const toolLinks = [
