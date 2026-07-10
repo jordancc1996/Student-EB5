@@ -21,6 +21,60 @@ function initArticleToc(): void {
       }
     });
   });
+
+  initTocActiveTracking(page);
+}
+
+function initTocActiveTracking(page: Element): void {
+  const links = [...page.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')];
+  if (!links.length) return;
+
+  const headings = links
+    .map((link) => {
+      const slug = link.dataset.tocLink;
+      if (!slug) return null;
+      return page.querySelector<HTMLElement>(`.article-content h2#${CSS.escape(slug)}`);
+    })
+    .filter((heading): heading is HTMLElement => heading != null);
+
+  if (!headings.length) return;
+
+  let activeSlug = '';
+
+  const setActive = (slug: string) => {
+    if (!slug || slug === activeSlug) return;
+    activeSlug = slug;
+    links.forEach((link) => {
+      link.classList.toggle('is-active', link.dataset.tocLink === slug);
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+      if (visible.length > 0) {
+        setActive(visible[0].target.id);
+      }
+    },
+    { rootMargin: '-20% 0px -60% 0px', threshold: 0 },
+  );
+
+  headings.forEach((heading) => observer.observe(heading));
+
+  const hashSlug = location.hash.replace(/^#/, '');
+  if (hashSlug && links.some((link) => link.dataset.tocLink === hashSlug)) {
+    setActive(hashSlug);
+  } else {
+    setActive(headings[0].id);
+  }
+
+  window.addEventListener('hashchange', () => {
+    const slug = location.hash.replace(/^#/, '');
+    if (slug) setActive(slug);
+  });
 }
 
 if (document.readyState === 'loading') {
