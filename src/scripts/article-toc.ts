@@ -7,7 +7,15 @@ declare global {
 
 function initArticleToc(): void {
   const page = document.querySelector('.research-article-page');
-  if (!page?.querySelector('.article-contents')) return;
+  if (!page) return;
+
+  const hasInline = page.querySelector('.article-contents--inline');
+  const hasRail = page.querySelector('nav.article-toc');
+  if (!hasInline && !hasRail) return;
+
+  const pageEl = page as HTMLElement;
+  if (pageEl.dataset.articleTocInit === 'true') return;
+  pageEl.dataset.articleTocInit = 'true';
 
   const ctaLinks = [...page.querySelectorAll<HTMLAnchorElement>('[data-toc-cta]')];
   ctaLinks.forEach((link) => {
@@ -22,7 +30,26 @@ function initArticleToc(): void {
     });
   });
 
+  initTocLinkScroll(page);
   initTocActiveTracking(page);
+}
+
+function initTocLinkScroll(page: Element): void {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  page.querySelectorAll<HTMLAnchorElement>('[data-toc-link]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const slug = link.dataset.tocLink;
+      if (!slug) return;
+
+      const target = page.querySelector<HTMLElement>(`.article-content h2#${CSS.escape(slug)}`);
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+      history.pushState(null, '', `#${slug}`);
+    });
+  });
 }
 
 function initTocActiveTracking(page: Element): void {

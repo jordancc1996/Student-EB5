@@ -502,7 +502,8 @@ html {
   margin-bottom: 1.5rem;
 }
 
-.research-article-page .article-contents summary {
+.research-article-page .article-contents summary,
+.research-article-page .article-contents__label {
   list-style: none;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
@@ -516,6 +517,11 @@ html {
   border: none;
   border-radius: 0;
   background: transparent;
+  margin: 0;
+}
+
+.research-article-page .article-contents__label {
+  cursor: default;
 }
 
 .research-article-page .article-contents summary::-webkit-details-marker {
@@ -595,4 +601,84 @@ html {
 
 .research-article-page .article-contents__cta--standalone {
   border-top: none;
+}
+
+/* Desktop sticky TOC rail (>= 1024px) + inline mobile block (< 1024px) */
+.research-article-page .article-with-toc {
+  width: 100%;
+}
+
+.research-article-page .article-with-toc__main {
+  min-width: 0;
+}
+
+.research-article-page .article-toc-track {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .research-article-page .article-contents--inline {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .research-article-page .article-contents--inline {
+    display: none !important;
+  }
+
+  .research-article-page .article-with-toc {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    width: 100%;
+  }
+
+  .research-article-page .article-toc-track {
+    display: flex;
+    grid-column: 1;
+    grid-row: 1;
+    justify-content: flex-end;
+    align-self: stretch;
+    width: 12.5rem;
+    margin-left: -14.25rem;
+    min-width: 0;
+    z-index: 1;
+  }
+
+  .research-article-page nav.article-toc {
+    display: block;
+    position: sticky;
+    top: 7rem;
+    align-self: start;
+    width: 100%;
+    max-width: 12.5rem;
+    max-height: calc(100vh - 7rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  .research-article-page nav.article-toc:hover {
+    scrollbar-color: hsl(var(--muted-foreground) / 0.35) transparent;
+  }
+
+  .research-article-page nav.article-toc::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .research-article-page nav.article-toc::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 3px;
+  }
+
+  .research-article-page nav.article-toc:hover::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground) / 0.35);
+  }
+
+  .research-article-page .article-with-toc__main {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
 }

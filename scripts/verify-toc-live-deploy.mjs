@@ -11,7 +11,7 @@ configurePlaywrightBrowsersPath();
 
 const BASE = process.env.PREVIEW_URL || 'https://student-eb-5.vercel.app';
 const ARTICLE = '/research/complete-2027-eb5-guide';
-const VIEWPORTS = [375, 1024, 1440];
+const VIEWPORTS = [375, 1023, 1024, 1440];
 
 async function check(name, pass, detail = '') {
   console.log(`${pass ? 'PASS' : 'FAIL'}: ${name}${detail ? ` — ${detail}` : ''}`);
@@ -31,12 +31,13 @@ for (const width of VIEWPORTS) {
   results.push(await check(`${width}px: page returns 200`, res?.ok() === true, String(res?.status())));
 
   const state = await page.evaluate(() => {
-    const block = document.querySelector('.article-contents');
-    const rail = document.querySelector('nav.article-toc, .article-with-toc');
+    const isVisible = (el) => !!el && getComputedStyle(el).display !== 'none';
+    const inline = document.querySelector('.article-contents--inline');
+    const railTrack = document.querySelector('.article-toc-track');
     const cta = document.querySelector('.article-contents__cta-link');
     return {
-      contentsVisible: !!block && getComputedStyle(block).display !== 'none',
-      railGone: !rail,
+      inlineVisible: isVisible(inline),
+      railTrackVisible: isVisible(railTrack),
       linkCount: document.querySelectorAll('.article-contents__link').length,
       ctaHref: cta?.getAttribute('href') ?? null,
       scrollWidth: document.documentElement.scrollWidth,
@@ -44,8 +45,14 @@ for (const width of VIEWPORTS) {
     };
   });
 
-  results.push(await check(`${width}px: Contents block visible`, state.contentsVisible));
-  results.push(await check(`${width}px: rail removed`, state.railGone));
+  const isDesktop = width >= 1024;
+  if (isDesktop) {
+    results.push(await check(`${width}px: desktop rail visible`, state.railTrackVisible));
+    results.push(await check(`${width}px: inline hidden`, !state.inlineVisible));
+  } else {
+    results.push(await check(`${width}px: mobile inline visible`, state.inlineVisible));
+    results.push(await check(`${width}px: rail hidden`, !state.railTrackVisible));
+  }
   results.push(
     await check(`${width}px: TOC links present`, state.linkCount >= 1, `${state.linkCount} links`),
   );
@@ -62,7 +69,6 @@ for (const width of VIEWPORTS) {
   await page.close();
 }
 
-// Report per-scheme Contents link colors
 for (const scheme of ['light', 'dark']) {
   const context = await browser.newContext({
     colorScheme: scheme,

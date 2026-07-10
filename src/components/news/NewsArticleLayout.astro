@@ -4,6 +4,7 @@ import type { TocItem } from '@/lib/research/articleHeadings';
 import OptimizedImage from '@/components/OptimizedImage.astro';
 import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
 import ArticleContents from '@/components/research/ArticleContents.astro';
+import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
 
 interface Props {
   article: NewsArticleMeta;
@@ -74,8 +75,13 @@ const { article, tocItems } = Astro.props;
         </nav>
 
         <ArticleContents items={tocItems} category={article.category} />
+      </div>
+    </div>
 
-        <article>
+    <article>
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <ArticleTocRail items={tocItems} category={article.category}>
           <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
           <div class="article-content">
             <slot />
@@ -92,8 +98,9 @@ const { article, tocItems } = Astro.props;
               </a>
             </div>
           </div>
-        </article>
+          </ArticleTocRail>
+        </div>
       </div>
-    </div>
+    </article>
   </main>
 </>

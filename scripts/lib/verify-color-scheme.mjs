@@ -38,7 +38,7 @@ export function browserColorSchemeAudit() {
     return getComputedStyle(document.body).backgroundColor;
   };
 
-  const details = document.querySelector('details.article-contents');
+  const details = document.querySelector('details.article-contents--inline');
   if (details) details.open = true;
 
   const targets = [
@@ -72,7 +72,11 @@ export function browserColorSchemeAudit() {
     htmlHasDarkClass: document.documentElement.classList.contains('dark'),
     mutedForegroundToken: htmlStyle.getPropertyValue('--muted-foreground').trim(),
     foregroundToken: htmlStyle.getPropertyValue('--foreground').trim(),
-    railGone: !document.querySelector('nav.article-toc, .article-with-toc'),
+    railPresent: !!document.querySelector('nav.article-toc'),
+    railTrackVisible: (() => {
+      const track = document.querySelector('.article-toc-track');
+      return !!track && getComputedStyle(track).display !== 'none';
+    })(),
     targets,
   };
 }
@@ -122,7 +126,7 @@ export async function verifyColorSchemes(browser, baseUrl, check) {
       ),
     );
     results.push(
-      await check(`${scheme}: desktop rail removed`, audit.railGone),
+      await check(`${scheme}: desktop rail visible`, audit.railTrackVisible && audit.railPresent),
     );
 
     for (const target of audit.targets) {

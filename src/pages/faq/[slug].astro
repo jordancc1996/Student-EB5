@@ -12,6 +12,7 @@ import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateBreadcrumbSchema } from '@/lib/seo/structured-data';
 import { extractArticleH2s, buildTocItems } from '@/lib/research/articleHeadings';
 import ArticleContents from '@/components/research/ArticleContents.astro';
+import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const faqs = await getCollection('faq');
@@ -116,8 +117,13 @@ const tocItems = buildTocItems(extractArticleH2s(entry.body), faq.tocLabels);
           </a>
 
           <ArticleContents items={tocItems} category={faq.category} />
+        </div>
+      </div>
 
-          <article>
+      <article>
+        <div class="container mx-auto px-6">
+          <div class="max-w-4xl mx-auto">
+            <ArticleTocRail items={tocItems} category={faq.category}>
             <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
 
             <header class="mb-8">
@@ -218,9 +224,10 @@ const tocItems = buildTocItems(extractArticleH2s(entry.body), faq.tocLabels);
                 </div>
               </div>
             </div>
-          </article>
+          </ArticleTocRail>
+          </div>
         </div>
-      </div>
+      </article>
     </main>
 
     <ConsultationCTA client:visible />

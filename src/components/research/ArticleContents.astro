@@ -15,7 +15,7 @@ const openByDefault = hasContents && items.length <= 8;
 
 {
   hasContents ? (
-    <details class="article-contents" {...(openByDefault ? { open: true } : {})}>
+    <details class="article-contents article-contents--inline" {...(openByDefault ? { open: true } : {})}>
       <summary>Contents</summary>
       <ol class="article-contents__list">
         {
@@ -31,7 +31,7 @@ const openByDefault = hasContents && items.length <= 8;
       <ArticleTocCta category={category} />
     </details>
   ) : (
-    <div class="article-contents article-contents--cta-only">
+    <div class="article-contents article-contents--inline article-contents--cta-only">
       <ArticleTocCta category={category} standalone />
     </div>
   )
