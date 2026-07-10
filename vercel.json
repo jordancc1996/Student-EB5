@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/process",
+      "destination": "/eb5-investment-process",
+      "permanent": true
+    },
+    {
+      "source": "/process/",
+      "destination": "/eb5-investment-process",
+      "permanent": true
+    }
+  ]
+}

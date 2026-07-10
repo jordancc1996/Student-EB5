@@ -1,0 +1,466 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ProcessFaqAccordion from '@/components/ProcessFaqAccordion';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/seo/structured-data';
+
+const title = 'The EB-5 Investment Process: 9 Steps for F-1 Students & H-1B Professionals';
+const description =
+  'A step-by-step guide to the EB-5 investment process for F-1 students and H-1B professionals — from eligibility through your unconditional Green Card.';
+const pageCanonical = `${SITE_CONFIG.url}/eb5-investment-process`;
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const sourceOfFundsHref = '/research/ways-to-fund-eb5-investment-2026';
+
+const steps = [
+  {
+    n: 1,
+    id: 'step-1-assess-your-eligibility',
+    title: 'Assess Your Eligibility',
+    intro:
+      'Before anything else, confirm EB-5 is a realistic path for your situation. If you are in the US on an F-1 or H-1B visa, you are likely eligible — but there are three requirements you must meet.',
+    bullets: [
+      {
+        lead: 'Investment capital:',
+        text: 'You must be able to invest $800,000 in a Targeted Employment Area (TEA) or $1,050,000 in a standard area. Funds must be lawfully obtained — or a lawful gift or loan from family.',
+      },
+      {
+        lead: 'No immigration bars:',
+        text: 'You must not be inadmissible to the US for any reason such as prior overstays, criminal history, or misrepresentation.',
+      },
+      {
+        lead: 'Accredited investor status:',
+        text: 'Most EB-5 offerings require net worth over $1M excluding primary residence, or income over $200K/year ($300K joint) for the past two years.',
+      },
+    ],
+    note: 'F-1 students commonly use family funds gifted or loaned from abroad. This is fully permitted as long as the source of those funds can be documented going back several years.',
+  },
+  {
+    n: 2,
+    id: 'step-2-understand-direct-vs-regional-center-investment',
+    title: 'Understand Direct vs. Regional Center Investment',
+    intro:
+      'Every EB-5 investor must choose between two structures. Almost all F-1 and H-1B investors choose the Regional Center path.',
+    paragraphs: [
+      {
+        lead: 'Direct Investment',
+        text: 'means you invest in and actively manage a US business you own. You are personally responsible for creating 10 full-time W-2 jobs. This is complex and generally unsuitable for visa holders who cannot easily start or operate a US business.',
+      },
+      {
+        lead: 'Regional Center Investment',
+        text: 'means you invest as a passive limited partner in a USCIS-approved project — typically real estate or infrastructure. The Regional Center handles job creation, compliance, and USCIS reporting. You have no management role, which is ideal when you are focused on your career or studies.',
+      },
+      {
+        text: 'For F-1 and H-1B holders, Regional Center investment is the standard path. All steps below assume this structure.',
+      },
+    ],
+  },
+  {
+    n: 3,
+    id: 'step-3-select-an-eb-5-project',
+    title: 'Select an EB-5 Project',
+    intro:
+      'Choosing the right project is the most consequential financial decision in the process. You are not just picking an immigration path — you are making a 5–7 year capital commitment.',
+    leadLine: 'Key factors to evaluate:',
+    bullets: [
+      {
+        lead: 'TEA designation:',
+        text: 'Projects in Targeted Employment Areas allow the $800,000 threshold. Confirm the TEA is properly documented and USCIS-approved.',
+      },
+      {
+        lead: 'Job creation methodology:',
+        text: "Review the economist's report. Are the 10 required jobs per investor clearly supported?",
+      },
+      {
+        lead: 'Developer track record:',
+        text: 'Has the developer completed prior EB-5 projects? Have prior investors received I-829 approvals?',
+      },
+      {
+        lead: 'Capital stack and repayment:',
+        text: 'Where does EB-5 capital sit in the capital structure? What is the exit strategy and repayment timeline?',
+      },
+      {
+        lead: 'I-956F approval:',
+        text: "Confirm the project's exemplar petition has been approved by USCIS under the EB-5 Reform and Integrity Act.",
+      },
+    ],
+    note: 'Work with a qualified securities attorney to review the Private Placement Memorandum (PPM) before signing anything.',
+  },
+  {
+    n: 4,
+    id: 'step-4-prepare-your-source-of-funds-documentation',
+    title: 'Prepare Your Source-of-Funds Documentation',
+    intro:
+      'This is typically the most time-consuming step and the one where most petition problems originate. USCIS requires you to trace every dollar of your investment back to its lawful origin.',
+    leadLine: 'Common sources for F-1 and H-1B investors:',
+    bullets: [
+      {
+        lead: 'Family gift or loan from abroad:',
+        text: "The most common structure for F-1 students. You must document not just your own receipt of funds, but your family member's lawful accumulation of the money — including tax returns, business records, and bank statements going back 5+ years.",
+      },
+      {
+        lead: 'Personal savings from employment:',
+        text: 'H-1B holders can document funds through W-2s, tax returns, and brokerage statements.',
+      },
+      {
+        lead: 'Business ownership proceeds:',
+        text: "Requires documentation of the business's formation, operation, and lawful distribution to you.",
+      },
+    ],
+    noteWithLink: true,
+  },
+  {
+    n: 5,
+    id: 'step-5-complete-subscription-documents',
+    title: 'Complete Subscription Documents',
+    intro:
+      'Once you have selected a project and your attorney has reviewed the offering documents, you will complete the subscription package to formally commit to the investment.',
+    leadLine: 'This typically includes:',
+    bullets: [
+      {
+        lead: 'Subscription Agreement:',
+        text: 'your formal agreement to invest in the limited partnership',
+      },
+      {
+        lead: 'Escrow Acknowledgment:',
+        text: 'confirming funds will be held in escrow pending I-526E adjudication',
+      },
+      {
+        lead: 'Accredited Investor Certification:',
+        text: 'confirming you meet SEC suitability standards',
+      },
+      {
+        lead: 'Anti-Money Laundering disclosures:',
+        text: 'standard KYC documentation',
+      },
+    ],
+    note: 'Review every page carefully with your attorney before signing. These documents govern how and when your capital can be returned.',
+  },
+  {
+    n: 6,
+    id: 'step-6-transfer-investment-funds',
+    title: 'Transfer Investment Funds',
+    intro:
+      'After your subscription documents are executed, wire your investment capital to the project\'s escrow account. TEA projects require $800,000. Non-TEA projects require $1,050,000. Most projects also charge an administrative fee of $50,000–$60,000 wired separately.',
+    leadLine: 'Important:',
+    bullets: [
+      {
+        text: 'Always confirm wire instructions directly with the Regional Center by phone — never act on emailed wire instructions alone.',
+      },
+      {
+        text: 'Get written confirmation from the escrow agent that funds were received before your I-526E is filed.',
+      },
+      {
+        text: 'Review the escrow release conditions in your subscription agreement carefully.',
+      },
+    ],
+  },
+  {
+    n: 7,
+    id: 'step-7-file-form-i-526e-with-uscis',
+    title: 'File Form I-526E with USCIS',
+    intro:
+      'Form I-526E is your formal immigrant investor petition. It establishes your priority date and asks USCIS to confirm your investment meets all program requirements.',
+    leadLine: 'Your attorney compiles and submits:',
+    bullets: [
+      { text: 'Proof of qualifying investment and escrow confirmation' },
+      { text: 'Source of Funds Memorandum and all supporting financial documents' },
+      { text: "Project's I-956F approval and TEA documentation" },
+      { text: 'Your personal immigration history and biographic information' },
+    ],
+    note: 'USCIS issues a receipt notice confirming your priority date. Current I-526E processing times range from 12 to 48+ months. Important for F-1 and H-1B holders: If a visa number is immediately available for your country of birth, you may file Form I-485 (Adjustment of Status) at the same time as your I-526E. This lets you stay in the US while your petition is pending and apply for an Employment Authorization Document (EAD) and Advance Parole — critical protections if your visa situation changes.',
+  },
+  {
+    n: 8,
+    id: 'step-8-adjustment-of-status-or-consular-processing',
+    title: 'Adjustment of Status or Consular Processing',
+    intro:
+      'Once your I-526E is approved, your path to the conditional Green Card depends on where you are and where your priority date stands.',
+    paragraphs: [
+      {
+        lead: 'Adjustment of Status (Form I-485):',
+        text: 'For those already in the US on a valid visa. You adjust status to permanent resident without leaving the country. Most F-1 and H-1B holders strongly prefer this path.',
+      },
+      {
+        lead: 'Consular Processing (Form DS-260):',
+        text: 'For those outside the US. You attend an immigrant visa interview at a US consulate and enter the US as a conditional permanent resident upon approval.',
+      },
+      {
+        lead: 'Visa retrogression:',
+        text: 'Nationals of China, India, Vietnam, and certain other countries face long waits due to annual per-country visa caps. Your priority date must be current on the USCIS Visa Bulletin before you can complete this step. All other nationalities currently have no significant backlog.',
+      },
+    ],
+  },
+  {
+    n: 9,
+    id: 'step-9-file-form-i-829-to-remove-conditions',
+    title: 'File Form I-829 to Remove Conditions',
+    intro:
+      'After receiving your conditional Green Card, you enter a 2-year conditional permanent residency period. You and your family can live and work anywhere in the US during this time.',
+    leadLine: 'Within the 90-day window before your conditional Green Card expires, your attorney files Form I-829 to prove:',
+    bullets: [
+      { text: 'Your investment was sustained throughout the required period' },
+      {
+        text: 'At least 10 full-time jobs for qualifying US workers were created or preserved',
+      },
+    ],
+    note: 'Upon I-829 approval you receive a permanent unconditional 10-year Green Card. You may apply for US citizenship after 5 years of permanent residence. In most well-structured Regional Center projects, your invested capital is returned after I-829 approval — typically 5–7 years from your initial investment.',
+  },
+] as const;
+
+const faqs = [
+  {
+    question: 'Is EB-5 a good fit for F-1 students and H-1B workers?',
+    answer:
+      'EB-5 is especially well-suited for F-1 and H-1B holders who want to stop depending on employer sponsorship, OPT extensions, or H-1B lottery results. You can file EB-5 while maintaining your current visa status. Concurrent I-485 filing gives you work authorization (EAD) and travel permission (Advance Parole) while your petition is pending — a critical safety net if your visa situation changes unexpectedly.',
+  },
+  {
+    question: 'How long does the full EB-5 process take?',
+    answer:
+      'From first consultation to unconditional Green Card, the full timeline is typically 4–8 years. The longest single stage is I-526E processing at USCIS, currently 12–48+ months. Nationals of most countries then proceed to Adjustment of Status within 6–18 months of I-526E approval. The conditional Green Card period adds 2 years, followed by I-829 processing.',
+  },
+  {
+    question: 'Can my family be included in my EB-5 petition?',
+    answer:
+      'Yes. Your spouse and unmarried children under 21 at the time of filing are derivative beneficiaries. They receive conditional Green Cards based on your single investment at no additional investment cost. Each family member files their own I-829 to remove conditions.',
+  },
+  {
+    question: 'What happens to my current visa status while I-526E is pending?',
+    answer:
+      'Nothing changes automatically — you must maintain your valid status (F-1, H-1B, etc.) throughout. If you file I-485 concurrently, you can apply for EAD and Advance Parole, but your underlying visa status must remain valid until I-485 is approved. Letting your status lapse while I-485 is pending can create serious complications.',
+  },
+  {
+    question: 'What are the financial risks of EB-5?',
+    answer:
+      'Your capital must be genuinely "at risk" under USCIS rules — it is not guaranteed. If a project fails, you may lose some or all of your investment and your petition could be jeopardized. USCIS may also deny your petition if source-of-funds documentation is incomplete or if the project fails to create the required jobs. Project selection and experienced immigration counsel significantly reduce — but do not eliminate — these risks.',
+  },
+];
+
+const structuredData = [
+  generateFAQSchema(faqs),
+  generateBreadcrumbSchema([
+    { name: 'Home', url: SITE_CONFIG.url },
+    { name: 'Pathways', url: `${SITE_CONFIG.url}/pathways` },
+    { name: 'EB-5 Investment Process', url: pageCanonical },
+  ]),
+];
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    {
+      structuredData.map((data) => (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(data).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)}
+        />
+      ))
+    }
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+
+    <main>
+      <section class="relative -mt-[120px] pt-[120px] min-h-[45vh] flex items-center justify-center bg-hero-dark">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70"></div>
+        <div class="relative z-10 container mx-auto px-4 py-20 text-center max-w-4xl">
+          <p class="text-white/70 text-xs md:text-sm font-semibold uppercase tracking-[0.18em] mb-4">
+            For F-1 Students &amp; H-1B Professionals
+          </p>
+          <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            The EB-5 Investment Process
+          </h1>
+          <p
+            class="text-white/85 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
+            style="font-family: Georgia, serif;"
+          >
+            EB-5 gives you a path to a permanent Green Card that doesn't depend on your employer, your OPT clock, or
+            your H-1B lottery results. Here is exactly how the process works — step by step.
+          </p>
+        </div>
+      </section>
+
+      <section class="py-12 border-b border-border bg-muted/20">
+        <div class="container mx-auto px-4 max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+            On this page
+          </p>
+          <ol class="space-y-2 list-decimal list-inside text-foreground">
+            {
+              steps.map((step) => (
+                <li>
+                  <a
+                    href={`#${step.id}`}
+                    class="text-primary hover:underline underline-offset-4 transition-colors duration-150"
+                  >
+                    {step.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4 max-w-3xl space-y-8">
+          {
+            steps.map((step) => (
+              <article
+                class="rounded-xl border border-border bg-card p-6 md:p-8 shadow-sm scroll-mt-28"
+                id={step.id}
+              >
+                <div class="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary mb-4">
+                  Step {step.n}
+                </div>
+                <h2 class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">
+                  {step.title}
+                </h2>
+                <p
+                  class="text-muted-foreground leading-relaxed mb-4"
+                  style="font-family: Georgia, serif; line-height: 1.75;"
+                >
+                  {step.intro}
+                </p>
+
+                {
+                  'paragraphs' in step &&
+                    step.paragraphs?.map((p) => (
+                      <p
+                        class="text-muted-foreground leading-relaxed mb-4"
+                        style="font-family: Georgia, serif; line-height: 1.75;"
+                      >
+                        {p.lead && <strong class="text-foreground">{p.lead} </strong>}
+                        {p.text}
+                      </p>
+                    ))
+                }
+
+                {
+                  'leadLine' in step && step.leadLine && (
+                    <p
+                      class="text-foreground font-medium mb-3"
+                      style="font-family: Georgia, serif;"
+                    >
+                      {step.leadLine}
+                    </p>
+                  )
+                }
+
+                {
+                  'bullets' in step && step.bullets && (
+                    <ul class="space-y-3 mb-4 list-disc pl-5">
+                      {step.bullets.map((b) => (
+                        <li
+                          class="text-muted-foreground leading-relaxed"
+                          style="font-family: Georgia, serif; line-height: 1.75;"
+                        >
+                          {'lead' in b && b.lead && (
+                            <strong class="text-foreground">{b.lead} </strong>
+                          )}
+                          {b.text}
+                        </li>
+                      ))}
+                    </ul>
+                  )
+                }
+
+                {
+                  'note' in step && step.note && (
+                    <aside class="mt-5 border-l-4 border-primary/40 pl-4 py-1">
+                      <p
+                        class="text-muted-foreground italic leading-relaxed"
+                        style="font-family: Georgia, serif; line-height: 1.75;"
+                      >
+                        {step.note}
+                      </p>
+                    </aside>
+                  )
+                }
+
+                {
+                  'noteWithLink' in step && step.noteWithLink && (
+                    <aside class="mt-5 border-l-4 border-primary/40 pl-4 py-1">
+                      <p
+                        class="text-muted-foreground italic leading-relaxed"
+                        style="font-family: Georgia, serif; line-height: 1.75;"
+                      >
+                        Your immigration attorney will prepare a Source of Funds Memorandum.{' '}
+                        <a
+                          href={sourceOfFundsHref}
+                          class="not-italic text-primary hover:underline underline-offset-4"
+                        >
+                          See our research on source-of-funds documentation
+                        </a>
+                        . Start gathering documents early — foreign bank records and translations take
+                        time.
+                      </p>
+                    </aside>
+                  )
+                }
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="py-16 md:py-20 bg-muted/30" id="faq">
+        <div class="container mx-auto px-4 max-w-3xl">
+          <h2 class="font-serif text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+          <ProcessFaqAccordion client:load items={faqs} />
+        </div>
+      </section>
+
+      <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+          <h2 class="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Start Your EB-5 Journey
+          </h2>
+          <p
+            class="text-muted-foreground text-lg leading-relaxed mb-8 max-w-2xl mx-auto"
+            style="font-family: Georgia, serif; line-height: 1.75;"
+          >
+            StudentEB5 provides free, independent educational resources for F-1 students and H-1B professionals
+            exploring EB-5. Browse our research or get in touch.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+            <a
+              href="/research"
+              class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 transition-colors duration-150"
+            >
+              Browse Our Research
+            </a>
+            <a
+              href="/contact"
+              class="inline-flex items-center justify-center rounded-md text-sm font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8 transition-colors duration-150"
+            >
+              Contact Us
+            </a>
+          </div>
+          <p class="text-xs text-muted-foreground max-w-xl mx-auto">
+            StudentEB5 is an educational platform. Nothing on this site constitutes legal or investment advice.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <Footer client:visible />
+  </div>
+</Layout>
