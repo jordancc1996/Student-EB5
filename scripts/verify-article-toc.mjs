@@ -1,5 +1,6 @@
 import { PLAYWRIGHT_BROWSERS_PATH, configurePlaywrightBrowsersPath, launchChromium } from './lib/playwright-env.mjs';
 import { verifyColorSchemes } from './lib/verify-color-scheme.mjs';
+import { verifyTocBreakpoints, verifyTocCssOnlyAtDesktop } from './lib/verify-toc-breakpoints.mjs';
 
 configurePlaywrightBrowsersPath();
 
@@ -256,6 +257,9 @@ async function main() {
   );
 
   await mobile.close();
+
+  results.push(...(await verifyTocBreakpoints(browser, BASE, ARTICLE_WITH_TOC, check)));
+  results.push(...(await verifyTocCssOnlyAtDesktop(browser, BASE, ARTICLE_WITH_TOC, check)));
 
   // Article with exactly 2 H2s - find one
   const fewH2Page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
