@@ -1,4 +1,6 @@
 ---
+import StatsRow from '@/components/sections/StatsRow.astro';
+
 const stats = [
   { value: "1,000+", label: "Successful EB-5 Petition Approvals", sublabel: "I-526E, I-829 & more" },
   { value: "20+ Years", label: "Combined Industry Experience", sublabel: "At the highest levels of the EB-5 market" },
@@ -28,20 +30,6 @@ const stats = [
       </p>
     </div>
 
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-      {stats.map((stat) => (
-        <div class="bg-white border border-[hsl(0,0%,90%)] rounded-2xl shadow-[0_2px_10px_-2px_rgba(0,0,0,0.1)] p-6 md:p-8 text-center">
-          <div class="font-serif font-bold text-foreground text-4xl leading-none mb-2">
-            {stat.value}
-          </div>
-          <div class="font-sans font-semibold text-sm text-foreground mb-1">
-            {stat.label}
-          </div>
-          <div class="font-sans text-xs text-muted-foreground">
-            {stat.sublabel}
-          </div>
-        </div>
-      ))}
-    </div>
+    <StatsRow stats={stats} />
   </div>
 </section>

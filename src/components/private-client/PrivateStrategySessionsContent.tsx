@@ -41,6 +41,7 @@ const SchedulingEmbedSlot = ({
   return (
     <Card
       id="private-strategy-scheduling"
+      className="rounded-lg border border-border"
       data-scheduling-provider={provider}
       data-scheduling-url={schedulingUrl || undefined}
       data-scheduling-ready={isConfigured ? 'true' : 'false'}
@@ -107,7 +108,7 @@ const PrivateStrategySessionsContent = () => {
       </div>
 
       <section className="mb-20" aria-labelledby="session-card-heading">
-        <Card className="hover:shadow-lg transition-shadow overflow-hidden">
+        <Card className="rounded-lg border border-border hover:shadow-lg transition-shadow overflow-hidden">
           <CardHeader className="text-center pb-4 border-b border-border bg-primary/5">
             <Badge variant="outline" className="mx-auto mb-4 w-fit">
               Private Client
@@ -142,7 +143,7 @@ const PrivateStrategySessionsContent = () => {
       </section>
 
       <section className="mb-16" aria-labelledby="disclaimers-heading">
-        <Card className="bg-muted/50 border-border">
+        <Card className="bg-muted/50 rounded-lg border border-border">
           <CardHeader>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">

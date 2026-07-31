@@ -8,7 +8,6 @@ import {
   Shield,
   ShieldCheck,
   TrendingUp,
-  UserCheck,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import InvestorReportCard from '@/components/private-client/InvestorReportCard';
@@ -18,51 +17,41 @@ const reports = [
     title: 'EB-5 Project Intelligence Report',
     summary:
       'Educational framework for reviewing project structure, job-creation methodology, timeline risk, and documentation standards before engaging counsel.',
-    price: '$495',
+    price: 'Contact us for pricing',
     updatedDate: 'July 2026',
     reportLength: '28–35 pages',
-    coverIcon: FileText,
-    coverLabel: 'Project Report',
   },
   {
     title: 'Regional Center Intelligence Report',
     summary:
       'Independent overview of how to evaluate regional center track record, integrity-act compliance themes, and governance considerations.',
-    price: '$395',
+    price: 'Contact us for pricing',
     updatedDate: 'July 2026',
     reportLength: '22–28 pages',
-    coverIcon: Shield,
-    coverLabel: 'Regional Center',
   },
   {
     title: 'Rural EB-5 Market Report',
     summary:
       'Context on rural set-aside dynamics, processing expectations, and market structure for investors comparing reserved-category pathways.',
-    price: '$345',
+    price: 'Contact us for pricing',
     updatedDate: 'June 2026',
     reportLength: '18–24 pages',
-    coverIcon: TrendingUp,
-    coverLabel: 'Market Report',
   },
   {
     title: 'Project Comparison Report',
     summary:
       'Side-by-side educational template for comparing offering terms, capital position, exit assumptions, and diligence questions across opportunities.',
-    price: '$545',
+    price: 'Contact us for pricing',
     updatedDate: 'July 2026',
     reportLength: '30–40 pages',
-    coverIcon: Route,
-    coverLabel: 'Comparison',
   },
   {
     title: 'Capital Stack Analysis Report',
     summary:
       'Plain-language analysis of senior debt, mezzanine, and EB-5 equity positioning—focused on risk hierarchy, not investment recommendations.',
-    price: '$425',
+    price: 'Contact us for pricing',
     updatedDate: 'June 2026',
     reportLength: '20–26 pages',
-    coverIcon: DollarSign,
-    coverLabel: 'Capital Stack',
   },
 ];
 
@@ -109,17 +98,14 @@ const preparationSteps = [
 
 const audienceItems = [
   {
-    icon: UserCheck,
     title: 'Prospective EB-5 Investors',
     description: 'Individuals and families evaluating whether and how to approach the EB-5 process with clearer diligence questions.',
   },
   {
-    icon: Briefcase,
     title: 'H-1B & F-1 Pathways Readers',
     description: 'Professionals and students already following StudentEB5 research who need deeper project and structure literacy.',
   },
   {
-    icon: DollarSign,
     title: 'Family Capital Decision-Makers',
     description: 'Parents or principals coordinating gifted funds who want structured educational materials before engaging counsel.',
   },
@@ -149,8 +135,8 @@ const InvestorIntelligenceReportsContent = () => {
           Placeholder catalog. Purchase fulfillment is not yet available—each report shows Coming Soon until checkout is enabled.
         </p>
         <div className="grid md:grid-cols-2 gap-8">
-          {reports.map((report) => (
-            <InvestorReportCard key={report.title} {...report} />
+          {reports.map((report, i) => (
+            <InvestorReportCard key={report.title} index={i + 1} {...report} />
           ))}
         </div>
       </section>
@@ -161,7 +147,7 @@ const InvestorIntelligenceReportsContent = () => {
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
           {analyzeItems.map((item) => (
-            <Card key={item.title} className="hover:shadow-lg transition-shadow">
+            <Card key={item.title} className="rounded-lg border border-border hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                   <item.icon className="h-6 w-6 text-primary" aria-hidden="true" />
@@ -177,7 +163,7 @@ const InvestorIntelligenceReportsContent = () => {
       </section>
 
       <section className="mb-20" aria-labelledby="how-prepared-heading">
-        <div className="bg-primary/5 rounded-xl p-8 border border-primary/20">
+        <div className="bg-primary/5 rounded-lg p-8 border border-primary/20">
           <h2 id="how-prepared-heading" className="text-2xl font-serif font-bold mb-8 text-center">
             How Reports Are Prepared
           </h2>
@@ -200,12 +186,12 @@ const InvestorIntelligenceReportsContent = () => {
           Who These Reports Are For
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
-          {audienceItems.map((item) => (
-            <Card key={item.title} className="text-center hover:shadow-lg transition-shadow">
+          {audienceItems.map((item, i) => (
+            <Card key={item.title} className="rounded-lg border border-border hover:shadow-lg transition-shadow">
               <CardHeader>
-                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="h-6 w-6 text-primary" aria-hidden="true" />
-                </div>
+                <span className="block text-sm font-medium text-muted-foreground tracking-wider mb-3">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
                 <CardTitle className="font-serif text-lg">{item.title}</CardTitle>
               </CardHeader>
               <CardContent>
@@ -217,7 +203,7 @@ const InvestorIntelligenceReportsContent = () => {
       </section>
 
       <section className="mb-16" aria-labelledby="disclaimers-heading">
-        <Card className="bg-muted/50 border-border">
+        <Card className="bg-muted/50 rounded-lg border border-border">
           <CardHeader>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">

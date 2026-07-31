@@ -1,14 +1,4 @@
-import {
-  AlertTriangle,
-  BookOpen,
-  Briefcase,
-  Calendar,
-  FileText,
-  GraduationCap,
-  ListChecks,
-  Route,
-  Wallet,
-} from 'lucide-react';
+import { AlertTriangle, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import InvestorReportCard from '@/components/private-client/InvestorReportCard';
 
@@ -17,57 +7,43 @@ const products = [
     title: 'EB-5 Due Diligence Checklist',
     summary:
       'A structured checklist of questions and document themes for evaluating projects and regional centers before engaging counsel.',
-    price: '$49',
-    coverIcon: ListChecks,
-    coverLabel: 'Checklist',
+    price: 'Contact us for pricing',
   },
   {
     title: 'Source of Funds Checklist',
     summary:
       'Educational worksheet covering common lawful-source pathways, gift documentation themes, and organization tips.',
-    price: '$39',
-    coverIcon: Wallet,
-    coverLabel: 'Checklist',
+    price: 'Contact us for pricing',
   },
   {
     title: 'H-1B to EB-5 Planning Guide',
     summary:
       'Planning guide for professionals mapping concurrent filing concepts, timing pressure points, and advisor preparation.',
-    price: '$79',
-    coverIcon: Briefcase,
-    coverLabel: 'Guide',
+    price: 'Contact us for pricing',
   },
   {
     title: 'F-1 Student EB-5 Workbook',
     summary:
       'Workbook for international students and families organizing status milestones, capital questions, and next-step planning.',
-    price: '$69',
-    coverIcon: GraduationCap,
-    coverLabel: 'Workbook',
+    price: 'Contact us for pricing',
   },
   {
     title: 'Concurrent Filing Roadmap',
     summary:
       'Visual educational roadmap outlining how concurrent filing concepts typically sequence for eligible applicants.',
-    price: '$59',
-    coverIcon: Route,
-    coverLabel: 'Roadmap',
+    price: 'Contact us for pricing',
   },
   {
     title: 'Visa Timeline Planner',
     summary:
       'Printable planner for tracking petition milestones, category considerations, and family-related timeline notes.',
-    price: '$29',
-    coverIcon: Calendar,
-    coverLabel: 'Planner',
+    price: 'Contact us for pricing',
   },
   {
     title: 'Project Comparison Worksheet',
     summary:
       'Side-by-side worksheet for comparing offering terms, capital position, and diligence questions across opportunities.',
-    price: '$45',
-    coverIcon: FileText,
-    coverLabel: 'Worksheet',
+    price: 'Contact us for pricing',
   },
 ];
 
@@ -95,14 +71,14 @@ const InvestorResourceLibraryContent = () => {
           Placeholder catalog. Downloads are not yet available—each product shows Coming Soon until fulfillment is enabled.
         </p>
         <div className="grid md:grid-cols-2 gap-8">
-          {products.map((product) => (
-            <InvestorReportCard key={product.title} {...product} />
+          {products.map((product, i) => (
+            <InvestorReportCard key={product.title} index={i + 1} {...product} />
           ))}
         </div>
       </section>
 
       <section className="mb-16" aria-labelledby="disclaimers-heading">
-        <Card className="bg-muted/50 border-border">
+        <Card className="bg-muted/50 rounded-lg border border-border">
           <CardHeader>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">

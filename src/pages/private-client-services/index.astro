@@ -2,7 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import LucideIcon from '@/components/LucideIcon';
+import StatsRow from '@/components/sections/StatsRow.astro';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateWebPageSchema } from '@/lib/seo/structured-data';
 
@@ -31,31 +32,41 @@ const structuredData = generateWebPageSchema(
   breadcrumbs,
 );
 
-const services = [
+const primaryService = {
+  href: '/private-client-services/private-strategy-sessions',
+  numeral: '01',
+  title: 'Private Strategy Sessions',
+  description:
+    'One-on-one educational consultations designed to help prospective EB-5 investors organize their planning before engaging legal and financial professionals.',
+  cta: 'Explore Sessions →',
+};
+
+const secondaryServices = [
   {
     href: '/private-client-services/investor-intelligence-reports',
-    icon: 'FileText' as const,
+    numeral: '02',
     title: 'Investor Intelligence Reports',
     description:
       'Independent educational research on projects, regional centers, offering structures, and due diligence considerations.',
     cta: 'View Reports →',
   },
   {
-    href: '/private-client-services/private-strategy-sessions',
-    icon: 'UserCheck' as const,
-    title: 'Private Strategy Sessions',
-    description:
-      'One-on-one educational consultations designed to help prospective EB-5 investors organize their planning before engaging legal and financial professionals.',
-    cta: 'Explore Sessions →',
-  },
-  {
     href: '/private-client-services/investor-resource-library',
-    icon: 'BookOpen' as const,
+    numeral: '03',
     title: 'Investor Resource Library',
     description:
       'Download professional planning resources, guides, worksheets, and educational tools created specifically for EB-5 investors.',
     cta: 'Browse Library →',
   },
+];
+
+// TODO: Replace placeholder PCS stats with real Private Client Services metrics
+// once confirmed by the client. Do not invent or publish unverified figures.
+const privateClientStats = [
+  { value: '—', label: 'Stat pending', sublabel: 'TODO: confirm value' },
+  { value: '—', label: 'Stat pending', sublabel: 'TODO: confirm value' },
+  { value: '—', label: 'Stat pending', sublabel: 'TODO: confirm value' },
+  { value: '—', label: 'Stat pending', sublabel: 'TODO: confirm value' },
 ];
 ---
 
@@ -94,27 +105,58 @@ const services = [
         </div>
       </section>
 
+      <!-- TODO: Replace privateClientStats placeholders with confirmed PCS metrics -->
+      <section class="py-12 md:py-16 px-8 bg-[hsl(0,0%,97%)]" aria-label="Private Client Services statistics">
+        <div class="container mx-auto">
+          <StatsRow stats={privateClientStats} />
+        </div>
+      </section>
+
       <section class="py-20">
         <div class="container mx-auto px-4 max-w-5xl">
-          <div class="grid md:grid-cols-3 gap-8">
-            {
-              services.map((service) => (
-                <a
-                  href={service.href}
-                  class="group relative border-2 border-border rounded-xl p-10 hover:border-primary hover:shadow-medium transition-all duration-300 bg-card text-center"
-                >
-                  <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <LucideIcon name={service.icon} size={32} className="text-primary" />
-                  </div>
-                  <h2 class="font-serif text-xl md:text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h2>
-                  <p class="text-muted-foreground leading-relaxed" style="font-family: Georgia, serif; line-height: 1.75;">
-                    {service.description}
-                  </p>
-                  <span class="inline-block mt-6 text-primary font-medium text-sm uppercase tracking-wider group-hover:underline">
-                    {service.cta}
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <a href={primaryService.href} class="group md:col-span-7 md:row-span-2 block">
+              <Card className="h-full rounded-lg border border-border hover:border-primary hover:shadow-medium transition-all duration-300">
+                <CardHeader className="p-8 md:p-10 pb-4">
+                  <span className="block text-sm font-medium text-muted-foreground tracking-wider mb-4">
+                    {primaryService.numeral}
                   </span>
+                  <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors">
+                    {primaryService.title}
+                  </h2>
+                </CardHeader>
+                <CardContent className="p-8 md:p-10 pt-0">
+                  <p className="text-muted-foreground leading-relaxed" style="font-family: Georgia, serif; line-height: 1.75;">
+                    {primaryService.description}
+                  </p>
+                  <span className="inline-block mt-8 text-primary font-medium text-sm uppercase tracking-wider group-hover:underline">
+                    {primaryService.cta}
+                  </span>
+                </CardContent>
+              </Card>
+            </a>
+
+            {
+              secondaryServices.map((service) => (
+                <a href={service.href} class="group md:col-span-5 block">
+                  <Card className="h-full rounded-lg border border-border hover:border-primary hover:shadow-medium transition-all duration-300">
+                    <CardHeader className="p-6 md:p-8 pb-3">
+                      <span className="block text-sm font-medium text-muted-foreground tracking-wider mb-3">
+                        {service.numeral}
+                      </span>
+                      <h2 className="font-serif text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        {service.title}
+                      </h2>
+                    </CardHeader>
+                    <CardContent className="p-6 md:p-8 pt-0">
+                      <p className="text-muted-foreground leading-relaxed text-sm md:text-base" style="font-family: Georgia, serif; line-height: 1.75;">
+                        {service.description}
+                      </p>
+                      <span className="inline-block mt-6 text-primary font-medium text-sm uppercase tracking-wider group-hover:underline">
+                        {service.cta}
+                      </span>
+                    </CardContent>
+                  </Card>
                 </a>
               ))
             }

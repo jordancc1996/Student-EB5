@@ -1,4 +1,3 @@
-import type { LucideIcon } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -11,9 +10,8 @@ export interface InvestorReportCardProps {
   /** Optional meta badge (e.g. page length). Omit for digital products. */
   updatedDate?: string;
   reportLength?: string;
-  /** Decorative cover icon used when no imageSrc is provided. */
-  coverIcon: LucideIcon;
-  coverLabel?: string;
+  /** 1-based index for left-aligned numeral (01, 02, …). */
+  index?: number;
   /** Optional cover image (local import or URL). Prefer over stock photography. */
   imageSrc?: string | { src: string };
   imageAlt?: string;
@@ -29,15 +27,14 @@ const InvestorReportCard = ({
   price,
   updatedDate,
   reportLength,
-  coverIcon: CoverIcon,
-  coverLabel = 'Intelligence Report',
+  index,
   imageSrc,
   imageAlt,
 }: InvestorReportCardProps) => {
   const hasMeta = Boolean(reportLength || updatedDate);
 
   return (
-    <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow group">
+    <Card className="overflow-hidden h-full flex flex-col rounded-lg border border-border hover:shadow-lg transition-shadow group">
       {imageSrc ? (
         <div className="aspect-[16/10] overflow-hidden border-b border-border">
           <OptimizedImage
@@ -48,22 +45,14 @@ const InvestorReportCard = ({
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
-      ) : (
-        <div
-          className="aspect-[16/10] bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/30 flex flex-col items-center justify-center gap-3 border-b border-border"
-          role="img"
-          aria-label={imageAlt || coverLabel}
-        >
-          <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-            <CoverIcon className="h-7 w-7 text-primary" aria-hidden="true" />
-          </div>
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-            {coverLabel}
-          </span>
-        </div>
-      )}
+      ) : null}
 
       <CardHeader className="pb-3">
+        {index != null ? (
+          <span className="block text-sm font-medium text-muted-foreground tracking-wider mb-3">
+            {String(index).padStart(2, '0')}
+          </span>
+        ) : null}
         {hasMeta && (
           <div className="flex flex-wrap items-center gap-2 mb-2">
             {reportLength ? <Badge variant="outline">{reportLength}</Badge> : null}
@@ -77,7 +66,7 @@ const InvestorReportCard = ({
 
       <CardContent className="flex-1">
         <p className="text-muted-foreground leading-relaxed text-sm mb-4">{summary}</p>
-        <p className="text-lg font-semibold text-foreground">{price}</p>
+        <p className="text-sm font-medium text-foreground">{price}</p>
       </CardContent>
 
       <CardFooter>
