@@ -35,6 +35,10 @@ const routeNames: Record<string, string> = {
   'h1b-60-day-clock': 'H-1B 60-Day Clock',
   'eb5-investment-process': 'EB-5 Investment Process',
   'process': 'EB-5 Investment Process',
+  'private-client-services': 'Private Client Services',
+  'investor-intelligence-reports': 'Investor Intelligence Reports',
+  'private-strategy-sessions': 'Private Strategy Sessions',
+  'investor-resource-library': 'Investor Resource Library',
 };
 
 const pathOverrides: Record<string, string> = {

@@ -198,6 +198,7 @@ export function generateSiteNavigationSchema() {
     { name: 'Research', url: `${SITE_CONFIG.url}/research` },
     { name: 'FAQ', url: `${SITE_CONFIG.url}/faq` },
     { name: 'Resources', url: `${SITE_CONFIG.url}/resources` },
+    { name: 'Private Client Services', url: `${SITE_CONFIG.url}/private-client-services` },
     { name: 'Tools', url: `${SITE_CONFIG.url}/eb5-investment-immigration-tools` },
     { name: 'About', url: `${SITE_CONFIG.url}/about` },
     { name: 'Contact', url: `${SITE_CONFIG.url}/contact` },

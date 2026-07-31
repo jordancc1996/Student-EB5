@@ -14,6 +14,7 @@ const Footer = () => {
     { name: "Research", href: "/research" },
     { name: "Pathways", href: "/pathways" },
     { name: "EB-5 Process", href: "/eb5-investment-process" },
+    { name: "Private Client Services", href: "/private-client-services" },
     { name: "Resources", href: "/resources" },
     { name: "FAQ", href: "/faq" },
     { name: "Contact", href: "/contact" }
@@ -22,6 +23,13 @@ const Footer = () => {
   const resourceLinks = [
     { name: "Resources", href: "/resources" },
     { name: "Research", href: "/research" }
+  ];
+
+  const privateClientLinks = [
+    { name: "Overview", href: "/private-client-services" },
+    { name: "Investor Intelligence Reports", href: "/private-client-services/investor-intelligence-reports" },
+    { name: "Private Strategy Sessions", href: "/private-client-services/private-strategy-sessions" },
+    { name: "Investor Resource Library", href: "/private-client-services/investor-resource-library" }
   ];
 
   const legalLinks = [
@@ -92,6 +100,20 @@ const Footer = () => {
               {resourceLinks.map((link, index) => (
                 <li key={index}>
                   <Link 
+                    to={link.href}
+                    className="text-primary-foreground/80 hover:text-accent transition-colors hover:underline"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <h4 className="text-lg font-serif font-semibold mb-4 mt-6">Private Client Services</h4>
+            <ul className="space-y-3">
+              {privateClientLinks.map((link, index) => (
+                <li key={index}>
+                  <Link
                     to={link.href}
                     className="text-primary-foreground/80 hover:text-accent transition-colors hover:underline"
                   >

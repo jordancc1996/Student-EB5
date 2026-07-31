@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import LucideIcon from '@/components/LucideIcon';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateWebPageSchema } from '@/lib/seo/structured-data';
+
+const title = 'Private Client Services | StudentEB5';
+const description =
+  'Independent research, personalized guidance, and premium educational resources for investors navigating the EB-5 process.';
+const pageCanonical = `${SITE_CONFIG.url}/private-client-services`;
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const keywords = [
+  'private client services',
+  'EB-5 investor advisory',
+  'investor intelligence reports',
+  'EB-5 strategy sessions',
+  'EB-5 resource library',
+];
+
+const breadcrumbs = [
+  { name: 'Home', url: SITE_CONFIG.url },
+  { name: 'Private Client Services', url: pageCanonical },
+];
+
+const structuredData = generateWebPageSchema(
+  'Private Client Services',
+  description,
+  pageCanonical,
+  breadcrumbs,
+);
+
+const services = [
+  {
+    href: '/private-client-services/investor-intelligence-reports',
+    icon: 'FileText' as const,
+    title: 'Investor Intelligence Reports',
+    description:
+      'Independent educational research on projects, regional centers, offering structures, and due diligence considerations.',
+    cta: 'View Reports →',
+  },
+  {
+    href: '/private-client-services/private-strategy-sessions',
+    icon: 'UserCheck' as const,
+    title: 'Private Strategy Sessions',
+    description:
+      'One-on-one educational consultations designed to help prospective EB-5 investors organize their planning before engaging legal and financial professionals.',
+    cta: 'Explore Sessions →',
+  },
+  {
+    href: '/private-client-services/investor-resource-library',
+    icon: 'BookOpen' as const,
+    title: 'Investor Resource Library',
+    description:
+      'Download professional planning resources, guides, worksheets, and educational tools created specifically for EB-5 investors.',
+    cta: 'Browse Library →',
+  },
+];
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+
+    <main>
+      <section class="relative -mt-[120px] pt-[120px] min-h-[50vh] flex items-center justify-center bg-hero-dark">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70"></div>
+        <div class="relative z-10 container mx-auto px-4 py-20 text-center">
+          <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            Private Client Services
+          </h1>
+          <p class="text-white/80 text-lg md:text-xl max-w-3xl mx-auto" style="font-family: Georgia, serif;">
+            Independent research, personalized guidance, and premium educational resources for investors navigating the EB-5 process.
+          </p>
+        </div>
+      </section>
+
+      <section class="py-20">
+        <div class="container mx-auto px-4 max-w-5xl">
+          <div class="grid md:grid-cols-3 gap-8">
+            {
+              services.map((service) => (
+                <a
+                  href={service.href}
+                  class="group relative border-2 border-border rounded-xl p-10 hover:border-primary hover:shadow-medium transition-all duration-300 bg-card text-center"
+                >
+                  <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <LucideIcon name={service.icon} size={32} className="text-primary" />
+                  </div>
+                  <h2 class="font-serif text-xl md:text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h2>
+                  <p class="text-muted-foreground leading-relaxed" style="font-family: Georgia, serif; line-height: 1.75;">
+                    {service.description}
+                  </p>
+                  <span class="inline-block mt-6 text-primary font-medium text-sm uppercase tracking-wider group-hover:underline">
+                    {service.cta}
+                  </span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-muted/30">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+          <h2 class="font-serif text-3xl font-bold text-foreground mb-6">
+            Built for Informed Decision-Making
+          </h2>
+          <p class="text-muted-foreground leading-relaxed" style="font-family: Georgia, serif; line-height: 1.75;">
+            StudentEB5 Private Client Services extend our public educational mission with focused support for investors who require deeper analysis, structured dialogue, and carefully curated reference materials. Every engagement remains educational in nature and does not constitute legal or financial advice.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <Footer client:visible />
+  </div>
+</Layout>

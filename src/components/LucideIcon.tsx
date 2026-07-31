@@ -1,6 +1,7 @@
 import {
   AlertTriangle,
   ArrowRight,
+  BookOpen,
   Briefcase,
   CheckCircle,
   CreditCard,
@@ -19,6 +20,7 @@ import {
 const ICONS = {
   AlertTriangle,
   ArrowRight,
+  BookOpen,
   Briefcase,
   CheckCircle,
   CreditCard,
