@@ -115,7 +115,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
   // Elegant navigation link styles - uppercase, letter-spaced, refined sizing
   // Larger tap targets via px-3 py-2, smooth color transitions, clear focus ring
   const baseLinkClasses =
-    'inline-flex items-center px-3 py-2 rounded-sm text-[13px] uppercase tracking-[0.15em] font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent';
+    'inline-flex items-center px-2 py-1 rounded-sm text-[11px] uppercase tracking-[0.2em] font-light transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent';
   const linkClasses = useWhiteText
     ? `${baseLinkClasses} text-white hover:text-white/70 focus-visible:ring-white/60`
     : `${baseLinkClasses} text-foreground hover:text-foreground/60 focus-visible:ring-foreground/40`;
@@ -132,8 +132,8 @@ const Header = ({ transparent = false }: HeaderProps) => {
       <nav 
         className={`nav-simple fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled || isMobileMenuOpen
-            ? 'bg-background/95 backdrop-blur-sm shadow-sm py-4' 
-            : 'bg-transparent py-6'
+            ? 'bg-background/95 backdrop-blur-sm shadow-sm py-2' 
+            : 'bg-transparent py-3'
         }`}
         role="navigation"
         aria-label="Main navigation"
