@@ -55,7 +55,7 @@ The total investment amount varies and depends on the attorney you select, the s
 - **USCIS Filing Fees: approximately $6,000.** This is the combined cost for filing the I-526E along with concurrent I-485, I-765, and I-131 applications.
 - **Regional Center Admin Fees: $60,000 to $80,000.** Regional centers charge an administrative fee to cover the cost of structuring the investment and managing the project. Most regional centers require this fee upfront, while some defer collection until the end of the five-year loan term.
 
-For a deeper view of every line item, see our <a href="/research/eb5-total-cost-breakdown">EB-5 total cost breakdown</a>.
+For a deeper view of every line item, see our EB-5 total cost breakdown.
 
 ### StudentEB5 Recommendation: Handling Asset Liquidation and Tax Liabilities
 
@@ -102,7 +102,7 @@ No. EB-5 is completely independent of the investor's employer. The employer does
 
 ## Ready to File?
 
-Speak with a StudentEB5 advisor to discuss project opportunities, immigration strategies, and the steps required to move from F-1 or H-1B status to permanent residency. <a href="/contact">Schedule your consultation today</a>.
+Speak with a StudentEB5 advisor to discuss project opportunities, immigration strategies, and the steps required to move from F-1 or H-1B status to permanent residency. Review the <a href="/eb5-investment-process">EB-5 investment process</a> and the <a href="/pathways">EB-5 pathways</a>. <a href="/contact">Schedule your consultation today</a>.
 
 ![Golden Gate Bridge tower with San Francisco skyline behind, representing the path to U.S. permanent residency through EB-5](../../../assets/studenteb5-greencard-faqs-eb5.jpg)
 

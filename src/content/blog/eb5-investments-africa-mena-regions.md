@@ -55,11 +55,11 @@ Investors from Africa and the MENA region frequently compare the EB-5 program to
 
 The E-2 visa allows investors from treaty countries to enter the United States relatively quickly and develop a business in which they have invested a substantial amount of capital in return for temporary residency. Golden visas and Caribbean CBI programs provide permanent residency to new markets, travel privileges and in some cases a second passport within a matter of months.
 
-The EB-5 program competes on a fundamentally different metric than the E-2 visa, EB-3 visa, golden visas and Caribbean CBI programs. The EB-5 program delivers permanent U.S. residency for the investor, their spouse and unmarried children under the age of 21 without requiring operational dependence on a specific business. Additionally, the E-2 visa is a non-immigrant visa that must be periodically renewed and does not provide a direct path to permanent residency while the EB-5 program offers a permanent solution. The EB-5 process involves a larger capital commitment, extensive documentation and longer timelines but the value is substantially higher than its alternatives due to the program providing long-term stability and security for its investors. For a detailed comparison, see our guide on <a href="/research/golden-visas-vs-eb5-comparison">Golden Visas vs. EB-5</a>.
+The EB-5 program competes on a fundamentally different metric than the E-2 visa, EB-3 visa, golden visas and Caribbean CBI programs. The EB-5 program delivers permanent U.S. residency for the investor, their spouse and unmarried children under the age of 21 without requiring operational dependence on a specific business. Additionally, the E-2 visa is a non-immigrant visa that must be periodically renewed and does not provide a direct path to permanent residency while the EB-5 program offers a permanent solution. The EB-5 process involves a larger capital commitment, extensive documentation and longer timelines but the value is substantially higher than its alternatives due to the program providing long-term stability and security for its investors. For a detailed comparison, see our guide on <a href="/research/golden-visas-vs-eb5-elite-students">Golden Visas vs. EB-5</a>.
 
 ## The Impact of the EB-5 Reform and Integrity Act
 
-The EB-5 Reform and Integrity Act of 2022 was a pivotal moment for the program and introduced sweeping changes designed to enhance transparency, protect investors and streamline processing. The RIA addressed many of the criticisms that had plagued the program in the past, establishing a more robust and reliable framework for both investors and regional centers. For a comprehensive breakdown, see our <a href="/research/eb5-reform-integrity-act-2022-analysis">RIA analysis</a>.
+The EB-5 Reform and Integrity Act of 2022 was a pivotal moment for the program and introduced sweeping changes designed to enhance transparency, protect investors and streamline processing. The RIA addressed many of the criticisms that had plagued the program in the past, establishing a more robust and reliable framework for both investors and regional centers. For a comprehensive breakdown, see our <a href="/research/post-reform-integrity-act-analysis">RIA analysis</a>.
 
 ### Visa Set-Aside Categories
 
@@ -101,7 +101,7 @@ Investors must be wary of marketing materials that provide unrealistic promises 
 
 ## The Approaching September 30, 2026, Deadline
 
-The most urgent consideration for prospective EB-5 investors today is the impending sunset of the RIA's <a href="/research/eb5-grandfathering-explained">grandfathering provision</a> on September 30, 2026. This deadline has significant implications for the future of the program.
+The most urgent consideration for prospective EB-5 investors today is the impending sunset of the RIA's <a href="/research/eb5-grandfathering-2026-2027-deadlines">grandfathering provision</a> on September 30, 2026. This deadline has significant implications for the future of the program.
 
 When Congress passed the RIA it authorized the Regional Center program through September 30, 2027. However, the grandfathering protection—which guarantees that USCIS will continue to process and adjudicate petitions even if the program later expires—only applies to petitions filed on or before September 30, 2026.
 

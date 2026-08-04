@@ -155,11 +155,21 @@ const ResourcesMainContent = () => {
           Comprehensive guides, forms, and materials for your EB-5 journey
         </p>
         <p className="text-lg text-muted-foreground">
-          New to EB-5? Explore our{' '}
-          <a href="/research" className="text-primary hover:underline font-medium">
-            research articles
+          New to EB-5? Read the{' '}
+          <a
+            href="/research/complete-2027-eb5-guide"
+            className="text-primary hover:underline font-medium"
+          >
+            complete 2027 EB-5 guide
           </a>{' '}
-          for expert insights. Have questions? Check our{' '}
+          and our{' '}
+          <a
+            href="/research/f1-students/f1-to-eb5-green-card"
+            className="text-primary hover:underline font-medium"
+          >
+            F-1 to EB-5 green card guide
+          </a>
+          . Have questions? Check our{' '}
           <a href="/faq" className="text-primary hover:underline font-medium">
             FAQ page
           </a>{' '}

@@ -93,7 +93,7 @@ The EB-5 program under the post RIA 2022 framework presents a viable and expedit
 
 ---
 
-Ready to take control of your future in the United States? Discover how the EB-5 program can provide you with work authorization, travel freedom, and a direct path to a Green Card. Learn more at [studenteb5.com](https://studenteb5.com).
+Ready to take control of your future in the United States? Discover how the EB-5 program can provide you with work authorization, travel freedom, and a direct path to a Green Card. See the <a href="/eb5-investment-process">EB-5 investment process</a> and <a href="/pathways">EB-5 pathways</a>. Learn more at [studenteb5.com](https://studenteb5.com).
 
 ---
 

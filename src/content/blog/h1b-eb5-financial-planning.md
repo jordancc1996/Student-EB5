@@ -208,4 +208,4 @@ To learn more about the <a href="/research/complete-2027-eb5-guide"><strong>EB-5
 - Regional center comparisons
 - Success stories from H-1B to EB-5 transitions
 
-The journey from H-1B to permanent residency through EB-5 is significant but achievable with proper planning and guidance. Take the first step today by educating yourself about the process and consulting with qualified professionals.
+The journey from H-1B to permanent residency through EB-5 is significant but achievable with proper planning and guidance. Take the first step today by reviewing the <a href="/pathways/h1b-to-green-card">H-1B to green card pathway</a> and the <a href="/eb5-investment-process">EB-5 investment process</a>, then consulting with qualified professionals.

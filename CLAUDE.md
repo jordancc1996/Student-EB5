@@ -136,6 +136,10 @@ Consult these guides before working on related tasks:
 - FAQ detail page related-FAQ cards have nested `<a>` tags (outer card link wraps inner links from the answer excerpt's `dangerouslySetInnerHTML`/`set:html` content). This is invalid HTML, but currently causes no visible bug since `FaqDetailContent` renders as static SSR (no client hydration to conflict). It DID cause a false-positive duplicate-card reading in an early verification script (browser HTML-repair artifacts), confirmed resolved as a script bug, not a real page bug, on 2026-06-27. Worth a future structural fix (e.g. truncating excerpt HTML to strip inner `<a>` tags) if strict HTML validity becomes a priority, but not currently blocking.
 - golden-visas-vs-eb5-elite-students.md contains a typo: 'Optical Practical Training' should be 'Optional Practical Training' (line ~30). Flag for content fix pass.
 
+## Future content backlog
+
+- `/research/eb5-total-cost-breakdown` — dedicated research article covering every major EB-5 cost category (project investment, attorney fees, USCIS filing fees, regional center admin fees, and related line items). Referenced as plain text in `investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b.md`; do not invent a substitute URL until this article is published.
+
 ## Pending for SEO finalization phase
 
 - When building the sitemap during SEO layer finalization (per the revised conversion order), ensure `/news` and all 3 real article URLs (`july-2026-visa-bulletin-eb5-q3-outlook`, `uscis-adjustment-of-status-memo-eb5-investors`, `eb5-visa-landscape-news-update-may-2026`) are included. Do NOT include the 5 placeholder slugs that were excluded from migration.

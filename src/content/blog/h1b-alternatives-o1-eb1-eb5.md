@@ -104,4 +104,4 @@ If your <a href="/research/h1b-eb5-financial-planning">EB-5 petition is filed</a
 
 Yes. <a href="/research/f1-students/f1-to-eb5-green-card">F-1 visa holders</a> especially those on Optional Practical Training (OPT), often use this time to build the required portfolio of original contributions and publications necessary to qualify for the O-1 before F-1 status expires.
 
-For personalized guidance on which pathway is right for you, <a href="/contact">schedule a consultation</a> with our immigration experts or visit our <a href="/faq">FAQ page</a> for more information.
+For personalized guidance on which pathway is right for you, review the <a href="/pathways/h1b-to-green-card">H-1B to green card pathway</a> and the <a href="/eb5-investment-process">EB-5 investment process</a>, or <a href="/contact">schedule a consultation</a> with our immigration experts or visit our <a href="/faq">FAQ page</a> for more information.

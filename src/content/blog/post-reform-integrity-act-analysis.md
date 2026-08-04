@@ -110,7 +110,7 @@ Petitions filed before September 30, 2026 are grandfathered meaning they will co
 
 ---
 
-Ready to take control of your future in the United States? Schedule your free consultation at StudentEB5.com and discover how the EB-5 program can benefit you.
+Ready to take control of your future in the United States? Review the <a href="/eb5-investment-process">EB-5 investment process</a> and our <a href="/eb5-investment-immigration-tools">free EB-5 calculators</a>. Schedule your free consultation at StudentEB5.com and discover how the EB-5 program can benefit you.
 
 ## Sources
 

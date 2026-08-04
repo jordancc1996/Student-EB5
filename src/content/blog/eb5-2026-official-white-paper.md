@@ -172,7 +172,7 @@ Choosing the right regional center and project directly impacts both immigration
 
 ---
 
-You're making $400K at Nvidia. You'll wait 70 years for EB-3. EB-5 is how people in your position are solving this. Rural projects. I-526E + I-485 concurrent filing. EAD in hand while USCIS works. **<a href="/contact">Find out if you qualify — free assessment at StudentEB5.com</a>.**
+You're making $400K at Nvidia. You'll wait 70 years for EB-3. EB-5 is how people in your position are solving this. Rural projects. I-526E + I-485 concurrent filing. EAD in hand while USCIS works. Review the <a href="/eb5-investment-process">EB-5 investment process</a> and <a href="/pathways">EB-5 pathways</a>. **<a href="/contact">Find out if you qualify — free assessment at StudentEB5.com</a>.**
 
 The EB-5 reserved category hasn't retrogressed for India. Yet. Once it does, concurrent filing closes and you lose EAD/AP while your case pends. The window is open. It won't stay that way. **<a href="/contact">Get your free assessment before it closes</a>.**
 

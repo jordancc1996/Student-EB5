@@ -130,7 +130,7 @@ EB-5 investment immigration is one of the fastest ways to gain U.S. permanent re
 
 At StudentEB5 we specialize in providing resources for international students and H1B professionals to leverage the EB-5 program to transform their experience in America.
 
-Ready to explore how EB-5 can transform your family's U.S. education journey?
+Ready to explore how EB-5 can transform your family's U.S. education journey? Start with the <a href="/student-playbook">International Student Playbook</a> and the <a href="/pathways/f1-to-eb5-self-sponsored-green-card">F-1 student pathway</a>.
 <a href="/contact">Contact us</a> to learn more about EB-5 investment immigration.
 
 ## Frequently Asked Questions

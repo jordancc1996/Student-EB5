@@ -109,7 +109,7 @@ Infrastructure projects are given a smaller portion of the total EB-5 visa alloc
 
 The EB-5 immigrant investor program is more than a simple financial transaction because it has profound implications for a family's future. The ROI of the EB-5 program is the freedom and flexibility that lawful permanent resident status can give the investor. The reforms introduced by the RIA have provided new tools and incentives that further enhance the attractiveness and efficiency of a well-chosen investment. Overall, a successful EB-5 journey is one that is entered into with a clear understanding of both the costs and the benefits and requires substantial due diligence.
 
-Don't leave your EB-5 investment to chance. <a href="/contact">Contact StudentEB5</a> for a free consultation and discover projects with strong fundamentals, experienced developers, and clear exit strategies designed to protect your capital and secure your family's future.
+Don't leave your EB-5 investment to chance. Review the <a href="/eb5-investment-process">EB-5 investment process</a> and our <a href="/tools/2026-eb5-investment-feasibility-calculator">EB-5 Feasibility Calculator</a>. <a href="/contact">Contact StudentEB5</a> for a free consultation and discover projects with strong fundamentals, experienced developers, and clear exit strategies designed to protect your capital and secure your family's future.
 
 ## Frequently Asked Questions
 

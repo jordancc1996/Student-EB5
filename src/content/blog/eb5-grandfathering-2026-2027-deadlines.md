@@ -113,6 +113,6 @@ Investors typically get their EB-5 capital back around year 5 after their condit
 
 ---
 
-Ready to secure your future in the U.S.? Discover how the EB-5 program works at [studenteb5.com](https://studenteb5.com) and book your consultation now.
+Ready to secure your future in the U.S.? Review the <a href="/eb5-investment-process">EB-5 investment process</a> and track deadlines with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown</a>. Discover how the EB-5 program works at [studenteb5.com](https://studenteb5.com) and book your consultation now.
 
 *The opinions expressed on this website are solely those of the author/presenter. The information provided is for general informational purposes only and should not be considered professional or legal advice. Student EB5 and its contributors do not endorse or take responsibility for any actions taken based on the information presented here. Visitors are strongly advised to consult with qualified immigration attorneys and financial advisors before making any EB-5 investment decisions or taking any actions based on the content on this website.*

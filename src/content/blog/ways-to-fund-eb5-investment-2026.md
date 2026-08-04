@@ -78,7 +78,7 @@ Some EB-5 regional centers offer loans to investors to help them meet the requir
 
 ## Simplicity and Traceability Are Paramount
 
-Successfully funding an EB-5 investment and navigating the rigorous USCIS process hinges on two core principles: simplicity and traceability. The ideal I-526E petition presents a financial narrative that is clear, logical and easy for an adjudicator to follow. Applicants should avoid overly complex structures involving numerous small loans or transactions. Every dollar must be meticulously documented from a lawful source to the applicant and then to the project. By prioritizing transparency through preparation, applicants can confidently navigate the financial requirements of the EB-5 program and take a significant step toward achieving their immigration goals.
+Successfully funding an EB-5 investment and navigating the rigorous USCIS process hinges on two core principles: simplicity and traceability. The ideal I-526E petition presents a financial narrative that is clear, logical and easy for an adjudicator to follow. Applicants should avoid overly complex structures involving numerous small loans or transactions. Every dollar must be meticulously documented from a lawful source to the applicant and then to the project. By prioritizing transparency through preparation, applicants can confidently navigate the financial requirements of the EB-5 program and take a significant step toward achieving their immigration goals. For a filing checklist, see the <a href="/eb5-investment-process">EB-5 investment process</a> and use the <a href="/tools/source-of-funds-calculator">Source of Funds Calculator</a> to model available capital.
 
 ## References
 

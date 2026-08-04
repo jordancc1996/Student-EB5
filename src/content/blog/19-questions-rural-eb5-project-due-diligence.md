@@ -201,6 +201,8 @@ A GMP contract caps construction costs with a reputable contractor thus reducing
 
 The typical payback period ranges from 5 to 7 years and is often structured as a five year term. This aligns with USCIS sustainment requirements and ensures a clear exit strategy for timely capital repayment which should be detailed in the offering documents.
 
+After due diligence, map your next steps with the <a href="/eb5-investment-process">EB-5 investment process</a> and our <a href="/eb5-investment-immigration-tools">free EB-5 calculators</a>.
+
 ## References
 
 - U.S. Citizenship and Immigration Services. (2023, March 1). [EB-5 Immigrant Investor Program](https://www.uscis.gov/working-in-the-united-states/permanent-workers/eb-5-immigrant-investor-program)
