@@ -1,6 +1,7 @@
+import heroImage from '@/assets/student-playbook-hero.jpg';
+import heroImageWebp from '@/assets/student-playbook-hero.webp';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
-  BookOpen,
   GraduationCap,
   DollarSign,
   Globe,
@@ -77,155 +78,152 @@ const relatedClusterContent = [
 
 const StudentPlaybookMainContent = () => {
   return (
-    <div className="max-w-5xl mx-auto">
-      {/* Hero Section */}
-      <div className="text-center mb-16">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-6">
-          <BookOpen className="h-10 w-10 text-primary" />
-        </div>
-        <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-          EB-5 Green Card International Students Playbook - F-1 OPT and STEM Strategy Guide
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
-          EB-5 green card international students use this playbook to navigate OPT and STEM OPT timelines,
-          education-to-career planning, and a long-term path to permanent residency in the United States.
-        </p>
-        <p className="text-lg text-muted-foreground">
-          Whether you're an{' '}
-          <a href="/tools/opt-calculator" className="text-primary hover:underline font-medium">
-            F-1 student on OPT
-          </a>{' '}
-          or exploring{' '}
-          <a
-            href="/research/f1-students/eb5-funding-strategies-students"
-            className="text-primary hover:underline font-medium"
-          >
-            EB-5 funding strategies for students
-          </a>
-          , this playbook provides the strategic insights you need. Review the{' '}
-          <a
-            href="/pathways/f1-to-eb5-self-sponsored-green-card"
-            className="text-primary hover:underline font-medium"
-          >
-            F-1 to EB-5 Pathway
-          </a>{' '}
-          for the filing timeline after graduation, and the{' '}
-          <a
-            href="/research/eb5-grandfathering-2026-2027-deadlines"
-            className="text-primary hover:underline font-medium"
-          >
-            EB-5 grandfathering deadline analysis
-          </a>{' '}
-          for the September 30, 2026 filing window.
-        </p>
-      </div>
+    <>
+      <section
+        className="relative -mt-[120px] w-full min-h-[420px] flex flex-col justify-end bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroImage.src})` }}
+      >
+        {/* Prefer WebP when the browser supports it (JPEG remains the CSS fallback above). */}
+        <picture className="pointer-events-none absolute inset-0 -z-0">
+          <source srcSet={heroImageWebp.src} type="image/webp" />
+          <img
+            src={heroImage.src}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-cover"
+          />
+        </picture>
 
-      {/* Playbook Sections Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-        {playbookSections.map((section, idx) => (
-          <Card key={idx} className="hover:shadow-lg transition-shadow group">
-            <CardHeader>
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <section.icon className="h-6 w-6 text-primary" />
-              </div>
-              <CardTitle className="text-lg">{section.title}</CardTitle>
-              <CardDescription>{section.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        {/* Hero content */}
+        <div className="relative z-10 container mx-auto px-6 pb-12 pt-32">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-white/60 mb-4">
+              International Student Resource
+            </p>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
+              The EB-5 Green Card International Students Playbook
+            </h1>
+            <p className="text-lg text-white/80 max-w-2xl leading-relaxed">
+              EB-5 green card international students use this playbook to navigate OPT timelines, STEM OPT
+              extension risks, concurrent filing, and the September 30, 2026 grandfathering deadline.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div className="container mx-auto px-6 py-12">
+        <div className="max-w-5xl mx-auto">
+          {/* Playbook Sections Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {playbookSections.map((section, idx) => (
+              <Card key={idx} className="hover:shadow-lg transition-shadow group">
+                <CardHeader>
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <section.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-lg">{section.title}</CardTitle>
+                  <CardDescription>{section.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <a
+                    href={section.link}
+                    className="text-primary hover:underline font-medium inline-flex items-center gap-2"
+                  >
+                    Learn More
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Key Resources Section */}
+          <div className="bg-primary/5 rounded-xl p-8 mb-16 border border-primary/20">
+            <h2 className="text-2xl font-serif font-bold mb-6 text-center">Essential Tools for Your Journey</h2>
+            <div className="grid md:grid-cols-2 gap-4">
               <a
-                href={section.link}
-                className="text-primary hover:underline font-medium inline-flex items-center gap-2"
+                href="/tools/opt-calculator"
+                className="p-4 bg-card rounded-lg hover:shadow-md transition-shadow flex items-center gap-4"
               >
-                Learn More
-                <ArrowRight className="h-4 w-4" />
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <FileText className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">OPT Timeline Calculator</h3>
+                  <p className="text-sm text-muted-foreground">Track your work authorization deadlines</p>
+                </div>
               </a>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+              <a
+                href="/tools/tuition-calculator"
+                className="p-4 bg-card rounded-lg hover:shadow-md transition-shadow flex items-center gap-4"
+              >
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <DollarSign className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Tuition Savings Calculator</h3>
+                  <p className="text-sm text-muted-foreground">Compare costs as an international vs. resident</p>
+                </div>
+              </a>
+              <a
+                href="/tools/2026-eb5-investment-feasibility-calculator"
+                className="p-4 bg-card rounded-lg hover:shadow-md transition-shadow flex items-center gap-4"
+              >
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Globe className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">EB-5 Feasibility Tool</h3>
+                  <p className="text-sm text-muted-foreground">Evaluate your EB-5 investment readiness</p>
+                </div>
+              </a>
+            </div>
+          </div>
 
-      {/* Key Resources Section */}
-      <div className="bg-primary/5 rounded-xl p-8 mb-16 border border-primary/20">
-        <h2 className="text-2xl font-serif font-bold mb-6 text-center">Essential Tools for Your Journey</h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          <a
-            href="/tools/opt-calculator"
-            className="p-4 bg-card rounded-lg hover:shadow-md transition-shadow flex items-center gap-4"
-          >
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <FileText className="h-5 w-5 text-primary" />
+          {/* Related Cluster Content - Hub Links */}
+          <div className="mb-16">
+            <h2 className="text-2xl font-serif font-bold mb-2 text-center">F-1 Student EB-5 Resources</h2>
+            <p className="text-muted-foreground text-center mb-8">
+              Explore our complete library of guides, timelines, and tools for international students
+            </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {relatedClusterContent.map((item, idx) => (
+                <a
+                  key={idx}
+                  href={item.link}
+                  className="p-5 bg-card border border-border rounded-lg hover:shadow-md hover:border-primary/30 transition-all group"
+                >
+                  <span className="text-xs font-medium text-primary uppercase tracking-wide">{item.type}</span>
+                  <h3 className="font-semibold text-foreground mt-1 mb-2 group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                </a>
+              ))}
             </div>
-            <div>
-              <h3 className="font-semibold">OPT Timeline Calculator</h3>
-              <p className="text-sm text-muted-foreground">Track your work authorization deadlines</p>
-            </div>
-          </a>
-          <a
-            href="/tools/tuition-calculator"
-            className="p-4 bg-card rounded-lg hover:shadow-md transition-shadow flex items-center gap-4"
-          >
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <DollarSign className="h-5 w-5 text-primary" />
-            </div>
-            <div>
-              <h3 className="font-semibold">Tuition Savings Calculator</h3>
-              <p className="text-sm text-muted-foreground">Compare costs as an international vs. resident</p>
-            </div>
-          </a>
-          <a
-            href="/tools/2026-eb5-investment-feasibility-calculator"
-            className="p-4 bg-card rounded-lg hover:shadow-md transition-shadow flex items-center gap-4"
-          >
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <Globe className="h-5 w-5 text-primary" />
-            </div>
-            <div>
-              <h3 className="font-semibold">EB-5 Feasibility Tool</h3>
-              <p className="text-sm text-muted-foreground">Evaluate your EB-5 investment readiness</p>
-            </div>
-          </a>
-        </div>
-      </div>
+          </div>
 
-      {/* Related Cluster Content - Hub Links */}
-      <div className="mb-16">
-        <h2 className="text-2xl font-serif font-bold mb-2 text-center">F-1 Student EB-5 Resources</h2>
-        <p className="text-muted-foreground text-center mb-8">
-          Explore our complete library of guides, timelines, and tools for international students
-        </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {relatedClusterContent.map((item, idx) => (
+          {/* CTA Section */}
+          <div className="text-center">
+            <h2 className="text-2xl font-serif font-bold mb-4">Ready to Take the Next Step?</h2>
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Get personalized guidance on your immigration journey. Our team specializes in helping
+              international students and professionals navigate the path to permanent residency.
+            </p>
             <a
-              key={idx}
-              href={item.link}
-              className="p-5 bg-card border border-border rounded-lg hover:shadow-md hover:border-primary/30 transition-all group"
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
             >
-              <span className="text-xs font-medium text-primary uppercase tracking-wide">{item.type}</span>
-              <h3 className="font-semibold text-foreground mt-1 mb-2 group-hover:text-primary transition-colors">
-                {item.title}
-              </h3>
-              <p className="text-sm text-muted-foreground">{item.description}</p>
+              Schedule a Consultation
+              <ArrowRight className="h-4 w-4" />
             </a>
-          ))}
+          </div>
         </div>
       </div>
-
-      {/* CTA Section */}
-      <div className="text-center">
-        <h2 className="text-2xl font-serif font-bold mb-4">Ready to Take the Next Step?</h2>
-        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-          Get personalized guidance on your immigration journey. Our team specializes in helping international
-          students and professionals navigate the path to permanent residency.
-        </p>
-        <a
-          href="/contact"
-          className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
-        >
-          Schedule a Consultation
-          <ArrowRight className="h-4 w-4" />
-        </a>
-      </div>
-    </div>
+    </>
   );
 };
 
