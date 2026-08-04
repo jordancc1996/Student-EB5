@@ -1,9 +1,9 @@
 ---
 id: 22
 slug: eb5-comprehensive-faq-timeline-international-students
-title: "Comprehensive EB-5 FAQs and Timelines: The EB-5 Investor Visa Program for International Students"
-metaTitle: "EB-5 for STEM OPT Students: Avoid H-1B Lottery & EAD"
-metaDescription: "Best EB-5 strategy for STEM OPT students: OPT expiring alternatives, how long for EB-5 EAD, work while EB-5 is pending, and parent gifted funds."
+title: "EB-5 FAQ International Students - Timelines, Fees, and Concurrent Filing"
+metaTitle: "EB-5 FAQ International Students - Timelines, Fees, and Concurrent Filing | StudentEB5"
+metaDescription: "EB-5 FAQ international students ask most: $800,000 TEA investment, concurrent I-526E and I-485 filing, and work authorization typically within 3 to 6 months."
 excerpt: The EB-5 program has recently become increasingly attractive due to the 2022 Reform and Integrity Act and its addition of concurrent filing. This comprehensive FAQ and Timeline analysis addresses the most critical questions international students and their families have about leveraging the EB-5 program.
 date: January 5, 2026
 updatedDate: April 15, 2026
@@ -34,7 +34,7 @@ tocLabels:
   section-2-concurrent-filing: Traveling while the case is pending
 ---
 
-<intro>International students on F-1 visas can pursue a U.S. green card through EB-5 by investing $800,000 in a rural or high-unemployment Targeted Employment Area project, or $1,050,000 in a standard-area project, and filing their I-526E and I-485 concurrently to receive work and travel authorization within 3 to 6 months. Rural TEA projects also qualify for USCIS priority processing, with I-526E approvals typically landing in 6 to 12 months and I-485 adjudication following 6 to 8 months after that. Gifted or borrowed funds are permitted provided every dollar is traceable to a lawful source. The sections below answer the financial, filing, and timeline questions international students and their families ask most often before committing to the program.</intro>
+<intro>EB-5 FAQ international students need answered first: you can pursue a U.S. green card by investing $800,000 in a rural or high-unemployment TEA project, or $1,050,000 in a standard-area project, and filing I-526E and I-485 concurrently. Rural TEA projects also qualify for USCIS priority processing, with I-526E approvals typically landing in 6 to 12 months and I-485 adjudication following 6 to 8 months after that. Gifted or borrowed funds are permitted provided every dollar is traceable to a lawful source. The sections below answer the financial, filing, and timeline questions international students and their families ask most often before committing to the program.</intro>
 
 ## Section 1: Financial Requirements and Investment Options
 

@@ -1,9 +1,9 @@
 ---
 id: 26
 slug: eb5-economic-calculus-investment-cost
-title: "The Economic Calculus of U.S. Residency: What Does the EB-5 Program Really Cost?"
-metaTitle: Is EB-5 Worth It? Rural EB-5 ROI & Return of Capital
-metaDescription: Is rural EB-5 worth it for Indian nationals? Compare EB-5 return of capital, the safest EB-5 investment, and the best immigration investment for USA.
+title: "EB-5 Investment Cost - What the $800,000 Really Buys in 2026"
+metaTitle: EB-5 Investment Cost - What the $800,000 Really Buys in 2026 | StudentEB5
+metaDescription: "EB-5 investment cost goes beyond the $800,000 TEA minimum. Budget $60,000 to $80,000 in fees and five to seven years of locked capital opportunity cost."
 excerpt: "The EB-5 immigrant investor program represents a significant investment in a family's future that extends beyond financial returns. The program requires substantial capital and has significant opportunity costs but recent reforms like the RIA have introduced new tools and incentives to enhance the EB-5 investment attractiveness."
 date: January 14, 2026
 updatedDate: April 15, 2026
@@ -32,7 +32,7 @@ relatedPosts:
   - choosing-rural-eb5-regional-center-guide
 ---
 
-<intro>The economic cost of an EB-5 green card is not fully captured by the $800,000 TEA minimum; investors also budget $60,000 to $80,000 in regional center admin fees, and face opportunity cost from locking $800,000 in a low yield project for five to seven years instead of deploying it in a conventional portfolio. The article compares alternative return scenarios at 4%, 7%, and 10%+ annually and estimates the forgone gain on the principal alone in a range of $275,000 to $500,000 depending on risk appetite, separate from the $800,000 itself, which remains at risk and is assumed to be returned only if the project succeeds. The sections below break down direct fees, the opportunity cost math, the qualitative value proposition for families facing visa backlogs, and the due diligence criteria that reduce project failure risk.</intro>
+<intro>EB-5 investment cost is not fully captured by the $800,000 TEA minimum; investors also budget $60,000 to $80,000 in regional center admin fees and face opportunity cost from locking capital in a low-yield project for five to seven years. The article compares alternative return scenarios at 4%, 7%, and 10%+ annually and estimates the forgone gain on the principal alone in a range of $275,000 to $500,000 depending on risk appetite, separate from the $800,000 itself, which remains at risk and is assumed to be returned only if the project succeeds. The sections below break down direct fees, the opportunity cost math, the qualitative value proposition for families facing visa backlogs, and the due diligence criteria that reduce project failure risk.</intro>
 
 ## The True Economic Cost of the EB-5 Program
 

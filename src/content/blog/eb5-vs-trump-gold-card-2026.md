@@ -1,9 +1,9 @@
 ---
 id: 13
 slug: eb5-vs-trump-gold-card-2026
-title: Why the EB-5 Outshines the Proposed Trump Gold Card and Will Save Investors in 2026 and Beyond
-metaTitle: "EB-5 vs EB-2 NIW: Fastest Green Card Option USA"
-metaDescription: "EB-5 vs EB-2 NIW and is EB-5 worth it: the fastest green card option USA, best visa for wealthy Indian families, and premier investor immigration solution."
+title: "EB-5 vs Trump Gold Card - Why $800,000 Beats a $1M Donation in 2026"
+metaTitle: "EB-5 vs Trump Gold Card - Why $800,000 Beats a $1M Donation in 2026 | StudentEB5"
+metaDescription: "EB-5 vs Trump Gold Card: one $800,000 recoupable filing covers a family, while the Gold Card proposal asks $1 million per person with no capital return in 2026."
 excerpt: "The proposed Trump Gold Card has been met with skepticism due to its legal ambiguity and uncertain path to a Green Card. Discover why the EB-5 program's established structure makes it the overwhelmingly more attractive option."
 date: December 19, 2025
 updatedDate: April 15, 2026
@@ -27,7 +27,7 @@ relatedPosts:
   - 5-reasons-switch-h1b-to-eb5
 ---
 
-<intro>The EB-5 program requires a recoupable $800,000 investment that covers the investor, spouse, and all unmarried children under 21 in a single filing, while the proposed Trump Gold Card demands a non-refundable $1 million contribution per family member, meaning a family of four would pay at least $4 million with no capital return. EB-5 has operated under U.S. law since 1990 with a dedicated visa category and clear grandfathering protections; the Gold Card proposal routes applicants through already backlogged EB-1 and EB-2 queues, undermining its marketed fast-track promise. For H-1B professionals, international students, and investor families, the choice is between a proven investment structure and an untested donation with ambiguous legal status. The comparison below covers track record, family coverage, visa category mechanics, and the specific drawbacks that make the Gold Card a high-risk alternative to EB-5.</intro>
+<intro>EB-5 vs Trump Gold Card is a choice between a recoupable $800,000 investment that covers spouse and unmarried children under 21 in one filing, and a non-refundable $1 million contribution per family member with no capital return. EB-5 has operated under U.S. law since 1990 with a dedicated visa category and clear grandfathering protections; the Gold Card proposal routes applicants through already backlogged EB-1 and EB-2 queues, undermining its marketed fast-track promise. For H-1B professionals, international students, and investor families, the choice is between a proven investment structure and an untested donation with ambiguous legal status. The comparison below covers track record, family coverage, visa category mechanics, and the specific drawbacks that make the Gold Card a high-risk alternative to EB-5.</intro>
 
 ## The Need for Certainty
 
