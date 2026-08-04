@@ -210,3 +210,74 @@ before being considered done:
 Do not skip steps 5-7 (the production build check) even for simple pages — 
 dev-server-clean and production-build-clean are different guarantees, and 
 asset path issues only surface in the production build.
+
+## Content Publishing Rules
+
+Every new research article added to src/content/blog/ MUST pass
+the 5-location keyword check before being committed. This applies
+whether the article is written from scratch, imported, or converted
+from another format.
+
+### The 5-Location Keyword Rule
+
+Before committing any new article, confirm the PRIMARY TARGET KEYWORD
+appears in ALL FIVE of these locations:
+
+1. TITLE (frontmatter `title` field — also renders as H1)
+   - Must start with or prominently feature the keyword
+   - Format: "[Primary Keyword] - [Benefit or Angle]"
+   - No em dashes (use spaced hyphens)
+   - No site name in this field
+
+2. META TITLE (frontmatter `metaTitle` field)
+   - Same as title + " | StudentEB5" appended
+
+3. META DESCRIPTION (frontmatter `metaDescription` field)
+   - Must start with the keyword in the first 5-7 words
+   - 150-160 characters exactly
+   - Include at least one specific number, date, or dollar amount
+   - No em dashes
+   - End with a complete sentence
+
+4. URL / SLUG (frontmatter `slug` field)
+   - Must reflect the primary keyword
+   - Use hyphens, all lowercase, no special characters
+   - Flag if the slug doesn't match the keyword — do not change
+     an existing slug without explicit human approval (breaks links)
+
+5. FIRST SENTENCE of the <intro> block
+   - Keyword must appear in the first 10 words
+   - Must be a complete, informative sentence
+   - Include a specific number, dollar amount, or date where possible
+   - No em dashes
+
+### How to Identify the Primary Keyword
+The primary keyword is the most specific phrase someone would type
+into Google to find this exact article. It should be:
+- 2-5 words long
+- Specific (not "EB-5" alone — use "EB-5 rural TEA investment" or
+  "H-1B to EB-5 concurrent filing")
+- Reflected in the slug if the article already exists
+
+### Workflow When Adding a New Article
+
+STEP 1: Draft or receive the article content
+STEP 2: Identify the primary keyword (show it to the human for confirmation)
+STEP 3: Check all 5 locations — show a quick table:
+  Keyword: [keyword]
+  Title ✓/✗ | MetaTitle ✓/✗ | Description ✓/✗ | Slug ✓/✗ | First Sentence ✓/✗
+STEP 4: Fix any ✗ locations before writing the file
+STEP 5: Only then write the .md file and commit
+
+Do NOT commit an article with any ✗ in the 5-location check.
+Human approval is required before committing.
+
+### Quick Reference: Common Mistakes to Catch
+- Description that was copy-pasted from a different article (wrong topic)
+- First sentence that starts with context instead of the keyword
+  ("The United States represents..." instead of "H-1B layoffs EB-5...")
+- Title that buries the keyword at the end instead of leading with it
+- MetaDescription under 140 characters (too short) or over 165 (truncated)
+- Em dashes anywhere in SEO fields
+- "This article will..." or "In this guide..." as the first sentence
+
