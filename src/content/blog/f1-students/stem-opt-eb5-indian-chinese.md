@@ -35,6 +35,8 @@ STEM OPT is practical training tied to an F-1 student's qualifying STEM degree. 
 
 Timing is rigid. Form I-765 for STEM OPT may be filed up to 90 days before initial OPT ends. Filing late can leave a gap with no work authorization. Use an <a href="/tools/opt-calculator">OPT calculator</a> to map program end date, earliest and latest filing dates, and remaining runway. If the student files on time, work authorization can continue for up to 180 days while USCIS adjudicates the STEM OPT request.
 
+![24-month STEM OPT extension timeline showing apply 90 days before OPT end date, six-month check-ins, annual and final evaluations, STEM OPT end date, and 60-day grace period](/images/stem-opt-24-month-timeline.png)
+
 For Indian and Chinese STEM graduates, the extension is temporary relief, not a green card path. STEM OPT still depends on an eligible employer, reporting rules, and a hard end date. When the extension expires, the next step is usually the H-1B lottery or another nonimmigrant category. That is where cap-gap and lottery risk concentrate.
 
 ## 2026 Regulatory Threats: Duration of Status and OPT Re-Evaluation
