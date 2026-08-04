@@ -43,6 +43,7 @@ export default defineConfig({
     '/guides/h1b-to-eb5-transition': '/pathways/h1b-to-green-card',
     '/tools/concurrent-filing-checker': '/tools/eb5-concurrent-filing-eligibility',
     '/tools/eb5-feasibility': '/tools/2026-eb5-investment-feasibility-calculator',
+    '/student-playbook': '/eb5-green-card-international-students-playbook',
   },
   vite: {
     resolve: {

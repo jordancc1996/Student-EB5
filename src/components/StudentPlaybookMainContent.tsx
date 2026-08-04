@@ -84,11 +84,11 @@ const StudentPlaybookMainContent = () => {
           <BookOpen className="h-10 w-10 text-primary" />
         </div>
         <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-          The U.S. International Student Playbook
+          EB-5 Green Card International Students Playbook - F-1 OPT and STEM Strategy Guide
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
-          Your comprehensive guide to navigating the American education system, building a career, and securing
-          your long-term future in the United States.
+          EB-5 green card international students use this playbook to navigate OPT and STEM OPT timelines,
+          education-to-career planning, and a long-term path to permanent residency in the United States.
         </p>
         <p className="text-lg text-muted-foreground">
           Whether you're an{' '}

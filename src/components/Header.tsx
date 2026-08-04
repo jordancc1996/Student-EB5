@@ -64,7 +64,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
     {
       label: 'For Students',
       links: [
-        { name: 'The F-1 Student Guide', href: '/student-playbook' },
+        { name: 'The F-1 Student Guide', href: '/eb5-green-card-international-students-playbook' },
         { name: 'Student Timeline (Step-by-Step)', href: '/pathways/f1-to-eb5-self-sponsored-green-card' },
       ],
     },

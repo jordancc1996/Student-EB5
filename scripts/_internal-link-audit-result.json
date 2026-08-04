@@ -1,0 +1,239 @@
+{
+  "byHref": {
+    "/images/uscis-h1b-employer-datahub-fy2026.png": [
+      "src/content/blog/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students.md"
+    ],
+    "/images/eb5-history-milestones.png": [
+      "src/content/blog/complete-2027-eb5-guide.md"
+    ],
+    "/images/eb5-investment-amounts.png": [
+      "src/content/blog/complete-2027-eb5-guide.md"
+    ],
+    "/images/eb5-rural-advantages.png": [
+      "src/content/blog/complete-2027-eb5-guide.md"
+    ],
+    "/images/eb5-ria-provisions.png": [
+      "src/content/blog/complete-2027-eb5-guide.md"
+    ],
+    "/images/eb5-vs-gold-card.png": [
+      "src/content/blog/complete-2027-eb5-guide.md"
+    ],
+    "/images/eb5-process-timeline.png": [
+      "src/content/blog/complete-2027-eb5-guide.md"
+    ],
+    "/images/eb5-project-evaluation.png": [
+      "src/content/blog/complete-2027-eb5-guide.md"
+    ],
+    "/images/eb5-opportunity-cost-table.png": [
+      "src/content/blog/eb5-economic-calculus-investment-cost.md"
+    ],
+    "/images/eb5-student-infographic.jpg": [
+      "src/content/blog/how-eb5-visa-transforms-us-education-experience.md"
+    ],
+    "/research/eb5-total-cost-breakdown": [
+      "src/content/blog/investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b.md"
+    ]
+  },
+  "redirectByHref": {},
+  "brokenUnique": [
+    {
+      "file": "src/content/blog/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students.md",
+      "href": "/images/uscis-h1b-employer-datahub-fy2026.png",
+      "final": "/images/uscis-h1b-employer-datahub-fy2026.png",
+      "exists": false,
+      "broken": true,
+      "redirectChain": [],
+      "reason": "missing-destination"
+    },
+    {
+      "file": "src/content/blog/complete-2027-eb5-guide.md",
+      "href": "/images/eb5-history-milestones.png",
+      "final": "/images/eb5-history-milestones.png",
+      "exists": false,
+      "broken": true,
+      "redirectChain": [],
+      "reason": "missing-destination"
+    },
+    {
+      "file": "src/content/blog/complete-2027-eb5-guide.md",
+      "href": "/images/eb5-investment-amounts.png",
+      "final": "/images/eb5-investment-amounts.png",
+      "exists": false,
+      "broken": true,
+      "redirectChain": [],
+      "reason": "missing-destination"
+    },
+    {
+      "file": "src/content/blog/complete-2027-eb5-guide.md",
+      "href": "/images/eb5-rural-advantages.png",
+      "final": "/images/eb5-rural-advantages.png",
+      "exists": false,
+      "broken": true,
+      "redirectChain": [],
+      "reason": "missing-destination"
+    },
+    {
+      "file": "src/content/blog/complete-2027-eb5-guide.md",
+      "href": "/images/eb5-ria-provisions.png",
+      "final": "/images/eb5-ria-provisions.png",
+      "exists": false,
+      "broken": true,
+      "redirectChain": [],
+      "reason": "missing-destination"
+    },
+    {
+      "file": "src/content/blog/complete-2027-eb5-guide.md",
+      "href": "/images/eb5-vs-gold-card.png",
+      "final": "/images/eb5-vs-gold-card.png",
+      "exists": false,
+      "broken": true,
+      "redirectChain": [],
+      "reason": "missing-destination"
+    },
+    {
+      "file": "src/content/blog/complete-2027-eb5-guide.md",
+      "href": "/images/eb5-process-timeline.png",
+      "final": "/images/eb5-process-timeline.png",
+      "exists": false,
+      "broken": true,
+      "redirectChain": [],
+      "reason": "missing-destination"
+    },
+    {
+      "file": "src/content/blog/complete-2027-eb5-guide.md",
+      "href": "/images/eb5-project-evaluation.png",
+      "final": "/images/eb5-project-evaluation.png",
+      "exists": false,
+      "broken": true,
+      "redirectChain": [],
+      "reason": "missing-destination"
+    },
+    {
+      "file": "src/content/blog/eb5-economic-calculus-investment-cost.md",
+      "href": "/images/eb5-opportunity-cost-table.png",
+      "final": "/images/eb5-opportunity-cost-table.png",
+      "exists": false,
+      "broken": true,
+      "redirectChain": [],
+      "reason": "missing-destination"
+    },
+    {
+      "file": "src/content/blog/how-eb5-visa-transforms-us-education-experience.md",
+      "href": "/images/eb5-student-infographic.jpg",
+      "final": "/images/eb5-student-infographic.jpg",
+      "exists": false,
+      "broken": true,
+      "redirectChain": [],
+      "reason": "missing-destination"
+    },
+    {
+      "file": "src/content/blog/investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b.md",
+      "href": "/research/eb5-total-cost-breakdown",
+      "final": "/research/eb5-total-cost-breakdown",
+      "exists": false,
+      "broken": true,
+      "redirectChain": [],
+      "reason": "missing-destination"
+    }
+  ],
+  "redirectUnique": [],
+  "routes": [
+    "/",
+    "/404",
+    "/about",
+    "/contact",
+    "/eb5-investment-immigration-tools",
+    "/eb5-investment-process",
+    "/faq",
+    "/faq/active-management-required",
+    "/faq/business-failure-consequences",
+    "/faq/can-f1-students-apply-eb5",
+    "/faq/child-aging-out-green-card-cspa-eb5",
+    "/faq/direct-vs-regional-center-eb5",
+    "/faq/eb5-concurrent-filing-work-permit-timeline",
+    "/faq/eb5-process-timeline",
+    "/faq/family-members-included",
+    "/faq/h1b-grace-period-eb5-options",
+    "/faq/h1b-self-sponsor-green-card-eb5",
+    "/faq/how-studenteb5-can-help",
+    "/faq/minimum-investment-requirements",
+    "/faq/parents-gift-eb5-investment-funds",
+    "/faq/rural-eb5-india-fastest-green-card",
+    "/faq/what-is-eb5-visa-program",
+    "/faq/what-is-regional-center",
+    "/news",
+    "/news/eb5-visa-landscape-news-update-may-2026",
+    "/news/july-2026-visa-bulletin-eb5-q3-outlook",
+    "/news/uscis-adjustment-of-status-memo-eb5-investors",
+    "/pathways",
+    "/pathways/f1-to-eb5-self-sponsored-green-card",
+    "/pathways/h1b-60-day-clock",
+    "/pathways/h1b-to-green-card",
+    "/privacy-policy",
+    "/private-client-services",
+    "/private-client-services/investor-intelligence-reports",
+    "/private-client-services/investor-resource-library",
+    "/private-client-services/private-strategy-sessions",
+    "/research",
+    "/research/19-questions-rural-eb5-project-due-diligence",
+    "/research/5-reasons-switch-h1b-to-eb5",
+    "/research/best-immigration-backup-plan-indian-tech-workers-2026",
+    "/research/best-opportunity-investment-migration-2026",
+    "/research/choosing-rural-eb5-regional-center-guide",
+    "/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students",
+    "/research/complete-2027-eb5-guide",
+    "/research/eb5-2026-official-white-paper",
+    "/research/eb5-capital-stack",
+    "/research/eb5-comprehensive-faq-timeline-international-students",
+    "/research/eb5-cryptocurrency-source-of-funds",
+    "/research/eb5-economic-calculus-investment-cost",
+    "/research/eb5-grandfathering-2026-2027-deadlines",
+    "/research/eb5-guide-indian-professionals-2026",
+    "/research/eb5-investments-africa-mena-regions",
+    "/research/eb5-investor-qa-part-1",
+    "/research/eb5-lifeline-h1b-workers",
+    "/research/eb5-timing-risks-petition-invalidation",
+    "/research/eb5-visa-aging-out-crisis-solution",
+    "/research/eb5-vs-trump-gold-card-2026",
+    "/research/evaluating-eb5-projects-pending-i956f",
+    "/research/f1-students/eb5-funding-strategies-students",
+    "/research/f1-students/f1-to-eb5-green-card",
+    "/research/golden-visa-global-education-student-stories",
+    "/research/golden-visas-vs-eb5-elite-students",
+    "/research/h1b-60-day-grace-period-layoff-guide",
+    "/research/h1b-alternatives-o1-eb1-eb5",
+    "/research/h1b-eb5-financial-planning",
+    "/research/h1b-tech-layoffs-eb5-entrepreneurship",
+    "/research/how-eb5-visa-transforms-us-education-experience",
+    "/research/investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b",
+    "/research/investment/eb5-pre-investment-checklist-part-1-f1-h1b",
+    "/research/j1-f1-h1b-eb5-concurrent-filing",
+    "/research/post-reform-integrity-act-analysis",
+    "/research/regional-center-shutdown-eb5-investor-protections",
+    "/research/ways-to-fund-eb5-investment-2026",
+    "/resources",
+    "/student-playbook",
+    "/tools/2026-eb5-investment-feasibility-calculator",
+    "/tools/eb5-concurrent-filing-eligibility",
+    "/tools/eb5-cspa-calculator",
+    "/tools/eb5-regional-center-scorecard",
+    "/tools/eb5-source-of-funds-checklist",
+    "/tools/grandfathering-countdown",
+    "/tools/h1b-lottery-odds-calculator",
+    "/tools/opt-calculator",
+    "/tools/source-of-funds-calculator",
+    "/tools/tuition-calculator"
+  ],
+  "redirects": {
+    "/process": "/eb5-investment-process",
+    "/tools": "/eb5-investment-immigration-tools",
+    "/grandfathering-countdown": "/tools/grandfathering-countdown",
+    "/opt-calculator": "/tools/opt-calculator",
+    "/tuition-calculator": "/tools/tuition-calculator",
+    "/guides/source-of-funds-strategies": "/tools/source-of-funds-calculator",
+    "/guides/f1-student-eb5-green-card": "/pathways/f1-to-eb5-self-sponsored-green-card",
+    "/guides/h1b-to-eb5-transition": "/pathways/h1b-to-green-card",
+    "/tools/concurrent-filing-checker": "/tools/eb5-concurrent-filing-eligibility",
+    "/tools/eb5-feasibility": "/tools/2026-eb5-investment-feasibility-calculator"
+  }
+}

@@ -236,7 +236,7 @@ The EB-5 immigrant investor program represents one of the most established and r
 
 The reforms introduced by the EB-5 Reform and Integrity Act of 2022 have solidified investor protections and created new opportunities through reserved visa categories for rural and high unemployment areas. Rural projects have benefited the most due to the significant advantages offered through priority processing and larger visa allocation.
 
-With proper preparation and <a href="/research/19-questions-rural-eb5-project-due-diligence">due diligence in project selection</a>, the EB-5 program can serve as a transformative opportunity for investors and their families to build a new life in the United States. For a step-by-step filing map, see the <a href="/eb5-investment-process">EB-5 investment process</a>. International students can also start with the <a href="/student-playbook">International Student Playbook</a>.
+With proper preparation and <a href="/research/19-questions-rural-eb5-project-due-diligence">due diligence in project selection</a>, the EB-5 program can serve as a transformative opportunity for investors and their families to build a new life in the United States. For a step-by-step filing map, see the <a href="/eb5-investment-process">EB-5 investment process</a>. International students can also start with the <a href="/eb5-green-card-international-students-playbook">International Student Playbook</a>.
 
 ---
 

@@ -39,6 +39,8 @@ const routeNames: Record<string, string> = {
   'investor-intelligence-reports': 'Investor Intelligence Reports',
   'private-strategy-sessions': 'Private Strategy Sessions',
   'investor-resource-library': 'Investor Resource Library',
+  'eb5-green-card-international-students-playbook':
+    'EB-5 Green Card International Students Playbook',
 };
 
 const pathOverrides: Record<string, string> = {

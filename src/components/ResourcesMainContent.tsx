@@ -31,7 +31,7 @@ const resourceCategories: {
       {
         name: 'The U.S. International Student Playbook',
         description: 'Your complete guide to navigating the U.S. as an international student',
-        url: '/student-playbook',
+        url: '/eb5-green-card-international-students-playbook',
         external: false,
       },
       {
@@ -294,7 +294,7 @@ const ResourcesMainContent = () => {
         </p>
         <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
           <a
-            href="/student-playbook"
+            href="/eb5-green-card-international-students-playbook"
             className="p-4 bg-card rounded-lg hover:shadow-md transition-shadow text-center"
           >
             <span className="text-xs font-medium text-primary uppercase">For Students</span>

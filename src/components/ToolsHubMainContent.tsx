@@ -65,7 +65,7 @@ export default function ToolsHubMainContent({ children }: PropsWithChildren) {
           >
             Access free EB-5 investment calculators and tools designed for international students and foreign
             investors seeking U.S. permanent residency through the EB-5 visa program. Start with the{' '}
-            <a href="/student-playbook" className="text-white underline underline-offset-4 hover:text-white/90">
+            <a href="/eb5-green-card-international-students-playbook" className="text-white underline underline-offset-4 hover:text-white/90">
               International Student Playbook
             </a>{' '}
             if you are an F-1 student planning EB-5. Pair the tools with our{' '}

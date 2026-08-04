@@ -114,7 +114,7 @@ export function resolvePdfGuideCategory(pathname = getNormalizedPathname()): Pdf
   const path = pathname.toLowerCase();
 
   if (
-    path === '/student-playbook' ||
+    path === '/eb5-green-card-international-students-playbook' ||
     path.startsWith('/pathways/f1') ||
     path.includes('/f1-students/') ||
     path.includes('/f1-to-') ||
