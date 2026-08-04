@@ -1,9 +1,9 @@
 ---
 id: 31
 slug: eb5-capital-stack
-title: What is the EB-5 Capital Stack?
-metaTitle: What is the EB-5 Capital Stack? | StudentEB5
-metaDescription: Learn how the EB-5 capital stack works and where EB-5 funds sit in the financing hierarchy. Explore key factors for evaluating project risk.
+title: EB-5 Capital Stack - Where Your $800,000 Sits in Project Financing
+metaTitle: EB-5 Capital Stack - Where Your $800,000 Sits in Project Financing | StudentEB5
+metaDescription: The EB-5 capital stack shows where your $800,000 sits among senior debt, mezzanine, and equity. Avoid projects where EB-5 funds exceed half of total financing.
 excerpt: "The capital stack is the structure of all the different sources of financing for an investment. Its composition directly impacts an investor's risk, the priority of their repayment and the overall stability of the project."
 date: March 2, 2026
 updatedDate: March 7, 2026
@@ -30,7 +30,7 @@ relatedPosts:
   - h1b-eb5-financial-planning
 ---
 
-<intro>The EB-5 capital stack is the layered financing structure of a project — senior debt, mezzanine debt, preferred equity, and common equity — and it determines where your $800,000 investment sits in the repayment queue if the project underperforms. EB-5 funds should occupy a subordinate position behind bank debt and developer equity, not be the primary or sole source of project financing. A project where EB-5 capital makes up more than half of total project financing carries materially higher repayment risk. The sections below explain each layer, how intercreditor agreements protect (or fail to protect) EB-5 investors, and the capital stack red flags to screen during due diligence.</intro>
+<intro>The EB-5 capital stack is the layered financing structure of a project (senior debt, mezzanine debt, preferred equity, and common equity) and it determines where your $800,000 investment sits in the repayment queue if the project underperforms. EB-5 funds should occupy a subordinate position behind bank debt and developer equity, not be the primary or sole source of project financing. A project where EB-5 capital makes up more than half of total project financing carries materially higher repayment risk. The sections below explain each layer, how intercreditor agreements protect (or fail to protect) EB-5 investors, and the capital stack red flags to screen during due diligence.</intro>
 
 ## Capital Stack 101
 

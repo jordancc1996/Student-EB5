@@ -1,9 +1,9 @@
 ---
 id: 9
 slug: h1b-eb5-financial-planning
-title: Financial Planning for H-1B Visa Holders Considering EB-5 Investment
-metaTitle: "EB-5 RBI Compliance India: Remittance & Source of Funds"
-metaDescription: "EB-5 RBI compliance India: India remittance rules, how Indian nationals transfer EB-5 funds, source of funds strategy, and EB-5 capital preservation."
+title: H-1B EB-5 Financial Planning - Budget $800,000 Plus Fees Before You File
+metaTitle: H-1B EB-5 Financial Planning - Budget $800,000 Plus Fees Before You File | StudentEB5
+metaDescription: "H-1B EB-5 financial planning starts at $800,000 investment capital plus $50,000 to $80,000 in legal, admin, and USCIS fees before the I-526E is filed in 2026."
 excerpt: Navigate the transition from H-1B to permanent residency through EB-5 investment. Discover funding strategies, financial requirements, and essential planning steps for H-1B professionals.
 date: November 15, 2025
 updatedDate: February 15, 2026
@@ -28,7 +28,7 @@ relatedPosts:
   - f1-students/f1-to-eb5-green-card
 ---
 
-<intro>H-1B holders pursuing EB-5 need to secure $800,000 for the investment plus $50,000–$80,000 in legal, administrative, and USCIS filing costs — and every dollar must be traceable through seven years of source-of-funds documentation before the I-526E is filed. Common funding paths include personal savings, 401(k) loans, home equity lines, securities-backed credit, parental gifts, and remittances from abroad, each with distinct USCIS documentation requirements. Because EB-5 capital remains at risk for six to seven years before repayment, you also need a separate financial safety net that does not depend on the investment returning. The guide below covers each funding method, the documentation standard USCIS applies, and the financial planning steps H-1B professionals should complete before filing.</intro>
+<intro>H-1B EB-5 financial planning means securing $800,000 for the investment plus $50,000 to $80,000 in legal, administrative, and USCIS filing costs, with every dollar traceable through seven years of source-of-funds documentation before the I-526E is filed. Common funding paths include personal savings, 401(k) loans, home equity lines, securities-backed credit, parental gifts, and remittances from abroad, each with distinct USCIS documentation requirements. Because EB-5 capital remains at risk for six to seven years before repayment, you also need a separate financial safety net that does not depend on the investment returning. The guide below covers each funding method, the documentation standard USCIS applies, and the financial planning steps H-1B professionals should complete before filing.</intro>
 
 In the United States, immigrant professionals often encounter various difficulties and ambiguities as they navigate the <strong>H-1B visa</strong> process. Advisors who work with this demographic frequently experience anxieties and frustrations arising from unpredictable immigration and employment policy changes. Additionally, job changes or unexpected terminations require finding new employer sponsors willing to file H-1B petitions which can have extremely low odds and can be costly and time-consuming. For a complete roadmap on <a href="/pathways/h1b-to-green-card">H-1B to green card</a> options, see our dedicated pathway guide.
 

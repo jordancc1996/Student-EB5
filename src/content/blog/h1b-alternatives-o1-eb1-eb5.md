@@ -1,9 +1,9 @@
 ---
 id: 10
 slug: h1b-alternatives-o1-eb1-eb5
-title: "H1B Alternatives: O-1, EB-1 and EB-5 Visas for Skilled Professionals"
-metaTitle: "H-1B Uncertainty Solutions: EB-5 vs O-1 & Employer GC"
-metaDescription: "H-1B uncertainty solutions and best backup plan for H-1B holders: EB-5 vs O-1 visa and EB-5 versus employer-sponsored green card for an employer-independent green card."
+title: "H-1B Alternatives EB-5 - How O-1, EB-1, and Investor Paths Compare"
+metaTitle: "H-1B Alternatives EB-5 - How O-1, EB-1, and Investor Paths Compare | StudentEB5"
+metaDescription: "H-1B alternatives EB-5 investors should weigh against O-1 and EB-1: an $800,000 TEA path with no lottery and no employer sponsor, reviewed for 2026 applicants."
 excerpt: As the H-1B visa faces increased scrutiny, skilled professionals are exploring alternatives including the O-1 visa, EB-1 categories, and EB-5 investor visa. Learn which pathway suits your circumstances best.
 date: November 17, 2025
 updatedDate: February 15, 2026
@@ -29,7 +29,7 @@ relatedPosts:
   - f1-students/f1-to-eb5-green-card
 ---
 
-<intro>Skilled professionals seeking alternatives to H-1B employer dependency can pursue the O-1 visa for extraordinary ability, the EB-1 extraordinary-ability green card through self-petition, or the EB-5 immigrant investor program, which grants permanent residency through an $800,000 investment in a Targeted Employment Area or $1,050,000 in a standard project. O-1 and EB-1 reward documented achievement but require strict merit standards and, for O-1, an employer sponsor; EB-1A applicants who lack a major international award must typically satisfy three of ten USCIS criteria. EB-5 is the only option among the three that does not depend on employer sponsorship or a visa lottery, though it requires documented lawful source of funds and capital at risk for five to seven years. The sections below explain how the H-1B landscape has shifted, how each pathway compares on eligibility and timeline, and when capital-based residency outweighs merit-based routes.</intro>
+<intro>H-1B alternatives EB-5 candidates compare most often are the O-1 visa, the EB-1 green card, and the $800,000 investor path that does not depend on a lottery or employer sponsorship. O-1 and EB-1 reward documented achievement but require strict merit standards and, for O-1, an employer sponsor; EB-1A applicants who lack a major international award must typically satisfy three of ten USCIS criteria. EB-5 is the only option among the three that does not depend on employer sponsorship or a visa lottery, though it requires documented lawful source of funds and capital at risk for five to seven years. The sections below explain how the H-1B landscape has shifted, how each pathway compares on eligibility and timeline, and when capital-based residency outweighs merit-based routes.</intro>
 
 ## The Evolving H-1B Landscape
 

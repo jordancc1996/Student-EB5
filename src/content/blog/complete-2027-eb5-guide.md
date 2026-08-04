@@ -1,9 +1,9 @@
 ---
 id: 25
 slug: complete-2027-eb5-guide
-title: The Complete 2027 Guide to the EB-5 Immigrant Investor Program
-metaTitle: Complete 2027 EB-5 Immigrant Investor Program Guide | StudentEB5
-metaDescription: "Rural EB-5 for Indian nationals: best rural EB-5 strategy and fastest path to permanent residency for Indian nationals using EB-5 to avoid decades-long waits."
+title: EB-5 Immigrant Investor Program 2027 - Complete Guide to Filing and Requirements
+metaTitle: EB-5 Immigrant Investor Program 2027 - Complete Guide to Filing and Requirements | StudentEB5
+metaDescription: "The EB-5 immigrant investor program 2027 still uses an $800,000 TEA minimum. Learn filing steps, rural set-asides, and the Sept 30, 2026 grandfathering deadline."
 excerpt: The EB-5 immigrant investor program is a clear pathway to receive a green card and eventually U.S. citizenship. It is one of the most direct and flexible immigration options in the world. The Reform and Integrity Act of 2022 has made the program much more investor friendly and significantly more attractive due to the introduction of concurrent filing.
 date: January 14, 2026
 updatedDate: March 3, 2026
@@ -36,7 +36,7 @@ tocLabels:
   what-is-the-eb-5-immigrant-investor-program: EB-5 Program Overview
 ---
 
-<intro>The EB-5 immigrant investor program grants U.S. permanent residency to foreign nationals who invest $800,000 in a rural or high-unemployment Targeted Employment Area project — or $1,050,000 in a standard-area project — and create at least 10 full-time U.S. jobs. Since the 2022 Reform and Integrity Act, investors already in the U.S. on F-1, H-1B, or similar status can file their I-485 adjustment of status concurrently with their I-526E petition and receive work and travel authorization within 3–6 months. Filing before September 30, 2026 locks in current program rules under the grandfathering provision. The sections below cover every requirement, the step-by-step filing process, rural set-aside visas, and the 2027 reauthorization deadline.</intro>
+<intro>The EB-5 immigrant investor program 2027 still grants U.S. permanent residency to foreign nationals who invest $800,000 in a rural or high-unemployment Targeted Employment Area project, or $1,050,000 in a standard-area project. Investors must also create at least 10 full-time U.S. jobs. Since the 2022 Reform and Integrity Act, investors already in the U.S. on F-1, H-1B, or similar status can file their I-485 adjustment of status concurrently with their I-526E petition and receive work and travel authorization within 3–6 months. Filing before September 30, 2026 locks in current program rules under the grandfathering provision. The sections below cover every requirement, the step-by-step filing process, rural set-aside visas, and the 2027 reauthorization deadline.</intro>
 
 ## What is the EB-5 Immigrant Investor Program?
 

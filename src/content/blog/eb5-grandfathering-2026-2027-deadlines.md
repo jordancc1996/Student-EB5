@@ -1,9 +1,9 @@
 ---
 id: 18
 slug: eb5-grandfathering-2026-2027-deadlines
-title: "EB-5 Grandfathering Explained: Why 2026 and 2027 are Critical for Investors"
-metaTitle: "EB-5 Grandfathering: 2026 & 2027 Deadlines Every Investor Must Know"
-metaDescription: "Rural EB-5 for Indian nationals: the fastest green card through rural EB-5, a future-proof immigration strategy and EB-5 while waiting for EB-2 priority date."
+title: "EB-5 Grandfathering Deadline 2026 - Why September 30 Locks In Your Petition"
+metaTitle: "EB-5 Grandfathering Deadline 2026 - Why September 30 Locks In Your Petition | StudentEB5"
+metaDescription: "The EB-5 grandfathering deadline 2026 is September 30. File I-526E by then to keep adjudication protection even if Congress changes the program in 2027."
 excerpt: Understanding the critical September 30, 2026 grandfathering deadline and the 2027 program reauthorization - why acting now secures your path to a U.S. Green Card.
 date: December 23, 2025
 updatedDate: February 26, 2026
@@ -24,7 +24,7 @@ keywords:
   - green card investment
 ---
 
-<intro>EB-5 grandfathering means that if you file your I-526E petition on or before September 30, 2026, USCIS must continue adjudicating it even if Congress lets the regional center program expire or changes the rules afterward. Filing after that date leaves your green card path dependent on a September 30, 2027 reauthorization vote, and the minimum investment is scheduled to increase from $800,000 on January 1, 2027. If you are considering EB-5, the September 2026 filing deadline is the date that locks in both program protection and the current investment threshold. Read on for the full timeline, the 2027 reauthorization risk, and what to do now.</intro>
+<intro>The EB-5 grandfathering deadline 2026 is September 30: if you file your I-526E petition on or before that date, USCIS must continue adjudicating it even if Congress lets the regional center program expire or changes the rules afterward. Filing after that date leaves your green card path dependent on a September 30, 2027 reauthorization vote, and the minimum investment is scheduled to increase from $800,000 on January 1, 2027. If you are considering EB-5, the September 2026 filing deadline is the date that locks in both program protection and the current investment threshold. Read on for the full timeline, the 2027 reauthorization risk, and what to do now.</intro>
 
 ## EB-5 Grandfathering Explained: Why 2026 and 2027 are Critical for Investors
 
