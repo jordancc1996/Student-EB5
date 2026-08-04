@@ -6,7 +6,7 @@ const article = getNewsArticle('july-2026-visa-bulletin-eb5-q3-outlook')!;
 const JulyBulletinQ3Content = () => (
   <NewsArticleShell article={article}>
               <p>
-                The July 2026 Visa Bulletin provides critical insights into the current state of the EB-5 program by revealing significant shifts in visa availability and processing times. The unreserved category for India has reached its annual limit, and we believe it is of extreme importance for prospective investors to understand the complexities surrounding the reserved categories.
+                July 2026 visa bulletin EB-5 confirms India unreserved EB-5 is exhausted for FY 2026, while rural, high-unemployment, and infrastructure reserved categories remain current for Q3 filers.
               </p>
 
               <h2>Unreserved Category is Exhausted</h2>

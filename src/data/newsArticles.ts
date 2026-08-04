@@ -36,7 +36,7 @@ export const newsArticles: NewsArticleMeta[] = [
   {
     id: 'july-2026-visa-bulletin-eb5-q3-outlook',
     slug: 'july-2026-visa-bulletin-eb5-q3-outlook',
-    title: 'EB-5 Investor Outlook for Q3 & Understanding the July 2026 Visa Bulletin',
+    title: 'July 2026 Visa Bulletin EB-5 - Q3 Outlook for China and India Investors',
     excerpt:
       'The July 2026 Visa Bulletin shows India\u2019s unreserved EB-5 category has reached its annual limit. Here is what Q3 means for reserved categories, priority dates, and filing strategy.',
     category: 'Visa Bulletin',
@@ -48,13 +48,14 @@ export const newsArticles: NewsArticleMeta[] = [
     imageAlt: 'Statue of Liberty under a clear blue sky representing the July 2026 EB-5 visa bulletin Q3 outlook',
     heroImageAlt: 'July 2026 Visa Bulletin analysis for EB-5 Q3 investor outlook',
     href: '/news/july-2026-visa-bulletin-eb5-q3-outlook',
-    metaTitle: 'July 2026 Visa Bulletin: EB-5 Q3 Investor Outlook | StudentEB5',
+    metaTitle: 'July 2026 Visa Bulletin EB-5 - Q3 Outlook for China and India Investors | StudentEB5',
     metaDescription:
-      'The July 2026 Visa Bulletin shows India unreserved EB-5 has reached its annual limit. Review what Q3 means for reserved categories, priority dates, and filing strategy.',
+      'July 2026 visa bulletin EB-5 shows movement in China and India final action dates for Q3. Rural reserved category remains current for most applicants. Analysis for investors.',
     heroSubtitle:
-      'India\'s unreserved EB-5 category has reached its annual limit. Here is what Q3 means for reserved categories, priority dates, and filing strategy.',
+      'July 2026 visa bulletin EB-5 confirms India unreserved EB-5 is exhausted for FY 2026, while rural, high-unemployment, and infrastructure reserved categories remain current for Q3 filers.',
     breadcrumbLabel: 'July 2026 Visa Bulletin',
     keywords: [
+      'July 2026 visa bulletin EB-5',
       'July 2026 visa bulletin',
       'EB-5 Q3 outlook',
       'India EB-5 unreserved exhausted',
@@ -63,7 +64,7 @@ export const newsArticles: NewsArticleMeta[] = [
       'EB-5 visa supply carryover',
     ],
     schemaKeywords:
-      'July 2026 visa bulletin, EB-5 Q3 outlook, India EB-5 unreserved, EB-5 reserved categories, EB-5 priority date, EB-5 visa supply carryover',
+      'July 2026 visa bulletin EB-5, July 2026 visa bulletin, EB-5 Q3 outlook, India EB-5 unreserved, EB-5 reserved categories, EB-5 priority date, EB-5 visa supply carryover',
     heroMinHeightClass: 'min-h-[60vh]',
     heroTitleClass: 'text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight text-white drop-shadow-lg',
     ctaTitle: 'Plan Your Q3 EB-5 Filing Strategy',
@@ -75,7 +76,7 @@ export const newsArticles: NewsArticleMeta[] = [
   {
     id: 'uscis-adjustment-of-status-memo-eb5-investors',
     slug: 'uscis-adjustment-of-status-memo-eb5-investors',
-    title: 'Navigating the USCIS Adjustment of Status Memo & Impacts for EB-5 Investors',
+    title: 'USCIS Adjustment of Status EB-5 - What the 2025 Policy Memo Means for Concurrent Filers',
     excerpt:
       'The USCIS adjustment of status policy memo introduces discretionary review for I-485 applicants. For EB-5 investors on H-1B, L-1, or F-1, the statutory foundation and concurrent filing rights remain intact, with strategy adjustments for documentation and consular processing.',
     category: 'Policy Update',
@@ -87,13 +88,14 @@ export const newsArticles: NewsArticleMeta[] = [
     imageAlt: 'USCIS adjustment of status policy memo impact on EB-5 investors',
     heroImageAlt: 'USCIS adjustment of status policy memo and implications for EB-5 investors',
     href: '/news/uscis-adjustment-of-status-memo-eb5-investors',
-    metaTitle: 'USCIS Adjustment of Status Memo: EB-5 Investor Impact | StudentEB5',
+    metaTitle: 'USCIS Adjustment of Status EB-5 - What the 2025 Policy Memo Means for Concurrent Filers | StudentEB5',
     metaDescription:
-      'How the USCIS adjustment of status policy memo affects EB-5 investors on H-1B, L-1, and F-1, including discretionary review, vulnerable categories, and consular processing alternatives.',
+      'USCIS adjustment of status EB-5 memo adds discretionary I-485 review for concurrent filers on H-1B, L-1, and F-1 without changing RIA concurrent filing rights.',
     heroSubtitle:
-      'The USCIS policy memo introduces discretionary review to the adjustment of status process, but the statutory foundation of EB-5 and concurrent filing remains intact.',
+      'USCIS adjustment of status EB-5 guidance adds discretionary I-485 review for concurrent filers on H-1B, L-1, and F-1, while RIA concurrent filing rights remain unchanged.',
     breadcrumbLabel: 'USCIS Adjustment of Status Memo',
     keywords: [
+      'USCIS adjustment of status EB-5',
       'USCIS adjustment of status memo',
       'EB-5 I-485 adjustment of status',
       'EB-5 concurrent filing',
@@ -102,7 +104,7 @@ export const newsArticles: NewsArticleMeta[] = [
       'USCIS discretionary review I-485',
     ],
     schemaKeywords:
-      'USCIS adjustment of status memo, EB-5 I-485, concurrent filing EB-5, H-1B adjustment of status, consular processing EB-5, USCIS discretion adjustment of status',
+      'USCIS adjustment of status EB-5, USCIS adjustment of status memo, EB-5 I-485, concurrent filing EB-5, H-1B adjustment of status, consular processing EB-5, USCIS discretion adjustment of status',
     heroMinHeightClass: 'min-h-[60vh]',
     heroTitleClass: 'text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight text-white drop-shadow-lg',
     ctaTitle: 'Talk to an EB-5 Advisor Today',
@@ -114,7 +116,7 @@ export const newsArticles: NewsArticleMeta[] = [
   {
     id: 'eb5-visa-landscape-news-update-may-2026',
     slug: 'eb5-visa-landscape-news-update-may-2026',
-    title: 'EB-5 Visa Landscape News Update May 2026',
+    title: 'EB-5 Visa Landscape 2026 - Market Update on Rural Filings, Backlogs, and the Gold Card',
     excerpt:
       'A data-driven look at post-RIA EB-5 demand, rural project priority processing, 2026 and 2027 statutory deadlines, and the strategic opportunity for H-1B and F-1 holders.',
     category: 'Market Update',
@@ -126,13 +128,14 @@ export const newsArticles: NewsArticleMeta[] = [
     imageAlt: 'EB-5 visa landscape news update for May 2026',
     heroImageAlt: 'Stone stairway symbolizing the EB-5 visa landscape and investor pathway in 2026',
     href: '/news/eb5-visa-landscape-news-update-may-2026',
-    metaTitle: 'EB-5 Visa Landscape News Update May 2026 | StudentEB5',
+    metaTitle: 'EB-5 Visa Landscape 2026 - Market Update on Rural Filings, Backlogs, and the Gold Card | StudentEB5',
     metaDescription:
-      'A May 2026 EB-5 market update covering post-RIA demand, rural project processing, investor deadlines, concurrent filing, and due diligence trends.',
+      'EB-5 visa landscape 2026 covers rural filings (~47% share, often 3-8 month adjudications), I-526E backlog pressure, and Gold Card-driven demand spikes.',
     heroSubtitle:
-      'A data-driven look at post-RIA demand, rural project processing, investor deadlines, concurrent filing, and due diligence trends.',
+      'EB-5 visa landscape 2026 shows rural projects at about 47% of filings with adjudications often in 3 to 8 months, alongside I-526E backlog pressure and Gold Card-driven demand.',
     breadcrumbLabel: 'May 2026 Update',
     keywords: [
+      'EB-5 visa landscape 2026',
       'EB-5 visa news',
       'EB-5 May 2026',
       'rural EB-5 projects',
@@ -140,7 +143,7 @@ export const newsArticles: NewsArticleMeta[] = [
       'EB-5 concurrent filing',
     ],
     schemaKeywords:
-      'EB-5 visa news, EB-5 May 2026, EB-5 Reform and Integrity Act, rural EB-5 projects, EB-5 deadlines',
+      'EB-5 visa landscape 2026, EB-5 visa news, EB-5 May 2026, EB-5 Reform and Integrity Act, rural EB-5 projects, EB-5 deadlines',
     heroMinHeightClass: 'min-h-[68vh]',
     heroTitleClass: 'text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight text-white drop-shadow-lg',
     ctaTitle: 'Stay Ahead of EB-5 Developments',

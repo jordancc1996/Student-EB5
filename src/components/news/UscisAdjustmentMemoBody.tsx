@@ -2,7 +2,7 @@ export default function UscisAdjustmentMemoBody() {
   return (
     <>
               <p>
-                The U.S. Citizenship and Immigration Services released a policy memo regarding the adjustment of status process, which raised questions among EB-5 immigrant investors residing in the United States on non-immigrant visas such as H-1B or F-1. The guidance introduces discretionary considerations for adjudicators but the underlying law governing the EB-5 program and the adjustment of status process is unchanged.
+                USCIS adjustment of status EB-5 guidance adds discretionary I-485 review for concurrent filers on H-1B, L-1, and F-1, while RIA concurrent filing rights remain unchanged.
               </p>
 
               <h2 id="the-core-message-of-the-memo">The Core Message of the Memo</h2>

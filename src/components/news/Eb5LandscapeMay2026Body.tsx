@@ -2,7 +2,7 @@ export default function Eb5LandscapeMay2026Body() {
   return (
     <>
               <p>
-                This May 2026 EB-5 visa landscape update summarizes post-RIA demand, rural project processing, statutory deadlines, concurrent filing, and due diligence trends for global investors.
+                EB-5 visa landscape 2026 shows rural projects at about 47% of filings with adjudications often in 3 to 8 months, alongside I-526E backlog pressure and Gold Card-driven demand.
               </p>
 
               <p>
