@@ -57,14 +57,14 @@ export default function ToolsHubMainContent({ children }: PropsWithChildren) {
             className="text-4xl md:text-5xl lg:text-[60px] font-sans font-bold text-white mb-6 drop-shadow-lg leading-tight"
             style={{ fontFamily: pathwayFont }}
           >
-            EB-5 Investment Immigration Tools
+            EB-5 Immigration Tools Calculators - OPT Feasibility and Funding
           </h1>
           <p
             className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-md"
             style={{ fontFamily: pathwayFont }}
           >
-            Access free EB-5 investment calculators and tools designed for international students and foreign
-            investors seeking U.S. permanent residency through the EB-5 visa program. Start with the{' '}
+            EB-5 immigration tools calculators here include OPT dates, $800,000 feasibility, lottery odds, and the Sept
+            30, 2026 grandfathering countdown. Start with the{' '}
             <a href="/eb5-green-card-international-students-playbook" className="text-white underline underline-offset-4 hover:text-white/90">
               International Student Playbook
             </a>{' '}

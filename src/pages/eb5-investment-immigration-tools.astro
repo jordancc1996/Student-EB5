@@ -6,18 +6,18 @@ import Breadcrumb from '@/components/Breadcrumb';
 import ToolsHubMainContent from '@/components/ToolsHubMainContent';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
-const title = 'EB-5 & H-1B Immigration Tools: Calculators, Wage Map, TEA Explorer | StudentEB5';
+const title = 'EB-5 Immigration Tools Calculators - OPT Feasibility and Funding';
 const description =
-  'Fastest way to get EB-5 work permit, how long for EB-5 EAD, rural EB-5 for Indian nationals, and the fastest path to permanent residency for Indians.';
+  'EB-5 immigration tools calculators cover OPT timelines, $800,000 feasibility checks, H-1B lottery odds, and the Sept 30, 2026 grandfathering countdown.';
 const pageCanonical = `${SITE_CONFIG.url}/eb5-investment-immigration-tools`;
-const ogTitle = title;
+const ogTitle = `${title} | StudentEB5`;
 const ogDescription = description;
 const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = [
-  'fastest way to get eb5 work permit',
-  'how long for eb5 ead',
-  'rural eb5 for indian nationals',
-  'fastest path to permanent residency for indian nationals',
+  'EB-5 immigration tools calculators',
+  'EB-5 feasibility calculator',
+  'OPT calculator EB-5',
+  'EB-5 grandfathering countdown',
 ];
 
 const toolsList = [
@@ -33,10 +33,10 @@ const structuredData = [
   {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: 'EB-5 & H-1B Immigration Tools',
+    name: 'EB-5 Immigration Tools Calculators - OPT Feasibility and Funding',
     url: pageCanonical,
     description:
-      'Free EB-5 immigration calculators and tools for international students and H-1B professionals, including the EB-5 Feasibility Calculator, OPT Calculator, Grandfathering Countdown, and more.',
+      'EB-5 immigration tools calculators cover OPT timelines, $800,000 feasibility checks, H-1B lottery odds, and the Sept 30, 2026 grandfathering countdown.',
     isPartOf: { '@type': 'WebSite', name: SITE_CONFIG.name, url: SITE_CONFIG.url },
     mainEntity: {
       '@type': 'ItemList',
@@ -61,7 +61,7 @@ const structuredData = [
 
 <Layout>
   <Fragment slot="head">
-    <title>{title}</title>
+    <title>{title} | StudentEB5</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />

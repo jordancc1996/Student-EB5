@@ -10,19 +10,18 @@ import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateWebPageSchema } from '@/lib/seo/structured-data';
 
-const title = 'EB-5 Filing Assistance, Source of Funds & Rural EB-5 India';
+const title = 'EB-5 Resources International Students - Guides Forms and Research';
 const description =
-  'EB-5 filing assistance, how to document source of funds for EB-5, rural EB-5 India, and EB-5 projects with I-956F approval. Top-tier attorney guidance.';
+  'EB-5 resources international students need include filing guides, source-of-funds checklists, research articles, and tools tied to the Sept 30, 2026 deadline.';
 const pageCanonical = `${SITE_CONFIG.url}/resources`;
-const ogTitle = 'EB-5 Filing Assistance, Source of Funds & Rural EB-5 India';
-const ogDescription =
-  'EB-5 filing assistance, how to document source of funds for EB-5, rural EB-5 India, and EB-5 projects with I-956F approval. Top-tier attorney guidance.';
+const ogTitle = `${title} | StudentEB5`;
+const ogDescription = description;
 const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = [
-  'eb5 filing assistance',
-  'how to document source of funds for eb5',
-  'rural eb5 india',
-  'eb5 projects with i956f approval',
+  'EB-5 resources international students',
+  'EB-5 guides for students',
+  'EB-5 source of funds resources',
+  'EB-5 research for F-1 students',
 ];
 
 const breadcrumbs = [
@@ -31,8 +30,8 @@ const breadcrumbs = [
 ];
 
 const structuredData = generateWebPageSchema(
-  'EB-5 Resources & Guides for Students',
-  'Comprehensive EB-5 resources including official forms, guides, and educational materials for students',
+  title,
+  description,
   `${SITE_CONFIG.url}/resources`,
   breadcrumbs
 );
@@ -40,7 +39,7 @@ const structuredData = generateWebPageSchema(
 
 <Layout>
   <Fragment slot="head">
-    <title>{title}</title>
+    <title>{title} | StudentEB5</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />

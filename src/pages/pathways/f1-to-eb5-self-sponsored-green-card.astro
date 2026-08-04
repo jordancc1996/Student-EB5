@@ -12,20 +12,18 @@ import studentHeroImage from '@/assets/student-pathway-hero.jpg';
 import studentHeroImageWebp from '@/assets/student-pathway-hero.webp';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
-const title = 'F1 to EB5: Self-Sponsored Green Card for Students';
+const title = 'F-1 Student EB-5 Green Card - Self-Sponsored Path Past the Lottery';
 const description =
-  'F1 to EB5 is the best visa pathway after F1: avoid the H-1B lottery through EB-5, parents can gift EB-5 funds, a self-sponsored green card without an employer.';
+  'F-1 student EB-5 green card paths use an $800,000 TEA investment and concurrent filing so OPT graduates can work without the H-1B lottery selection risk.';
 const pageCanonical = `${SITE_CONFIG.url}/pathways/f1-to-eb5-self-sponsored-green-card`;
-const ogTitle = title;
+const ogTitle = `${title} | StudentEB5`;
 const ogDescription = description;
 const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = [
+  'F-1 student EB-5 green card',
   'F1 to EB5',
   'avoid H-1B lottery through EB-5',
-  'can parents gift EB-5 funds',
-  'green card for students without employer sponsorship',
   'self sponsored green card for students',
-  'best visa pathway after F1',
 ];
 
 const pathwayFont = "'Inter', 'Helvetica Neue', sans-serif";
@@ -34,9 +32,10 @@ const structuredData = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'F-1 to EB-5: Self-Sponsored Green Card for Students',
+    name: 'F-1 Student EB-5 Green Card - Self-Sponsored Path Past the Lottery',
     url: pageCanonical,
-    description: 'How F-1 international students use the EB-5 visa to bypass the H-1B lottery and obtain a self-sponsored green card.',
+    description:
+      'F-1 student EB-5 green card paths use an $800,000 TEA investment and concurrent filing so OPT graduates can work without the H-1B lottery selection risk.',
     isPartOf: { '@type': 'WebSite', name: SITE_CONFIG.name, url: SITE_CONFIG.url },
     about: { '@type': 'Thing', name: 'EB-5 Immigrant Investor Program' },
     audience: { '@type': 'Audience', audienceType: 'F-1 international students' },
@@ -97,7 +96,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
 <Layout>
   <Fragment slot="head">
-    <title>{title}</title>
+    <title>{title} | StudentEB5</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />
@@ -134,13 +133,14 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
         <div class="relative z-10 container mx-auto px-4 py-20 text-center">
           <p class="text-white/60 text-sm uppercase tracking-widest mb-4 font-sans">Pathways → International Students</p>
           <h1 class="font-sans text-4xl md:text-5xl lg:text-[60px] font-bold text-white mb-6 max-w-4xl mx-auto leading-tight">
-            Build Your Career in the USA<br />Without the H-1B Lottery.
+            F-1 Student EB-5 Green Card - Self-Sponsored Path Past the Lottery
           </h1>
           <p
             class="text-white/80 text-base md:text-lg max-w-2xl mx-auto font-sans font-normal"
             style={`font-family: ${pathwayFont}`}
           >
-            The EB-5 green card gives international students in-state tuition, unrestricted employment, and permanent residency, all without a sponsor.
+            F-1 student EB-5 green card planning helps graduates skip the H-1B lottery with an $800,000 TEA filing and
+            concurrent work authorization within months.
           </p>
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
             <button

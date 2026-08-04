@@ -31,21 +31,18 @@ const faqSchemaItems = faqEntries.map((entry) => ({
   answer: (entry.body ?? '').replace(/<[^>]*>/g, ''),
 }));
 
-const title = 'EB-5 FAQ: H-1B Grace Period, Rural EB-5, Concurrent Filing & Gifted Funds | StudentEB5';
+const title = 'EB-5 Investor FAQ - Timelines Fees Concurrent Filing and Gifts';
 const description =
-  'Answers to top EB-5 questions: Can H-1B holders self-sponsor? How does concurrent filing work? Can parents gift EB-5 funds? Rural EB-5 for Indians.';
+  'EB-5 investor FAQ answers cover concurrent filing, $800,000 TEA investment, rural set-asides, gifted funds, and H-1B grace period options for families.';
 const pageCanonical = `${SITE_CONFIG.url}/faq`;
-const ogTitle = 'EB-5 Visa FAQ: Your Top Immigration Questions Answered';
-const ogDescription =
-  'Find clear answers to common EB-5 questions about $800K investment requirements, 2-3 year processing timelines, family eligibility, and how students and H-1B holders qualify for permanent residency.';
+const ogTitle = `${title} | StudentEB5`;
+const ogDescription = description;
 const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = [
-  'EB-5 FAQ',
-  'EB-5 investment cost',
-  'EB-5 timeline',
-  'EB-5 eligibility',
-  'student visa green card',
-  'H-1B to EB-5',
+  'EB-5 investor FAQ',
+  'EB-5 FAQ concurrent filing',
+  'EB-5 gifted funds FAQ',
+  'EB-5 timeline FAQ',
 ];
 
 const structuredData = generateFAQSchema(faqSchemaItems);
@@ -53,7 +50,7 @@ const structuredData = generateFAQSchema(faqSchemaItems);
 
 <Layout>
   <Fragment slot="head">
-    <title>{title}</title>
+    <title>{title} | StudentEB5</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />
@@ -88,14 +85,14 @@ const structuredData = generateFAQSchema(faqSchemaItems);
       </div>
       <div class="relative z-10 container mx-auto px-6 text-center text-white">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 max-w-4xl mx-auto leading-tight">
-          Frequently Asked Questions About EB-5 Visas for Students
+          EB-5 Investor FAQ - Timelines Fees Concurrent Filing and Gifts
         </h1>
         <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-          Everything you need to know about the EB-5 visa program. For deeper analysis, see our{' '}
+          EB-5 investor FAQ topics include the $800,000 TEA threshold, concurrent filing EADs, gifted funds, and the
+          Sept 30, 2026 grandfathering deadline. For deeper analysis, see our{' '}
           <a href="/research/eb5-comprehensive-faq-timeline-international-students" class="text-white underline underline-offset-4 hover:text-white/90">EB-5 FAQ and timeline for international students</a>
           {' '}and the{' '}
           <a href="/research/complete-2027-eb5-guide" class="text-white underline underline-offset-4 hover:text-white/90">complete 2027 EB-5 guide</a>.
-          Can't find what you're looking for? Explore our resources or contact us for personalized assistance.
         </p>
       </div>
     </section>

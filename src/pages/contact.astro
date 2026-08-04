@@ -11,20 +11,18 @@ import contactHeroWebp from '@/assets/contact-hero-new.webp';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateContactPageSchema } from '@/lib/seo/structured-data';
 
-const title = 'Schedule EB-5 Consultation with Expert EB-5 Advisors';
+const title = 'EB-5 Immigration Consultation - Free Strategy Call for F-1 and H-1B';
 const description =
-  'Schedule an EB-5 investment consultation with expert EB-5 broker and elite EB-5 immigration advisors. Start your EB-5 process with premium guidance today.';
+  'EB-5 immigration consultation helps F-1 and H-1B investors map concurrent filing, $800,000 TEA capital, and the Sept 30, 2026 grandfathering deadline.';
 const pageCanonical = `${SITE_CONFIG.url}/contact`;
-const ogTitle = 'Schedule EB-5 Consultation with Expert EB-5 Advisors';
-const ogDescription =
-  'Schedule an EB-5 investment consultation with expert EB-5 broker and elite EB-5 immigration advisors. Start your EB-5 process with premium guidance today.';
+const ogTitle = `${title} | StudentEB5`;
+const ogDescription = description;
 const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = [
-  'schedule eb5 consultation',
-  'eb5 investment consultation',
-  'start eb5 process',
-  'eb5 immigration advisors',
-  'expert eb5 broker',
+  'EB-5 immigration consultation',
+  'schedule EB-5 consultation',
+  'EB-5 strategy call F-1 H-1B',
+  'start EB-5 process',
 ];
 
 const structuredData = generateContactPageSchema();
@@ -32,7 +30,7 @@ const structuredData = generateContactPageSchema();
 
 <Layout>
   <Fragment slot="head">
-    <title>{title}</title>
+    <title>{title} | StudentEB5</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />
@@ -67,12 +65,11 @@ const structuredData = generateContactPageSchema();
       </div>
       <div class="relative z-10 container mx-auto px-6 text-center text-white">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 max-w-4xl mx-auto leading-tight">
-          Contact StudentEB5 for Expert EB-5 News
+          EB-5 Immigration Consultation - Free Strategy Call for F-1 and H-1B
         </h1>
         <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-          Learn how to transform your F-1 Student or H-1B work status into a U.S. Green Card. We specialize in
-          informing international students and H-1B professionals about EB-5 options, concurrent filing options
-          and the adjustment of status process to secure your future in America.
+          EB-5 immigration consultation for F-1 and H-1B applicants covers $800,000 TEA capital, concurrent filing, and
+          the Sept 30, 2026 grandfathering deadline.
         </p>
       </div>
     </section>

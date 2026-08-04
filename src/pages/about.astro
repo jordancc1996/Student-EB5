@@ -13,18 +13,17 @@ import aboutHeroNewWebp from '@/assets/about-hero-new.webp';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateAboutPageSchema } from '@/lib/seo/structured-data';
 
-const title = 'Best EB-5 Consultants & Advisors for Indian Engineers';
+const title = 'EB-5 Immigration Advisors International Students - F-1 and H-1B Guidance';
 const description =
-  'Best EB-5 consultant and elite EB-5 immigration advisors. Premier path for Indian software engineers seeking permanent residency without sponsorship.';
+  'EB-5 immigration advisors international students use StudentEB5 for F-1 and H-1B green card strategy, $800,000 TEA paths, and Sept 30, 2026 filing timing.';
 const pageCanonical = `${SITE_CONFIG.url}/about`;
-const ogTitle = 'Best EB-5 Consultants & Advisors for Indian Engineers';
-const ogDescription =
-  'Best EB-5 consultant and elite EB-5 immigration advisors. Premier path for Indian software engineers seeking permanent residency without sponsorship.';
+const ogTitle = `${title} | StudentEB5`;
+const ogDescription = description;
 const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = [
-  'best eb5 consultant',
-  'eb5 immigration advisors',
-  'best immigration path for indian software engineers',
+  'EB-5 immigration advisors international students',
+  'EB-5 advisors F-1 students',
+  'EB-5 advisors H-1B professionals',
   'permanent residency without sponsorship',
 ];
 
@@ -33,7 +32,7 @@ const structuredData = generateAboutPageSchema();
 
 <Layout>
   <Fragment slot="head">
-    <title>{title}</title>
+    <title>{title} | StudentEB5</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />
@@ -68,12 +67,11 @@ const structuredData = generateAboutPageSchema();
       </div>
       <div class="relative z-10 container mx-auto px-6 text-center text-white">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 max-w-4xl mx-auto leading-tight">
-          About StudentEB5: The Premier EB-5 Visa Guide for Students & Professionals
+          EB-5 Immigration Advisors International Students - F-1 and H-1B Guidance
         </h1>
         <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-          Your dedicated educational resource for F-1 international students and H-1B professionals navigating
-          the EB-5 immigrant investor program. We help you explore strategies to secure US Permanent Residency
-          (Green Card) through investment.
+          EB-5 immigration advisors international students trust StudentEB5 to map $800,000 TEA filings, concurrent EAD
+          timing, and the Sept 30, 2026 grandfathering window.
         </p>
       </div>
     </section>

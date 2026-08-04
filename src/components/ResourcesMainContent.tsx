@@ -149,10 +149,11 @@ const ResourcesMainContent = () => {
           <BookOpen className="h-8 w-8 text-primary" />
         </div>
         <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-          EB-5 Immigration Resources and Tools for Students
+          EB-5 Resources International Students - Guides Forms and Research
         </h1>
         <p className="text-xl text-muted-foreground mb-4">
-          Comprehensive guides, forms, and materials for your EB-5 journey
+          EB-5 resources international students use here include USCIS forms, playbook links, and research tied to the
+          $800,000 TEA and Sept 30, 2026 filing window.
         </p>
         <p className="text-lg text-muted-foreground">
           New to EB-5? Read the{' '}
