@@ -1,9 +1,9 @@
 ---
 id: 43
 slug: investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b
-title: "Part 2: How to File Your EB-5: I-526E Attorney Selection, Costs, and FAQs for Backlogged F-1 and H-1B Investors"
-metaTitle: "Part 2: EB-5 I-526E Filing: Attorney, Costs, and FAQ Guide"
-metaDescription: Part 2 of the June 2026 EB-5 filing guide for backlogged H-1B professionals and F-1 students. Attorney selection, full cost breakdown, and seven of the most common EB-5 investor questions answered.
+title: "I-526E Attorney Cost - Fees, Filing Steps, and FAQs for F-1 and H-1B"
+metaTitle: "I-526E Attorney Cost - Fees, Filing Steps, and FAQs for F-1 and H-1B | StudentEB5"
+metaDescription: "I-526E attorney cost and filing fees for backlogged F-1 and H-1B investors in 2026: how to pick counsel, budget the full stack, and answer seven pre-file FAQs."
 excerpt: Once you have cleared the pre-investment checks, the filing phase begins. This Part 2 guide walks through attorney selection, the full cost breakdown of an EB-5 petition, and seven of the most common questions backlogged H-1B professionals and F-1 students ask before filing Form I-526E.
 date: June 12, 2026
 updatedDate: June 12, 2026
@@ -30,7 +30,7 @@ relatedPosts:
   - h1b-to-eb5-transition-guide
 ---
 
-<intro>The EB-5 process is convoluted and complex for new investors aiming to use the program to secure permanent residency in the United States. The EB-5 program grants a green card to investors who place qualifying capital into a U.S. commercial enterprise that creates at least 10 U.S. jobs. This is Part 2 of the June 2026 series and walks through what happens after pre-investment: choosing an attorney, the real cost of filing, and the seven questions backlogged H-1B and F-1 investors ask most often before they file Form I-526E.</intro>
+<intro>I-526E attorney cost planning comes after pre-investment: choose counsel, budget the full filing stack, and clear the seven questions backlogged F-1 and H-1B investors ask before they file. The EB-5 program grants a green card to investors who place qualifying capital into a U.S. commercial enterprise that creates at least 10 U.S. jobs. This is Part 2 of the June 2026 series and walks through what happens after pre-investment: choosing an attorney, the real cost of filing, and the seven questions backlogged H-1B and F-1 investors ask most often before they file Form I-526E.</intro>
 
 If you have not yet completed the pre-investment phase, start with <a href="/research/investment/eb5-pre-investment-checklist-part-1-f1-h1b">Part 1: the EB-5 pre-investment guide</a>, which covers accredited investor status, source of funds, and project selection.
 

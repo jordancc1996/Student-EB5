@@ -1,9 +1,9 @@
 ---
 id: 30
 slug: ways-to-fund-eb5-investment-2026
-title: Ways to Fund an EB-5 Investment in 2026
-metaTitle: "EB-5 Source of Funds Guide 2026: Gifted, Loaned & Crypto"
-metaDescription: EB-5 gifted funds, loaned funds, crypto, RBI compliance India, India remittance rules and common source of funds mistakes—premium guidance for investors.
+title: Ways to Fund EB-5 - Gifted, Loaned, and Crypto Paths in 2026
+metaTitle: Ways to Fund EB-5 - Gifted, Loaned, and Crypto Paths in 2026 | StudentEB5
+metaDescription: "Ways to fund EB-5 in 2026 include gifts, loans, HELOC, retirement rollovers, and crypto, each with a seven-year source-and-path-of-funds paper trail USCIS will audit."
 excerpt: One of the cornerstones of the EB-5 investment process is the requirement that every dollar originates from legitimate sources. This guide covers the primary funding methods and critical compliance concepts of source and path of funds.
 date: February 26, 2026
 updatedDate: April 14, 2026
@@ -30,7 +30,7 @@ relatedPosts:
   - 5-reasons-switch-h1b-to-eb5
 ---
 
-<intro>The EB-5 immigrant investor program offers a U.S. green card in exchange for a significant capital investment in a new commercial enterprise that creates 10 jobs for American workers. The investment is $800,000 for projects in Targeted Employment Areas (areas with high unemployment or designated as rural) and $1,050,000 for projects in non-Targeted employment areas. One of the cornerstones of the EB-5 investment process is the requirement that every dollar of the investment originates from legitimate sources. USCIS mandates that applicants provide comprehensive and transparent documentation to prove the legitimacy of their funds. This article will provide a detailed overview of the primary funding methods for EB-5 applicants and explain the critical compliance concepts of source of funds and path of funds.</intro>
+<intro>Ways to fund EB-5 start from the same rule: every dollar of the $800,000 TEA or $1,050,000 standard investment must come from a lawful, fully documented source. The investment is $800,000 for projects in Targeted Employment Areas (areas with high unemployment or designated as rural) and $1,050,000 for projects in non-Targeted employment areas. One of the cornerstones of the EB-5 investment process is the requirement that every dollar of the investment originates from legitimate sources. USCIS mandates that applicants provide comprehensive and transparent documentation to prove the legitimacy of their funds. This article will provide a detailed overview of the primary funding methods for EB-5 applicants and explain the critical compliance concepts of source of funds and path of funds.</intro>
 
 ## Source and Path of Funds
 

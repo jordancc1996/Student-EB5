@@ -1,9 +1,9 @@
 ---
 id: 38
 slug: eb5-investor-qa-part-1
-title: June 2026 Q&A for EB-5 Investors | Processing Times, TEA Projects, Capital Protection and Project Selection
-metaTitle: June 2026 Q&A for EB-5 Investors Part 1 | StudentEB5
-metaDescription: "Expert answers to critical EB-5 investor questions for June 2026: processing times, rural vs. high unemployment projects, capital protection, grandfathering, L-1B transitions, and source of funds preparation."
+title: EB-5 Investor Q&A - Processing Times, TEA Projects, and Capital Risk
+metaTitle: EB-5 Investor Q&A - Processing Times, TEA Projects, and Capital Risk | StudentEB5
+metaDescription: "EB-5 investor Q&A for June 2026 covers processing times, rural vs high-unemployment TEA projects, capital protection, and the Sept 30 grandfathering deadline."
 excerpt: A comprehensive Q&A for EB-5 investors covering project selection, rural and high unemployment area processing differences, green card timelines, capital tie-up periods, the grandfathering clause, L-1B to EB-5 transitions, and source of funds preparation timelines.
 date: June 11, 2026
 category: EB-5 Program
@@ -29,7 +29,7 @@ relatedPosts:
   - complete-2027-eb5-guide
 ---
 
-<intro>The EB-5 program offers foreign nationals permanent residency (green card) in exchange for a capital investment into a U.S. commercial enterprise that creates 10 jobs for U.S. workers. The investment amount for the EB-5 program is $800,000 for projects located in a Targeted Employment Area (Rural and High Unemployment Areas) or $1,050,000 outside of these areas. Navigating the EB-5 program requires a clear understanding of investment structures, processing timelines, regulatory deadlines and the EB-5 landscape; all of which we address in the following article.</intro>
+<intro>EB-5 investor Q&A starts with the basics: permanent residency in exchange for $800,000 in a TEA project or $1,050,000 outside a TEA, plus 10 U.S. jobs created by the enterprise. The investment amount for the EB-5 program is $800,000 for projects located in a Targeted Employment Area (Rural and High Unemployment Areas) or $1,050,000 outside of these areas. Navigating the EB-5 program requires a clear understanding of investment structures, processing timelines, regulatory deadlines and the EB-5 landscape; all of which we address in the following article.</intro>
 
 ## How do I choose an EB-5 project?
 

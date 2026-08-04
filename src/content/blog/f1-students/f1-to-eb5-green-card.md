@@ -1,9 +1,9 @@
 ---
 id: 28
 slug: f1-students/f1-to-eb5-green-card
-title: "From International Student to Green Card Investor: A Comprehensive Guide to Transitioning from an F-1 Visa to an EB-5 Green Card in 2026"
-metaTitle: "F1 to EB-5 After STEM OPT: Best Strategy & Work Permit"
-metaDescription: "Best EB-5 strategy for STEM OPT students: F1 to EB-5 after STEM OPT, OPT expiring alternatives, work permit through EB-5, and parents gifting EB-5 funds."
+title: "F-1 to EB-5 - Green Card Guide for International Students in 2026"
+metaTitle: "F-1 to EB-5 - Green Card Guide for International Students in 2026 | StudentEB5"
+metaDescription: "F-1 to EB-5 in 2026: invest $800,000 in a TEA, file I-526E and I-485 together, and aim for work authorization within 3 to 6 months before Sept 30 grandfathering."
 excerpt: The EB-5 immigrant investor program offers F-1 international students a powerful alternative to the limitations of the F-1 and H-1B visas. With concurrent filing now available, students can gain work and travel authorization within 3-6 months. Two critical deadlines in the next 12-36 months threaten this opportunity.
 date: February 10, 2026
 updatedDate: March 5, 2026
@@ -37,7 +37,7 @@ tocLabels:
   optional-practical-training-opt: When OPT is running out
 ---
 
-<intro>The EB-5 Immigrant Investor program offers F-1 international students a powerful alternative to the limitations that are attached to the F-1 visa and H-1B visa. The program grants green cards to investors who commit $800,000 in a Targeted Employment area (or $1,050,000 elsewhere) and create at least 10 full time U.S. jobs. In 2022, the EB-5 program was revamped and made significantly more attractive to prospective investors by allowing F-1 students to simultaneously file their investor petition and green card application which allowed the investor to gain the benefits of the green card without having the green card within just 3-6 months. Two critical deadlines are looming in the next 12-36 months that threaten the current EB-5 opportunity. Filing by September 30, 2026 guarantees petition processing while the program itself is authorized only through September 30, 2027. F-1 students with the financial means are urged to act quickly and file before the 2026 deadline to secure a green card before the current environment is changed.</intro>
+<intro>F-1 to EB-5 is the clearest green card path for international students facing F-1 limits and H-1B lottery risk, with an $800,000 TEA investment and concurrent filing for work authorization in 3 to 6 months. The program grants green cards to investors who commit $800,000 in a Targeted Employment area (or $1,050,000 elsewhere) and create at least 10 full time U.S. jobs. In 2022, the EB-5 program was revamped and made significantly more attractive to prospective investors by allowing F-1 students to simultaneously file their investor petition and green card application which allowed the investor to gain the benefits of the green card without having the green card within just 3-6 months. Two critical deadlines are looming in the next 12-36 months that threaten the current EB-5 opportunity. Filing by September 30, 2026 guarantees petition processing while the program itself is authorized only through September 30, 2027. F-1 students with the financial means are urged to act quickly and file before the 2026 deadline to secure a green card before the current environment is changed.</intro>
 
 The F-1 student visa is a golden ticket to the highest level of education in the United States. The F-1 visa opens doors to the top universities in the world and fosters invaluable experiences for international students. Those dreams of building a life in the United States and a career post-graduation are exciting for all international students but can quickly become frustrating when confronted with the reality of the limitations of student visas and the uncertainty of the <a href="/research/eb5-lifeline-h1b-workers">H-1B visa</a>.
 

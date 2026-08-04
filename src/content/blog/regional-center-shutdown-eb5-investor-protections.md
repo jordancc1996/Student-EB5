@@ -1,9 +1,9 @@
 ---
 id: 45
 slug: regional-center-shutdown-eb5-investor-protections
-title: What Happens When a Regional Center Shuts Down for EB-5 Investments?
-metaTitle: "Regional Center Shutdown: EB-5 Investor Protections Explained"
-metaDescription: What happens to your EB-5 petition if a regional center is terminated? Section M good-faith protections for pre-RIA and post-RIA investors, priority date retention, and amendment deadlines.
+title: Regional Center Shutdown EB-5 - Section M Protections If Your Center Ends
+metaTitle: Regional Center Shutdown EB-5 - Section M Protections If Your Center Ends | StudentEB5
+metaDescription: "Regional center shutdown EB-5 rules under Section M cover good-faith investors, priority date retention, and amendment deadlines when USCIS terminates a center in 2026."
 excerpt: When USCIS terminates an EB-5 regional center, what happens to pending I-526E petitions, priority dates, and concurrent filings? A breakdown of Section M good-faith investor protections under the Reform and Integrity Act of 2022 for H-1B professionals and F-1 students.
 date: June 23, 2026
 category: Regional Analysis
@@ -29,7 +29,7 @@ relatedPosts:
   - post-reform-integrity-act-analysis
 ---
 
-<intro>The EB-5 immigrant investor program provides a direct path to U.S. permanent residency for foreign nationals who invest in job-creating economic development projects. Many prospective investors in 2026 include H-1B professionals from India and China as well as international students already residing in the United States on F-1 or OPT status. These individuals typically invest through designated regional centers (organizations that pool investor capital to fund large-scale projects), which allows investors to count both indirect and direct jobs toward their job creation requirement.</intro>
+<intro>Regional center shutdown EB-5 risk matters for H-1B and F-1 investors who pool $800,000 through designated centers that can be terminated after capital is committed. Many prospective investors in 2026 include H-1B professionals from India and China as well as international students already residing in the United States on F-1 or OPT status. These individuals typically invest through designated regional centers (organizations that pool investor capital to fund large-scale projects), which allows investors to count both indirect and direct jobs toward their job creation requirement.</intro>
 
 Most regional centers offer a structured and compliant approach to EB-5 investment, and with the right due diligence most investors move through the program smoothly. However, a small percentage of regional centers carry inherent risks. One of the most significant concerns for investors is the potential for a regional center to shut down unexpectedly. Understanding the implications of a regional center closure and the protections available is essential for safeguarding both financial investments and immigration prospects.
 

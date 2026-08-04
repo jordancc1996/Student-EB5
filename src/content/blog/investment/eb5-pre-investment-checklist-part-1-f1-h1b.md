@@ -1,9 +1,9 @@
 ---
 id: 42
 slug: investment/eb5-pre-investment-checklist-part-1-f1-h1b
-title: "Part 1: EB-5 Pre-Investment Guide for Indian and Chinese F-1 Students and H-1B Professionals"
-metaTitle: "Part 1: EB-5 Pre-Investment Checklist: Indian & Chinese F-1, H-1B"
-metaDescription: Pre-investment EB-5 checklist for Indian and Chinese F-1 students and H-1B professionals. Accredited investor test, source of funds, and how to vet a regional center project before filing I-526E.
+title: "EB-5 Pre-Investment Checklist - Accredited Investor and Project Vetting"
+metaTitle: "EB-5 Pre-Investment Checklist - Accredited Investor and Project Vetting | StudentEB5"
+metaDescription: "EB-5 pre-investment checklist for F-1 and H-1B investors: accredited status, source of funds, and regional center vetting before you file Form I-526E in 2026."
 excerpt: "Before you file Form I-526E, two decisions shape your entire EB-5 journey: whether you qualify as an accredited investor with a documentable source of funds, and which regional center project you trust with $800,000 of at-risk capital. This pre-investment guide walks Indian and Chinese F-1 students and H-1B professionals through both."
 date: June 11, 2026
 updatedDate: June 11, 2026
@@ -30,7 +30,7 @@ relatedPosts:
   - f1-students/f1-to-eb5-green-card
 ---
 
-<intro>The EB-5 process is convoluted and complex for new investors who want to use the program to secure permanent residency in the United States. The EB-5 program grants a green card to investors who place qualifying capital into a U.S. commercial enterprise that creates at least 10 U.S. jobs. This Part 1 guide focuses on the pre-investment phase: the eligibility, financial, and project-selection decisions Indian and Chinese F-1 students and H-1B professionals must work through before they file Form I-526E.</intro>
+<intro>EB-5 pre-investment checklist work starts before filing: confirm accredited-investor status, documentable source of funds, and a regional center project you trust with $800,000 at risk. The EB-5 program grants a green card to investors who place qualifying capital into a U.S. commercial enterprise that creates at least 10 U.S. jobs. This Part 1 guide focuses on the pre-investment phase: the eligibility, financial, and project-selection decisions Indian and Chinese F-1 students and H-1B professionals must work through before they file Form I-526E.</intro>
 
 ## Part 1: Starting the EB-5 Journey
 

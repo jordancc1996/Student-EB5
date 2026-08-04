@@ -1,9 +1,9 @@
 ---
 id: 36
 slug: eb5-cryptocurrency-source-of-funds
-title: Can Investors Use Cryptocurrency to Fund an EB-5 Investment?
-metaTitle: "EB-5 Cryptocurrency Funding: Source of Funds Rules for Digital Assets"
-metaDescription: USCIS allows cryptocurrency as an EB-5 source of funds, but only if you can prove wallet ownership, lawful origin, and an unbroken path of funds. Here is what investors need to document.
+title: EB-5 Cryptocurrency Source of Funds - What USCIS Requires in 2026
+metaTitle: EB-5 Cryptocurrency Source of Funds - What USCIS Requires in 2026 | StudentEB5
+metaDescription: "EB-5 cryptocurrency source of funds rules require wallet ownership, lawful origin, and an unbroken path to escrow. Document mining, trading, and USD liquidation carefully."
 excerpt: Cryptocurrency is an acceptable EB-5 source of funds, but USCIS evaluates digital assets on a case-by-case basis and applies the same lawful-source standard it uses for fiat capital. This article breaks down wallet ownership proof, active trading vs. long-term holding documentation, mining receipts, the required liquidation path from wallet to escrow, and the tax and capital-control pitfalls investors from China, Vietnam, and Bangladesh need to navigate.
 date: June 5, 2026
 category: Source of Funds
@@ -29,7 +29,7 @@ relatedPosts:
   - eb5-guide-indian-professionals-2026
 ---
 
-<intro>The EB-5 Immigrant Investor Program requires foreign nationals to invest a minimum of $800,000 in a targeted employment area or $1,050,000 in a non-targeted employment area project. A core requirement of the program is that the EB-5 investor must prove the investment capital comes from a lawful source. The crypto market may be in a downturn, but digital assets have become extremely popular as wealth creation investments in recent years. Many prospective EB-5 investors are interested in using cryptocurrency as a source of investment capital. We hope this article provides clarity on the requirements, challenges, and viability of using crypto assets to fund an EB-5 investment.</intro>
+<intro>EB-5 cryptocurrency source of funds cases still require the same $800,000 TEA or $1,050,000 standard investment, plus proof that every digital-asset dollar came from a lawful source. A core requirement of the program is that the EB-5 investor must prove the investment capital comes from a lawful source. The crypto market may be in a downturn, but digital assets have become extremely popular as wealth creation investments in recent years. Many prospective EB-5 investors are interested in using cryptocurrency as a source of investment capital. We hope this article provides clarity on the requirements, challenges, and viability of using crypto assets to fund an EB-5 investment.</intro>
 
 ## USCIS Position on Cryptocurrency
 

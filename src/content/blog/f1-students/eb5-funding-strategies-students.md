@@ -1,9 +1,9 @@
 ---
 id: 41
 slug: f1-students/eb5-funding-strategies-students
-title: "EB-5 Funding Strategies for International Students: HELOC, SDIRA, SBLOC, and Parental Gifts"
-metaTitle: EB-5 Funding Strategies for International Students 2026
-metaDescription: "How international students fund an $800,000 EB-5 investment: HELOC, self-directed IRA rollovers, securities-based lines of credit, and parental gifts under and over age 21."
+title: "EB-5 Funding Strategies - HELOC, SDIRA, SBLOC, and Parental Gifts"
+metaTitle: "EB-5 Funding Strategies - HELOC, SDIRA, SBLOC, and Parental Gifts | StudentEB5"
+metaDescription: "EB-5 funding strategies for students assemble the $800,000 from HELOC, SDIRA rollovers, securities credit, and parental gifts, each with a seven-year USCIS trace."
 excerpt: Funding an $800,000 EB-5 investment as a student rarely means writing a single check. This guide breaks down the four most common student funding routes — HELOC, SDIRA rollovers, securities-based lines of credit, and documented parental gifts — and the seven-year source-of-funds trace USCIS requires for each.
 date: June 2, 2026
 category: Student Guide
@@ -28,7 +28,7 @@ relatedPosts:
   - eb5-economic-calculus-investment-cost
 ---
 
-<intro>An $800,000 EB-5 investment is rarely a single wire from a single account. For international students and recent graduates, the capital is almost always assembled from a mix of family equity, retirement rollovers, securities lending, and documented gifts. The structure of that capital determines whether USCIS approves the I-526E petition on the first review or sends a Request for Evidence that delays the case by twelve to eighteen months. This guide walks through the four funding routes student-age investors use most often and the seven-year paper trail each one requires.</intro>
+<intro>EB-5 funding strategies for international students rarely mean a single wire: capital usually mixes family equity, retirement rollovers, securities lending, and documented gifts. The structure of that capital determines whether USCIS approves the I-526E petition on the first review or sends a Request for Evidence that delays the case by twelve to eighteen months. This guide walks through the four funding routes student-age investors use most often and the seven-year paper trail each one requires.</intro>
 
 The EB-5 program grants conditional permanent residency to investors who place $800,000 in a qualifying project located in a Targeted Employment Area and create at least 10 full-time U.S. jobs. The investment amount is fixed by statute, but the way the capital is sourced is not. USCIS only requires that every dollar be traced through lawful channels for the seven years preceding the petition. How a student-age applicant assembles that capital is a planning question, not a regulatory one.
 

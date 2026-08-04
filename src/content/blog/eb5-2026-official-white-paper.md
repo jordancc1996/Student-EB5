@@ -1,9 +1,9 @@
 ---
 id: 31
 slug: eb5-2026-official-white-paper
-title: EB-5 2026 Official White Paper
-metaTitle: "Top Rated EB-5 Attorney: Rural EB-5 & Concurrent Filing"
-metaDescription: "Top rated EB-5 attorney insights: experienced EB-5 lawyer for Indian nationals, rural EB-5 for Indian nationals, and the best concurrent filing strategy."
+title: EB-5 2026 White Paper - Attorney Insights on Filing Before Sept 30
+metaTitle: EB-5 2026 White Paper - Attorney Insights on Filing Before Sept 30 | StudentEB5
+metaDescription: "EB-5 2026 white paper findings for H-1B and F-1 investors: concurrent filing, rural set-asides, and why the Sept 30, 2026 grandfathering window is closing."
 excerpt: This white paper analyzes insights from leading EB-5 attorneys, independent researchers, and EB-5 business professionals to provide a comprehensive overview of the current state of the EB-5 program and a roadmap for prospective investors.
 date: March 11, 2026
 category: White Paper
@@ -31,7 +31,7 @@ relatedPosts:
   - choosing-rural-eb5-regional-center-guide
 ---
 
-<intro>The EB-5 immigrant investor program is experiencing a period of increased demand being driven by legislative reforms and growing interest from H-1B professionals. This white paper analyzes insights from leading EB-5 attorneys, independent researchers, and EB-5 business professionals to provide a comprehensive overview of the current state of the <a href="/research/complete-2027-eb5-guide">EB-5 program</a> and a roadmap for prospective investors.</intro>
+<intro>EB-5 2026 white paper analysis covers rising demand from legislative reforms and H-1B professionals, with insights from leading EB-5 attorneys, researchers, and business professionals. This white paper analyzes insights from leading EB-5 attorneys, independent researchers, and EB-5 business professionals to provide a comprehensive overview of the current state of the <a href="/research/complete-2027-eb5-guide">EB-5 program</a> and a roadmap for prospective investors.</intro>
 
 The EB-5 program grants a path to a U.S. Green Card for foreign nationals who invest in a U.S. business that creates jobs for American workers. The EB-5 program has been fundamentally reshaped by the <a href="/research/post-reform-integrity-act-analysis">Reform and Integrity Act of 2022</a>. This landmark legislation reauthorized the popular Regional Center program and has introduced changes that dramatically improved the program and provided greater stability for investors. As a result of the RIA the program has become an increasingly attractive option for individuals on <a href="/research/eb5-lifeline-h1b-workers">H-1B</a> and <a href="/research/f1-students/f1-to-eb5-green-card">F-1 visas</a> already residing in the United States who face long backlogs (typically over a decade long) in other employment-based visa categories.
 

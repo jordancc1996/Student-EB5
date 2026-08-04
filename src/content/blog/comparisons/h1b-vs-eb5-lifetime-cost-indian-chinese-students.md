@@ -1,9 +1,9 @@
 ---
 id: 44
 slug: comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students
-title: "Lifetime Costs of H-1B vs EB-5: Which Costs More for Indian and Chinese International Students?"
-metaTitle: "H-1B vs EB-5 Lifetime Cost: Indian & Chinese Students 2026"
-metaDescription: Lifetime earnings analysis of H-1B vs EB-5 for Indian and Chinese international students. Why returning home can cost millions, and how the EB-5 program secures long-term wealth before the September 30, 2026 grandfathering deadline.
+title: "H-1B vs EB-5 Lifetime Cost - Earnings Gap for Indian and Chinese Students"
+metaTitle: "H-1B vs EB-5 Lifetime Cost - Earnings Gap for Indian and Chinese Students | StudentEB5"
+metaDescription: "H-1B vs EB-5 lifetime cost for Indian and Chinese students: visa choice can shift lifetime earnings by millions before the Sept 30, 2026 grandfathering deadline."
 excerpt: International students and their families often weigh the immediate cost of U.S. education and immigration without measuring the lifetime earnings gap created by visa choice. This analysis compares H-1B limitations against the direct residency path of EB-5 for Indian and Chinese students, and explains why the September 30, 2026 grandfathering deadline matters.
 date: June 17, 2026
 updatedDate: June 17, 2026
@@ -30,7 +30,7 @@ relatedPosts:
   - eb5-grandfathering-2026-2027-deadlines
 ---
 
-<intro>The financial calculus for international students and their families weighing U.S. schools usually focuses on the immediate costs of education and the immigration process. Those costs are heavy, but they are dwarfed by a less visible one. An analysis of lifetime earnings reveals that for most international students, the true cost of returning home after graduation is measured in millions of dollars. The EB-5 immigrant investor program offers a direct route to permanent residency that secures long-term financial benefits while bypassing the structural flaws of the H-1B system.</intro>
+<intro>H-1B vs EB-5 lifetime cost analysis shows that for Indian and Chinese international students, the hidden price of returning home after graduation is often measured in millions of dollars. Tuition and immigration fees are heavy, but they are dwarfed by that earnings gap. An analysis of lifetime earnings reveals that for most international students, the true cost of returning home after graduation is measured in millions of dollars. The EB-5 immigrant investor program offers a direct route to permanent residency that secures long-term financial benefits while bypassing the structural flaws of the H-1B system.</intro>
 
 ## What Is the Lifetime Earnings Gap?
 
