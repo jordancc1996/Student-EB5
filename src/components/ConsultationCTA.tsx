@@ -120,7 +120,7 @@ export const ConsultationCTA = ({ articleForm = false }: ConsultationCTAProps) =
               Talk to Someone Who Knows EB-5
             </h2>
             <p className="text-lg text-muted-foreground">
-              Skip the research rabbit hole. Book a free 30-minute call and get a straight answer on whether you qualify and what your next step is.
+              Book a free 30-minute consultation. Find out if EB-5 fits your situation and learn the next step.
             </p>
             
             <div className="space-y-3">

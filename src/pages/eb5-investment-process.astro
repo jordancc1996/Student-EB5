@@ -387,7 +387,27 @@ const structuredData = [
                         class="text-muted-foreground italic leading-relaxed"
                         style="font-family: Georgia, serif; line-height: 1.75;"
                       >
-                        {step.note}
+                        {
+                          step.n === 7 ? (
+                            <>
+                              USCIS issues a receipt notice confirming your priority date. Current I-526E processing
+                              times range from 12 to 48+ months. Important for F-1 and H-1B holders: If a visa number is
+                              immediately available for your country of birth, you may file Form I-485 (Adjustment of
+                              Status) at the same time as your I-526E. This lets you stay in the US while your petition is
+                              pending and apply for an Employment Authorization Document (EAD) and Advance Parole —
+                              critical protections if your visa situation changes. See our guide to{' '}
+                              <a
+                                href="/research/j1-f1-h1b-eb5-concurrent-filing"
+                                class="not-italic text-primary hover:underline underline-offset-4"
+                              >
+                                EB-5 concurrent filing for students and H-1B holders
+                              </a>
+                              .
+                            </>
+                          ) : (
+                            step.note
+                          )
+                        }
                       </p>
                     </aside>
                   )
@@ -438,7 +458,11 @@ const structuredData = [
             style="font-family: Georgia, serif; line-height: 1.75;"
           >
             StudentEB5 provides free, independent educational resources for F-1 students and H-1B professionals
-            exploring EB-5. Browse our research or get in touch.
+            exploring EB-5. Review the{' '}
+            <a href="/pathways/f1-to-eb5-self-sponsored-green-card" class="text-primary hover:underline">F-1 Student Pathway</a>
+            {' '}and the{' '}
+            <a href="/tools/2026-eb5-investment-feasibility-calculator" class="text-primary hover:underline">EB-5 Feasibility Calculator</a>
+            , or browse our research and get in touch.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <a

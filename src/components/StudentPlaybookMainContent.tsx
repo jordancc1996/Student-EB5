@@ -64,7 +64,7 @@ const relatedClusterContent = [
   {
     title: 'Aging Out Crisis Explained',
     description: 'Understanding the risks for dependent children and how EB-5 protects families.',
-    link: '/research/eb5-aging-out-crisis-families',
+    link: '/research/eb5-visa-aging-out-crisis-solution',
     type: 'Article',
   },
   {
@@ -96,10 +96,27 @@ const StudentPlaybookMainContent = () => {
             F-1 student on OPT
           </a>{' '}
           or exploring{' '}
-          <a href="/research" className="text-primary hover:underline font-medium">
-            EB-5 investment options
+          <a
+            href="/research/f1-students/eb5-funding-strategies-students"
+            className="text-primary hover:underline font-medium"
+          >
+            EB-5 funding strategies for students
           </a>
-          , this playbook provides the strategic insights you need.
+          , this playbook provides the strategic insights you need. Review the{' '}
+          <a
+            href="/pathways/f1-to-eb5-self-sponsored-green-card"
+            className="text-primary hover:underline font-medium"
+          >
+            F-1 to EB-5 Pathway
+          </a>{' '}
+          for the filing timeline after graduation, and the{' '}
+          <a
+            href="/research/eb5-grandfathering-2026-2027-deadlines"
+            className="text-primary hover:underline font-medium"
+          >
+            EB-5 grandfathering deadline analysis
+          </a>{' '}
+          for the September 30, 2026 filing window.
         </p>
       </div>
 

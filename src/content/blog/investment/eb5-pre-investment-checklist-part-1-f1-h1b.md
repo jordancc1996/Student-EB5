@@ -71,7 +71,7 @@ Each source requires its own evidentiary package: years of tax returns, bank sta
 
 Indian and Chinese investors face additional layers: Indian investors must navigate the Liberalised Remittance Scheme (LRS) $250,000 per-person annual cap, often pooling family remittances across two or three taxpayers. Chinese investors must work around the $50,000 SAFE annual foreign exchange quota, typically using multiple family members to legally convert and transfer capital. Both jurisdictions require careful coordination with cross-border tax counsel.
 
-For a structured walkthrough, see our <a href="/research/eb5-source-of-funds-guide">EB-5 source of funds documentation guide</a> and our <a href="/tools/source-of-funds-calculator">Source of Funds Calculator</a>.
+For a structured walkthrough, see our <a href="/research/ways-to-fund-eb5-investment-2026">EB-5 source of funds documentation guide</a> and our <a href="/tools/source-of-funds-calculator">Source of Funds Calculator</a>.
 
 ### StudentEB5 Recommendation: Avoid Loans From the Regional Center
 

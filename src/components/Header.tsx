@@ -78,7 +78,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
     {
       label: 'Financial',
       links: [
-        { name: 'Source of Funds Strategies', href: '/guides/source-of-funds-strategies' },
+        { name: 'Source of Funds Strategies', href: '/tools/source-of-funds-calculator' },
       ],
     },
   ];

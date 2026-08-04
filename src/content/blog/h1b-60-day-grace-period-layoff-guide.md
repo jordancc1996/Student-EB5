@@ -35,7 +35,7 @@ A layoff is not merely a career setback for an H-1B worker because it is a direc
 
 ## The Mechanics of the 60-Day Grace Period
 
-The foundational legal protection for a terminated H-1B worker is the discretionary grace period of up to 60 consecutive calendar days, codified under Department of Homeland Security regulations at 8 CFR 214.1(l)(2). Understanding the exact operational mechanics of this grace period is critical to avoiding status violations and the accrual of unlawful presence.
+The foundational legal protection for a terminated H-1B worker is the discretionary grace period of up to 60 consecutive calendar days, codified under Department of Homeland Security regulations at 8 CFR 214.1(l)(2). Understanding the exact operational mechanics of this grace period is critical to avoiding status violations and the accrual of unlawful presence. For an interactive pathway overview, see the <a href="/pathways/h1b-60-day-clock">H-1B 60-Day Grace Period Guide</a>.
 
 ### The Grace Period Timeline and Triggers
 

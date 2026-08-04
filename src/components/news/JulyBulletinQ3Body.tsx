@@ -10,7 +10,7 @@ export default function JulyBulletinQ3Body() {
                 The 2026 annual limit for India's employment second preference and unreserved EB-5 categories has been met. This means no more visa numbers will be available for Indian applicants in these categories for the remainder of the fiscal year. Applicants with cases nearing finalization must wait until October, when the new fiscal year brings a fresh supply of visas.
               </p>
               <p>
-                The reserved visa categories remain current, and we recommend Indian applicants, along with investors from all other countries, continue to file in the three reserved categories: rural, high unemployment, and infrastructure. Review the <a href="/research/policy/eb5-grandfathering-september-2026">grandfathering deadline analysis</a> and the <a href="/tools/grandfathering-countdown">EB-5 grandfathering countdown</a> as you plan timing.
+                The reserved visa categories remain current, and we recommend Indian applicants, along with investors from all other countries, continue to file in the three reserved categories: rural, high unemployment, and infrastructure. Review the <a href="/research/eb5-grandfathering-2026-2027-deadlines">grandfathering deadline analysis</a> and the <a href="/tools/grandfathering-countdown">EB-5 grandfathering countdown</a> as you plan timing.
               </p>
 
               <h2 id="the-importance-of-current-priority-dates">The Importance of Current Priority Dates</h2>

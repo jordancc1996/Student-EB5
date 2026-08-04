@@ -165,6 +165,15 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
           >
             This is the #1 reason H-1B holders choose EB-5. Concurrent Filing allows you to submit your green card
             application and receive work/travel authorization while your I-526E petition is still being processed.
+            Read our full guide to{' '}
+            <a href="/research/j1-f1-h1b-eb5-concurrent-filing" className="text-primary hover:underline">
+              EB-5 concurrent filing for H-1B holders
+            </a>
+            . For the regulatory timeline after a layoff, see the{' '}
+            <a href="/research/h1b-60-day-grace-period-layoff-guide" className="text-primary hover:underline">
+              H-1B 60-day grace period layoff guide
+            </a>
+            .
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">

@@ -64,7 +64,25 @@ export default function ToolsHubMainContent({ children }: PropsWithChildren) {
             style={{ fontFamily: pathwayFont }}
           >
             Access free EB-5 investment calculators and tools designed for international students and foreign
-            investors seeking U.S. permanent residency through the EB-5 visa program.
+            investors seeking U.S. permanent residency through the EB-5 visa program. Start with the{' '}
+            <a href="/student-playbook" className="text-white underline underline-offset-4 hover:text-white/90">
+              International Student Playbook
+            </a>{' '}
+            if you are an F-1 student planning EB-5. Pair the tools with our{' '}
+            <a
+              href="/research/eb5-grandfathering-2026-2027-deadlines"
+              className="text-white underline underline-offset-4 hover:text-white/90"
+            >
+              EB-5 grandfathering deadline analysis
+            </a>{' '}
+            and{' '}
+            <a
+              href="/research/ways-to-fund-eb5-investment-2026"
+              className="text-white underline underline-offset-4 hover:text-white/90"
+            >
+              guide to funding an EB-5 investment
+            </a>
+            .
           </p>
         </div>
       </section>

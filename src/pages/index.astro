@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import HeroSection from '@/components/sections/HeroSection.astro';
 import IntroSection from '@/components/sections/IntroSection.astro';
+import PlaybookCallout from '@/components/sections/PlaybookCallout.astro';
 import PhilosophySection from '@/components/sections/PhilosophySection.astro';
 import BenefitsSection from '@/components/sections/BenefitsSection.astro';
 import PartnerCredibility from '@/components/sections/PartnerCredibility.astro';
@@ -18,18 +19,23 @@ import {
   generateSiteNavigationSchema,
 } from '@/lib/seo/structured-data';
 
-const title = 'EB-5 Green Card for H-1B & F-1 Students | StudentEB5';
+const title = 'EB-5 for International Students Graduating in the USA | StudentEB5';
 const description =
-  'EB-5 for H-1B holders: green card without employer sponsorship via rural EB-5. Avoid the H-1B lottery. Exclusive permanent residency without sponsorship.';
+  'EB-5 for international students graduating in the USA explains how F-1 graduates can pursue a green card after graduation without employer sponsorship.';
 const rawCanonical = `${SITE_CONFIG.url}/`;
 const pageCanonical = rawCanonical.replace(/\/+$/, '') || rawCanonical;
-const ogTitle = 'EB-5 Investment Visa: Your Path from Student to Green Card Holder';
-const ogDescription =
-  'Discover how international students transform F-1 visas into permanent US residency through EB-5 investment. Expert guidance, tools, and step-by-step resources for students and H-1B professionals seeking green cards.';
+const ogTitle = title;
+const ogDescription = description;
 const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = [
+  'EB-5 for international students graduating in the USA',
+  'EB-5 for international students',
+  'green card for international students',
+  'international student green card strategy',
+  'green card after graduation',
+  'international student green card',
+  'F-1 to EB-5',
   'EB-5 visa',
-  'international students',
   'F-1 to green card',
   'H-1B alternative',
   'investment immigration',
@@ -71,6 +77,7 @@ const structuredData = [
     <main>
       <HeroSection />
       <IntroSection />
+      <PlaybookCallout />
       <PhilosophySection />
       <BenefitsSection />
       <PartnerCredibility />

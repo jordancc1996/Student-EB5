@@ -49,7 +49,7 @@ Even though an H-1B holder can extend their status beyond the six-year limit if 
 
 ### Employer Dependence and Tech Layoffs
 
-The legal status of an H-1B worker is contingent upon active employment. In the event of a layoff, termination, or corporate closure, the visa holder has a strict 60-day grace period to secure a new sponsoring employer, file for a change of status, or depart the country. During periods of economic contraction or industry-specific layoffs, finding an employer willing to sponsor an H-1B transfer within 60 days is practically impossible and exposes families to sudden displacement. Read more on how the <a href="/research/eb5-lifeline-h1b-workers">EB-5 serves as a lifeline for H-1B workers</a>.
+The legal status of an H-1B worker is contingent upon active employment. In the event of a layoff, termination, or corporate closure, the visa holder has a strict 60-day grace period to secure a new sponsoring employer, file for a change of status, or depart the country. During periods of economic contraction or industry-specific layoffs, finding an employer willing to sponsor an H-1B transfer within 60 days is practically impossible and exposes families to sudden displacement. Read the <a href="/pathways/h1b-60-day-clock">H-1B 60-Day Grace Period Guide</a> and our analysis of how the <a href="/research/eb5-lifeline-h1b-workers">EB-5 serves as a lifeline for H-1B workers</a>.
 
 ### J-1 and F-1 Constraints
 
