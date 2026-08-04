@@ -1,8 +1,8 @@
 ---
 id: 27
 slug: 19-questions-rural-eb5-project-due-diligence
-title: 19 Questions to Ask Before Investing in a Rural EB-5 Project
-metaTitle: 19 Questions to Ask Before Investing in a Rural EB-5 Project | StudentEB5
+title: 19 EB-5 Due Diligence Questions to Ask Before Investing in a Rural Project
+metaTitle: 19 EB-5 Due Diligence Questions to Ask Before Investing in a Rural Project | StudentEB5
 metaDescription: "EB-5 due diligence questions include these 19 checks on I-956F, exit strategy, capital stack, and developer equity before you commit $800,000. Updated for 2026."
 excerpt: Prospective investors should ask relevant questions to understand the risks involved when investing in an EB-5 deal. This article explores questions to ask, the ideal answer, and the justification behind each to help investors analyze EB-5 deals.
 date: January 21, 2026
