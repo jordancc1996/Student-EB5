@@ -218,6 +218,11 @@ the 5-location keyword check before being committed. This applies
 whether the article is written from scratch, imported, or converted
 from another format.
 
+All tool pages must also pass the 5-location keyword check
+(title, description, URL, H1, first sentence) before committing,
+following the same rules as research articles in the Content
+Publishing Rules section.
+
 ### The 5-Location Keyword Rule
 
 Before committing any new article, confirm the PRIMARY TARGET KEYWORD

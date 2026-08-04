@@ -87,10 +87,10 @@ const SourceOfFundsChecklistMainContent = () => {
         <div className="relative z-10 max-w-4xl w-full">
           <div className="text-center mb-12">
             <h1 className="font-serif text-white text-4xl mb-3">
-              Document Checklist Generator
+              EB-5 Source of Funds Checklist - Personalized I-526E Document List
             </h1>
-            <p className="text-gray-300 text-sm uppercase tracking-widest italic">
-              Source of Funds Personalization
+            <p className="text-gray-300 text-base max-w-2xl mx-auto">
+              The EB-5 source of funds checklist generates a personalized document list for gifts, salary, property sales, and investment liquidation before Form I-526E.
             </p>
           </div>
 

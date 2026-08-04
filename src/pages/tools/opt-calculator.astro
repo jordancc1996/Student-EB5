@@ -6,20 +6,16 @@ import Breadcrumb from '@/components/Breadcrumb';
 import OPTCalculatorMainContent from '@/components/OPTCalculatorMainContent';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
-const title = 'OPT Expiring Alternatives: Best EB-5 Strategy';
+const title = 'OPT Calculator - F-1 Application and EAD Timelines | StudentEB5';
 const description =
-  'OPT expiring alternatives and the best EB-5 strategy for STEM OPT students: a backup plan after OPT expiration to stay in America after STEM OPT via EB-5.';
+  'OPT calculator maps F-1 application windows, earliest and latest start dates, and EAD work timelines from your program end date under current USCIS rules.';
 const pageCanonical = `${SITE_CONFIG.url}/tools/opt-calculator`;
-const ogTitle = 'OPT Calculator | StudentEB5';
-const ogDescription =
-  'Premium tool for F-1 students to calculate OPT application deadlines, start dates, and work authorization timelines based on USCIS regulations.';
 const ogImage = `${SITE_CONFIG.url}/images/opt-calculator-og.jpg`;
 const keywords = [
-  'opt expiring alternatives',
-  'backup plan after opt expiration',
-  'eb5 after stem opt',
-  'how to stay in america after stem opt',
-  'best eb5 strategy for stem opt students',
+  'OPT calculator',
+  'OPT application deadline',
+  'F-1 OPT timeline',
+  'OPT EAD start date',
 ];
 ---
 
@@ -29,15 +25,15 @@ const keywords = [
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />
-    <meta property="og:title" content={ogTitle} />
-    <meta property="og:description" content={ogDescription} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="website" />
     <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={ogTitle} />
-    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
   </Fragment>
 

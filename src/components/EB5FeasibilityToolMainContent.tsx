@@ -184,8 +184,11 @@ const EB5FeasibilityToolMainContent = () => {
         <div className="max-w-5xl mx-auto px-4 py-4">
           <Breadcrumb customTitle="EB-5 Investment Feasibility Tool" initialPathname={FEASIBILITY_PATH} />
           <h1 className="mt-4 text-3xl md:text-4xl font-serif font-bold text-foreground">
-            2026 EB-5 Investment Feasibility Calculator
+            EB-5 Investment Feasibility Calculator - $800K TEA Eligibility Check
           </h1>
+          <p className="mt-3 text-muted-foreground text-lg max-w-3xl">
+            The EB-5 investment feasibility calculator tests whether your income, liquid assets, and gifts can cover the $800,000 TEA or $1,050,000 standard capital requirement.
+          </p>
         </div>
 
         <div className="max-w-5xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">

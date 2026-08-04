@@ -47,10 +47,10 @@ const TuitionCalculatorMainContent = () => {
               <GraduationCap className="w-8 h-8 text-primary" />
             </div>
             <h1 className="text-2xl md:text-3xl font-serif font-bold mb-3">
-              Tuition Savings Calculator
+              Tuition Savings Calculator - F-1 vs In-State 4-Year Costs
             </h1>
             <p className="text-muted-foreground text-sm md:text-base">
-              Compare F-1 International tuition vs. Green Card (In-State) tuition to see how EB-5 can lower your education costs.
+              The tuition savings calculator compares F-1 international and in-state rates over a standard 4-year degree so students can see EB-5 cost impact before enrollment.
             </p>
           </div>
 

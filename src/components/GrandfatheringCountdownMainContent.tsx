@@ -68,10 +68,10 @@ const GrandfatheringCountdownMainContent = () => {
         <div className="max-w-4xl mx-auto bg-card border border-border rounded-xl shadow-lg p-8 md:p-10">
           {/* Header */}
           <h1 className="font-serif text-3xl md:text-4xl font-bold text-center mb-3">
-            Grandfathering Deadline Countdown
+            EB-5 Grandfathering Countdown - Sept 30, 2026 RIA Deadline
           </h1>
           <p className="text-muted-foreground text-center text-lg mb-10">
-            Time remaining until the September 30, 2026 deadline.
+            The EB-5 grandfathering countdown shows how many days remain until the September 30, 2026 RIA deadline protects pending I-526 and I-526E filings.
           </p>
 
           {/* Countdown Clock */}

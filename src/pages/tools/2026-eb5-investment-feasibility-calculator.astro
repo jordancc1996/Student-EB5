@@ -6,19 +6,16 @@ import Breadcrumb from '@/components/Breadcrumb';
 import EB5FeasibilityToolMainContent from '@/components/EB5FeasibilityToolMainContent';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
-const title = 'EB-5 Visa Investment Calculator - Check Your Financial Eligibility (2026)';
+const title = 'EB-5 Investment Feasibility Calculator - $800K TEA Eligibility Check | StudentEB5';
 const description =
-  'Free EB-5 feasibility calculator. Enter your finances to check eligibility for $800K TEA or $1.05M EB-5 visa investment.';
+  'EB-5 investment feasibility calculator checks whether income, assets, and gifts can fund the $800,000 TEA or $1,050,000 standard investment amount in 2026.';
 const pageCanonical = `${SITE_CONFIG.url}/tools/2026-eb5-investment-feasibility-calculator`;
 const ogImage = `${SITE_CONFIG.url}/images/eb5-feasibility-og.jpg`;
-const ogTitle = 'EB-5 Visa Investment Calculator - Check Your Financial Eligibility (2026)';
-const ogDescription =
-  'Free EB-5 feasibility calculator. Enter your finances to check eligibility for $800K TEA or $1.05M EB-5 visa investment.';
 const keywords = [
+  'EB-5 investment feasibility calculator',
   'EB-5 feasibility',
-  'EB-5 investment calculator',
   'EB-5 eligibility',
-  'green card investment',
+  '$800K TEA investment',
   'EB-5 requirements',
 ];
 const feasibilityPath = '/tools/2026-eb5-investment-feasibility-calculator';
@@ -30,15 +27,15 @@ const feasibilityPath = '/tools/2026-eb5-investment-feasibility-calculator';
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />
-    <meta property="og:title" content={ogTitle} />
-    <meta property="og:description" content={ogDescription} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="website" />
     <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={ogTitle} />
-    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
   </Fragment>
 

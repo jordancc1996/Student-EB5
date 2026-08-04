@@ -119,12 +119,10 @@ const CSPACalculatorMainContent = () => {
         <div className="relative z-10 max-w-3xl w-full">
           <div className="text-center mb-12">
             <h1 className="font-serif text-white text-5xl md:text-6xl mb-4 leading-tight">
-              EB-5 CSPA Age
-              <br />
-              Calculator
+              EB-5 CSPA Age Calculator - Derivative Child Age-Out Risk
             </h1>
             <p className="text-gray-200 text-lg max-w-xl mx-auto">
-              Predict whether your derivative child is protected from "aging out" before EB-5 residency is granted.
+              The EB-5 CSPA age calculator projects a derivative child's protected age under 2026 USCIS rules so parents can see age-out risk before filing I-526E.
             </p>
           </div>
 

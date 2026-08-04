@@ -98,10 +98,10 @@ const SourceOfFundsCalculatorMainContent = () => {
             <Wallet className="w-8 h-8 text-primary" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Source of Funds Calculator
+            EB-5 Source of Funds Calculator - Gift, Loan, Salary, Crypto Paths
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Optimize your EB-5 funding source for tax efficiency
+            The EB-5 source of funds calculator compares gift, loan, salary, and crypto funding paths so investors can reach the $800,000 TEA minimum with lower tax drag.
           </p>
         </div>
 

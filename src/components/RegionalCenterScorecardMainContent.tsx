@@ -69,8 +69,10 @@ const RegionalCenterScorecardMainContent = () => {
 
         <div className="relative z-10 max-w-4xl w-full">
           <div className="text-center mb-12">
-            <h1 className="font-serif text-white text-4xl mb-4 tracking-tight">Regional Center Scorecard</h1>
-            <p className="text-gray-400 text-xs uppercase tracking-[0.3em]">Objective Institutional Due Diligence</p>
+            <h1 className="font-serif text-white text-4xl mb-4 tracking-tight">EB-5 Regional Center Scorecard - Trust Score Due Diligence</h1>
+            <p className="text-gray-300 text-base max-w-2xl mx-auto">
+              The EB-5 regional center scorecard converts years in operation, I-829 approvals, and compliance history into a trust score investors can compare before committing capital.
+            </p>
           </div>
 
           {!result ? (

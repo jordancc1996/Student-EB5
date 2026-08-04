@@ -65,12 +65,10 @@ const ConcurrentFilingCheckerMainContent = () => {
         <div className="relative z-10 max-w-3xl w-full">
           <div className="text-center mb-12">
             <h1 className="font-serif text-white text-5xl md:text-6xl mb-4 leading-tight">
-              EB-5 Concurrent Filing
-              <br />
-              Eligibility Checker
+              EB-5 Concurrent Filing Eligibility Checker - I-526E and I-485 Timing
             </h1>
             <p className="text-gray-200 text-lg max-w-xl mx-auto">
-              Determine if you can file your I-485 immediately to secure work and travel authorization.
+              The EB-5 concurrent filing eligibility checker determines whether your status and priority date let you file I-526E and I-485 together for EAD and Advance Parole.
             </p>
           </div>
 
