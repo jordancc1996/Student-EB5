@@ -50,7 +50,7 @@ export const newsArticles: NewsArticleMeta[] = [
     href: '/news/july-2026-visa-bulletin-eb5-q3-outlook',
     metaTitle: 'July 2026 Visa Bulletin EB-5 - Q3 Outlook for China and India Investors | StudentEB5',
     metaDescription:
-      'July 2026 visa bulletin EB-5 shows movement in China and India final action dates for Q3. Rural reserved category remains current for most applicants. Analysis for investors.',
+      'July 2026 visa bulletin EB-5 shows China and India final action date movement for Q3. Rural reserved category remains current for most applicants this quarter.',
     heroSubtitle:
       'July 2026 visa bulletin EB-5 confirms India unreserved EB-5 is exhausted for FY 2026, while rural, high-unemployment, and infrastructure reserved categories remain current for Q3 filers.',
     breadcrumbLabel: 'July 2026 Visa Bulletin',
