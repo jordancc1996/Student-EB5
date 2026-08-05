@@ -88,8 +88,7 @@ const StudentPlaybookMainContent = () => {
           <source srcSet={heroImageWebp.src} type="image/webp" />
           <img
             src={heroImage.src}
-            alt=""
-            aria-hidden="true"
+            alt="International students reviewing EB-5 green card investment strategy and OPT timeline planning"
             className="h-full w-full object-cover"
           />
         </picture>
