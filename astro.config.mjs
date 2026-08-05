@@ -11,6 +11,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // https://astro.build/config
 export default defineConfig({
   site: 'https://studenteb5.com',
+  // Match per-page canonicals (no trailing slash). Also drives @astrojs/sitemap URL shape.
+  trailingSlash: 'never',
   integrations: [
     react(),
     sitemap({
@@ -19,14 +21,30 @@ export default defineConfig({
         if (page.includes('/pathways/h1b-60-day-clock')) return false;
         if (page.includes('/404')) return false;
         // Exclude redirect stubs
-        if (page === 'https://studenteb5.com/tools/') return false;
-        if (page === 'https://studenteb5.com/grandfathering-countdown/') return false;
-        if (page === 'https://studenteb5.com/opt-calculator/') return false;
-        if (page === 'https://studenteb5.com/tuition-calculator/') return false;
+        if (page === 'https://studenteb5.com/tools/' || page === 'https://studenteb5.com/tools') return false;
+        if (
+          page === 'https://studenteb5.com/grandfathering-countdown/' ||
+          page === 'https://studenteb5.com/grandfathering-countdown'
+        )
+          return false;
+        if (page === 'https://studenteb5.com/opt-calculator/' || page === 'https://studenteb5.com/opt-calculator')
+          return false;
+        if (
+          page === 'https://studenteb5.com/tuition-calculator/' ||
+          page === 'https://studenteb5.com/tuition-calculator'
+        )
+          return false;
         if (page.includes('/guides/')) return false;
         if (page.includes('/tools/concurrent-filing-checker')) return false;
-        if (page.includes('/tools/eb5-feasibility/')) return false;
+        if (page.includes('/tools/eb5-feasibility')) return false;
         return true;
+      },
+      // Match per-page canonicals (no trailing slash). Default sitemap output uses trailing slashes.
+      serialize(item) {
+        if (item.url.endsWith('/')) {
+          item.url = item.url.replace(/\/+$/, '') || item.url;
+        }
+        return item;
       },
       changefreq: 'weekly',
       priority: 0.7,
