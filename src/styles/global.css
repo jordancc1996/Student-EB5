@@ -90,10 +90,15 @@ html {
 @layer components {
   /* Hero Section - Helicon View Style */
   .hero-section {
-    @apply relative min-h-screen flex items-center justify-center;
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: hsl(var(--hero-dark));
     margin-top: -120px;
     padding-top: 120px;
+    padding-bottom: 4rem;
   }
   
   .hero-content {
