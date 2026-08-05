@@ -227,6 +227,25 @@ All tool pages must also pass the 5-location keyword check
 following the same rules as research articles in the Content
 Publishing Rules section.
 
+### Cannibalization Check (Required Before Every New Article)
+Before creating any new research article, run a cannibalization
+check against docs/knowledge/cannibalization-guard.md.
+
+Check for overlap with existing articles on:
+- Same primary keyword or very close variant
+- Same target audience segment
+- Same main topic/argument
+
+If overlap score is high (50+), choose one of:
+A) New article with clearly differentiated angle and slug
+   (lead with the unique content, link to the overlapping owner)
+B) Fold unique content into the existing article instead
+
+Never publish a new URL that targets a keyword already owned
+by an existing page. After publishing any new article, update
+docs/knowledge/cannibalization-guard.md with the new slug
+and its owned topics.
+
 ### The 5-Location Keyword Rule
 
 Before committing any new article, confirm the PRIMARY TARGET KEYWORD
