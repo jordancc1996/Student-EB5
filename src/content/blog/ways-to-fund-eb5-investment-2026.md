@@ -68,7 +68,7 @@ The SBLOC is available for portfolios of publicly traded stocks, bonds and mutua
 
 ### Gift from Friends or Family
 
-USCIS permits the use of gifted funds for an EB-5 investment as long as the origin of the source of funds is well documented. The donor providing the gift must undergo the same rigorous source of funds verification as the EB-5 applicant. This means that the donor must provide at least 7 years of their own bank statements, tax returns, and other financial records to prove that the gifted money was legally obtained.
+USCIS permits the use of gifted funds for an EB-5 investment as long as the origin of the source of funds is well documented. The donor providing the gift must undergo the same rigorous source of funds verification as the EB-5 applicant. This means that the donor must provide at least 7 years of their own bank statements, tax returns, and other financial records to prove that the gifted money was legally obtained. Parents often fund student and early-career petitions this way — see our <a href="/faq/parents-gift-eb5-investment-funds">FAQ on whether parents can gift EB-5 investment funds</a>.
 
 ## Less Common and Higher Risk Funding Sources
 

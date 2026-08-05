@@ -65,7 +65,7 @@ At its core, the EB-5 program requires an investor to meet two primary condition
 
 The EB-5 Reform and Integrity Act of 2022 updated the minimum investment amounts for the EB-5 program. The amounts depend on the location of the project. In Targeted Employment Areas the minimum investment amount is **$800,000** and in Non-Targeted Employment Areas the investment amount is set at **$1,050,000**.
 
-A Targeted Employment Area is defined by USCIS as either a rural area or an area that has experienced high unemployment. The lower investment threshold for Targeted Employment Areas is designed to encourage investment in areas that need it the most.
+A Targeted Employment Area is defined by USCIS as either a rural area or an area that has experienced high unemployment. The lower investment threshold for Targeted Employment Areas is designed to encourage investment in areas that need it the most. For Indian nationals, rural set-aside visas are often the fastest route to a green card — see our <a href="/faq/rural-eb5-india-fastest-green-card">FAQ on rural EB-5 for Indian investors</a>.
 
 ## The First Step: Source of Funds Documentation
 
