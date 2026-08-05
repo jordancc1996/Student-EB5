@@ -4,6 +4,7 @@ import type { ArticleSchema, BreadcrumbItem, FAQItem } from './types';
 function publisherWithLogo() {
   return {
     '@type': 'Organization',
+    '@id': `${SITE_CONFIG.url}/#organization`,
     name: SITE_CONFIG.name,
     url: SITE_CONFIG.url,
     logo: {
@@ -18,7 +19,7 @@ function publisherWithLogo() {
 export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'EducationalOrganization',
+    '@type': 'Organization',
     '@id': `${SITE_CONFIG.url}/#organization`,
     name: SITE_CONFIG.name,
     alternateName: 'Student EB5',
@@ -57,22 +58,19 @@ export function generateOrganizationSchema() {
 }
 
 export function generateProfessionalServiceSchema() {
+  // Use Service (not ProfessionalService/LocalBusiness) — LocalBusiness types
+  // require a postal address and fail schema validators without one.
   return {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
+    '@type': 'Service',
     '@id': `${SITE_CONFIG.url}/#service`,
     name: `${SITE_CONFIG.name} - EB-5 Educational Resources`,
     url: SITE_CONFIG.url,
-    logo: {
-      '@type': 'ImageObject',
-      url: SITE_CONFIG.logo,
-      width: 512,
-      height: 512,
+    description:
+      'Free educational resources and guidance for international students and H-1B professionals exploring EB-5 investment immigration pathways to US permanent residency.',
+    provider: {
+      '@id': `${SITE_CONFIG.url}/#organization`,
     },
-    image: SITE_CONFIG.defaultOgImage,
-    description: 'Free educational resources and guidance for international students and H-1B professionals exploring EB-5 investment immigration pathways to US permanent residency.',
-    priceRange: '$',
-    email: SITE_CONFIG.email,
     areaServed: {
       '@type': 'Country',
       name: 'United States',
@@ -125,13 +123,12 @@ export function generateWebsiteSchema() {
     name: SITE_CONFIG.name,
     url: SITE_CONFIG.url,
     description: SITE_CONFIG.description,
-    publisher: publisherWithLogo(),
+    publisher: {
+      '@id': `${SITE_CONFIG.url}/#organization`,
+    },
     potentialAction: {
       '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${SITE_CONFIG.url}/research?search={search_term_string}`,
-      },
+      target: `${SITE_CONFIG.url}/research?search={search_term_string}`,
       'query-input': 'required name=search_term_string',
     },
   };
@@ -194,7 +191,7 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
 
 export function generateSiteNavigationSchema() {
   const items = [
-    { name: 'Home', url: `${SITE_CONFIG.url}/` },
+    { name: 'Home', url: SITE_CONFIG.url },
     { name: 'Research', url: `${SITE_CONFIG.url}/research` },
     { name: 'FAQ', url: `${SITE_CONFIG.url}/faq` },
     { name: 'Resources', url: `${SITE_CONFIG.url}/resources` },
@@ -205,8 +202,13 @@ export function generateSiteNavigationSchema() {
   ];
   return {
     '@context': 'https://schema.org',
-    '@graph': items.map((item) => ({
+    '@type': 'ItemList',
+    '@id': `${SITE_CONFIG.url}/#site-navigation`,
+    name: 'Main navigation',
+    itemListElement: items.map((item, index) => ({
       '@type': 'SiteNavigationElement',
+      '@id': `${SITE_CONFIG.url}/#nav-${item.name.toLowerCase().replace(/\s+/g, '-')}`,
+      position: index + 1,
       name: item.name,
       url: item.url,
     })),
