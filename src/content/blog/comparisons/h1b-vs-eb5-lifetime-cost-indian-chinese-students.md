@@ -1,9 +1,9 @@
 ---
 id: 44
 slug: comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students
-title: "H-1B vs EB-5 Lifetime Cost - Earnings Gap for Indian and Chinese Students"
-metaTitle: "H-1B vs EB-5 Lifetime Cost - Earnings Gap for Indian and Chinese Students | StudentEB5"
-metaDescription: "H-1B vs EB-5 lifetime cost for Indian and Chinese students: visa choice can shift lifetime earnings by millions before the Sept 30, 2026 grandfathering deadline."
+title: "H-1B vs EB-5 Lifetime Cost - Indian and Chinese Students"
+metaTitle: "H-1B vs EB-5 Lifetime Cost - Indian and Chinese Students | StudentEB5"
+metaDescription: "H-1B vs EB-5 lifetime cost for Indian and Chinese students: visa choice can shift lifetime earnings by millions before the Sept 30, 2026 deadline."
 excerpt: International students and their families often weigh the immediate cost of U.S. education and immigration without measuring the lifetime earnings gap created by visa choice. This analysis compares H-1B limitations against the direct residency path of EB-5 for Indian and Chinese students, and explains why the September 30, 2026 grandfathering deadline matters.
 date: June 17, 2026
 updatedDate: June 17, 2026

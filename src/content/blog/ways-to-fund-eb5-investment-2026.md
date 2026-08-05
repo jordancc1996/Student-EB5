@@ -3,7 +3,7 @@ id: 30
 slug: ways-to-fund-eb5-investment-2026
 title: Ways to Fund EB-5 - Gifted, Loaned, and Crypto Paths in 2026
 metaTitle: Ways to Fund EB-5 - Gifted, Loaned, and Crypto Paths in 2026 | StudentEB5
-metaDescription: "Ways to fund EB-5 in 2026 include gifts, loans, HELOC, retirement rollovers, and crypto, each with a seven-year source-and-path-of-funds paper trail USCIS will audit."
+metaDescription: "Ways to fund EB-5 in 2026 include gifts, loans, HELOC, retirement rollovers, and crypto, each with a seven-year source-of-funds paper trail USCIS will audit."
 excerpt: One of the cornerstones of the EB-5 investment process is the requirement that every dollar originates from legitimate sources. This guide covers the primary funding methods and critical compliance concepts of source and path of funds.
 date: February 26, 2026
 updatedDate: April 14, 2026

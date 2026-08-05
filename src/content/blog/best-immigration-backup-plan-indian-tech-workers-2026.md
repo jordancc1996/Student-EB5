@@ -3,7 +3,7 @@ id: 32
 slug: best-immigration-backup-plan-indian-tech-workers-2026
 title: Immigration Backup Plan Indian Tech Workers - Why EB-5 Wins in 2026
 metaTitle: Immigration Backup Plan Indian Tech Workers - Why EB-5 Wins in 2026 | StudentEB5
-metaDescription: "Immigration backup plan Indian tech workers need in 2026: EB-5 concurrent filing, EAD within months, and the Sept 30 grandfathering deadline before EB-2 waits grow longer."
+metaDescription: "Immigration backup plan Indian tech workers need in 2026: EB-5 concurrent filing, EAD within months, and the Sept 30 grandfathering deadline."
 excerpt: H-1B uncertainty, tech layoffs, and decades-long EB-2/EB-3 backlogs have made EB-5 the most reliable backup plan for Indian tech workers. This analysis covers concurrent filing, EAD/AP benefits, family stability, and why the September 30, 2026 grandfathering deadline matters.
 date: May 15, 2026
 category: H-1B Resources

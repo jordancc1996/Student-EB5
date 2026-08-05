@@ -3,7 +3,7 @@ id: 31
 slug: eb5-investments-africa-mena-regions
 title: EB-5 Africa MENA - Investor Profiles, Source of Funds, and 2026 Deadlines
 metaTitle: EB-5 Africa MENA - Investor Profiles, Source of Funds, and 2026 Deadlines | StudentEB5
-metaDescription: "EB-5 Africa MENA demand is rising under the Reform and Integrity Act. Cover $800,000 TEA filings, source-of-funds hurdles, and the Sept 30, 2026 grandfathering cutoff."
+metaDescription: "EB-5 Africa MENA demand is rising under the Reform and Integrity Act for $800,000 TEA filings, source-of-funds hurdles, and the Sept 30, 2026 cutoff."
 excerpt: The EB-5 program has seen a surge in interest from investors in Africa and the MENA region. This analysis explores ideal investor profiles, source of funds challenges, project due diligence, and the critical September 30, 2026 grandfathering deadline.
 date: April 7, 2026
 category: Regional Analysis

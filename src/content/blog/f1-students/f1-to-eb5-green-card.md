@@ -3,7 +3,7 @@ id: 28
 slug: f1-students/f1-to-eb5-green-card
 title: "F-1 to EB-5 - Green Card Guide for International Students in 2026"
 metaTitle: "F-1 to EB-5 - Green Card Guide for International Students in 2026 | StudentEB5"
-metaDescription: "F-1 to EB-5 in 2026: invest $800,000 in a TEA, file I-526E and I-485 together, and aim for work authorization within 3 to 6 months before Sept 30 grandfathering."
+metaDescription: "F-1 to EB-5 in 2026: invest $800,000 in a TEA, file I-526E and I-485 together, and aim for an EAD within 3 to 6 months before Sept 30 grandfathering."
 excerpt: The EB-5 immigrant investor program offers F-1 international students a powerful alternative to the limitations of the F-1 and H-1B visas. With concurrent filing now available, students can gain work and travel authorization within 3-6 months. Two critical deadlines in the next 12-36 months threaten this opportunity.
 date: February 10, 2026
 updatedDate: March 5, 2026

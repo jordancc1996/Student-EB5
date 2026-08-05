@@ -1,8 +1,8 @@
 ---
 id: 42
 slug: investment/eb5-pre-investment-checklist-part-1-f1-h1b
-title: "EB-5 Pre-Investment Checklist - Accredited Investor and Project Vetting"
-metaTitle: "EB-5 Pre-Investment Checklist - Accredited Investor and Project Vetting | StudentEB5"
+title: "EB-5 Pre-Investment Checklist - Accredited Investor"
+metaTitle: "EB-5 Pre-Investment Checklist - Accredited Investor | StudentEB5"
 metaDescription: "EB-5 pre-investment checklist for F-1 and H-1B investors: accredited status, source of funds, and regional center vetting before you file Form I-526E in 2026."
 excerpt: "Before you file Form I-526E, two decisions shape your entire EB-5 journey: whether you qualify as an accredited investor with a documentable source of funds, and which regional center project you trust with $800,000 of at-risk capital. This pre-investment guide walks Indian and Chinese F-1 students and H-1B professionals through both."
 date: June 11, 2026

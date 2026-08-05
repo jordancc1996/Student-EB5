@@ -3,7 +3,7 @@ id: 5
 slug: 5-reasons-switch-h1b-to-eb5
 title: Switch H-1B to EB-5 - 5 Reasons Professionals Make the Move in 2026
 metaTitle: Switch H-1B to EB-5 - 5 Reasons Professionals Make the Move in 2026 | StudentEB5
-metaDescription: "Switch H-1B to EB-5 to exit the six-year cap, $100,000 fee pressure, and a lottery where fewer than 20% of 470,000-plus annual registrations are selected in 2026."
+metaDescription: "Switch H-1B to EB-5 to exit the six-year cap, $100,000 fee pressure, and a lottery where under 20% of 470,000-plus annual registrations are selected in 2026."
 excerpt: Discover why foreign professionals are choosing the EB-5 visa over H-1B, including permanent residency, no employer sponsorship, bypassing the lottery, and keeping families together.
 date: November 17, 2025
 updatedDate: February 15, 2026

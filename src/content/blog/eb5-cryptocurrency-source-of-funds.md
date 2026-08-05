@@ -3,7 +3,7 @@ id: 36
 slug: eb5-cryptocurrency-source-of-funds
 title: EB-5 Cryptocurrency Source of Funds - What USCIS Requires in 2026
 metaTitle: EB-5 Cryptocurrency Source of Funds - What USCIS Requires in 2026 | StudentEB5
-metaDescription: "EB-5 cryptocurrency source of funds rules require wallet ownership, lawful origin, and an unbroken path to escrow. Document mining, trading, and USD liquidation carefully."
+metaDescription: "EB-5 cryptocurrency source of funds rules require wallet ownership, lawful origin, and an unbroken path to escrow for mining, trading, and USD cash-out."
 excerpt: Cryptocurrency is an acceptable EB-5 source of funds, but USCIS evaluates digital assets on a case-by-case basis and applies the same lawful-source standard it uses for fiat capital. This article breaks down wallet ownership proof, active trading vs. long-term holding documentation, mining receipts, the required liquidation path from wallet to escrow, and the tax and capital-control pitfalls investors from China, Vietnam, and Bangladesh need to navigate.
 date: June 5, 2026
 category: Source of Funds

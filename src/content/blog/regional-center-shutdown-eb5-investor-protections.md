@@ -1,9 +1,9 @@
 ---
 id: 45
 slug: regional-center-shutdown-eb5-investor-protections
-title: Regional Center Shutdown EB-5 - Section M Protections If Your Center Ends
-metaTitle: Regional Center Shutdown EB-5 - Section M Protections If Your Center Ends | StudentEB5
-metaDescription: "Regional center shutdown EB-5 rules under Section M cover good-faith investors, priority date retention, and amendment deadlines when USCIS terminates a center in 2026."
+title: Regional Center Shutdown EB-5 - Section M Protections
+metaTitle: Regional Center Shutdown EB-5 - Section M Protections | StudentEB5
+metaDescription: "Regional center shutdown EB-5 rules under Section M cover good-faith investors, priority date retention, and amendment deadlines in 2026."
 excerpt: When USCIS terminates an EB-5 regional center, what happens to pending I-526E petitions, priority dates, and concurrent filings? A breakdown of Section M good-faith investor protections under the Reform and Integrity Act of 2022 for H-1B professionals and F-1 students.
 date: June 23, 2026
 category: Regional Analysis

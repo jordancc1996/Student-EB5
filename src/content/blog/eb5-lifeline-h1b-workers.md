@@ -3,7 +3,7 @@ id: 13
 slug: eb5-lifeline-h1b-workers
 title: EB-5 Visa H-1B Workers - Escape Employer Dependency With Concurrent Filing
 metaTitle: EB-5 Visa H-1B Workers - Escape Employer Dependency With Concurrent Filing | StudentEB5
-metaDescription: "EB-5 visa H-1B workers can file I-526E and I-485 together, get an EAD within months, and exit lottery risk with an $800,000 rural TEA investment before Sept 30, 2026."
+metaDescription: "EB-5 visa H-1B workers can file I-526E and I-485 together, get an EAD within months, and exit lottery risk via an $800,000 rural TEA before Sept 30, 2026."
 excerpt: The H-1B program faces unprecedented challenges. Learn how the EB-5 immigrant investor program offers H-1B workers independence, security, and a direct route to permanent residency.
 date: December 9, 2025
 updatedDate: February 26, 2026

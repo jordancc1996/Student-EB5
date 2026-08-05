@@ -3,7 +3,7 @@ id: 37
 slug: evaluating-eb5-projects-pending-i956f
 title: EB-5 Projects Without I-956F - Due Diligence Before You Wire Capital
 metaTitle: EB-5 Projects Without I-956F - Due Diligence Before You Wire Capital | StudentEB5
-metaDescription: "EB-5 projects without I-956F approval need deeper diligence: regional center track record, capital stack, business plan, TEA status, and a denial contingency before you wire."
+metaDescription: "EB-5 projects without I-956F approval need deeper diligence on track record, capital stack, TEA status, and a denial contingency before you wire."
 excerpt: Many viable EB-5 projects come to market with I-956F applications still pending USCIS adjudication. For Indian and Chinese H-1B professionals and international students racing against visa backlogs and the September 30, 2026 grandfathering deadline, understanding how to evaluate a pre-approval project is critical. This guide covers regional center track record, capital stack scrutiny, business plan data, TEA designation, and the contingency provisions to demand before wiring capital.
 date: June 10, 2026
 category: Due Diligence

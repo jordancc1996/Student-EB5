@@ -3,7 +3,7 @@ id: 29
 slug: eb5-guide-indian-professionals-2026
 title: "EB-5 Guide Indian Professionals - Bypass EB-2 Backlogs in 2026"
 metaTitle: "EB-5 Guide Indian Professionals - Bypass EB-2 Backlogs in 2026 | StudentEB5"
-metaDescription: "EB-5 guide Indian professionals need in 2026: $800,000 TEA filing, source-of-funds prep, and the Sept 30 grandfathering deadline that locks adjudication protection."
+metaDescription: "EB-5 guide Indian professionals need in 2026: $800,000 TEA filing, source-of-funds prep, and the Sept 30 grandfathering deadline for adjudication protection."
 excerpt: The EB-5 immigrant investor program has emerged as a crucial alternative for Indian professionals stuck in decades-long green card backlogs. H-1B holders face constant instability which makes permanent residency an urgent need.
 date: February 20, 2026
 updatedDate: April 14, 2026

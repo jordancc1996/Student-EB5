@@ -3,7 +3,7 @@ id: 33
 slug: j1-f1-h1b-eb5-concurrent-filing
 title: EB-5 Concurrent Filing - J-1, F-1, and H-1B Path Past EB-2 Backlogs
 metaTitle: EB-5 Concurrent Filing - J-1, F-1, and H-1B Path Past EB-2 Backlogs | StudentEB5
-metaDescription: "EB-5 concurrent filing lets J-1, F-1, and H-1B holders from India and China file I-526E with I-485, bypass decade-long EB-2 waits, and secure work authorization."
+metaDescription: "EB-5 concurrent filing lets J-1, F-1, and H-1B holders from India and China file I-526E with I-485, bypass decade-long EB-2 waits, and secure an EAD."
 excerpt: Indian and Chinese professionals on J-1, F-1, and H-1B visas can use the EB-5 program as a self-sponsored pathway to permanent residency, bypassing decade-long EB-2 and EB-3 backlogs through concurrent filing.
 date: June 1, 2026
 category: H-1B Strategy

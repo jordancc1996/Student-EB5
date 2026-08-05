@@ -3,7 +3,7 @@ id: 41
 slug: f1-students/eb5-funding-strategies-students
 title: "EB-5 Funding Strategies - HELOC, SDIRA, SBLOC, and Parental Gifts"
 metaTitle: "EB-5 Funding Strategies - HELOC, SDIRA, SBLOC, and Parental Gifts | StudentEB5"
-metaDescription: "EB-5 funding strategies for students assemble the $800,000 from HELOC, SDIRA rollovers, securities credit, and parental gifts, each with a seven-year USCIS trace."
+metaDescription: "EB-5 funding strategies for students assemble the $800,000 from HELOC, SDIRA rollovers, securities credit, and parental gifts with a seven-year USCIS trace."
 excerpt: Funding an $800,000 EB-5 investment as a student rarely means writing a single check. This guide breaks down the four most common student funding routes — HELOC, SDIRA rollovers, securities-based lines of credit, and documented parental gifts — and the seven-year source-of-funds trace USCIS requires for each.
 date: June 2, 2026
 category: Student Guide

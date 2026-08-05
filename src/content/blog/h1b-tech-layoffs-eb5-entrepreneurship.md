@@ -1,9 +1,9 @@
 ---
 id: 29
 slug: h1b-tech-layoffs-eb5-entrepreneurship
-title: H-1B Layoffs EB-5 - How Tech Workers Secure a Self-Sponsored Green Card
-metaTitle: H-1B Layoffs EB-5 - How Tech Workers Secure a Self-Sponsored Green Card | StudentEB5
-metaDescription: "H-1B layoffs EB-5 planning in 2026 pairs the 60-day grace period with an $800,000 TEA investment so tech workers can exit employer dependency and file for a green card."
+title: H-1B Layoffs EB-5 - Self-Sponsored Green Card
+metaTitle: H-1B Layoffs EB-5 - Self-Sponsored Green Card | StudentEB5
+metaDescription: "H-1B layoffs EB-5 planning in 2026 pairs the 60-day grace period with an $800,000 TEA investment so tech workers can exit employer dependency."
 excerpt: The H-1B visa ties workers to employers, leaving them vulnerable during tech layoffs. The EB-5 immigrant investor program offers a self-sponsored alternative path to permanent residency, career freedom, and entrepreneurship for skilled professionals with the financial means to invest.
 date: February 26, 2026
 updatedDate: April 14, 2026

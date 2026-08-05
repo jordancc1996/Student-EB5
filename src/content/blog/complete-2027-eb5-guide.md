@@ -1,9 +1,9 @@
 ---
 id: 25
 slug: complete-2027-eb5-guide
-title: EB-5 Immigrant Investor Program 2027 - Complete Guide to Filing and Requirements
-metaTitle: EB-5 Immigrant Investor Program 2027 - Complete Guide to Filing and Requirements | StudentEB5
-metaDescription: "The EB-5 immigrant investor program 2027 still uses an $800,000 TEA minimum. Learn filing steps, rural set-asides, and the Sept 30, 2026 grandfathering deadline."
+title: EB-5 Immigrant Investor Program 2027 - Complete Guide
+metaTitle: EB-5 Immigrant Investor Program 2027 - Complete Guide | StudentEB5
+metaDescription: "The EB-5 immigrant investor program 2027 still uses an $800,000 TEA minimum covering filing steps, rural set-asides, and the Sept 30, 2026 deadline."
 excerpt: The EB-5 immigrant investor program is a clear pathway to receive a green card and eventually U.S. citizenship. It is one of the most direct and flexible immigration options in the world. The Reform and Integrity Act of 2022 has made the program much more investor friendly and significantly more attractive due to the introduction of concurrent filing.
 date: January 14, 2026
 updatedDate: March 3, 2026
