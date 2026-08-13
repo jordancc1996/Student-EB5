@@ -908,6 +908,24 @@ export const landingPages: LandingPage[] = [
     publishDate: null,
   },
   {
+    id: 'parents-and-families',
+    url: '/pathways/parents-and-families',
+    title: 'EB-5 for Parents & Families',
+    applicableWhen: {
+      statuses: ['f1', 'opt-stem-opt', 'h1b', 'outside-us', 'not-sure', 'h4'],
+      situations: ['parents-funding', 'parent-exploring', 'high-net-worth-family', 'international-student'],
+    },
+    specificity: 3,
+    secondaryLinks: [
+      '/pathways/eb5-for-chinese-families',
+      '/pathways/eb5-for-indian-families',
+      '/research/ways-to-fund-eb5-investment-2026',
+    ],
+    hasDedicatedContent: true,
+    lastReviewed: LAST_REVIEWED,
+    publishDate: PUBLISH_DATE_ALREADY_LIVE,
+  },
+  {
     id: 'general-start',
     url: '/pathways',
     title: 'EB-5 Green Card Pathways',

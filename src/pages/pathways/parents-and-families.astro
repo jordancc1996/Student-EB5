@@ -1,0 +1,153 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import {
+  getIndexableLandingPages,
+  findLandingPageByUrl,
+  isIndexable,
+  countriesOfBirth,
+  type CountryOfBirth,
+  type LandingPage,
+} from '@/lib/pathwayRoutes';
+
+const title = 'EB-5 for Parents & Families | StudentEB5';
+const metaDescription =
+  'How parents and families fund and evaluate an EB-5 investment for a child studying or working in the U.S. — gifts, source of funds, and documentation, by country.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/parents-and-families`;
+const h1 = 'EB-5 for Parents & Families';
+const subhead =
+  'How families fund and evaluate an EB-5 investment for a child studying or working in the United States.';
+
+const sourceOfFundsEntry = findLandingPageByUrl('/pathways/eb5-source-of-funds');
+const sourceOfFundsIndexable = sourceOfFundsEntry ? isIndexable(sourceOfFundsEntry) : false;
+
+/** Country-dedicated family funding pages only (not student pillars that also tag parents-funding). */
+function isCountryFamilyPage(page: LandingPage): boolean {
+  const situations = page.applicableWhen.situations ?? [];
+  const countries = page.applicableWhen.countries ?? [];
+  const hasParentSituation =
+    situations.includes('parents-funding') || situations.includes('parent-exploring');
+  return (
+    hasParentSituation &&
+    countries.length === 1 &&
+    (page.id.includes('families') || page.url.includes('families'))
+  );
+}
+
+const countryFamilyPages = getIndexableLandingPages()
+  .filter(isCountryFamilyPage)
+  .sort((a, b) => {
+    const aCountry = a.applicableWhen.countries![0];
+    const bCountry = b.applicableWhen.countries![0];
+    return countriesOfBirth[aCountry].label.localeCompare(countriesOfBirth[bCountry].label);
+  });
+
+function cardDescription(page: LandingPage): string {
+  const country = page.applicableWhen.countries![0] as CountryOfBirth;
+  const label = countriesOfBirth[country].label;
+  return `How ${label} families fund an EB-5 investment — gifts, source of funds, and documentation before moving capital.`;
+}
+
+const relatedResearch = [
+  {
+    title: 'Ways to Fund EB-5 — Gifted, Loaned, and Crypto Paths',
+    url: '/research/ways-to-fund-eb5-investment-2026',
+    description: 'Gift, loan, and other lawful funding paths USCIS reviews for EB-5 capital.',
+  },
+  ...(sourceOfFundsIndexable
+    ? [
+        {
+          title: 'EB-5 Source of Funds',
+          url: '/pathways/eb5-source-of-funds',
+          description: 'Umbrella guide to documenting lawful source and path of funds.',
+        },
+      ]
+    : []),
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone Who Understands Family-Funded EB-5"
+  breadcrumbTitle="Parents & Families"
+  keywords={[
+    'EB-5 for parents',
+    'EB-5 family funding',
+    'EB-5 gift funds parents',
+    'fund EB-5 for child',
+  ]}
+>
+  <Fragment slot="extraCompliance">
+    <p class="text-sm text-muted-foreground leading-relaxed border border-border rounded-lg bg-secondary/40 p-4 m-0">
+      This page provides educational information only and does not constitute legal, financial, tax, or immigration
+      advice. Consult a qualified immigration attorney and a cross-border tax adviser before moving investment capital
+      or entering into a gift arrangement.
+    </p>
+  </Fragment>
+
+  <p>
+    In many EB-5 cases, the investor of record is a student or young professional, but a parent or family member is the
+    actual source of the investment funds. This is common and accepted under EB-5 rules — what matters is a clear,
+    documented, lawful paper trail for the money. The right guide for your family often depends on where the funds are
+    coming from, since funding rules, currency movement, and documentation norms vary by country. Choose your country
+    below, or read our general funding guide if your country isn't listed yet.
+  </p>
+
+  <h2>Choose your country</h2>
+  {
+    countryFamilyPages.length > 0 ? (
+      <div class="not-prose grid md:grid-cols-2 gap-6 mb-6">
+        {countryFamilyPages.map((page) => {
+          const country = page.applicableWhen.countries![0] as CountryOfBirth;
+          const label = countriesOfBirth[country].label;
+          return (
+            <a
+              href={page.url}
+              class="block rounded-lg border border-border bg-card p-6 hover:border-primary hover:shadow-md transition-all duration-150"
+            >
+              <h3 class="font-serif text-xl font-semibold text-foreground mb-2">{label}</h3>
+              <p class="text-muted-foreground leading-relaxed m-0" style="line-height: 1.75;">
+                {cardDescription(page)}
+              </p>
+            </a>
+          );
+        })}
+      </div>
+    ) : (
+      <p>
+        Country-specific family funding guides will appear here as they are released.
+      </p>
+    )
+  }
+  <p>
+    Don't see your country? The general funding principles below apply broadly — or use our{' '}
+    <a href="/pathways">EB-5 Path Finder</a> for a personalized starting point.
+  </p>
+
+  <h2>General funding principles (applies to any country)</h2>
+  <p>
+    Regardless of country, USCIS looks at the same core question: can the source of the invested funds be documented as
+    lawful, and can the path the money took to reach the investor be traced clearly? For gifted funds, this typically
+    means a signed gift letter, documentation of the giver's own source of funds (income, business ownership, property
+    sale, etc.), and bank records showing the transfer. Moving significant capital internationally often involves
+    country-specific rules — foreign exchange controls, reporting thresholds, or tax consequences — that should be
+    reviewed with an adviser familiar with both the origin country and U.S. requirements, ideally before funds move.
+  </p>
+  <p>
+    For a fuller menu of funding structures, see
+    <a href="/research/ways-to-fund-eb5-investment-2026">ways to fund an EB-5 investment</a>
+    {
+      sourceOfFundsIndexable ? (
+        <>
+          {' '}
+          and <a href="/pathways/eb5-source-of-funds">EB-5 source of funds</a>
+        </>
+      ) : null
+    }.
+  </p>
+</PathwayLandingLayout>

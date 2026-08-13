@@ -68,6 +68,8 @@ const routeNames: Record<string, string> = {
   'eb5-vs-eb2-niw': 'EB-5 vs. EB-2 NIW',
   'eb5-vs-h1b': 'EB-5 vs. H-1B',
   'eb5-vs-other-visa-options': 'EB-5 vs. Other Visa Options',
+  'view-all': 'View All Pathways',
+  'parents-and-families': 'Parents & Families',
   'eb5-investment-process': 'EB-5 Investment Process',
   'process': 'EB-5 Investment Process',
   'private-client-services': 'Private Client Services',

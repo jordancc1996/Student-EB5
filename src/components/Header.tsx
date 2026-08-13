@@ -1,6 +1,6 @@
 import { Link } from '@/components/RouterLink';
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, GraduationCap, Clock, Calendar, DollarSign, Wallet, Dice5, Briefcase, Route, FileCheck, Baby, ListChecks, ShieldCheck, FileText, UserCheck, BookOpen } from 'lucide-react';
+import { Menu, X, ChevronDown, GraduationCap, Clock, Calendar, DollarSign, Wallet, Dice5, Briefcase, Compass, Users, List, FileCheck, Baby, ListChecks, ShieldCheck, FileText, UserCheck, BookOpen } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -83,10 +83,13 @@ const Header = ({ transparent = false }: HeaderProps) => {
     },
   ];
 
+  // Do not add items here. New landing pages go in src/lib/pathwayRoutes.ts and surface via /pathways/view-all, not this nav.
   const pathwayLinks = [
-    { name: 'H-1B to Green Card', href: '/pathways/h1b-to-green-card', icon: Briefcase },
-    { name: 'International Student to Green Card', href: '/pathways/f1-to-eb5-self-sponsored-green-card', icon: GraduationCap },
-    { name: 'The EB-5 Process', href: '/eb5-investment-process', icon: Route },
+    { name: 'Find Your EB-5 Path', href: '/pathways', icon: Compass },
+    { name: 'International Students', href: '/pathways/f1-to-eb5-self-sponsored-green-card', icon: GraduationCap },
+    { name: 'H-1B Professionals', href: '/pathways/h1b-to-green-card', icon: Briefcase },
+    { name: 'Parents & Families', href: '/pathways/parents-and-families', icon: Users },
+    { name: 'View All Pathways', href: '/pathways/view-all', icon: List },
   ];
 
   const privateClientLinks = [

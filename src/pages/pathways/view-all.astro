@@ -1,0 +1,326 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import { Toaster } from '@/components/ui/toaster';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import {
+  getIndexableLandingPages,
+  countriesOfBirth,
+  type LandingPage,
+  type ImmigrationStatus,
+  type Situation,
+  type CountryOfBirth,
+} from '@/lib/pathwayRoutes';
+
+const title = 'All EB-5 Pathways | StudentEB5';
+const metaDescription =
+  'Browse every EB-5 pathway on StudentEB5 by immigration status, country, or situation.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/view-all`;
+const h1 = 'Browse All EB-5 Pathways';
+const subhead =
+  'Every StudentEB5 pathway, organized by immigration status, country, and situation.';
+
+const indexablePages = getIndexableLandingPages().filter(
+  (page) => page.id !== 'general-start' && page.url !== '/pathways',
+);
+
+const STATUS_GROUPS: { key: ImmigrationStatus; label: string }[] = [
+  { key: 'f1', label: 'International students' },
+  { key: 'h1b', label: 'H-1B professionals' },
+  { key: 'opt-stem-opt', label: 'OPT / STEM OPT' },
+  { key: 'h4', label: 'H-4 dependents' },
+  { key: 'l1', label: 'L-1' },
+  { key: 'j1', label: 'J-1' },
+];
+
+const SITUATION_GROUPS: { key: Situation; label: string }[] = [
+  { key: 'graduate-student', label: 'Graduate students' },
+  { key: 'h1b-backlog', label: 'H-1B backlog' },
+  { key: 'h1b-layoff', label: 'H-1B layoff' },
+  { key: 'h1b-lottery-worry', label: 'H-1B lottery concern' },
+  { key: 'parents-funding', label: 'Parents funding' },
+  { key: 'parent-exploring', label: 'Parents exploring' },
+  { key: 'aging-out-child', label: 'Aging out' },
+  { key: 'concurrent-filing-interest', label: 'Concurrent filing interest' },
+  { key: 'tech-worker', label: 'Tech worker' },
+  { key: 'startup-founder', label: 'Startup founder' },
+  { key: 'business-owner-entrepreneur', label: 'Entrepreneurs & business owners' },
+  { key: 'high-net-worth-family', label: 'High-net-worth families' },
+  { key: 'eb2-backlog', label: 'EB-2 backlog' },
+  { key: 'eb3-backlog', label: 'EB-3 backlog' },
+  { key: 'investor-primary', label: 'Investor-primary' },
+  { key: 'comparing-paths', label: 'Comparing paths' },
+  { key: 'comparing-eb5-eb2niw', label: 'Comparing EB-5 and EB-2 NIW' },
+  { key: 'comparing-visa-options', label: 'Comparing visa options' },
+  { key: 'international-student', label: 'International student situations' },
+  { key: 'opt-stem-opt', label: 'OPT / STEM OPT situations' },
+];
+
+const COUNTRY_PILLAR_IDS: Partial<Record<CountryOfBirth, string>> = {
+  china: 'eb5-for-chinese-investors',
+  india: 'eb5-for-indian-investors',
+  'south-korea': 'eb5-for-korean-investors',
+  vietnam: 'eb5-for-vietnamese-investors',
+  taiwan: 'eb5-for-taiwanese-investors',
+};
+
+const COUNTRY_SUBPAGE_ORDER: Partial<Record<CountryOfBirth, string[]>> = {
+  china: ['eb5-for-chinese-students', 'eb5-for-chinese-families'],
+  india: [
+    'eb5-for-indian-students',
+    'eb5-for-indian-h1b',
+    'eb5-for-indian-families',
+  ],
+};
+
+function pagesForStatus(status: ImmigrationStatus): LandingPage[] {
+  return indexablePages.filter((page) => page.applicableWhen.statuses?.includes(status));
+}
+
+function pagesForSituation(situation: Situation): LandingPage[] {
+  return indexablePages.filter((page) => page.applicableWhen.situations?.includes(situation));
+}
+
+/** Dedicated country pages only (not global pillars that list every country). */
+function dedicatedCountryPages(country: CountryOfBirth): LandingPage[] {
+  return indexablePages.filter((page) => {
+    const countries = page.applicableWhen.countries;
+    return countries?.length === 1 && countries[0] === country;
+  });
+}
+
+function sortCountryPages(country: CountryOfBirth, pages: LandingPage[]): LandingPage[] {
+  const pillarId = COUNTRY_PILLAR_IDS[country];
+  const subOrder = COUNTRY_SUBPAGE_ORDER[country] ?? [];
+  const rank = (id: string) => {
+    if (pillarId && id === pillarId) return 0;
+    const subIdx = subOrder.indexOf(id);
+    if (subIdx >= 0) return 1 + subIdx;
+    return 100;
+  };
+  return [...pages].sort((a, b) => rank(a.id) - rank(b.id) || a.title.localeCompare(b.title));
+}
+
+const statusSections = STATUS_GROUPS.map((group) => ({
+  ...group,
+  pages: pagesForStatus(group.key),
+})).filter((section) => section.pages.length > 0);
+
+const countrySections = (
+  Object.keys(countriesOfBirth) as CountryOfBirth[]
+)
+  .map((country) => ({
+    country,
+    label: countriesOfBirth[country].label,
+    pages: sortCountryPages(country, dedicatedCountryPages(country)),
+  }))
+  .filter((section) => section.pages.length > 0);
+
+const situationSections = SITUATION_GROUPS.map((group) => ({
+  ...group,
+  pages: pagesForSituation(group.key),
+})).filter((section) => section.pages.length > 0);
+
+const INVESTMENT_FUNDING_IDS = new Set([
+  'rural-eb5',
+  'eb5-risk-and-due-diligence',
+  'eb5-project-due-diligence',
+  'i956f-approved-eb5-projects',
+  'eb5-source-of-funds',
+  'eb5-gifted-funds',
+  'eb5-property-sale-funds',
+  'eb5-business-income',
+]);
+
+const investmentFundingPages = indexablePages.filter(
+  (page) => page.isRouterPage === true || INVESTMENT_FUNDING_IDS.has(page.id),
+);
+
+const compareSectionPages = indexablePages.filter((page) => page.id.startsWith('eb5-vs-'));
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={`${SITE_CONFIG.url}/og-image.jpg`} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={`${SITE_CONFIG.url}/og-image.jpg`} />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+
+    <main>
+      <section class="bg-muted/40 border-b border-border">
+        <div class="container mx-auto px-6 pt-4 pb-12 md:pb-16 max-w-4xl">
+          <Breadcrumb client:load customTitle="View All Pathways" initialPathname="/pathways/view-all" />
+          <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-6 mb-4 leading-tight">
+            {h1}
+          </h1>
+          <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
+            {subhead}
+          </p>
+        </div>
+      </section>
+
+      <div class="container mx-auto px-6 py-12 md:py-16 max-w-4xl space-y-14">
+        {
+          statusSections.length > 0 && (
+            <section aria-labelledby="by-status-heading">
+              <h2 id="by-status-heading" class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-6">
+                By Immigration Status
+              </h2>
+              <div class="space-y-8">
+                {statusSections.map((section) => (
+                  <div>
+                    <h3 class="font-serif text-xl font-semibold text-foreground mb-3">{section.label}</h3>
+                    <ul class="space-y-2 list-none pl-0 m-0">
+                      {section.pages.map((page) => (
+                        <li>
+                          <a
+                            href={page.url}
+                            class="text-primary underline underline-offset-2 hover:opacity-90 leading-relaxed"
+                          >
+                            {page.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )
+        }
+
+        {
+          countrySections.length > 0 && (
+            <section aria-labelledby="by-country-heading">
+              <h2 id="by-country-heading" class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-6">
+                By Country
+              </h2>
+              <div class="space-y-8">
+                {countrySections.map((section) => (
+                  <div>
+                    <h3 class="font-serif text-xl font-semibold text-foreground mb-3">{section.label}</h3>
+                    <ul class="space-y-2 list-none pl-0 m-0 border-l border-border pl-4">
+                      {section.pages.map((page) => (
+                        <li>
+                          <a
+                            href={page.url}
+                            class="text-primary underline underline-offset-2 hover:opacity-90 leading-relaxed"
+                          >
+                            {page.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )
+        }
+
+        {
+          situationSections.length > 0 && (
+            <section aria-labelledby="by-situation-heading">
+              <h2 id="by-situation-heading" class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-6">
+                By Situation
+              </h2>
+              <div class="space-y-8">
+                {situationSections.map((section) => (
+                  <div>
+                    <h3 class="font-serif text-xl font-semibold text-foreground mb-3">{section.label}</h3>
+                    <ul class="space-y-2 list-none pl-0 m-0">
+                      {section.pages.map((page) => (
+                        <li>
+                          <a
+                            href={page.url}
+                            class="text-primary underline underline-offset-2 hover:opacity-90 leading-relaxed"
+                          >
+                            {page.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )
+        }
+
+        {
+          investmentFundingPages.length > 0 && (
+            <section aria-labelledby="investment-funding-heading">
+              <h2
+                id="investment-funding-heading"
+                class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-6"
+              >
+                EB-5 Investment &amp; Funding
+              </h2>
+              <ul class="space-y-2 list-none pl-0 m-0">
+                {investmentFundingPages.map((page) => (
+                  <li>
+                    <a
+                      href={page.url}
+                      class="text-primary underline underline-offset-2 hover:opacity-90 leading-relaxed"
+                    >
+                      {page.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+
+        {
+          compareSectionPages.length > 0 && (
+            <section aria-labelledby="compare-heading">
+              <h2 id="compare-heading" class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-6">
+                Compare Your Options
+              </h2>
+              <ul class="space-y-2 list-none pl-0 m-0">
+                {compareSectionPages.map((page) => (
+                  <li>
+                    <a
+                      href={page.url}
+                      class="text-primary underline underline-offset-2 hover:opacity-90 leading-relaxed"
+                    >
+                      {page.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+
+        <section class="border-t border-border pt-10">
+          <p class="text-muted-foreground leading-relaxed m-0">
+            Not sure which pathway fits?{' '}
+            <a href="/pathways" class="text-primary underline underline-offset-2 hover:opacity-90 font-medium">
+              Use the EB-5 Path Finder →
+            </a>
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <Footer client:visible />
+    <Toaster client:load />
+  </div>
+</Layout>
