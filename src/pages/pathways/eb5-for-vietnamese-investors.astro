@@ -1,0 +1,99 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
+
+const title = 'EB-5 Visa for Vietnamese Investors | StudentEB5';
+const metaDescription =
+  'EB-5 for Vietnamese investors covers investment basics, student timing, family funding, and source-of-funds considerations for Vietnamese nationals evaluating the program.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-vietnamese-investors`;
+const h1 = 'EB-5 Visa for Vietnamese Investors';
+const subhead =
+  'A single overview for Vietnamese nationals — investors, students, and families — evaluating EB-5 as a path to permanent residence.';
+
+const teaFormatted = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 0,
+}).format(TEA_INVESTMENT_THRESHOLD);
+
+const relatedResearch = [
+  {
+    title: 'EB-5 Cryptocurrency Source of Funds',
+    url: '/research/eb5-cryptocurrency-source-of-funds',
+    description: 'Documenting crypto origin, liquidation, and path of funds for EB-5 petitions.',
+  },
+  {
+    title: 'EB-5 Immigrant Investor Program — Complete Guide',
+    url: '/research/complete-2027-eb5-guide',
+    description: 'Filing steps, rural set-asides, and current program structure overview.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 for Vietnamese Nationals"
+  breadcrumbTitle="EB-5 for Vietnamese Investors"
+  keywords={[
+    'EB-5 for Vietnamese investors',
+    'EB-5 Vietnam',
+    'Vietnamese nationals EB-5',
+    'EB-5 visa Vietnam',
+  ]}
+>
+  <Fragment slot="extraCompliance">
+    <p class="text-sm text-muted-foreground leading-relaxed border border-border rounded-lg bg-secondary/40 p-4 m-0">
+      EB-5 investment involves financial risk, including potential loss of principal, and does not guarantee a green
+      card, visa availability, or any specific processing time. Consult a qualified immigration attorney and a
+      FINRA-registered financial adviser for guidance specific to your situation.
+    </p>
+  </Fragment>
+
+  <p>
+    The EB-5 Immigrant Investor Program offers eligible foreign nationals a path to a U.S. green card through a
+    qualifying investment. Vietnamese nationals — whether investing from abroad, studying in the U.S. on F-1 status, or
+    considering family-funded capital — evaluate the same core requirements: a qualifying investment, lawful
+    source-of-funds documentation, project selection, and Form I-526E. Chargeability follows country of birth; confirm
+    current category availability on the
+    <a
+      href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+      target="_blank"
+      rel="noopener noreferrer">Visa Bulletin</a
+    >.
+  </p>
+
+  <h2>For investors</h2>
+  <p>
+    Most investors use the reduced Targeted Employment Area (TEA) investment threshold of {teaFormatted}. That amount
+    is capital only and excludes fees and professional costs. Source-of-funds documentation is especially important when
+    capital has moved through multiple accounts, businesses, or — for some investors — cryptocurrency paths that later
+    convert to fiat. See
+    <a href="/research/eb5-cryptocurrency-source-of-funds">EB-5 cryptocurrency source of funds</a> when crypto is part
+    of the history, and the
+    <a href="/research/complete-2027-eb5-guide">complete EB-5 guide</a> for program structure. Process steps live on
+    <a href="/eb5-investment-process">EB-5 investment process</a>.
+  </p>
+
+  <h2>For students</h2>
+  <p>
+    Vietnamese F-1 students may weigh EB-5 against the traditional OPT → H-1B → employment-based green card sequence.
+    EB-5 does not automatically convert F-1 status; it is a separate petition. Earlier planning during school can help
+    with gift documentation and project diligence before work-authorization windows narrow. Shared student framing is on
+    <a href="/pathways/f1-to-eb5-self-sponsored-green-card">F-1 to EB-5 self-sponsored green card</a>.
+  </p>
+
+  <h2>For families funding an investment</h2>
+  <p>
+    Parental gifts are common when a child is the investor of record. USCIS requires a complete trail from the original
+    lawful source through the gift and into the investment enterprise. Cross-border remittance and tax rules should be
+    reviewed with advisers familiar with both Vietnamese and U.S. requirements before capital moves. More on lawful
+    funding structures:
+    <a href="/research/ways-to-fund-eb5-investment-2026">ways to fund an EB-5 investment</a>.
+  </p>
+</PathwayLandingLayout>

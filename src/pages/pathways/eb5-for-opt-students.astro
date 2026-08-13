@@ -1,0 +1,66 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 for OPT and STEM OPT Students | StudentEB5';
+const metaDescription =
+  'EB-5 for OPT and STEM OPT students explains how concurrent filing can interact with your work authorization window before relying on H-1B lottery outcomes.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-opt-students`;
+const h1 = 'EB-5 for OPT and STEM OPT Students';
+const subhead = 'How OPT and STEM OPT students can evaluate EB-5 during their work authorization window.';
+
+const relatedResearch = [
+  {
+    title: 'F-1 Student to EB-5 Self-Sponsored Green Card',
+    url: '/pathways/f1-to-eb5-self-sponsored-green-card',
+    description: 'Full student pathway overview from F-1 through concurrent filing.',
+  },
+  {
+    title: 'STEM OPT EB-5 for Indian and Chinese Students — Cap-Gap Strategy',
+    url: '/research/f1-students/stem-opt-eb5-indian-chinese',
+    description: 'STEM OPT timing, cap-gap risk, and EB-5 as a parallel planning track.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About Your OPT Timeline and EB-5"
+  breadcrumbTitle="EB-5 for OPT Students"
+  keywords={['EB-5 for OPT students', 'STEM OPT EB-5', 'OPT concurrent filing', 'EB-5 during STEM OPT']}
+>
+  <h2>Why some students evaluate EB-5 during OPT or STEM OPT</h2>
+  <p>
+    OPT and STEM OPT provide temporary work authorization after graduation, not a permanent immigration path. Many
+    students use that window to pursue H-1B selection — but lottery outcomes are uncertain, and STEM OPT still ends on a
+    fixed date. Some students and families therefore evaluate EB-5 while work authorization is still active, so source-of-funds
+    documentation and project selection are not rushed into the final months of OPT. This is a planning choice, not a
+    guaranteed outcome: EB-5 has its own eligibility, capital, and adjudication requirements.
+  </p>
+
+  <h2>How concurrent filing can interact with an active OPT timeline</h2>
+  <p>
+    For eligible investors already in the United States, concurrent filing can allow Form I-526E and Form I-485 to be
+    submitted together when a visa number is available in the relevant category. In that scenario, some applicants also
+    seek an Employment Authorization Document (EAD) and Advance Parole while the petition is pending. Whether that
+    timing helps your specific OPT or STEM OPT calendar depends on filing readiness, category availability, and attorney
+    guidance — it is not automatic simply because you hold OPT. For the broader student pathway framing, see
+    <a href="/pathways/f1-to-eb5-self-sponsored-green-card">F-1 to EB-5 self-sponsored green card</a>. Country-specific
+    STEM OPT timing risks are covered in
+    <a href="/research/f1-students/stem-opt-eb5-indian-chinese">STEM OPT EB-5 for Indian and Chinese students</a>.
+  </p>
+
+  <h2>What to prepare before OPT ends</h2>
+  <p>
+    Students who consider EB-5 during OPT typically focus on documenting lawful source and path of funds, selecting a
+    project with clear job-creation methodology, and confirming current program deadlines and investment thresholds before
+    authorization expires. Full step-by-step mechanics live on the
+    <a href="/eb5-investment-process">EB-5 investment process</a> page — use that guide for filing sequence detail rather
+    than treating OPT as a substitute for petition readiness.
+  </p>
+</PathwayLandingLayout>

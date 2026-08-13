@@ -1,0 +1,78 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 vs. EB-2 NIW | StudentEB5';
+const metaDescription =
+  'EB-5 vs. EB-2 NIW compares an investment-based green card path with a qualifications-based National Interest Waiver self-petition — framed around fit for your situation, not which path is superior.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-vs-eb2-niw`;
+const h1 = 'EB-5 vs. EB-2 NIW';
+const subhead =
+  'Two different self-sponsored green card frameworks — one built around a qualifying investment, the other around a national-interest showing of your qualifications.';
+
+const relatedResearch = [
+  {
+    title: 'EB-5 Immigrant Investor Program — Complete Guide',
+    url: '/research/complete-2027-eb5-guide',
+    description: 'Program structure, filing steps, and reserved-category overview for EB-5.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About Whether EB-5 or EB-2 NIW Fits You"
+  breadcrumbTitle="EB-5 vs. EB-2 NIW"
+  keywords={['EB-5 vs EB-2 NIW', 'EB-5 or National Interest Waiver', 'NIW vs EB-5']}
+>
+  <h2>Which framework fits your situation</h2>
+  <div class="not-prose grid md:grid-cols-2 gap-6 mb-6">
+    <div class="rounded-lg border border-border bg-card p-6">
+      <h3 class="font-serif text-xl font-semibold text-foreground mb-3">EB-5</h3>
+      <p class="text-muted-foreground leading-relaxed m-0" style="line-height: 1.75;">
+        Investment-based immigrant category. Requires a qualifying capital investment that remains at risk, lawful
+        source-of-funds documentation, and job-creation requirements. Defined petition sequence (typically I-526E, then
+        adjustment or consular processing, then I-829). Does not turn on an employer job offer or a national-interest
+        waiver of labor certification.
+      </p>
+    </div>
+    <div class="rounded-lg border border-border bg-card p-6">
+      <h3 class="font-serif text-xl font-semibold text-foreground mb-3">EB-2 NIW</h3>
+      <p class="text-muted-foreground leading-relaxed m-0" style="line-height: 1.75;">
+        Employment-based second preference with a National Interest Waiver. Self-petition based on qualifications and a
+        showing that waiving the job offer / labor certification requirement is in the national interest. No EB-5-style
+        capital investment is required. Eligibility standard is entirely different from EB-5’s investment and job-creation
+        rules.
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="not-prose rounded-lg border-2 border-foreground/20 bg-secondary/50 p-5 mb-8"
+    role="note"
+  >
+    <p class="text-sm text-muted-foreground leading-relaxed m-0" style="line-height: 1.7;">
+      This comparison is educational. Neither path is objectively superior for every person. Visa availability,
+      evidentiary strength, capital capacity, and career profile all matter. Discuss both options with an immigration
+      attorney before choosing — or before pursuing them in parallel.
+    </p>
+  </div>
+
+  <h2>Factors people typically weigh</h2>
+  <ul>
+    <li>Whether you can document a lawful EB-5 investment amount and sustain at-risk capital</li>
+    <li>Whether your credentials and proposed endeavor support a credible NIW showing</li>
+    <li>How country-of-birth chargeability interacts with each category on the current Visa Bulletin</li>
+    <li>Tolerance for financial risk versus evidentiary / career documentation risk</li>
+  </ul>
+  <p>
+    EB-5 program structure overview:
+    <a href="/research/complete-2027-eb5-guide">complete EB-5 guide</a>. For EB-2 backlog context more generally, see
+    <a href="/pathways/eb2-to-eb5">EB-5 for EB-2 backlog applicants</a>.
+  </p>
+</PathwayLandingLayout>

@@ -1,0 +1,184 @@
+---
+import Layout from './Layout.astro';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
+import { ConsultationCTA } from '@/components/ConsultationCTA';
+import { Toaster } from '@/components/ui/toaster';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { findLandingPageByUrl, isIndexable } from '@/lib/pathwayRoutes';
+
+export interface RelatedResearchItem {
+  title: string;
+  url: string;
+  description?: string;
+}
+
+interface Props {
+  title: string;
+  metaDescription: string;
+  canonicalUrl: string;
+  h1: string;
+  subhead: string;
+  relatedResearch?: RelatedResearchItem[];
+  secondaryCtaText?: string;
+  breadcrumbTitle?: string;
+  keywords?: string[];
+}
+
+const {
+  title,
+  metaDescription,
+  canonicalUrl,
+  h1,
+  subhead,
+  relatedResearch = [],
+  secondaryCtaText = 'Schedule a Free Consultation',
+  breadcrumbTitle,
+  keywords = [],
+} = Astro.props;
+
+const ogTitle = title.includes('StudentEB5') ? title : `${title} | StudentEB5`;
+const documentTitle = title.includes('| StudentEB5') ? title : `${title} | StudentEB5`;
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+
+const pathwayEntry = findLandingPageByUrl(new URL(canonicalUrl).pathname);
+// Registered pathway landings use staggered publishDate; unknown layouts stay indexable.
+const pageIsIndexable = pathwayEntry ? isIndexable(pathwayEntry) : true;
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>{documentTitle}</title>
+    <meta name="description" content={metaDescription} />
+    {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+    <link rel="canonical" href={canonicalUrl} />
+    {
+      !pageIsIndexable ? (
+        <meta name="robots" content="noindex, follow" />
+      ) : null
+    }
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={ogImage} />
+    <slot name="head" />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+
+    <main>
+      <section class="bg-muted/40 border-b border-border">
+        <div class="container mx-auto px-6 pt-4 pb-12 md:pb-16 max-w-4xl">
+          <Breadcrumb client:load customTitle={breadcrumbTitle} initialPathname={new URL(canonicalUrl).pathname} />
+          <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-6 mb-4 leading-tight">
+            {h1}
+          </h1>
+          <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
+            {subhead}
+          </p>
+        </div>
+      </section>
+
+      <div class="container mx-auto px-6 py-12 md:py-16 max-w-4xl prose-pathway">
+        <slot />
+      </div>
+
+      {
+        relatedResearch.length > 0 && (
+          <section class="py-16 md:py-20 bg-muted/30 border-t border-border">
+            <div class="container mx-auto px-6 max-w-6xl">
+              <h2 class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+                Related Research
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {relatedResearch.map((item) => (
+                  <a
+                    href={item.url}
+                    class="block rounded-lg border border-border bg-card p-6 hover:border-primary hover:shadow-md transition-all duration-150"
+                  >
+                    <h3 class="font-serif text-lg font-semibold text-foreground mb-2 leading-snug">
+                      {item.title}
+                    </h3>
+                    {item.description && (
+                      <p class="text-sm text-muted-foreground leading-relaxed m-0">{item.description}</p>
+                    )}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )
+      }
+
+      <section class="py-12 md:py-16 border-t border-border">
+        <div class="container mx-auto px-6 max-w-4xl text-center mb-8">
+          <h2 class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-3">
+            {secondaryCtaText}
+          </h2>
+        </div>
+        <ConsultationCTA client:visible />
+      </section>
+
+      <section class="pb-16">
+        <div class="container mx-auto px-6 max-w-4xl space-y-4">
+          <LegalDisclaimer />
+          <slot name="extraCompliance" />
+        </div>
+      </section>
+    </main>
+
+    <Footer client:visible />
+    <Toaster client:load />
+  </div>
+</Layout>
+
+<style>
+  .prose-pathway :global(h2) {
+    font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  .prose-pathway :global(h2:first-child) {
+    margin-top: 0;
+  }
+  .prose-pathway :global(p) {
+    color: hsl(var(--muted-foreground));
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+  }
+  .prose-pathway :global(a) {
+    color: hsl(var(--primary));
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .prose-pathway :global(a:hover) {
+    opacity: 0.9;
+  }
+  .prose-pathway :global(ol) {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: hsl(var(--muted-foreground));
+    line-height: 1.75;
+  }
+  .prose-pathway :global(ol li) {
+    margin-bottom: 0.75rem;
+  }
+  .prose-pathway :global(ol li strong) {
+    color: hsl(var(--foreground));
+  }
+</style>

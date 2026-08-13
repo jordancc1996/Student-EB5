@@ -1,0 +1,96 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
+
+const title = 'EB-5 Visa for South Korean Investors | StudentEB5';
+const metaDescription =
+  'EB-5 for South Korean investors covers investment basics, student timing, and family funding considerations for Korean nationals evaluating a U.S. green card through EB-5.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-korean-investors`;
+const h1 = 'EB-5 Visa for South Korean Investors';
+const subhead =
+  'A single overview for Korean nationals — investors, students, and families — evaluating EB-5 as a path to permanent residence.';
+
+const teaFormatted = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 0,
+}).format(TEA_INVESTMENT_THRESHOLD);
+
+const relatedResearch = [
+  {
+    title: 'EB-5 Immigrant Investor Program — Complete Guide',
+    url: '/research/complete-2027-eb5-guide',
+    description: 'Filing steps, rural set-asides, and current program structure overview.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 for Korean Nationals"
+  breadcrumbTitle="EB-5 for South Korean Investors"
+  keywords={[
+    'EB-5 for South Korean investors',
+    'EB-5 Korea',
+    'Korean nationals EB-5',
+    'EB-5 visa South Korea',
+  ]}
+>
+  <Fragment slot="extraCompliance">
+    <p class="text-sm text-muted-foreground leading-relaxed border border-border rounded-lg bg-secondary/40 p-4 m-0">
+      EB-5 investment involves financial risk, including potential loss of principal, and does not guarantee a green
+      card, visa availability, or any specific processing time. Consult a qualified immigration attorney and a
+      FINRA-registered financial adviser for guidance specific to your situation.
+    </p>
+  </Fragment>
+
+  <p>
+    The EB-5 Immigrant Investor Program offers eligible foreign nationals a path to a U.S. green card through a
+    qualifying investment. South Korean nationals — including investors abroad, students on F-1 status, and families
+    considering parental funding — typically evaluate the same core program rules: investment amount, source-of-funds
+    documentation, project selection, and I-526E filing. Visa numbers are allocated by country of birth; check the
+    current
+    <a
+      href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+      target="_blank"
+      rel="noopener noreferrer">Visa Bulletin</a
+    > rather than relying on outdated estimates.
+  </p>
+
+  <h2>For investors</h2>
+  <p>
+    Most investors use the reduced Targeted Employment Area (TEA) investment threshold of {teaFormatted} rather than the
+    standard amount. That figure is capital investment only — not filing fees, legal fees, or regional center
+    administrative costs. After selecting a project and assembling source-of-funds documentation, investors file Form
+    I-526E, with concurrent adjustment of status available in many cases for those already in the U.S. on valid
+    nonimmigrant status. Full process detail is on the
+    <a href="/eb5-investment-process">EB-5 investment process</a> page and in the
+    <a href="/research/complete-2027-eb5-guide">complete EB-5 guide</a>.
+  </p>
+
+  <h2>For students</h2>
+  <p>
+    Korean F-1 students sometimes evaluate EB-5 as an alternative or parallel track to OPT/STEM OPT and the H-1B
+    lottery. EB-5 does not automatically convert F-1 status into a green card; it is a separate petition with its own
+    timeline. Starting documentation earlier in a degree program can leave more room to prepare source of funds before
+    work authorization windows close. See
+    <a href="/pathways/f1-to-eb5-self-sponsored-green-card">F-1 to EB-5 self-sponsored green card</a> for the shared
+    student pathway overview.
+  </p>
+
+  <h2>For families funding an investment</h2>
+  <p>
+    When a parent gifts capital to a student or adult child who is the investor of record, USCIS still requires a clear
+    lawful trail from the original source through the gift and into the investment. Cross-border remittance and tax
+    rules on the Korea and U.S. sides should be reviewed with qualified advisers before funds move — this page does not
+    provide tax or remittance advice. Gift documentation, path-of-funds tracing, and early record gathering follow the
+    same principles outlined in our funding research:
+    <a href="/research/ways-to-fund-eb5-investment-2026">ways to fund an EB-5 investment</a>.
+  </p>
+</PathwayLandingLayout>

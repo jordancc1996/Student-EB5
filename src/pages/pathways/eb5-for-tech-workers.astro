@@ -1,0 +1,78 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import ProcessFaqAccordion from '@/components/ProcessFaqAccordion';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 for Tech Workers | StudentEB5';
+const metaDescription =
+  'EB-5 for tech workers and software engineers explains H-1B dependency, layoff exposure, and why some professionals treat EB-5 as an employer-independent backup plan — with attorney and adviser review before acting.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-tech-workers`;
+const h1 = 'EB-5 for Tech Workers';
+const subhead =
+  'Why some software engineers and other tech professionals evaluate EB-5 when H-1B status and employer sponsorship feel outside their control.';
+
+const relatedResearch = [
+  {
+    title: 'H-1B Tech Layoffs and EB-5 Entrepreneurship',
+    url: '/research/h1b-tech-layoffs-eb5-entrepreneurship',
+    description: 'How layoff risk intersects with EB-5 planning for tech professionals.',
+  },
+  {
+    title: 'Best Immigration Backup Plan for Indian Tech Workers',
+    url: '/research/best-immigration-backup-plan-indian-tech-workers-2026',
+    description: 'Parallel planning for Indian tech workers facing lottery and backlog uncertainty.',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'I was laid off on H-1B — should I invest in EB-5 or return home?',
+    answer:
+      'That is a legitimate, high-stakes decision many tech workers face after a layoff: weigh a major capital commitment and EB-5 timeline against returning to a home country and rebuilding status later. There is no universal right answer. It involves both a financial choice and an immigration timeline, and it is exactly the kind of decision worth discussing with a financial adviser and an immigration attorney before acting.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 for Tech Workers"
+  breadcrumbTitle="EB-5 for Tech Workers"
+  keywords={[
+    'EB-5 for tech workers',
+    'EB-5 software engineer',
+    'H-1B layoff EB-5',
+    'tech worker immigration backup',
+  ]}
+>
+  <h2>H-1B dependency in tech roles</h2>
+  <p>
+    Many software engineers and other tech professionals in the U.S. hold status through H-1B (or a related
+    employer-tied category). That structure ties work authorization, job mobility, and often the employment-based green
+    card track to continued sponsorship. Lottery outcomes, cap rules, and petition renewals sit largely outside the
+    worker's control. Some tech professionals therefore evaluate EB-5 as a backup plan that does not depend on remaining
+    employed by a particular sponsor — whether they work at a large public tech company or an earlier-stage startup.
+  </p>
+
+  <h2>Layoff exposure and an employer-independent track</h2>
+  <p>
+    Tech hiring cycles can compress quickly. A layoff can start a grace-period clock, force a rapid job search within
+    status rules, or push a household to leave the U.S. EB-5, once filed as a separate immigrant petition, does not
+    renew or replace H-1B by itself — but it also does not require the same employer relationship that an H-1B or PERM
+    case does. Deeper layoff-era framing is in
+    <a href="/research/h1b-tech-layoffs-eb5-entrepreneurship">H-1B tech layoffs and EB-5 entrepreneurship</a>; India-focused
+    backup planning is in
+    <a href="/research/best-immigration-backup-plan-indian-tech-workers-2026"
+      >best immigration backup plan for Indian tech workers</a
+    >.
+  </p>
+
+  <h2>A decision people actually face</h2>
+  <div class="not-prose mb-8">
+    <ProcessFaqAccordion client:load items={faqItems} />
+  </div>
+</PathwayLandingLayout>

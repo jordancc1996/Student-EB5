@@ -1,0 +1,90 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 Concurrent Filing for U.S. Visa Holders | StudentEB5';
+const metaDescription =
+  'EB-5 concurrent filing for U.S. visa holders explains filing I-526E with adjustment of status, including EAD and advance parole concepts — with links to official USCIS processing times.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-concurrent-filing`;
+const h1 = 'EB-5 Concurrent Filing for U.S. Visa Holders';
+const subhead =
+  'What it means to file your EB-5 petition together with adjustment of status when you are already in the United States on valid nonimmigrant status.';
+
+const relatedResearch = [
+  {
+    title: 'J-1, F-1, H-1B Concurrent Filing with EB-5 — Full Guide',
+    url: '/research/j1-f1-h1b-eb5-concurrent-filing',
+    description: 'Technical depth on concurrent filing across common nonimmigrant statuses.',
+  },
+  {
+    title: 'EB-5 Investment Process',
+    url: '/eb5-investment-process',
+    description: 'Step-by-step filing sequence from source of funds through I-829.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About Concurrent Filing"
+  breadcrumbTitle="EB-5 Concurrent Filing"
+  keywords={[
+    'EB-5 concurrent filing',
+    'I-526E I-485 concurrent',
+    'EB-5 EAD advance parole',
+    'EB-5 work authorization',
+  ]}
+>
+  <h2>Concurrent filing vs. consular processing</h2>
+  <p>
+    If you are already in the U.S. on a valid nonimmigrant status and a visa number is available (or other eligibility
+    rules allow it), concurrent filing generally means submitting Form I-526E together with an adjustment of status
+    package — including applications that can lead to interim work and travel authorization while the immigrant petition
+    is pending. Investors abroad typically use consular processing instead: the petition is filed and, after approval and
+    visa availability, the immigrant visa interview happens at a U.S. consulate or embassy. Which path applies depends
+    on your status, location, and visa-number rules — confirm with an immigration attorney. Process overview:
+    <a href="/eb5-investment-process">EB-5 investment process</a>. Full technical depth:
+    <a href="/research/j1-f1-h1b-eb5-concurrent-filing">J-1, F-1, H-1B concurrent filing with EB-5</a>.
+  </p>
+
+  <h2>What concurrent filing can unlock (decision-stage view)</h2>
+  <ul>
+    <li>
+      <strong>Work authorization (EAD).</strong> Concurrent adjustment packages often include an application for an
+      Employment Authorization Document. Timing varies and changes; do not rely on a remembered number — check USCIS's
+      official
+      <a href="https://egov.uscis.gov/processing-times/" target="_blank" rel="noopener noreferrer"
+        >processing times</a
+      > page for current data on the relevant forms.
+    </li>
+    <li>
+      <strong>Travel authorization (advance parole / travel document).</strong> Concurrent packages commonly also seek
+      advance parole so the applicant can travel abroad and return without abandoning the pending adjustment. This is a
+      distinct benefit from the EAD — search and plan for both by name when comparing options.
+    </li>
+    <li>
+      <strong>Whether a spouse can also work.</strong> Yes. A derivative spouse included on the petition can also apply
+      for EAD and travel authorization through the concurrent filing process, subject to the same eligibility and
+      adjudication rules as the principal.
+    </li>
+    <li>
+      <strong>L-1 holders.</strong> Concurrent filing applies to L-1 intracompany transferees the same way it does to
+      H-1B and F-1 holders who are otherwise eligible — the petition is not limited to those two statuses. See
+      <a href="/pathways/eb5-for-l1">EB-5 for L-1 visa holders</a> for L-1-specific framing.
+    </li>
+  </ul>
+
+  <p>
+    This page is the short decision-stage summary. For status-by-status technical detail, use the
+    <a href="/research/j1-f1-h1b-eb5-concurrent-filing">concurrent filing research article</a>. Always verify current
+    processing times at
+    <a href="https://egov.uscis.gov/processing-times/" target="_blank" rel="noopener noreferrer"
+      >egov.uscis.gov/processing-times</a
+    >.
+  </p>
+</PathwayLandingLayout>

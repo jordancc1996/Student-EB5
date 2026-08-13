@@ -1,0 +1,95 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
+
+const title = 'EB-5 Visa for Taiwanese Investors | StudentEB5';
+const metaDescription =
+  'EB-5 for Taiwanese investors covers investment basics, student timing, and family funding considerations for Taiwan-born nationals evaluating a U.S. green card through EB-5.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-taiwanese-investors`;
+const h1 = 'EB-5 Visa for Taiwanese Investors';
+const subhead =
+  'A single overview for Taiwanese nationals — investors, students, and families — evaluating EB-5 as a path to permanent residence.';
+
+const teaFormatted = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 0,
+}).format(TEA_INVESTMENT_THRESHOLD);
+
+const relatedResearch = [
+  {
+    title: 'EB-5 Immigrant Investor Program — Complete Guide',
+    url: '/research/complete-2027-eb5-guide',
+    description: 'Filing steps, rural set-asides, and current program structure overview.',
+  },
+  {
+    title: 'EB-5 Investment Process',
+    url: '/eb5-investment-process',
+    description: 'Step-by-step filing sequence from source of funds through I-829.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 for Taiwanese Nationals"
+  breadcrumbTitle="EB-5 for Taiwanese Investors"
+  keywords={[
+    'EB-5 for Taiwanese investors',
+    'EB-5 Taiwan',
+    'Taiwanese nationals EB-5',
+    'EB-5 visa Taiwan',
+  ]}
+>
+  <Fragment slot="extraCompliance">
+    <p class="text-sm text-muted-foreground leading-relaxed border border-border rounded-lg bg-secondary/40 p-4 m-0">
+      EB-5 investment involves financial risk, including potential loss of principal, and does not guarantee a green
+      card, visa availability, or any specific processing time. Consult a qualified immigration attorney and a
+      FINRA-registered financial adviser for guidance specific to your situation.
+    </p>
+  </Fragment>
+
+  <p>
+    The EB-5 Immigrant Investor Program offers eligible foreign nationals a path to a U.S. green card through a
+    qualifying investment. Taiwanese nationals — investors abroad, students in the U.S., and families considering gifted
+    capital — work within the same program framework: investment threshold, source-of-funds documentation, project
+    selection, and I-526E filing. Visa allocation follows country of birth; confirm current availability on the
+    <a
+      href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+      target="_blank"
+      rel="noopener noreferrer">Visa Bulletin</a
+    >.
+  </p>
+
+  <h2>For investors</h2>
+  <p>
+    Most investors use the reduced Targeted Employment Area (TEA) investment threshold of {teaFormatted}, which covers
+    capital only. After documenting lawful source of funds and selecting a project, investors file Form I-526E —
+    often with concurrent adjustment of status when already in the U.S. on valid nonimmigrant status. For the full
+    sequence, see the
+    <a href="/eb5-investment-process">EB-5 investment process</a> and the
+    <a href="/research/complete-2027-eb5-guide">complete EB-5 guide</a>.
+  </p>
+
+  <h2>For students</h2>
+  <p>
+    Taiwanese F-1 students sometimes evaluate EB-5 alongside OPT/STEM OPT and H-1B planning. Filing EB-5 does not
+    automatically convert F-1 status into permanent residence; it is a separate process. Preparing source-of-funds and
+    gift documentation while still enrolled can reduce pressure later in the work-authorization window. Overview:
+    <a href="/pathways/f1-to-eb5-self-sponsored-green-card">F-1 to EB-5 self-sponsored green card</a>.
+  </p>
+
+  <h2>For families funding an investment</h2>
+  <p>
+    When parents gift funds to a child who is the investor of record, USCIS still requires a clear lawful trail from the
+    original source through the gift and into the investment. Cross-border tax and remittance planning should be handled
+    with qualified advisers before capital moves. Funding-path options are summarized in
+    <a href="/research/ways-to-fund-eb5-investment-2026">ways to fund an EB-5 investment</a>.
+  </p>
+</PathwayLandingLayout>

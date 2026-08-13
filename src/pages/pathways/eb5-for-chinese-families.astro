@@ -1,0 +1,125 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import ProcessFaqAccordion from '@/components/ProcessFaqAccordion';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title =
+  'How Chinese Parents Can Fund an EB-5 Investment for a Child in the U.S. | StudentEB5';
+const metaDescription =
+  'A guide for Chinese parents considering funding an EB-5 investment for a child studying in the U.S. — covering gifts, source of funds, and documentation before moving capital.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-chinese-families`;
+const h1 = 'How Chinese Parents Can Fund an EB-5 Investment for a Child Studying in the U.S.';
+const subhead =
+  'What families need to document before moving capital toward a child\'s EB-5 investment — and why the paper trail matters as much as the funds.';
+
+const relatedResearch = [
+  {
+    title: 'Ways to Fund EB-5 — Gifted, Loaned, and Crypto Paths',
+    url: '/research/ways-to-fund-eb5-investment-2026',
+    description: 'Gift, loan, and other lawful funding paths USCIS reviews for EB-5 capital.',
+  },
+  {
+    title: 'EB-5 Pre-Investment Checklist',
+    url: '/research/investment/eb5-pre-investment-checklist-part-1-f1-h1b',
+    description: 'What to verify before committing capital and filing I-526E.',
+  },
+  {
+    title: 'EB-5 for Chinese International Students',
+    url: '/pathways/eb5-for-chinese-students',
+    description: 'Student-side decision framing for Chinese F-1 applicants evaluating EB-5.',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'Does the student have to prove they earned the investment money themselves?',
+    answer:
+      'No. Gifted funds are commonly used in EB-5 cases. What matters is that the original source of the funds — usually the parent\'s — is lawful and well documented.',
+  },
+  {
+    question: 'How far back does source of funds documentation need to go?',
+    answer:
+      'This depends on the specific funding history and case, and current USCIS practice can change. An immigration attorney experienced in EB-5 source-of-funds cases should review the specific facts before a family finalizes a funding plan.',
+  },
+  {
+    question: 'What if funds come from a business the parent owns in China?',
+    answer:
+      'Business income can be used as a source of funds, but it typically requires more extensive documentation — business licenses, tax filings, audited financials, and a clear link between the business income and the gifted funds. This is an area where working with an adviser familiar with both Chinese business documentation and USCIS expectations matters most.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone Who Understands Cross-Border EB-5 Funding"
+  breadcrumbTitle="EB-5 for Chinese Families"
+  keywords={[
+    'Chinese parents EB-5 funding',
+    'EB-5 gift funds China',
+    'EB-5 source of funds parents',
+    'fund EB-5 for child in US',
+  ]}
+>
+  <Fragment slot="extraCompliance">
+    <p class="text-sm text-muted-foreground leading-relaxed border border-border rounded-lg bg-secondary/40 p-4 m-0">
+      This page provides educational information only and does not constitute legal, financial, tax, or immigration
+      advice. Consult a qualified immigration attorney and a cross-border tax adviser before moving investment capital
+      or entering into a gift arrangement.
+    </p>
+  </Fragment>
+
+  <h2>Who this page is for</h2>
+  <p>
+    In many EB-5 cases involving Chinese international students, the child is the investor of record, but a parent or
+    other family member is the actual source of the funds. This is a normal and accepted structure in EB-5 — USCIS does
+    not require the investor to have personally earned the investment capital. What USCIS does require is a clear,
+    documented, lawful trail showing where the money came from and how it reached the investor. This page focuses on
+    that funding and documentation process; for the broader student decision (EB-5 vs. the H-1B path), see our guide to
+    <a href="/pathways/eb5-for-chinese-students">EB-5 for Chinese international students</a>.
+  </p>
+
+  <h2>How the gift structure typically works</h2>
+  <ol>
+    <li>
+      <strong>Establish the gift relationship.</strong> A parent (or other family member) formally gifts funds to the
+      student investor, documented with a signed gift letter or deed of gift.
+    </li>
+    <li>
+      <strong>Document the parent's source of funds.</strong> USCIS looks through to the original source of the gifted
+      funds, not just the gift itself. This can include income records, business ownership documentation, property sale
+      records, or other lawful sources going back multiple years.
+    </li>
+    <li>
+      <strong>Trace the path of funds.</strong> Bank records showing the money moving from the parent's account to the
+      student's account, and then to the new commercial enterprise or regional center escrow account, need to form a
+      complete, unbroken paper trail.
+    </li>
+    <li>
+      <strong>Address currency movement.</strong> Moving significant capital out of China involves its own set of
+      considerations under Chinese foreign exchange rules. Families typically work with both a China-side financial/legal
+      adviser and their U.S. immigration attorney to plan this properly and in advance.
+    </li>
+    <li>
+      <strong>Prepare documentation before, not after.</strong> Gathering these records early — ideally before a project
+      is selected or a petition is filed — gives families more time to address any gaps.
+    </li>
+  </ol>
+
+  <h2>Common documentation questions</h2>
+  <div class="not-prose mb-8">
+    <ProcessFaqAccordion client:load items={faqItems} />
+  </div>
+
+  <h2>Tax and advisory considerations</h2>
+  <p>
+    Moving investment capital across borders can carry tax implications on both sides — U.S. and China — separate from
+    the immigration process itself. This page does not provide tax or legal advice. Families considering this path
+    typically work with a cross-border tax adviser and a U.S. immigration attorney together, early in the process,
+    rather than addressing tax questions after funds have already moved.
+  </p>
+</PathwayLandingLayout>

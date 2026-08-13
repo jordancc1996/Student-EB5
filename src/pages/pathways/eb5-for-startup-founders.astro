@@ -1,0 +1,64 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 for Startup Founders | StudentEB5';
+const metaDescription =
+  'EB-5 for startup founders explains why founders often need immigration status independent of a company they control — and how EB-5’s investor-status independence can enter that evaluation.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-startup-founders`;
+const h1 = 'EB-5 for Startup Founders';
+const subhead =
+  'Why some founders evaluate EB-5 when staying in the U.S. cannot depend solely on status tied to a company they themselves control.';
+
+const relatedResearch = [
+  {
+    title: 'EB-5 Investment Process',
+    url: '/eb5-investment-process',
+    description: 'Step-by-step filing sequence from source of funds through I-829.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 for Startup Founders"
+  breadcrumbTitle="EB-5 for Startup Founders"
+  keywords={[
+    'EB-5 for startup founders',
+    'founder immigration EB-5',
+    'startup founder green card',
+    'self-sponsored founder EB-5',
+  ]}
+>
+  <h2>Founders are not just “entrepreneurs on H-1B”</h2>
+  <p>
+    Startup founders often sit in a different immigration bind than salaried employees. The company they are building may
+    be the very entity that would need to sponsor them — which can create circular or fragile status arrangements,
+    especially early when payroll, ownership, and control are still taking shape. Options that depend on an arm's-length
+    employer or on lottery selection can be a poor fit for someone whose job is to run their own venture.
+  </p>
+
+  <h2>Why investor-status independence matters</h2>
+  <p>
+    EB-5's structure is built around a qualifying investment and petition, not around continued employment by a third-party
+    sponsor. For some founders, that independence is the point: immigration planning can proceed on a track that is not
+    identical to the startup's financing rounds, board decisions, or ability to file an H-1B. EB-5 still requires capital,
+    lawful source-of-funds documentation, project or enterprise diligence, and USCIS adjudication — it does not guarantee
+    status outcomes or solve every founder visa problem. Filing sequence and process detail:
+    <a href="/eb5-investment-process">EB-5 investment process</a>.
+  </p>
+
+  <h2>What this page is not</h2>
+  <p>
+    Established business owners evaluating EB-5 primarily around operating-company income and source-of-funds
+    documentation should also see
+    <a href="/pathways/eb5-for-entrepreneurs">EB-5 for entrepreneurs &amp; business owners</a>. Founders who are mainly
+    reacting to H-1B layoff risk in a salaried tech role may find a closer fit on
+    <a href="/pathways/eb5-for-tech-workers">EB-5 for tech workers</a>.
+  </p>
+</PathwayLandingLayout>

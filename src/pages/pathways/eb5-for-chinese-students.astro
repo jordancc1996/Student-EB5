@@ -1,0 +1,112 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 for Chinese International Students Studying in the U.S. | StudentEB5';
+const metaDescription =
+  'EB-5 for Chinese international students explains how F-1 students can evaluate a self-sponsored green card path, including parental funding, timing, and how it compares to the H-1B route.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-chinese-students`;
+const h1 = 'EB-5 for Chinese International Students Studying in the United States';
+const subhead =
+  'A self-sponsored path to a U.S. green card for Chinese F-1 students — independent of the H-1B lottery and employer sponsorship.';
+
+const relatedResearch = [
+  {
+    title: 'STEM OPT EB-5 for Indian and Chinese Students — Cap-Gap Strategy',
+    url: '/research/f1-students/stem-opt-eb5-indian-chinese',
+    description: 'How STEM OPT timing intersects with EB-5 planning for Indian and Chinese students.',
+  },
+  {
+    title: 'H-1B vs EB-5 Lifetime Cost — Indian and Chinese Students',
+    url: '/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students',
+    description: 'Lifetime earnings and visa-path tradeoffs for students deciding between H-1B and EB-5.',
+  },
+  {
+    title: 'F-1 to EB-5 — Green Card Guide for International Students',
+    url: '/research/f1-students/f1-to-eb5-green-card',
+    description: 'Core F-1 to EB-5 filing and concurrent-authorization overview.',
+  },
+  {
+    title: 'Not sure where to start? Read the full International Student Playbook',
+    url: '/eb5-green-card-international-students-playbook',
+    description: 'Step-by-step playbook for international students evaluating EB-5.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone Who Understands the F-1 to EB-5 Path"
+  breadcrumbTitle="EB-5 for Chinese Students"
+  keywords={[
+    'EB-5 for Chinese international students',
+    'Chinese F-1 EB-5',
+    'EB-5 parental funding China',
+    'F-1 to EB-5 China',
+  ]}
+>
+  <h2>The two paths after graduation</h2>
+  <div class="not-prose grid md:grid-cols-2 gap-6 mb-6">
+    <div class="rounded-lg border border-border bg-card p-6">
+      <h3 class="font-serif text-xl font-semibold text-foreground mb-3">The Traditional Path</h3>
+      <p class="text-muted-foreground leading-relaxed m-0" style="line-height: 1.75;">
+        F-1 → Graduation → OPT / STEM OPT → H-1B lottery → Employment-based green card queue (multi-year wait for many
+        countries of birth, including China)
+      </p>
+    </div>
+    <div class="rounded-lg border border-border bg-card p-6">
+      <h3 class="font-serif text-xl font-semibold text-foreground mb-3">The EB-5 Path</h3>
+      <p class="text-muted-foreground leading-relaxed m-0" style="line-height: 1.75;">
+        F-1 → EB-5 investment and I-526E filing → Concurrent filing for work authorization and travel document →
+        Potential self-sponsored green card, independent of employer or lottery outcome
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="not-prose rounded-lg border-2 border-foreground/20 bg-secondary/50 p-5 mb-8"
+    role="note"
+  >
+    <p class="text-sm text-muted-foreground leading-relaxed m-0" style="line-height: 1.7;">
+      EB-5 does not automatically or immediately convert F-1 status into a green card. Filing an EB-5 petition is a
+      separate immigration process with its own eligibility, documentation, and timeline requirements. This comparison
+      is educational — talk with a qualified immigration attorney about your specific situation.
+    </p>
+  </div>
+
+  <h2>Why Chinese F-1 students look at EB-5</h2>
+  <p>
+    Chinese students on F-1 status face two separate sources of uncertainty after graduation: the H-1B lottery, which
+    is not guaranteed, and employment-based green card categories, where wait times can be particularly long depending
+    on your country of birth. EB-5 is structured differently — it does not depend on being selected in a lottery or on
+    an employer's willingness to sponsor a petition. For students whose families have the financial capacity to consider
+    it, some begin evaluating EB-5 while still in school, which allows more time to document source of funds and select
+    a project before OPT or STEM OPT authorization ends. For the broader student pathway overview, see
+    <a href="/pathways/f1-to-eb5-self-sponsored-green-card">F-1 to EB-5 self-sponsored green card</a>.
+  </p>
+
+  <h2>How parental funding usually works</h2>
+  <p>
+    Many Chinese F-1 students are not the source of investment capital themselves — a parent or family member often
+    provides the funds, typically as a documented gift. USCIS requires a clear, lawful paper trail for any funds used
+    in an EB-5 investment, regardless of who originally earned them. See our full guide on
+    <a href="/pathways/eb5-for-chinese-families"
+      >how Chinese parents can fund an EB-5 investment for a child studying in the U.S.</a
+    >
+  </p>
+
+  <h2>Timing considerations</h2>
+  <p>
+    EB-5 program rules and filing windows change. Students evaluating this path should confirm current deadlines,
+    investment thresholds, and visa category rules before making a decision — see our
+    <a href="/tools/grandfathering-countdown">Grandfathering Deadline tool</a> and
+    <a href="/research/complete-2027-eb5-guide">current EB-5 guide</a> for the latest information. Country-specific STEM
+    OPT timing risks are covered in
+    <a href="/research/f1-students/stem-opt-eb5-indian-chinese">STEM OPT EB-5 for Indian and Chinese students</a>.
+  </p>
+</PathwayLandingLayout>

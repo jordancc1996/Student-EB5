@@ -1,0 +1,60 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 for J-1 Visa Holders | StudentEB5';
+const metaDescription =
+  'EB-5 for J-1 visa holders covers timing considerations for exchange visitors, including case-specific 212(e) home residency issues that require attorney review.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-j1`;
+const h1 = 'EB-5 for J-1 Visa Holders';
+const subhead =
+  'What J-1 exchange visitors should know about EB-5 timing, including the 212(e) home residency requirement where it applies.';
+
+const relatedResearch = [
+  {
+    title: 'EB-5 Concurrent Filing for J-1, F-1, and H-1B Holders',
+    url: '/research/j1-f1-h1b-eb5-concurrent-filing',
+    description: 'How concurrent filing works for common nonimmigrant statuses, including J-1.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 for J-1 Holders"
+  breadcrumbTitle="EB-5 for J-1 Holders"
+  keywords={['EB-5 for J-1', 'J-1 212(e) EB-5', 'J-1 exchange visitor green card', 'J-1 concurrent filing']}
+>
+  <h2>J-1 status and permanent residence planning</h2>
+  <p>
+    J-1 exchange visitors come to the United States for temporary academic, research, or training objectives. Some later
+    consider EB-5 as a self-sponsored permanent residence option. Whether that path fits depends on program type,
+    funding rules, and individual immigration history — not on a single rule that applies to every J-1 holder.
+  </p>
+
+  <h2>The 212(e) two-year home residency requirement — case-specific</h2>
+  <p>
+    Certain J-1 participants may be subject to INA 212(e), which can require two years of residence in the home country
+    before some immigrant or change-of-status benefits are available — unless a waiver is obtained. <strong
+      >This requirement does not apply to every J-1 visa.</strong
+    > Skills lists, government funding, and medical training categories are among the factors that determine whether
+    212(e) attaches. Do not assume you are — or are not — subject to 212(e) based on general articles. Confirm your
+    status on your DS-2019 / visa documentation and with a qualified immigration attorney before planning EB-5 filing
+    timing around a home-residency obligation or waiver strategy.
+  </p>
+
+  <h2>Why timing review matters for J-1 holders</h2>
+  <p>
+    J-1 holders who may be subject to 212(e) often evaluate whether an EB-5 filing should wait on waiver progress,
+    whether consular processing is required, or whether concurrent filing is available for their current status. Those
+    questions are fact-specific. For concurrent-filing context across J-1, F-1, and H-1B categories, see
+    <a href="/research/j1-f1-h1b-eb5-concurrent-filing">EB-5 concurrent filing for J-1, F-1, and H-1B holders</a>. For
+    general filing sequence (not J-1-specific waiver analysis), see the
+    <a href="/eb5-investment-process">EB-5 investment process</a>.
+  </p>
+</PathwayLandingLayout>

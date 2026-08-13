@@ -1,0 +1,58 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 for H-4 Families & Dependents | StudentEB5';
+const metaDescription =
+  'EB-5 for H-4 families explains how a primary investor’s petition can include a spouse and unmarried children under 21 as derivative green card beneficiaries.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-h4-families`;
+const h1 = 'EB-5 for H-4 Families & Dependents';
+const subhead =
+  'How EB-5 can offer stability for H-4 spouses and children facing work authorization uncertainty.';
+
+const relatedResearch = [
+  {
+    title: 'H-1B to Green Card via EB-5',
+    url: '/pathways/h1b-to-green-card',
+    description: 'Employer-independence and concurrent filing framing for H-1B households.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 for Your H-4 Family"
+  breadcrumbTitle="EB-5 for H-4 Families"
+  keywords={['EB-5 for H-4', 'H-4 EAD EB-5', 'H-4 spouse green card', 'EB-5 derivative beneficiaries']}
+>
+  <h2>H-4 status and work authorization uncertainty</h2>
+  <p>
+    H-4 dependents are tied to the principal H-1B holder's status. H-4 EAD eligibility has been subject to policy
+    challenges and processing variability, which leaves some spouses without reliable work authorization even when the
+    household is otherwise stable. That uncertainty is one reason some families evaluate a self-sponsored green card path
+    that does not depend on H-4 EAD rules remaining unchanged.
+  </p>
+
+  <h2>How spouses and children can be included</h2>
+  <p>
+    When a qualifying principal investor files an EB-5 petition, a spouse and unmarried children under 21 can typically
+    be included as derivative beneficiaries, subject to age-out and CSPA considerations that must be reviewed for each
+    child. Derivative status does not create a separate investment requirement for each family member, but documentation,
+    ages, and filing timing still matter. Families concerned about children approaching 21 should discuss CSPA timing with
+    counsel before assuming coverage. For the H-1B principal's pathway framing, see
+    <a href="/pathways/h1b-to-green-card">H-1B to green card via EB-5</a>.
+  </p>
+
+  <h2>What EB-5 does — and does not — change overnight</h2>
+  <p>
+    EB-5 is a separate petition process. It does not instantly convert H-4 status into permanent residence, and it does
+    not guarantee work authorization on a fixed calendar. Concurrent filing, where available, may allow some applicants
+    to seek an EAD while the case is pending — eligibility depends on status, category availability, and attorney review.
+    For process mechanics, use the <a href="/eb5-investment-process">EB-5 investment process</a> guide.
+  </p>
+</PathwayLandingLayout>

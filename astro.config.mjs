@@ -5,8 +5,51 @@ import { fileURLToPath } from 'node:url';
 
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import { landingPages, isIndexable } from './src/lib/pathwayRoutes.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const pathwayByPathname = new Map(
+  landingPages.map((page) => [page.url, page]),
+);
+
+/**
+ * @param {string} pageUrl full absolute URL from @astrojs/sitemap
+ * @returns {boolean}
+ */
+function shouldIncludeInSitemap(pageUrl) {
+  if (pageUrl.includes('/404')) return false;
+
+  // Exclude redirect stubs
+  if (pageUrl === 'https://studenteb5.com/tools/' || pageUrl === 'https://studenteb5.com/tools') return false;
+  if (
+    pageUrl === 'https://studenteb5.com/grandfathering-countdown/' ||
+    pageUrl === 'https://studenteb5.com/grandfathering-countdown'
+  )
+    return false;
+  if (pageUrl === 'https://studenteb5.com/opt-calculator/' || pageUrl === 'https://studenteb5.com/opt-calculator')
+    return false;
+  if (
+    pageUrl === 'https://studenteb5.com/tuition-calculator/' ||
+    pageUrl === 'https://studenteb5.com/tuition-calculator'
+  )
+    return false;
+  if (pageUrl.includes('/guides/')) return false;
+  if (pageUrl.includes('/tools/concurrent-filing-checker')) return false;
+  if (pageUrl.includes('/tools/eb5-feasibility')) return false;
+
+  // Staggered pathway rollout: only include registered pathway URLs when indexable
+  try {
+    const { pathname } = new URL(pageUrl);
+    const normalized = pathname.replace(/\/$/, '') || '/';
+    const pathwayEntry = pathwayByPathname.get(normalized);
+    if (pathwayEntry && !isIndexable(pathwayEntry)) return false;
+  } catch {
+    // If URL parsing fails, fall through to include (non-pathway pages)
+  }
+
+  return true;
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,29 +59,7 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      filter: (page) => {
-        // Exclude noindex pages
-        if (page.includes('/pathways/h1b-60-day-clock')) return false;
-        if (page.includes('/404')) return false;
-        // Exclude redirect stubs
-        if (page === 'https://studenteb5.com/tools/' || page === 'https://studenteb5.com/tools') return false;
-        if (
-          page === 'https://studenteb5.com/grandfathering-countdown/' ||
-          page === 'https://studenteb5.com/grandfathering-countdown'
-        )
-          return false;
-        if (page === 'https://studenteb5.com/opt-calculator/' || page === 'https://studenteb5.com/opt-calculator')
-          return false;
-        if (
-          page === 'https://studenteb5.com/tuition-calculator/' ||
-          page === 'https://studenteb5.com/tuition-calculator'
-        )
-          return false;
-        if (page.includes('/guides/')) return false;
-        if (page.includes('/tools/concurrent-filing-checker')) return false;
-        if (page.includes('/tools/eb5-feasibility')) return false;
-        return true;
-      },
+      filter: shouldIncludeInSitemap,
       // Match per-page canonicals (no trailing slash). Default sitemap output uses trailing slashes.
       serialize(item) {
         if (item.url.endsWith('/')) {

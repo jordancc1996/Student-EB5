@@ -1,0 +1,63 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 for L-1 Visa Holders | StudentEB5';
+const metaDescription =
+  'EB-5 for L-1 visa holders explains why some intracompany transferees evaluate a self-sponsored green card instead of relying only on continued L-1 eligibility.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-l1`;
+const h1 = 'EB-5 for L-1 Visa Holders';
+const subhead =
+  'Why some L-1 professionals evaluate EB-5 as a permanent alternative to continued employer transfer status.';
+
+const relatedResearch = [
+  {
+    title: 'H-1B to Green Card via EB-5',
+    url: '/pathways/h1b-to-green-card',
+    description: 'Self-sponsored concurrent filing framing for employer-dependent workers.',
+  },
+  {
+    title: 'The EB-5 Investment Process',
+    url: '/eb5-investment-process',
+    description: 'Step-by-step filing sequence from eligibility through I-829.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 for L-1 Holders"
+  breadcrumbTitle="EB-5 for L-1 Holders"
+  keywords={['EB-5 for L-1', 'L-1A EB-5', 'L-1B green card', 'L-1 to EB-5']}
+>
+  <h2>L-1 status is employer-tied and time-limited</h2>
+  <p>
+    L-1A and L-1B classifications allow intracompany transfers, but they remain tied to a qualifying employer
+    relationship and are subject to maximum stay limits. Extensions, role changes, and corporate reorganizations can
+    affect eligibility. Professionals who want permanent residence that does not depend on continued transfer status
+    sometimes evaluate EB-5 as a parallel or alternative track — without assuming any specific approval timeline.
+  </p>
+
+  <h2>Why employer independence matters for some L-1 holders</h2>
+  <p>
+    With EB-5, the investor is typically the petitioner for their own immigrant petition, rather than relying on the
+    same employer that sponsors the L-1. That structure can matter for people who expect career changes, overseas
+    rotations, or company risk. It does not remove the need for a qualifying investment, lawful source of funds, or
+    compliant project. For a related employer-independence discussion aimed at H-1B households, see
+    <a href="/pathways/h1b-to-green-card">H-1B to green card via EB-5</a>. For filing steps, see the
+    <a href="/eb5-investment-process">EB-5 investment process</a>.
+  </p>
+
+  <h2>Planning while L-1 remains valid</h2>
+  <p>
+    Some L-1 holders begin source-of-funds and project diligence while still in valid L status so that a future I-526E
+    filing is not compressed against a maximum-stay deadline. Concurrent filing may be available for eligible investors
+    already in the United States when visa numbers are current in the relevant category — confirm that with counsel for
+    your facts. EB-5 does not automatically extend L-1 status on its own.
+  </p>
+</PathwayLandingLayout>

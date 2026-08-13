@@ -1,0 +1,108 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 for Indian International Students | StudentEB5';
+const metaDescription =
+  'EB-5 for Indian international students explains how F-1 students can evaluate a self-sponsored green card path, including parental funding, timing, and how it compares to the H-1B route.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-indian-students`;
+const h1 = 'EB-5 for Indian International Students';
+const subhead =
+  'A self-sponsored path to a U.S. green card for Indian F-1 students — independent of the H-1B lottery and employer sponsorship.';
+
+const relatedResearch = [
+  {
+    title: 'H-1B vs EB-5 Lifetime Cost — Indian and Chinese Students',
+    url: '/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students',
+    description: 'Lifetime earnings and visa-path tradeoffs for students deciding between H-1B and EB-5.',
+  },
+  {
+    title: 'STEM OPT EB-5 for Indian and Chinese Students — Cap-Gap Strategy',
+    url: '/research/f1-students/stem-opt-eb5-indian-chinese',
+    description: 'How STEM OPT timing intersects with EB-5 planning for Indian and Chinese students.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone Who Understands the F-1 to EB-5 Path"
+  breadcrumbTitle="EB-5 for Indian Students"
+  keywords={[
+    'EB-5 for Indian international students',
+    'Indian F-1 EB-5',
+    'EB-5 parental funding India',
+    'F-1 to EB-5 India',
+  ]}
+>
+  <h2>The two paths after graduation</h2>
+  <div class="not-prose grid md:grid-cols-2 gap-6 mb-6">
+    <div class="rounded-lg border border-border bg-card p-6">
+      <h3 class="font-serif text-xl font-semibold text-foreground mb-3">The Traditional Path</h3>
+      <p class="text-muted-foreground leading-relaxed m-0" style="line-height: 1.75;">
+        F-1 → Graduation → OPT / STEM OPT → H-1B lottery → Employment-based green card queue (historically long waits for
+        many Indian-born applicants in EB-2/EB-3)
+      </p>
+    </div>
+    <div class="rounded-lg border border-border bg-card p-6">
+      <h3 class="font-serif text-xl font-semibold text-foreground mb-3">The EB-5 Path</h3>
+      <p class="text-muted-foreground leading-relaxed m-0" style="line-height: 1.75;">
+        F-1 → EB-5 investment and I-526E filing → Concurrent filing for work authorization and travel document →
+        Potential self-sponsored green card, independent of employer or lottery outcome
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="not-prose rounded-lg border-2 border-foreground/20 bg-secondary/50 p-5 mb-8"
+    role="note"
+  >
+    <p class="text-sm text-muted-foreground leading-relaxed m-0" style="line-height: 1.7;">
+      EB-5 does not automatically or immediately convert F-1 status into a green card. Filing an EB-5 petition is a
+      separate immigration process with its own eligibility, documentation, and timeline requirements. This comparison
+      is educational — talk with a qualified immigration attorney about your specific situation.
+    </p>
+  </div>
+
+  <h2>Why Indian F-1 students look at EB-5</h2>
+  <p>
+    Indian students on F-1 status face two separate sources of uncertainty after graduation: the H-1B lottery, which is
+    not guaranteed, and employment-based green card categories, where India-chargeable EB-2 and EB-3 cases have
+    historically faced significant backlogs. Exact wait times change and should be checked against the current
+    <a
+      href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+      target="_blank"
+      rel="noopener noreferrer">Visa Bulletin</a
+    >, not assumed from older figures. EB-5 is structured differently — it does not depend on lottery selection or on an
+    employer's willingness to sponsor a petition. For students whose families have the financial capacity to consider
+    it, some begin evaluating EB-5 while still in school, which allows more time to document source of funds and select
+    a project before OPT or STEM OPT authorization ends. For the broader student pathway overview, see
+    <a href="/pathways/f1-to-eb5-self-sponsored-green-card">F-1 to EB-5 self-sponsored green card</a>.
+  </p>
+
+  <h2>How parental funding usually works</h2>
+  <p>
+    Many Indian F-1 students are not the source of investment capital themselves — a parent or family member often
+    provides the funds, typically as a documented gift. USCIS requires a clear, lawful paper trail for any funds used
+    in an EB-5 investment, regardless of who originally earned them. Families remitting capital from India also need to
+    plan around RBI and Liberalised Remittance Scheme (LRS) compliance with a qualified adviser. See our full guide on
+    <a href="/pathways/eb5-for-indian-families"
+      >how Indian families can fund an EB-5 investment</a
+    >.
+  </p>
+
+  <h2>Timing considerations</h2>
+  <p>
+    EB-5 program rules and filing windows change. Students evaluating this path should confirm current deadlines,
+    investment thresholds, and visa category rules before making a decision — see our
+    <a href="/tools/grandfathering-countdown">Grandfathering Deadline tool</a> and
+    <a href="/research/complete-2027-eb5-guide">current EB-5 guide</a> for the latest information. Country-specific STEM
+    OPT timing risks are covered in
+    <a href="/research/f1-students/stem-opt-eb5-indian-chinese">STEM OPT EB-5 for Indian and Chinese students</a>.
+  </p>
+</PathwayLandingLayout>

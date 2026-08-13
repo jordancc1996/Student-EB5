@@ -1,0 +1,76 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 for Families With Children Studying in America | StudentEB5';
+const metaDescription =
+  'EB-5 for families with children studying in America frames the broader education-and-immigration decision — distinct from gift and remittance mechanics — for parents planning around a U.S. student.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-families-with-us-students`;
+const h1 = 'EB-5 for Families With Children Studying in America';
+const subhead =
+  'How some families evaluate EB-5 as part of an overall education and immigration plan when a child is already studying in the United States.';
+
+const relatedResearch = [
+  {
+    title: 'How Chinese Parents Can Fund an EB-5 Investment',
+    url: '/pathways/eb5-for-chinese-families',
+    description: 'Gift structure, source-of-funds tracing, and documentation for China-side capital.',
+  },
+  {
+    title: 'How Indian Families Can Fund an EB-5 Investment',
+    url: '/pathways/eb5-for-indian-families',
+    description: 'Gift documentation and LRS/RBI planning factors for India-side capital.',
+  },
+  {
+    title: 'International Student Playbook',
+    url: '/eb5-green-card-international-students-playbook',
+    description: 'Practical playbook for international students evaluating EB-5 timing.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 for Your Student Family"
+  breadcrumbTitle="EB-5 for Families With U.S. Students"
+  keywords={[
+    'EB-5 families children studying in America',
+    'EB-5 education immigration plan',
+    'parents EB-5 for student child',
+    'family EB-5 U.S. education',
+  ]}
+>
+  <h2>Education and immigration as one plan</h2>
+  <p>
+    When a child is already on F-1 status in the U.S., families often face two timelines at once: the academic calendar
+    (degree completion, OPT, STEM OPT) and the immigration calendar (H-1B lottery odds, employer sponsorship, and
+    employment-based green card waits tied to country of birth). EB-5 enters that conversation as a family-level
+    decision — whether a self-sponsored immigrant petition should sit alongside, or instead of, the traditional
+    student-to-worker path — not merely as a question of how to move money. This page focuses on that broader planning
+    frame. For student-side sequencing, see the
+    <a href="/eb5-green-card-international-students-playbook">International Student Playbook</a>.
+  </p>
+
+  <h2>What families typically weigh</h2>
+  <p>
+    Decision points usually include when to start source-of-funds work relative to graduation, whether a parent or the
+    student will be the investor of record, how a spouse and siblings under 21 might be included as derivatives, and how
+    EB-5 concurrent filing could interact with an active F-1 or OPT window. None of those choices guarantee a green card
+    or a specific processing outcome. They do change how much of the family's U.S. future depends on lottery selection
+    and a single employer's sponsorship.
+  </p>
+
+  <h2>Funding mechanics live on separate pages</h2>
+  <p>
+    Gift letters, path-of-funds tracing, and country-specific remittance rules are real constraints — but they are the
+    mechanics layer, not the strategy layer. For China- and India-focused funding detail, see
+    <a href="/pathways/eb5-for-chinese-families">how Chinese parents can fund an EB-5 investment</a> and
+    <a href="/pathways/eb5-for-indian-families">how Indian families can fund an EB-5 investment</a>. Use those guides once
+    the family has decided EB-5 is worth evaluating as part of the education plan.
+  </p>
+</PathwayLandingLayout>

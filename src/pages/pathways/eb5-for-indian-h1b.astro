@@ -1,0 +1,85 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 for Indian H-1B Professionals | StudentEB5';
+const metaDescription =
+  'EB-5 for Indian H-1B professionals explains why India EB-2/EB-3 backlog dynamics lead some holders to evaluate EB-5’s different visa allocation mechanics, including consulting-arrangement workers.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-indian-h1b`;
+const h1 = 'EB-5 for Indian H-1B Professionals';
+const subhead =
+  'Why some Indian H-1B holders evaluate EB-5 when employment-based green card timelines tied to India chargeability feel out of their control.';
+
+const relatedResearch = [
+  {
+    title: 'Best Immigration Backup Plan for Indian Tech Workers',
+    url: '/research/best-immigration-backup-plan-indian-tech-workers-2026',
+    description: 'Parallel planning for Indian tech workers facing lottery and backlog uncertainty.',
+  },
+  {
+    title: 'H-1B to Green Card via EB-5',
+    url: '/pathways/h1b-to-green-card',
+    description: 'Shared H-1B concurrent-filing and employer-independence mechanics.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 for Indian H-1B Holders"
+  breadcrumbTitle="EB-5 for Indian H-1B"
+  keywords={[
+    'EB-5 for Indian H-1B',
+    'India EB-2 EB-3 backlog EB-5',
+    'Indian tech workers EB-5',
+    'H-1B consulting EB-5',
+  ]}
+>
+  <h2>India chargeability and why EB-5 enters the conversation</h2>
+  <p>
+    Many Indian H-1B professionals eventually reach an employment-based green card petition — typically EB-2 or EB-3 —
+    only to find that India-chargeable demand has historically produced long queues under per-country limits. Exact wait
+    times change and should be checked against the current
+    <a
+      href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+      target="_blank"
+      rel="noopener noreferrer">Visa Bulletin</a
+    >; this page does not cite specific multi-year estimates that go stale. EB-5 uses a different visa allocation
+    structure, including reserved categories that some Indian professionals evaluate as a parallel track. EB-5 still has
+    its own rules, capital requirements, and category dynamics — it is not a guaranteed faster outcome. For shared H-1B
+    concurrent-filing and employer-independence mechanics (without repeating them here), see
+    <a href="/pathways/h1b-to-green-card">H-1B to green card via EB-5</a>.
+  </p>
+
+  <h2>A separate process from your H-1B employer petition</h2>
+  <p>
+    Once an EB-5 petition is filed, it does not depend on H-1B lottery selection, PERM sponsorship, or continued
+    employer willingness to pursue an employment-based case. That separation is why some Indian professionals treat EB-5
+    as a backup or primary track while remaining on H-1B. Deeper framing for Indian tech workers is in
+    <a href="/research/best-immigration-backup-plan-indian-tech-workers-2026"
+      >Best Immigration Backup Plan for Indian Tech Workers</a
+    >.
+  </p>
+
+  <h2>IT staffing and consulting H-1B holders</h2>
+  <p>
+    A large segment of Indian H-1B professionals work through IT staffing or consulting arrangements rather than as
+    direct hires of the end client. Those arrangements can add layers of uncertainty — project placement, vendor
+    contracts, and sponsorship that sits with the consulting employer rather than the worksite company. EB-5's
+    employer-independence applies the same way regardless of consulting versus direct-hire status: the green card case
+    stands on the investor's qualifying investment and petition, not on who signs the H-1B or who staffs the project.
+    Individual eligibility and timing still need attorney review.
+  </p>
+
+  <h2>Next steps</h2>
+  <p>
+    For investment thresholds, I-526E filing sequence, and project selection basics aimed at Indian nationals, see
+    <a href="/pathways/eb5-for-indian-investors">EB-5 for Indian investors</a>. For the full process overview, see the
+    <a href="/eb5-investment-process">EB-5 investment process</a>.
+  </p>
+</PathwayLandingLayout>

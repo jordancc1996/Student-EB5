@@ -1,0 +1,47 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 Projects With I-956F Approval | StudentEB5';
+const metaDescription =
+  'What I-956F approval means for an EB-5 project, why it is one diligence factor among several, and where to read more about evaluating projects that are still pending approval.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/i956f-approved-eb5-projects`;
+const h1 = 'EB-5 Projects With I-956F Approval';
+const subhead =
+  'What USCIS Form I-956F approval signals — and what it does not replace in your project diligence.';
+
+const relatedResearch = [
+  {
+    title: 'EB-5 Projects Without I-956F — Due Diligence',
+    url: '/research/evaluating-eb5-projects-pending-i956f',
+    description: 'How to evaluate projects that have not yet received I-956F approval.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 Project Approvals"
+  breadcrumbTitle="I-956F Approved EB-5 Projects"
+  keywords={['I-956F approved EB-5', 'EB-5 I-956F', 'EB-5 project approval']}
+>
+  <p>
+    Form I-956F is the application a regional center files for approval of an investment offering / project under the
+    EB-5 Reform and Integrity Act framework. When USCIS approves an I-956F, it has reviewed aspects of that offering’s
+    compliance and job-creation methodology as presented in the filing. That review is meaningful diligence context —
+    it is not a substitute for independent review of the business plan, capital stack, sponsor history, or offering
+    documents, and it does not assure immigration approval or return of capital for any investor.
+  </p>
+  <p>
+    Some investors also evaluate projects that are still pending I-956F adjudication. That situation involves different
+    timing and documentation questions. Read the fuller discussion in
+    <a href="/research/evaluating-eb5-projects-pending-i956f">evaluating EB-5 projects pending I-956F</a>, then return to
+    <a href="/pathways/eb5-project-due-diligence">project due diligence</a> and
+    <a href="/pathways/eb5-risk-and-due-diligence">risk and due diligence</a> for broader framing.
+  </p>
+</PathwayLandingLayout>

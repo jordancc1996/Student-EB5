@@ -1,0 +1,64 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 for Graduate Students | StudentEB5';
+const metaDescription =
+  'EB-5 for graduate students covers how master’s and PhD timelines can create more room to prepare source-of-funds documentation before program completion.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-graduate-students`;
+const h1 = 'EB-5 for Graduate Students';
+const subhead =
+  'What master\'s and PhD students should know about timing an EB-5 investment around a longer academic program.';
+
+const relatedResearch = [
+  {
+    title: 'F-1 Student to EB-5 Self-Sponsored Green Card',
+    url: '/pathways/f1-to-eb5-self-sponsored-green-card',
+    description: 'Student pathway overview from F-1 through concurrent filing.',
+  },
+  {
+    title: 'International Student Playbook',
+    url: '/eb5-green-card-international-students-playbook',
+    description: 'Practical playbook for international students evaluating EB-5 timing.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 Timing for Graduate Students"
+  breadcrumbTitle="EB-5 for Graduate Students"
+  keywords={['EB-5 for graduate students', 'PhD EB-5', 'master\'s student EB-5', 'F-1 graduate EB-5 timing']}
+>
+  <h2>Longer programs can change the preparation window</h2>
+  <p>
+    Master's and PhD programs often run longer than undergraduate degrees. That longer calendar can give families more
+    time to assemble source-of-funds documentation, clarify gift or loan structures, and evaluate projects before
+    graduation — without treating the academic program itself as an immigration benefit. EB-5 still requires a qualifying
+    investment and a complete petition; a longer degree does not shorten adjudication or guarantee visa availability.
+  </p>
+
+  <h2>Funding nuances for graduate students</h2>
+  <p>
+    Graduate funding often looks different from undergraduate family support. Research assistantships, stipends, fellowships,
+    and university employment can coexist with parental gifts, but each stream needs a clear paper trail if it becomes
+    part of — or sits alongside — EB-5 capital. USCIS evaluates lawful origin and path of funds based on the facts of the
+    case. Students who receive university pay should not assume those wages alone fund an EB-5 investment; many graduate
+    petitions still rely on documented family capital. For the core student pathway, see
+    <a href="/pathways/f1-to-eb5-self-sponsored-green-card">F-1 to EB-5</a>. For a broader student checklist, use the
+    <a href="/eb5-green-card-international-students-playbook">International Student Playbook</a>.
+  </p>
+
+  <h2>Timing relative to graduation and OPT</h2>
+  <p>
+    Some graduate students begin EB-5 planning mid-program so that I-526E readiness is not compressed into the first OPT
+    year. Others wait until near graduation. Either approach should be checked against current program rules, investment
+    thresholds, and attorney advice. For the filing sequence itself, see the
+    <a href="/eb5-investment-process">EB-5 investment process</a> rather than re-deriving every step on this page.
+  </p>
+</PathwayLandingLayout>

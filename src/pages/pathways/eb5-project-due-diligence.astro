@@ -1,0 +1,47 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 Project Due Diligence | StudentEB5';
+const metaDescription =
+  'EB-5 project due diligence explains why project selection matters and points to a structured question list for evaluating rural and other EB-5 offerings before you commit capital.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-project-due-diligence`;
+const h1 = 'EB-5 Project Due Diligence';
+const subhead =
+  'Why project selection sits at the center of both immigration and capital outcomes — and where to find a fuller diligence checklist.';
+
+const relatedResearch = [
+  {
+    title: '19 Questions for Rural EB-5 Project Due Diligence',
+    url: '/research/19-questions-rural-eb5-project-due-diligence',
+    description: 'Primary checklist-style guide for rural project questions.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 Project Diligence"
+  breadcrumbTitle="EB-5 Project Due Diligence"
+  keywords={['EB-5 project due diligence', 'EB-5 project selection', 'rural EB-5 diligence']}
+>
+  <p>
+    An EB-5 petition rises or falls on more than forms and fees. The underlying project’s ability to create jobs, deploy
+    capital as described, and operate through the sustainment period affects both immigration eligibility and whether
+    invested principal is later returned. Project selection is therefore one of the most consequential decisions in the
+    process — and it cannot be reduced to a single approval stamp or marketing claim.
+  </p>
+  <p>
+    Use this page as a hand-off to deeper material. The structured question list for rural offerings is here:
+    <a href="/research/19-questions-rural-eb5-project-due-diligence"
+      >19 questions for rural EB-5 project due diligence</a
+    >. For reserved-category context, see
+    <a href="/pathways/rural-eb5">Rural EB-5</a>. For how capital risk works under program rules, see
+    <a href="/pathways/eb5-risk-and-due-diligence">EB-5 risk and due diligence</a>.
+  </p>
+</PathwayLandingLayout>

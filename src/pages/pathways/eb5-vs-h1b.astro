@@ -1,0 +1,78 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const title = 'EB-5 vs. H-1B | StudentEB5';
+const metaDescription =
+  'EB-5 vs. H-1B compares an investment-based green card path with employer-tied temporary work status — for readers still deciding between the two frameworks early in their research.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-vs-h1b`;
+const h1 = 'EB-5 vs. H-1B';
+const subhead =
+  'A short side-by-side for people still deciding between employer-sponsored temporary status and an investment-based immigrant path.';
+
+const relatedResearch = [
+  {
+    title: 'H-1B vs EB-5 Lifetime Cost — Indian and Chinese Students',
+    url: '/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students',
+    description: 'Lifetime cost and visa-path tradeoffs for students comparing H-1B and EB-5.',
+  },
+  {
+    title: 'H-1B to Green Card via EB-5',
+    url: '/pathways/h1b-to-green-card',
+    description: 'Deeper content for readers already exploring EB-5 from an H-1B starting point.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 and H-1B Tradeoffs"
+  breadcrumbTitle="EB-5 vs. H-1B"
+  keywords={['EB-5 vs H-1B', 'H-1B or EB-5', 'investment vs H-1B']}
+>
+  <h2>Two different kinds of status</h2>
+  <div class="not-prose grid md:grid-cols-2 gap-6 mb-6">
+    <div class="rounded-lg border border-border bg-card p-6">
+      <h3 class="font-serif text-xl font-semibold text-foreground mb-3">H-1B</h3>
+      <p class="text-muted-foreground leading-relaxed m-0" style="line-height: 1.75;">
+        Temporary, employer-sponsored nonimmigrant work status. Subject to lottery/cap rules for many new petitions,
+        tied to a specific employer relationship, and typically followed — if a green card is the goal — by a separate
+        employment-based immigrant petition with its own queue and chargeability rules.
+      </p>
+    </div>
+    <div class="rounded-lg border border-border bg-card p-6">
+      <h3 class="font-serif text-xl font-semibold text-foreground mb-3">EB-5</h3>
+      <p class="text-muted-foreground leading-relaxed m-0" style="line-height: 1.75;">
+        Immigrant investor category. Built around a qualifying investment, source-of-funds documentation, and
+        job-creation requirements. Not lottery-based and not dependent on an employer sponsor for the immigrant petition
+        itself. Capital remains at risk under program rules.
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="not-prose rounded-lg border-2 border-foreground/20 bg-secondary/50 p-5 mb-8"
+    role="note"
+  >
+    <p class="text-sm text-muted-foreground leading-relaxed m-0" style="line-height: 1.7;">
+      H-1B and EB-5 are not interchangeable substitutes. Some people pursue H-1B first and evaluate EB-5 later; others
+      reverse that order or run parallel plans. Fit depends on capital, career stage, country of birth, and risk
+      tolerance — review with an immigration attorney and, for EB-5 capital decisions, a financial adviser.
+    </p>
+  </div>
+
+  <h2>Where to go deeper</h2>
+  <p>
+    Cost and lifetime-path framing for students:
+    <a href="/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students"
+      >H-1B vs EB-5 lifetime cost</a
+    >. If you are already on H-1B and exploring EB-5 as an alternative or parallel track, use the fuller H-1B pathway
+    page:
+    <a href="/pathways/h1b-to-green-card">H-1B to green card via EB-5</a>.
+  </p>
+</PathwayLandingLayout>

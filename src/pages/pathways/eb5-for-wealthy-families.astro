@@ -1,0 +1,86 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
+
+const title = 'EB-5 for High-Net-Worth Families | StudentEB5';
+const metaDescription =
+  'EB-5 for high-net-worth families focuses on residency planning, children’s education timing, and comparing EB-5 to other global investment-migration options when the TEA threshold is not the binding constraint.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-wealthy-families`;
+const h1 = 'EB-5 for High-Net-Worth Families';
+const subhead =
+  'When the capital threshold is not the hard part — and family residency, education timing, and global mobility options drive the EB-5 conversation instead.';
+
+const teaFormatted = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 0,
+}).format(TEA_INVESTMENT_THRESHOLD);
+
+const relatedResearch = [
+  {
+    title: 'Golden Visas vs EB-5 for Elite Students',
+    url: '/research/golden-visas-vs-eb5-elite-students',
+    description: 'Side-by-side framing of EB-5 and other investment-migration programs for student families.',
+  },
+  {
+    title: 'Golden Visa Global Education — Student Stories',
+    url: '/research/golden-visa-global-education-student-stories',
+    description: 'How education goals intersect with residency and investment-migration planning.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone About EB-5 for High-Net-Worth Families"
+  breadcrumbTitle="EB-5 for High-Net-Worth Families"
+  keywords={[
+    'EB-5 for high-net-worth families',
+    'EB-5 family residency planning',
+    'EB-5 vs golden visa',
+    'investment migration education',
+  ]}
+>
+  <Fragment slot="extraCompliance">
+    <p class="text-sm text-muted-foreground leading-relaxed border border-border rounded-lg bg-secondary/40 p-4 m-0">
+      EB-5 investment involves financial risk, including potential loss of principal, and does not guarantee a green
+      card, visa availability, or any specific processing time. Comparisons to other residency or investment-migration
+      programs are educational only and are not recommendations. Consult a qualified immigration attorney and a
+      FINRA-registered financial adviser for guidance specific to your situation.
+    </p>
+  </Fragment>
+
+  <h2>When {teaFormatted} is not the binding constraint</h2>
+  <p>
+    For some families, the Targeted Employment Area (TEA) investment threshold of {teaFormatted} — capital only, before
+    fees and professional costs — is affordable relative to overall balance-sheet capacity. The harder questions become
+    structural: where the family wants long-term residency, how multiple children's U.S. education and immigration
+    clocks align, and whether a U.S. permanent-residence path should sit alongside or instead of other global
+    residency or investment-migration options. This page addresses that planning layer.
+  </p>
+
+  <h2>Family residency and multi-child timing</h2>
+  <p>
+    EB-5 can include a spouse and unmarried children under 21 as derivatives on the investor's petition when eligibility
+    rules are met. High-net-worth households often evaluate filing timing against several academic calendars at once —
+    staggered graduations, OPT windows, and aging-out risk for older children — rather than treating EB-5 as a single
+    adult's career move. Those interactions are case-specific; attorney review is required before assuming any child
+    remains eligible as a derivative.
+  </p>
+
+  <h2>Comparing EB-5 to other global options</h2>
+  <p>
+    Some families also review European or other investment-migration and “golden visa” style programs while considering
+    U.S. EB-5. Those programs differ in rights conferred, physical-presence rules, path to permanent residence or
+    citizenship, due diligence standards, and family coverage. This site does not recommend one over another. For
+    educational comparison framing aimed at student families, see
+    <a href="/research/golden-visas-vs-eb5-elite-students">golden visas vs EB-5 for elite students</a> and
+    <a href="/research/golden-visa-global-education-student-stories">golden visa global education student stories</a>.
+  </p>
+</PathwayLandingLayout>

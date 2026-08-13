@@ -1,0 +1,140 @@
+---
+import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
+
+const title = 'EB-5 Visa for Indian Investors: A 2026 Guide | StudentEB5';
+const metaDescription =
+  'EB-5 for Indian investors covers investment requirements, India chargeability basics, I-526E filing, and project selection for Indian nationals evaluating the program in 2026.';
+const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-indian-investors`;
+const h1 = 'EB-5 Visa for Indian Investors: A 2026 Guide for Indian Nationals';
+const subhead =
+  'What Indian nationals need to know about investment requirements, visa category timing, and the filing process before pursuing an EB-5 green card.';
+
+const teaFormatted = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 0,
+}).format(TEA_INVESTMENT_THRESHOLD);
+
+const relatedResearch = [
+  {
+    title: 'EB-5 Guide for Indian Professionals — 2026',
+    url: '/research/eb5-guide-indian-professionals-2026',
+    description: 'Program structure and decision framing for Indian professionals evaluating EB-5.',
+  },
+  {
+    title: 'Best Immigration Backup Plan for Indian Tech Workers',
+    url: '/research/best-immigration-backup-plan-indian-tech-workers-2026',
+    description: 'Why many Indian H-1B holders treat EB-5 as a parallel planning track.',
+  },
+];
+---
+
+<PathwayLandingLayout
+  title={title}
+  metaDescription={metaDescription}
+  canonicalUrl={canonicalUrl}
+  h1={h1}
+  subhead={subhead}
+  relatedResearch={relatedResearch}
+  secondaryCtaText="Talk to Someone Who Understands EB-5 for Indian Investors"
+  breadcrumbTitle="EB-5 for Indian Investors"
+  keywords={[
+    'EB-5 for Indian investors',
+    'EB-5 India 2026',
+    'Indian nationals EB-5',
+    'EB-5 visa India',
+  ]}
+>
+  <Fragment slot="extraCompliance">
+    <p class="text-sm text-muted-foreground leading-relaxed border border-border rounded-lg bg-secondary/40 p-4 m-0">
+      EB-5 investment involves financial risk, including potential loss of principal, and does not guarantee a green
+      card, visa availability, or any specific processing time. Consult a qualified immigration attorney and a
+      FINRA-registered financial adviser for guidance specific to your situation.
+    </p>
+  </Fragment>
+
+  <p>
+    The EB-5 Immigrant Investor Program gives eligible foreign nationals a path to a U.S. green card through a
+    qualifying investment. Indian nationals — including investors abroad and professionals already in the U.S. on
+    nonimmigrant status — evaluate the program for different reasons than many other country groups, largely because
+    employment-based categories chargeable to India have historically faced significant demand. This guide covers what
+    Indian investors need to evaluate before filing.
+  </p>
+
+  <h2>Investment requirements</h2>
+  <p>
+    EB-5 requires a qualifying investment in a new commercial enterprise, structured to create the required number of
+    U.S. jobs. Most investors use the reduced Targeted Employment Area (TEA) investment threshold of {teaFormatted}
+    rather than the standard amount — see our full
+    <a href="/research/eb5-economic-calculus-investment-cost">EB-5 Investment Cost breakdown</a> for current figures.
+    These thresholds cover the capital investment amount only; they do not include USCIS filing fees, regional center
+    administrative fees, legal fees, or other costs.
+  </p>
+
+  <h2>Visa category and timing — what "country of birth" means for Indian investors</h2>
+  <p>
+    EB-5 visa numbers are allocated by country of birth (chargeability), not current citizenship or residence. India
+    has historically experienced significant EB-2 and EB-3 employment-based backlogs under per-country limits, which is
+    part of why some Indian professionals evaluate EB-5's different visa allocation mechanics — including reserved
+    categories such as rural and infrastructure set-asides. EB-5 still has its own category rules and demand patterns;
+    it is not a guaranteed shortcut. Visa availability changes over time. Investors should review current
+    <a
+      href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+      target="_blank"
+      rel="noopener noreferrer">Visa Bulletin</a
+    > data and discuss their specific timeline with an immigration attorney rather than relying on general estimates. For
+    program structure context, see the
+    <a href="/research/complete-2027-eb5-guide">complete EB-5 guide</a> and our
+    <a href="/research/eb5-guide-indian-professionals-2026">EB-5 guide for Indian professionals</a>.
+  </p>
+
+  <h2>The filing process, in brief</h2>
+  <ol>
+    <li>Select a project and complete source-of-funds documentation</li>
+    <li>
+      File Form I-526E (with concurrent adjustment of status filing for investors already in the U.S. on a valid
+      nonimmigrant status, or consular processing for investors abroad)
+    </li>
+    <li>Receive work authorization and travel document during the concurrent filing period, where applicable</li>
+    <li>Await visa number availability and I-526E adjudication</li>
+    <li>File Form I-829 to remove conditions on permanent residence</li>
+  </ol>
+  <p>
+    For the full step-by-step guide, see the
+    <a href="/eb5-investment-process">EB-5 investment process</a>.
+  </p>
+
+  <h2>Choosing a project</h2>
+  <p>
+    Project selection is one of the most consequential decisions in the EB-5 process. Regional centers with USCIS
+    I-956F approval have had their compliance and job-creation methodology reviewed by USCIS, which is one factor —
+    not the only factor — in evaluating a project. See our
+    <a href="/research/19-questions-rural-eb5-project-due-diligence">due diligence guide</a> and
+    <a href="/research/choosing-rural-eb5-regional-center-guide">rural EB-5 regional center guide</a> for the fuller list
+    of questions to ask before committing capital.
+  </p>
+
+  <h2>For students and H-1B professionals</h2>
+  <div class="not-prose grid md:grid-cols-2 gap-6 mb-6">
+    <a
+      href="/pathways/eb5-for-indian-students"
+      class="block rounded-lg border border-border bg-card p-6 hover:border-primary hover:shadow-md transition-all duration-150"
+    >
+      <h3 class="font-serif text-xl font-semibold text-foreground mb-2">EB-5 for Indian International Students</h3>
+      <p class="text-muted-foreground leading-relaxed m-0" style="line-height: 1.75;">
+        If you're currently on F-1 status and evaluating EB-5 as an alternative to the H-1B path, start here.
+      </p>
+    </a>
+    <a
+      href="/pathways/eb5-for-indian-h1b"
+      class="block rounded-lg border border-border bg-card p-6 hover:border-primary hover:shadow-md transition-all duration-150"
+    >
+      <h3 class="font-serif text-xl font-semibold text-foreground mb-2">EB-5 for Indian H-1B Professionals</h3>
+      <p class="text-muted-foreground leading-relaxed m-0" style="line-height: 1.75;">
+        If you're on H-1B and weighing EB-5 against India EB-2/EB-3 backlog dynamics, start here.
+      </p>
+    </a>
+  </div>
+</PathwayLandingLayout>
