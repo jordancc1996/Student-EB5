@@ -142,6 +142,47 @@ export function splitArticleContent(content: string): {
   };
 }
 
+/**
+ * Split article markdown at the first H2 so a post-intro CTA can sit between
+ * introductory content and the first section heading.
+ */
+export function splitArticleBeforeFirstH2(content: string): {
+  introHtml: string;
+  bodyMarkdown: string;
+  showPostIntroCta: boolean;
+} {
+  const cleaned = stripInlineArticleDisclaimer(content);
+  const lines = cleaned.split('\n');
+  const firstH2Index = lines.findIndex(isH2Line);
+
+  if (firstH2Index <= 0) {
+    return {
+      introHtml: '',
+      bodyMarkdown: cleaned,
+      showPostIntroCta: false,
+    };
+  }
+
+  const introLines = lines.slice(0, firstH2Index);
+  const bodyLines = lines.slice(firstH2Index);
+  const introHtml = renderArticleContentLines(introLines);
+  const hasVisibleIntro = introLines.some((line) => line.trim().length > 0);
+
+  return {
+    introHtml,
+    bodyMarkdown: bodyLines.join('\n'),
+    showPostIntroCta: hasVisibleIntro,
+  };
+}
+
+/** Detect an already-embedded post-intro pathways CTA in article HTML/markdown. */
+export function articleAlreadyHasPostIntroCta(htmlOrMarkdown: string): boolean {
+  return (
+    /data-post-intro-cta/i.test(htmlOrMarkdown) ||
+    /Considering EB-5\?\s*See Your Next Step/i.test(htmlOrMarkdown)
+  );
+}
+
 export function resolveAssetSrc(value: string | { src: string }): string {
   return typeof value === 'string' ? value : value.src;
 }

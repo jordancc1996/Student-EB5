@@ -11,10 +11,13 @@ import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import ShareButtons from '@/components/ShareButtons';
 import MidArticleCTA from '@/components/MidArticleCTA';
+import PostIntroCTA from '@/components/research/PostIntroCTA.astro';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateArticleSchema } from '@/lib/seo/structured-data';
 import {
   splitArticleContent,
+  splitArticleBeforeFirstH2,
+  articleAlreadyHasPostIntroCta,
   resolveAbsoluteAssetUrl,
 } from '@/lib/research/renderArticleContent';
 import { extractArticleH2s, buildTocItems } from '@/lib/research/articleHeadings';
@@ -69,7 +72,12 @@ const articleSchema = {
   },
 };
 
-const { firstHalfHtml, secondHalfHtml, showMidSplit } = splitArticleContent(entry.body);
+const { introHtml, bodyMarkdown, showPostIntroCta } = splitArticleBeforeFirstH2(entry.body);
+const { firstHalfHtml, secondHalfHtml, showMidSplit } = splitArticleContent(
+  showPostIntroCta ? bodyMarkdown : entry.body,
+);
+const renderPostIntroCta =
+  showPostIntroCta && !articleAlreadyHasPostIntroCta(entry.body);
 
 const tocItems = buildTocItems(extractArticleH2s(entry.body), post.tocLabels);
 
@@ -215,7 +223,17 @@ const relatedPosts = allPosts
           <div class="max-w-4xl mx-auto">
             <ArticleTocRail items={tocItems} category={post.category}>
               <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
-              <div class="article-content" set:html={firstHalfHtml} />
+              {
+                showPostIntroCta ? (
+                  <>
+                    <div class="article-content" set:html={introHtml} />
+                    {renderPostIntroCta && <PostIntroCTA />}
+                    <div class="article-content" set:html={firstHalfHtml} />
+                  </>
+                ) : (
+                  <div class="article-content" set:html={firstHalfHtml} />
+                )
+              }
               {showMidSplit && <MidArticleCTA client:visible category={post.category} />}
               {secondHalfHtml && <div class="article-content" set:html={secondHalfHtml} />}
             </ArticleTocRail>
