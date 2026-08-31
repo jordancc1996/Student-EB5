@@ -50,7 +50,7 @@ Site domain: https://www.studenteb5.com/
 | evaluating-eb5-projects-pending-i956f | EB-5 projects pending I-956F |
 | f1-students/eb5-funding-strategies-students | EB-5 funding strategies students |
 | f1-students/f1-to-eb5-green-card | **F-1 to EB-5 green card / OPT to EB-5 (pillar)** |
-| f1-students/stem-opt-eb5-indian-chinese | **STEM OPT EB-5 Indian Chinese students** (cap-gap, D/S NPRM 2026, STEM OPT extension risk) |
+| f1-students/eb5-indian-chinese-students-f1-stem-opt | **EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT** (cap-gap strategy, D/S NPRM 2026, STEM OPT extension risk); former slug `f1-students/stem-opt-eb5-indian-chinese` redirects |
 | golden-visa-global-education-student-stories | golden visa education student stories |
 | golden-visas-vs-eb5-elite-students | golden visas vs EB-5 elite students |
 | h1b-60-day-grace-period-layoff-guide | H-1B 60-day grace period layoff |
@@ -94,7 +94,7 @@ Site domain: https://www.studenteb5.com/
 
 ---
 
-## H2 inventory addition — `f1-students/stem-opt-eb5-indian-chinese`
+## H2 inventory addition — `f1-students/eb5-indian-chinese-students-f1-stem-opt`
 
 - STEM OPT Structure, I-765 Timing, and Extension Risk
 - 2026 Regulatory Threats: Duration of Status and OPT Re-Evaluation
@@ -110,11 +110,12 @@ Site domain: https://www.studenteb5.com/
 | Date | Slug | Primary keyword | Outcome |
 |------|------|-----------------|---------|
 | 2026-08-04 | `f1-students/stem-opt-eb5-indian-chinese` | STEM OPT EB-5 Indian Chinese students | OUTCOME B (STEM OPT + D/S NPRM + cap-gap lead; short EB-5 sections; reciprocal link from F-1 pillar) |
+| 2026-08-31 | `f1-students/eb5-indian-chinese-students-f1-stem-opt` | EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT | OUTCOME B retitle/slug (cap-gap + STEM OPT + D/S differentiation; do not re-own F-1 pillar / concurrent filing / grandfathering); old slug redirects |
 
-### Keyword ownership — `f1-students/stem-opt-eb5-indian-chinese`
+### Keyword ownership — `f1-students/eb5-indian-chinese-students-f1-stem-opt`
 
 | Role | Keyword |
 |------|---------|
-| Primary | STEM OPT EB-5 Indian Chinese students |
-| Secondary | F-1 Duration of Status NPRM 2026; STEM OPT cap gap H-1B; STEM OPT extension risks Indian Chinese |
-| Forbidden (do not re-own) | F-1 to EB-5 green card; immigration backup plan Indian tech workers; EB-5 grandfathering deadline deep-dive; EB-5 concurrent filing J-1 F-1 H-1B process |
+| Primary | EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT |
+| Secondary | STEM OPT cap-gap strategy; F-1 Duration of Status NPRM 2026; STEM OPT extension risks Indian Chinese |
+| Forbidden (do not re-own) | F-1 to EB-5 green card; immigration backup plan Indian tech workers; EB-5 grandfathering deadline deep-dive; EB-5 concurrent filing J-1 F-1 H-1B process; pathway primary keywords for `/pathways/eb5-for-indian-students` and `/pathways/eb5-for-chinese-students` |

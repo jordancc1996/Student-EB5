@@ -83,6 +83,8 @@ export default defineConfig({
     '/tools/concurrent-filing-checker': '/tools/eb5-concurrent-filing-eligibility',
     '/tools/eb5-feasibility': '/tools/2026-eb5-investment-feasibility-calculator',
     '/student-playbook': '/eb5-green-card-international-students-playbook',
+    '/research/f1-students/stem-opt-eb5-indian-chinese':
+      '/research/f1-students/eb5-indian-chinese-students-f1-stem-opt',
   },
   vite: {
     resolve: {

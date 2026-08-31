@@ -1,9 +1,9 @@
 ---
 id: 46
-slug: f1-students/stem-opt-eb5-indian-chinese
-title: "STEM OPT EB-5 Indian Chinese Students - Cap-Gap Strategy"
-metaTitle: "STEM OPT EB-5 Indian Chinese Students - Cap-Gap Strategy | StudentEB5"
-metaDescription: "STEM OPT EB-5 Indian Chinese students face 2026 Duration of Status risks, an 85,000 H-1B cap lottery, and the Sept 30, 2026 grandfathering deadline."
+slug: f1-students/eb5-indian-chinese-students-f1-stem-opt
+title: "EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT | Analysis of the Cap-Gap Strategy"
+metaTitle: "EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT | Analysis of the Cap-Gap Strategy | StudentEB5"
+metaDescription: "EB-5 for Indian and Chinese students on F-1 and STEM OPT covers cap-gap timing, the 85,000 H-1B lottery, and the Sept 30, 2026 grandfathering deadline."
 excerpt: Indian and Chinese STEM OPT students face 2026 Duration of Status proposals, OPT re-evaluation, and H-1B cap-gap risk. This article maps STEM OPT timing against EB-5 as a self-sponsored backup before the September 30, 2026 grandfathering deadline.
 date: August 4, 2026
 category: Student Guide
@@ -13,7 +13,7 @@ heroImage: ../../../assets/blog-stem-opt-eb5-indian-chinese.jpg
 imageAlt: Indian and Chinese STEM OPT students talking on a campus plaza about immigration backup plans
 author: StudentEB5 Team
 keywords:
-  - STEM OPT EB-5 Indian Chinese students
+  - EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT
   - STEM OPT cap gap strategy
   - Duration of Status NPRM F-1 2026
   - STEM OPT extension risks
@@ -27,7 +27,7 @@ relatedPosts:
   - eb5-grandfathering-2026-2027-deadlines
 ---
 
-<intro>STEM OPT EB-5 Indian Chinese students need a 2026 backup plan as F-1, OPT, and STEM OPT rules tighten and H-1B lottery odds stay low. Optional Practical Training has long given graduates a structured window to work in the United States. STEM OPT can add 24 months after the initial 12-month OPT period, for up to three years of post-completion work authorization. That pathway is less predictable in 2026 than it was in prior years. Proposed F-1 rule changes, harder nonimmigrant-intent scrutiny, weak H-1B selection rates, and ongoing tech layoffs have raised the cost of relying only on employer-sponsored status. More STEM OPT graduates from India and China now treat EB-5 as either a primary route to permanent residency or a deliberate backup before work authorization ends.</intro>
+<intro>EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT can provide an alternative path to a U.S. green card. Optional Practical Training has long given graduates a structured path to work in the United States. STEM OPT can add 24 months after the initial 12 month OPT period, for up to three years of post-completion work authorization. That pathway has become less predictable and less certain in 2026 than in prior years. The current administration has been critical of F-1 and OPT, and with ongoing tech layoffs and weak H-1B selection rates, more STEM OPT international students from India and China now treat EB-5 as the primary route to permanent residency.</intro>
 
 ## STEM OPT Structure, I-765 Timing, and Extension Risk
 
@@ -62,6 +62,8 @@ For the full F-1 filing roadmap, intent timing, and process detail, use the <a h
 ## Concurrent Filing in Brief
 
 The EB-5 Reform and Integrity Act of 2022 allows eligible investors already in lawful U.S. status to file Form I-526E together with Form I-485. Concurrent filing supports requests for an Employment Authorization Document and Advance Parole. After EAD approval, the investor can work without OPT employer limits or H-1B sponsorship, which changes the risk profile for STEM OPT students racing a fixed end date.
+
+![STEM researchers in a modern laboratory using a microscope and pipette while reviewing data on laptops](/images/stem-opt-research-lab-team.jpg)
 
 For process detail across F-1, J-1, and H-1B, see <a href="/research/j1-f1-h1b-eb5-concurrent-filing">EB-5 concurrent filing for J-1, F-1, and H-1B</a>.
 
