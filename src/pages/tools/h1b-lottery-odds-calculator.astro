@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 import H1BLotteryCalculatorMainContent from '@/components/H1BLotteryCalculatorMainContent';
+import LastUpdated from '@/components/LastUpdated.astro';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { Toaster } from '@/components/ui/toaster';
 import heroImage from '@/assets/h1b-lottery-hero.jpg';
 import { SITE_CONFIG } from '@/lib/seo/config';
@@ -20,6 +22,7 @@ const keywords = [
   'wage-weighted H-1B lottery',
   'H-1B selection probability',
 ];
+const lastUpdatedIso = getPageLastUpdated('/tools/h1b-lottery-odds-calculator');
 ---
 
 <Layout>
@@ -65,6 +68,10 @@ const keywords = [
         customTitle="H-1B Lottery Odds Calculator"
         initialPathname="/tools/h1b-lottery-odds-calculator"
       />
+
+      <div class="py-3">
+        <LastUpdated date={lastUpdatedIso} />
+      </div>
 
       <H1BLotteryCalculatorMainContent client:load />
     </main>

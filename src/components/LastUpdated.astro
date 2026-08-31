@@ -1,0 +1,43 @@
+---
+import { formatDisplayDate, toIsoDate } from '@/lib/lastUpdated';
+
+interface Props {
+  /** ISO (YYYY-MM-DD) or human-readable page date */
+  date: string;
+  /** Visual context: default muted text, onDark for hero overlays */
+  variant?: 'default' | 'onDark';
+  /** Extra classes on the outer wrapper */
+  class?: string;
+  /** When false, omit the "Last updated: " label prefix (rare) */
+  showLabel?: boolean;
+  /** Use span for inline meta rows; p for block placement under titles */
+  as?: 'p' | 'span';
+}
+
+const {
+  date,
+  variant = 'default',
+  class: className = '',
+  showLabel = true,
+  as = 'p',
+} = Astro.props;
+
+const iso = toIsoDate(date);
+const display = formatDisplayDate(date);
+const colorClass =
+  variant === 'onDark' ? 'text-white/90' : 'text-muted-foreground';
+const Tag = as;
+---
+
+<Tag class={`text-sm font-medium tracking-wide ${colorClass} ${className}`.trim()}>
+  {
+    showLabel ? (
+      <>
+        Last updated:{' '}
+        <time datetime={iso}>{display}</time>
+      </>
+    ) : (
+      <time datetime={iso}>{display}</time>
+    )
+  }
+</Tag>

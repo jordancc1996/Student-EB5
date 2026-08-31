@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 import EB5FeasibilityToolMainContent from '@/components/EB5FeasibilityToolMainContent';
+import LastUpdated from '@/components/LastUpdated.astro';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 Investment Feasibility Calculator - $800K TEA Eligibility Check | StudentEB5';
@@ -19,6 +21,7 @@ const keywords = [
   'EB-5 requirements',
 ];
 const feasibilityPath = '/tools/2026-eb5-investment-feasibility-calculator';
+const lastUpdatedIso = getPageLastUpdated(feasibilityPath);
 ---
 
 <Layout>
@@ -51,6 +54,10 @@ const feasibilityPath = '/tools/2026-eb5-investment-feasibility-calculator';
         />
       </div>
     </section>
+
+    <div class="container mx-auto px-4 py-3 max-w-4xl print:hidden">
+      <LastUpdated date={lastUpdatedIso} />
+    </div>
 
     <EB5FeasibilityToolMainContent client:load />
 

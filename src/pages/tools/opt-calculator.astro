@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 import OPTCalculatorMainContent from '@/components/OPTCalculatorMainContent';
+import LastUpdated from '@/components/LastUpdated.astro';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'OPT Calculator - F-1 Application and EAD Timelines | StudentEB5';
@@ -17,6 +19,7 @@ const keywords = [
   'F-1 OPT timeline',
   'OPT EAD start date',
 ];
+const lastUpdatedIso = getPageLastUpdated('/tools/opt-calculator');
 ---
 
 <Layout>
@@ -49,6 +52,10 @@ const keywords = [
       />
     </div>
   </section>
+
+  <div class="mx-auto px-10 py-3 max-w-[900px]">
+    <LastUpdated date={lastUpdatedIso} />
+  </div>
 
   <OPTCalculatorMainContent client:load />
 

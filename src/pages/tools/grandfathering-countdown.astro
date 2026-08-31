@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 import GrandfatheringCountdownMainContent from '@/components/GrandfatheringCountdownMainContent';
+import LastUpdated from '@/components/LastUpdated.astro';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 Grandfathering Countdown - Sept 30, 2026 RIA Deadline | StudentEB5';
@@ -17,6 +19,7 @@ const keywords = [
   'September 30 2026 RIA',
   'I-526E grandfathering',
 ];
+const lastUpdatedIso = getPageLastUpdated('/tools/grandfathering-countdown');
 ---
 
 <Layout>
@@ -49,6 +52,10 @@ const keywords = [
       />
     </div>
   </section>
+
+  <div class="container mx-auto px-6 py-3 max-w-4xl">
+    <LastUpdated date={lastUpdatedIso} />
+  </div>
 
   <GrandfatheringCountdownMainContent client:load />
 

@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 import AboutMainContent from '@/components/AboutMainContent';
+import LastUpdated from '@/components/LastUpdated.astro';
 import JourneyCTA from '@/components/JourneyCTA.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
@@ -12,6 +13,7 @@ import aboutHeroNew from '@/assets/about-hero-new.jpg';
 import aboutHeroNewWebp from '@/assets/about-hero-new.webp';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateAboutPageSchema } from '@/lib/seo/structured-data';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
 
 const title = 'EB-5 Immigration Advisors for F-1 and H-1B';
 const description =
@@ -28,6 +30,7 @@ const keywords = [
 ];
 
 const structuredData = generateAboutPageSchema();
+const lastUpdatedIso = getPageLastUpdated('/about');
 ---
 
 <Layout>
@@ -78,6 +81,7 @@ const structuredData = generateAboutPageSchema();
 
     <main class="container mx-auto px-6 pt-4 pb-8">
       <Breadcrumb client:load initialPathname="/about" />
+      <LastUpdated date={lastUpdatedIso} class="mb-4 mt-2" />
       <AboutMainContent />
     </main>
 

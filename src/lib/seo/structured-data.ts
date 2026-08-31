@@ -265,7 +265,13 @@ export function generateAboutPageSchema() {
   };
 }
 
-export function generateWebPageSchema(name: string, description: string, url: string, breadcrumbs?: BreadcrumbItem[]) {
+export function generateWebPageSchema(
+  name: string,
+  description: string,
+  url: string,
+  breadcrumbs?: BreadcrumbItem[],
+  dateModified?: string,
+) {
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -277,6 +283,10 @@ export function generateWebPageSchema(name: string, description: string, url: st
 
   if (breadcrumbs && breadcrumbs.length > 0) {
     schema.breadcrumb = generateBreadcrumbSchema(breadcrumbs);
+  }
+
+  if (dateModified) {
+    schema.dateModified = dateModified;
   }
 
   return schema;

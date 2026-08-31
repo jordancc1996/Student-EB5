@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 import ConcurrentFilingCheckerMainContent from '@/components/ConcurrentFilingCheckerMainContent';
+import LastUpdated from '@/components/LastUpdated.astro';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 Concurrent Filing Eligibility Checker - I-526E and I-485 Timing | StudentEB5';
@@ -19,6 +21,7 @@ const keywords = [
   'EAD EB-5',
   'Advance Parole EB-5',
 ];
+const lastUpdatedIso = getPageLastUpdated('/tools/eb5-concurrent-filing-eligibility');
 ---
 
 <Layout>
@@ -52,6 +55,10 @@ const keywords = [
         />
       </div>
     </section>
+
+    <div class="container mx-auto px-4 py-3 max-w-4xl">
+      <LastUpdated date={lastUpdatedIso} />
+    </div>
 
     <ConcurrentFilingCheckerMainContent client:load />
 

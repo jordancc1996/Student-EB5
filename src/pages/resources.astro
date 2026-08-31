@@ -4,11 +4,13 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 import ResourcesMainContent from '@/components/ResourcesMainContent';
+import LastUpdated from '@/components/LastUpdated.astro';
 import JourneyCTA from '@/components/JourneyCTA.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateWebPageSchema } from '@/lib/seo/structured-data';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
 
 const title = 'EB-5 Resources for International Students';
 const description =
@@ -29,11 +31,13 @@ const breadcrumbs = [
   { name: 'Resources', url: `${SITE_CONFIG.url}/resources` },
 ];
 
+const lastUpdatedIso = getPageLastUpdated('/resources');
 const structuredData = generateWebPageSchema(
   title,
   description,
   `${SITE_CONFIG.url}/resources`,
-  breadcrumbs
+  breadcrumbs,
+  lastUpdatedIso,
 );
 ---
 
@@ -61,6 +65,7 @@ const structuredData = generateWebPageSchema(
 
     <main class="container mx-auto px-6 pt-4 pb-8">
       <Breadcrumb client:load initialPathname="/resources" />
+      <LastUpdated date={lastUpdatedIso} class="mb-4 mt-2" />
       <ResourcesMainContent />
     </main>
 

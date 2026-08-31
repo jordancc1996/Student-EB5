@@ -20,6 +20,8 @@ import {
 import { extractArticleH2s, buildTocItems } from '@/lib/research/articleHeadings';
 import ArticleContents from '@/components/research/ArticleContents.astro';
 import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
+import LastUpdated from '@/components/LastUpdated.astro';
+import { resolveArticleLastUpdated, toIsoDate } from '@/lib/lastUpdated';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getCollection('blog');
@@ -47,14 +49,17 @@ const metaTitle = post.metaTitle.includes('StudentEB5')
   ? post.metaTitle
   : `${post.metaTitle} | StudentEB5`;
 const ogImage = resolveAbsoluteAssetUrl(post.image, SITE_CONFIG.url);
+const lastUpdatedDisplay = resolveArticleLastUpdated(post.date, post.updatedDate);
+const datePublishedIso = toIsoDate(post.date);
+const dateModifiedIso = toIsoDate(lastUpdatedDisplay);
 
 const articleSchema = {
   ...generateArticleSchema({
     headline: post.title,
     description: post.metaDescription,
     image: resolveAbsoluteAssetUrl(post.image, SITE_CONFIG.url),
-    datePublished: post.date,
-    dateModified: post.updatedDate || post.date,
+    datePublished: datePublishedIso,
+    dateModified: dateModifiedIso,
     author: post.author,
     keywords: post.keywords.join(', '),
   }),
@@ -120,16 +125,12 @@ const relatedPosts = allPosts
             <div class="research-article-meta flex flex-wrap items-center justify-center gap-6 text-white/90 font-medium">
               <div class="flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-                <span>Published {post.date}</span>
+                <span>Published <time datetime={datePublishedIso}>{post.date}</time></span>
               </div>
-              {
-                post.updatedDate && post.updatedDate !== post.date && (
-                  <div class="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-                    <span>Updated {post.updatedDate}</span>
-                  </div>
-                )
-              }
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+                <LastUpdated date={lastUpdatedDisplay} variant="onDark" as="span" class="!text-base !font-medium !text-white/90" />
+              </div>
               <div class="flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <span>{post.readTime}</span>
@@ -174,16 +175,12 @@ const relatedPosts = allPosts
                   </div>
                   <div class="research-article-meta flex items-center gap-2 text-muted-foreground font-medium">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-                    <span>Published {post.date}</span>
+                    <span>Published <time datetime={datePublishedIso}>{post.date}</time></span>
                   </div>
-                  {
-                    post.updatedDate && post.updatedDate !== post.date && (
-                      <div class="research-article-meta flex items-center gap-2 text-muted-foreground font-medium">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-                        <span>Updated {post.updatedDate}</span>
-                      </div>
-                    )
-                  }
+                  <div class="research-article-meta flex items-center gap-2 text-muted-foreground font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+                    <LastUpdated date={lastUpdatedDisplay} as="span" class="!text-base !font-medium" />
+                  </div>
                   <div class="research-article-meta flex items-center gap-2 text-muted-foreground font-medium">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     <span>{post.readTime}</span>
@@ -246,7 +243,8 @@ const relatedPosts = allPosts
           <footer class="mt-12 pt-8 border-t">
             <div class="flex items-center justify-between">
               <div class="article-footer-meta text-muted-foreground">
-                Published {post.date}{post.updatedDate && post.updatedDate !== post.date ? ` · Updated ${post.updatedDate}` : ''}
+                Published <time datetime={datePublishedIso}>{post.date}</time>
+                {` · Last updated: ${lastUpdatedDisplay}`}
               </div>
               <a
                 href="/contact"

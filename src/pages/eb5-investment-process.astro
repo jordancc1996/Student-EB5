@@ -3,8 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProcessFaqAccordion from '@/components/ProcessFaqAccordion';
+import LastUpdated from '@/components/LastUpdated.astro';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/seo/structured-data';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
 
 const title = 'EB-5 Investment Process - 9 Steps for F-1 and H-1B | StudentEB5';
 const description =
@@ -12,6 +14,7 @@ const description =
 const pageCanonical = `${SITE_CONFIG.url}/eb5-investment-process`;
 const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const sourceOfFundsHref = '/research/ways-to-fund-eb5-investment-2026';
+const lastUpdatedIso = getPageLastUpdated('/eb5-investment-process');
 
 const steps = [
   {
@@ -285,6 +288,7 @@ const structuredData = [
           <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             The EB-5 Investment Process
           </h1>
+          <LastUpdated date={lastUpdatedIso} variant="onDark" class="mb-6" />
           <p
             class="text-white/85 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
             style="font-family: Georgia, serif;"

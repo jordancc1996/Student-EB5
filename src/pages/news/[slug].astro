@@ -14,6 +14,7 @@ import { getNewsFaqSchema } from '@/data/newsFaqSchemas';
 import { getNewsTocItems } from '@/lib/news/newsArticleHeadings';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateArticleSchema } from '@/lib/seo/structured-data';
+import { toIsoDate } from '@/lib/lastUpdated';
 
 export const getStaticPaths: GetStaticPaths = () =>
   newsArticleSlugs.map((slug) => ({
@@ -35,6 +36,7 @@ if (!article) {
 const pageCanonical = `${SITE_CONFIG.url}/news/${slug}`;
 const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const tocItems = getNewsTocItems(slug, article.tocLabels);
+const dateModifiedIso = toIsoDate(article.dateModified ?? article.datePublished);
 
 const articleSchema = {
   ...generateArticleSchema({
@@ -42,7 +44,7 @@ const articleSchema = {
     description: article.metaDescription,
     image: ogImage,
     datePublished: article.datePublished,
-    dateModified: article.datePublished,
+    dateModified: dateModifiedIso,
     author: 'StudentEB5',
     keywords: article.schemaKeywords,
   }),

@@ -3,9 +3,11 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StatsRow from '@/components/sections/StatsRow.astro';
+import LastUpdated from '@/components/LastUpdated.astro';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateWebPageSchema } from '@/lib/seo/structured-data';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
 
 const title = 'Private Client Services | StudentEB5';
 const description =
@@ -25,11 +27,13 @@ const breadcrumbs = [
   { name: 'Private Client Services', url: pageCanonical },
 ];
 
+const lastUpdatedIso = getPageLastUpdated('/private-client-services');
 const structuredData = generateWebPageSchema(
   'Private Client Services',
   description,
   pageCanonical,
   breadcrumbs,
+  lastUpdatedIso,
 );
 
 const primaryService = {
@@ -99,6 +103,7 @@ const privateClientStats = [
           <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Private Client Services
           </h1>
+          <LastUpdated date={lastUpdatedIso} variant="onDark" class="mb-6" />
           <p class="text-white/80 text-lg md:text-xl max-w-3xl mx-auto" style="font-family: Georgia, serif;">
             Independent research, personalized guidance, and premium educational resources for investors navigating the EB-5 process.
           </p>

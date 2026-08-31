@@ -227,6 +227,24 @@ All tool pages must also pass the 5-location keyword check
 following the same rules as research articles in the Content
 Publishing Rules section.
 
+### Last Updated Dates (Required on Material Edits)
+
+Whenever substantive information on an existing page is changed, update
+that page's last-updated metadata to the actual modification date. Do
+not update the date for cosmetic, formatting-only, code-only, or
+insignificant edits.
+
+Storage by page type:
+- Research: frontmatter `updatedDate` (preserve original `date`)
+- News: `dateModified` in `src/data/newsArticles.ts`
+- Pathways: per-entry `lastReviewed` in `src/lib/pathwayRoutes.ts`
+- Tools / static / FAQ / PCS: `src/lib/pageFreshness.ts` path registry
+
+Use `src/components/LastUpdated.astro` for display. Keep Article schema
+`dateModified` in sync. Never mass-refresh dates on deploy. See
+`.cursor/rules/last-updated.mdc` for the full material vs non-material
+checklist and excluded utility pages.
+
 ### Cannibalization Check (Required Before Every New Article)
 Before creating any new research article, run a cannibalization
 check against docs/knowledge/cannibalization-guard.md.

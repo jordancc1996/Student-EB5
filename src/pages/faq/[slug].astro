@@ -13,6 +13,8 @@ import { generateBreadcrumbSchema } from '@/lib/seo/structured-data';
 import { extractArticleH2s, buildTocItems } from '@/lib/research/articleHeadings';
 import ArticleContents from '@/components/research/ArticleContents.astro';
 import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
+import LastUpdated from '@/components/LastUpdated.astro';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const faqs = await getCollection('faq');
@@ -70,6 +72,7 @@ const qaSchema = {
 };
 
 const tocItems = buildTocItems(extractArticleH2s(entry.body), faq.tocLabels);
+const lastUpdatedIso = getPageLastUpdated(`/faq/${slug}`);
 ---
 
 <Layout>
@@ -130,9 +133,10 @@ const tocItems = buildTocItems(extractArticleH2s(entry.body), faq.tocLabels);
               <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 mb-4">
                 {faq.category}
               </div>
-              <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6 leading-tight">
+              <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4 leading-tight">
                 {faq.question}
               </h1>
+              <LastUpdated date={lastUpdatedIso} class="mb-2" />
             </header>
 
             <div class="rounded-lg border bg-card text-card-foreground shadow-sm mb-8">

@@ -6,6 +6,7 @@ metaTitle: "EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT | 
 metaDescription: "EB-5 for Indian and Chinese students on F-1 and STEM OPT covers cap-gap timing, the 85,000 H-1B lottery, and the Sept 30, 2026 grandfathering deadline."
 excerpt: Indian and Chinese STEM OPT students face 2026 Duration of Status proposals, OPT re-evaluation, and H-1B cap-gap risk. This article maps STEM OPT timing against EB-5 as a self-sponsored backup before the September 30, 2026 grandfathering deadline.
 date: August 4, 2026
+updatedDate: August 31, 2026
 category: Student Guide
 readTime: 9 min read
 image: ../../../assets/blog-stem-opt-eb5-indian-chinese.jpg
@@ -63,7 +64,7 @@ For the full F-1 filing roadmap, intent timing, and process detail, use the <a h
 
 The EB-5 Reform and Integrity Act of 2022 allows eligible investors already in lawful U.S. status to file Form I-526E together with Form I-485. Concurrent filing supports requests for an Employment Authorization Document and Advance Parole. After EAD approval, the investor can work without OPT employer limits or H-1B sponsorship, which changes the risk profile for STEM OPT students racing a fixed end date.
 
-![STEM researchers in a modern laboratory using a microscope and pipette while reviewing data on laptops](/images/stem-opt-research-lab-team.jpg)
+![STEM OPT students researching EB-5 investment visa options for U.S. permanent residency](/images/stem-opt-eb5-student-visa-research.jpg)
 
 For process detail across F-1, J-1, and H-1B, see <a href="/research/j1-f1-h1b-eb5-concurrent-filing">EB-5 concurrent filing for J-1, F-1, and H-1B</a>.
 

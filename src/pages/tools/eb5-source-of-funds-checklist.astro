@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 import SourceOfFundsChecklistMainContent from '@/components/SourceOfFundsChecklistMainContent';
+import LastUpdated from '@/components/LastUpdated.astro';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 Source of Funds Checklist - Personalized I-526E Document List | StudentEB5';
@@ -18,6 +20,7 @@ const keywords = [
   'EB-5 property sale source of funds',
   'EB-5 lawful source of funds',
 ];
+const lastUpdatedIso = getPageLastUpdated('/tools/eb5-source-of-funds-checklist');
 ---
 
 <Layout>
@@ -51,6 +54,10 @@ const keywords = [
         />
       </div>
     </section>
+
+    <div class="container mx-auto px-4 py-3 max-w-4xl">
+      <LastUpdated date={lastUpdatedIso} />
+    </div>
 
     <SourceOfFundsChecklistMainContent client:load />
 

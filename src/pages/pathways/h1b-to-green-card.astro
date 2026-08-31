@@ -12,6 +12,9 @@ import { getCollection } from 'astro:content';
 import h1bHeroImage from '@/assets/h1b-pathway-hero.jpg';
 import h1bHeroImageWebp from '@/assets/h1b-pathway-hero.webp';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { findLandingPageByUrl } from '@/lib/pathwayRoutes';
+import { FEATURE_BASELINE_DATE } from '@/lib/lastUpdated';
+import LastUpdated from '@/components/LastUpdated.astro';
 
 const title = 'H-1B to Green Card EB-5 - Concurrent Filing Without Employer Dependency';
 const description =
@@ -28,6 +31,8 @@ const keywords = [
 ];
 
 const pathwayFont = "'Inter', 'Helvetica Neue', sans-serif";
+const lastUpdatedIso =
+  findLandingPageByUrl('/pathways/h1b-to-green-card')?.lastReviewed ?? FEATURE_BASELINE_DATE;
 
 const structuredData = [
   {
@@ -37,6 +42,7 @@ const structuredData = [
     url: pageCanonical,
     description:
       'H-1B to green card EB-5 lets Indian and Chinese tech workers file I-526E and I-485 together, target $800,000 TEA projects, and seek EAD within months.',
+    dateModified: lastUpdatedIso,
     isPartOf: { '@type': 'WebSite', name: SITE_CONFIG.name, url: SITE_CONFIG.url },
     about: { '@type': 'Thing', name: 'EB-5 Immigrant Investor Program' },
     audience: { '@type': 'Audience', audienceType: 'H-1B visa holders' },
@@ -161,6 +167,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
           <h1 class="font-sans text-4xl md:text-5xl lg:text-[60px] font-bold text-white mb-6 max-w-4xl mx-auto leading-tight">
             H-1B to Green Card EB-5 - Concurrent Filing Without Employer Dependency
           </h1>
+          <LastUpdated date={lastUpdatedIso} variant="onDark" class="mb-6" />
           <p
             class="text-white/80 text-base md:text-lg max-w-2xl mx-auto font-sans font-normal md:leading-normal leading-snug text-[0.9rem] md:text-lg"
             style={`font-family: ${pathwayFont}`}

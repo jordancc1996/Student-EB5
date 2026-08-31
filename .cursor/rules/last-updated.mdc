@@ -1,0 +1,49 @@
+---
+description: Bump lastUpdated on material page content edits
+globs:
+  - src/pages/**/*.{astro,tsx}
+  - src/content/**/*.{md,mdx}
+  - src/data/newsArticles.ts
+  - src/lib/pathwayRoutes.ts
+  - src/lib/pageFreshness.ts
+  - src/components/**/*MainContent*
+alwaysApply: false
+---
+
+# Last Updated Date Rule
+
+Whenever you make a **material** change to an existing page's substantive content, update that page's last-updated metadata to the **actual modification date** (today's real calendar date, ISO `YYYY-MM-DD` or matching human format used by that content type).
+
+## Where to store the date
+
+| Page type | Field / location |
+|-----------|------------------|
+| Research (`src/content/blog/`) | Frontmatter `updatedDate` (keep `date` as original publish date) |
+| News (`src/data/newsArticles.ts`) | `dateModified` (ISO); keep `datePublished` / `date` |
+| Pathway landings | Per-entry `lastReviewed` in `src/lib/pathwayRoutes.ts` (do **not** change the shared default for unrelated pages) |
+| Tools, About, Process, Playbook, Resources, FAQ detail, PCS | Override the path in `src/lib/pageFreshness.ts` → `pageLastUpdated` |
+
+Display uses `src/components/LastUpdated.astro`. Article JSON-LD `dateModified` must match the same value (ISO via `toIsoDate()`).
+
+## Material updates (DO bump the date)
+
+- Factual, legal, immigration, investment, or regulatory changes
+- Stats, dollar amounts, deadlines, timelines, eligibility, pricing
+- New or substantially rewritten sections
+- Correcting outdated information
+- Meaningful new research content
+
+## Non-material updates (DO NOT bump the date)
+
+- Typos, formatting-only, CSS/spacing/color tweaks
+- Refactors with no content change
+- Nav/footer/layout chrome that does not change page substance
+- Link URL fixes that do not change meaning
+- Build/deploy/config-only changes
+
+## Hard prohibitions
+
+- Never set last-updated from build time, deploy time, or "today" on every page
+- Never mass-refresh dates across the site to fake freshness
+- Never replace a legitimate `date` / `datePublished` with the modification date
+- Do not add last-updated UI to excluded utilities: contact, privacy, 404, homepage, listing hubs (research/faq/news/pathways/tools indexes), form-only pages

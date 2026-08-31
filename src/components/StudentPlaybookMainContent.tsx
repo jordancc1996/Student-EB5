@@ -9,6 +9,7 @@ import {
   ArrowRight,
   type LucideIcon,
 } from 'lucide-react';
+import { formatDisplayDate, toIsoDate } from '@/lib/lastUpdated';
 
 const playbookSections: {
   icon: LucideIcon;
@@ -76,7 +77,7 @@ const relatedClusterContent = [
   },
 ];
 
-const StudentPlaybookMainContent = () => {
+const StudentPlaybookMainContent = ({ lastUpdatedIso }: { lastUpdatedIso?: string }) => {
   return (
     <>
       <section
@@ -105,6 +106,12 @@ const StudentPlaybookMainContent = () => {
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
               The EB-5 Green Card International Students Playbook
             </h1>
+            {lastUpdatedIso ? (
+              <p className="text-sm font-medium tracking-wide text-white/90 mb-4">
+                Last updated:{' '}
+                <time dateTime={toIsoDate(lastUpdatedIso)}>{formatDisplayDate(lastUpdatedIso)}</time>
+              </p>
+            ) : null}
             <p className="text-lg text-white/80 max-w-2xl leading-relaxed">
               EB-5 green card international students use this playbook to navigate OPT timelines, STEM OPT
               extension risks, concurrent filing, and the September 30, 2026 grandfathering deadline.

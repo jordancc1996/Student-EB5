@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 import RegionalCenterScorecardMainContent from '@/components/RegionalCenterScorecardMainContent';
+import LastUpdated from '@/components/LastUpdated.astro';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 Regional Center Scorecard - Trust Score Due Diligence | StudentEB5';
@@ -19,6 +21,7 @@ const keywords = [
   'EB-5 I-829 approvals',
   'EB-5 SEC compliance',
 ];
+const lastUpdatedIso = getPageLastUpdated('/tools/eb5-regional-center-scorecard');
 ---
 
 <Layout>
@@ -52,6 +55,10 @@ const keywords = [
         />
       </div>
     </section>
+
+    <div class="container mx-auto px-4 py-3 max-w-4xl">
+      <LastUpdated date={lastUpdatedIso} />
+    </div>
 
     <RegionalCenterScorecardMainContent client:load />
 

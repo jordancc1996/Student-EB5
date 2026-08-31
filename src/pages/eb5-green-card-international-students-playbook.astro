@@ -2,13 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import StudentPlaybookMainContent from '@/components/StudentPlaybookMainContent';
 import PlaybookInteractive from '@/components/PlaybookInteractive';
 import JourneyCTA from '@/components/JourneyCTA.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateWebPageSchema } from '@/lib/seo/structured-data';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
+import StudentPlaybookMainContent from '@/components/StudentPlaybookMainContent';
 
 const title =
   'EB-5 Green Card International Students Playbook - F-1 OPT and STEM Strategy Guide';
@@ -36,11 +37,13 @@ const breadcrumbs = [
   },
 ];
 
+const lastUpdatedIso = getPageLastUpdated('/eb5-green-card-international-students-playbook');
 const structuredData = generateWebPageSchema(
   title,
   description,
   `${SITE_CONFIG.url}/eb5-green-card-international-students-playbook`,
-  breadcrumbs
+  breadcrumbs,
+  lastUpdatedIso,
 );
 ---
 
@@ -65,7 +68,7 @@ const structuredData = generateWebPageSchema(
 
   <div class="min-h-screen bg-background">
     <Header client:load />
-    <StudentPlaybookMainContent />
+    <StudentPlaybookMainContent lastUpdatedIso={lastUpdatedIso} />
     <PlaybookInteractive client:load />
     <ConsultationCTA client:visible />
     <JourneyCTA />

@@ -5,10 +5,12 @@ import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 import JourneyCTA from '@/components/JourneyCTA.astro';
 import PrivateStrategySessionsContent from '@/components/private-client/PrivateStrategySessionsContent';
+import LastUpdated from '@/components/LastUpdated.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateWebPageSchema } from '@/lib/seo/structured-data';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
 
 const title = 'Private Strategy Sessions | Private Client Services | StudentEB5';
 const description =
@@ -29,11 +31,13 @@ const breadcrumbs = [
   { name: 'Private Strategy Sessions', url: pageCanonical },
 ];
 
+const lastUpdatedIso = getPageLastUpdated('/private-client-services/private-strategy-sessions');
 const structuredData = generateWebPageSchema(
   'Private Strategy Sessions',
   description,
   pageCanonical,
   breadcrumbs,
+  lastUpdatedIso,
 );
 ---
 
@@ -61,6 +65,7 @@ const structuredData = generateWebPageSchema(
 
     <main class="container mx-auto px-6 py-8">
       <Breadcrumb client:load initialPathname="/private-client-services/private-strategy-sessions" />
+      <LastUpdated date={lastUpdatedIso} class="mb-4 mt-2" />
       <PrivateStrategySessionsContent />
     </main>
 

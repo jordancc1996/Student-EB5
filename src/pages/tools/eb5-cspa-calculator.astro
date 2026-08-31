@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 import CSPACalculatorMainContent from '@/components/CSPACalculatorMainContent';
+import LastUpdated from '@/components/LastUpdated.astro';
+import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 CSPA Age Calculator - Derivative Child Age-Out Risk | StudentEB5';
@@ -18,6 +20,7 @@ const keywords = [
   'EB-5 derivative child age out',
   'CSPA EB-5 2026',
 ];
+const lastUpdatedIso = getPageLastUpdated('/tools/eb5-cspa-calculator');
 ---
 
 <Layout>
@@ -51,6 +54,10 @@ const keywords = [
         />
       </div>
     </section>
+
+    <div class="container mx-auto px-4 py-3 max-w-4xl">
+      <LastUpdated date={lastUpdatedIso} />
+    </div>
 
     <CSPACalculatorMainContent client:load />
 

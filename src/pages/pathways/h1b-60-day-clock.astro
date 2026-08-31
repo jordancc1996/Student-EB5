@@ -12,6 +12,9 @@ import logoImg from '@/assets/studenteb5-logo.png';
 import logoImgWebp from '@/assets/studenteb5-logo.webp';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
+import { findLandingPageByUrl } from '@/lib/pathwayRoutes';
+import { FEATURE_BASELINE_DATE } from '@/lib/lastUpdated';
+import LastUpdated from '@/components/LastUpdated.astro';
 
 const title = '60-Day H-1B Grace Period: EB-5 Protection Strategy | StudentEB5';
 const description =
@@ -37,6 +40,8 @@ const teaInvestmentFormatted = new Intl.NumberFormat('en-US', {
 
 const pathwayFont = "'Inter', 'Helvetica Neue', sans-serif";
 const currentYear = new Date().getFullYear();
+const lastUpdatedIso =
+  findLandingPageByUrl('/pathways/h1b-60-day-clock')?.lastReviewed ?? FEATURE_BASELINE_DATE;
 
 /** Migrated slug map: reference `eb5-indian-professionals-green-card` was a dead slug (never in researchPosts). */
 const PATHWAY_BLOG_SLUGS = [
@@ -109,6 +114,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
           >
             You Have 60 Days.<br />Here's How to Make Them Count.
           </h1>
+          <LastUpdated date={lastUpdatedIso} variant="onDark" class="mb-6" />
           <p
             class="text-white/80 text-base md:text-lg max-w-2xl mx-auto font-sans font-normal"
             style={`font-family: ${pathwayFont}`}

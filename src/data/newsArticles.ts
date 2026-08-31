@@ -11,6 +11,8 @@ export interface NewsArticleMeta {
   category: string;
   date: string;
   datePublished: string;
+  /** ISO YYYY-MM-DD; defaults to datePublished when omitted */
+  dateModified?: string;
   readTime: string;
   image: ImageMetadata;
   heroImage: ImageMetadata;
