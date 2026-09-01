@@ -27,7 +27,6 @@ import WhatsAppCTA from '@/components/WhatsAppCTA';
 		</script>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<script is:inline async src="https://news.google.com/swg/js/v1/publisher.js"></script>
 		<slot name="head" />
 	</head>
 	<body>
@@ -44,5 +43,7 @@ import WhatsAppCTA from '@/components/WhatsAppCTA';
 		<WhatsAppCTA />
 		<PdfGuideOfferPopup client:load />
 		<CookieConsentBanner client:load />
+		<!-- After page markup so publisher.js can find google-add-preferred-source-btn on first scan -->
+		<script is:inline async src="https://news.google.com/swg/js/v1/publisher.js"></script>
 	</body>
 </html>

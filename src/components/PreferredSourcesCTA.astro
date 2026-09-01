@@ -4,9 +4,11 @@ import { SITE_CONFIG } from '@/lib/seo/config';
 /**
  * Official Google Preferred Sources CTA.
  * Button markup must remain a bare div with google-add-preferred-source-btn;
- * publisher.js is loaded once from Layout.astro.
+ * publisher.js is loaded once from Layout.astro (end of body, after page markup).
  */
 const siteName = SITE_CONFIG.name;
+const preferredSourceHost = new URL(SITE_CONFIG.url).hostname;
+const preferredSourceDeeplink = `https://www.google.com/preferences/source?q=${preferredSourceHost}`;
 ---
 
 <section class="border-t border-border bg-background" aria-label={`Follow ${siteName} on Google`}>
@@ -17,6 +19,34 @@ const siteName = SITE_CONFIG.name;
     <p class="text-sm md:text-base text-muted-foreground leading-relaxed m-0 mb-5 max-w-2xl">
       Add {siteName} as a preferred source to see more of our research, guides, and analysis in Google Search.
     </p>
-    <div google-add-preferred-source-btn data-lang="en" data-theme="light"></div>
+    <div class="preferred-sources-widget">
+      <div google-add-preferred-source-btn data-lang="en" data-theme="light"></div>
+      <p class="preferred-sources-fallback m-0 mt-3 hidden">
+        <a
+          href={preferredSourceDeeplink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm font-medium text-primary underline underline-offset-2 hover:text-primary/80"
+        >
+          Add {siteName} in Google Source preferences
+        </a>
+      </p>
+    </div>
+    <script is:inline>
+      (function () {
+        var widget = document.currentScript?.previousElementSibling?.querySelector(
+          '[google-add-preferred-source-btn]',
+        );
+        var fallback = document.currentScript?.previousElementSibling?.querySelector(
+          '.preferred-sources-fallback',
+        );
+        if (!widget || !fallback) return;
+        window.setTimeout(function () {
+          if (widget.getAttribute('data-initialized') !== 'true') {
+            fallback.classList.remove('hidden');
+          }
+        }, 3000);
+      })();
+    </script>
   </div>
 </section>
