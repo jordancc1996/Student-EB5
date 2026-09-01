@@ -85,6 +85,8 @@ export default defineConfig({
     '/student-playbook': '/eb5-green-card-international-students-playbook',
     '/research/f1-students/stem-opt-eb5-indian-chinese':
       '/research/f1-students/eb5-indian-chinese-students-f1-stem-opt',
+    '/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students':
+      '/research/comparisons/is-eb5-worth-it-indian-chinese-students',
   },
   vite: {
     resolve: {

@@ -37,7 +37,7 @@ const sampleSlugs = [
   'regional-center-shutdown-eb5-investor-protections',
   'f1-students/f1-to-eb5-green-card',
   'investment/eb5-pre-investment-checklist-part-1-f1-h1b',
-  'comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students',
+  'comparisons/is-eb5-worth-it-indian-chinese-students',
   'complete-2027-eb5-guide',
 ];
 

@@ -223,7 +223,7 @@ export const landingPages: LandingPage[] = [
     specificity: 4,
     secondaryLinks: [
       '/research/f1-students/eb5-indian-chinese-students-f1-stem-opt',
-      '/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students',
+      '/research/comparisons/is-eb5-worth-it-indian-chinese-students',
       '/research/f1-students/f1-to-eb5-green-card',
       '/eb5-green-card-international-students-playbook',
     ],
@@ -408,7 +408,7 @@ export const landingPages: LandingPage[] = [
     },
     specificity: 4,
     secondaryLinks: [
-      '/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students',
+      '/research/comparisons/is-eb5-worth-it-indian-chinese-students',
       '/research/f1-students/eb5-indian-chinese-students-f1-stem-opt',
     ],
     hasDedicatedContent: true,
@@ -877,7 +877,7 @@ export const landingPages: LandingPage[] = [
     },
     specificity: 3,
     secondaryLinks: [
-      '/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students',
+      '/research/comparisons/is-eb5-worth-it-indian-chinese-students',
       '/pathways/h1b-to-green-card',
     ],
     hasDedicatedContent: true,

@@ -1,7 +1,7 @@
 {
   "byHref": {
     "/images/uscis-h1b-employer-datahub-fy2026.png": [
-      "src/content/blog/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students.md"
+      "src/content/blog/comparisons/is-eb5-worth-it-indian-chinese-students.md"
     ],
     "/images/eb5-history-milestones.png": [
       "src/content/blog/complete-2027-eb5-guide.md"
@@ -37,7 +37,7 @@
   "redirectByHref": {},
   "brokenUnique": [
     {
-      "file": "src/content/blog/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students.md",
+      "file": "src/content/blog/comparisons/is-eb5-worth-it-indian-chinese-students.md",
       "href": "/images/uscis-h1b-employer-datahub-fy2026.png",
       "final": "/images/uscis-h1b-employer-datahub-fy2026.png",
       "exists": false,
@@ -180,7 +180,7 @@
     "/research/best-immigration-backup-plan-indian-tech-workers-2026",
     "/research/best-opportunity-investment-migration-2026",
     "/research/choosing-rural-eb5-regional-center-guide",
-    "/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students",
+    "/research/comparisons/is-eb5-worth-it-indian-chinese-students",
     "/research/complete-2027-eb5-guide",
     "/research/eb5-2026-official-white-paper",
     "/research/eb5-capital-stack",

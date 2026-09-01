@@ -3,7 +3,7 @@ import { chromium } from 'playwright';
 const BASE = process.env.PREVIEW_URL || 'http://localhost:4323';
 
 const urls = [
-  `${BASE}/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students/`,
+  `${BASE}/research/comparisons/is-eb5-worth-it-indian-chinese-students/`,
   `${BASE}/research/19-questions-rural-eb5-project-due-diligence/`,
 ];
 
@@ -106,8 +106,8 @@ async function measureAt(viewport) {
 const desktop = await measureAt({ width: 1280, height: 900 });
 const mobile = await measureAt({ width: 375, height: 812 });
 
-const main = desktop[`${BASE}/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students/`];
-const mainM = mobile[`${BASE}/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students/`];
+const main = desktop[`${BASE}/research/comparisons/is-eb5-worth-it-indian-chinese-students/`];
+const mainM = mobile[`${BASE}/research/comparisons/is-eb5-worth-it-indian-chinese-students/`];
 const cap = desktop[`${BASE}/research/19-questions-rural-eb5-project-due-diligence/`];
 
 const mutedRgb = 'rgb(89, 89, 89)'; // hsl(0 0% 35%) at default theme

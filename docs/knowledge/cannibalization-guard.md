@@ -32,7 +32,7 @@ Site domain: https://www.studenteb5.com/
 | best-immigration-backup-plan-indian-tech-workers-2026 | immigration backup plan Indian tech workers |
 | best-opportunity-investment-migration-2026 | investment migration opportunity |
 | choosing-rural-eb5-regional-center-guide | rural EB-5 regional center selection |
-| comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students | H-1B vs EB-5 lifetime cost Indian Chinese students |
+| comparisons/is-eb5-worth-it-indian-chinese-students | **Is EB-5 worth it for Indian and Chinese international students** (H-1B vs EB-5 lifetime cost / ROI / financial angle); former slug `comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students` redirects |
 | complete-2027-eb5-guide | EB-5 program complete guide |
 | eb5-2026-official-white-paper | EB-5 2026 white paper / attorney insights |
 | eb5-capital-stack | EB-5 capital stack |
@@ -50,7 +50,7 @@ Site domain: https://www.studenteb5.com/
 | evaluating-eb5-projects-pending-i956f | EB-5 projects pending I-956F |
 | f1-students/eb5-funding-strategies-students | EB-5 funding strategies students |
 | f1-students/f1-to-eb5-green-card | **F-1 to EB-5 green card / OPT to EB-5 (pillar)** |
-| f1-students/eb5-indian-chinese-students-f1-stem-opt | **EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT** (cap-gap strategy, D/S NPRM 2026, STEM OPT extension risk); former slug `f1-students/stem-opt-eb5-indian-chinese` redirects |
+| f1-students/eb5-indian-chinese-students-f1-stem-opt | **EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT** (cap-gap strategy, D/S NPRM 2026, STEM OPT extension risk / strategy-timing angle); former slug `f1-students/stem-opt-eb5-indian-chinese` redirects |
 | golden-visa-global-education-student-stories | golden visa education student stories |
 | golden-visas-vs-eb5-elite-students | golden visas vs EB-5 elite students |
 | h1b-60-day-grace-period-layoff-guide | H-1B 60-day grace period layoff |
@@ -111,6 +111,26 @@ Site domain: https://www.studenteb5.com/
 |------|------|-----------------|---------|
 | 2026-08-04 | `f1-students/stem-opt-eb5-indian-chinese` | STEM OPT EB-5 Indian Chinese students | OUTCOME B (STEM OPT + D/S NPRM + cap-gap lead; short EB-5 sections; reciprocal link from F-1 pillar) |
 | 2026-08-31 | `f1-students/eb5-indian-chinese-students-f1-stem-opt` | EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT | OUTCOME B retitle/slug (cap-gap + STEM OPT + D/S differentiation; do not re-own F-1 pillar / concurrent filing / grandfathering); old slug redirects |
+| 2026-09-01 | `comparisons/is-eb5-worth-it-indian-chinese-students` | Is EB-5 worth it for Indian and Chinese international students | OUTCOME B retitle/slug (financial/cost / H-1B vs EB-5 lifetime economics; not STEM OPT strategy/timing); old slug `comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students` redirects |
+
+### Audience overlap — Indian / Chinese international students (two articles, two angles)
+
+These pages share an audience but **do not compete for the same primary keyword**. Keep the line hard in future edits:
+
+| Article | Owns | Does not own |
+|---------|------|--------------|
+| `comparisons/is-eb5-worth-it-indian-chinese-students` | **Financial / cost** — lifetime cost comparison, H-1B vs EB-5 economics, “is it worth it” ROI framing | Strategy / timing (cap-gap, D/S NPRM, visa timing, regulatory filing windows) |
+| `f1-students/eb5-indian-chinese-students-f1-stem-opt` | **Strategy / timing** — cap-gap, D/S NPRM, visa timing, regulatory risk, when to file | Financial / cost (lifetime earnings ROI, H-1B vs EB-5 cost calculus as primary frame) |
+
+Neither article should use language that reads as owning the other’s angle.
+
+### Keyword ownership — `comparisons/is-eb5-worth-it-indian-chinese-students`
+
+| Role | Keyword |
+|------|---------|
+| Primary | Is EB-5 worth it for Indian and Chinese international students |
+| Secondary | H-1B vs EB-5 lifetime cost; EB-5 ROI international students; lifetime earnings gap visa choice |
+| Forbidden (do not re-own) | STEM OPT cap-gap strategy; F-1 Duration of Status NPRM 2026; STEM OPT extension risks; F-1 to EB-5 green card pillar; pathway primary keywords for `/pathways/eb5-for-indian-students` and `/pathways/eb5-for-chinese-students` |
 
 ### Keyword ownership — `f1-students/eb5-indian-chinese-students-f1-stem-opt`
 
@@ -118,4 +138,4 @@ Site domain: https://www.studenteb5.com/
 |------|---------|
 | Primary | EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT |
 | Secondary | STEM OPT cap-gap strategy; F-1 Duration of Status NPRM 2026; STEM OPT extension risks Indian Chinese |
-| Forbidden (do not re-own) | F-1 to EB-5 green card; immigration backup plan Indian tech workers; EB-5 grandfathering deadline deep-dive; EB-5 concurrent filing J-1 F-1 H-1B process; pathway primary keywords for `/pathways/eb5-for-indian-students` and `/pathways/eb5-for-chinese-students` |
+| Forbidden (do not re-own) | F-1 to EB-5 green card; immigration backup plan Indian tech workers; EB-5 grandfathering deadline deep-dive; EB-5 concurrent filing J-1 F-1 H-1B process; **Is EB-5 worth it / H-1B vs EB-5 lifetime cost / financial ROI angle** (`comparisons/is-eb5-worth-it-indian-chinese-students`); pathway primary keywords for `/pathways/eb5-for-indian-students` and `/pathways/eb5-for-chinese-students` |

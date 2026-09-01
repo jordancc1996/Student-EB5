@@ -10,7 +10,7 @@ const cases = [
     expectedDates: ['June 23, 2026', 'June 17, 2026', 'June 12, 2026'],
   },
   {
-    path: '/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students',
+    path: '/research/comparisons/is-eb5-worth-it-indian-chinese-students',
     expectedDates: ['June 23, 2026', 'June 12, 2026', 'June 11, 2026'],
   },
 ];
