@@ -1,5 +1,6 @@
 ---
 import type { ImageMetadata } from 'astro';
+import { getCollection } from 'astro:content';
 import Layout from './Layout.astro';
 import Header from '@/components/Header';
 import SiteFooter from '@/components/SiteFooter.astro';
@@ -8,11 +9,13 @@ import Breadcrumb from '@/components/Breadcrumb';
 import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
 import LastUpdated from '@/components/LastUpdated.astro';
 import OptimizedImage from '@/components/OptimizedImage.astro';
+import RelatedResearchCard from '@/components/RelatedResearchCard.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { findLandingPageByUrl, isIndexable } from '@/lib/pathwayRoutes';
 import { FEATURE_BASELINE_DATE } from '@/lib/lastUpdated';
+import { resolveRelatedLinkImage } from '@/lib/relatedLinkImage';
 
 export interface RelatedResearchItem {
   title: string;
@@ -59,6 +62,17 @@ const pathwayEntry = findLandingPageByUrl(new URL(canonicalUrl).pathname);
 const pageIsIndexable = pathwayEntry ? isIndexable(pathwayEntry) : true;
 const lastUpdatedIso = pathwayEntry?.lastReviewed ?? FEATURE_BASELINE_DATE;
 const hasHeroPhoto = Boolean(heroImage);
+
+const blogPosts =
+  relatedResearch.length > 0 ? await getCollection('blog') : [];
+const relatedResearchCards = relatedResearch.map((item) => {
+  const resolved = resolveRelatedLinkImage(item.url, blogPosts);
+  return {
+    item,
+    image: resolved?.image,
+    imageAlt: resolved?.imageAlt,
+  };
+});
 ---
 
 <Layout>
@@ -141,18 +155,12 @@ const hasHeroPhoto = Boolean(heroImage);
                 Related Research
               </h2>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {relatedResearch.map((item) => (
-                  <a
-                    href={item.url}
-                    class="block rounded-lg border border-border bg-card p-6 hover:border-primary hover:shadow-md transition-all duration-150"
-                  >
-                    <h3 class="font-serif text-lg font-semibold text-foreground mb-2 leading-snug">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p class="text-sm text-muted-foreground leading-relaxed m-0">{item.description}</p>
-                    )}
-                  </a>
+                {relatedResearchCards.map((card) => (
+                  <RelatedResearchCard
+                    item={card.item}
+                    image={card.image}
+                    imageAlt={card.imageAlt}
+                  />
                 ))}
               </div>
             </div>

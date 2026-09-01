@@ -1,0 +1,53 @@
+---
+import type { ImageMetadata } from 'astro';
+import OptimizedImage from '@/components/OptimizedImage.astro';
+import LucideIcon from '@/components/LucideIcon';
+
+export interface RelatedResearchCardItem {
+  title: string;
+  url: string;
+  description?: string;
+}
+
+interface Props {
+  item: RelatedResearchCardItem;
+  image?: ImageMetadata;
+  imageAlt?: string;
+}
+
+const { item, image, imageAlt } = Astro.props;
+const hasImage = Boolean(image);
+---
+
+<a
+  href={item.url}
+  class="block rounded-lg border border-border bg-card overflow-hidden hover:border-primary hover:shadow-md transition-all duration-150"
+>
+  <div class="aspect-video overflow-hidden bg-muted/40">
+    {
+      hasImage && image ? (
+        <OptimizedImage
+          src={image}
+          alt={imageAlt || item.title}
+          className="w-full h-full object-cover"
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      ) : (
+        <div class="flex h-full w-full min-h-[10rem] items-center justify-center bg-hero-dark text-white/70" aria-hidden="true">
+          <LucideIcon name="FileText" size={32} className="text-white/70" />
+        </div>
+      )
+    }
+  </div>
+  <div class="p-6">
+    <h3 class="font-serif text-lg font-semibold text-foreground mb-2 leading-snug">
+      {item.title}
+    </h3>
+    {
+      item.description && (
+        <p class="text-sm text-muted-foreground leading-relaxed m-0">{item.description}</p>
+      )
+    }
+  </div>
+</a>
