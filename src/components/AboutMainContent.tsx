@@ -131,8 +131,8 @@ const AboutMainContent = () => {
                 <strong>Professionals:</strong> Whether you're on an L-1, E-2, or other work visa, EB-5 can
                 provide a permanent solution that allows you to live and work anywhere in the United States
                 without visa restrictions. Explore{' '}
-                <a href="/research/h1b-alternatives-o1-eb1-eb5" className="text-primary hover:underline">
-                  H-1B alternatives including EB-5
+                <a href="/research/best-alternative-to-h1b-o1-eb1-eb5" className="text-primary hover:underline">
+                  best H-1B alternatives including O-1, EB-1, and EB-5
                 </a>
                 .
               </p>

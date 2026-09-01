@@ -13,7 +13,7 @@ keywords:
   - F-1 to green card
 links:
   - text: Learn about H-1B alternatives including EB-5
-    url: /research/h1b-alternatives-o1-eb1-eb5
+    url: /research/best-alternative-to-h1b-o1-eb1-eb5
   - text: Learn who can benefit from EB-5
     url: /about
   - text: F-1 Student to Green Card Pathway

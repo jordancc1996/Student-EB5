@@ -289,7 +289,7 @@ async function main() {
   const expectedSlugs = [
     'h1b-tech-layoffs-eb5-entrepreneurship',
     '5-reasons-switch-h1b-to-eb5',
-    'h1b-alternatives-o1-eb1-eb5',
+    'best-alternative-to-h1b-o1-eb1-eb5',
   ];
   const slugMatch = expectedSlugs.every((s) => hrefs.some((h) => h.includes(s)));
   if (hrefs.length === 3 && slugMatch) {

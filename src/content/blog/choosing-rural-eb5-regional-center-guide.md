@@ -81,7 +81,7 @@ L-1A visa holders that are execs or managers and are transferring into the Unite
 
 ### O-1 Visa Holders
 
-O-1 visa holders are individuals recognized for extraordinary ability in their field. The O-1 visa itself is non-immigrant and for those O-1's aspiring to permanent residency the only other feasible route is the EB-1A category. The EB-1A can be highly subjective and demanding. For O-1 visa holders who meet the financial requirements the EB-5 offers a more direct and less subjective path to a Green Card. Compare all your options in our <a href="/research/h1b-alternatives-o1-eb1-eb5">H-1B alternatives guide</a>.
+O-1 visa holders are individuals recognized for extraordinary ability in their field. The O-1 visa itself is non-immigrant and for those O-1's aspiring to permanent residency the only other feasible route is the EB-1A category. The EB-1A can be highly subjective and demanding. For O-1 visa holders who meet the financial requirements the EB-5 offers a more direct and less subjective path to a Green Card. Compare all your options in our <a href="/research/best-alternative-to-h1b-o1-eb1-eb5">H-1B alternatives guide</a>.
 
 ## Critical Deadlines
 

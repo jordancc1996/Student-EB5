@@ -87,6 +87,8 @@ export default defineConfig({
       '/research/f1-students/eb5-indian-chinese-students-f1-stem-opt',
     '/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students':
       '/research/comparisons/is-eb5-worth-it-indian-chinese-students',
+    '/research/h1b-alternatives-o1-eb1-eb5':
+      '/research/best-alternative-to-h1b-o1-eb1-eb5',
   },
   vite: {
     resolve: {

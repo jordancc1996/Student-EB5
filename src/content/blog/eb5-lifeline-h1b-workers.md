@@ -26,7 +26,7 @@ keywords:
   - TEA projects
 relatedPosts:
   - 5-reasons-switch-h1b-to-eb5
-  - h1b-alternatives-o1-eb1-eb5
+  - best-alternative-to-h1b-o1-eb1-eb5
   - h1b-eb5-financial-planning
 tocLabels:
   the-eb-5-visa-solution: A green card without employer sponsorship
@@ -36,7 +36,7 @@ tocLabels:
 
 ## The H-1B Program: Benefits and Challenges
 
-The <a href="/research/h1b-alternatives-o1-eb1-eb5">H-1B visa program</a> has enabled thousands of qualified foreign nationals to advance their careers and lives in the United States while providing a broader talent pool for specialty positions. The H-1B visa has become especially popular in the tech industry. Engineers, software developers and computer science specialists have been the bread-and-butter occupations for skilled H-1B employees. Check H-1B salary data in your area with our H-1B Wage Map.
+The <a href="/research/best-alternative-to-h1b-o1-eb1-eb5">H-1B visa program</a> has enabled thousands of qualified foreign nationals to advance their careers and lives in the United States while providing a broader talent pool for specialty positions. The H-1B visa has become especially popular in the tech industry. Engineers, software developers and computer science specialists have been the bread-and-butter occupations for skilled H-1B employees. Check H-1B salary data in your area with our H-1B Wage Map.
 
 ## The Current Crisis
 

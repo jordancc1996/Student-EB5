@@ -54,7 +54,7 @@ Site domain: https://www.studenteb5.com/
 | golden-visa-global-education-student-stories | golden visa education student stories |
 | golden-visas-vs-eb5-elite-students | golden visas vs EB-5 elite students |
 | h1b-60-day-grace-period-layoff-guide | H-1B 60-day grace period layoff |
-| h1b-alternatives-o1-eb1-eb5 | H-1B alternatives O-1 EB-1 EB-5 |
+| best-alternative-to-h1b-o1-eb1-eb5 | **Best alternative to H-1B** (O-1 vs EB-1 vs EB-5 comparison for skilled professionals); former slug `h1b-alternatives-o1-eb1-eb5` redirects |
 | h1b-eb5-financial-planning | H-1B EB-5 financial planning |
 | h1b-tech-layoffs-eb5-entrepreneurship | H-1B layoffs EB-5 entrepreneurship |
 | how-eb5-visa-transforms-us-education-experience | EB-5 education / tuition benefits |
@@ -112,6 +112,30 @@ Site domain: https://www.studenteb5.com/
 | 2026-08-04 | `f1-students/stem-opt-eb5-indian-chinese` | STEM OPT EB-5 Indian Chinese students | OUTCOME B (STEM OPT + D/S NPRM + cap-gap lead; short EB-5 sections; reciprocal link from F-1 pillar) |
 | 2026-08-31 | `f1-students/eb5-indian-chinese-students-f1-stem-opt` | EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT | OUTCOME B retitle/slug (cap-gap + STEM OPT + D/S differentiation; do not re-own F-1 pillar / concurrent filing / grandfathering); old slug redirects |
 | 2026-09-01 | `comparisons/is-eb5-worth-it-indian-chinese-students` | Is EB-5 worth it for Indian and Chinese international students | OUTCOME B retitle/slug (financial/cost / H-1B vs EB-5 lifetime economics; not STEM OPT strategy/timing); old slug `comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students` redirects |
+| 2026-09-01 | `best-alternative-to-h1b-o1-eb1-eb5` | Best alternative to H-1B | OUTCOME B retitle/slug (O-1 vs EB-1 vs EB-5 visa-alternative comparison for skilled professionals; not financial planning / student ROI / pathway hub); old slug `h1b-alternatives-o1-eb1-eb5` redirects |
+
+### H-1B alternative cluster — keyword boundaries
+
+These pages can share H-1B / EB-5 audience overlap but **do not compete for the same primary keyword**. Keep the line hard in future edits:
+
+| Page | Owns | Does not own |
+|------|------|--------------|
+| `best-alternative-to-h1b-o1-eb1-eb5` | **Best alternative to H-1B** — O-1 vs EB-1 vs EB-5 eligibility and timeline comparison for skilled professionals | EB-5 funding/source-of-funds deep dive; student lifetime-cost ROI; pathway-level EB-5 vs H-1B hub |
+| `h1b-eb5-financial-planning` | **H-1B → EB-5 financial planning** — funding paths, fee budget, source of funds, safety net | “Best H-1B alternative” / O-1 vs EB-1 comparison as primary frame |
+| `/pathways/eb5-vs-h1b` | **EB-5 vs H-1B** entry comparison (pathway hub) | O-1 / EB-1 deep comparison (link to research article) |
+| `comparisons/is-eb5-worth-it-indian-chinese-students` | **Financial / cost ROI** for Indian/Chinese international students | Skilled-professional visa-alternative comparison |
+
+### Keyword ownership — `best-alternative-to-h1b-o1-eb1-eb5`
+
+| Role | Keyword |
+|------|---------|
+| Primary | Best alternative to H-1B |
+| Secondary | O-1 vs EB-1 vs EB-5; H-1B alternatives skilled professionals; extraordinary ability vs EB-5 investor path |
+| Forbidden (do not re-own) | H-1B EB-5 financial planning / source of funds (`h1b-eb5-financial-planning`); Is EB-5 worth it / lifetime cost ROI for students (`comparisons/is-eb5-worth-it-indian-chinese-students`); pathway primary for `/pathways/eb5-vs-h1b`; F-1 to EB-5 green card pillar |
+
+### Keyword ownership — `h1b-eb5-financial-planning` (addendum)
+
+| Forbidden (add) | Best alternative to H-1B / O-1 vs EB-1 vs EB-5 comparison (`best-alternative-to-h1b-o1-eb1-eb5`) |
 
 ### Audience overlap — Indian / Chinese international students (two articles, two angles)
 

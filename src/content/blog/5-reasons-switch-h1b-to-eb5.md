@@ -24,7 +24,7 @@ keywords:
   - H-1B lottery
   - concurrent filing EB-5
 relatedPosts:
-  - h1b-alternatives-o1-eb1-eb5
+  - best-alternative-to-h1b-o1-eb1-eb5
   - h1b-eb5-financial-planning
   - f1-students/f1-to-eb5-green-card
 ---

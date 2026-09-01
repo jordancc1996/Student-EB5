@@ -26,7 +26,7 @@ keywords:
   - immigration backlogs
 relatedPosts:
   - 5-reasons-switch-h1b-to-eb5
-  - h1b-alternatives-o1-eb1-eb5
+  - best-alternative-to-h1b-o1-eb1-eb5
   - h1b-eb5-financial-planning
 tocLabels:
   backlogs-and-the-failure-of-the-cspa: If your child turns 21 before approval
