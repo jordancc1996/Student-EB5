@@ -1,10 +1,11 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 for EB-3 Backlog Applicants | StudentEB5';
 const metaDescription =
-  'EB-5 for EB-3 backlog applicants covers why skilled, professional, and other workers with an EB-3 track sometimes evaluate EB-5 as a parallel or alternative path — with attorney review first.';
+  'EB-5 for EB-3 backlog applicants covers why skilled, professional, and other workers with an EB-3 track sometimes evaluate EB-5 as a parallel or alternative path, with attorney review first.';
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb3-to-eb5`;
 const h1 = 'EB-5 for EB-3 Backlog Applicants';
 const subhead =
@@ -12,7 +13,7 @@ const subhead =
 
 const relatedResearch = [
   {
-    title: 'EB-5 Immigrant Investor Program — Complete Guide',
+    title: 'EB-5 Immigrant Investor Program: Complete Guide',
     url: '/research/complete-2027-eb5-guide',
     description: 'Program structure, reserved categories, and filing overview.',
   },
@@ -22,6 +23,8 @@ const relatedResearch = [
     description: 'Employer-independence and concurrent filing framing for H-1B households.',
   },
 ];
+const hero = getPathwayCategoryHero('status-transition');
+
 ---
 
 <PathwayLandingLayout
@@ -30,6 +33,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for transitioning from EB-3 to EB-5"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 Alongside an EB-3 Case"
   breadcrumbTitle="EB-5 for EB-3 Backlog"
@@ -44,7 +50,7 @@ const relatedResearch = [
   <p>
     EB-3 covers a broader employment-based immigrant group than EB-2: skilled workers, professionals, and other
     workers, typically through employer sponsorship. That breadth means many households reach I-140 approval through
-    different job classifications and industries, yet still share the same structural constraint afterward — immigrant
+    different job classifications and industries, yet still share the same structural constraint afterward: immigrant
     visa numbers allocated by country of birth. When demand exceeds supply for that chargeability, the green card can
     remain unavailable long after the labor and petition stages are done. Check live category movement on the
     <a
@@ -61,16 +67,16 @@ const relatedResearch = [
     Some EB-3 applicants explore that structure when the employment-based queue feels unpredictable, when a layoff or
     job change could disrupt sponsorship, or when family members need a path that is not locked to one employer's
     timeline. Reserved EB-5 categories and concurrent filing (for those already in the U.S.) are part of that evaluation
-    — not promises of a shorter wait. Start with the
+    (not promises of a shorter wait). Start with the
     <a href="/research/complete-2027-eb5-guide">complete EB-5 guide</a>; for H-1B-adjacent concurrent filing context, see
     <a href="/pathways/h1b-to-green-card">H-1B to green card via EB-5</a>.
   </p>
 
   <h2>Running EB-5 next to an EB-3 case</h2>
   <p>
-    An EB-5 filing does not automatically force you to withdraw an EB-3 petition. Whether dual tracks are workable —
+    An EB-5 filing does not automatically force you to withdraw an EB-3 petition. Whether dual tracks are workable,
     including how adjustment of status, immigrant visa processing, and derivative family members interact across
-    categories — depends on the specific record. Some families keep the employment-based case alive while preparing
+    categories, depends on the specific record. Some families keep the employment-based case alive while preparing
     source-of-funds documentation for EB-5; others consolidate once an investment path is chosen. Get case-specific
     advice from an immigration attorney before pursuing both or choosing between them.
   </p>

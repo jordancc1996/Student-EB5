@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 Project Due Diligence | StudentEB5';
@@ -8,7 +9,7 @@ const metaDescription =
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-project-due-diligence`;
 const h1 = 'EB-5 Project Due Diligence';
 const subhead =
-  'Why project selection sits at the center of both immigration and capital outcomes — and where to find a fuller diligence checklist.';
+  'Why project selection sits at the center of both immigration and capital outcomes, and where to find a fuller diligence checklist.';
 
 const relatedResearch = [
   {
@@ -17,6 +18,8 @@ const relatedResearch = [
     description: 'Primary checklist-style guide for rural project questions.',
   },
 ];
+const hero = getPathwayCategoryHero('project-due-diligence');
+
 ---
 
 <PathwayLandingLayout
@@ -25,6 +28,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for EB-5 project due diligence"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 Project Diligence"
   breadcrumbTitle="EB-5 Project Due Diligence"
@@ -34,7 +40,7 @@ const relatedResearch = [
     An EB-5 petition rises or falls on more than forms and fees. The underlying project’s ability to create jobs, deploy
     capital as described, and operate through the sustainment period affects both immigration eligibility and whether
     invested principal is later returned. Project selection is therefore one of the most consequential decisions in the
-    process — and it cannot be reduced to a single approval stamp or marketing claim.
+    process, and it cannot be reduced to a single approval stamp or marketing claim.
   </p>
   <p>
     Use this page as a hand-off to deeper material. The structured question list for rural offerings is here:

@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import JourneyCTA from '@/components/JourneyCTA.astro';
 import InvestorIntelligenceReportsContent from '@/components/private-client/InvestorIntelligenceReportsContent';
@@ -66,12 +67,13 @@ const structuredData = generateWebPageSchema(
     <main class="container mx-auto px-6 py-8">
       <Breadcrumb client:load initialPathname="/private-client-services/investor-intelligence-reports" />
       <LastUpdated date={lastUpdatedIso} class="mb-4 mt-2" />
+      <PreferredSourcesCTA />
       <InvestorIntelligenceReportsContent />
     </main>
 
     <ConsultationCTA client:visible />
     <JourneyCTA />
-    <Footer client:visible />
+    <SiteFooter />
     <Toaster client:load />
   </div>
 </Layout>

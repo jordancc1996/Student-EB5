@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import NotFoundMainContent from '@/components/NotFoundMainContent';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -21,7 +22,8 @@ const pageCanonical = `${SITE_CONFIG.url}/404`;
 
   <div class="min-h-screen bg-background">
     <Header client:load />
+    <PreferredSourcesCTA />
     <NotFoundMainContent client:load />
-    <Footer client:visible />
+    <SiteFooter />
   </div>
 </Layout>

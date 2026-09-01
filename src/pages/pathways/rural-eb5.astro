@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'Rural EB-5 | StudentEB5';
@@ -22,6 +23,8 @@ const relatedResearch = [
     description: 'A structured question list for rural project diligence.',
   },
 ];
+const hero = getPathwayCategoryHero('project-due-diligence');
+
 ---
 
 <PathwayLandingLayout
@@ -30,6 +33,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for rural investment"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About Rural EB-5"
   breadcrumbTitle="Rural EB-5"
@@ -52,12 +58,12 @@ const relatedResearch = [
   <h2>What rural / reserved-category EB-5 means</h2>
   <p>
     Under the EB-5 Reform and Integrity Act framework, a portion of EB-5 immigrant visas is set aside in reserved
-    categories — including projects in rural areas and certain other designated types such as infrastructure. Rural
+    categories, including projects in rural areas and certain other designated types such as infrastructure. Rural
     reserved-category projects must meet statutory geographic definitions (generally areas outside metropolitan
     statistical areas, or within certain population and distance criteria defined in the program rules). The set-aside
     structure is intended to allocate a share of visa numbers to those categories separately from the unreserved pool.
     Whether that allocation may offer different visa timing for a given country of birth depends on demand, chargeability,
-    and current Visa Bulletin movement — not on marketing claims. Confirm current category availability with an
+    and current Visa Bulletin movement (not on marketing claims). Confirm current category availability with an
     immigration attorney and the
     <a
       href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
@@ -91,7 +97,7 @@ const relatedResearch = [
   </ul>
   <p>
     Neither structure is automatically preferable. The right choice depends on the investor's chargeability, risk
-    tolerance, project diligence findings, and immigration goals — discuss tradeoffs with counsel before committing
+    tolerance, project diligence findings, and immigration goals. Discuss tradeoffs with counsel before committing
     capital.
   </p>
 

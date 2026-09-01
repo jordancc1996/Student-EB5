@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import StatsRow from '@/components/sections/StatsRow.astro';
 import LastUpdated from '@/components/LastUpdated.astro';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
@@ -110,6 +111,8 @@ const privateClientStats = [
         </div>
       </section>
 
+      <PreferredSourcesCTA />
+
       <!-- TODO: Replace privateClientStats placeholders with confirmed PCS metrics -->
       <section class="py-12 md:py-16 px-8 bg-[hsl(0,0%,97%)]" aria-label="Private Client Services statistics">
         <div class="container mx-auto">
@@ -181,6 +184,6 @@ const privateClientStats = [
       </section>
     </main>
 
-    <Footer client:visible />
+    <SiteFooter />
   </div>
 </Layout>

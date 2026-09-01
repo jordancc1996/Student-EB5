@@ -1,11 +1,12 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import ProcessFaqAccordion from '@/components/ProcessFaqAccordion';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 Source of Funds | StudentEB5';
 const metaDescription =
-  'EB-5 source of funds covers gifted, loaned, inherited, property-sale, and business-income paths, plus how source of funds differs from source of wealth — with links to deeper funding guides.';
+  'EB-5 source of funds covers gifted, loaned, inherited, property-sale, and business-income paths, plus how source of funds differs from source of wealth, with links to deeper funding guides.';
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-source-of-funds`;
 const h1 = 'EB-5 Source of Funds';
 const subhead =
@@ -13,7 +14,7 @@ const subhead =
 
 const relatedResearch = [
   {
-    title: 'Ways to Fund EB-5 — Gifted, Loaned, and Crypto Paths',
+    title: 'Ways to Fund EB-5: Gifted, Loaned, and Crypto Paths',
     url: '/research/ways-to-fund-eb5-investment-2026',
     description: 'Primary research overview of lawful funding paths for EB-5 capital.',
   },
@@ -38,9 +39,11 @@ const faqItems = [
   {
     question: 'What happens if my source of funds is questioned or denied?',
     answer:
-      'USCIS may issue a Request for Evidence (RFE) asking for additional documentation when a source-of-funds showing needs clarification. An RFE is a normal part of adjudication for many petitions — it is not an automatic denial. Working with an experienced EB-5 attorney from the start can help assemble a clearer record and reduce the chance of avoidable RFEs, but no approach assures approval or prevents every request for more evidence.',
+      'USCIS may issue a Request for Evidence (RFE) asking for additional documentation when a source-of-funds showing needs clarification. An RFE is a normal part of adjudication for many petitions (it is not an automatic denial). Working with an experienced EB-5 attorney from the start can help assemble a clearer record and reduce the chance of avoidable RFEs, but no approach assures approval or prevents every request for more evidence.',
   },
 ];
+const hero = getPathwayCategoryHero('source-of-funds');
+
 ---
 
 <PathwayLandingLayout
@@ -49,6 +52,9 @@ const faqItems = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for source of funds"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 Source of Funds"
   breadcrumbTitle="EB-5 Source of Funds"
@@ -69,17 +75,17 @@ const faqItems = [
   <h2>Common funding paths</h2>
   <ul>
     <li>
-      <a href="/pathways/eb5-gifted-funds">Gifted funds</a> — including gifts from any family member, not only parents.
+      <a href="/pathways/eb5-gifted-funds">Gifted funds</a>, including gifts from any family member, not only parents.
       Parent-to-student country cases:
       <a href="/pathways/eb5-for-chinese-families">Chinese families</a> and
       <a href="/pathways/eb5-for-indian-families">Indian families</a>.
     </li>
     <li>
-      <a href="/pathways/eb5-property-sale-funds">Property-sale proceeds</a> — sale documentation and path of funds into
+      <a href="/pathways/eb5-property-sale-funds">Property-sale proceeds</a>: sale documentation and path of funds into
       the investment.
     </li>
     <li>
-      <a href="/pathways/eb5-business-income">Business income</a> — ownership income documented through corporate and tax
+      <a href="/pathways/eb5-business-income">Business income</a>: ownership income documented through corporate and tax
       records.
     </li>
   </ul>
@@ -101,7 +107,7 @@ const faqItems = [
   <h2>Source of funds vs. source of wealth</h2>
   <p>
     These are related but distinct concepts. Source of funds traces the specific dollars used for the EB-5 investment.
-    Source of wealth looks at the investor’s broader financial history — how they accumulated assets over time. USCIS may
+    Source of wealth looks at the investor’s broader financial history: how they accumulated assets over time. USCIS may
     examine both. A clean gift letter does not replace an explanation of how the donor built the wealth behind the gift.
   </p>
 

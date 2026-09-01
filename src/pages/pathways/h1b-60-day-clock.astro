@@ -15,6 +15,7 @@ import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
 import { findLandingPageByUrl } from '@/lib/pathwayRoutes';
 import { FEATURE_BASELINE_DATE } from '@/lib/lastUpdated';
 import LastUpdated from '@/components/LastUpdated.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 
 const title = '60-Day H-1B Grace Period: EB-5 Protection Strategy | StudentEB5';
 const description =
@@ -156,6 +157,8 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
           </div>
         </div>
       </section>
+
+      <PreferredSourcesCTA />
 
       <H1B60DayClockStaticContent teaInvestmentFormatted={teaInvestmentFormatted} />
 

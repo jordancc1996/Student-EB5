@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 for H-4 Families & Dependents | StudentEB5';
@@ -17,6 +18,8 @@ const relatedResearch = [
     description: 'Employer-independence and concurrent filing framing for H-1B households.',
   },
 ];
+const hero = getPathwayHero('eb5-for-h4-families');
+
 ---
 
 <PathwayLandingLayout
@@ -25,6 +28,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for H-4 families"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 for Your H-4 Family"
   breadcrumbTitle="EB-5 for H-4 Families"
@@ -48,11 +54,11 @@ const relatedResearch = [
     <a href="/pathways/h1b-to-green-card">H-1B to green card via EB-5</a>.
   </p>
 
-  <h2>What EB-5 does — and does not — change overnight</h2>
+  <h2>What EB-5 does (and does not) change overnight</h2>
   <p>
     EB-5 is a separate petition process. It does not instantly convert H-4 status into permanent residence, and it does
     not guarantee work authorization on a fixed calendar. Concurrent filing, where available, may allow some applicants
-    to seek an EAD while the case is pending — eligibility depends on status, category availability, and attorney review.
+    to seek an EAD while the case is pending. Eligibility depends on status, category availability, and attorney review.
     For process mechanics, use the <a href="/eb5-investment-process">EB-5 investment process</a> guide.
   </p>
 </PathwayLandingLayout>

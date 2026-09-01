@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 for Graduate Students | StudentEB5';
@@ -22,6 +23,8 @@ const relatedResearch = [
     description: 'Practical playbook for international students evaluating EB-5 timing.',
   },
 ];
+const hero = getPathwayHero('eb5-for-graduate-students');
+
 ---
 
 <PathwayLandingLayout
@@ -30,6 +33,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for graduate students"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 Timing for Graduate Students"
   breadcrumbTitle="EB-5 for Graduate Students"
@@ -39,7 +45,7 @@ const relatedResearch = [
   <p>
     Master's and PhD programs often run longer than undergraduate degrees. That longer calendar can give families more
     time to assemble source-of-funds documentation, clarify gift or loan structures, and evaluate projects before
-    graduation — without treating the academic program itself as an immigration benefit. EB-5 still requires a qualifying
+    graduation, without treating the academic program itself as an immigration benefit. EB-5 still requires a qualifying
     investment and a complete petition; a longer degree does not shorten adjudication or guarantee visa availability.
   </p>
 
@@ -47,7 +53,7 @@ const relatedResearch = [
   <p>
     Graduate funding often looks different from undergraduate family support. Research assistantships, stipends, fellowships,
     and university employment can coexist with parental gifts, but each stream needs a clear paper trail if it becomes
-    part of — or sits alongside — EB-5 capital. USCIS evaluates lawful origin and path of funds based on the facts of the
+    part of (or sits alongside) EB-5 capital. USCIS evaluates lawful origin and path of funds based on the facts of the
     case. Students who receive university pay should not assume those wages alone fund an EB-5 investment; many graduate
     petitions still rely on documented family capital. For the core student pathway, see
     <a href="/pathways/f1-to-eb5-self-sponsored-green-card">F-1 to EB-5</a>. For a broader student checklist, use the

@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import CSPACalculatorMainContent from '@/components/CSPACalculatorMainContent';
 import LastUpdated from '@/components/LastUpdated.astro';
@@ -57,10 +57,11 @@ const lastUpdatedIso = getPageLastUpdated('/tools/eb5-cspa-calculator');
 
     <div class="container mx-auto px-4 py-3 max-w-4xl">
       <LastUpdated date={lastUpdatedIso} />
+  <PreferredSourcesCTA />
     </div>
 
     <CSPACalculatorMainContent client:load />
 
-    <Footer client:visible />
+    <SiteFooter />
   </div>
 </Layout>

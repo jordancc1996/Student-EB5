@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import OptimizedImage from '@/components/OptimizedImage.astro';
 import GatedFeasibilityCalculator from '@/components/GatedFeasibilityCalculator';
 import H1BToGreenCardInteractive from '@/components/H1BToGreenCardInteractive';
@@ -194,6 +195,8 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
           </div>
         </div>
       </section>
+
+      <PreferredSourcesCTA />
 
       <div class="md:hidden sticky top-[120px] z-40 bg-foreground/95 backdrop-blur-sm border-b border-border">
         <a
@@ -554,7 +557,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
     </main>
 
     <ConsultationCTA client:visible />
-    <Footer client:visible />
+    <SiteFooter />
     <H1BToGreenCardInteractive client:load />
     <Toaster client:load />
   </div>

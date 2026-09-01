@@ -1,22 +1,25 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 vs. EB-2 NIW | StudentEB5';
 const metaDescription =
-  'EB-5 vs. EB-2 NIW compares an investment-based green card path with a qualifications-based National Interest Waiver self-petition — framed around fit for your situation, not which path is superior.';
+  'EB-5 vs. EB-2 NIW compares an investment-based green card path with a qualifications-based National Interest Waiver self-petition, framed around fit for your situation, not which path is superior.';
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-vs-eb2-niw`;
 const h1 = 'EB-5 vs. EB-2 NIW';
 const subhead =
-  'Two different self-sponsored green card frameworks — one built around a qualifying investment, the other around a national-interest showing of your qualifications.';
+  'Two different self-sponsored green card frameworks: one built around a qualifying investment, the other around a national-interest showing of your qualifications.';
 
 const relatedResearch = [
   {
-    title: 'EB-5 Immigrant Investor Program — Complete Guide',
+    title: 'EB-5 Immigrant Investor Program: Complete Guide',
     url: '/research/complete-2027-eb5-guide',
     description: 'Program structure, filing steps, and reserved-category overview for EB-5.',
   },
 ];
+const hero = getPathwayCategoryHero('visa-comparison');
+
 ---
 
 <PathwayLandingLayout
@@ -25,6 +28,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway comparing EB-5 and EB-2 NIW"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About Whether EB-5 or EB-2 NIW Fits You"
   breadcrumbTitle="EB-5 vs. EB-2 NIW"
@@ -59,7 +65,7 @@ const relatedResearch = [
     <p class="text-sm text-muted-foreground leading-relaxed m-0" style="line-height: 1.7;">
       This comparison is educational. Neither path is objectively superior for every person. Visa availability,
       evidentiary strength, capital capacity, and career profile all matter. Discuss both options with an immigration
-      attorney before choosing — or before pursuing them in parallel.
+      attorney before choosing, or before pursuing them in parallel.
     </p>
   </div>
 

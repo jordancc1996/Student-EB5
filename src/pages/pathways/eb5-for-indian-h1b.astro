@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 for Indian H-1B Professionals | StudentEB5';
@@ -22,6 +23,8 @@ const relatedResearch = [
     description: 'Shared H-1B concurrent-filing and employer-independence mechanics.',
   },
 ];
+const hero = getPathwayHero('eb5-for-indian-h1b');
+
 ---
 
 <PathwayLandingLayout
@@ -30,6 +33,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for Indian H-1B professionals"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 for Indian H-1B Holders"
   breadcrumbTitle="EB-5 for Indian H-1B"
@@ -42,7 +48,7 @@ const relatedResearch = [
 >
   <h2>India chargeability and why EB-5 enters the conversation</h2>
   <p>
-    Many Indian H-1B professionals eventually reach an employment-based green card petition — typically EB-2 or EB-3 —
+    Many Indian H-1B professionals eventually reach an employment-based green card petition (typically EB-2 or EB-3)
     only to find that India-chargeable demand has historically produced long queues under per-country limits. Exact wait
     times change and should be checked against the current
     <a
@@ -51,7 +57,7 @@ const relatedResearch = [
       rel="noopener noreferrer">Visa Bulletin</a
     >; this page does not cite specific multi-year estimates that go stale. EB-5 uses a different visa allocation
     structure, including reserved categories that some Indian professionals evaluate as a parallel track. EB-5 still has
-    its own rules, capital requirements, and category dynamics — it is not a guaranteed faster outcome. For shared H-1B
+    its own rules, capital requirements, and category dynamics. It is not a guaranteed faster outcome. For shared H-1B
     concurrent-filing and employer-independence mechanics (without repeating them here), see
     <a href="/pathways/h1b-to-green-card">H-1B to green card via EB-5</a>.
   </p>
@@ -69,7 +75,7 @@ const relatedResearch = [
   <h2>IT staffing and consulting H-1B holders</h2>
   <p>
     A large segment of Indian H-1B professionals work through IT staffing or consulting arrangements rather than as
-    direct hires of the end client. Those arrangements can add layers of uncertainty — project placement, vendor
+    direct hires of the end client. Those arrangements can add layers of uncertainty: project placement, vendor
     contracts, and sponsorship that sits with the consulting employer rather than the worksite company. EB-5's
     employer-independence applies the same way regardless of consulting versus direct-hire status: the green card case
     stands on the investor's qualifying investment and petition, not on who signs the H-1B or who staffs the project.

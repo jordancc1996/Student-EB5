@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 for L-1 Visa Holders | StudentEB5';
@@ -22,6 +23,8 @@ const relatedResearch = [
     description: 'Step-by-step filing sequence from eligibility through I-829.',
   },
 ];
+const hero = getPathwayHero('eb5-for-l1');
+
 ---
 
 <PathwayLandingLayout
@@ -30,6 +33,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for L-1 visa holders"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 for L-1 Holders"
   breadcrumbTitle="EB-5 for L-1 Holders"
@@ -40,7 +46,7 @@ const relatedResearch = [
     L-1A and L-1B classifications allow intracompany transfers, but they remain tied to a qualifying employer
     relationship and are subject to maximum stay limits. Extensions, role changes, and corporate reorganizations can
     affect eligibility. Professionals who want permanent residence that does not depend on continued transfer status
-    sometimes evaluate EB-5 as a parallel or alternative track — without assuming any specific approval timeline.
+    sometimes evaluate EB-5 as a parallel or alternative track, without assuming any specific approval timeline.
   </p>
 
   <h2>Why employer independence matters for some L-1 holders</h2>
@@ -57,7 +63,7 @@ const relatedResearch = [
   <p>
     Some L-1 holders begin source-of-funds and project diligence while still in valid L status so that a future I-526E
     filing is not compressed against a maximum-stay deadline. Concurrent filing may be available for eligible investors
-    already in the United States when visa numbers are current in the relevant category — confirm that with counsel for
+    already in the United States when visa numbers are current in the relevant category. Confirm that with counsel for
     your facts. EB-5 does not automatically extend L-1 status on its own.
   </p>
 </PathwayLandingLayout>

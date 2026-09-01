@@ -1,10 +1,13 @@
 ---
+import type { ImageMetadata } from 'astro';
 import Layout from './Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
 import LastUpdated from '@/components/LastUpdated.astro';
+import OptimizedImage from '@/components/OptimizedImage.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
@@ -27,6 +30,10 @@ interface Props {
   secondaryCtaText?: string;
   breadcrumbTitle?: string;
   keywords?: string[];
+  /** Optional hero photo. Omit (or leave unresolved) to use dark gradient fallback — safe while assets arrive. */
+  heroImage?: ImageMetadata;
+  heroImageWebp?: ImageMetadata;
+  heroImageAlt?: string;
 }
 
 const {
@@ -39,6 +46,9 @@ const {
   secondaryCtaText = 'Schedule a Free Consultation',
   breadcrumbTitle,
   keywords = [],
+  heroImage,
+  heroImageWebp,
+  heroImageAlt = '',
 } = Astro.props;
 
 const ogTitle = title.includes('StudentEB5') ? title : `${title} | StudentEB5`;
@@ -46,9 +56,9 @@ const documentTitle = title.includes('| StudentEB5') ? title : `${title} | Stude
 const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 
 const pathwayEntry = findLandingPageByUrl(new URL(canonicalUrl).pathname);
-// Registered pathway landings use staggered publishDate; unknown layouts stay indexable.
 const pageIsIndexable = pathwayEntry ? isIndexable(pathwayEntry) : true;
 const lastUpdatedIso = pathwayEntry?.lastReviewed ?? FEATURE_BASELINE_DATE;
+const hasHeroPhoto = Boolean(heroImage);
 ---
 
 <Layout>
@@ -79,18 +89,45 @@ const lastUpdatedIso = pathwayEntry?.lastReviewed ?? FEATURE_BASELINE_DATE;
     <Header client:load />
 
     <main>
-      <section class="bg-muted/40 border-b border-border">
-        <div class="container mx-auto px-6 pt-4 pb-12 md:pb-16 max-w-4xl">
-          <Breadcrumb client:load customTitle={breadcrumbTitle} initialPathname={new URL(canonicalUrl).pathname} />
-          <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-6 mb-4 leading-tight">
+      <section
+        class={`relative -mt-[120px] pt-[120px] min-h-[45vh] flex items-end md:items-center justify-center overflow-hidden ${hasHeroPhoto ? '' : 'bg-hero-dark'}`}
+      >
+        {
+          hasHeroPhoto && heroImage ? (
+            <div class="absolute inset-0">
+              <OptimizedImage
+                src={heroImage}
+                webpSrc={heroImageWebp}
+                alt={heroImageAlt || h1}
+                className="w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+                sizes="100vw"
+              />
+              <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60"></div>
+            </div>
+          ) : (
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70"></div>
+          )
+        }
+        <div class="relative z-10 container mx-auto px-6 pt-28 pb-12 md:pb-16 max-w-4xl w-full">
+          <Breadcrumb
+            client:load
+            customTitle={breadcrumbTitle}
+            variant="dark"
+            initialPathname={new URL(canonicalUrl).pathname}
+          />
+          <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-6 mb-4 leading-tight">
             {h1}
           </h1>
-          <LastUpdated date={lastUpdatedIso} class="mb-4" />
-          <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
+          <LastUpdated date={lastUpdatedIso} variant="onDark" class="mb-4" />
+          <p class="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl">
             {subhead}
           </p>
         </div>
       </section>
+
+      <PreferredSourcesCTA />
 
       <div class="container mx-auto px-6 py-12 md:py-16 max-w-4xl prose-pathway">
         <slot />
@@ -140,7 +177,7 @@ const lastUpdatedIso = pathwayEntry?.lastReviewed ?? FEATURE_BASELINE_DATE;
       </section>
     </main>
 
-    <Footer client:visible />
+    <SiteFooter />
     <Toaster client:load />
   </div>
 </Layout>

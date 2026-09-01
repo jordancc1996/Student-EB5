@@ -1,0 +1,22 @@
+---
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+/**
+ * Official Google Preferred Sources CTA.
+ * Button markup must remain a bare div with google-add-preferred-source-btn;
+ * publisher.js is loaded once from Layout.astro.
+ */
+const siteName = SITE_CONFIG.name;
+---
+
+<section class="border-t border-border bg-background" aria-label={`Follow ${siteName} on Google`}>
+  <div class="container mx-auto px-6 py-10 max-w-4xl">
+    <p class="font-serif text-lg md:text-xl font-semibold text-foreground m-0 mb-2 leading-snug">
+      Follow {siteName} on Google
+    </p>
+    <p class="text-sm md:text-base text-muted-foreground leading-relaxed m-0 mb-5 max-w-2xl">
+      Add {siteName} as a preferred source to see more of our research, guides, and analysis in Google Search.
+    </p>
+    <div google-add-preferred-source-btn data-lang="en" data-theme="light"></div>
+  </div>
+</section>

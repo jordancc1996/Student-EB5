@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 for Indian International Students | StudentEB5';
@@ -8,11 +9,11 @@ const metaDescription =
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-indian-students`;
 const h1 = 'EB-5 for Indian International Students';
 const subhead =
-  'A self-sponsored path to a U.S. green card for Indian F-1 students — independent of the H-1B lottery and employer sponsorship.';
+  'A self-sponsored path to a U.S. green card for Indian F-1 students (independent of the H-1B lottery and employer sponsorship).';
 
 const relatedResearch = [
   {
-    title: 'H-1B vs EB-5 Lifetime Cost — Indian and Chinese Students',
+    title: 'H-1B vs EB-5 Lifetime Cost: Indian and Chinese Students',
     url: '/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students',
     description: 'Lifetime earnings and visa-path tradeoffs for students deciding between H-1B and EB-5.',
   },
@@ -22,6 +23,8 @@ const relatedResearch = [
     description: 'How STEM OPT timing intersects with EB-5 planning for Indian and Chinese students.',
   },
 ];
+const hero = getPathwayHero('eb5-for-indian-students');
+
 ---
 
 <PathwayLandingLayout
@@ -30,6 +33,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for Indian students"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone Who Understands the F-1 to EB-5 Path"
   breadcrumbTitle="EB-5 for Indian Students"
@@ -65,7 +71,7 @@ const relatedResearch = [
     <p class="text-sm text-muted-foreground leading-relaxed m-0" style="line-height: 1.7;">
       EB-5 does not automatically or immediately convert F-1 status into a green card. Filing an EB-5 petition is a
       separate immigration process with its own eligibility, documentation, and timeline requirements. This comparison
-      is educational — talk with a qualified immigration attorney about your specific situation.
+      is educational. Talk with a qualified immigration attorney about your specific situation.
     </p>
   </div>
 
@@ -78,7 +84,7 @@ const relatedResearch = [
       href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
       target="_blank"
       rel="noopener noreferrer">Visa Bulletin</a
-    >, not assumed from older figures. EB-5 is structured differently — it does not depend on lottery selection or on an
+    >, not assumed from older figures. EB-5 is structured differently. It does not depend on lottery selection or on an
     employer's willingness to sponsor a petition. For students whose families have the financial capacity to consider
     it, some begin evaluating EB-5 while still in school, which allows more time to document source of funds and select
     a project before OPT or STEM OPT authorization ends. For the broader student pathway overview, see
@@ -87,7 +93,7 @@ const relatedResearch = [
 
   <h2>How parental funding usually works</h2>
   <p>
-    Many Indian F-1 students are not the source of investment capital themselves — a parent or family member often
+    Many Indian F-1 students are not the source of investment capital themselves. A parent or family member often
     provides the funds, typically as a documented gift. USCIS requires a clear, lawful paper trail for any funds used
     in an EB-5 investment, regardless of who originally earned them. Families remitting capital from India also need to
     plan around RBI and Liberalised Remittance Scheme (LRS) compliance with a qualified adviser. See our full guide on
@@ -99,7 +105,7 @@ const relatedResearch = [
   <h2>Timing considerations</h2>
   <p>
     EB-5 program rules and filing windows change. Students evaluating this path should confirm current deadlines,
-    investment thresholds, and visa category rules before making a decision — see our
+    investment thresholds, and visa category rules before making a decision. See our
     <a href="/tools/grandfathering-countdown">Grandfathering Deadline tool</a> and
     <a href="/research/complete-2027-eb5-guide">current EB-5 guide</a> for the latest information. Country-specific STEM
     OPT timing risks are covered in

@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import OPTCalculatorMainContent from '@/components/OPTCalculatorMainContent';
 import LastUpdated from '@/components/LastUpdated.astro';
@@ -55,9 +55,10 @@ const lastUpdatedIso = getPageLastUpdated('/tools/opt-calculator');
 
   <div class="mx-auto px-10 py-3 max-w-[900px]">
     <LastUpdated date={lastUpdatedIso} />
+  <PreferredSourcesCTA />
   </div>
 
   <OPTCalculatorMainContent client:load />
 
-  <Footer client:visible />
+  <SiteFooter />
 </Layout>

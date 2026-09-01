@@ -1,10 +1,11 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 for Families With Children Aging Out | StudentEB5';
 const metaDescription =
-  'EB-5 for families with children aging out explains the CSPA-related risk of dependents turning 21 under a parent’s petition, including H-4 and India-backlog contexts — without case-specific age math.';
+  'EB-5 for families with children aging out explains the CSPA-related risk of dependents turning 21 under a parent’s petition, including H-4 and India-backlog contexts (without case-specific age math).';
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-child-aging-out`;
 const h1 = 'EB-5 for Families With Children Aging Out';
 const subhead =
@@ -22,6 +23,8 @@ const relatedResearch = [
     description: 'Step-by-step filing sequence from source of funds through I-829.',
   },
 ];
+const hero = getPathwayCategoryHero('process-mechanics');
+
 ---
 
 <PathwayLandingLayout
@@ -30,6 +33,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway addressing EB-5 child aging out"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 and Dependent Children"
   breadcrumbTitle="EB-5 Child Aging Out"
@@ -44,7 +50,7 @@ const relatedResearch = [
   <p>
     Under many family and employment-based immigrant petitions, unmarried children can be included as derivatives only
     while they remain under 21 (with limited statutory protections). The Child Status Protection Act (CSPA) can, in some
-    cases, preserve a child's age for immigration purposes — but CSPA formulas are fact-specific and depend on petition
+    cases, preserve a child's age for immigration purposes, but CSPA formulas are fact-specific and depend on petition
     type, filing and approval dates, and visa availability. This page does not calculate CSPA age for any child. If a
     dependent is approaching 21 while a parent's case is still waiting for a visa number, families often look for paths
     that can lock in derivative status earlier or on a different category timeline. EB-5 is one option some households
@@ -58,7 +64,7 @@ const relatedResearch = [
     the U.S. as H-4s, and to remain derivatives on a parent's immigrant petition, is tied to age and to the parent's
     continuing status and green card case. When the parent's employment-based wait stretches, an H-4 child can age out
     of derivative eligibility even if the family has lived in the U.S. for years. Some H-1B households evaluate an EB-5
-    filing so a spouse and unmarried children under 21 can be included on the investor's petition as derivatives — see
+    filing so a spouse and unmarried children under 21 can be included on the investor's petition as derivatives. See
     <a href="/pathways/eb5-for-h4-families">EB-5 for H-4 families &amp; dependents</a>. That structure still requires
     attorney review of CSPA and derivative eligibility for each child; it is not automatic protection against aging out.
   </p>
@@ -67,7 +73,7 @@ const relatedResearch = [
   <p>
     India's EB-2 and EB-3 employment-based categories have historically faced significant demand under per-country
     limits. Longer queues mean more calendar time between a parent's early petition steps and the moment a visa number
-    becomes available — and that calendar time is exactly what interacts with a child's age. Indian families therefore
+    becomes available, and that calendar time is exactly what interacts with a child's age. Indian families therefore
     encounter aging-out pressure more often and more acutely than families from most other countries of birth, even when
     the parent's case is otherwise strong. Exact wait times change; use the
     <a
@@ -83,7 +89,7 @@ const relatedResearch = [
   <p>
     For the investment and filing sequence itself, see the
     <a href="/eb5-investment-process">EB-5 investment process</a>. For any CSPA calculation or dual-track strategy
-    involving a specific child, speak with an immigration attorney — do not use this page as a substitute for that
+    involving a specific child, speak with an immigration attorney. Do not use this page as a substitute for that
     analysis.
   </p>
 </PathwayLandingLayout>

@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
 
@@ -9,7 +10,7 @@ const metaDescription =
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-taiwanese-investors`;
 const h1 = 'EB-5 Visa for Taiwanese Investors';
 const subhead =
-  'A single overview for Taiwanese nationals — investors, students, and families — evaluating EB-5 as a path to permanent residence.';
+  'A single overview for Taiwanese nationals (investors, students, and families) evaluating EB-5 as a path to permanent residence.';
 
 const teaFormatted = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -19,7 +20,7 @@ const teaFormatted = new Intl.NumberFormat('en-US', {
 
 const relatedResearch = [
   {
-    title: 'EB-5 Immigrant Investor Program — Complete Guide',
+    title: 'EB-5 Immigrant Investor Program: Complete Guide',
     url: '/research/complete-2027-eb5-guide',
     description: 'Filing steps, rural set-asides, and current program structure overview.',
   },
@@ -29,6 +30,8 @@ const relatedResearch = [
     description: 'Step-by-step filing sequence from source of funds through I-829.',
   },
 ];
+const hero = getPathwayHero('eb5-for-taiwanese-investors');
+
 ---
 
 <PathwayLandingLayout
@@ -37,6 +40,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for Taiwanese investors"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 for Taiwanese Nationals"
   breadcrumbTitle="EB-5 for Taiwanese Investors"
@@ -57,8 +63,8 @@ const relatedResearch = [
 
   <p>
     The EB-5 Immigrant Investor Program offers eligible foreign nationals a path to a U.S. green card through a
-    qualifying investment. Taiwanese nationals — investors abroad, students in the U.S., and families considering gifted
-    capital — work within the same program framework: investment threshold, source-of-funds documentation, project
+    qualifying investment. Taiwanese nationals (investors abroad, students in the U.S., and families considering gifted
+    capital) work within the same program framework: investment threshold, source-of-funds documentation, project
     selection, and I-526E filing. Visa allocation follows country of birth; confirm current availability on the
     <a
       href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
@@ -70,7 +76,7 @@ const relatedResearch = [
   <h2>For investors</h2>
   <p>
     Most investors use the reduced Targeted Employment Area (TEA) investment threshold of {teaFormatted}, which covers
-    capital only. After documenting lawful source of funds and selecting a project, investors file Form I-526E —
+    capital only. After documenting lawful source of funds and selecting a project, investors file Form I-526E,
     often with concurrent adjustment of status when already in the U.S. on valid nonimmigrant status. For the full
     sequence, see the
     <a href="/eb5-investment-process">EB-5 investment process</a> and the

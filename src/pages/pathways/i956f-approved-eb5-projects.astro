@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 Projects With I-956F Approval | StudentEB5';
@@ -8,15 +9,17 @@ const metaDescription =
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/i956f-approved-eb5-projects`;
 const h1 = 'EB-5 Projects With I-956F Approval';
 const subhead =
-  'What USCIS Form I-956F approval signals — and what it does not replace in your project diligence.';
+  'What USCIS Form I-956F approval signals, and what it does not replace in your project diligence.';
 
 const relatedResearch = [
   {
-    title: 'EB-5 Projects Without I-956F — Due Diligence',
+    title: 'EB-5 Projects Without I-956F: Due Diligence',
     url: '/research/evaluating-eb5-projects-pending-i956f',
     description: 'How to evaluate projects that have not yet received I-956F approval.',
   },
 ];
+const hero = getPathwayCategoryHero('project-due-diligence');
+
 ---
 
 <PathwayLandingLayout
@@ -25,6 +28,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for I-956F approved projects"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 Project Approvals"
   breadcrumbTitle="I-956F Approved EB-5 Projects"
@@ -33,8 +39,8 @@ const relatedResearch = [
   <p>
     Form I-956F is the application a regional center files for approval of an investment offering / project under the
     EB-5 Reform and Integrity Act framework. When USCIS approves an I-956F, it has reviewed aspects of that offering’s
-    compliance and job-creation methodology as presented in the filing. That review is meaningful diligence context —
-    it is not a substitute for independent review of the business plan, capital stack, sponsor history, or offering
+    compliance and job-creation methodology as presented in the filing. That review is meaningful diligence context.
+    It is not a substitute for independent review of the business plan, capital stack, sponsor history, or offering
     documents, and it does not assure immigration approval or return of capital for any investor.
   </p>
   <p>

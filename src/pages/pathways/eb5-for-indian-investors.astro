@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
 
@@ -19,7 +20,7 @@ const teaFormatted = new Intl.NumberFormat('en-US', {
 
 const relatedResearch = [
   {
-    title: 'EB-5 Guide for Indian Professionals — 2026',
+    title: 'EB-5 Guide for Indian Professionals: 2026',
     url: '/research/eb5-guide-indian-professionals-2026',
     description: 'Program structure and decision framing for Indian professionals evaluating EB-5.',
   },
@@ -29,6 +30,8 @@ const relatedResearch = [
     description: 'Why many Indian H-1B holders treat EB-5 as a parallel planning track.',
   },
 ];
+const hero = getPathwayHero('eb5-for-indian-investors');
+
 ---
 
 <PathwayLandingLayout
@@ -37,6 +40,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for Indian investors"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone Who Understands EB-5 for Indian Investors"
   breadcrumbTitle="EB-5 for Indian Investors"
@@ -57,8 +63,8 @@ const relatedResearch = [
 
   <p>
     The EB-5 Immigrant Investor Program gives eligible foreign nationals a path to a U.S. green card through a
-    qualifying investment. Indian nationals — including investors abroad and professionals already in the U.S. on
-    nonimmigrant status — evaluate the program for different reasons than many other country groups, largely because
+    qualifying investment. Indian nationals, including investors abroad and professionals already in the U.S. on
+    nonimmigrant status, evaluate the program for different reasons than many other country groups, largely because
     employment-based categories chargeable to India have historically faced significant demand. This guide covers what
     Indian investors need to evaluate before filing.
   </p>
@@ -67,17 +73,17 @@ const relatedResearch = [
   <p>
     EB-5 requires a qualifying investment in a new commercial enterprise, structured to create the required number of
     U.S. jobs. Most investors use the reduced Targeted Employment Area (TEA) investment threshold of {teaFormatted}
-    rather than the standard amount — see our full
+    rather than the standard amount. See our full
     <a href="/research/eb5-economic-calculus-investment-cost">EB-5 Investment Cost breakdown</a> for current figures.
     These thresholds cover the capital investment amount only; they do not include USCIS filing fees, regional center
     administrative fees, legal fees, or other costs.
   </p>
 
-  <h2>Visa category and timing — what "country of birth" means for Indian investors</h2>
+  <h2>Visa category and timing: what "country of birth" means for Indian investors</h2>
   <p>
     EB-5 visa numbers are allocated by country of birth (chargeability), not current citizenship or residence. India
     has historically experienced significant EB-2 and EB-3 employment-based backlogs under per-country limits, which is
-    part of why some Indian professionals evaluate EB-5's different visa allocation mechanics — including reserved
+    part of why some Indian professionals evaluate EB-5's different visa allocation mechanics, including reserved
     categories such as rural and infrastructure set-asides. EB-5 still has its own category rules and demand patterns;
     it is not a guaranteed shortcut. Visa availability changes over time. Investors should review current
     <a
@@ -109,8 +115,7 @@ const relatedResearch = [
   <h2>Choosing a project</h2>
   <p>
     Project selection is one of the most consequential decisions in the EB-5 process. Regional centers with USCIS
-    I-956F approval have had their compliance and job-creation methodology reviewed by USCIS, which is one factor —
-    not the only factor — in evaluating a project. See our
+    I-956F approval have had their compliance and job-creation methodology reviewed by USCIS, which is one factor (not the only factor) in evaluating a project. See our
     <a href="/research/19-questions-rural-eb5-project-due-diligence">due diligence guide</a> and
     <a href="/research/choosing-rural-eb5-regional-center-guide">rural EB-5 regional center guide</a> for the fuller list
     of questions to ask before committing capital.

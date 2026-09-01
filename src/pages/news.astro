@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import NewsMainContent from '@/components/NewsMainContent';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
@@ -102,13 +103,15 @@ const structuredData = [
       </div>
     </section>
 
+    <PreferredSourcesCTA />
+
     <main class="container mx-auto px-6 pt-4 pb-12">
       <Breadcrumb client:load initialPathname="/news" />
       <NewsMainContent />
     </main>
 
     <ConsultationCTA client:visible />
-    <Footer client:visible />
+    <SiteFooter />
     <Toaster client:load />
   </div>
 </Layout>

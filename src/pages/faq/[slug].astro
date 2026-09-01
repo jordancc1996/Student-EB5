@@ -4,7 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
 import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
@@ -118,6 +118,8 @@ const lastUpdatedIso = getPageLastUpdated(`/faq/${slug}`);
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
             Back to All FAQs
           </a>
+
+          <PreferredSourcesCTA />
 
           <ArticleContents items={tocItems} category={faq.category} />
         </div>
@@ -235,7 +237,7 @@ const lastUpdatedIso = getPageLastUpdated(`/faq/${slug}`);
     </main>
 
     <ConsultationCTA client:visible />
-    <Footer client:visible />
+    <SiteFooter />
     <Toaster client:load />
   </div>
 </Layout>

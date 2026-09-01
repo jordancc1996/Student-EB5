@@ -1,10 +1,11 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'Is EB-5 Worth It? Risk, Due Diligence & Capital | StudentEB5';
 const metaDescription =
-  'Is EB-5 worth it? A plain-language look at the at-risk capital requirement, factors investors evaluate in due diligence, return of capital realities, and how to decide with counsel — without safety claims.';
+  'Is EB-5 worth it? A plain-language look at the at-risk capital requirement, factors investors evaluate in due diligence, return of capital realities, and how to decide with counsel (without safety claims).';
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-risk-and-due-diligence`;
 const h1 = 'Is EB-5 Worth It? Understanding Risk, Due Diligence, and Capital Requirements';
 const subhead =
@@ -22,7 +23,7 @@ const relatedResearch = [
     description: 'How to evaluate rural regional centers and sponsors.',
   },
   {
-    title: 'EB-5 Projects Without I-956F — Due Diligence',
+    title: 'EB-5 Projects Without I-956F: Due Diligence',
     url: '/research/evaluating-eb5-projects-pending-i956f',
     description: 'What I-956F status means as one diligence factor among several.',
   },
@@ -32,6 +33,8 @@ const relatedResearch = [
     description: 'Where EB-5 capital sits relative to other project financing.',
   },
 ];
+const hero = getPathwayCategoryHero('project-due-diligence');
+
 ---
 
 <PathwayLandingLayout
@@ -40,6 +43,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for EB-5 risk and due diligence"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone Who Will Give You a Straight Answer About EB-5 Risk"
   breadcrumbTitle="EB-5 Risk and Due Diligence"
@@ -64,7 +70,7 @@ const relatedResearch = [
     program. That means principal can be lost if a project underperforms or fails. There is no such thing as a
     risk-free or capital-preserving EB-5 investment under the statute and regulations. Any project or adviser that
     claims otherwise should be treated as a red flag. Immigration benefits and investment outcomes are separate
-    questions — neither is assured by marketing language.
+    questions. Neither is assured by marketing language.
   </p>
 
   <h2>What actually reduces risk</h2>
@@ -75,7 +81,7 @@ const relatedResearch = [
   <ul>
     <li>
       <strong>Regional center track record and I-956F approval status.</strong> Prior completions and USCIS project
-      approval status are signals to review — not assurances of future performance. See
+      approval status are signals to review (not assurances of future performance). See
       <a href="/research/evaluating-eb5-projects-pending-i956f">evaluating projects and I-956F status</a>.
     </li>
     <li>
@@ -107,7 +113,7 @@ const relatedResearch = [
   <h2>Return of capital</h2>
   <p>
     Return of the invested capital is not assured. Whether investors later receive capital back depends on the project
-    performing and the business plan being carried out successfully — subject to the offering documents and the at-risk
+    performing and the business plan being carried out successfully, subject to the offering documents and the at-risk
     requirement. That uncertainty is a fundamental feature of EB-5, not a flaw in one particular deal. Anyone pitching
     assured return of capital while still calling the offering EB-5-compliant is contradicting the program’s core risk
     rule.
@@ -118,6 +124,6 @@ const relatedResearch = [
     That question is personal. It depends on immigration goals, risk tolerance, liquidity, family timing, and whether
     alternatives (employment-based categories, remaining abroad, other residency programs) fit better. This page cannot
     answer yes or no for any reader. It is a decision made with both an immigration attorney and a financial adviser who
-    understand the specific facts — not from a marketing page that softens the at-risk rule.
+    understand the specific facts, not from a marketing page that softens the at-risk rule.
   </p>
 </PathwayLandingLayout>

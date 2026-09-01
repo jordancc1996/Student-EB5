@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 With Gifted Funds | StudentEB5';
@@ -12,7 +13,7 @@ const subhead =
 
 const relatedResearch = [
   {
-    title: 'Ways to Fund EB-5 — Gifted, Loaned, and Crypto Paths',
+    title: 'Ways to Fund EB-5: Gifted, Loaned, and Crypto Paths',
     url: '/research/ways-to-fund-eb5-investment-2026',
     description: 'Primary research overview of gift and other lawful funding paths.',
   },
@@ -27,6 +28,8 @@ const relatedResearch = [
     description: 'Parent-to-child gift mechanics and LRS/RBI planning for India-side capital.',
   },
 ];
+const hero = getPathwayCategoryHero('source-of-funds');
+
 ---
 
 <PathwayLandingLayout
@@ -35,6 +38,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for gifted EB-5 funds"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About Gifted Funds for EB-5"
   breadcrumbTitle="EB-5 Gifted Funds"
@@ -48,7 +54,7 @@ const relatedResearch = [
   <p>
     Parent-to-student cases with country-specific remittance issues are covered in depth on
     <a href="/pathways/eb5-for-chinese-families">EB-5 for Chinese families</a> and
-    <a href="/pathways/eb5-for-indian-families">EB-5 for Indian families</a>. This page is the broader gift umbrella —
+    <a href="/pathways/eb5-for-indian-families">EB-5 for Indian families</a>. This page is the broader gift umbrella:
     any qualifying family gift structure, not only parents. For the fuller funding research (including how gifts sit
     next to loans and other paths), see
     <a href="/research/ways-to-fund-eb5-investment-2026">ways to fund an EB-5 investment</a> and the map page

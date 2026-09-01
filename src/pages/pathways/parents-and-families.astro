@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import {
   getIndexableLandingPages,
@@ -12,7 +13,7 @@ import {
 
 const title = 'EB-5 for Parents & Families | StudentEB5';
 const metaDescription =
-  'How parents and families fund and evaluate an EB-5 investment for a child studying or working in the U.S. — gifts, source of funds, and documentation, by country.';
+  'How parents and families fund and evaluate an EB-5 investment for a child studying or working in the U.S.: gifts, source of funds, and documentation, by country.';
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/parents-and-families`;
 const h1 = 'EB-5 for Parents & Families';
 const subhead =
@@ -45,12 +46,12 @@ const countryFamilyPages = getIndexableLandingPages()
 function cardDescription(page: LandingPage): string {
   const country = page.applicableWhen.countries![0] as CountryOfBirth;
   const label = countriesOfBirth[country].label;
-  return `How ${label} families fund an EB-5 investment — gifts, source of funds, and documentation before moving capital.`;
+  return `How ${label} families fund an EB-5 investment: gifts, source of funds, and documentation before moving capital.`;
 }
 
 const relatedResearch = [
   {
-    title: 'Ways to Fund EB-5 — Gifted, Loaned, and Crypto Paths',
+    title: 'Ways to Fund EB-5: Gifted, Loaned, and Crypto Paths',
     url: '/research/ways-to-fund-eb5-investment-2026',
     description: 'Gift, loan, and other lawful funding paths USCIS reviews for EB-5 capital.',
   },
@@ -64,6 +65,8 @@ const relatedResearch = [
       ]
     : []),
 ];
+const hero = getPathwayHero('parents-and-families');
+
 ---
 
 <PathwayLandingLayout
@@ -72,6 +75,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for parents and families"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone Who Understands Family-Funded EB-5"
   breadcrumbTitle="Parents & Families"
@@ -92,7 +98,7 @@ const relatedResearch = [
 
   <p>
     In many EB-5 cases, the investor of record is a student or young professional, but a parent or family member is the
-    actual source of the investment funds. This is common and accepted under EB-5 rules — what matters is a clear,
+    actual source of the investment funds. This is common and accepted under EB-5 rules. What matters is a clear,
     documented, lawful paper trail for the money. The right guide for your family often depends on where the funds are
     coming from, since funding rules, currency movement, and documentation norms vary by country. Choose your country
     below, or read our general funding guide if your country isn't listed yet.
@@ -125,7 +131,7 @@ const relatedResearch = [
     )
   }
   <p>
-    Don't see your country? The general funding principles below apply broadly — or use our{' '}
+    Don't see your country? The general funding principles below apply broadly, or use our{' '}
     <a href="/pathways">EB-5 Path Finder</a> for a personalized starting point.
   </p>
 
@@ -135,7 +141,7 @@ const relatedResearch = [
     lawful, and can the path the money took to reach the investor be traced clearly? For gifted funds, this typically
     means a signed gift letter, documentation of the giver's own source of funds (income, business ownership, property
     sale, etc.), and bank records showing the transfer. Moving significant capital internationally often involves
-    country-specific rules — foreign exchange controls, reporting thresholds, or tax consequences — that should be
+    country-specific rules (foreign exchange controls, reporting thresholds, or tax consequences) that should be
     reviewed with an adviser familiar with both the origin country and U.S. requirements, ideally before funds move.
   </p>
   <p>

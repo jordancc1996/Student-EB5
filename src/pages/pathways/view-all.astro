@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
@@ -174,6 +175,8 @@ const compareSectionPages = indexablePages.filter((page) => page.id.startsWith('
         </div>
       </section>
 
+      <PreferredSourcesCTA />
+
       <div class="container mx-auto px-6 py-12 md:py-16 max-w-4xl space-y-14">
         {
           statusSections.length > 0 && (
@@ -320,7 +323,7 @@ const compareSectionPages = indexablePages.filter((page) => page.id.startsWith('
       </div>
     </main>
 
-    <Footer client:visible />
+    <SiteFooter />
     <Toaster client:load />
   </div>
 </Layout>

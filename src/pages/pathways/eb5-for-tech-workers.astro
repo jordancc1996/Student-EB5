@@ -1,11 +1,12 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayHero } from '@/lib/pathwayHeroes';
 import ProcessFaqAccordion from '@/components/ProcessFaqAccordion';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 for Tech Workers | StudentEB5';
 const metaDescription =
-  'EB-5 for tech workers and software engineers explains H-1B dependency, layoff exposure, and why some professionals treat EB-5 as an employer-independent backup plan — with attorney and adviser review before acting.';
+  'EB-5 for tech workers and software engineers explains H-1B dependency, layoff exposure, and why some professionals treat EB-5 as an employer-independent backup plan, with attorney and adviser review before acting.';
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-tech-workers`;
 const h1 = 'EB-5 for Tech Workers';
 const subhead =
@@ -26,11 +27,13 @@ const relatedResearch = [
 
 const faqItems = [
   {
-    question: 'I was laid off on H-1B — should I invest in EB-5 or return home?',
+    question: 'I was laid off on H-1B: should I invest in EB-5 or return home?',
     answer:
       'That is a legitimate, high-stakes decision many tech workers face after a layoff: weigh a major capital commitment and EB-5 timeline against returning to a home country and rebuilding status later. There is no universal right answer. It involves both a financial choice and an immigration timeline, and it is exactly the kind of decision worth discussing with a financial adviser and an immigration attorney before acting.',
   },
 ];
+const hero = getPathwayHero('eb5-for-tech-workers');
+
 ---
 
 <PathwayLandingLayout
@@ -39,6 +42,9 @@ const faqItems = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for tech workers"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 for Tech Workers"
   breadcrumbTitle="EB-5 for Tech Workers"
@@ -55,14 +61,14 @@ const faqItems = [
     employer-tied category). That structure ties work authorization, job mobility, and often the employment-based green
     card track to continued sponsorship. Lottery outcomes, cap rules, and petition renewals sit largely outside the
     worker's control. Some tech professionals therefore evaluate EB-5 as a backup plan that does not depend on remaining
-    employed by a particular sponsor — whether they work at a large public tech company or an earlier-stage startup.
+    employed by a particular sponsor, whether they work at a large public tech company or an earlier-stage startup.
   </p>
 
   <h2>Layoff exposure and an employer-independent track</h2>
   <p>
     Tech hiring cycles can compress quickly. A layoff can start a grace-period clock, force a rapid job search within
     status rules, or push a household to leave the U.S. EB-5, once filed as a separate immigrant petition, does not
-    renew or replace H-1B by itself — but it also does not require the same employer relationship that an H-1B or PERM
+    renew or replace H-1B by itself, but it also does not require the same employer relationship that an H-1B or PERM
     case does. Deeper layoff-era framing is in
     <a href="/research/h1b-tech-layoffs-eb5-entrepreneurship">H-1B tech layoffs and EB-5 entrepreneurship</a>; India-focused
     backup planning is in

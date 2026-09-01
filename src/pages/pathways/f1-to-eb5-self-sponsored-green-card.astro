@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import OptimizedImage from '@/components/OptimizedImage.astro';
 import InlineTuitionCalculator from '@/components/InlineTuitionCalculator';
 import StudentToGreenCardInteractive from '@/components/StudentToGreenCardInteractive';
@@ -169,6 +170,8 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
           </div>
         </div>
       </section>
+
+      <PreferredSourcesCTA />
 
       <section class="py-20">
         <div class="container mx-auto px-4 max-w-4xl">
@@ -531,7 +534,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
       </section>
     </main>
 
-    <Footer client:visible />
+    <SiteFooter />
     <StudentToGreenCardInteractive client:load />
     <Toaster client:load />
   </div>

@@ -6,6 +6,7 @@ import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
 import ArticleContents from '@/components/research/ArticleContents.astro';
 import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
 import LastUpdated from '@/components/LastUpdated.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 
 interface Props {
   article: NewsArticleMeta;
@@ -79,6 +80,8 @@ const lastUpdated = article.dateModified ?? article.datePublished;
             </li>
           </ol>
         </nav>
+
+        <PreferredSourcesCTA />
 
         <ArticleContents items={tocItems} category={article.category} />
       </div>

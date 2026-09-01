@@ -4,7 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
 import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
 import OptimizedImage from '@/components/OptimizedImage.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
@@ -12,6 +12,7 @@ import { Toaster } from '@/components/ui/toaster';
 import ShareButtons from '@/components/ShareButtons';
 import MidArticleCTA from '@/components/MidArticleCTA';
 import PostIntroCTA from '@/components/research/PostIntroCTA.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateArticleSchema } from '@/lib/seo/structured-data';
 import {
@@ -174,6 +175,8 @@ const relatedPosts = allPosts
             </ol>
           </nav>
 
+          <PreferredSourcesCTA />
+
           {
             !hasHero && (
               <header class="mb-8">
@@ -312,7 +315,7 @@ const relatedPosts = allPosts
       </div>
     </main>
     <ConsultationCTA client:visible articleForm />
-    <Footer client:visible />
+    <SiteFooter />
   </div>
   <Toaster client:load />
 </Layout>

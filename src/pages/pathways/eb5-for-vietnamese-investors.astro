@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
 
@@ -9,7 +10,7 @@ const metaDescription =
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-vietnamese-investors`;
 const h1 = 'EB-5 Visa for Vietnamese Investors';
 const subhead =
-  'A single overview for Vietnamese nationals — investors, students, and families — evaluating EB-5 as a path to permanent residence.';
+  'A single overview for Vietnamese nationals (investors, students, and families) evaluating EB-5 as a path to permanent residence.';
 
 const teaFormatted = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -24,11 +25,13 @@ const relatedResearch = [
     description: 'Documenting crypto origin, liquidation, and path of funds for EB-5 petitions.',
   },
   {
-    title: 'EB-5 Immigrant Investor Program — Complete Guide',
+    title: 'EB-5 Immigrant Investor Program: Complete Guide',
     url: '/research/complete-2027-eb5-guide',
     description: 'Filing steps, rural set-asides, and current program structure overview.',
   },
 ];
+const hero = getPathwayHero('eb5-for-vietnamese-investors');
+
 ---
 
 <PathwayLandingLayout
@@ -37,6 +40,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for Vietnamese investors"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 for Vietnamese Nationals"
   breadcrumbTitle="EB-5 for Vietnamese Investors"
@@ -57,8 +63,8 @@ const relatedResearch = [
 
   <p>
     The EB-5 Immigrant Investor Program offers eligible foreign nationals a path to a U.S. green card through a
-    qualifying investment. Vietnamese nationals — whether investing from abroad, studying in the U.S. on F-1 status, or
-    considering family-funded capital — evaluate the same core requirements: a qualifying investment, lawful
+    qualifying investment. Vietnamese nationals (whether investing from abroad, studying in the U.S. on F-1 status, or
+    considering family-funded capital) evaluate the same core requirements: a qualifying investment, lawful
     source-of-funds documentation, project selection, and Form I-526E. Chargeability follows country of birth; confirm
     current category availability on the
     <a
@@ -72,7 +78,7 @@ const relatedResearch = [
   <p>
     Most investors use the reduced Targeted Employment Area (TEA) investment threshold of {teaFormatted}. That amount
     is capital only and excludes fees and professional costs. Source-of-funds documentation is especially important when
-    capital has moved through multiple accounts, businesses, or — for some investors — cryptocurrency paths that later
+    capital has moved through multiple accounts, businesses, or (for some investors) cryptocurrency paths that later
     convert to fiat. See
     <a href="/research/eb5-cryptocurrency-source-of-funds">EB-5 cryptocurrency source of funds</a> when crypto is part
     of the history, and the

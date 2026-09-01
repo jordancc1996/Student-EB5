@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
 
@@ -9,7 +10,7 @@ const metaDescription =
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-wealthy-families`;
 const h1 = 'EB-5 for High-Net-Worth Families';
 const subhead =
-  'When the capital threshold is not the hard part — and family residency, education timing, and global mobility options drive the EB-5 conversation instead.';
+  'When the capital threshold is not the hard part, and family residency, education timing, and global mobility options drive the EB-5 conversation instead.';
 
 const teaFormatted = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -24,11 +25,13 @@ const relatedResearch = [
     description: 'Side-by-side framing of EB-5 and other investment-migration programs for student families.',
   },
   {
-    title: 'Golden Visa Global Education — Student Stories',
+    title: 'Golden Visa Global Education: Student Stories',
     url: '/research/golden-visa-global-education-student-stories',
     description: 'How education goals intersect with residency and investment-migration planning.',
   },
 ];
+const hero = getPathwayHero('eb5-for-wealthy-families');
+
 ---
 
 <PathwayLandingLayout
@@ -37,6 +40,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for wealthy families"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 for High-Net-Worth Families"
   breadcrumbTitle="EB-5 for High-Net-Worth Families"
@@ -58,8 +64,8 @@ const relatedResearch = [
 
   <h2>When {teaFormatted} is not the binding constraint</h2>
   <p>
-    For some families, the Targeted Employment Area (TEA) investment threshold of {teaFormatted} — capital only, before
-    fees and professional costs — is affordable relative to overall balance-sheet capacity. The harder questions become
+    For some families, the Targeted Employment Area (TEA) investment threshold of {teaFormatted} (capital only, before
+    fees and professional costs) is affordable relative to overall balance-sheet capacity. The harder questions become
     structural: where the family wants long-term residency, how multiple children's U.S. education and immigration
     clocks align, and whether a U.S. permanent-residence path should sit alongside or instead of other global
     residency or investment-migration options. This page addresses that planning layer.
@@ -68,8 +74,8 @@ const relatedResearch = [
   <h2>Family residency and multi-child timing</h2>
   <p>
     EB-5 can include a spouse and unmarried children under 21 as derivatives on the investor's petition when eligibility
-    rules are met. High-net-worth households often evaluate filing timing against several academic calendars at once —
-    staggered graduations, OPT windows, and aging-out risk for older children — rather than treating EB-5 as a single
+    rules are met. High-net-worth households often evaluate filing timing against several academic calendars at once
+    (staggered graduations, OPT windows, and aging-out risk for older children) rather than treating EB-5 as a single
     adult's career move. Those interactions are case-specific; attorney review is required before assuming any child
     remains eligible as a derivative.
   </p>

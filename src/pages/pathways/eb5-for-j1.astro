@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 for J-1 Visa Holders | StudentEB5';
@@ -17,6 +18,8 @@ const relatedResearch = [
     description: 'How concurrent filing works for common nonimmigrant statuses, including J-1.',
   },
 ];
+const hero = getPathwayHero('eb5-for-j1');
+
 ---
 
 <PathwayLandingLayout
@@ -25,6 +28,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for J-1 visa holders"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 for J-1 Holders"
   breadcrumbTitle="EB-5 for J-1 Holders"
@@ -34,16 +40,16 @@ const relatedResearch = [
   <p>
     J-1 exchange visitors come to the United States for temporary academic, research, or training objectives. Some later
     consider EB-5 as a self-sponsored permanent residence option. Whether that path fits depends on program type,
-    funding rules, and individual immigration history — not on a single rule that applies to every J-1 holder.
+    funding rules, and individual immigration history (not on a single rule that applies to every J-1 holder).
   </p>
 
-  <h2>The 212(e) two-year home residency requirement — case-specific</h2>
+  <h2>The 212(e) two-year home residency requirement: case-specific</h2>
   <p>
     Certain J-1 participants may be subject to INA 212(e), which can require two years of residence in the home country
-    before some immigrant or change-of-status benefits are available — unless a waiver is obtained. <strong
+    before some immigrant or change-of-status benefits are available, unless a waiver is obtained. <strong
       >This requirement does not apply to every J-1 visa.</strong
     > Skills lists, government funding, and medical training categories are among the factors that determine whether
-    212(e) attaches. Do not assume you are — or are not — subject to 212(e) based on general articles. Confirm your
+    212(e) attaches. Do not assume you are (or are not) subject to 212(e) based on general articles. Confirm your
     status on your DS-2019 / visa documentation and with a qualified immigration attorney before planning EB-5 filing
     timing around a home-residency obligation or waiver strategy.
   </p>

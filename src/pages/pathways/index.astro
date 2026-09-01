@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
 import LucideIcon from '@/components/LucideIcon';
 import PathwaysCountdownBanner from '@/components/PathwaysCountdownBanner';
 import { SITE_CONFIG } from '@/lib/seo/config';
@@ -55,6 +55,8 @@ const keywords = [
           </p>
         </div>
       </section>
+
+      <PreferredSourcesCTA />
 
       <section class="py-20">
         <div class="container mx-auto px-4 max-w-5xl">
@@ -188,6 +190,6 @@ const keywords = [
       </section>
     </main>
 
-    <Footer client:visible />
+    <SiteFooter />
   </div>
 </Layout>

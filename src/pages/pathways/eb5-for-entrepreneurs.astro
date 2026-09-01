@@ -1,14 +1,15 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 for Entrepreneurs & Business Owners | StudentEB5';
 const metaDescription =
-  'EB-5 for entrepreneurs and business owners covers established operators evaluating EB-5, including using business income as source of funds — distinct from startup-founder status planning.';
+  'EB-5 for entrepreneurs and business owners covers established operators evaluating EB-5, including using business income as source of funds (distinct from startup-founder status planning).';
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-for-entrepreneurs`;
 const h1 = 'EB-5 for Entrepreneurs & Business Owners';
 const subhead =
-  'For established business owners considering EB-5 — including how operating-company income can figure into source-of-funds documentation.';
+  'For established business owners considering EB-5, including how operating-company income can figure into source-of-funds documentation.';
 
 const relatedResearch = [
   {
@@ -17,11 +18,13 @@ const relatedResearch = [
     description: 'How business income can support EB-5 source-of-funds documentation.',
   },
   {
-    title: 'Ways to Fund EB-5 — Gifted, Loaned, and Crypto Paths',
+    title: 'Ways to Fund EB-5: Gifted, Loaned, and Crypto Paths',
     url: '/research/ways-to-fund-eb5-investment-2026',
     description: 'Gift, loan, and other lawful funding paths USCIS reviews for EB-5 capital.',
   },
 ];
+const hero = getPathwayHero('eb5-for-entrepreneurs');
+
 ---
 
 <PathwayLandingLayout
@@ -30,6 +33,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for entrepreneurs"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 for Business Owners"
   breadcrumbTitle="EB-5 for Entrepreneurs"
@@ -42,8 +48,8 @@ const relatedResearch = [
 >
   <h2>Established operators, not early-stage founders</h2>
   <p>
-    This page is for business owners who already run operating companies — trading, manufacturing, professional services,
-    real estate operating businesses, and similar — and are evaluating EB-5 as a U.S. permanent-residence path. That is
+    This page is for business owners who already run operating companies (trading, manufacturing, professional services,
+    real estate operating businesses, and similar) and are evaluating EB-5 as a U.S. permanent-residence path. That is
     distinct from
     <a href="/pathways/eb5-for-startup-founders">startup founders</a>, whose primary friction is often status independence
     from a company they control while it is still being built. Here, the conversation more often centers on capital
@@ -63,7 +69,7 @@ const relatedResearch = [
   <h2>Immigration and business decisions stay separate reviews</h2>
   <p>
     Moving capital out of an operating company for an EB-5 investment can affect liquidity, minority shareholders, tax
-    exposure, and local corporate rules — issues that sit outside immigration adjudication. Treat the immigration
+    exposure, and local corporate rules: issues that sit outside immigration adjudication. Treat the immigration
     attorney review and the corporate/tax adviser review as parallel workstreams before funds move. EB-5 does not
     guarantee visa availability or petition approval.
   </p>

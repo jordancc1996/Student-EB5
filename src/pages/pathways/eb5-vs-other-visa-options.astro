@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 vs. E-2, L-1, O-1, and Global Residency Options | StudentEB5';
@@ -8,7 +9,7 @@ const metaDescription =
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb5-vs-other-visa-options`;
 const h1 = 'EB-5 vs. E-2, L-1, O-1, and Global Residency Options';
 const subhead =
-  'How EB-5’s investment-based, employer-independent green card path differs from common U.S. nonimmigrant categories — and from other countries’ residency programs.';
+  'How EB-5’s investment-based, employer-independent green card path differs from common U.S. nonimmigrant categories, and from other countries’ residency programs.';
 
 const relatedResearch = [
   {
@@ -22,6 +23,8 @@ const relatedResearch = [
     description: 'L-1-specific framing when evaluating EB-5 as a permanent path.',
   },
 ];
+const hero = getPathwayCategoryHero('visa-comparison');
+
 ---
 
 <PathwayLandingLayout
@@ -30,6 +33,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway comparing EB-5 and other visa options"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About Comparing Visa and Residency Paths"
   breadcrumbTitle="EB-5 vs. Other Visa Options"
@@ -47,7 +53,7 @@ const relatedResearch = [
       <p class="text-muted-foreground leading-relaxed m-0" style="line-height: 1.75;">
         Nonimmigrant treaty-investor status. Generally requires nationality of a treaty country, an investment in a U.S.
         business, and ongoing E-2 compliance. It is not itself a direct green card path. EB-5, by contrast, is an
-        immigrant category aimed at permanent residence through a qualifying EB-5 investment structure — different legal
+        immigrant category aimed at permanent residence through a qualifying EB-5 investment structure. Different legal
         framework, different petition forms, and different outcome (immigrant vs. temporary treaty status).
       </p>
     </div>
@@ -56,8 +62,8 @@ const relatedResearch = [
       <p class="text-muted-foreground leading-relaxed m-0" style="line-height: 1.75;">
         Employer-dependent nonimmigrant status for qualifying intracompany transferees. Time-limited and tied to the
         petitioning employer relationship. EB-5 does not require that same continuing employer transfer eligibility; it
-        is an investment-based immigrant petition. L-1 holders sometimes evaluate EB-5 as a permanent alternative —
-        see <a href="/pathways/eb5-for-l1">EB-5 for L-1 visa holders</a>.
+        is an investment-based immigrant petition. L-1 holders sometimes evaluate EB-5 as a permanent alternative.
+        See <a href="/pathways/eb5-for-l1">EB-5 for L-1 visa holders</a>.
       </p>
     </div>
     <div class="rounded-lg border border-border bg-card p-6">
@@ -65,7 +71,7 @@ const relatedResearch = [
       <p class="text-muted-foreground leading-relaxed m-0" style="line-height: 1.75;">
         Nonimmigrant category for individuals who meet a high, specific evidentiary bar for extraordinary ability in
         defined fields. No EB-5-style capital investment is required, but the proof standard is demanding and distinct.
-        EB-5 turns on investment, source of funds, and job creation rather than an O-1-style ability showing — different
+        EB-5 turns on investment, source of funds, and job creation rather than an O-1-style ability showing. Different
         eligibility theory entirely.
       </p>
     </div>
@@ -77,15 +83,15 @@ const relatedResearch = [
   >
     <p class="text-sm text-muted-foreground leading-relaxed m-0" style="line-height: 1.7;">
       These summaries are educational. Category rules, treaty lists, and evidentiary standards change. None of these
-      paths is ranked here as generally preferable — fit depends on nationality, career evidence, capital, and goals.
+      paths is ranked here as generally preferable. Fit depends on nationality, career evidence, capital, and goals.
       Confirm options with an immigration attorney.
     </p>
   </div>
 
   <h2>EB-5 vs. global residency options</h2>
   <p>
-    Some investors also look at programs outside the United States — for example, Canada permanent residence pathways or
-    Portugal’s Golden Visa — while considering EB-5. Those programs and U.S. EB-5 serve different goals: residency and
+    Some investors also look at programs outside the United States (for example, Canada permanent residence pathways or
+    Portugal’s Golden Visa) while considering EB-5. Those programs and U.S. EB-5 serve different goals: residency and
     physical-presence rules differ, paths to citizenship differ, and investment or selection structures differ. This page
     does not rank them or restate current program thresholds that go stale. For deeper golden-visa vs EB-5 framing aimed
     at student and family planning, see

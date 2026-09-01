@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import PrivacyPolicyMainContent from '@/components/PrivacyPolicyMainContent';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateWebPageSchema } from '@/lib/seo/structured-data';
@@ -46,9 +47,10 @@ const structuredData = generateWebPageSchema(
     <Header client:load />
 
     <main class="container mx-auto px-6 py-16 max-w-5xl">
+      <PreferredSourcesCTA />
       <PrivacyPolicyMainContent client:load />
     </main>
 
-    <Footer client:visible />
+    <SiteFooter />
   </div>
 </Layout>

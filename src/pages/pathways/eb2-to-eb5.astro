@@ -1,10 +1,11 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 for EB-2 Backlog Applicants | StudentEB5';
 const metaDescription =
-  'EB-5 for EB-2 backlog applicants explains why some people with a pending or planned EB-2 petition evaluate EB-5 as a parallel or alternative path — and what to review with an attorney first.';
+  'EB-5 for EB-2 backlog applicants explains why some people with a pending or planned EB-2 petition evaluate EB-5 as a parallel or alternative path, and what to review with an attorney first.';
 const canonicalUrl = `${SITE_CONFIG.url}/pathways/eb2-to-eb5`;
 const h1 = 'EB-5 for EB-2 Backlog Applicants';
 const subhead =
@@ -12,7 +13,7 @@ const subhead =
 
 const relatedResearch = [
   {
-    title: 'EB-5 Immigrant Investor Program — Complete Guide',
+    title: 'EB-5 Immigrant Investor Program: Complete Guide',
     url: '/research/complete-2027-eb5-guide',
     description: 'Program structure, reserved categories, and filing overview.',
   },
@@ -22,6 +23,8 @@ const relatedResearch = [
     description: 'Employer-independence and concurrent filing framing for H-1B households.',
   },
 ];
+const hero = getPathwayCategoryHero('status-transition');
+
 ---
 
 <PathwayLandingLayout
@@ -30,6 +33,9 @@ const relatedResearch = [
   canonicalUrl={canonicalUrl}
   h1={h1}
   subhead={subhead}
+  heroImage={hero.image}
+  heroImageWebp={hero.webp}
+  heroImageAlt="EB-5 pathway for transitioning from EB-2 to EB-5"
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 Alongside an EB-2 Case"
   breadcrumbTitle="EB-5 for EB-2 Backlog"
@@ -44,7 +50,7 @@ const relatedResearch = [
   <p>
     EB-2 is an employment-based immigrant category generally used by professionals with advanced degrees or exceptional
     ability, often tied to an employer-sponsored petition (and, in many cases, a labor certification process). Having a
-    pending or planned EB-2 case means you are already on an employment-based track toward permanent residence — but
+    pending or planned EB-2 case means you are already on an employment-based track toward permanent residence, but
     visa number availability still depends on country of birth and overall demand. When those numbers are backlogged,
     families can wait years after I-140 approval before a green card becomes available. Current category dates belong on
     the
@@ -61,7 +67,7 @@ const relatedResearch = [
     employer sponsorship. Some applicants evaluate it as a parallel or alternative path when EB-2 visa availability
     feels open-ended, when employer dependence is a concern, or when a spouse and children need a timeline that is not
     controlled by a single employer's petition strategy. EB-5 still has its own capital, documentation, and category
-    rules — it is not a guaranteed faster outcome. Program overview:
+    rules. It is not a guaranteed faster outcome. Program overview:
     <a href="/research/complete-2027-eb5-guide">complete EB-5 guide</a>. Shared concurrent-filing framing for many
     nonimmigrants already in the U.S. is on
     <a href="/pathways/h1b-to-green-card">H-1B to green card via EB-5</a>.
@@ -70,7 +76,7 @@ const relatedResearch = [
   <h2>Pursuing EB-5 without automatically abandoning EB-2</h2>
   <p>
     Filing an EB-5 petition does not, by itself, require you to abandon an existing EB-2 case. Whether maintaining both
-    tracks makes sense — and how priority dates, adjustment eligibility, and immigrant visa processing interact — is
+    tracks makes sense, and how priority dates, adjustment eligibility, and immigrant visa processing interact, is
     case-specific. Some households keep an employment-based petition active while assembling an EB-5 filing; others
     switch focus entirely. Do not assume either approach is correct for your facts. Review strategy with an immigration
     attorney before filing EB-5 alongside, or instead of, an EB-2 matter.

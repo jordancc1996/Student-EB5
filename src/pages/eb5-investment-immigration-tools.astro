@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import ToolsHubMainContent from '@/components/ToolsHubMainContent';
 import { SITE_CONFIG } from '@/lib/seo/config';
@@ -88,10 +89,12 @@ const structuredData = [
   <div class="min-h-screen bg-gradient-to-br from-background to-secondary/20">
     <Header client:load />
 
+    <PreferredSourcesCTA />
+
     <ToolsHubMainContent>
       <Breadcrumb client:load initialPathname="/eb5-investment-immigration-tools" />
     </ToolsHubMainContent>
 
-    <Footer client:visible />
+    <SiteFooter />
   </div>
 </Layout>

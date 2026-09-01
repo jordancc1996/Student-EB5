@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import ContactForm from '@/components/ContactForm';
 import { Toaster } from '@/components/ui/toaster';
@@ -74,6 +75,8 @@ const structuredData = generateContactPageSchema();
       </div>
     </section>
 
+    <PreferredSourcesCTA />
+
     <main class="container mx-auto px-6 pt-4 pb-12">
       <Breadcrumb client:load initialPathname="/contact" />
       <div class="max-w-2xl mx-auto">
@@ -101,7 +104,7 @@ const structuredData = generateContactPageSchema();
       </div>
     </main>
 
-    <Footer client:visible />
+    <SiteFooter />
     <Toaster client:load />
   </div>
 </Layout>

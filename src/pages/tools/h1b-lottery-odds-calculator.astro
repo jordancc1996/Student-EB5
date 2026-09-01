@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/SiteFooter.astro';
+import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import H1BLotteryCalculatorMainContent from '@/components/H1BLotteryCalculatorMainContent';
 import LastUpdated from '@/components/LastUpdated.astro';
@@ -71,12 +72,13 @@ const lastUpdatedIso = getPageLastUpdated('/tools/h1b-lottery-odds-calculator');
 
       <div class="py-3">
         <LastUpdated date={lastUpdatedIso} />
+  <PreferredSourcesCTA />
       </div>
 
       <H1BLotteryCalculatorMainContent client:load />
     </main>
 
-    <Footer client:visible />
+    <SiteFooter />
     <Toaster client:load />
   </div>
 </Layout>
