@@ -38,6 +38,8 @@ The disparity becomes even more obvious when comparing the earnings of internati
 
 Over a 40-year career, this annual gap compounds into a massive discrepancy in lifetime wealth. The Georgetown University Center on Education and the Workforce estimates lifetime earnings for a U.S. bachelor's degree holder at $2.8M, and $3.8M for engineering and STEM graduates. If an international student earns $120,000 mid-career in the United States while a similarly qualified counterpart earns $30,000 to $40,000 in their home country, the lifetime earnings gap approaches $3M to $4M. This calculation does not even account for wealth accrued through investments, retirement accounts, and real estate over a lifetime.
 
+![Financial analysis comparing long-term earnings and investment outcomes](/images/eb5-lifetime-earnings-financial-analysis.jpg)
+
 ## Flaws of the H-1B System
 
 The H-1B visa carries significant limitations and inherent instability for international workers. It is a nonimmigrant visa tied to a specific employer, which naturally suppresses wages and limits job mobility. This dependency diminishes the worker's bargaining power in salary negotiations. Research by the National Bureau of Economic Research indicates that H-1B workers earn approximately 16% less than their American counterparts for the same job.
