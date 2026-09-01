@@ -27,6 +27,7 @@ import ArticleContents from '@/components/research/ArticleContents.astro';
 import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
 import LastUpdated from '@/components/LastUpdated.astro';
 import { resolveArticleLastUpdated, toIsoDate } from '@/lib/lastUpdated';
+import { resolveArticlePathway } from '@/lib/research/resolveArticlePathway';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getCollection('blog');
@@ -82,6 +83,11 @@ const renderPostIntroCta =
   showPostIntroCta && !articleAlreadyHasPostIntroCta(entry.body);
 
 const tocItems = buildTocItems(extractArticleH2s(entry.body), post.tocLabels);
+
+const articlePathway = resolveArticlePathway(slug, {
+  pathwaySlug: post.pathwaySlug,
+  category: post.category,
+});
 
 const allPosts = await getCollection('blog');
 const relatedPosts = allPosts
@@ -218,27 +224,33 @@ const relatedPosts = allPosts
             )
           }
 
-          <ArticleContents items={tocItems} category={post.category} />
+          <ArticleContents items={tocItems} pathwayToc={articlePathway.toc} />
         </div>
       </div>
 
       <article>
         <div class="container mx-auto px-6">
           <div class="max-w-4xl mx-auto">
-            <ArticleTocRail items={tocItems} category={post.category}>
+            <ArticleTocRail items={tocItems} pathwayToc={articlePathway.toc}>
               <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
               {
                 showPostIntroCta ? (
                   <>
                     <div class="article-content" set:html={introHtml} />
-                    {renderPostIntroCta && <PostIntroCTA />}
+                    {renderPostIntroCta && <PostIntroCTA postIntro={articlePathway.postIntro} />}
                     <div class="article-content" set:html={firstHalfHtml} />
                   </>
                 ) : (
                   <div class="article-content" set:html={firstHalfHtml} />
                 )
               }
-              {showMidSplit && <MidArticleCTA client:visible category={post.category} />}
+              {showMidSplit && (
+                <MidArticleCTA
+                  client:visible
+                  mid={articlePathway.mid}
+                  pathwayContext={articlePathway.form.pathwayContext}
+                />
+              )}
               {secondHalfHtml && <div class="article-content" set:html={secondHalfHtml} />}
             </ArticleTocRail>
           </div>
@@ -302,7 +314,14 @@ const relatedPosts = allPosts
         </div>
       </div>
     </main>
-    <ConsultationCTA client:visible articleForm />
+    <ConsultationCTA
+      client:visible
+      articleForm
+      headline={articlePathway.form.headline}
+      subheadline={articlePathway.form.subheadline}
+      buttonLabel={articlePathway.form.buttonLabel}
+      pathwayContext={articlePathway.form.pathwayContext}
+    />
     <SiteFooter />
   </div>
   <Toaster client:load />

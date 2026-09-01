@@ -5,6 +5,11 @@ configurePlaywrightBrowsersPath();
 
 const BASE = process.env.PREVIEW_URL || 'http://localhost:4400';
 const ARTICLE_WITH_TOC = '/research/complete-2027-eb5-guide';
+const ARTICLE_WITH_TOC_PATHWAY = '/pathways/eb5-vs-other-visa-options';
+const ARTICLE_WITH_TOC_LABEL = 'See the EB-5 path for visa and residency planners →';
+const PILOT_ARTICLE = '/research/best-alternative-to-h1b-o1-eb1-eb5';
+const PILOT_PATHWAY = '/pathways/eb5-for-tech-workers';
+const PILOT_TOC_LABEL = 'See the EB-5 path for tech workers →';
 const NEWS_ARTICLE = '/news/july-2026-visa-bulletin-eb5-q3-outlook';
 const FAQ_ARTICLE = '/faq/what-is-eb5-visa-program';
 const VIEWPORTS = [375, 1023, 1024, 1180, 1440];
@@ -62,7 +67,7 @@ async function check(name, pass, detail = '') {
   return pass;
 }
 
-async function assertTocVariant(page, label, width, { contentsless = false } = {}) {
+async function assertTocVariant(page, label, width, { contentsless = false, expectedCtaHref = '/pathways', expectedCtaLabel = 'See your path from visa to green card →' } = {}) {
   const results = [];
   const isDesktop = width >= 1024;
   const state = await page.evaluate(readTocLayoutState);
@@ -97,15 +102,15 @@ async function assertTocVariant(page, label, width, { contentsless = false } = {
   );
   results.push(
     await check(
-      `${label}: CTA resolves to /pathways`,
-      state.ctaHref === '/pathways',
+      `${label}: CTA resolves to expected pathway`,
+      state.ctaHref === expectedCtaHref,
       String(state.ctaHref),
     ),
   );
   results.push(
     await check(
       `${label}: CTA label`,
-      state.ctaLabel === 'See your path from visa to green card →',
+      state.ctaLabel === expectedCtaLabel,
       String(state.ctaLabel),
     ),
   );
@@ -141,7 +146,7 @@ async function assertTocVariant(page, label, width, { contentsless = false } = {
   return { results, state };
 }
 
-async function verifyTemplate(browser, path, templateLabel, { contentsless = false } = {}) {
+async function verifyTemplate(browser, path, templateLabel, { contentsless = false, expectedCtaHref, expectedCtaLabel } = {}) {
   const results = [];
 
   for (const width of VIEWPORTS) {
@@ -150,6 +155,8 @@ async function verifyTemplate(browser, path, templateLabel, { contentsless = fal
     results.push(await check(`${templateLabel} @${width}: HTTP 200`, res?.ok() === true, String(res?.status())));
     const { results: blockResults, state } = await assertTocVariant(page, `${templateLabel} @${width}`, width, {
       contentsless,
+      expectedCtaHref,
+      expectedCtaLabel,
     });
     results.push(...blockResults);
 
@@ -356,7 +363,16 @@ async function main() {
   }
 
   results.push(...(await verifyScaledLaptopRail(browser)));
-  results.push(...(await verifyTemplate(browser, ARTICLE_WITH_TOC, 'research')));
+  results.push(...(await verifyTemplate(browser, ARTICLE_WITH_TOC, 'research', {
+    expectedCtaHref: ARTICLE_WITH_TOC_PATHWAY,
+    expectedCtaLabel: ARTICLE_WITH_TOC_LABEL,
+  })));
+  results.push(
+    ...(await verifyTemplate(browser, PILOT_ARTICLE, 'research-pilot', {
+      expectedCtaHref: PILOT_PATHWAY,
+      expectedCtaLabel: PILOT_TOC_LABEL,
+    })),
+  );
   results.push(...(await verifyTemplate(browser, NEWS_ARTICLE, 'news')));
   results.push(...(await verifyTemplate(browser, FAQ_ARTICLE, 'faq', { contentsless: true })));
 

@@ -43,6 +43,8 @@ const blog = defineCollection({
       keywords: z.array(z.string()),
       relatedPosts: z.array(z.string()).optional(),
       tocLabels: z.record(z.string()).optional(),
+      /** Override central article→pathway map when set */
+      pathwaySlug: z.string().optional(),
     }),
 });
 

@@ -20,9 +20,19 @@ const VISA_STATUS_OPTIONS = [
 
 interface ConsultationCTAProps {
   articleForm?: boolean;
+  headline?: string;
+  subheadline?: string;
+  buttonLabel?: string;
+  pathwayContext?: string;
 }
 
-export const ConsultationCTA = ({ articleForm = false }: ConsultationCTAProps) => {
+export const ConsultationCTA = ({
+  articleForm = false,
+  headline = 'Talk to Someone Who Knows EB-5',
+  subheadline = 'Book a free 30-minute consultation. Find out if EB-5 fits your situation and learn the next step.',
+  buttonLabel = 'Get My Free Evaluation',
+  pathwayContext = 'general',
+}: ConsultationCTAProps) => {
   const [step, setStep] = useState<1 | 2>(1);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -75,7 +85,15 @@ export const ConsultationCTA = ({ articleForm = false }: ConsultationCTAProps) =
       const response = await fetch('https://formcarry.com/s/PGtefNg4eIv', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ email, name, phone, visaStatus, message, formType: 'consultation_request' }),
+        body: JSON.stringify({
+          email,
+          name,
+          phone,
+          visaStatus,
+          message,
+          formType: 'consultation_request',
+          pathwayContext,
+        }),
       });
 
       if (response.ok) {
@@ -117,10 +135,10 @@ export const ConsultationCTA = ({ articleForm = false }: ConsultationCTAProps) =
           {/* Left side - Content */}
           <div className="space-y-6">
             <h2 className={articleForm ? 'article-form-headline font-medium' : 'text-3xl md:text-4xl font-medium'}>
-              Talk to Someone Who Knows EB-5
+              {headline}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Book a free 30-minute consultation. Find out if EB-5 fits your situation and learn the next step.
+              {subheadline}
             </p>
             
             <div className="space-y-3">
@@ -180,7 +198,7 @@ export const ConsultationCTA = ({ articleForm = false }: ConsultationCTAProps) =
                   </div>
 
                   <Button type="submit" className="w-full" size="lg">
-                    Get My Free Evaluation
+                    {buttonLabel}
                   </Button>
 
                   <p className={articleForm ? 'article-form-microcopy text-muted-foreground text-center' : 'text-xs text-muted-foreground text-center'}>

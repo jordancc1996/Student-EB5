@@ -1,13 +1,14 @@
 ---
 import type { TocItem } from '@/lib/research/articleHeadings';
 import ArticleTocCta from '@/components/research/ArticleTocCta.astro';
+import type { TocCta } from '@/lib/research/tocCta';
 
 interface Props {
   items: TocItem[];
-  category?: string;
+  pathwayToc?: TocCta;
 }
 
-const { items, category } = Astro.props;
+const { items, pathwayToc } = Astro.props;
 const hasContents = items.length >= 1;
 ---
 
@@ -30,7 +31,7 @@ const hasContents = items.length >= 1;
           </ol>
         )
       }
-      <ArticleTocCta category={category} standalone={!hasContents} />
+      <ArticleTocCta pathwayToc={pathwayToc} standalone={!hasContents} />
     </nav>
   </div>
   <div class="article-with-toc__main">

@@ -1,13 +1,14 @@
 ---
 import { resolveTocCta } from '@/lib/research/tocCta';
+import type { TocCta } from '@/lib/research/tocCta';
 
 interface Props {
-  category?: string;
+  pathwayToc?: TocCta;
   standalone?: boolean;
 }
 
-const { category, standalone = false } = Astro.props;
-const cta = resolveTocCta(category);
+const { pathwayToc, standalone = false } = Astro.props;
+const cta = resolveTocCta(pathwayToc);
 ---
 
 <div
@@ -20,7 +21,7 @@ const cta = resolveTocCta(category);
     href={cta.href}
     class="article-contents__cta-link"
     data-toc-cta
-    data-toc-category={category ?? ''}
+    data-toc-pathway={pathwayToc?.href ?? ''}
   >
     {cta.label}
   </a>

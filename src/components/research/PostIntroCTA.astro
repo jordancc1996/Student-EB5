@@ -3,6 +3,13 @@
  * Compact post-introduction CTA for research articles.
  * Headline uses a styled paragraph (not H2) so TOC / outline stay unchanged.
  */
+import type { ArticlePathwayCta } from '@/lib/research/resolveArticlePathway';
+
+interface Props {
+  postIntro: ArticlePathwayCta['postIntro'];
+}
+
+const { postIntro } = Astro.props;
 ---
 
 <aside
@@ -13,17 +20,17 @@
   <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-8">
     <div class="min-w-0 flex-1">
       <p class="font-serif text-lg md:text-xl font-bold text-foreground leading-snug m-0">
-        Considering EB-5? See Your Next Step
+        {postIntro.headline}
       </p>
       <p class="text-sm md:text-base text-muted-foreground leading-relaxed mt-1.5 mb-0">
-        Explore the EB-5 pathway based on your current U.S. immigration status and goals.
+        {postIntro.body}
       </p>
     </div>
     <a
-      href="/pathways"
+      href={postIntro.href}
       class="inline-flex shrink-0 items-center justify-center rounded-md bg-cta-navy px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-cta-navy/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
     >
-      See Your EB-5 Path
+      {postIntro.buttonLabel}
     </a>
   </div>
 </aside>
