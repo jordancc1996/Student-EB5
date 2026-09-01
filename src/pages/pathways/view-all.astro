@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import SiteFooter from '@/components/SiteFooter.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
+import OptimizedImage from '@/components/OptimizedImage.astro';
+import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import {
@@ -22,6 +24,9 @@ const canonicalUrl = `${SITE_CONFIG.url}/pathways/view-all`;
 const h1 = 'Browse All EB-5 Pathways';
 const subhead =
   'Every StudentEB5 pathway, organized by immigration status, country, and situation.';
+
+const hero = getPathwayHero('view-all');
+const hasHeroPhoto = Boolean(hero.image);
 
 const indexablePages = getIndexableLandingPages().filter(
   (page) => page.id !== 'general-start' && page.url !== '/pathways',
@@ -163,13 +168,33 @@ const compareSectionPages = indexablePages.filter((page) => page.id.startsWith('
     <Header client:load />
 
     <main>
-      <section class="bg-muted/40 border-b border-border">
-        <div class="container mx-auto px-6 pt-4 pb-12 md:pb-16 max-w-4xl">
-          <Breadcrumb client:load customTitle="View All Pathways" initialPathname="/pathways/view-all" />
-          <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-6 mb-4 leading-tight">
+      <section
+        class={`relative -mt-[120px] pt-[120px] min-h-[45vh] flex items-end md:items-center justify-center overflow-hidden ${hasHeroPhoto ? '' : 'bg-hero-dark'}`}
+      >
+        {
+          hasHeroPhoto && hero.image ? (
+            <div class="absolute inset-0">
+              <OptimizedImage
+                src={hero.image}
+                webpSrc={hero.webp}
+                alt="Browse all EB-5 pathways"
+                className="w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+                sizes="100vw"
+              />
+              <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60"></div>
+            </div>
+          ) : (
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70"></div>
+          )
+        }
+        <div class="relative z-10 container mx-auto px-6 pt-28 pb-12 md:pb-16 max-w-4xl w-full">
+          <Breadcrumb client:load customTitle="View All Pathways" variant="dark" initialPathname="/pathways/view-all" />
+          <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-6 mb-4 leading-tight">
             {h1}
           </h1>
-          <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
+          <p class="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl">
             {subhead}
           </p>
         </div>

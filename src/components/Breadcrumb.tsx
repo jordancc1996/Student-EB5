@@ -119,18 +119,18 @@ const Breadcrumb = ({ customTitle, variant = 'light', initialPathname }: Breadcr
 
   return (
     <nav aria-label="Breadcrumb" className="py-4">
-      <ol className={`flex flex-wrap items-center gap-2 text-sm ${isDark ? 'text-white/60' : 'text-muted-foreground'}`}>
+      <ol className={`flex flex-wrap items-center gap-2 text-sm ${isDark ? 'text-white/90 drop-shadow-[0_1px_2px_rgba(0,0,0,0.75)]' : 'text-muted-foreground'}`}>
         {breadcrumbs.map((crumb, index) => {
           const isLast = index === breadcrumbs.length - 1;
           
           return (
             <li key={crumb.path + index} className="flex items-center">
               {index > 0 && (
-                <ChevronRight className={`w-4 h-4 mx-2 ${isDark ? 'text-white/30' : 'text-muted-foreground/50'}`} />
+                <ChevronRight className={`w-4 h-4 mx-2 ${isDark ? 'text-white/70' : 'text-muted-foreground/50'}`} />
               )}
               
               {isLast ? (
-                <span className={`font-medium ${isDark ? 'text-white' : 'text-foreground'}`}>
+                <span className={`font-medium ${isDark ? 'text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.75)]' : 'text-foreground'}`}>
                   {index === 0 && <Home className="w-4 h-4 inline mr-1" />}
                   {crumb.name}
                 </span>

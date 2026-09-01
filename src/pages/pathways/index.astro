@@ -3,8 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
 import SiteFooter from '@/components/SiteFooter.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
+import OptimizedImage from '@/components/OptimizedImage.astro';
 import LucideIcon from '@/components/LucideIcon';
 import PathwaysCountdownBanner from '@/components/PathwaysCountdownBanner';
+import { getPathwaysIndexHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
 const title = 'EB-5 Green Card Pathways - H-1B and F-1 Routes Compared';
@@ -20,6 +22,9 @@ const keywords = [
   'student to green card',
   'EB-5 visa routes',
 ];
+
+const hero = getPathwaysIndexHero();
+const hasHeroPhoto = Boolean(hero.image);
 ---
 
 <Layout>
@@ -44,8 +49,27 @@ const keywords = [
     <Header client:load />
 
     <main>
-      <section class="relative -mt-[120px] pt-[120px] min-h-[50vh] flex items-center justify-center bg-hero-dark">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70"></div>
+      <section
+        class={`relative -mt-[120px] pt-[120px] min-h-[50vh] flex items-center justify-center overflow-hidden ${hasHeroPhoto ? '' : 'bg-hero-dark'}`}
+      >
+        {
+          hasHeroPhoto && hero.image ? (
+            <div class="absolute inset-0">
+              <OptimizedImage
+                src={hero.image}
+                webpSrc={hero.webp}
+                alt="EB-5 green card pathways"
+                className="w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+                sizes="100vw"
+              />
+              <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60"></div>
+            </div>
+          ) : (
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70"></div>
+          )
+        }
         <div class="relative z-10 container mx-auto px-4 py-20 text-center">
           <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             EB-5 Green Card Pathways - H-1B and F-1 Routes Compared

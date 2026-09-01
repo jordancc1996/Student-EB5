@@ -30,3 +30,8 @@ export function getPathwayHero(slug: string) {
 export function getPathwayCategoryHero(categoryKey: string) {
   return findHero(`pathway-category-${categoryKey}-hero`);
 }
+
+/** Pathways hub at /pathways (index.astro) */
+export function getPathwaysIndexHero() {
+  return findHero('pathway-pathways-index-hero');
+}
