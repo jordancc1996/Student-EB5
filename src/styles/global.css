@@ -321,7 +321,7 @@ html {
 
   .article-content > figure,
   .article-content figure {
-    max-width: 52.5rem;
+    max-width: 42rem;
     width: 100%;
     margin: 2rem auto;
   }
