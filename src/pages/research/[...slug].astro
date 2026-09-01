@@ -13,6 +13,7 @@ import ShareButtons from '@/components/ShareButtons';
 import MidArticleCTA from '@/components/MidArticleCTA';
 import PostIntroCTA from '@/components/research/PostIntroCTA.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
+import RelatedResearchCard from '@/components/RelatedResearchCard.astro';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateArticleSchema } from '@/lib/seo/structured-data';
 import {
@@ -282,31 +283,18 @@ const relatedPosts = allPosts
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
               {
                 relatedPosts.map((relatedPost) => (
-                  <div class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
-                    <a href={`/research/${relatedPost.slug}`}>
-                      <div class="aspect-video overflow-hidden">
-                        <OptimizedImage
-                          src={relatedPost.image}
-                          alt={relatedPost.imageAlt}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                      </div>
-                      <div class="p-4">
-                        <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 mb-2">
-                          {relatedPost.category}
-                        </div>
-                        <h3 class="font-serif font-bold text-lg mb-2 line-clamp-2 hover:text-primary transition-colors">
-                          {relatedPost.title}
-                        </h3>
-                        <div class="flex items-center justify-between text-sm text-muted-foreground">
-                          <span>{relatedPost.date}</span>
-                          <span>{relatedPost.readTime}</span>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
+                  <RelatedResearchCard
+                    variant="article"
+                    item={{
+                      title: relatedPost.title,
+                      url: `/research/${relatedPost.slug}`,
+                    }}
+                    image={relatedPost.image}
+                    imageAlt={relatedPost.imageAlt}
+                    category={relatedPost.category}
+                    date={relatedPost.date}
+                    readTime={relatedPost.readTime}
+                  />
                 ))
               }
             </div>

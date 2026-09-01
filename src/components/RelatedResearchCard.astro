@@ -13,41 +13,105 @@ interface Props {
   item: RelatedResearchCardItem;
   image?: ImageMetadata;
   imageAlt?: string;
+  /** Default `pathway` preserves the live pathway card markup. */
+  variant?: 'pathway' | 'article';
+  category?: string;
+  date?: string;
+  readTime?: string;
+  sizes?: string;
 }
 
-const { item, image, imageAlt } = Astro.props;
+const {
+  item,
+  image,
+  imageAlt,
+  variant = 'pathway',
+  category,
+  date,
+  readTime,
+  sizes,
+} = Astro.props;
+
 const hasImage = Boolean(image);
+const isArticle = variant === 'article';
+const articleSizes = sizes ?? '(max-width: 768px) 100vw, 33vw';
 ---
 
-<a
-  href={item.url}
-  class="block rounded-lg border border-border bg-card overflow-hidden hover:border-primary hover:shadow-md transition-all duration-150"
->
-  <div class="aspect-video overflow-hidden bg-muted/40">
-    {
-      hasImage && image ? (
-        <OptimizedImage
-          src={image}
-          alt={imageAlt || item.title}
-          className="w-full h-full object-cover"
-          loading="lazy"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      ) : (
-        <div class="flex h-full w-full min-h-[10rem] items-center justify-center bg-hero-dark text-white/70" aria-hidden="true">
-          <LucideIcon name="FileText" size={32} className="text-white/70" />
+{
+  isArticle ? (
+    <div class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
+      <a href={item.url}>
+        <div class="aspect-video overflow-hidden">
+          {
+            hasImage && image ? (
+              <OptimizedImage
+                src={image}
+                alt={imageAlt || item.title}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                sizes={articleSizes}
+              />
+            ) : (
+              <div class="flex h-full w-full min-h-[10rem] items-center justify-center bg-hero-dark text-white/70" aria-hidden="true">
+                <LucideIcon name="FileText" size={32} className="text-white/70" />
+              </div>
+            )
+          }
         </div>
-      )
-    }
-  </div>
-  <div class="p-6">
-    <h3 class="font-serif text-lg font-semibold text-foreground mb-2 leading-snug">
-      {item.title}
-    </h3>
-    {
-      item.description && (
-        <p class="text-sm text-muted-foreground leading-relaxed m-0">{item.description}</p>
-      )
-    }
-  </div>
-</a>
+        <div class="p-4">
+          {
+            category && (
+              <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 mb-2">
+                {category}
+              </div>
+            )
+          }
+          <h3 class="font-serif font-bold text-lg mb-2 line-clamp-2 hover:text-primary transition-colors">
+            {item.title}
+          </h3>
+          {
+            (date || readTime) && (
+              <div class="flex items-center justify-between text-sm text-muted-foreground">
+                {date && <span>{date}</span>}
+                {readTime && <span>{readTime}</span>}
+              </div>
+            )
+          }
+        </div>
+      </a>
+    </div>
+  ) : (
+    <a
+      href={item.url}
+      class="block rounded-lg border border-border bg-card overflow-hidden hover:border-primary hover:shadow-md transition-all duration-150"
+    >
+      <div class="aspect-video overflow-hidden bg-muted/40">
+        {
+          hasImage && image ? (
+            <OptimizedImage
+              src={image}
+              alt={imageAlt || item.title}
+              className="w-full h-full object-cover"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          ) : (
+            <div class="flex h-full w-full min-h-[10rem] items-center justify-center bg-hero-dark text-white/70" aria-hidden="true">
+              <LucideIcon name="FileText" size={32} className="text-white/70" />
+            </div>
+          )
+        }
+      </div>
+      <div class="p-6">
+        <h3 class="font-serif text-lg font-semibold text-foreground mb-2 leading-snug">
+          {item.title}
+        </h3>
+        {
+          item.description && (
+            <p class="text-sm text-muted-foreground leading-relaxed m-0">{item.description}</p>
+          )
+        }
+      </div>
+    </a>
+  )
+}
