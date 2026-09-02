@@ -14,6 +14,17 @@ const NEWS_ARTICLE = '/news/july-2026-visa-bulletin-eb5-q3-outlook';
 const FAQ_ARTICLE = '/faq/what-is-eb5-visa-program';
 const VIEWPORTS = [375, 1023, 1024, 1180, 1440];
 const WIDE_VIEWPORTS = [1024, 1180, 1280, 1440, 1920];
+const FIRST_PARTY_READY = '.article-content';
+
+/**
+ * Preferred Sources keeps Google connections open, so networkidle never settles.
+ * Wait for document load plus a first-party article/TOC node instead.
+ */
+async function gotoFirstPartyReady(page, url, { timeout = 60000 } = {}) {
+  const res = await page.goto(url, { waitUntil: 'load', timeout });
+  await page.waitForSelector(FIRST_PARTY_READY, { timeout });
+  return res;
+}
 
 /** Self-contained for page.evaluate */
 function readTocLayoutState() {
@@ -151,7 +162,7 @@ async function verifyTemplate(browser, path, templateLabel, { contentsless = fal
 
   for (const width of VIEWPORTS) {
     const page = await browser.newPage({ viewport: { width, height: 900 } });
-    const res = await page.goto(`${BASE}${path}`, { waitUntil: 'networkidle', timeout: 60000 });
+    const res = await gotoFirstPartyReady(page, `${BASE}${path}`);
     results.push(await check(`${templateLabel} @${width}: HTTP 200`, res?.ok() === true, String(res?.status())));
     const { results: blockResults, state } = await assertTocVariant(page, `${templateLabel} @${width}`, width, {
       contentsless,
@@ -203,7 +214,7 @@ async function verifyScaledLaptopRail(browser) {
     document.documentElement.style.overflowY = 'scroll';
   });
   const page = await context.newPage();
-  await page.goto(`${BASE}${ARTICLE_WITH_TOC}`, { waitUntil: 'networkidle', timeout: 60000 });
+  await gotoFirstPartyReady(page, `${BASE}${ARTICLE_WITH_TOC}`);
 
   const initial = await page.evaluate(readTocLayoutState);
   results.push(await check('scaled 1180: rail track visible', initial.railTrackVisible));
@@ -283,8 +294,7 @@ async function main() {
   try {
     browser = await launchChromium();
     const smoke = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-    const smokeRes = await smoke.goto(`${BASE}${ARTICLE_WITH_TOC}`, {
-      waitUntil: 'networkidle',
+    const smokeRes = await gotoFirstPartyReady(smoke, `${BASE}${ARTICLE_WITH_TOC}`, {
       timeout: 30000,
     });
     if (!smokeRes?.ok()) {
@@ -301,7 +311,7 @@ async function main() {
   const results = [];
 
   const desktop = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-  await desktop.goto(`${BASE}${ARTICLE_WITH_TOC}`, { waitUntil: 'networkidle' });
+  await gotoFirstPartyReady(desktop, `${BASE}${ARTICLE_WITH_TOC}`);
 
   const overrideLink = desktop.locator(
     'nav.article-toc .article-contents__link[data-toc-link="what-is-the-eb-5-immigrant-investor-program"]',
@@ -347,7 +357,7 @@ async function main() {
 
   for (const width of WIDE_VIEWPORTS) {
     const page = await browser.newPage({ viewport: { width, height: 900 } });
-    await page.goto(`${BASE}${ARTICLE_WITH_TOC}`, { waitUntil: 'networkidle' });
+    await gotoFirstPartyReady(page, `${BASE}${ARTICLE_WITH_TOC}`);
     const layout = await page.evaluate(readTocLayoutState);
     results.push(await check(`${width}px: article column centered`, layout.columnCentered));
     results.push(
