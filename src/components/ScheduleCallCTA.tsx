@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -27,6 +27,7 @@ interface ScheduleCallCTAProps {
 export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
   const emailErrorId = useId();
   const visaErrorId = useId();
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -162,6 +163,7 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
                 </a>
               ) : (
                 <Button 
+                  ref={triggerRef}
                   onClick={() => {
                     setIsOpen(true);
                     if (isSubmitted) resetForm();
@@ -180,8 +182,22 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
       </section>
 
       {/* Slide-out Sheet Form */}
-      <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetContent className="w-full sm:max-w-md overflow-y-auto">
+      <Sheet
+        open={isOpen}
+        onOpenChange={(open) => {
+          setIsOpen(open);
+          if (!open) {
+            requestAnimationFrame(() => triggerRef.current?.focus());
+          }
+        }}
+      >
+        <SheetContent
+          className="w-full sm:max-w-md overflow-y-auto"
+          onCloseAutoFocus={(event) => {
+            event.preventDefault();
+            triggerRef.current?.focus();
+          }}
+        >
           <SheetHeader className="mb-6">
             <SheetDescription className="text-xs text-muted-foreground flex items-center gap-1">
               <span className="inline-block w-3 h-3 border border-muted-foreground rounded-full" />
