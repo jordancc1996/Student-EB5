@@ -1,4 +1,4 @@
-export const FORMCARRY_ENDPOINT = 'https://formcarry.com/s/PGtefNg4eIv';
+export const FORMCARRY_ENDPOINT = 'https://formcarry.com/s/8p8GuE_o-oN';
 
 export const FORMCARRY_GENERIC_ERROR = 'Something went wrong. Please try again.';
 
