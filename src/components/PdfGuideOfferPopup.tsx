@@ -2,7 +2,9 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
 import {
   PDF_GUIDE_DWELL_MS,
   PDF_GUIDE_HARD_FLOOR_MS,
@@ -26,21 +28,14 @@ import {
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function getFocusableElements(container: HTMLElement): HTMLElement[] {
-  return Array.from(
-    container.querySelectorAll<HTMLElement>(
-      'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
-    ),
-  );
-}
-
 const PdfGuideOfferPopup = () => {
   const titleId = useId();
   const descriptionId = useId();
+  const emailErrorId = useId();
+  const submitErrorId = useId();
   const mountTimeRef = useRef(Date.now());
   const firedRef = useRef(false);
   const modalRef = useRef<HTMLDivElement>(null);
-  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
 
   const [category, setCategory] = useState<PdfGuideCategory>('investor');
   const [triggersEnabled, setTriggersEnabled] = useState(false);
@@ -167,47 +162,7 @@ const PdfGuideOfferPopup = () => {
     closePopup('dismiss');
   }, [closePopup]);
 
-  useEffect(() => {
-    if (!isOpen) return;
-
-    previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
-    const modal = modalRef.current;
-    if (!modal) return;
-
-    const focusables = getFocusableElements(modal);
-    focusables[0]?.focus();
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        event.preventDefault();
-        handleDismiss();
-        return;
-      }
-
-      if (event.key !== 'Tab' || !modal) return;
-
-      const items = getFocusableElements(modal);
-      if (items.length === 0) return;
-
-      const first = items[0];
-      const last = items[items.length - 1];
-      const active = document.activeElement;
-
-      if (event.shiftKey && active === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && active === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-
-    document.addEventListener('keydown', onKeyDown);
-    return () => {
-      document.removeEventListener('keydown', onKeyDown);
-      previouslyFocusedRef.current?.focus();
-    };
-  }, [isOpen, handleDismiss]);
+  useFocusTrap(isOpen, modalRef, handleDismiss);
 
   const validateEmail = (value: string) => {
     if (!EMAIL_PATTERN.test(value.trim())) {
@@ -307,8 +262,10 @@ const PdfGuideOfferPopup = () => {
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
+              <div className="space-y-1">
+                <Label htmlFor="pdf-guide-email">Email Address *</Label>
                 <Input
+                  id="pdf-guide-email"
                   type="email"
                   inputMode="email"
                   autoComplete="email"
@@ -320,16 +277,18 @@ const PdfGuideOfferPopup = () => {
                     setSubmitError('');
                   }}
                   required
-                  className="h-11 text-base"
+                  aria-invalid={emailError ? true : undefined}
+                  aria-describedby={emailError ? emailErrorId : undefined}
+                  className={`h-11 text-base ${emailError ? 'border-destructive' : ''}`}
                 />
                 <p className="text-muted-foreground text-xs mt-2 leading-relaxed">
                   100% confidential. We never contact your employer.
                 </p>
                 {emailError ? (
-                  <p className="text-destructive text-xs mt-1">{emailError}</p>
+                  <p id={emailErrorId} role="alert" className="text-destructive text-xs mt-1">{emailError}</p>
                 ) : null}
                 {submitError ? (
-                  <p className="text-destructive text-xs mt-1">{submitError}</p>
+                  <p id={submitErrorId} role="alert" className="text-destructive text-xs mt-1">{submitError}</p>
                 ) : null}
               </div>
 

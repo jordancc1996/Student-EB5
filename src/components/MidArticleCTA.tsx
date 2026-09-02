@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { Link } from '@/components/RouterLink';
 import { ArrowRight, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
 import type { ArticlePathwayCta } from '@/lib/research/resolveArticlePathway';
 
@@ -12,6 +13,7 @@ interface MidArticleCTAProps {
 }
 
 const MidArticleCTA = ({ mid, pathwayContext }: MidArticleCTAProps) => {
+  const submitErrorId = useId();
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -72,43 +74,55 @@ const MidArticleCTA = ({ mid, pathwayContext }: MidArticleCTAProps) => {
             <p className="text-sm text-muted-foreground m-0">{mid.formPrompt}</p>
             <form onSubmit={handleSubmit} className="flex flex-col gap-2">
               <div className="flex flex-col sm:flex-row gap-2">
-                <Input
-                  type="text"
-                  placeholder="Full name"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  required
-                  className="h-10 flex-1 text-base"
-                />
-                <Input
-                  type="email"
-                  placeholder="Personal email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="h-10 flex-1 text-base"
-                />
+                <div className="flex-1 space-y-1">
+                  <Label htmlFor="mid-name">Full Name *</Label>
+                  <Input
+                    id="mid-name"
+                    type="text"
+                    placeholder="Full name"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    required
+                    className="h-10 text-base"
+                  />
+                </div>
+                <div className="flex-1 space-y-1">
+                  <Label htmlFor="mid-email">Email *</Label>
+                  <Input
+                    id="mid-email"
+                    type="email"
+                    placeholder="Personal email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="h-10 text-base"
+                  />
+                </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-2">
-                <Input
-                  type="tel"
-                  placeholder="Phone number"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="h-10 flex-1 text-base"
-                />
+                <div className="flex-1 space-y-1">
+                  <Label htmlFor="mid-phone">Phone Number (optional)</Label>
+                  <Input
+                    id="mid-phone"
+                    type="tel"
+                    placeholder="Phone number"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="h-10 text-base"
+                  />
+                </div>
                 <Button
                   type="submit"
                   disabled={submitting}
                   size="sm"
-                  className="h-10 px-5 whitespace-nowrap font-semibold text-base"
+                  className="h-10 px-5 whitespace-nowrap font-semibold text-base sm:self-end"
                 >
                   {submitting ? 'Sending…' : 'Get My Free Evaluation'}
                   {!submitting && <ArrowRight className="ml-1.5 h-3.5 w-3.5" />}
                 </Button>
               </div>
               {submitError ? (
-                <p className="text-sm text-destructive">{submitError}</p>
+                <p id={submitErrorId} role="alert" className="text-sm text-destructive">{submitError}</p>
               ) : null}
             </form>
           </>

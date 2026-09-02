@@ -1,12 +1,14 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useId, useRef } from 'react';
 import { X, CheckCircle, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 const BLOCKED_DOMAINS = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'aol.com', 'icloud.com'];
 
-const SuccessMessage = ({ name, onClose }: { name: string; onClose: () => void }) => {
+const SuccessMessage = ({ name, onClose, titleId, descriptionId }: { name: string; onClose: () => void; titleId: string; descriptionId: string }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose();
@@ -20,8 +22,8 @@ const SuccessMessage = ({ name, onClose }: { name: string; onClose: () => void }
   return (
     <div className="text-center py-4">
       <CheckCircle size={48} className="text-primary mx-auto mb-4" />
-      <h3 className="font-serif font-bold text-xl text-foreground mb-2">Your Guide Is Downloading!</h3>
-      <p className="text-muted-foreground text-sm">
+      <h3 id={titleId} className="font-serif font-bold text-xl text-foreground mb-2">Your Guide Is Downloading!</h3>
+      <p id={descriptionId} className="text-muted-foreground text-sm">
         Thanks, {name}! Your H-1B to EB-5 Guide should be downloading now. Check your downloads folder.
       </p>
     </div>
@@ -34,6 +36,12 @@ interface GuideDownloadModalProps {
 }
 
 const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
+  const titleId = useId();
+  const descriptionId = useId();
+  const emailErrorId = useId();
+  const submitErrorId = useId();
+  const modalRef = useRef<HTMLDivElement>(null);
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -58,6 +66,8 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
   const handleClose = useCallback(() => {
     onClose();
   }, [onClose]);
+
+  useFocusTrap(isOpen, modalRef, handleClose);
 
   const validateEmail = (value: string) => {
     const domain = value.split('@')[1]?.toLowerCase();
@@ -100,13 +110,22 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" onClick={handleClose}>
-      <div className="relative bg-card border border-border rounded-2xl shadow-2xl max-w-md w-full p-8" onClick={(e) => e.stopPropagation()}>
+      <div
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        aria-describedby={descriptionId}
+        className="relative bg-card border border-border rounded-2xl shadow-2xl max-w-md w-full p-8"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
+          type="button"
           onClick={handleClose}
           className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
           aria-label="Close"
         >
-          <X size={20} />
+          <X size={20} aria-hidden="true" />
         </button>
 
         {!submitted ? (
@@ -115,25 +134,31 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
               <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                 <Download size={20} className="text-primary" />
               </div>
-              <h2 className="font-serif font-bold text-xl md:text-2xl text-foreground leading-tight">
+              <h2 id={titleId} className="font-serif font-bold text-xl md:text-2xl text-foreground leading-tight">
                 Download the EB-5 Guide
               </h2>
             </div>
-            <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+            <p id={descriptionId} className="text-muted-foreground text-sm mb-6 leading-relaxed">
               Enter your details below to get instant access to the H-1B to EB-5 Guide.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-3">
-              <Input
-                type="text"
-                placeholder="Full name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                className="h-11"
-              />
-              <div>
+              <div className="space-y-1">
+                <Label htmlFor="guide-name">Full Name *</Label>
                 <Input
+                  id="guide-name"
+                  type="text"
+                  placeholder="Full name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  className="h-11"
+                />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="guide-email">Work or School Email *</Label>
+                <Input
+                  id="guide-email"
                   type="email"
                   placeholder="Work or school email"
                   value={email}
@@ -142,28 +167,40 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
                     setEmailError('');
                   }}
                   required
+                  aria-invalid={emailError ? true : undefined}
+                  aria-describedby={emailError ? emailErrorId : undefined}
                   className={`h-11 ${emailError ? 'border-destructive' : ''}`}
                 />
                 <p className="text-muted-foreground text-xs mt-1">100% confidential. We never contact your employer.</p>
-                {emailError && <p className="text-destructive text-xs mt-1">{emailError}</p>}
+                {emailError ? (
+                  <p id={emailErrorId} role="alert" className="text-destructive text-xs mt-1">{emailError}</p>
+                ) : null}
               </div>
-              <Input
-                type="tel"
-                placeholder="Phone number (optional)"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="h-11"
-              />
-              <Input
-                type="text"
-                placeholder="Occupation (e.g., Software Engineer)"
-                value={occupation}
-                onChange={(e) => setOccupation(e.target.value)}
-                required
-                className="h-11"
-              />
+              <div className="space-y-1">
+                <Label htmlFor="guide-phone">Phone Number (optional)</Label>
+                <Input
+                  id="guide-phone"
+                  type="tel"
+                  placeholder="Phone number (optional)"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="h-11"
+                />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="guide-occupation">Occupation *</Label>
+                <Input
+                  id="guide-occupation"
+                  type="text"
+                  placeholder="Occupation (e.g., Software Engineer)"
+                  value={occupation}
+                  onChange={(e) => setOccupation(e.target.value)}
+                  required
+                  className="h-11"
+                />
+              </div>
               {submitError ? (
-                <p className="text-destructive text-xs mt-1">{submitError}</p>
+                <p id={submitErrorId} role="alert" className="text-destructive text-xs mt-1">{submitError}</p>
               ) : null}
               <Button
                 type="submit"
@@ -175,7 +212,7 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
             </form>
           </>
         ) : (
-          <SuccessMessage name={name} onClose={handleClose} />
+          <SuccessMessage name={name} onClose={handleClose} titleId={titleId} descriptionId={descriptionId} />
         )}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -15,6 +15,7 @@ interface StudentBottomFormProps {
 }
 
 const StudentBottomForm = ({ onSubmitted }: StudentBottomFormProps) => {
+  const visaErrorId = useId();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -22,12 +23,13 @@ const StudentBottomForm = ({ onSubmitted }: StudentBottomFormProps) => {
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [visaError, setVisaError] = useState('');
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!visaStatus) {
-      toast({ title: 'Error', description: 'Please select your visa status.', variant: 'destructive' });
+      setVisaError('Please select your visa status.');
       return;
     }
     setIsSubmitting(true);
@@ -79,9 +81,20 @@ const StudentBottomForm = ({ onSubmitted }: StudentBottomFormProps) => {
           <Input id="student-phone" type="tel" placeholder="+1 (555) 123-4567" value={phone} onChange={(e) => setPhone(e.target.value)} />
         </div>
         <div className="space-y-2">
-          <Label>Current Visa Status *</Label>
-          <Select value={visaStatus} onValueChange={setVisaStatus}>
-            <SelectTrigger aria-label="Select your visa status">
+          <Label htmlFor="student-visa">Current Visa Status *</Label>
+          <Select
+            value={visaStatus}
+            onValueChange={(value) => {
+              setVisaStatus(value);
+              setVisaError('');
+            }}
+          >
+            <SelectTrigger
+              id="student-visa"
+              aria-invalid={visaError ? true : undefined}
+              aria-describedby={visaError ? visaErrorId : undefined}
+              className={visaError ? 'border-destructive' : undefined}
+            >
               <SelectValue placeholder="Select your visa status" />
             </SelectTrigger>
             <SelectContent>
@@ -90,6 +103,9 @@ const StudentBottomForm = ({ onSubmitted }: StudentBottomFormProps) => {
               ))}
             </SelectContent>
           </Select>
+          {visaError ? (
+            <p id={visaErrorId} role="alert" className="text-sm text-destructive">{visaError}</p>
+          ) : null}
         </div>
         <div className="space-y-2">
           <Label htmlFor="student-message">Tell us about your situation (optional)</Label>

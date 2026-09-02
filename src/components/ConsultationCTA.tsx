@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -34,6 +34,8 @@ export const ConsultationCTA = ({
   buttonLabel = 'Get My Free Evaluation',
   pathwayContext = 'general',
 }: ConsultationCTAProps) => {
+  const emailErrorId = useId();
+  const visaErrorId = useId();
   const [step, setStep] = useState<1 | 2>(1);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -42,6 +44,7 @@ export const ConsultationCTA = ({
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [emailError, setEmailError] = useState('');
+  const [visaError, setVisaError] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedName, setSubmittedName] = useState('');
   const [submittedEmail, setSubmittedEmail] = useState('');
@@ -77,7 +80,7 @@ export const ConsultationCTA = ({
   const handleStepTwo = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!visaStatus) {
-      toast({ title: "Error", description: "Please select your visa status.", variant: "destructive" });
+      setVisaError('Please select your visa status.');
       return;
     }
 
@@ -168,12 +171,14 @@ export const ConsultationCTA = ({
                         setEmailError('');
                       }}
                       required
+                      aria-invalid={emailError ? true : undefined}
+                      aria-describedby={emailError ? emailErrorId : undefined}
                       className={articleForm ? 'text-base md:text-base' : undefined}
                     />
                     <p className={articleForm ? 'article-form-microcopy text-muted-foreground' : 'text-xs text-muted-foreground'}>100% confidential. We never contact your employer.</p>
-                    {emailError && (
-                      <p className="text-sm text-destructive animate-fade-in">{emailError}</p>
-                    )}
+                    {emailError ? (
+                      <p id={emailErrorId} role="alert" className="text-sm text-destructive animate-fade-in">{emailError}</p>
+                    ) : null}
                   </div>
 
                   <div className="space-y-2">
@@ -211,8 +216,19 @@ export const ConsultationCTA = ({
 
                   <div className="space-y-2">
                     <Label htmlFor="consultation-visa">Current Visa Status *</Label>
-                    <Select value={visaStatus} onValueChange={setVisaStatus} required>
-                      <SelectTrigger aria-label="Select your visa status">
+                    <Select
+                      value={visaStatus}
+                      onValueChange={(value) => {
+                        setVisaStatus(value);
+                        setVisaError('');
+                      }}
+                    >
+                      <SelectTrigger
+                        id="consultation-visa"
+                        aria-invalid={visaError ? true : undefined}
+                        aria-describedby={visaError ? visaErrorId : undefined}
+                        className={visaError ? 'border-destructive' : undefined}
+                      >
                         <SelectValue placeholder="Select your visa status" />
                       </SelectTrigger>
                       <SelectContent>
@@ -223,6 +239,9 @@ export const ConsultationCTA = ({
                         ))}
                       </SelectContent>
                     </Select>
+                    {visaError ? (
+                      <p id={visaErrorId} role="alert" className="text-sm text-destructive">{visaError}</p>
+                    ) : null}
                   </div>
 
                   <div className="space-y-2">

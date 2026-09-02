@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -9,10 +9,12 @@ import { submitToFormcarry } from '@/lib/formcarry';
 
 const ContactForm = () => {
   const { toast } = useToast();
+  const submitErrorId = useId();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedName, setSubmittedName] = useState('');
   const [submittedEmail, setSubmittedEmail] = useState('');
+  const [submitError, setSubmitError] = useState('');
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -45,6 +47,7 @@ const ContactForm = () => {
     }
 
     setIsSubmitting(true);
+    setSubmitError('');
     const result = await submitToFormcarry({
       ...formData,
       source: 'Contact Page',
@@ -55,6 +58,7 @@ const ContactForm = () => {
       setSubmittedEmail(formData.email);
       setIsSubmitted(true);
     } else {
+      setSubmitError('Please try again or contact us directly.');
       toast({
         title: "Something went wrong",
         description: "Please try again or contact us directly.",
@@ -163,6 +167,10 @@ const ContactForm = () => {
                   rows={4}
                 />
               </div>
+
+              {submitError ? (
+                <p id={submitErrorId} role="alert" className="text-sm text-destructive">{submitError}</p>
+              ) : null}
 
               <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
                 {isSubmitting ? 'Submitting...' : 'Start My Journey'}

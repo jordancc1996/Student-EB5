@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import type { FormEvent } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -25,6 +25,8 @@ interface ScheduleCallCTAProps {
 }
 
 export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
+  const emailErrorId = useId();
+  const visaErrorId = useId();
   const [isOpen, setIsOpen] = useState(false);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -34,6 +36,7 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
   const [phone, setPhone] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [emailError, setEmailError] = useState('');
+  const [visaError, setVisaError] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
@@ -61,7 +64,12 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
       return;
     }
 
-    if (!firstName || !lastName || !visaStatus) {
+    if (!visaStatus) {
+      setVisaError('Please select your visa status.');
+      return;
+    }
+
+    if (!firstName || !lastName) {
       toast({
         title: "Error",
         description: "Please fill in all required fields.",
@@ -103,6 +111,7 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
     
     setPhone('');
     setEmailError('');
+    setVisaError('');
     setIsSubmitted(false);
   };
 
@@ -203,9 +212,9 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <Label htmlFor="firstName" className="sr-only">First Name</Label>
+                  <Label htmlFor="sched-first-name">First Name *</Label>
                   <Input
-                    id="firstName"
+                    id="sched-first-name"
                     type="text"
                     placeholder="First Name"
                     value={firstName}
@@ -215,9 +224,9 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
                   />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="lastName" className="sr-only">Last Name</Label>
+                  <Label htmlFor="sched-last-name">Last Name *</Label>
                   <Input
-                    id="lastName"
+                    id="sched-last-name"
                     type="text"
                     placeholder="Last Name"
                     value={lastName}
@@ -230,9 +239,9 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <Label htmlFor="email" className="sr-only">Email</Label>
+                  <Label htmlFor="sched-email">Work or School Email *</Label>
                   <Input
-                    id="email"
+                    id="sched-email"
                     type="email"
                     placeholder="Email"
                     value={email}
@@ -242,17 +251,27 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
                     }}
                     className="border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-foreground"
                     required
+                    aria-invalid={emailError ? true : undefined}
+                    aria-describedby={emailError ? emailErrorId : undefined}
                   />
-                  {emailError && (
-                    <p className="text-xs text-destructive">{emailError}</p>
-                  )}
+                  {emailError ? (
+                    <p id={emailErrorId} role="alert" className="text-xs text-destructive">{emailError}</p>
+                  ) : null}
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="visaStatus" className="sr-only">Current Visa Status</Label>
-                  <Select value={visaStatus} onValueChange={setVisaStatus} required>
-                    <SelectTrigger 
-                      className="border-0 border-b border-border rounded-none px-0 focus:ring-0 focus-visible:ring-0 focus:border-foreground"
-                      aria-label="Current Visa Status"
+                  <Label htmlFor="sched-visa">Current Visa Status *</Label>
+                  <Select
+                    value={visaStatus}
+                    onValueChange={(value) => {
+                      setVisaStatus(value);
+                      setVisaError('');
+                    }}
+                  >
+                    <SelectTrigger
+                      id="sched-visa"
+                      className={`border-0 border-b border-border rounded-none px-0 focus:ring-0 focus-visible:ring-0 focus:border-foreground ${visaError ? 'border-destructive' : ''}`}
+                      aria-invalid={visaError ? true : undefined}
+                      aria-describedby={visaError ? visaErrorId : undefined}
                     >
                       <SelectValue placeholder="Current Visa Status" />
                     </SelectTrigger>
@@ -264,14 +283,17 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
                       ))}
                     </SelectContent>
                   </Select>
+                  {visaError ? (
+                    <p id={visaErrorId} role="alert" className="text-xs text-destructive">{visaError}</p>
+                  ) : null}
                 </div>
               </div>
 
 
               <div className="space-y-1">
-                <Label htmlFor="phone" className="sr-only">Phone Number</Label>
+                <Label htmlFor="sched-phone">Phone Number (optional)</Label>
                 <Input
-                  id="phone"
+                  id="sched-phone"
                   type="tel"
                   placeholder="Phone Number"
                   value={phone}

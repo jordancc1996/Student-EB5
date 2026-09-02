@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,6 +17,8 @@ const fields = [
 ] as const;
 
 const GatedFeasibilityCalculator = () => {
+  const emailErrorId = useId();
+  const submitErrorId = useId();
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [values, setValues] = useState({ rsu: '', k401: '', equity: '', savings: '' });
   const [total, setTotal] = useState(0);
@@ -142,21 +144,35 @@ const GatedFeasibilityCalculator = () => {
             <p className="text-sm text-muted-foreground text-center">
               Enter your work email to unlock your personalized feasibility report.
             </p>
-            <Input
-              type="email"
-              placeholder="you@company.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <Input
-              type="tel"
-              placeholder="Phone number (optional)"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-            {emailError && <p className="text-destructive text-sm">{emailError}</p>}
-            {submitError ? <p className="text-destructive text-sm">{submitError}</p> : null}
+            <div className="space-y-1">
+              <Label htmlFor="gated-email">Work or School Email *</Label>
+              <Input
+                id="gated-email"
+                type="email"
+                placeholder="you@company.com"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setEmailError('');
+                }}
+                required
+                aria-invalid={emailError ? true : undefined}
+                aria-describedby={emailError ? emailErrorId : undefined}
+                className={emailError ? 'border-destructive' : undefined}
+              />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="gated-phone">Phone Number (optional)</Label>
+              <Input
+                id="gated-phone"
+                type="tel"
+                placeholder="Phone number (optional)"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+            {emailError ? <p id={emailErrorId} role="alert" className="text-destructive text-sm">{emailError}</p> : null}
+            {submitError ? <p id={submitErrorId} role="alert" className="text-destructive text-sm">{submitError}</p> : null}
             <Button type="submit" className="w-full" disabled={submitting}>
               {submitting ? 'Submitting…' : 'Unlock Full Feasibility Report'}
             </Button>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -36,6 +36,8 @@ export const MultiStepLeadCapture = ({
   labelText = 'Subscribe for Current EB-5 News',
   onSuccess
 }: MultiStepLeadCaptureProps) => {
+  const emailErrorId = useId();
+  const visaErrorId = useId();
   const [step, setStep] = useState<1 | 2>(1);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -45,6 +47,7 @@ export const MultiStepLeadCapture = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');
+  const [visaError, setVisaError] = useState('');
   const { toast } = useToast();
 
   const validateEmail = (email: string): boolean => {
@@ -77,7 +80,12 @@ export const MultiStepLeadCapture = ({
   const handleFinalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!name || !visaStatus || !occupation) {
+    if (!visaStatus) {
+      setVisaError('Please select your visa status.');
+      return;
+    }
+
+    if (!name || !occupation) {
       toast({
         title: "Error",
         description: "Please fill in all required fields.",
@@ -134,8 +142,12 @@ export const MultiStepLeadCapture = ({
       
       {step === 1 ? (
         <form onSubmit={handleEmailSubmit} className="space-y-3 animate-fade-in">
-          <div>
+          <div className="space-y-1">
+            <Label htmlFor="footer-email" className="text-sm font-medium">
+              Work or School Email *
+            </Label>
             <Input
+              id="footer-email"
               type="email"
               placeholder="Enter your work or educational email"
               value={email}
@@ -144,11 +156,13 @@ export const MultiStepLeadCapture = ({
                 setEmailError('');
               }}
               required
+              aria-invalid={emailError ? true : undefined}
+              aria-describedby={emailError ? emailErrorId : undefined}
               className={inputClassName}
             />
-            {emailError && (
-              <p className="text-sm text-destructive mt-1 animate-fade-in">{emailError}</p>
-            )}
+            {emailError ? (
+              <p id={emailErrorId} role="alert" className="text-sm text-destructive mt-1 animate-fade-in">{emailError}</p>
+            ) : null}
           </div>
           <Button 
             type="submit" 
@@ -161,11 +175,11 @@ export const MultiStepLeadCapture = ({
       ) : (
         <form onSubmit={handleFinalSubmit} className="space-y-4 animate-fade-in">
           <div className="space-y-2">
-            <Label htmlFor="name" className="text-sm font-medium">
+            <Label htmlFor="footer-name" className="text-sm font-medium">
               Full Name *
             </Label>
             <Input
-              id="name"
+              id="footer-name"
               type="text"
               placeholder="Your full name"
               value={name}
@@ -176,11 +190,11 @@ export const MultiStepLeadCapture = ({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="phone" className="text-sm font-medium">
+            <Label htmlFor="footer-phone" className="text-sm font-medium">
               Phone Number (optional)
             </Label>
             <Input
-              id="phone"
+              id="footer-phone"
               type="tel"
               placeholder="+1 (555) 123-4567"
               value={phone}
@@ -190,11 +204,22 @@ export const MultiStepLeadCapture = ({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="visaStatus" className="text-sm font-medium">
+            <Label htmlFor="footer-visa" className="text-sm font-medium">
               Current Visa Status *
             </Label>
-            <Select value={visaStatus} onValueChange={setVisaStatus} required>
-              <SelectTrigger className={inputClassName}>
+            <Select
+              value={visaStatus}
+              onValueChange={(value) => {
+                setVisaStatus(value);
+                setVisaError('');
+              }}
+            >
+              <SelectTrigger
+                id="footer-visa"
+                className={`${inputClassName} ${visaError ? 'border-destructive' : ''}`}
+                aria-invalid={visaError ? true : undefined}
+                aria-describedby={visaError ? visaErrorId : undefined}
+              >
                 <SelectValue placeholder="Select your visa status" />
               </SelectTrigger>
               <SelectContent>
@@ -205,14 +230,17 @@ export const MultiStepLeadCapture = ({
                 ))}
               </SelectContent>
             </Select>
+            {visaError ? (
+              <p id={visaErrorId} role="alert" className="text-sm text-destructive">{visaError}</p>
+            ) : null}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="occupation" className="text-sm font-medium">
+            <Label htmlFor="footer-occupation" className="text-sm font-medium">
               Occupation/Industry *
             </Label>
             <Input
-              id="occupation"
+              id="footer-occupation"
               type="text"
               placeholder="e.g., Software Engineer, Healthcare"
               value={occupation}

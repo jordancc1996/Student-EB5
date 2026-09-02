@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,6 +15,7 @@ interface GiftedFundsModalProps {
 }
 
 const GiftedFundsModal = ({ open, onOpenChange }: GiftedFundsModalProps) => {
+  const submitErrorId = useId();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -102,9 +103,9 @@ const GiftedFundsModal = ({ open, onOpenChange }: GiftedFundsModalProps) => {
                 <Input id="gf-country" value={country} onChange={e => setCountry(e.target.value)} placeholder="e.g. India, China, Brazil" />
               </div>
               <div>
-                <Label className="text-sm font-medium">Estimated Family Investable Assets</Label>
+                <Label htmlFor="gf-assets" className="text-sm font-medium">Estimated Family Investable Assets</Label>
                 <Select value={assets} onValueChange={setAssets}>
-                  <SelectTrigger><SelectValue placeholder="Select range" /></SelectTrigger>
+                  <SelectTrigger id="gf-assets"><SelectValue placeholder="Select range" /></SelectTrigger>
                   <SelectContent>
                     <SelectItem value="Under $500K">Under $500K</SelectItem>
                     <SelectItem value="$500K–$800K">$500K–$800K</SelectItem>
@@ -114,9 +115,9 @@ const GiftedFundsModal = ({ open, onOpenChange }: GiftedFundsModalProps) => {
                 </Select>
               </div>
               <div>
-                <Label className="text-sm font-medium">Current Visa Status</Label>
+                <Label htmlFor="gf-visa" className="text-sm font-medium">Current Visa Status</Label>
                 <Select value={visaStatus} onValueChange={setVisaStatus}>
-                  <SelectTrigger><SelectValue placeholder="Select status" /></SelectTrigger>
+                  <SelectTrigger id="gf-visa"><SelectValue placeholder="Select status" /></SelectTrigger>
                   <SelectContent>
                     <SelectItem value="F-1">F-1</SelectItem>
                     <SelectItem value="OPT">OPT</SelectItem>
@@ -126,7 +127,7 @@ const GiftedFundsModal = ({ open, onOpenChange }: GiftedFundsModalProps) => {
                 </Select>
               </div>
               {submitError ? (
-                <p className="text-destructive text-sm">{submitError}</p>
+                <p id={submitErrorId} role="alert" className="text-destructive text-sm">{submitError}</p>
               ) : null}
               <Button type="submit" className="w-full" disabled={submitting}>
                 {submitting ? 'Submitting...' : 'Check Our Eligibility'}
