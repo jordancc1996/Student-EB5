@@ -13,6 +13,7 @@ import ShareButtons from '@/components/ShareButtons';
 import MidArticleCTA from '@/components/MidArticleCTA';
 import PostIntroCTA from '@/components/research/PostIntroCTA.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
+import ArticleEmailContact from '@/components/ArticleEmailContact.astro';
 import RelatedResearchCard from '@/components/RelatedResearchCard.astro';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateArticleSchema } from '@/lib/seo/structured-data';
@@ -322,6 +323,7 @@ const relatedPosts = allPosts
       buttonLabel={articlePathway.form.buttonLabel}
       pathwayContext={articlePathway.form.pathwayContext}
     />
+    <ArticleEmailContact />
     <SiteFooter />
   </div>
   <Toaster client:load />

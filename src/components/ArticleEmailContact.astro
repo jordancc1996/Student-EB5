@@ -1,0 +1,19 @@
+---
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const email = SITE_CONFIG.email;
+---
+
+<section class="border-t border-border bg-background" aria-label="Email contact">
+  <div class="container mx-auto px-6 py-8 max-w-4xl text-center">
+    <p class="text-sm md:text-base text-muted-foreground m-0">
+      Prefer to email us?
+      <a
+        href={`mailto:${email}`}
+        class="text-primary font-medium underline underline-offset-2 hover:text-primary/80"
+      >
+        Contact us at {email}
+      </a>
+    </p>
+  </div>
+</section>
