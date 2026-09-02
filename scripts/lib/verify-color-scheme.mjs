@@ -97,7 +97,7 @@ export async function verifyColorSchemes(browser, baseUrl, check) {
     });
     const page = await context.newPage();
     await page.goto(`${baseUrl}${COLOR_SCHEME_ARTICLE}`, {
-      waitUntil: 'load',
+      waitUntil: 'domcontentloaded',
       timeout: 60000,
     });
     await page.waitForSelector('.article-content', { timeout: 60000 });

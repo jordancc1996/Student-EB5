@@ -18,10 +18,11 @@ const FIRST_PARTY_READY = '.article-content';
 
 /**
  * Preferred Sources keeps Google connections open, so networkidle never settles.
- * Wait for document load plus a first-party article/TOC node instead.
+ * `load` also waits on publisher.js. Use DOMContentLoaded plus a first-party
+ * article node as the readiness signal.
  */
 async function gotoFirstPartyReady(page, url, { timeout = 60000 } = {}) {
-  const res = await page.goto(url, { waitUntil: 'load', timeout });
+  const res = await page.goto(url, { waitUntil: 'domcontentloaded', timeout });
   await page.waitForSelector(FIRST_PARTY_READY, { timeout });
   return res;
 }
