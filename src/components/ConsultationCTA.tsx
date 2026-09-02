@@ -5,7 +5,8 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { Calendar, Clock, Users } from 'lucide-react';
 
 const BLOCKED_DOMAINS = [
@@ -36,6 +37,7 @@ export const ConsultationCTA = ({
 }: ConsultationCTAProps) => {
   const emailErrorId = useId();
   const visaErrorId = useId();
+  const phoneErrorId = useId();
   const [step, setStep] = useState<1 | 2>(1);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -45,6 +47,8 @@ export const ConsultationCTA = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [emailError, setEmailError] = useState('');
   const [visaError, setVisaError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedName, setSubmittedName] = useState('');
   const [submittedEmail, setSubmittedEmail] = useState('');
@@ -74,6 +78,11 @@ export const ConsultationCTA = ({
       return;
     }
     if (!validateEmail(email)) return;
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      return;
+    }
+    setPhoneError('');
     setStep(2);
   };
 
@@ -81,6 +90,11 @@ export const ConsultationCTA = ({
     e.preventDefault();
     if (!visaStatus) {
       setVisaError('Please select your visa status.');
+      return;
+    }
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      setStep(1);
       return;
     }
 
@@ -93,6 +107,7 @@ export const ConsultationCTA = ({
       message,
       formType: 'consultation_request',
       pathwayContext,
+      _gotcha: gotcha,
     });
     if (result.ok) {
       setSubmittedName(name.split(' ')[0]);
@@ -146,6 +161,7 @@ export const ConsultationCTA = ({
             <div className="bg-background rounded-2xl p-6 md:p-8 shadow-lg">
               {step === 1 && (
                 <form onSubmit={handleStepOne} className="space-y-4">
+                  <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
                   <div className="space-y-2">
                     <Label htmlFor="consultation-name" className={articleForm ? 'text-base' : undefined}>Full Name *</Label>
                     <Input
@@ -154,6 +170,7 @@ export const ConsultationCTA = ({
                       placeholder="Your full name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
+                      maxLength={FORM_FIELD_MAX.name}
                       required
                       className={articleForm ? 'text-base md:text-base' : undefined}
                     />
@@ -171,6 +188,7 @@ export const ConsultationCTA = ({
                         setEmailError('');
                       }}
                       required
+                      maxLength={FORM_FIELD_MAX.email}
                       aria-invalid={emailError ? true : undefined}
                       aria-describedby={emailError ? emailErrorId : undefined}
                       className={articleForm ? 'text-base md:text-base' : undefined}
@@ -188,9 +206,18 @@ export const ConsultationCTA = ({
                       type="tel"
                       placeholder="+1 (555) 123-4567"
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={(e) => {
+                        setPhone(e.target.value);
+                        setPhoneError('');
+                      }}
+                      maxLength={FORM_FIELD_MAX.phone}
+                      aria-invalid={phoneError ? true : undefined}
+                      aria-describedby={phoneError ? phoneErrorId : undefined}
                       className={articleForm ? 'text-base md:text-base' : undefined}
                     />
+                    {phoneError ? (
+                      <p id={phoneErrorId} role="alert" className="text-sm text-destructive">{phoneError}</p>
+                    ) : null}
                   </div>
 
                   <Button type="submit" className="w-full" size="lg">
@@ -205,6 +232,7 @@ export const ConsultationCTA = ({
 
               {step === 2 && (
                 <form onSubmit={handleStepTwo} className="space-y-4">
+                  <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
                   <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 mb-2">
                     <p className="text-foreground font-medium text-center">
                       Great, you're one step away!
@@ -251,6 +279,7 @@ export const ConsultationCTA = ({
                       placeholder="Brief description of your immigration goals..."
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
+                      maxLength={FORM_FIELD_MAX.message}
                       rows={3}
                     />
                   </div>

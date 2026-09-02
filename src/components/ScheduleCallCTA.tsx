@@ -7,7 +7,8 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { useToast } from '@/hooks/use-toast';
-import { submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 
 const BLOCKED_DOMAINS = [
   'gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'aol.com', 
@@ -27,6 +28,7 @@ interface ScheduleCallCTAProps {
 export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
   const emailErrorId = useId();
   const visaErrorId = useId();
+  const phoneErrorId = useId();
   const triggerRef = useRef<HTMLButtonElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [firstName, setFirstName] = useState('');
@@ -38,6 +40,8 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [emailError, setEmailError] = useState('');
   const [visaError, setVisaError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
@@ -79,6 +83,11 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
       return;
     }
 
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      return;
+    }
+
     setIsSubmitting(true);
     const result = await submitToFormcarry({
       firstName,
@@ -87,6 +96,7 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
       visaStatus,
       phone,
       formType: 'h1b_calculator_schedule_call',
+      _gotcha: gotcha,
     });
     if (result.ok) {
       setIsSubmitted(true);
@@ -226,6 +236,7 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
+              <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <Label htmlFor="sched-first-name">First Name *</Label>
@@ -236,6 +247,7 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     className="border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-foreground"
+                    maxLength={FORM_FIELD_MAX.name}
                     required
                   />
                 </div>
@@ -248,6 +260,7 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     className="border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-foreground"
+                    maxLength={FORM_FIELD_MAX.name}
                     required
                   />
                 </div>
@@ -267,6 +280,7 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
                     }}
                     className="border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-foreground"
                     required
+                    maxLength={FORM_FIELD_MAX.email}
                     aria-invalid={emailError ? true : undefined}
                     aria-describedby={emailError ? emailErrorId : undefined}
                   />
@@ -313,9 +327,18 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
                   type="tel"
                   placeholder="Phone Number"
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                    setPhoneError('');
+                  }}
+                  maxLength={FORM_FIELD_MAX.phone}
+                  aria-invalid={phoneError ? true : undefined}
+                  aria-describedby={phoneError ? phoneErrorId : undefined}
                   className="border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-foreground"
                 />
+                {phoneError ? (
+                  <p id={phoneErrorId} role="alert" className="text-xs text-destructive">{phoneError}</p>
+                ) : null}
               </div>
 
               <Button 

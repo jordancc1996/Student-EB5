@@ -5,7 +5,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
-import { submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { Calendar } from 'lucide-react';
 
 const STUDENT_VISA_OPTIONS = ['F-1', 'OPT', 'J-1', 'Other'];
@@ -16,6 +17,7 @@ interface StudentBottomFormProps {
 
 const StudentBottomForm = ({ onSubmitted }: StudentBottomFormProps) => {
   const visaErrorId = useId();
+  const phoneErrorId = useId();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -24,12 +26,18 @@ const StudentBottomForm = ({ onSubmitted }: StudentBottomFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [visaError, setVisaError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!visaStatus) {
       setVisaError('Please select your visa status.');
+      return;
+    }
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
     setIsSubmitting(true);
@@ -40,6 +48,7 @@ const StudentBottomForm = ({ onSubmitted }: StudentBottomFormProps) => {
       visaStatus,
       message,
       source: 'Student Page - Bottom Form',
+      _gotcha: gotcha,
     });
     if (result.ok) {
       setIsSubmitted(true);
@@ -67,18 +76,34 @@ const StudentBottomForm = ({ onSubmitted }: StudentBottomFormProps) => {
   return (
     <div className="bg-background rounded-2xl p-6 md:p-8 shadow-lg">
       <form onSubmit={handleSubmit} className="space-y-4">
+        <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
         <div className="space-y-2">
           <Label htmlFor="student-name">Full Name *</Label>
-          <Input id="student-name" type="text" placeholder="Your full name" value={name} onChange={(e) => setName(e.target.value)} required />
+          <Input id="student-name" type="text" placeholder="Your full name" value={name} onChange={(e) => setName(e.target.value)} maxLength={FORM_FIELD_MAX.name} required />
         </div>
         <div className="space-y-1">
           <Label htmlFor="student-email">Personal Email *</Label>
-          <Input id="student-email" type="email" placeholder="your.email@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <Input id="student-email" type="email" placeholder="your.email@example.com" value={email} onChange={(e) => setEmail(e.target.value)} maxLength={FORM_FIELD_MAX.email} required />
           <p className="text-xs text-muted-foreground">100% confidential. We never contact your employer.</p>
         </div>
         <div className="space-y-2">
           <Label htmlFor="student-phone">Phone Number (optional)</Label>
-          <Input id="student-phone" type="tel" placeholder="+1 (555) 123-4567" value={phone} onChange={(e) => setPhone(e.target.value)} />
+          <Input
+            id="student-phone"
+            type="tel"
+            placeholder="+1 (555) 123-4567"
+            value={phone}
+            onChange={(e) => {
+              setPhone(e.target.value);
+              setPhoneError('');
+            }}
+            maxLength={FORM_FIELD_MAX.phone}
+            aria-invalid={phoneError ? true : undefined}
+            aria-describedby={phoneError ? phoneErrorId : undefined}
+          />
+          {phoneError ? (
+            <p id={phoneErrorId} role="alert" className="text-sm text-destructive">{phoneError}</p>
+          ) : null}
         </div>
         <div className="space-y-2">
           <Label htmlFor="student-visa">Current Visa Status *</Label>
@@ -109,7 +134,7 @@ const StudentBottomForm = ({ onSubmitted }: StudentBottomFormProps) => {
         </div>
         <div className="space-y-2">
           <Label htmlFor="student-message">Tell us about your situation (optional)</Label>
-          <Textarea id="student-message" placeholder="Brief description of your immigration goals..." value={message} onChange={(e) => setMessage(e.target.value)} rows={3} />
+          <Textarea id="student-message" placeholder="Brief description of your immigration goals..." value={message} onChange={(e) => setMessage(e.target.value)} maxLength={FORM_FIELD_MAX.message} rows={3} />
         </div>
         <Button type="submit" disabled={isSubmitting} className="w-full" size="lg">
           {isSubmitting ? 'Submitting...' : 'Get My Free Evaluation'}

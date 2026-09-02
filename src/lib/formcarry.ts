@@ -2,6 +2,16 @@ export const FORMCARRY_ENDPOINT = 'https://formcarry.com/s/8p8GuE_o-oN';
 
 export const FORMCARRY_GENERIC_ERROR = 'Something went wrong. Please try again.';
 
+export const FORM_FIELD_MAX = {
+  name: 100,
+  email: 254,
+  phone: 30,
+  message: 2000,
+} as const;
+
+export const FORM_PHONE_FORMAT_ERROR =
+  'Enter a phone number with at least 7 digits. International numbers are fine.';
+
 export type FormcarryFieldError = {
   message: string;
   rule?: string;
@@ -19,12 +29,26 @@ type FormcarryJson = {
   errors?: Record<string, FormcarryFieldError>;
 };
 
+/** Empty is valid. Rejects junk without blocking international numbers. */
+export function isPermissivePhone(value: string): boolean {
+  const trimmed = value.trim();
+  if (!trimmed) return true;
+  const digits = trimmed.replace(/\D/g, '');
+  if (digits.length < 7 || digits.length > 15) return false;
+  return /^[+]?[\d\s().\-#extEXT]+$/.test(trimmed);
+}
+
 export async function submitToFormcarry(data: Record<string, unknown>): Promise<FormcarryResult> {
+  const gotcha = typeof data._gotcha === 'string' ? data._gotcha.trim() : '';
+  if (gotcha) {
+    return { ok: true, message: '' };
+  }
+
   try {
     const response = await fetch(FORMCARRY_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(data),
+      body: JSON.stringify({ ...data, _gotcha: '' }),
     });
 
     let json: FormcarryJson = {};

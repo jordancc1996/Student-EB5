@@ -5,16 +5,20 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 
 const ContactForm = () => {
   const { toast } = useToast();
   const submitErrorId = useId();
+  const phoneErrorId = useId();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedName, setSubmittedName] = useState('');
   const [submittedEmail, setSubmittedEmail] = useState('');
   const [submitError, setSubmitError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -30,6 +34,7 @@ const ContactForm = () => {
       ...prev,
       [name]: value,
     }));
+    if (name === 'phone') setPhoneError('');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -46,12 +51,19 @@ const ContactForm = () => {
       return;
     }
 
+    if (!isPermissivePhone(formData.phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitError('');
+    setPhoneError('');
     const result = await submitToFormcarry({
       ...formData,
       source: 'Contact Page',
       formType: 'contact_form',
+      _gotcha: gotcha,
     });
     if (result.ok) {
       setSubmittedName(formData.firstName);
@@ -92,6 +104,7 @@ const ContactForm = () => {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
+              <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="firstName">First Name *</Label>
@@ -100,6 +113,7 @@ const ContactForm = () => {
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleInputChange}
+                    maxLength={FORM_FIELD_MAX.name}
                     required
                   />
                 </div>
@@ -110,6 +124,7 @@ const ContactForm = () => {
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleInputChange}
+                    maxLength={FORM_FIELD_MAX.name}
                     required
                   />
                 </div>
@@ -123,6 +138,7 @@ const ContactForm = () => {
                   type="email"
                   value={formData.email}
                   onChange={handleInputChange}
+                  maxLength={FORM_FIELD_MAX.email}
                   required
                 />
               </div>
@@ -135,7 +151,13 @@ const ContactForm = () => {
                   type="tel"
                   value={formData.phone}
                   onChange={handleInputChange}
+                  maxLength={FORM_FIELD_MAX.phone}
+                  aria-invalid={phoneError ? true : undefined}
+                  aria-describedby={phoneError ? phoneErrorId : undefined}
                 />
+                {phoneError ? (
+                  <p id={phoneErrorId} role="alert" className="text-sm text-destructive mt-1">{phoneError}</p>
+                ) : null}
               </div>
 
               <div>
@@ -163,6 +185,7 @@ const ContactForm = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
+                  maxLength={FORM_FIELD_MAX.message}
                   placeholder="What are your goals for obtaining permanent residency? Any specific questions about the EB-5 process?"
                   rows={4}
                 />

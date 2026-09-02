@@ -3,7 +3,8 @@ import { X, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 interface CalculatorLeadModalProps {
@@ -15,12 +16,15 @@ const CalculatorLeadModal = ({ isOpen, onClose }: CalculatorLeadModalProps) => {
   const titleId = useId();
   const descriptionId = useId();
   const submitErrorId = useId();
+  const phoneErrorId = useId();
   const modalRef = useRef<HTMLDivElement>(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
 
   const handleClose = useCallback(() => {
     onClose();
@@ -30,6 +34,10 @@ const CalculatorLeadModal = ({ isOpen, onClose }: CalculatorLeadModalProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      return;
+    }
     setSubmitting(true);
     setSubmitError('');
     const result = await submitToFormcarry({
@@ -37,6 +45,7 @@ const CalculatorLeadModal = ({ isOpen, onClose }: CalculatorLeadModalProps) => {
       email,
       phone,
       source: 'EB-5 Calculator CTA',
+      _gotcha: gotcha,
     });
     if (result.ok) {
       window.location.href = '/tools/2026-eb5-investment-feasibility-calculator';
@@ -76,6 +85,7 @@ const CalculatorLeadModal = ({ isOpen, onClose }: CalculatorLeadModalProps) => {
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-3">
+          <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
           <div className="space-y-1">
             <Label htmlFor="calc-lead-name">Full Name *</Label>
             <Input
@@ -84,6 +94,7 @@ const CalculatorLeadModal = ({ isOpen, onClose }: CalculatorLeadModalProps) => {
               placeholder="Full name"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              maxLength={FORM_FIELD_MAX.name}
               required
               className="h-11"
             />
@@ -96,6 +107,7 @@ const CalculatorLeadModal = ({ isOpen, onClose }: CalculatorLeadModalProps) => {
               placeholder="Email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              maxLength={FORM_FIELD_MAX.email}
               required
               className="h-11"
             />
@@ -107,9 +119,18 @@ const CalculatorLeadModal = ({ isOpen, onClose }: CalculatorLeadModalProps) => {
               type="tel"
               placeholder="Phone number (optional)"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => {
+                setPhone(e.target.value);
+                setPhoneError('');
+              }}
+              maxLength={FORM_FIELD_MAX.phone}
+              aria-invalid={phoneError ? true : undefined}
+              aria-describedby={phoneError ? phoneErrorId : undefined}
               className="h-11"
             />
+            {phoneError ? (
+              <p id={phoneErrorId} role="alert" className="text-destructive text-sm">{phoneError}</p>
+            ) : null}
           </div>
           {submitError ? (
             <p id={submitErrorId} role="alert" className="text-destructive text-sm">{submitError}</p>

@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 const BLOCKED_DOMAINS = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'aol.com', 'icloud.com'];
@@ -21,6 +22,7 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
   const investmentErrorId = useId();
   const visaErrorId = useId();
   const submitErrorId = useId();
+  const phoneErrorId = useId();
   const modalRef = useRef<HTMLDivElement>(null);
 
   const [name, setName] = useState('');
@@ -35,6 +37,8 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
   const [investmentError, setInvestmentError] = useState('');
   const [visaError, setVisaError] = useState('');
   const [submitError, setSubmitError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
 
   useEffect(() => {
     if (!isOpen) {
@@ -49,6 +53,8 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
       setInvestmentError('');
       setVisaError('');
       setSubmitError('');
+      setPhoneError('');
+      setGotcha('');
     }
   }, [isOpen]);
 
@@ -82,6 +88,10 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
       selectsOk = false;
     }
     if (!emailOk || !selectsOk) return;
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      return;
+    }
 
     setSubmitting(true);
     setSubmitError('');
@@ -93,6 +103,7 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
       visaStatus,
       country,
       source: 'Concurrent Filing Qualification',
+      _gotcha: gotcha,
     });
     if (result.ok) {
       setSubmitted(true);
@@ -139,6 +150,7 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-3">
+              <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
               <div className="space-y-1">
                 <Label htmlFor="qual-name">Full Name *</Label>
                 <Input
@@ -147,6 +159,7 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
                   placeholder="Full name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  maxLength={FORM_FIELD_MAX.name}
                   required
                   className="h-11"
                 />
@@ -160,6 +173,7 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
                   value={email}
                   onChange={(e) => { setEmail(e.target.value); setEmailError(''); }}
                   required
+                  maxLength={FORM_FIELD_MAX.email}
                   aria-invalid={emailError ? true : undefined}
                   aria-describedby={emailError ? emailErrorId : undefined}
                   className={`h-11 ${emailError ? 'border-destructive' : ''}`}
@@ -175,9 +189,18 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
                   type="tel"
                   placeholder="Phone number (optional)"
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                    setPhoneError('');
+                  }}
+                  maxLength={FORM_FIELD_MAX.phone}
+                  aria-invalid={phoneError ? true : undefined}
+                  aria-describedby={phoneError ? phoneErrorId : undefined}
                   className="h-11"
                 />
+                {phoneError ? (
+                  <p id={phoneErrorId} role="alert" className="text-destructive text-xs mt-1">{phoneError}</p>
+                ) : null}
               </div>
               <div className="space-y-1">
                 <Label htmlFor="qual-investment">Investment Amount *</Label>

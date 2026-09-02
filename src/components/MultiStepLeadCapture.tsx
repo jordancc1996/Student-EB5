@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 
 interface MultiStepLeadCaptureProps {
   className?: string;
@@ -38,6 +39,7 @@ export const MultiStepLeadCapture = ({
 }: MultiStepLeadCaptureProps) => {
   const emailErrorId = useId();
   const visaErrorId = useId();
+  const phoneErrorId = useId();
   const [step, setStep] = useState<1 | 2>(1);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -48,6 +50,8 @@ export const MultiStepLeadCapture = ({
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');
   const [visaError, setVisaError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
   const { toast } = useToast();
 
   const validateEmail = (email: string): boolean => {
@@ -94,6 +98,11 @@ export const MultiStepLeadCapture = ({
       return;
     }
 
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      return;
+    }
+
     setIsSubmitting(true);
     const result = await submitToFormcarry({
       email,
@@ -103,6 +112,7 @@ export const MultiStepLeadCapture = ({
       occupation,
       source: 'Footer Newsletter',
       formType: 'footer_newsletter',
+      _gotcha: gotcha,
     });
     if (result.ok) {
       setIsSubmitted(true);
@@ -142,6 +152,7 @@ export const MultiStepLeadCapture = ({
       
       {step === 1 ? (
         <form onSubmit={handleEmailSubmit} className="space-y-3 animate-fade-in">
+          <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
           <div className="space-y-1">
             <Label htmlFor="footer-email" className="text-sm font-medium">
               Work or School Email *
@@ -156,6 +167,7 @@ export const MultiStepLeadCapture = ({
                 setEmailError('');
               }}
               required
+              maxLength={FORM_FIELD_MAX.email}
               aria-invalid={emailError ? true : undefined}
               aria-describedby={emailError ? emailErrorId : undefined}
               className={inputClassName}
@@ -174,6 +186,7 @@ export const MultiStepLeadCapture = ({
         </form>
       ) : (
         <form onSubmit={handleFinalSubmit} className="space-y-4 animate-fade-in">
+          <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
           <div className="space-y-2">
             <Label htmlFor="footer-name" className="text-sm font-medium">
               Full Name *
@@ -184,6 +197,7 @@ export const MultiStepLeadCapture = ({
               placeholder="Your full name"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              maxLength={FORM_FIELD_MAX.name}
               required
               className={inputClassName}
             />
@@ -198,9 +212,18 @@ export const MultiStepLeadCapture = ({
               type="tel"
               placeholder="+1 (555) 123-4567"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => {
+                setPhone(e.target.value);
+                setPhoneError('');
+              }}
+              maxLength={FORM_FIELD_MAX.phone}
+              aria-invalid={phoneError ? true : undefined}
+              aria-describedby={phoneError ? phoneErrorId : undefined}
               className={inputClassName}
             />
+            {phoneError ? (
+              <p id={phoneErrorId} role="alert" className="text-sm text-destructive">{phoneError}</p>
+            ) : null}
           </div>
 
           <div className="space-y-2">

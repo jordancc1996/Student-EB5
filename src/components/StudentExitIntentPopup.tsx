@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 const VISA_OPTIONS = ['F-1', 'OPT', 'J-1', 'Other'];
@@ -19,6 +20,7 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
   const descriptionId = useId();
   const visaErrorId = useId();
   const submitErrorId = useId();
+  const phoneErrorId = useId();
   const modalRef = useRef<HTMLDivElement>(null);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -30,6 +32,8 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [visaError, setVisaError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
 
   const show = useCallback(() => {
     if (hasSubmittedForm) return;
@@ -66,6 +70,10 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
       setVisaError('Please select your current visa status.');
       return;
     }
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      return;
+    }
     setSubmitting(true);
     setSubmitError('');
     setVisaError('');
@@ -75,6 +83,7 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
       phone,
       visaStatus,
       source: 'Student Page - Exit Intent',
+      _gotcha: gotcha,
     });
     if (result.ok) {
       setSubmitted(true);
@@ -118,17 +127,34 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-3">
+              <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
               <div className="space-y-1">
                 <Label htmlFor="exit-name">Full Name *</Label>
-                <Input id="exit-name" type="text" placeholder="Your full name" value={name} onChange={(e) => setName(e.target.value)} required className="h-11" />
+                <Input id="exit-name" type="text" placeholder="Your full name" value={name} onChange={(e) => setName(e.target.value)} maxLength={FORM_FIELD_MAX.name} required className="h-11" />
               </div>
               <div className="space-y-1">
                 <Label htmlFor="exit-email">Email *</Label>
-                <Input id="exit-email" type="email" placeholder="your.email@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required className="h-11" />
+                <Input id="exit-email" type="email" placeholder="your.email@example.com" value={email} onChange={(e) => setEmail(e.target.value)} maxLength={FORM_FIELD_MAX.email} required className="h-11" />
               </div>
               <div className="space-y-1">
                 <Label htmlFor="exit-phone">Phone Number (optional)</Label>
-                <Input id="exit-phone" type="tel" placeholder="+1 (555) 123-4567" value={phone} onChange={(e) => setPhone(e.target.value)} className="h-11" />
+                <Input
+                  id="exit-phone"
+                  type="tel"
+                  placeholder="+1 (555) 123-4567"
+                  value={phone}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                    setPhoneError('');
+                  }}
+                  maxLength={FORM_FIELD_MAX.phone}
+                  aria-invalid={phoneError ? true : undefined}
+                  aria-describedby={phoneError ? phoneErrorId : undefined}
+                  className="h-11"
+                />
+                {phoneError ? (
+                  <p id={phoneErrorId} role="alert" className="text-destructive text-sm">{phoneError}</p>
+                ) : null}
               </div>
               <div className="space-y-1">
                 <Label htmlFor="exit-visa">Current Visa Status *</Label>

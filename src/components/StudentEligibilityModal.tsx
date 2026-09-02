@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 const VISA_OPTIONS = ['F-1', 'OPT', 'J-1', 'Other'];
@@ -24,6 +25,7 @@ const StudentEligibilityModal = ({ isOpen, onClose }: StudentEligibilityModalPro
   const assetsErrorId = useId();
   const timelineErrorId = useId();
   const submitErrorId = useId();
+  const phoneErrorId = useId();
   const modalRef = useRef<HTMLDivElement>(null);
 
   const [name, setName] = useState('');
@@ -41,6 +43,8 @@ const StudentEligibilityModal = ({ isOpen, onClose }: StudentEligibilityModalPro
   const [inUSError, setInUSError] = useState('');
   const [assetsError, setAssetsError] = useState('');
   const [timelineError, setTimelineError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
 
   const handleClose = useCallback(() => {
     onClose();
@@ -59,6 +63,8 @@ const StudentEligibilityModal = ({ isOpen, onClose }: StudentEligibilityModalPro
       setInUSError('');
       setAssetsError('');
       setTimelineError('');
+      setPhoneError('');
+      setGotcha('');
     }, 300);
   }, [onClose]);
 
@@ -84,6 +90,10 @@ const StudentEligibilityModal = ({ isOpen, onClose }: StudentEligibilityModalPro
       selectsOk = false;
     }
     if (!selectsOk) return;
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      return;
+    }
 
     setSubmitting(true);
     setSubmitError('');
@@ -97,6 +107,7 @@ const StudentEligibilityModal = ({ isOpen, onClose }: StudentEligibilityModalPro
       investableAssets: assets,
       timeline,
       source: 'Student Eligibility Check',
+      _gotcha: gotcha,
     });
     if (result.ok) {
       setSubmitted(true);
@@ -141,18 +152,35 @@ const StudentEligibilityModal = ({ isOpen, onClose }: StudentEligibilityModalPro
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-3">
+              <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
               <div className="space-y-1">
                 <Label htmlFor="elig-name">Full Name *</Label>
-                <Input id="elig-name" type="text" placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} required className="h-11" />
+                <Input id="elig-name" type="text" placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} maxLength={FORM_FIELD_MAX.name} required className="h-11" />
               </div>
               <div className="space-y-1">
                 <Label htmlFor="elig-email">Email *</Label>
-                <Input id="elig-email" type="email" placeholder="Personal email" value={email} onChange={(e) => setEmail(e.target.value)} required className="h-11" />
+                <Input id="elig-email" type="email" placeholder="Personal email" value={email} onChange={(e) => setEmail(e.target.value)} maxLength={FORM_FIELD_MAX.email} required className="h-11" />
                 <p className="text-xs text-muted-foreground mt-1">100% confidential. We never contact your employer.</p>
               </div>
               <div className="space-y-1">
                 <Label htmlFor="elig-phone">Phone Number (optional)</Label>
-                <Input id="elig-phone" type="tel" placeholder="Phone number (optional)" value={phone} onChange={(e) => setPhone(e.target.value)} className="h-11" />
+                <Input
+                  id="elig-phone"
+                  type="tel"
+                  placeholder="Phone number (optional)"
+                  value={phone}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                    setPhoneError('');
+                  }}
+                  maxLength={FORM_FIELD_MAX.phone}
+                  aria-invalid={phoneError ? true : undefined}
+                  aria-describedby={phoneError ? phoneErrorId : undefined}
+                  className="h-11"
+                />
+                {phoneError ? (
+                  <p id={phoneErrorId} role="alert" className="text-destructive text-sm">{phoneError}</p>
+                ) : null}
               </div>
               <div className="space-y-1">
                 <Label htmlFor="elig-visa">Current Visa Status *</Label>

@@ -3,7 +3,8 @@ import { X, CheckCircle, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 const BLOCKED_DOMAINS = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'aol.com', 'icloud.com'];
@@ -40,6 +41,7 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
   const descriptionId = useId();
   const emailErrorId = useId();
   const submitErrorId = useId();
+  const phoneErrorId = useId();
   const modalRef = useRef<HTMLDivElement>(null);
 
   const [name, setName] = useState('');
@@ -50,6 +52,8 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
   const [submitting, setSubmitting] = useState(false);
   const [emailError, setEmailError] = useState('');
   const [submitError, setSubmitError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
 
   useEffect(() => {
     if (!isOpen) {
@@ -60,6 +64,8 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
       setOccupation('');
       setEmailError('');
       setSubmitError('');
+      setPhoneError('');
+      setGotcha('');
     }
   }, [isOpen]);
 
@@ -82,6 +88,10 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateEmail(email)) return;
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      return;
+    }
 
     setSubmitting(true);
     setSubmitError('');
@@ -91,6 +101,7 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
       phone,
       occupation,
       source: 'H1B Guide Download',
+      _gotcha: gotcha,
     });
     if (result.ok) {
       setSubmitted(true);
@@ -143,6 +154,7 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-3">
+              <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
               <div className="space-y-1">
                 <Label htmlFor="guide-name">Full Name *</Label>
                 <Input
@@ -151,6 +163,7 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
                   placeholder="Full name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  maxLength={FORM_FIELD_MAX.name}
                   required
                   className="h-11"
                 />
@@ -167,6 +180,7 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
                     setEmailError('');
                   }}
                   required
+                  maxLength={FORM_FIELD_MAX.email}
                   aria-invalid={emailError ? true : undefined}
                   aria-describedby={emailError ? emailErrorId : undefined}
                   className={`h-11 ${emailError ? 'border-destructive' : ''}`}
@@ -183,9 +197,18 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
                   type="tel"
                   placeholder="Phone number (optional)"
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                    setPhoneError('');
+                  }}
+                  maxLength={FORM_FIELD_MAX.phone}
+                  aria-invalid={phoneError ? true : undefined}
+                  aria-describedby={phoneError ? phoneErrorId : undefined}
                   className="h-11"
                 />
+                {phoneError ? (
+                  <p id={phoneErrorId} role="alert" className="text-destructive text-xs mt-1">{phoneError}</p>
+                ) : null}
               </div>
               <div className="space-y-1">
                 <Label htmlFor="guide-occupation">Occupation *</Label>

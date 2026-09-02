@@ -3,7 +3,8 @@ import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import {
   PDF_GUIDE_DWELL_MS,
@@ -44,6 +45,7 @@ const PdfGuideOfferPopup = () => {
   const [emailError, setEmailError] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [gotcha, setGotcha] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
@@ -187,6 +189,7 @@ const PdfGuideOfferPopup = () => {
       formType: 'pdf_guide_popup',
       pageCategory: category,
       pagePath: getNormalizedPathname(),
+      _gotcha: gotcha,
     });
 
     if (result.ok) {
@@ -262,6 +265,7 @@ const PdfGuideOfferPopup = () => {
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
               <div className="space-y-1">
                 <Label htmlFor="pdf-guide-email">Email Address *</Label>
                 <Input
@@ -277,6 +281,7 @@ const PdfGuideOfferPopup = () => {
                     setSubmitError('');
                   }}
                   required
+                  maxLength={FORM_FIELD_MAX.email}
                   aria-invalid={emailError ? true : undefined}
                   aria-describedby={emailError ? emailErrorId : undefined}
                   className={`h-11 text-base ${emailError ? 'border-destructive' : ''}`}

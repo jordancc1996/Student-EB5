@@ -4,7 +4,8 @@ import { ArrowRight, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import type { ArticlePathwayCta } from '@/lib/research/resolveArticlePathway';
 
 interface MidArticleCTAProps {
@@ -14,24 +15,33 @@ interface MidArticleCTAProps {
 
 const MidArticleCTA = ({ mid, pathwayContext }: MidArticleCTAProps) => {
   const submitErrorId = useId();
+  const phoneErrorId = useId();
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      return;
+    }
     setSubmitting(true);
     setSubmitError('');
+    setPhoneError('');
     const result = await submitToFormcarry({
       fullName,
       email,
       phone,
       source: `Mid-Article CTA – ${pathwayContext}`,
       pathwayContext,
+      _gotcha: gotcha,
     });
     if (result.ok) {
       setSubmitted(true);
@@ -73,6 +83,7 @@ const MidArticleCTA = ({ mid, pathwayContext }: MidArticleCTAProps) => {
           <>
             <p className="text-sm text-muted-foreground m-0">{mid.formPrompt}</p>
             <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+              <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
               <div className="flex flex-col sm:flex-row gap-2">
                 <div className="flex-1 space-y-1">
                   <Label htmlFor="mid-name">Full Name *</Label>
@@ -82,6 +93,7 @@ const MidArticleCTA = ({ mid, pathwayContext }: MidArticleCTAProps) => {
                     placeholder="Full name"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
+                    maxLength={FORM_FIELD_MAX.name}
                     required
                     className="h-10 text-base"
                   />
@@ -94,6 +106,7 @@ const MidArticleCTA = ({ mid, pathwayContext }: MidArticleCTAProps) => {
                     placeholder="Personal email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    maxLength={FORM_FIELD_MAX.email}
                     required
                     className="h-10 text-base"
                   />
@@ -107,9 +120,18 @@ const MidArticleCTA = ({ mid, pathwayContext }: MidArticleCTAProps) => {
                     type="tel"
                     placeholder="Phone number"
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) => {
+                      setPhone(e.target.value);
+                      setPhoneError('');
+                    }}
+                    maxLength={FORM_FIELD_MAX.phone}
+                    aria-invalid={phoneError ? true : undefined}
+                    aria-describedby={phoneError ? phoneErrorId : undefined}
                     className="h-10 text-base"
                   />
+                  {phoneError ? (
+                    <p id={phoneErrorId} role="alert" className="text-sm text-destructive">{phoneError}</p>
+                  ) : null}
                 </div>
                 <Button
                   type="submit"

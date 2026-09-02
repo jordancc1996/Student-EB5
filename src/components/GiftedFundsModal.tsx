@@ -5,7 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { CheckCircle } from 'lucide-react';
-import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 
 const pathwayFont = "'Inter', 'Helvetica Neue', sans-serif";
 
@@ -16,6 +17,7 @@ interface GiftedFundsModalProps {
 
 const GiftedFundsModal = ({ open, onOpenChange }: GiftedFundsModalProps) => {
   const submitErrorId = useId();
+  const phoneErrorId = useId();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -25,10 +27,16 @@ const GiftedFundsModal = ({ open, onOpenChange }: GiftedFundsModalProps) => {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email) return;
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      return;
+    }
     setSubmitting(true);
     setSubmitError('');
     const result = await submitToFormcarry({
@@ -39,6 +47,7 @@ const GiftedFundsModal = ({ open, onOpenChange }: GiftedFundsModalProps) => {
       investableAssets: assets,
       visaStatus,
       source: 'Gifted Funds Eligibility',
+      _gotcha: gotcha,
     });
     if (result.ok) {
       setSubmitted(true);
@@ -86,17 +95,33 @@ const GiftedFundsModal = ({ open, onOpenChange }: GiftedFundsModalProps) => {
               </p>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+              <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
               <div>
                 <Label htmlFor="gf-name" className="text-sm font-medium">Student Name *</Label>
-                <Input id="gf-name" value={name} onChange={e => setName(e.target.value)} required placeholder="Full name" />
+                <Input id="gf-name" value={name} onChange={e => setName(e.target.value)} maxLength={FORM_FIELD_MAX.name} required placeholder="Full name" />
               </div>
               <div>
                 <Label htmlFor="gf-email" className="text-sm font-medium">Student Email *</Label>
-                <Input id="gf-email" type="email" value={email} onChange={e => setEmail(e.target.value)} required placeholder="Personal email preferred" />
+                <Input id="gf-email" type="email" value={email} onChange={e => setEmail(e.target.value)} maxLength={FORM_FIELD_MAX.email} required placeholder="Personal email preferred" />
               </div>
               <div>
                 <Label htmlFor="gf-phone" className="text-sm font-medium">Phone Number (optional)</Label>
-                <Input id="gf-phone" type="tel" value={phone} onChange={e => setPhone(e.target.value)} placeholder="+1 (555) 123-4567" />
+                <Input
+                  id="gf-phone"
+                  type="tel"
+                  value={phone}
+                  onChange={e => {
+                    setPhone(e.target.value);
+                    setPhoneError('');
+                  }}
+                  maxLength={FORM_FIELD_MAX.phone}
+                  aria-invalid={phoneError ? true : undefined}
+                  aria-describedby={phoneError ? phoneErrorId : undefined}
+                  placeholder="+1 (555) 123-4567"
+                />
+                {phoneError ? (
+                  <p id={phoneErrorId} role="alert" className="text-destructive text-sm mt-1">{phoneError}</p>
+                ) : null}
               </div>
               <div>
                 <Label htmlFor="gf-country" className="text-sm font-medium">Parent's Country of Origin</Label>

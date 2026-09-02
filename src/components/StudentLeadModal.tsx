@@ -3,7 +3,8 @@ import { X, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 interface StudentLeadModalProps {
@@ -31,6 +32,7 @@ const StudentLeadModal = ({ isOpen, onClose, mode }: StudentLeadModalProps) => {
   const titleId = useId();
   const descriptionId = useId();
   const submitErrorId = useId();
+  const phoneErrorId = useId();
   const modalRef = useRef<HTMLDivElement>(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -38,6 +40,8 @@ const StudentLeadModal = ({ isOpen, onClose, mode }: StudentLeadModalProps) => {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
 
   const config = MODAL_CONFIG[mode];
 
@@ -49,6 +53,8 @@ const StudentLeadModal = ({ isOpen, onClose, mode }: StudentLeadModalProps) => {
       setEmail('');
       setPhone('');
       setSubmitError('');
+      setPhoneError('');
+      setGotcha('');
     }, 300);
   }, [onClose]);
 
@@ -56,9 +62,13 @@ const StudentLeadModal = ({ isOpen, onClose, mode }: StudentLeadModalProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      return;
+    }
     setSubmitting(true);
     setSubmitError('');
-    const result = await submitToFormcarry({ name, email, phone, source: config.source });
+    const result = await submitToFormcarry({ name, email, phone, source: config.source, _gotcha: gotcha });
     if (result.ok) {
       if (mode === 'tuition') {
         window.location.href = '/tools/tuition-calculator';
@@ -112,18 +122,35 @@ const StudentLeadModal = ({ isOpen, onClose, mode }: StudentLeadModalProps) => {
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-3">
+              <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
               <div className="space-y-1">
                 <Label htmlFor="student-lead-name">Full Name *</Label>
-                <Input id="student-lead-name" type="text" placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} required className="h-11" />
+                <Input id="student-lead-name" type="text" placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} maxLength={FORM_FIELD_MAX.name} required className="h-11" />
               </div>
               <div className="space-y-1">
                 <Label htmlFor="student-lead-email">Email *</Label>
-                <Input id="student-lead-email" type="email" placeholder="Personal email" value={email} onChange={(e) => setEmail(e.target.value)} required className="h-11" />
+                <Input id="student-lead-email" type="email" placeholder="Personal email" value={email} onChange={(e) => setEmail(e.target.value)} maxLength={FORM_FIELD_MAX.email} required className="h-11" />
                 <p className="text-xs text-muted-foreground mt-1">100% confidential. We never contact your employer.</p>
               </div>
               <div className="space-y-1">
                 <Label htmlFor="student-lead-phone">Phone Number (optional)</Label>
-                <Input id="student-lead-phone" type="tel" placeholder="Phone number (optional)" value={phone} onChange={(e) => setPhone(e.target.value)} className="h-11" />
+                <Input
+                  id="student-lead-phone"
+                  type="tel"
+                  placeholder="Phone number (optional)"
+                  value={phone}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                    setPhoneError('');
+                  }}
+                  maxLength={FORM_FIELD_MAX.phone}
+                  aria-invalid={phoneError ? true : undefined}
+                  aria-describedby={phoneError ? phoneErrorId : undefined}
+                  className="h-11"
+                />
+                {phoneError ? (
+                  <p id={phoneErrorId} role="alert" className="text-destructive text-sm">{phoneError}</p>
+                ) : null}
               </div>
               {submitError ? (
                 <p id={submitErrorId} role="alert" className="text-destructive text-sm">{submitError}</p>

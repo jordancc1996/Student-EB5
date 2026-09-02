@@ -5,7 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
-import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 
 const FREE_EMAIL_DOMAINS = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'aol.com', 'icloud.com'];
 
@@ -19,6 +20,7 @@ const fields = [
 const GatedFeasibilityCalculator = () => {
   const emailErrorId = useId();
   const submitErrorId = useId();
+  const phoneErrorId = useId();
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [values, setValues] = useState({ rsu: '', k401: '', equity: '', savings: '' });
   const [total, setTotal] = useState(0);
@@ -27,6 +29,8 @@ const GatedFeasibilityCalculator = () => {
   const [emailError, setEmailError] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
 
   const handleCalculate = () => {
     const sum = Object.values(values).reduce((acc, v) => acc + (parseFloat(v) || 0), 0);
@@ -50,6 +54,11 @@ const GatedFeasibilityCalculator = () => {
       return;
     }
 
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      return;
+    }
+
     setSubmitting(true);
     setSubmitError('');
     const result = await submitToFormcarry({
@@ -61,6 +70,7 @@ const GatedFeasibilityCalculator = () => {
       home_equity: values.equity,
       liquid_savings: values.savings,
       total_identified: total,
+      _gotcha: gotcha,
     });
     if (result.ok) {
       setStep(3);
@@ -141,6 +151,7 @@ const GatedFeasibilityCalculator = () => {
           </div>
 
           <form onSubmit={handleEmailSubmit} className="space-y-3 border-t border-border pt-6">
+            <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
             <p className="text-sm text-muted-foreground text-center">
               Enter your work email to unlock your personalized feasibility report.
             </p>
@@ -156,6 +167,7 @@ const GatedFeasibilityCalculator = () => {
                   setEmailError('');
                 }}
                 required
+                maxLength={FORM_FIELD_MAX.email}
                 aria-invalid={emailError ? true : undefined}
                 aria-describedby={emailError ? emailErrorId : undefined}
                 className={emailError ? 'border-destructive' : undefined}
@@ -168,8 +180,15 @@ const GatedFeasibilityCalculator = () => {
                 type="tel"
                 placeholder="Phone number (optional)"
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={(e) => {
+                  setPhone(e.target.value);
+                  setPhoneError('');
+                }}
+                maxLength={FORM_FIELD_MAX.phone}
+                aria-invalid={phoneError ? true : undefined}
+                aria-describedby={phoneError ? phoneErrorId : undefined}
               />
+              {phoneError ? <p id={phoneErrorId} role="alert" className="text-destructive text-sm">{phoneError}</p> : null}
             </div>
             {emailError ? <p id={emailErrorId} role="alert" className="text-destructive text-sm">{emailError}</p> : null}
             {submitError ? <p id={submitErrorId} role="alert" className="text-destructive text-sm">{submitError}</p> : null}

@@ -5,7 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
-import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
+import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 const BLOCKED_DOMAINS = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'aol.com', 'icloud.com'];
@@ -29,6 +30,7 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
   const violationsErrorId = useId();
   const timelineErrorId = useId();
   const submitErrorId = useId();
+  const phoneErrorId = useId();
   const modalRef = useRef<HTMLDivElement>(null);
 
   const [step, setStep] = useState<1 | 2 | 3>(1);
@@ -58,6 +60,8 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
   const [removalError, setRemovalError] = useState('');
   const [violationsError, setViolationsError] = useState('');
   const [timelineError, setTimelineError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [gotcha, setGotcha] = useState('');
 
   useEffect(() => {
     if (!isOpen) {
@@ -87,6 +91,8 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
       setRemovalError('');
       setViolationsError('');
       setTimelineError('');
+      setPhoneError('');
+      setGotcha('');
     }
   }, [isOpen]);
 
@@ -107,6 +113,11 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
       setEmailError('Please use your work or educational email address to access premium EB-5 updates');
       return;
     }
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      return;
+    }
+    setPhoneError('');
     setStep(2);
   };
 
@@ -150,6 +161,11 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
       ok = false;
     }
     if (!ok) return;
+    if (!isPermissivePhone(phone)) {
+      setPhoneError(FORM_PHONE_FORMAT_ERROR);
+      setStep(1);
+      return;
+    }
 
     setSubmitting(true);
     setSubmitError('');
@@ -168,6 +184,7 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
       prior_visa_violations: priorViolations,
       timeline,
       source: 'Feasibility Check Modal',
+      _gotcha: gotcha,
     });
     if (result.ok) {
       setSubmitted(true);
@@ -214,9 +231,10 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
               Enter your details and an experienced EB-5 advisor will review your eligibility within one business day.
             </p>
             <form onSubmit={handleStep1} className="space-y-3">
+              <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
               <div className="space-y-1">
                 <Label htmlFor="feas-name">Full Name *</Label>
-                <Input id="feas-name" type="text" placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} required className="h-11" />
+                <Input id="feas-name" type="text" placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} maxLength={FORM_FIELD_MAX.name} required className="h-11" />
               </div>
               <div className="space-y-1">
                 <Label htmlFor="feas-email">Work or School Email *</Label>
@@ -227,6 +245,7 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
                   value={email}
                   onChange={(e) => { setEmail(e.target.value); setEmailError(''); }}
                   required
+                  maxLength={FORM_FIELD_MAX.email}
                   aria-invalid={emailError ? true : undefined}
                   aria-describedby={emailError ? emailErrorId : undefined}
                   className={`h-11 ${emailError ? 'border-destructive' : ''}`}
@@ -242,9 +261,18 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
                   type="tel"
                   placeholder="Phone number (optional)"
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                    setPhoneError('');
+                  }}
+                  maxLength={FORM_FIELD_MAX.phone}
+                  aria-invalid={phoneError ? true : undefined}
+                  aria-describedby={phoneError ? phoneErrorId : undefined}
                   className="h-11"
                 />
+                {phoneError ? (
+                  <p id={phoneErrorId} role="alert" className="text-destructive text-xs mt-1">{phoneError}</p>
+                ) : null}
               </div>
               <Button type="submit" className="w-full h-11 font-semibold text-sm uppercase tracking-wide">
                 Continue
@@ -258,6 +286,7 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
             <h2 id={titleId} className="font-serif font-bold text-xl text-foreground mb-1">Great, {name}!</h2>
             <p id={descriptionId} className="text-muted-foreground text-sm mb-5">Answer a few questions so we can assess your eligibility.</p>
             <form onSubmit={handleStep2} className="space-y-4">
+              <FormcarryHoneypot value={gotcha} onChange={setGotcha} />
               <div>
                 <Label htmlFor="feas-country" className="text-sm font-medium text-foreground">Country of birth *</Label>
                 <Input id="feas-country" type="text" placeholder="e.g. India" value={country} onChange={(e) => setCountry(e.target.value)} required className="h-11 mt-1" />
