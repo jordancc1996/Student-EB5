@@ -250,8 +250,14 @@ async function verifyScaledLaptopRail(browser) {
     return nav ? nav.getBoundingClientRect().top : null;
   });
 
-  await page.evaluate(() => window.scrollTo(0, 1200));
-  await page.waitForTimeout(200);
+  await page.evaluate(() => window.scrollTo(0, 1000));
+  await page.waitForFunction(() => {
+    const nav = document.querySelector('nav.article-toc');
+    if (!nav) return false;
+    const top = nav.getBoundingClientRect().top;
+    const stickyTop = parseFloat(getComputedStyle(nav).top);
+    return Number.isFinite(stickyTop) && Math.abs(top - stickyTop) <= 2;
+  }, null, { timeout: 5000 });
 
   const stickyState = await page.evaluate(() => {
     const nav = document.querySelector('nav.article-toc');
@@ -264,6 +270,8 @@ async function verifyScaledLaptopRail(browser) {
       stickyTop: style.top,
     };
   });
+
+  const stickyTopPx = stickyState ? parseFloat(stickyState.stickyTop) : NaN;
 
   results.push(
     await check(
@@ -278,9 +286,9 @@ async function verifyScaledLaptopRail(browser) {
       stickyState != null &&
         topBefore != null &&
         stickyState.top < topBefore &&
-        stickyState.top >= 100 &&
-        stickyState.top <= 120,
-      `before=${topBefore} after=${stickyState?.top}`,
+        Number.isFinite(stickyTopPx) &&
+        Math.abs(stickyState.top - stickyTopPx) <= 2,
+      `before=${topBefore} after=${stickyState?.top} stickyTop=${stickyState?.stickyTop}`,
     ),
   );
 
