@@ -93,6 +93,8 @@ export const MultiStepLeadCapture = ({
       phone,
       visaStatus,
       occupation,
+      source: 'Footer Newsletter',
+      formType: 'footer_newsletter',
     });
     if (result.ok) {
       setIsSubmitted(true);

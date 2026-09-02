@@ -135,7 +135,7 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
               <div>
                 <Input
                   type="email"
-                  placeholder="Personal email"
+                  placeholder="Work or school email"
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);

@@ -10,6 +10,7 @@ import { submitToFormcarry } from '@/lib/formcarry';
 const ContactForm = () => {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedName, setSubmittedName] = useState('');
   const [submittedEmail, setSubmittedEmail] = useState('');
   const [formData, setFormData] = useState({
@@ -31,6 +32,7 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
 
     // Basic validation
     if (!formData.firstName || !formData.lastName || !formData.email) {
@@ -42,7 +44,12 @@ const ContactForm = () => {
       return;
     }
 
-    const result = await submitToFormcarry(formData);
+    setIsSubmitting(true);
+    const result = await submitToFormcarry({
+      ...formData,
+      source: 'Contact Page',
+      formType: 'contact_form',
+    });
     if (result.ok) {
       setSubmittedName(formData.firstName);
       setSubmittedEmail(formData.email);
@@ -54,6 +61,7 @@ const ContactForm = () => {
         variant: "destructive",
       });
     }
+    setIsSubmitting(false);
   };
 
   return (
@@ -156,8 +164,8 @@ const ContactForm = () => {
                 />
               </div>
 
-              <Button type="submit" className="w-full" size="lg">
-                Start My Journey
+              <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+                {isSubmitting ? 'Submitting...' : 'Start My Journey'}
               </Button>
             </form>
           </CardContent>

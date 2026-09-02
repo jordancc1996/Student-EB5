@@ -22,6 +22,7 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [visaError, setVisaError] = useState('');
 
   const show = useCallback(() => {
     if (hasSubmittedForm) return;
@@ -52,9 +53,13 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!visaStatus) return;
+    if (!visaStatus) {
+      setVisaError('Please select your current visa status.');
+      return;
+    }
     setSubmitting(true);
     setSubmitError('');
+    setVisaError('');
     const result = await submitToFormcarry({
       name,
       email,
@@ -110,7 +115,14 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
               </div>
               <div className="space-y-1">
                 <Label>Current Visa Status *</Label>
-                <Select value={visaStatus} onValueChange={setVisaStatus} required>
+                <Select
+                  value={visaStatus}
+                  onValueChange={(value) => {
+                    setVisaStatus(value);
+                    setVisaError('');
+                  }}
+                  required
+                >
                   <SelectTrigger className="h-11">
                     <SelectValue placeholder="Select your visa status" />
                   </SelectTrigger>
@@ -120,6 +132,9 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
                     ))}
                   </SelectContent>
                 </Select>
+                {visaError ? (
+                  <p className="text-destructive text-sm">{visaError}</p>
+                ) : null}
               </div>
               {submitError ? (
                 <p className="text-destructive text-sm">{submitError}</p>

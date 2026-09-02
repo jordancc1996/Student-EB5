@@ -157,7 +157,7 @@ export const ConsultationCTA = ({
                   </div>
 
                   <div className="space-y-1">
-                    <Label htmlFor="consultation-email" className={articleForm ? 'text-base' : undefined}>Personal Email *</Label>
+                    <Label htmlFor="consultation-email" className={articleForm ? 'text-base' : undefined}>Work or School Email *</Label>
                     <Input
                       id="consultation-email"
                       type="email"
