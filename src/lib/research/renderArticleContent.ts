@@ -62,7 +62,7 @@ export function renderArticleContentLines(contentLines: string[], headingIds?: s
       if (imageMatch) {
         const [, alt, src] = imageMatch;
         const resolvedSrc = resolveInlineArticleImageSrc(src);
-        return `<figure class="my-8"><img src="${resolvedSrc}" alt="${alt}" class="w-full rounded-lg shadow-md" loading="lazy" /><figcaption class="article-caption mt-2">${alt}</figcaption></figure>`;
+        return `<figure class="my-8"><img src="${resolvedSrc}" alt="${alt}" class="w-full rounded-lg shadow-md" loading="lazy" /></figure>`;
       }
 
       if (isH2Line(line)) {
