@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { X, CheckCircle, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
 
 const BLOCKED_DOMAINS = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'aol.com', 'icloud.com'];
 
@@ -40,6 +41,7 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [emailError, setEmailError] = useState('');
+  const [submitError, setSubmitError] = useState('');
 
   useEffect(() => {
     if (!isOpen) {
@@ -49,6 +51,7 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
       setPhone('');
       setOccupation('');
       setEmailError('');
+      setSubmitError('');
     }
   }, [isOpen]);
 
@@ -71,25 +74,26 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
     if (!validateEmail(email)) return;
 
     setSubmitting(true);
-    try {
-      await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ name, email, phone, occupation, source: 'H1B Guide Download' }),
-      });
-    } catch {
-      // Still allow download even if form submission fails
+    setSubmitError('');
+    const result = await submitToFormcarry({
+      name,
+      email,
+      phone,
+      occupation,
+      source: 'H1B Guide Download',
+    });
+    if (result.ok) {
+      setSubmitted(true);
+      const link = document.createElement('a');
+      link.href = '/StudentEB5_H1B_Guide_2026.pdf';
+      link.download = 'H1B-to-Green-Card-EB-5-Guide-2026.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      setSubmitError(result.message || FORMCARRY_GENERIC_ERROR);
     }
-
-    setSubmitted(true);
     setSubmitting(false);
-
-    const link = document.createElement('a');
-    link.href = '/StudentEB5_H1B_Guide_2026.pdf';
-    link.download = 'H1B-to-Green-Card-EB-5-Guide-2026.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
   };
 
   if (!isOpen) return null;
@@ -158,6 +162,9 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
                 required
                 className="h-11"
               />
+              {submitError ? (
+                <p className="text-destructive text-xs mt-1">{submitError}</p>
+              ) : null}
               <Button
                 type="submit"
                 disabled={submitting}

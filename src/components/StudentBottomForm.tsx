@@ -5,6 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
+import { submitToFormcarry } from '@/lib/formcarry';
 import { Calendar } from 'lucide-react';
 
 const STUDENT_VISA_OPTIONS = ['F-1', 'OPT', 'J-1', 'Other'];
@@ -30,23 +31,21 @@ const StudentBottomForm = ({ onSubmitted }: StudentBottomFormProps) => {
       return;
     }
     setIsSubmitting(true);
-    try {
-      const response = await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ name, email, phone, visaStatus, message, source: 'Student Page - Bottom Form' }),
-      });
-      if (response.ok) {
-        setIsSubmitted(true);
-        onSubmitted?.();
-      } else {
-        throw new Error('Submission failed');
-      }
-    } catch {
+    const result = await submitToFormcarry({
+      name,
+      email,
+      phone,
+      visaStatus,
+      message,
+      source: 'Student Page - Bottom Form',
+    });
+    if (result.ok) {
+      setIsSubmitted(true);
+      onSubmitted?.();
+    } else {
       toast({ title: 'Error', description: 'Failed to submit. Please try again.', variant: 'destructive' });
-    } finally {
-      setIsSubmitting(false);
     }
+    setIsSubmitting(false);
   };
 
   if (isSubmitted) {

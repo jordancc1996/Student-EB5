@@ -3,6 +3,7 @@ import { X, CheckCircle, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
 
 const BLOCKED_DOMAINS = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'aol.com', 'icloud.com'];
 
@@ -21,6 +22,7 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [emailError, setEmailError] = useState('');
+  const [submitError, setSubmitError] = useState('');
 
   useEffect(() => {
     if (!isOpen) {
@@ -32,6 +34,7 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
       setVisaStatus('');
       setCountry('');
       setEmailError('');
+      setSubmitError('');
     }
   }, [isOpen]);
 
@@ -54,17 +57,21 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
     if (!validateEmail(email)) return;
 
     setSubmitting(true);
-    try {
-      await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ name, email, phone, investmentAmount, visaStatus, country, source: 'Concurrent Filing Qualification' }),
-      });
-    } catch {
-      // Still show success even if submission fails
+    setSubmitError('');
+    const result = await submitToFormcarry({
+      name,
+      email,
+      phone,
+      investmentAmount,
+      visaStatus,
+      country,
+      source: 'Concurrent Filing Qualification',
+    });
+    if (result.ok) {
+      setSubmitted(true);
+    } else {
+      setSubmitError(result.message || FORMCARRY_GENERIC_ERROR);
     }
-
-    setSubmitted(true);
     setSubmitting(false);
   };
 
@@ -155,6 +162,9 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
                 required
                 className="h-11"
               />
+              {submitError ? (
+                <p className="text-destructive text-xs mt-1">{submitError}</p>
+              ) : null}
               <Button
                 type="submit"
                 disabled={submitting}

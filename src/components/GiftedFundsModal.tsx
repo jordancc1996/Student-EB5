@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { CheckCircle } from 'lucide-react';
+import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
 
 const pathwayFont = "'Inter', 'Helvetica Neue', sans-serif";
 
@@ -22,31 +23,28 @@ const GiftedFundsModal = ({ open, onOpenChange }: GiftedFundsModalProps) => {
   const [visaStatus, setVisaStatus] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email) return;
     setSubmitting(true);
-    try {
-      await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          name,
-          email,
-          phone,
-          parentCountry: country,
-          investableAssets: assets,
-          visaStatus,
-          source: 'Gifted Funds Eligibility',
-        }),
-      });
+    setSubmitError('');
+    const result = await submitToFormcarry({
+      name,
+      email,
+      phone,
+      parentCountry: country,
+      investableAssets: assets,
+      visaStatus,
+      source: 'Gifted Funds Eligibility',
+    });
+    if (result.ok) {
       setSubmitted(true);
-    } catch {
-      setSubmitted(true);
-    } finally {
-      setSubmitting(false);
+    } else {
+      setSubmitError(result.message || FORMCARRY_GENERIC_ERROR);
     }
+    setSubmitting(false);
   };
 
   const handleClose = (val: boolean) => {
@@ -60,6 +58,7 @@ const GiftedFundsModal = ({ open, onOpenChange }: GiftedFundsModalProps) => {
         setAssets('');
         setVisaStatus('');
         setSubmitted(false);
+        setSubmitError('');
       }, 300);
     }
   };
@@ -126,6 +125,9 @@ const GiftedFundsModal = ({ open, onOpenChange }: GiftedFundsModalProps) => {
                   </SelectContent>
                 </Select>
               </div>
+              {submitError ? (
+                <p className="text-destructive text-sm">{submitError}</p>
+              ) : null}
               <Button type="submit" className="w-full" disabled={submitting}>
                 {submitting ? 'Submitting...' : 'Check Our Eligibility'}
               </Button>

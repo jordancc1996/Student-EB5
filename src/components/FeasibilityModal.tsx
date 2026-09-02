@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
+import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
 
 const BLOCKED_DOMAINS = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'aol.com', 'icloud.com'];
 
@@ -31,6 +32,7 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
   const [timeline, setTimeline] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   useEffect(() => {
     if (!isOpen) {
@@ -40,6 +42,7 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
       setEmail('');
       setPhone('');
       setEmailError('');
+      setSubmitError('');
       setCountry('');
       setInUS('');
       setVisaType('');
@@ -74,33 +77,30 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
   const handleStep2 = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    try {
-      await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          name,
-          email: email.trim(),
-          phone,
-          country,
-          currently_in_us: inUS,
-          visa_type: visaType,
-          valid_i94: validI94,
-          investable_assets: assets,
-          source_of_funds: sourceOfFunds,
-          eb5_project_identified: projectIdentified,
-          removal_proceedings: removalProceedings,
-          prior_visa_violations: priorViolations,
-          timeline,
-          source: 'Feasibility Check Modal',
-        }),
-      });
-    } catch {
-      // submit silently
+    setSubmitError('');
+    const result = await submitToFormcarry({
+      name,
+      email: email.trim(),
+      phone,
+      country,
+      currently_in_us: inUS,
+      visa_type: visaType,
+      valid_i94: validI94,
+      investable_assets: assets,
+      source_of_funds: sourceOfFunds,
+      eb5_project_identified: projectIdentified,
+      removal_proceedings: removalProceedings,
+      prior_visa_violations: priorViolations,
+      timeline,
+      source: 'Feasibility Check Modal',
+    });
+    if (result.ok) {
+      setSubmitted(true);
+      setStep(3);
+    } else {
+      setSubmitError(result.message || FORMCARRY_GENERIC_ERROR);
     }
     setSubmitting(false);
-    setSubmitted(true);
-    setStep(3);
   };
 
   if (!isOpen) return null;
@@ -266,6 +266,9 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
                 </Select>
               </div>
 
+              {submitError ? (
+                <p className="text-destructive text-xs mt-1">{submitError}</p>
+              ) : null}
               <Button type="submit" disabled={submitting} className="w-full h-11 font-semibold text-sm uppercase tracking-wide mt-2">
                 {submitting ? 'Submitting...' : 'Submit My Feasibility Check'}
               </Button>

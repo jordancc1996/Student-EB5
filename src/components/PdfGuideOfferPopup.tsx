@@ -2,7 +2,7 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { submitToFormcarry } from '@/lib/formcarry';
+import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
 import {
   PDF_GUIDE_DWELL_MS,
   PDF_GUIDE_HARD_FLOOR_MS,
@@ -48,6 +48,7 @@ const PdfGuideOfferPopup = () => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
@@ -222,9 +223,10 @@ const PdfGuideOfferPopup = () => {
     if (!validateEmail(email)) return;
 
     setSubmitting(true);
+    setSubmitError('');
     const copy = PDF_GUIDE_OFFER_COPY[category];
 
-    await submitToFormcarry({
+    const result = await submitToFormcarry({
       email: email.trim(),
       source: copy.formSource,
       formType: 'pdf_guide_popup',
@@ -232,12 +234,15 @@ const PdfGuideOfferPopup = () => {
       pagePath: getNormalizedPathname(),
     });
 
-    setPdfGuidePopupSuppressionCookie();
-    markPdfGuidePopupSubmittedSession();
-    trackPdfGuidePopupEvent('popup_submitted', category);
-    triggerPlaceholderPdfDownload(copy.placeholderPdfPath, copy.placeholderDownloadName);
-
-    setSubmitted(true);
+    if (result.ok) {
+      setPdfGuidePopupSuppressionCookie();
+      markPdfGuidePopupSubmittedSession();
+      trackPdfGuidePopupEvent('popup_submitted', category);
+      triggerPlaceholderPdfDownload(copy.placeholderPdfPath, copy.placeholderDownloadName);
+      setSubmitted(true);
+    } else {
+      setSubmitError(result.message || FORMCARRY_GENERIC_ERROR);
+    }
     setSubmitting(false);
   };
 
@@ -312,6 +317,7 @@ const PdfGuideOfferPopup = () => {
                   onChange={(event) => {
                     setEmail(event.target.value);
                     setEmailError('');
+                    setSubmitError('');
                   }}
                   required
                   className="h-11 text-base"
@@ -321,6 +327,9 @@ const PdfGuideOfferPopup = () => {
                 </p>
                 {emailError ? (
                   <p className="text-destructive text-xs mt-1">{emailError}</p>
+                ) : null}
+                {submitError ? (
+                  <p className="text-destructive text-xs mt-1">{submitError}</p>
                 ) : null}
               </div>
 

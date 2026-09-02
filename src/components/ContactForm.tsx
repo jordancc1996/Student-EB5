@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+import { submitToFormcarry } from '@/lib/formcarry';
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -41,24 +42,12 @@ const ContactForm = () => {
       return;
     }
 
-    try {
-      const response = await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSubmittedName(formData.firstName);
-        setSubmittedEmail(formData.email);
-        setIsSubmitted(true);
-      } else {
-        throw new Error('Form submission failed');
-      }
-    } catch (error) {
+    const result = await submitToFormcarry(formData);
+    if (result.ok) {
+      setSubmittedName(formData.firstName);
+      setSubmittedEmail(formData.email);
+      setIsSubmitted(true);
+    } else {
       toast({
         title: "Something went wrong",
         description: "Please try again or contact us directly.",

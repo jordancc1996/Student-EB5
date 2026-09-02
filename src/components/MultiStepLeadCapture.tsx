@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
+import { submitToFormcarry } from '@/lib/formcarry';
 
 interface MultiStepLeadCaptureProps {
   className?: string;
@@ -86,41 +87,26 @@ export const MultiStepLeadCapture = ({
     }
 
     setIsSubmitting(true);
-    
-    try {
-      const response = await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          email,
-          name,
-          phone,
-          visaStatus,
-          occupation
-        }),
-      });
-
-      if (response.ok) {
-        setIsSubmitted(true);
-        
-        if (onSuccess) {
-          onSuccess();
-        }
-      } else {
-        throw new Error('Submission failed');
+    const result = await submitToFormcarry({
+      email,
+      name,
+      phone,
+      visaStatus,
+      occupation,
+    });
+    if (result.ok) {
+      setIsSubmitted(true);
+      if (onSuccess) {
+        onSuccess();
       }
-    } catch (error) {
+    } else {
       toast({
         title: "Error",
         description: "Failed to subscribe. Please try again.",
         variant: "destructive",
       });
-    } finally {
-      setIsSubmitting(false);
     }
+    setIsSubmitting(false);
   };
 
   if (isSubmitted) {

@@ -3,6 +3,7 @@ import { Link } from '@/components/RouterLink';
 import { ArrowRight, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
 import type { ArticlePathwayCta } from '@/lib/research/resolveArticlePathway';
 
 interface MidArticleCTAProps {
@@ -16,27 +17,25 @@ const MidArticleCTA = ({ mid, pathwayContext }: MidArticleCTAProps) => {
   const [phone, setPhone] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     setSubmitting(true);
-    try {
-      await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          fullName,
-          email,
-          phone,
-          source: `Mid-Article CTA – ${pathwayContext}`,
-          pathwayContext,
-        }),
-      });
-    } catch {
-      // allow redirect even on failure
+    setSubmitError('');
+    const result = await submitToFormcarry({
+      fullName,
+      email,
+      phone,
+      source: `Mid-Article CTA – ${pathwayContext}`,
+      pathwayContext,
+    });
+    if (result.ok) {
+      setSubmitted(true);
+    } else {
+      setSubmitError(result.message || FORMCARRY_GENERIC_ERROR);
     }
-    setSubmitted(true);
     setSubmitting(false);
   };
 
@@ -108,6 +107,9 @@ const MidArticleCTA = ({ mid, pathwayContext }: MidArticleCTAProps) => {
                   {!submitting && <ArrowRight className="ml-1.5 h-3.5 w-3.5" />}
                 </Button>
               </div>
+              {submitError ? (
+                <p className="text-sm text-destructive">{submitError}</p>
+              ) : null}
             </form>
           </>
         )}

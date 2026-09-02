@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { X, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
 
 interface StudentLeadModalProps {
   isOpen: boolean;
@@ -30,6 +31,7 @@ const StudentLeadModal = ({ isOpen, onClose, mode }: StudentLeadModalProps) => {
   const [phone, setPhone] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const config = MODAL_CONFIG[mode];
 
@@ -40,36 +42,31 @@ const StudentLeadModal = ({ isOpen, onClose, mode }: StudentLeadModalProps) => {
       setName('');
       setEmail('');
       setPhone('');
+      setSubmitError('');
     }, 300);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-
-    try {
-      await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ name, email, phone, source: config.source }),
-      });
-    } catch {
-      // Proceed regardless
-    }
-
-    if (mode === 'tuition') {
-      window.location.href = '/tools/tuition-calculator';
-    } else {
-      setSubmitting(false);
+    setSubmitError('');
+    const result = await submitToFormcarry({ name, email, phone, source: config.source });
+    if (result.ok) {
+      if (mode === 'tuition') {
+        window.location.href = '/tools/tuition-calculator';
+        return;
+      }
       setSubmitted(true);
-      // Trigger guide download
       const link = document.createElement('a');
       link.href = '/StudentEB5_Guide_2026.pdf';
       link.download = 'Student-EB5-Green-Card-Guide-2026.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+    } else {
+      setSubmitError(result.message || FORMCARRY_GENERIC_ERROR);
     }
+    setSubmitting(false);
   };
 
   if (!isOpen) return null;
@@ -105,6 +102,9 @@ const StudentLeadModal = ({ isOpen, onClose, mode }: StudentLeadModalProps) => {
                 <p className="text-xs text-muted-foreground mt-1">100% confidential. We never contact your employer.</p>
               </div>
               <Input type="tel" placeholder="Phone number (optional)" value={phone} onChange={(e) => setPhone(e.target.value)} className="h-11" />
+              {submitError ? (
+                <p className="text-destructive text-sm">{submitError}</p>
+              ) : null}
               <Button type="submit" disabled={submitting} className="w-full h-11 rounded-full font-semibold text-sm">
                 {submitting ? 'Submitting...' : config.buttonText}
               </Button>

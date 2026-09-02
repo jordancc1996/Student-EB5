@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
+import { submitToFormcarry } from '@/lib/formcarry';
 import { Calendar, Clock, Users } from 'lucide-react';
 
 const BLOCKED_DOMAINS = [
@@ -81,33 +82,23 @@ export const ConsultationCTA = ({
     }
 
     setIsSubmitting(true);
-    try {
-      const response = await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          email,
-          name,
-          phone,
-          visaStatus,
-          message,
-          formType: 'consultation_request',
-          pathwayContext,
-        }),
-      });
-
-      if (response.ok) {
-        setSubmittedName(name.split(' ')[0]);
-        setSubmittedEmail(email);
-        setIsSubmitted(true);
-      } else {
-        throw new Error('Submission failed');
-      }
-    } catch {
+    const result = await submitToFormcarry({
+      email,
+      name,
+      phone,
+      visaStatus,
+      message,
+      formType: 'consultation_request',
+      pathwayContext,
+    });
+    if (result.ok) {
+      setSubmittedName(name.split(' ')[0]);
+      setSubmittedEmail(email);
+      setIsSubmitted(true);
+    } else {
       toast({ title: "Error", description: "Failed to submit request. Please try again.", variant: "destructive" });
-    } finally {
-      setIsSubmitting(false);
     }
+    setIsSubmitting(false);
   };
 
   if (isSubmitted) {

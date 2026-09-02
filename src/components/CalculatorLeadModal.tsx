@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { X, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
 
 interface CalculatorLeadModalProps {
   isOpen: boolean;
@@ -13,22 +14,24 @@ const CalculatorLeadModal = ({ isOpen, onClose }: CalculatorLeadModalProps) => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-
-    try {
-      await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ name, email, phone, source: 'EB-5 Calculator CTA' }),
-      });
-    } catch {
-      // Allow redirect even if submission fails
+    setSubmitError('');
+    const result = await submitToFormcarry({
+      name,
+      email,
+      phone,
+      source: 'EB-5 Calculator CTA',
+    });
+    if (result.ok) {
+      window.location.href = '/tools/2026-eb5-investment-feasibility-calculator';
+      return;
     }
-
-    window.location.href = '/tools/2026-eb5-investment-feasibility-calculator';
+    setSubmitError(result.message || FORMCARRY_GENERIC_ERROR);
+    setSubmitting(false);
   };
 
   if (!isOpen) return null;
@@ -75,6 +78,9 @@ const CalculatorLeadModal = ({ isOpen, onClose }: CalculatorLeadModalProps) => {
             onChange={(e) => setPhone(e.target.value)}
             className="h-11"
           />
+          {submitError ? (
+            <p className="text-destructive text-sm">{submitError}</p>
+          ) : null}
           <Button type="submit" disabled={submitting} className="w-full h-11 font-semibold text-sm">
             {submitting ? 'Submitting...' : 'Get My Results'}
             {!submitting && <ArrowRight className="ml-2 h-4 w-4" />}

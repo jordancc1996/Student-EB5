@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
+import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
 
 const FREE_EMAIL_DOMAINS = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'aol.com', 'icloud.com'];
 
@@ -23,6 +24,7 @@ const GatedFeasibilityCalculator = () => {
   const [phone, setPhone] = useState('');
   const [emailError, setEmailError] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleCalculate = () => {
     const sum = Object.values(values).reduce((acc, v) => acc + (parseFloat(v) || 0), 0);
@@ -47,26 +49,23 @@ const GatedFeasibilityCalculator = () => {
     }
 
     setSubmitting(true);
-    try {
-      await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          email: trimmed,
-          phone,
-          source: 'gated-feasibility-calculator',
-          rsu_value: values.rsu,
-          k401_balance: values.k401,
-          home_equity: values.equity,
-          liquid_savings: values.savings,
-          total_identified: total,
-        }),
-      });
-    } catch {
-      // submit silently
+    setSubmitError('');
+    const result = await submitToFormcarry({
+      email: trimmed,
+      phone,
+      source: 'gated-feasibility-calculator',
+      rsu_value: values.rsu,
+      k401_balance: values.k401,
+      home_equity: values.equity,
+      liquid_savings: values.savings,
+      total_identified: total,
+    });
+    if (result.ok) {
+      setStep(3);
+    } else {
+      setSubmitError(result.message || FORMCARRY_GENERIC_ERROR);
     }
     setSubmitting(false);
-    setStep(3);
   };
 
   const pct = Math.min((total / TEA_INVESTMENT_THRESHOLD) * 100, 100);
@@ -157,6 +156,7 @@ const GatedFeasibilityCalculator = () => {
               onChange={(e) => setPhone(e.target.value)}
             />
             {emailError && <p className="text-destructive text-sm">{emailError}</p>}
+            {submitError ? <p className="text-destructive text-sm">{submitError}</p> : null}
             <Button type="submit" className="w-full" disabled={submitting}>
               {submitting ? 'Submitting…' : 'Unlock Full Feasibility Report'}
             </Button>

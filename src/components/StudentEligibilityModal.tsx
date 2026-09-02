@@ -3,6 +3,7 @@ import { X, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
 
 const VISA_OPTIONS = ['F-1', 'OPT', 'J-1', 'Other'];
 const ASSET_OPTIONS = ['Under $500K', '$500K–$800K', '$800K–$1M', '$1M+'];
@@ -24,6 +25,7 @@ const StudentEligibilityModal = ({ isOpen, onClose }: StudentEligibilityModalPro
   const [timeline, setTimeline] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleClose = () => {
     onClose();
@@ -37,28 +39,31 @@ const StudentEligibilityModal = ({ isOpen, onClose }: StudentEligibilityModalPro
       setInUS('');
       setAssets('');
       setTimeline('');
+      setSubmitError('');
     }, 300);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-
-    try {
-      await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          name, email, phone, visaStatus, countryOfBirth: country, currentlyInUS: inUS,
-          investableAssets: assets, timeline, source: 'Student Eligibility Check',
-        }),
-      });
-    } catch {
-      // Proceed regardless
+    setSubmitError('');
+    const result = await submitToFormcarry({
+      name,
+      email,
+      phone,
+      visaStatus,
+      countryOfBirth: country,
+      currentlyInUS: inUS,
+      investableAssets: assets,
+      timeline,
+      source: 'Student Eligibility Check',
+    });
+    if (result.ok) {
+      setSubmitted(true);
+    } else {
+      setSubmitError(result.message || FORMCARRY_GENERIC_ERROR);
     }
-
     setSubmitting(false);
-    setSubmitted(true);
   };
 
   if (!isOpen) return null;
@@ -134,6 +139,9 @@ const StudentEligibilityModal = ({ isOpen, onClose }: StudentEligibilityModalPro
                   ))}
                 </SelectContent>
               </Select>
+              {submitError ? (
+                <p className="text-destructive text-sm">{submitError}</p>
+              ) : null}
               <Button type="submit" disabled={submitting} className="w-full h-11 rounded-full font-semibold text-sm">
                 {submitting ? 'Submitting...' : 'Check My Eligibility'}
               </Button>

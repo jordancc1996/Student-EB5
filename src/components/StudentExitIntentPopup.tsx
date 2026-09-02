@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { FORMCARRY_GENERIC_ERROR, submitToFormcarry } from '@/lib/formcarry';
 
 const VISA_OPTIONS = ['F-1', 'OPT', 'J-1', 'Other'];
 const SESSION_KEY = 'student-exit-intent-shown';
@@ -20,6 +21,7 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
   const [visaStatus, setVisaStatus] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const show = useCallback(() => {
     if (hasSubmittedForm) return;
@@ -52,17 +54,20 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
     e.preventDefault();
     if (!visaStatus) return;
     setSubmitting(true);
-    try {
-      await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ name, email, phone, visaStatus, source: 'Student Page - Exit Intent' }),
-      });
-    } catch {
-      // allow success state
+    setSubmitError('');
+    const result = await submitToFormcarry({
+      name,
+      email,
+      phone,
+      visaStatus,
+      source: 'Student Page - Exit Intent',
+    });
+    if (result.ok) {
+      setSubmitted(true);
+    } else {
+      setSubmitError(result.message || FORMCARRY_GENERIC_ERROR);
     }
     setSubmitting(false);
-    setSubmitted(true);
   };
 
   if (!isOpen) return null;
@@ -116,6 +121,9 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
                   </SelectContent>
                 </Select>
               </div>
+              {submitError ? (
+                <p className="text-destructive text-sm">{submitError}</p>
+              ) : null}
               <Button type="submit" disabled={submitting} className="w-full h-11 font-semibold text-sm">
                 {submitting ? 'Submitting...' : 'Get My Free Assessment'}
               </Button>

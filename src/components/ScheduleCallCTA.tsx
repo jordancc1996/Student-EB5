@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { useToast } from '@/hooks/use-toast';
+import { submitToFormcarry } from '@/lib/formcarry';
 
 const BLOCKED_DOMAINS = [
   'gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'aol.com', 
@@ -70,42 +71,28 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
     }
 
     setIsSubmitting(true);
-    
-    try {
-      const response = await fetch('https://formcarry.com/s/PGtefNg4eIv', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          firstName,
-          lastName,
-          email,
-          visaStatus,
-          phone,
-          formType: 'h1b_calculator_schedule_call'
-        }),
+    const result = await submitToFormcarry({
+      firstName,
+      lastName,
+      email,
+      visaStatus,
+      phone,
+      formType: 'h1b_calculator_schedule_call',
+    });
+    if (result.ok) {
+      setIsSubmitted(true);
+      toast({
+        title: "Thank you!",
+        description: "We'll be in touch within 24-48 hours.",
       });
-
-      if (response.ok) {
-        setIsSubmitted(true);
-        toast({
-          title: "Thank you!",
-          description: "We'll be in touch within 24-48 hours.",
-        });
-      } else {
-        throw new Error('Submission failed');
-      }
-    } catch (error) {
+    } else {
       toast({
         title: "Error",
         description: "Failed to submit. Please try again.",
         variant: "destructive",
       });
-    } finally {
-      setIsSubmitting(false);
     }
+    setIsSubmitting(false);
   };
 
   const resetForm = () => {
