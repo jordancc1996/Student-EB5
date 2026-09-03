@@ -36,7 +36,7 @@ if (badDates.length) badDates.forEach((p) => console.log(' BAD:', p.slug, p.date
 const sampleSlugs = [
   'regional-center-shutdown-eb5-investor-protections',
   'f1-students/f1-to-eb5-green-card',
-  'investment/eb5-pre-investment-checklist-part-1-f1-h1b',
+  'investment/what-to-know-before-investing-in-eb5',
   'comparisons/is-eb5-worth-it-indian-chinese-students',
   'complete-2027-eb5-guide',
 ];

@@ -4,7 +4,7 @@ const paths = [
   '/research',
   '/research/regional-center-shutdown-eb5-investor-protections',
   '/research/f1-students/f1-to-eb5-green-card',
-  '/research/investment/eb5-pre-investment-checklist-part-1-f1-h1b',
+  '/research/investment/what-to-know-before-investing-in-eb5',
   '/research/comparisons/is-eb5-worth-it-indian-chinese-students',
   '/research/complete-2027-eb5-guide',
 ];

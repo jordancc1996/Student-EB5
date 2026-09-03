@@ -243,7 +243,7 @@ export const landingPages: LandingPage[] = [
     specificity: 4,
     secondaryLinks: [
       '/research/ways-to-fund-eb5-investment-2026',
-      '/research/investment/eb5-pre-investment-checklist-part-1-f1-h1b',
+      '/research/investment/what-to-know-before-investing-in-eb5',
       '/pathways/eb5-for-chinese-students',
     ],
     hasDedicatedContent: true,
@@ -456,7 +456,7 @@ export const landingPages: LandingPage[] = [
     secondaryLinks: [
       '/pathways/eb5-for-indian-students',
       '/research/ways-to-fund-eb5-investment-2026',
-      '/research/investment/eb5-pre-investment-checklist-part-1-f1-h1b',
+      '/research/investment/what-to-know-before-investing-in-eb5',
     ],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,

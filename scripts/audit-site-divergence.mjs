@@ -133,7 +133,11 @@ const OLD_REDIRECTS = [
   },
   {
     from: '/research/investment/eb5-pre-investment-checklist-f1-h1b',
-    to: '/research/investment/eb5-pre-investment-checklist-part-1-f1-h1b',
+    to: '/research/investment/what-to-know-before-investing-in-eb5',
+  },
+  {
+    from: '/research/investment/eb5-pre-investment-checklist-part-1-f1-h1b',
+    to: '/research/investment/what-to-know-before-investing-in-eb5',
   },
   {
     from: '/research/investment/eb5-i526e-filing-attorney-cost-f1-h1b',

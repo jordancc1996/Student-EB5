@@ -34,7 +34,7 @@ export const ARTICLE_PATHWAY_MAP: Record<string, string> = {
   'h1b-eb5-financial-planning': 'h1b-to-green-card',
   'h1b-tech-layoffs-eb5-entrepreneurship': 'eb5-for-tech-workers',
   'how-eb5-visa-transforms-us-education-experience': 'f1-to-eb5-self-sponsored-green-card',
-  'investment/eb5-pre-investment-checklist-part-1-f1-h1b': 'eb5-risk-and-due-diligence',
+  'investment/what-to-know-before-investing-in-eb5': 'eb5-risk-and-due-diligence',
   'investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b': 'eb5-concurrent-filing',
   'j1-f1-h1b-eb5-concurrent-filing': 'eb5-concurrent-filing',
   'post-reform-integrity-act-analysis': 'eb5-concurrent-filing',

@@ -58,8 +58,8 @@ Site domain: https://www.studenteb5.com/
 | h1b-eb5-financial-planning | H-1B EB-5 financial planning |
 | h1b-tech-layoffs-eb5-entrepreneurship | H-1B layoffs EB-5 entrepreneurship |
 | how-eb5-visa-transforms-us-education-experience | EB-5 education / tuition benefits |
-| investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b | I-526E attorney cost F-1 H-1B |
-| investment/eb5-pre-investment-checklist-part-1-f1-h1b | EB-5 pre-investment checklist |
+| investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b | **I-526E filing cost** (attorney fees, USCIS fees, regional center admin fees, pre-file FAQs); URL unchanged |
+| investment/what-to-know-before-investing-in-eb5 | **What to Know Before Investing in EB-5** (eligibility, SOF readiness, high-level RC/project checks before capital); former slug `investment/eb5-pre-investment-checklist-part-1-f1-h1b` redirects |
 | j1-f1-h1b-eb5-concurrent-filing | EB-5 concurrent filing J-1 F-1 H-1B |
 | post-reform-integrity-act-analysis | EB-5 Reform and Integrity Act |
 | regional-center-shutdown-eb5-investor-protections | regional center shutdown protections |
@@ -113,6 +113,7 @@ Site domain: https://www.studenteb5.com/
 | 2026-08-31 | `f1-students/eb5-indian-chinese-students-f1-stem-opt` | EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT | OUTCOME B retitle/slug (cap-gap + STEM OPT + D/S differentiation; do not re-own F-1 pillar / concurrent filing / grandfathering); old slug redirects |
 | 2026-09-01 | `comparisons/is-eb5-worth-it-indian-chinese-students` | Is EB-5 worth it for Indian and Chinese international students | OUTCOME B retitle/slug (financial/cost / H-1B vs EB-5 lifetime economics; not STEM OPT strategy/timing); old slug `comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students` redirects |
 | 2026-09-01 | `best-alternative-to-h1b-o1-eb1-eb5` | Best alternative to H-1B | OUTCOME B retitle/slug (O-1 vs EB-1 vs EB-5 visa-alternative comparison for skilled professionals; not financial planning / student ROI / pathway hub); old slug `h1b-alternatives-o1-eb1-eb5` redirects |
+| 2026-09-02 | `investment/what-to-know-before-investing-in-eb5` | What to Know Before Investing in EB-5 | OUTCOME B retitle/slug (pre-investment eligibility / SOF / high-level RC-project checks; not I-526E attorney cost, 19 rural DD questions, RC selection, shutdown, or pathway risk hub); old slug `investment/eb5-pre-investment-checklist-part-1-f1-h1b` redirects |
 
 ### H-1B alternative cluster — keyword boundaries
 
@@ -147,6 +148,27 @@ These pages share an audience but **do not compete for the same primary keyword*
 | `f1-students/eb5-indian-chinese-students-f1-stem-opt` | **Strategy / timing** — cap-gap, D/S NPRM, visa timing, regulatory risk, when to file | Financial / cost (lifetime earnings ROI, H-1B vs EB-5 cost calculus as primary frame) |
 
 Neither article should use language that reads as owning the other’s angle.
+
+### Pre-investment cluster — keyword boundaries
+
+These pages can share investor / due-diligence audience overlap but **do not compete for the same primary keyword**. Keep the line hard in future edits:
+
+| Page | Owns | Does not own |
+|------|------|--------------|
+| `investment/what-to-know-before-investing-in-eb5` | **What to know before investing in EB-5** — eligibility, SOF readiness, high-level RC/project checks before capital | I-526E attorney cost / filing stack (Part 2); 19 rural DD questions; rural RC selection; RC shutdown / Section M; pathway “Is EB-5 worth it / risk and due diligence” |
+| `investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b` | **I-526E filing cost** — attorney fees, USCIS fees, regional center admin fees, pre-file FAQs | Pre-investment eligibility / “what to know before investing” |
+| `19-questions-rural-eb5-project-due-diligence` | Rural project due diligence questions | Pre-investment overview |
+| `choosing-rural-eb5-regional-center-guide` | How to choose a rural regional center | Pre-investment overview |
+| `regional-center-shutdown-eb5-investor-protections` | Regional center termination / investor protections | Pre-investment checklist |
+| `/pathways/eb5-risk-and-due-diligence` | Pathway-level risk / at-risk capital / “is it worth it” | This research keyword |
+
+### Keyword ownership — `investment/what-to-know-before-investing-in-eb5`
+
+| Role | Keyword |
+|------|---------|
+| Primary | What to Know Before Investing in EB-5 |
+| Secondary | EB-5 pre-investment checklist; accredited investor EB-5; source of funds readiness before I-526E |
+| Forbidden (do not re-own) | I-526E attorney cost / filing stack (`investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b`); 19 rural due diligence questions (`19-questions-rural-eb5-project-due-diligence`); rural regional center selection (`choosing-rural-eb5-regional-center-guide`); regional center shutdown / Section M (`regional-center-shutdown-eb5-investor-protections`); pathway primary for `/pathways/eb5-risk-and-due-diligence` |
 
 ### Keyword ownership — `comparisons/is-eb5-worth-it-indian-chinese-students`
 

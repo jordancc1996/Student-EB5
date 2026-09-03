@@ -1,12 +1,12 @@
 ---
 id: 43
 slug: investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b
-title: "I-526E Attorney Cost - Fees, Filing Steps, and FAQs for F-1 and H-1B"
-metaTitle: "I-526E Attorney Cost - Fees, Filing Steps, and FAQs for F-1 and H-1B | StudentEB5"
-metaDescription: "I-526E attorney cost and filing fees for backlogged F-1 and H-1B investors in 2026: how to pick counsel, budget the full stack, and answer seven pre-file FAQs."
+title: "I-526E Filing Cost: Attorney Fees, USCIS Fees and EB-5 Costs Before You File"
+metaTitle: "I-526E Filing Cost: Attorney Fees, USCIS Fees & EB-5 Costs | StudentEB5"
+metaDescription: "Understand I-526E filing costs before investing in EB-5, including attorney fees, USCIS filing fees, regional center fees, and other costs investors should plan for."
 excerpt: Once you have cleared the pre-investment checks, the filing phase begins. This Part 2 guide walks through attorney selection, the full cost breakdown of an EB-5 petition, and seven of the most common questions backlogged H-1B professionals and F-1 students ask before filing Form I-526E.
 date: June 12, 2026
-updatedDate: June 12, 2026
+updatedDate: September 3, 2026
 category: Investment Guide
 readTime: 8 min read
 image: ../../../assets/eb5-pre-investment-guide.jpg
@@ -14,6 +14,7 @@ heroImage: ../../../assets/eb5-pre-investment-guide.jpg
 imageAlt: EB-5 I-526E filing checklist with attorney fees and USCIS cost breakdown for F-1 student and H-1B investors
 author: StudentEB5 Team
 keywords:
+  - I-526E filing cost
   - EB-5 I-526E filing
   - EB-5 attorney selection
   - EB-5 attorney fees
@@ -25,14 +26,14 @@ keywords:
   - EB-5 retrogression reserved category
   - EB-5 grandfathering 2026
 relatedPosts:
-  - investment/eb5-pre-investment-checklist-part-1-f1-h1b
+  - investment/what-to-know-before-investing-in-eb5
   - complete-2027-eb5-guide
   - h1b-to-eb5-transition-guide
 ---
 
-<intro>I-526E attorney cost planning comes after pre-investment: choose counsel, budget the full filing stack, and clear the seven questions backlogged F-1 and H-1B investors ask before they file. The EB-5 program grants a green card to investors who place qualifying capital into a U.S. commercial enterprise that creates at least 10 U.S. jobs. This is Part 2 of the June 2026 series and walks through what happens after pre-investment: choosing an attorney, the real cost of filing, and the seven questions backlogged H-1B and F-1 investors ask most often before they file Form I-526E.</intro>
+<intro>I-526E filing cost planning requires investors to look beyond the $800,000 EB-5 investment and account for attorney fees, USCIS filing fees, regional center administrative fees, and any additional forms needed for adjustment of status. F-1 students and H-1B professionals preparing to file should also select experienced EB-5 counsel, organize their source-of-funds documentation, and determine whether concurrent filing is available based on their circumstances. This guide explains the major costs and filing decisions prospective EB-5 investors should understand before submitting Form I-526E.</intro>
 
-If you have not yet completed the pre-investment phase, start with <a href="/research/investment/eb5-pre-investment-checklist-part-1-f1-h1b">Part 1: the EB-5 pre-investment guide</a>, which covers accredited investor status, source of funds, and project selection.
+If you have not yet completed the pre-investment phase, start with <a href="/research/investment/what-to-know-before-investing-in-eb5">Part 1: What to Know Before Investing in EB-5</a>, which covers accredited investor status, source of funds, and project selection.
 
 ## Part 3: Attorney Selection
 
@@ -40,7 +41,7 @@ Selecting the right legal representation to file the EB-5 petition is almost as 
 
 An experienced attorney will guide you on the exact documents necessary to file your petition and avoid Requests for Evidence (RFEs) and Notices of Intent to Deny (NOIDs), how to structure your capital transfers, and how to best present your financial history in a way an adjudicator can easily understand. Attempting to file an EB-5 petition without specialized legal counsel is a recipe for disaster.
 
-![Google headquarters signage in Silicon Valley, illustrating the H-1B tech worker audience pursuing EB-5 as a backup to employer-sponsored green cards](../../../assets/faqs-studenteb5-greencard-eb5.jpg)
+![EB-5 immigration attorney helping an investor prepare an I-526E petition](../../../assets/eb5-immigration-attorney-selection-i526e.jpg)
 
 ### StudentEB5 Recommendation: Use Attorney Project Insight
 
@@ -54,6 +55,8 @@ The total investment amount varies and depends on the attorney you select, the s
 - **Attorney Fees: $20,000 to $25,000.** These fees cover preparation of the complex source-of-funds documentation and the filing of the petition.
 - **USCIS Filing Fees: approximately $6,000.** This is the combined cost for filing the I-526E along with concurrent I-485, I-765, and I-131 applications.
 - **Regional Center Admin Fees: $60,000 to $80,000.** Regional centers charge an administrative fee to cover the cost of structuring the investment and managing the project. Most regional centers require this fee upfront, while some defer collection until the end of the five-year loan term.
+
+![I-526E filing cost and EB-5 investment fee planning](../../../assets/i526e-filing-cost-eb5-fees.jpg)
 
 For a deeper view of every line item, see our EB-5 total cost breakdown.
 

@@ -89,6 +89,10 @@ export default defineConfig({
       '/research/comparisons/is-eb5-worth-it-indian-chinese-students',
     '/research/h1b-alternatives-o1-eb1-eb5':
       '/research/best-alternative-to-h1b-o1-eb1-eb5',
+    '/research/investment/eb5-pre-investment-checklist-part-1-f1-h1b':
+      '/research/investment/what-to-know-before-investing-in-eb5',
+    '/research/investment/eb5-pre-investment-checklist-f1-h1b':
+      '/research/investment/what-to-know-before-investing-in-eb5',
   },
   vite: {
     resolve: {

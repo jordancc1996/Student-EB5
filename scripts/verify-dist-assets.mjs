@@ -6,7 +6,7 @@ const sampleFiles = [
   'research/index.html',
   'research/regional-center-shutdown-eb5-investor-protections/index.html',
   'research/f1-students/f1-to-eb5-green-card/index.html',
-  'research/investment/eb5-pre-investment-checklist-part-1-f1-h1b/index.html',
+  'research/investment/what-to-know-before-investing-in-eb5/index.html',
 ];
 
 const attrPattern = /(?:src|href)=["']([^"']*(?:\/@fs\/|\/src\/assets\/)[^"']*)["']/g;

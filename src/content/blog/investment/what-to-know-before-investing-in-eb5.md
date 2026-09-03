@@ -1,12 +1,12 @@
 ---
 id: 42
-slug: investment/eb5-pre-investment-checklist-part-1-f1-h1b
-title: "EB-5 Pre-Investment Checklist - Accredited Investor"
-metaTitle: "EB-5 Pre-Investment Checklist - Accredited Investor | StudentEB5"
-metaDescription: "EB-5 pre-investment checklist for F-1 and H-1B investors: accredited status, source of funds, and regional center vetting before you file Form I-526E in 2026."
-excerpt: "Before you file Form I-526E, two decisions shape your entire EB-5 journey: whether you qualify as an accredited investor with a documentable source of funds, and which regional center project you trust with $800,000 of at-risk capital. This pre-investment guide walks Indian and Chinese F-1 students and H-1B professionals through both."
+slug: investment/what-to-know-before-investing-in-eb5
+title: "What to Know Before Investing in EB-5: 2026 Pre-Investment Checklist for F-1 and H-1B Investors"
+metaTitle: "What to Know Before Investing in EB-5: 2026 Pre-Investment Checklist for F-1 and H-1B Investors | StudentEB5"
+metaDescription: "What to know before investing in EB-5 includes investor eligibility, lawful source of funds, and project due diligence before you commit $800,000 in 2026."
+excerpt: "What to know before investing in EB-5 starts with three critical areas. These areas include investor eligibility, documentation of lawful sources of funds, and extensive due diligence on the regional center track record and the business plan of the project. Before committing $800,000, prospective investors should understand these requirements and evaluate both the immigration and financial risks involved."
 date: June 11, 2026
-updatedDate: June 11, 2026
+updatedDate: September 2, 2026
 category: Investment Guide
 readTime: 10 min read
 image: ../../../assets/eb5-pre-investment-guide.jpg
@@ -14,6 +14,7 @@ heroImage: ../../../assets/eb5-pre-investment-guide.jpg
 imageAlt: EB-5 pre-investment checklist documents for Indian and Chinese F-1 student and H-1B investors preparing source of funds
 author: StudentEB5 Team
 keywords:
+  - What to Know Before Investing in EB-5
   - EB-5 pre-investment checklist
   - EB-5 for Indian F-1 students
   - EB-5 for Chinese F-1 students
@@ -30,7 +31,7 @@ relatedPosts:
   - f1-students/f1-to-eb5-green-card
 ---
 
-<intro>EB-5 pre-investment checklist work starts before filing: confirm accredited-investor status, documentable source of funds, and a regional center project you trust with $800,000 at risk. The EB-5 program grants a green card to investors who place qualifying capital into a U.S. commercial enterprise that creates at least 10 U.S. jobs. This Part 1 guide focuses on the pre-investment phase: the eligibility, financial, and project-selection decisions Indian and Chinese F-1 students and H-1B professionals must work through before they file Form I-526E.</intro>
+<intro>What to know before investing in EB-5 starts with three critical areas. These areas include investor eligibility, documentation of lawful sources of funds, and extensive due diligence on the regional center track record and the business plan of the project. Before committing $800,000, prospective investors should understand these requirements and evaluate both the immigration and financial risks involved.</intro>
 
 ## Part 1: Starting the EB-5 Journey
 
