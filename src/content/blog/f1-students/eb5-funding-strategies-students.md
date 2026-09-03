@@ -1,18 +1,19 @@
 ---
 id: 41
 slug: f1-students/eb5-funding-strategies-students
-title: "EB-5 Funding Strategies - HELOC, SDIRA, SBLOC, and Parental Gifts"
-metaTitle: "EB-5 Funding Strategies - HELOC, SDIRA, SBLOC, and Parental Gifts | StudentEB5"
-metaDescription: "EB-5 funding strategies for students assemble the $800,000 from HELOC, SDIRA rollovers, securities credit, and parental gifts with a seven-year USCIS trace."
+title: "EB-5 Funding Strategies for International Students | HELOC, SBLOC, IRA and Parental Gifts"
+metaTitle: "EB-5 Funding Strategies for International Students | HELOC, SBLOC, IRA & Parental Gifts | StudentEB5"
+metaDescription: "EB-5 funding strategies for international students include HELOC, retirement assets, securities-backed loans, and parental gifts for the $800,000 investment."
 excerpt: Funding an $800,000 EB-5 investment as a student rarely means writing a single check. This guide breaks down the four most common student funding routes — HELOC, SDIRA rollovers, securities-based lines of credit, and documented parental gifts — and the seven-year source-of-funds trace USCIS requires for each.
 date: June 2, 2026
+updatedDate: September 3, 2026
 category: Student Guide
 readTime: 11 min read
-image: ../../../assets/blog-eb5-funding-strategies-students.jpg
-heroImage: ../../../assets/blog-eb5-funding-strategies-students.jpg
-imageAlt: Empire State Building and Manhattan skyline representing international students pursuing EB-5 green card investment in the United States
+image: ../../../assets/how-to-fund-eb5-investment.jpg
+imageAlt: Family reviewing financial options to fund an EB-5 investment
 author: StudentEB5 Team
 keywords:
+  - EB-5 funding strategies for international students
   - EB-5 funding strategies international students
   - EB-5 HELOC funding
   - self-directed IRA EB-5 rollover
@@ -28,7 +29,7 @@ relatedPosts:
   - eb5-economic-calculus-investment-cost
 ---
 
-<intro>EB-5 funding strategies for international students rarely mean a single wire: capital usually mixes family equity, retirement rollovers, securities lending, and documented gifts. The structure of that capital determines whether USCIS approves the I-526E petition on the first review or sends a Request for Evidence that delays the case by twelve to eighteen months. This guide walks through the four funding routes student-age investors use most often and the seven-year paper trail each one requires.</intro>
+<intro>EB-5 funding strategies for international students depend on the assets available to the investor and their family. Potential funding sources include home equity, retirement assets, securities-backed borrowing and parental gifts. For international students and their families, assembling the $800,000 investment is only one part of the investment process. The source and path of the capital must also be carefully documented to establish that the funds were obtained lawfully. This guide compares EB-5 funding strategies for international students and H-1B professionals and explains the documentation considerations families and investors should evaluate before committing to the EB-5 program.</intro>
 
 The EB-5 program grants conditional permanent residency to investors who place $800,000 in a qualifying project located in a Targeted Employment Area and create at least 10 full-time U.S. jobs. The investment amount is fixed by statute, but the way the capital is sourced is not. USCIS only requires that every dollar be traced through lawful channels for the seven years preceding the petition. How a student-age applicant assembles that capital is a planning question, not a regulatory one.
 
@@ -80,6 +81,8 @@ Loan-to-value ratios depend on portfolio composition:
 The SBLOC is most often used by parents with brokerage assets accumulated over a long horizon. The source-of-funds package must show how the underlying securities were acquired — salary deferrals, business proceeds, gifted shares — across the same seven-year window.
 
 ## Funding Route 4: Documented Parental Gifts
+
+![Parental gift as a funding source for a student's EB-5 investment](../../../assets/parental-gift-eb5-funding-student.jpg)
 
 When the student is the primary petitioner, the most common funding structure is a direct gift from a parent or close relative. A signed and notarized gift deed transfers the $800,000 to the student, who then deploys the capital into the EB-5 project.
 

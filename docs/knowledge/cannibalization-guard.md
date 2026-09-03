@@ -48,7 +48,7 @@ Site domain: https://www.studenteb5.com/
 | eb5-visa-aging-out-crisis-solution | EB-5 aging out / CSPA children |
 | eb5-vs-trump-gold-card-2026 | EB-5 vs Trump Gold Card |
 | evaluating-eb5-projects-pending-i956f | EB-5 projects pending I-956F |
-| f1-students/eb5-funding-strategies-students | EB-5 funding strategies students |
+| f1-students/eb5-funding-strategies-students | **EB-5 funding strategies for international students** (student-age petitioner structure, parental gifts, HELOC/SBLOC/SDIRA as student routes); URL unchanged |
 | f1-students/f1-to-eb5-green-card | **F-1 to EB-5 green card / OPT to EB-5 (pillar)** |
 | f1-students/eb5-indian-chinese-students-f1-stem-opt | **EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT** (cap-gap strategy, D/S NPRM 2026, STEM OPT extension risk / strategy-timing angle); former slug `f1-students/stem-opt-eb5-indian-chinese` redirects |
 | golden-visa-global-education-student-stories | golden visa education student stories |
@@ -63,7 +63,7 @@ Site domain: https://www.studenteb5.com/
 | j1-f1-h1b-eb5-concurrent-filing | EB-5 concurrent filing J-1 F-1 H-1B |
 | post-reform-integrity-act-analysis | EB-5 Reform and Integrity Act |
 | regional-center-shutdown-eb5-investor-protections | regional center shutdown protections |
-| ways-to-fund-eb5-investment-2026 | ways to fund EB-5 investment |
+| ways-to-fund-eb5-investment-2026 | **Ways to fund EB-5** / how to fund an EB-5 investment (generic); source and path of funds; crypto; unsecured and regional-center loans |
 
 ### Future backlog (not published)
 
@@ -115,6 +115,7 @@ Site domain: https://www.studenteb5.com/
 | 2026-09-01 | `best-alternative-to-h1b-o1-eb1-eb5` | Best alternative to H-1B | OUTCOME B retitle/slug (O-1 vs EB-1 vs EB-5 visa-alternative comparison for skilled professionals; not financial planning / student ROI / pathway hub); old slug `h1b-alternatives-o1-eb1-eb5` redirects |
 | 2026-09-02 | `investment/what-to-know-before-investing-in-eb5` | What to Know Before Investing in EB-5 | OUTCOME B retitle/slug (pre-investment eligibility / SOF / high-level RC-project checks; not I-526E attorney cost, 19 rural DD questions, RC selection, shutdown, or pathway risk hub); old slug `investment/eb5-pre-investment-checklist-part-1-f1-h1b` redirects |
 | 2026-09-03 | `investment/i526e-filing-cost` | I-526E filing cost | OUTCOME B reslug (attorney fees / USCIS fees / RC admin / pre-file FAQs; not pre-investment “what to know before investing” or unpublished total-cost-breakdown); old slugs `investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b` and `investment/eb5-i526e-filing-attorney-cost-f1-h1b` redirect |
+| 2026-09-03 | `f1-students/eb5-funding-strategies-students` | EB-5 funding strategies for international students | OUTCOME B retitle (student petitioner / parental gift overlay on four routes; URL unchanged). Do not own generic how/ways to fund EB-5 (`ways-to-fund-eb5-investment-2026`) |
 
 ### H-1B alternative cluster — keyword boundaries
 
@@ -162,6 +163,33 @@ These pages can share investor / due-diligence audience overlap but **do not com
 | `choosing-rural-eb5-regional-center-guide` | How to choose a rural regional center | Pre-investment overview |
 | `regional-center-shutdown-eb5-investor-protections` | Regional center termination / investor protections | Pre-investment checklist |
 | `/pathways/eb5-risk-and-due-diligence` | Pathway-level risk / at-risk capital / “is it worth it” | This research keyword |
+
+### Funding cluster — keyword boundaries
+
+These pages can share HELOC / IRA / SBLOC / gift methods but **do not compete for the same primary keyword**. Keep the line hard in future edits:
+
+| Page | Owns | Does not own |
+|------|------|--------------|
+| `ways-to-fund-eb5-investment-2026` | **Ways to fund EB-5** / **how to fund an EB-5 investment** (generic). Source and path of funds. HELOC, 401(k)/SDIRA, SBLOC, and gifts for any investor. Crypto. Unsecured and regional-center loans. Seven-year paper trail. | Student petitioner structure (under-21 derivative vs 21+ primary). F-1 concurrent-filing timing as a funding-calendar issue. Parental gift as the student default. |
+| `f1-students/eb5-funding-strategies-students` | **EB-5 funding strategies for international students** / student-age petitioners. Who borrows vs who petitions (parent vs student). Parental gifts when the student is primary. F-1/H-1B status overlay on HELOC, SDIRA, SBLOC, and gifts. | Generic how/ways to fund an EB-5 investment. Crypto. Unsecured/RC loans. Sitewide SOF doctrine. |
+| `h1b-eb5-financial-planning` | H-1B → EB-5 budget / safety-net planning | Method catalog for students or generic how-to-fund |
+| `eb5-cryptocurrency-source-of-funds` | Cryptocurrency source of funds | Generic how-to-fund; student funding routes |
+
+### Keyword ownership — `f1-students/eb5-funding-strategies-students`
+
+| Role | Keyword |
+|------|---------|
+| Primary | EB-5 funding strategies for international students |
+| Secondary | Parental gift EB-5 student petitioner; student HELOC / SDIRA / SBLOC funding routes |
+| Forbidden (do not re-own) | Ways to fund EB-5 / how to fund an EB-5 investment (`ways-to-fund-eb5-investment-2026`); EB-5 cryptocurrency source of funds; H-1B EB-5 financial planning as primary; unsecured and regional-center loan doctrine |
+
+### Keyword ownership — `ways-to-fund-eb5-investment-2026`
+
+| Role | Keyword |
+|------|---------|
+| Primary | Ways to fund EB-5 investment |
+| Secondary | How to fund an EB-5 investment; source and path of funds; HELOC / 401(k) / SBLOC / gift funds (generic) |
+| Forbidden (do not re-own) | EB-5 funding strategies for international students (`f1-students/eb5-funding-strategies-students`); student petitioner / derivative vs primary structure as primary frame |
 
 ### Keyword ownership — `investment/what-to-know-before-investing-in-eb5`
 
