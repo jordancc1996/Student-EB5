@@ -93,6 +93,10 @@ export default defineConfig({
       '/research/investment/what-to-know-before-investing-in-eb5',
     '/research/investment/eb5-pre-investment-checklist-f1-h1b':
       '/research/investment/what-to-know-before-investing-in-eb5',
+    '/research/investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b':
+      '/research/investment/i526e-filing-cost',
+    '/research/investment/eb5-i526e-filing-attorney-cost-f1-h1b':
+      '/research/investment/i526e-filing-cost',
   },
   vite: {
     resolve: {

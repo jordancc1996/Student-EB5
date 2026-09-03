@@ -141,7 +141,11 @@ const OLD_REDIRECTS = [
   },
   {
     from: '/research/investment/eb5-i526e-filing-attorney-cost-f1-h1b',
-    to: '/research/investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b',
+    to: '/research/investment/i526e-filing-cost',
+  },
+  {
+    from: '/research/investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b',
+    to: '/research/investment/i526e-filing-cost',
   },
 ];
 

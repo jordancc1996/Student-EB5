@@ -1,6 +1,6 @@
 ---
 id: 43
-slug: investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b
+slug: investment/i526e-filing-cost
 title: "I-526E Filing Cost: Attorney Fees, USCIS Fees and EB-5 Costs Before You File"
 metaTitle: "I-526E Filing Cost: Attorney Fees, USCIS Fees & EB-5 Costs | StudentEB5"
 metaDescription: "Understand I-526E filing costs before investing in EB-5, including attorney fees, USCIS filing fees, regional center fees, and other costs investors should plan for."

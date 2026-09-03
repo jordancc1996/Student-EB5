@@ -138,7 +138,7 @@ Consult these guides before working on related tasks:
 
 ## Future content backlog
 
-- `/research/eb5-total-cost-breakdown` — dedicated research article covering every major EB-5 cost category (project investment, attorney fees, USCIS filing fees, regional center admin fees, and related line items). Referenced as plain text in `investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b.md`; do not invent a substitute URL until this article is published.
+- `/research/eb5-total-cost-breakdown` — dedicated research article covering every major EB-5 cost category (project investment, attorney fees, USCIS filing fees, regional center admin fees, and related line items). Referenced as plain text in `investment/i526e-filing-cost.md`; do not invent a substitute URL until this article is published.
 
 ## Pending for SEO finalization phase
 

@@ -31,7 +31,7 @@
       "src/content/blog/how-eb5-visa-transforms-us-education-experience.md"
     ],
     "/research/eb5-total-cost-breakdown": [
-      "src/content/blog/investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b.md"
+      "src/content/blog/investment/i526e-filing-cost.md"
     ]
   },
   "redirectByHref": {},
@@ -127,7 +127,7 @@
       "reason": "missing-destination"
     },
     {
-      "file": "src/content/blog/investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b.md",
+      "file": "src/content/blog/investment/i526e-filing-cost.md",
       "href": "/research/eb5-total-cost-breakdown",
       "final": "/research/eb5-total-cost-breakdown",
       "exists": false,
@@ -205,7 +205,7 @@
     "/research/h1b-eb5-financial-planning",
     "/research/h1b-tech-layoffs-eb5-entrepreneurship",
     "/research/how-eb5-visa-transforms-us-education-experience",
-    "/research/investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b",
+    "/research/investment/i526e-filing-cost",
     "/research/investment/what-to-know-before-investing-in-eb5",
     "/research/j1-f1-h1b-eb5-concurrent-filing",
     "/research/post-reform-integrity-act-analysis",
