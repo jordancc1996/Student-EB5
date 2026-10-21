@@ -18,6 +18,7 @@ export const ARTICLE_PATHWAY_MAP: Record<string, string> = {
   'eb5-economic-calculus-investment-cost': 'eb5-for-wealthy-families',
   'eb5-grandfathering-2026-2027-deadlines': 'eb5-concurrent-filing',
   'eb5-guide-indian-professionals-2026': 'eb5-for-indian-h1b',
+  'eb5-inflation-adjustment-f1-h1b': 'eb5-concurrent-filing',
   'eb5-investments-africa-mena-regions': 'eb5-for-wealthy-families',
   'eb5-investor-qa-part-1': 'eb5-vs-other-visa-options',
   'eb5-lifeline-h1b-workers': 'eb5-concurrent-filing',

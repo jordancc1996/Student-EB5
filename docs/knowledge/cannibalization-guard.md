@@ -41,6 +41,7 @@ Site domain: https://www.studenteb5.com/
 | eb5-economic-calculus-investment-cost | EB-5 investment cost / economic calculus |
 | eb5-grandfathering-2026-2027-deadlines | EB-5 grandfathering deadline September 30 |
 | eb5-guide-indian-professionals-2026 | EB-5 guide Indian professionals |
+| eb5-inflation-adjustment-f1-h1b | **EB-5 inflation adjustment** (January 1, 2027 minimum-investment change for F-1 and H-1B filings); not the September 30 grandfathering or reauthorization deadlines |
 | eb5-investments-africa-mena-regions | EB-5 Africa MENA |
 | eb5-investor-qa-part-1 | EB-5 investor Q&A |
 | eb5-lifeline-h1b-workers | EB-5 for H-1B workers / employer dependency |
@@ -116,6 +117,7 @@ Site domain: https://www.studenteb5.com/
 | 2026-09-02 | `investment/what-to-know-before-investing-in-eb5` | What to Know Before Investing in EB-5 | OUTCOME B retitle/slug (pre-investment eligibility / SOF / high-level RC-project checks; not I-526E attorney cost, 19 rural DD questions, RC selection, shutdown, or pathway risk hub); old slug `investment/eb5-pre-investment-checklist-part-1-f1-h1b` redirects |
 | 2026-09-03 | `investment/i526e-filing-cost` | I-526E filing cost | OUTCOME B reslug (attorney fees / USCIS fees / RC admin / pre-file FAQs; not pre-investment “what to know before investing” or unpublished total-cost-breakdown); old slugs `investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b` and `investment/eb5-i526e-filing-attorney-cost-f1-h1b` redirect |
 | 2026-09-03 | `f1-students/eb5-funding-strategies-students` | EB-5 funding strategies for international students | OUTCOME B retitle (student petitioner / parental gift overlay on four routes; URL unchanged). Do not own generic how/ways to fund EB-5 (`ways-to-fund-eb5-investment-2026`) |
+| 2026-10-21 | `eb5-inflation-adjustment-f1-h1b` | EB-5 inflation adjustment | OUTCOME B (January 1, 2027 CPI adjustment to $800,000 / $1,050,000 minimums for F-1 and H-1B; not Sept 30 grandfathering, not reauthorization, not generic “EB-5 visa deadline”) |
 
 ### H-1B alternative cluster — keyword boundaries
 
@@ -174,6 +176,26 @@ These pages can share HELOC / IRA / SBLOC / gift methods but **do not compete fo
 | `f1-students/eb5-funding-strategies-students` | **EB-5 funding strategies for international students** / student-age petitioners. Who borrows vs who petitions (parent vs student). Parental gifts when the student is primary. F-1/H-1B status overlay on HELOC, SDIRA, SBLOC, and gifts. | Generic how/ways to fund an EB-5 investment. Crypto. Unsecured/RC loans. Sitewide SOF doctrine. |
 | `h1b-eb5-financial-planning` | H-1B → EB-5 budget / safety-net planning | Method catalog for students or generic how-to-fund |
 | `eb5-cryptocurrency-source-of-funds` | Cryptocurrency source of funds | Generic how-to-fund; student funding routes |
+
+### Deadline cluster — keyword boundaries
+
+These pages can share 2026–2027 calendar overlap but **do not compete for the same primary keyword**. Keep the line hard in future edits:
+
+| Page | Owns | Does not own |
+|------|------|--------------|
+| `eb5-grandfathering-2026-2027-deadlines` | **EB-5 grandfathering deadline** (September 30, 2026 petition protection) and September 30, 2027 regional center reauthorization | January 1, 2027 CPI / minimum-investment change as the primary frame |
+| `eb5-inflation-adjustment-f1-h1b` | **EB-5 inflation adjustment** (January 1, 2027 change to $800,000 / $1,050,000 minimums for F-1 and H-1B filings) | Grandfathering; regional center reauthorization; generic “EB-5 visa deadline”; lifetime-earnings ROI as primary; Gold Card comparison as primary; golden visas as primary |
+| `comparisons/is-eb5-worth-it-indian-chinese-students` | Lifetime earnings / “is EB-5 worth it” ROI | Inflation-adjustment filing date |
+| `eb5-vs-trump-gold-card-2026` | EB-5 vs Trump Gold Card | Inflation-adjustment filing date |
+| `golden-visas-vs-eb5-elite-students` | Golden visas vs EB-5 for students | Inflation-adjustment filing date |
+
+### Keyword ownership — `eb5-inflation-adjustment-f1-h1b`
+
+| Role | Keyword |
+|------|---------|
+| Primary | EB-5 inflation adjustment |
+| Secondary | January 1 2027 EB-5 deadline; EB-5 minimum investment increase for F-1 and H-1B |
+| Forbidden (do not re-own) | EB-5 grandfathering deadline September 30 (`eb5-grandfathering-2026-2027-deadlines`); regional center reauthorization September 30, 2027; Is EB-5 worth it / lifetime cost ROI (`comparisons/is-eb5-worth-it-indian-chinese-students`); EB-5 vs Trump Gold Card; golden visas vs EB-5; F-1 to EB-5 green card pillar; EB-5 concurrent filing process |
 
 ### Keyword ownership — `f1-students/eb5-funding-strategies-students`
 

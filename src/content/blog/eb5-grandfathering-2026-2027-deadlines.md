@@ -44,7 +44,7 @@ Filing before September 30, 2026 locks in the investor's place in the program an
 
 The grandfathering deadline is set for 2026, but the current authorization for the EB-5 regional center program extends until September 30, 2027. For those who file after the 2026 cutoff, their investment may be safe, but their path to a green card becomes contingent on Congress reauthorizing the program in 2027. If your investment is made after the grandfathering date, your green card could be in limbo.
 
-RIA introduced a mechanism for the minimum investment threshold to be adjusted for inflation every five years, with the first adjustment scheduled for January 1, 2027. The current minimum investment amount is $800,000 for Targeted Employment Areas. Experts anticipate a significant upward adjustment at the start of 2027.
+RIA introduced a mechanism for the minimum investment threshold to be adjusted for inflation every five years, with the first adjustment scheduled for January 1, 2027. The current minimum investment amount is $800,000 for Targeted Employment Areas. Experts anticipate a significant upward adjustment at the start of 2027. For F-1 and H-1B planning around the amount change itself, see <a href="/research/eb5-inflation-adjustment-f1-h1b">EB-5 inflation adjustment</a>.
 
 If investors file before September 2026, they effectively lock in the current lower investment amount, providing a substantial financial advantage before the increase takes effect. Use our <a href="/tools/2026-eb5-investment-feasibility-calculator">EB-5 Investment Feasibility Calculator</a> to assess your financial readiness.
 
