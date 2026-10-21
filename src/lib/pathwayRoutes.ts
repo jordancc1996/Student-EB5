@@ -121,6 +121,8 @@ const LAST_REVIEWED = '2026-08-12';
 const PUBLISH_DATE_ALREADY_LIVE = '2026-01-01';
 /** Default for newly built pages; edit per-page dates when staggering the release. */
 const PUBLISH_DATE_DEFAULT = '2026-08-12';
+/** Remaining pathway pages released to search on this date. */
+const PUBLISH_DATE_RELEASED = '2026-10-21';
 
 /**
  * Pathway landing pages. Add an entry here before a new /pathways page can appear
@@ -290,7 +292,7 @@ export const landingPages: LandingPage[] = [
     ],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-for-graduate-students',
@@ -307,7 +309,7 @@ export const landingPages: LandingPage[] = [
     ],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-for-h4-families',
@@ -321,7 +323,7 @@ export const landingPages: LandingPage[] = [
     secondaryLinks: ['/pathways/h1b-to-green-card'],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-for-l1',
@@ -341,7 +343,7 @@ export const landingPages: LandingPage[] = [
     secondaryLinks: ['/pathways/h1b-to-green-card', '/eb5-investment-process'],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-for-j1',
@@ -360,7 +362,7 @@ export const landingPages: LandingPage[] = [
     secondaryLinks: ['/research/j1-f1-h1b-eb5-concurrent-filing'],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-for-indian-investors',
@@ -483,7 +485,7 @@ export const landingPages: LandingPage[] = [
     secondaryLinks: ['/research/complete-2027-eb5-guide'],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-for-vietnamese-investors',
@@ -509,7 +511,7 @@ export const landingPages: LandingPage[] = [
     ],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-for-taiwanese-investors',
@@ -532,7 +534,7 @@ export const landingPages: LandingPage[] = [
     secondaryLinks: ['/research/complete-2027-eb5-guide', '/eb5-investment-process'],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb2-to-eb5',
@@ -546,7 +548,7 @@ export const landingPages: LandingPage[] = [
     secondaryLinks: ['/research/complete-2027-eb5-guide', '/pathways/h1b-to-green-card'],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb3-to-eb5',
@@ -560,7 +562,7 @@ export const landingPages: LandingPage[] = [
     secondaryLinks: ['/research/complete-2027-eb5-guide', '/pathways/h1b-to-green-card'],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-child-aging-out',
@@ -574,7 +576,7 @@ export const landingPages: LandingPage[] = [
     secondaryLinks: ['/pathways/eb5-for-h4-families', '/eb5-investment-process'],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-concurrent-filing',
@@ -591,7 +593,7 @@ export const landingPages: LandingPage[] = [
     ],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-for-families-with-us-students',
@@ -615,7 +617,7 @@ export const landingPages: LandingPage[] = [
     ],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-for-wealthy-families',
@@ -632,7 +634,7 @@ export const landingPages: LandingPage[] = [
     ],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-for-tech-workers',
@@ -656,7 +658,7 @@ export const landingPages: LandingPage[] = [
     ],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-for-startup-founders',
@@ -670,7 +672,7 @@ export const landingPages: LandingPage[] = [
     secondaryLinks: ['/eb5-investment-process'],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-for-entrepreneurs',
@@ -687,7 +689,7 @@ export const landingPages: LandingPage[] = [
     ],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'rural-eb5',
@@ -711,7 +713,7 @@ export const landingPages: LandingPage[] = [
     ],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-risk-and-due-diligence',
@@ -737,7 +739,7 @@ export const landingPages: LandingPage[] = [
     ],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-project-due-diligence',
@@ -752,7 +754,7 @@ export const landingPages: LandingPage[] = [
     hasDedicatedContent: true,
     isRouterPage: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'i956f-approved-eb5-projects',
@@ -767,7 +769,7 @@ export const landingPages: LandingPage[] = [
     hasDedicatedContent: true,
     isRouterPage: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-source-of-funds',
@@ -793,7 +795,7 @@ export const landingPages: LandingPage[] = [
     hasDedicatedContent: true,
     isRouterPage: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-gifted-funds',
@@ -812,7 +814,7 @@ export const landingPages: LandingPage[] = [
     hasDedicatedContent: true,
     isRouterPage: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-property-sale-funds',
@@ -827,7 +829,7 @@ export const landingPages: LandingPage[] = [
     hasDedicatedContent: true,
     isRouterPage: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-business-income',
@@ -845,7 +847,7 @@ export const landingPages: LandingPage[] = [
     hasDedicatedContent: true,
     isRouterPage: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-vs-eb2-niw',
@@ -859,7 +861,7 @@ export const landingPages: LandingPage[] = [
     secondaryLinks: ['/research/complete-2027-eb5-guide'],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-vs-h1b',
@@ -882,7 +884,7 @@ export const landingPages: LandingPage[] = [
     ],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'eb5-vs-other-visa-options',
@@ -905,7 +907,7 @@ export const landingPages: LandingPage[] = [
     ],
     hasDedicatedContent: true,
     lastReviewed: LAST_REVIEWED,
-    publishDate: null,
+    publishDate: PUBLISH_DATE_RELEASED,
   },
   {
     id: 'parents-and-families',
