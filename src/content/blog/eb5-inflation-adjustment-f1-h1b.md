@@ -10,7 +10,7 @@ category: EB-5 Program
 readTime: 9 min read
 image: ../../assets/eb5-inflation-adjustment-hero.jpg
 heroImage: ../../assets/eb5-inflation-adjustment-hero.jpg
-imageAlt: Looking up at U.S. office towers against a clear sky, used for the EB-5 inflation adjustment article hero
+imageAlt: Classical bank building on a city corner, used for the EB-5 inflation adjustment article hero
 author: StudentEB5 Team
 keywords:
   - EB-5 inflation adjustment
