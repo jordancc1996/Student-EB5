@@ -1,0 +1,30 @@
+---
+import OptimizedImage from '@/components/OptimizedImage.astro';
+import PhotoCredit from '@/components/PhotoCredit.astro';
+import { getPhoto } from '@/data/photoRegistry';
+import { photoAssets } from '@/lib/photos/photoAssets';
+import type { PhotoLayout } from '@/lib/photos/types';
+
+interface Props {
+  id: string;
+  layout?: PhotoLayout;
+}
+
+const { id, layout = 'wide' } = Astro.props;
+const photo = getPhoto(id);
+const asset = photoAssets[id];
+---
+
+{
+  photo && asset ? (
+    <figure class={`article-figure article-figure--${layout}`}>
+      <OptimizedImage
+        src={asset}
+        alt={photo.alt}
+        loading="lazy"
+        sizes="(max-width: 768px) 100vw, 740px"
+      />
+      <PhotoCredit photo={photo} />
+    </figure>
+  ) : null
+}

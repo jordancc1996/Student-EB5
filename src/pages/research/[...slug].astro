@@ -23,12 +23,14 @@ import {
   articleAlreadyHasPostIntroCta,
   resolveAbsoluteAssetUrl,
 } from '@/lib/research/renderArticleContent';
-import { extractArticleH2s, buildTocItems } from '@/lib/research/articleHeadings';
+import { extractArticleHeadings, buildTocItems } from '@/lib/research/articleHeadings';
 import ArticleContents from '@/components/research/ArticleContents.astro';
 import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
 import LastUpdated from '@/components/LastUpdated.astro';
 import { resolveArticleLastUpdated, toIsoDate } from '@/lib/lastUpdated';
 import { resolveArticlePathway } from '@/lib/research/resolveArticlePathway';
+import { injectEditorialPhotos } from '@/lib/photos/injectEditorialPhotos';
+import PagePhotoCredits from '@/components/PagePhotoCredits.astro';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getCollection('blog');
@@ -76,14 +78,22 @@ const articleSchema = {
   },
 };
 
-const { introHtml, bodyMarkdown, showPostIntroCta } = splitArticleBeforeFirstH2(entry.body);
+const articleBody = injectEditorialPhotos(
+  entry.body,
+  `/research/${slug}`,
+  (post.editorialImages ?? []).map((item) => ({
+    id: item.id,
+    layout: item.layout ?? 'wide',
+  })),
+);
+const { introHtml, bodyMarkdown, showPostIntroCta } = splitArticleBeforeFirstH2(articleBody);
 const { firstHalfHtml, secondHalfHtml, showMidSplit } = splitArticleContent(
-  showPostIntroCta ? bodyMarkdown : entry.body,
+  showPostIntroCta ? bodyMarkdown : articleBody,
 );
 const renderPostIntroCta =
   showPostIntroCta && !articleAlreadyHasPostIntroCta(entry.body);
 
-const tocItems = buildTocItems(extractArticleH2s(entry.body), post.tocLabels);
+const tocItems = buildTocItems(extractArticleHeadings(entry.body), post.tocLabels);
 
 const articlePathway = resolveArticlePathway(slug, {
   pathwaySlug: post.pathwaySlug,
@@ -159,9 +169,8 @@ const relatedPosts = allPosts
     }
 
     <main class="pt-4 pb-8">
-      <div class="container mx-auto px-6">
-        <div class="max-w-4xl mx-auto">
-          <!-- Breadcrumb & Back Navigation -->
+      <div class="article-editorial">
+        <ArticleTocRail items={tocItems} pathwayToc={articlePathway.toc}>
           <nav aria-label="Breadcrumb" class="py-4 mb-6">
             <ol class="flex flex-wrap items-center gap-0 text-sm">
               <li class="flex items-center">
@@ -218,7 +227,7 @@ const relatedPosts = allPosts
                     className="w-full h-full object-cover"
                     loading="eager"
                     fetchPriority="high"
-                    sizes="(max-width: 768px) 100vw, 880px"
+                    sizes="(max-width: 768px) 100vw, 740px"
                   />
                 </div>
               </header>
@@ -226,42 +235,31 @@ const relatedPosts = allPosts
           }
 
           <ArticleContents items={tocItems} pathwayToc={articlePathway.toc} />
-        </div>
-      </div>
 
-      <article>
-        <div class="container mx-auto px-6">
-          <div class="max-w-4xl mx-auto">
-            <ArticleTocRail items={tocItems} pathwayToc={articlePathway.toc}>
-              <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
-              {
-                showPostIntroCta ? (
-                  <>
-                    <div class="article-content" set:html={introHtml} />
-                    {renderPostIntroCta && <PostIntroCTA postIntro={articlePathway.postIntro} />}
-                    <div class="article-content" set:html={firstHalfHtml} />
-                  </>
-                ) : (
+          <article>
+            <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
+            {
+              showPostIntroCta ? (
+                <>
+                  <div class="article-content" set:html={introHtml} />
+                  {renderPostIntroCta && <PostIntroCTA postIntro={articlePathway.postIntro} />}
                   <div class="article-content" set:html={firstHalfHtml} />
-                )
-              }
-              {showMidSplit && (
-                <MidArticleCTA
-                  client:visible
-                  mid={articlePathway.mid}
-                  pathwayContext={articlePathway.form.pathwayContext}
-                />
-              )}
-              {secondHalfHtml && <div class="article-content" set:html={secondHalfHtml} />}
-            </ArticleTocRail>
-          </div>
-        </div>
-      </article>
+                </>
+              ) : (
+                <div class="article-content" set:html={firstHalfHtml} />
+              )
+            }
+            {showMidSplit && (
+              <MidArticleCTA
+                client:visible
+                mid={articlePathway.mid}
+                pathwayContext={articlePathway.form.pathwayContext}
+              />
+            )}
+            {secondHalfHtml && <div class="article-content" set:html={secondHalfHtml} />}
+          </article>
 
-      <div class="container mx-auto px-6">
-        <div class="max-w-4xl mx-auto">
-          <!-- Disclaimer -->
-          <div class="mt-12 p-6 bg-muted/50 border border-border rounded-lg max-w-[42rem] mx-auto">
+          <div class="mt-12 p-6 bg-muted/50 border border-border rounded-lg">
             <p class="article-bottom-disclaimer text-muted-foreground leading-relaxed m-0">
               <strong class="text-foreground">Disclaimer:</strong> The opinions expressed on this website are solely those of the author/presenter. The information provided is for general informational purposes only and should not be considered professional or legal advice. Student EB5 and its contributors do not endorse or take responsibility for any actions taken based on the information presented here. Visitors are strongly advised to consult with qualified immigration attorneys and financial advisors before making any EB-5 investment decisions or taking any actions based on the content on this website.
             </p>
@@ -274,7 +272,6 @@ const relatedPosts = allPosts
             excerpt={post.excerpt}
           />
 
-          <!-- Article Footer -->
           <footer class="mt-12 pt-8 border-t">
             <div class="flex items-center justify-between">
               <div class="article-footer-meta text-muted-foreground">
@@ -290,7 +287,8 @@ const relatedPosts = allPosts
             </div>
           </footer>
 
-          <!-- Related Articles Section -->
+          <PagePhotoCredits pathname={`/research/${slug}`} />
+
           <section class="mt-16 pt-8 border-t">
             <h2 class="text-2xl font-serif font-bold mb-8">Related Articles</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -312,7 +310,7 @@ const relatedPosts = allPosts
               }
             </div>
           </section>
-        </div>
+        </ArticleTocRail>
       </div>
     </main>
     <ConsultationCTA

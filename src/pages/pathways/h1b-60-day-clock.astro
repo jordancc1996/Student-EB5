@@ -16,6 +16,8 @@ import { findLandingPageByUrl } from '@/lib/pathwayRoutes';
 import { FEATURE_BASELINE_DATE } from '@/lib/lastUpdated';
 import LastUpdated from '@/components/LastUpdated.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
+import EditorialPhoto from '@/components/EditorialPhoto.astro';
+import PagePhotoCredits from '@/components/PagePhotoCredits.astro';
 
 const title = '60-Day H-1B Grace Period: EB-5 Protection Strategy | StudentEB5';
 const description =
@@ -158,6 +160,9 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
       </section>
 
       <PreferredSourcesCTA />
+      <div class="container mx-auto px-6 pt-8 max-w-4xl">
+        <EditorialPhoto id="chicago-river" layout="wide" />
+      </div>
 
       <H1B60DayClockStaticContent teaInvestmentFormatted={teaInvestmentFormatted} />
 
@@ -204,6 +209,9 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
       </section>
     </main>
 
+    <div class="container mx-auto px-6 max-w-4xl pb-8">
+      <PagePhotoCredits pathname="/pathways/h1b-60-day-clock" />
+    </div>
     <ConsultationCTA client:visible />
     <H1B60DayClockInteractive client:load />
     <Toaster client:load />

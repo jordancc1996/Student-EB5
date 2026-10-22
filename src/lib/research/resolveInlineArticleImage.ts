@@ -4,7 +4,7 @@ import type { ImageMetadata } from 'astro';
 const assetUrlByBasename = new Map<string, string>();
 
 const assetModules = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/*.{jpg,jpeg,png,webp,gif}',
+  '/src/assets/**/*.{jpg,jpeg,png,webp,gif}',
   { eager: true, import: 'default' },
 );
 

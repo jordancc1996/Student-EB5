@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '@/components/Header';
+import SiteFooter from '@/components/SiteFooter.astro';
+import { photoRegistry, photoPlacementsByPath } from '@/data/photoRegistry';
+import { SITE_CONFIG } from '@/lib/seo/config';
+
+const pagesByPhoto = new Map<string, string[]>();
+for (const [page, placements] of Object.entries(photoPlacementsByPath)) {
+  for (const placement of placements) {
+    const list = pagesByPhoto.get(placement.id) ?? [];
+    list.push(page);
+    pagesByPhoto.set(placement.id, list);
+  }
+}
+
+const pageCanonical = `${SITE_CONFIG.url}/photo-credits`;
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>Photo Credits | StudentEB5</title>
+    <meta name="description" content="Unsplash photographer credits for photographs used on StudentEB5 research, news, and pathway pages." />
+    <link rel="canonical" href={pageCanonical} />
+    <meta name="robots" content="noindex, follow" />
+  </Fragment>
+
+  <div class="min-h-screen bg-background">
+    <Header client:load />
+    <main class="container mx-auto px-6 py-16 max-w-3xl">
+      <h1 class="font-serif text-3xl md:text-4xl font-bold mb-4">Photo credits</h1>
+      <p class="text-muted-foreground mb-10">
+        Body photographs added in the site-wide photography upgrade come from Unsplash and are used under the
+        <a href="https://unsplash.com/license" class="underline underline-offset-2">Unsplash License</a>.
+        Existing custom heroes and charts are not listed here. People shown in campus or civic photographs are not
+        StudentEB5 clients or EB-5 applicants.
+      </p>
+      <ul class="space-y-8">
+        {
+          photoRegistry.map((photo) => (
+            <li>
+              <p class="font-medium m-0">{photo.alt}</p>
+              <p class="photo-credit m-0 mt-1">
+                Photo by <a href={photo.profileUrl}>{photo.photographer}</a> on
+                <a href={photo.unsplashUrl}>Unsplash</a>
+              </p>
+              <p class="text-xs text-muted-foreground mt-2 mb-0">
+                Used on {(pagesByPhoto.get(photo.id) ?? []).join(', ') || 'registry only'}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+    <SiteFooter />
+  </div>
+</Layout>

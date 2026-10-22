@@ -22,7 +22,11 @@ const hasContents = items.length >= 1;
             {
               items.map((item) => (
                 <li>
-                  <a href={`#${item.slug}`} class="article-contents__link" data-toc-link={item.slug}>
+                  <a
+                    href={`#${item.slug}`}
+                    class:list={['article-contents__link', item.level === 3 && 'article-contents__link--sub']}
+                    data-toc-link={item.slug}
+                  >
                     {item.label}
                   </a>
                 </li>

@@ -43,10 +43,13 @@ function readTocLayoutState() {
   const content =
     document.querySelector('.article-with-toc__main') ||
     document.querySelector('.article-content');
-  const headerColumn = document.querySelector('.max-w-4xl.mx-auto');
+  const headerColumn =
+    document.querySelector('.article-with-toc__main nav[aria-label="Breadcrumb"]') ||
+    document.querySelector('.article-editorial');
 
   const contentRect = content?.getBoundingClientRect();
   const headerRect = headerColumn?.getBoundingClientRect();
+  const railRect = railNav?.getBoundingClientRect();
   const mid = window.innerWidth / 2;
   const contentMid = contentRect ? contentRect.left + contentRect.width / 2 : 0;
 
@@ -63,9 +66,12 @@ function readTocLayoutState() {
     h2Ids: [...document.querySelectorAll('.article-content h2[id]')].map((h) => h.id),
     scrollWidth: document.documentElement.scrollWidth,
     clientWidth: document.documentElement.clientWidth,
-    columnCentered: contentRect != null && Math.abs(contentMid - mid) < 8,
+    columnCentered: contentRect != null && Math.abs(contentMid - mid) < 16,
+    contentWidth: contentRect?.width ?? null,
     contentLeft: contentRect?.left ?? null,
     headerLeft: headerRect?.left ?? null,
+    railLeftOfContent:
+      railRect != null && contentRect != null && railRect.right <= contentRect.left + 2,
     contentAlignedWithHeader:
       contentRect != null &&
       headerRect != null &&
@@ -142,7 +148,24 @@ async function assertTocVariant(page, label, width, { contentsless = false, expe
         `content=${state.contentLeft} header=${state.headerLeft}`,
       ),
     );
-    results.push(await check(`${label}: article column centered`, state.columnCentered));
+    results.push(
+      await check(
+        `${label}: TOC sits left of article`,
+        state.railLeftOfContent,
+      ),
+    );
+    const wideEnoughForCenter = width >= 1280;
+    const articleWidthOk =
+      typeof state.contentWidth === 'number' &&
+      state.contentWidth >= 640 &&
+      state.contentWidth <= 760;
+    results.push(
+      await check(
+        `${label}: article column ${wideEnoughForCenter ? 'centered' : 'in reading range'}`,
+        wideEnoughForCenter ? state.columnCentered : articleWidthOk,
+        `width=${state.contentWidth} centered=${state.columnCentered}`,
+      ),
+    );
   }
 
   if (!contentsless && state.linkCount > 0 && !isDesktop) {
@@ -368,7 +391,17 @@ async function main() {
     const page = await browser.newPage({ viewport: { width, height: 900 } });
     await gotoFirstPartyReady(page, `${BASE}${ARTICLE_WITH_TOC}`);
     const layout = await page.evaluate(readTocLayoutState);
-    results.push(await check(`${width}px: article column centered`, layout.columnCentered));
+    results.push(
+      await check(
+        `${width}px: article column ${width >= 1280 ? 'centered' : 'in reading range'}`,
+        width >= 1280
+          ? layout.columnCentered
+          : typeof layout.contentWidth === 'number' &&
+            layout.contentWidth >= 640 &&
+            layout.contentWidth <= 760,
+        `width=${layout.contentWidth} centered=${layout.columnCentered}`,
+      ),
+    );
     results.push(
       await check(
         `${width}px: no horizontal scrollbar`,

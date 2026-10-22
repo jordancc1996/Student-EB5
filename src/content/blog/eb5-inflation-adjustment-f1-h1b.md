@@ -32,7 +32,7 @@ EB-5 can give F-1 students and H-1B professionals a self-sponsored route to U.S.
 
 ## What changes on January 1, 2027?
 
-![Immigration counsel reviewing petition documents before the January 1 2027 EB-5 amount change](../../assets/eb5-petition-document-review.jpg)
+![Immigration counsel reviewing petition documents before the January 1 2027 EB-5 amount change](../../assets/eb5-petition-document-review.jpg "right")
 
 As of October 21, 2026, USCIS lists:
 
@@ -53,7 +53,7 @@ EB-5 can offer a self-sponsored filing path. Eligible applicants who file Form I
 
 Students should also weigh what U.S. permanent residence can do to long-term earnings. Consider an F-1 graduate in computer science, engineering, or finance who might earn $85,000 a year in the United States and $20,000 in a home-country role.
 
-![Hypothetical ten-year savings comparison for an F-1 graduate in the United States versus a home country](../../assets/student-annual-savings-eb5.png)
+![Hypothetical ten-year savings comparison for an F-1 graduate in the United States versus a home country](../../assets/student-annual-savings-eb5.png "full")
 
 The chart is an illustration, not observed salary data or a guarantee of future earnings. Under those assumptions, remaining in the United States can produce a large savings gap over a decade. For a broader lifetime-earnings comparison, see <a href="/research/comparisons/is-eb5-worth-it-indian-chinese-students">whether EB-5 is worth it for Indian and Chinese international students</a>.
 
@@ -63,7 +63,7 @@ H-1B professionals who have careers, families, and children in the United States
 
 The financial cost of leaving the United States can be large. Consider an H-1B professional earning $250,000 a year in the United States and $50,000 in a home-country role.
 
-![Hypothetical long-term earnings and savings comparison for an H-1B career in the United States versus a home country](../../assets/long-term-value-us-career.png)
+![Hypothetical long-term earnings and savings comparison for an H-1B career in the United States versus a home country](../../assets/long-term-value-us-career.png "full")
 
 The chart is an illustration, not observed salary data or a guarantee of future earnings. Under those assumptions, staying in the United States can be financially significant. That comparison does not include later investment returns, professional networks, or quality-of-life factors.
 
@@ -111,7 +111,7 @@ An EB-5 immigrant petition does not provide employment authorization. An eligibl
 
 ## International residency alternatives to EB-5
 
-![Lisbon streetscape representing European residency alternatives some families compare with EB-5](../../assets/portugal-lisbon-residency-alternative.jpg)
+![Lisbon streetscape representing European residency alternatives some families compare with EB-5](../../assets/portugal-lisbon-residency-alternative.jpg "wide")
 
 For F-1 students and H-1B professionals considering options outside the United States, several international residency programs may provide alternatives. This section is an overview only. For the student-focused comparison, see <a href="/research/golden-visas-vs-eb5-elite-students">golden visas vs EB-5</a>.
 

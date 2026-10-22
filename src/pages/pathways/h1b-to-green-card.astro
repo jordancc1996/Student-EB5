@@ -16,6 +16,8 @@ import { SITE_CONFIG } from '@/lib/seo/config';
 import { findLandingPageByUrl } from '@/lib/pathwayRoutes';
 import { FEATURE_BASELINE_DATE } from '@/lib/lastUpdated';
 import LastUpdated from '@/components/LastUpdated.astro';
+import EditorialPhoto from '@/components/EditorialPhoto.astro';
+import PagePhotoCredits from '@/components/PagePhotoCredits.astro';
 
 const title = 'H-1B to Green Card EB-5 - Concurrent Filing Without Employer Dependency';
 const description =
@@ -197,6 +199,9 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
       </section>
 
       <PreferredSourcesCTA />
+      <div class="container mx-auto px-6 pt-8 max-w-4xl">
+        <EditorialPhoto id="nyc-financial" layout="wide" />
+      </div>
 
       <div class="md:hidden sticky top-[120px] z-40 bg-foreground/95 backdrop-blur-sm border-b border-border">
         <a
@@ -557,6 +562,9 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
     </main>
 
     <ConsultationCTA client:visible />
+    <div class="container mx-auto px-6 max-w-4xl pb-8">
+      <PagePhotoCredits pathname="/pathways/h1b-to-green-card" />
+    </div>
     <SiteFooter />
     <H1BToGreenCardInteractive client:load />
     <Toaster client:load />

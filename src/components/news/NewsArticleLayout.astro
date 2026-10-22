@@ -7,6 +7,9 @@ import ArticleContents from '@/components/research/ArticleContents.astro';
 import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
 import LastUpdated from '@/components/LastUpdated.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
+import EditorialPhoto from '@/components/EditorialPhoto.astro';
+import PagePhotoCredits from '@/components/PagePhotoCredits.astro';
+import { getPlacementsForPath } from '@/data/photoRegistry';
 
 interface Props {
   article: NewsArticleMeta;
@@ -15,6 +18,7 @@ interface Props {
 
 const { article, tocItems } = Astro.props;
 const lastUpdated = article.dateModified ?? article.datePublished;
+const editorialPhotos = getPlacementsForPath(`/news/${article.slug}`);
 ---
 
 <>
@@ -59,8 +63,8 @@ const lastUpdated = article.dateModified ?? article.datePublished;
   </section>
 
   <main class="pt-4 pb-8">
-    <div class="container mx-auto px-6">
-      <div class="max-w-4xl mx-auto">
+    <div class="article-editorial">
+      <ArticleTocRail items={tocItems}>
         <nav aria-label="Breadcrumb" class="py-4 mb-6">
           <ol class="flex flex-wrap items-center gap-0 text-sm">
             <li class="flex items-center">
@@ -83,18 +87,16 @@ const lastUpdated = article.dateModified ?? article.datePublished;
 
         <PreferredSourcesCTA />
 
-        <ArticleContents items={tocItems} category={article.category} />
-      </div>
-    </div>
+        <ArticleContents items={tocItems} />
 
-    <article>
-      <div class="container mx-auto px-6">
-        <div class="max-w-4xl mx-auto">
-          <ArticleTocRail items={tocItems} category={article.category}>
+        <article>
           <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
           <div class="article-content">
+            {editorialPhotos[0] && <EditorialPhoto id={editorialPhotos[0].id} layout={editorialPhotos[0].layout} />}
             <slot />
+            {editorialPhotos[1] && <EditorialPhoto id={editorialPhotos[1].id} layout={editorialPhotos[1].layout} />}
           </div>
+          <PagePhotoCredits pathname={`/news/${article.slug}`} />
           <div class="mt-12">
             <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-8 border-border">
               <h2 class="text-2xl font-serif font-bold mb-4 text-foreground">{article.ctaTitle}</h2>
@@ -107,9 +109,8 @@ const lastUpdated = article.dateModified ?? article.datePublished;
               </a>
             </div>
           </div>
-          </ArticleTocRail>
-        </div>
-      </div>
-    </article>
+        </article>
+      </ArticleTocRail>
+    </div>
   </main>
 </>

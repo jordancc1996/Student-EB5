@@ -1,4 +1,5 @@
-import { extractArticleH2s } from './articleHeadings';
+import { getPhotoByFilename } from '@/data/photoRegistry';
+import { extractArticleHeadings } from './articleHeadings';
 import { resolveInlineArticleImageSrc } from './resolveInlineArticleImage';
 
 const convertLinks = (text: string) =>
@@ -41,11 +42,66 @@ export function stripInlineArticleDisclaimer(content: string): string {
 }
 
 function isH2Line(line: string): boolean {
-  return line.startsWith('## ') || line.startsWith('# ');
+  return line.startsWith('## ');
+}
+
+function isTocHeadingLine(line: string): boolean {
+  return parseHeadingLine(line) != null;
+}
+
+function parseHeadingLine(line: string): { level: 2 | 3; raw: string } | null {
+  if (line.startsWith('### ')) return { level: 3, raw: line.slice(4) };
+  if (line.startsWith('## ')) return { level: 2, raw: line.slice(3) };
+  const html = line.trim().match(/^<h([23])(?:\s[^>]*)?>(.+)<\/h\1>$/i);
+  if (html) {
+    return { level: Number(html[1]) as 2 | 3, raw: html[2] };
+  }
+  return null;
+}
+
+const IMAGE_LAYOUT_HINT =
+  /chart|table|timeline|infographic|comparison|amounts|milestones|process|evaluation|datahub|savings|earnings|value|fees|cost|history|provisions|advantages|gold-card/i;
+
+type ArticleImageLayout = 'full' | 'wide' | 'left' | 'right' | 'portrait';
+
+function resolveImageLayout(
+  title: string | undefined,
+  src: string,
+  alt: string,
+  photoIndex: { n: number },
+): ArticleImageLayout {
+  const token = (title || '').trim().toLowerCase();
+  if (token === 'left' || token === 'float-left' || token === 'left-float') return 'left';
+  if (token === 'right' || token === 'float-right' || token === 'right-float') return 'right';
+  if (token === 'wide' || token === 'landscape') return 'wide';
+  if (token === 'full' || token === 'full-width' || token === 'center') return 'full';
+  if (token === 'portrait') return 'portrait';
+
+  if (IMAGE_LAYOUT_HINT.test(src) || IMAGE_LAYOUT_HINT.test(alt) || /\.png$/i.test(src)) {
+    return 'full';
+  }
+
+  const cycle: ArticleImageLayout[] = ['right', 'left', 'wide', 'full'];
+  return cycle[photoIndex.n++ % cycle.length];
+}
+
+function creditMarkup(src: string): string {
+  const filename = src.split('/').pop()?.split('?')[0] ?? '';
+  const photo = getPhotoByFilename(filename);
+  if (!photo) return '';
+  return `<p class="photo-credit">Photo by <a href="${photo.profileUrl}" target="_blank" rel="noopener noreferrer">${photo.photographer}</a> on <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a></p>`;
+}
+
+function renderArticleImage(alt: string, src: string, title?: string, photoIndex?: { n: number }): string {
+  const resolvedSrc = resolveInlineArticleImageSrc(src);
+  const layout = resolveImageLayout(title, src, alt, photoIndex ?? { n: 0 });
+  const escapedAlt = alt.replace(/"/g, '&quot;');
+  return `<figure class="article-figure article-figure--${layout}"><img src="${resolvedSrc}" alt="${escapedAlt}" loading="lazy" />${creditMarkup(src)}</figure>`;
 }
 
 export function renderArticleContentLines(contentLines: string[], headingIds?: string[]): string {
-  let h2Index = 0;
+  let headingIndex = 0;
+  const photoIndex = { n: 0 };
 
   return contentLines
     .map((line) => {
@@ -55,24 +111,21 @@ export function renderArticleContentLines(contentLines: string[], headingIds?: s
       const youtubeMatch = line.match(/^<youtube>([^<]+)<\/youtube>$/);
       if (youtubeMatch) {
         const videoId = youtubeMatch[1].trim();
-        return `<figure class="my-8"><div class="aspect-video w-full rounded-lg overflow-hidden shadow-lg"><iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" class="w-full h-full"></iframe></div></figure>`;
+        return `<figure class="article-figure article-figure--wide"><div class="aspect-video w-full overflow-hidden"><iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" class="w-full h-full"></iframe></div></figure>`;
       }
 
-      const imageMatch = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+      const imageMatch = line.match(/^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)$/);
       if (imageMatch) {
-        const [, alt, src] = imageMatch;
-        const resolvedSrc = resolveInlineArticleImageSrc(src);
-        return `<figure class="my-8"><img src="${resolvedSrc}" alt="${alt}" class="w-full rounded-lg shadow-md" loading="lazy" /></figure>`;
+        const [, alt, src, title] = imageMatch;
+        return renderArticleImage(alt, src, title, photoIndex);
       }
 
-      if (isH2Line(line)) {
-        const raw = line.startsWith('## ') ? line.slice(3) : line.slice(2);
-        const id = headingIds?.[h2Index++];
+      const heading = parseHeadingLine(line);
+      if (heading) {
+        const id = headingIds?.[headingIndex++];
         const idAttr = id ? ` id="${id}"` : '';
-        return `<h2${idAttr}>${formatLine(raw)}</h2>`;
-      }
-      if (line.startsWith('### ')) {
-        return `<h3>${formatLine(line.substring(4))}</h3>`;
+        const tag = heading.level === 2 ? 'h2' : 'h3';
+        return `<${tag}${idAttr}>${formatLine(heading.raw)}</${tag}>`;
       }
       if (line.startsWith('#### ')) {
         return `<h4>${formatLine(line.substring(5))}</h4>`;
@@ -84,7 +137,7 @@ export function renderArticleContentLines(contentLines: string[], headingIds?: s
         return `<p class="article-italic">${line.substring(1, line.length - 1)}</p>`;
       }
       if (line.trim() === '') {
-        return '<div style="height:0.75em"></div>';
+        return '';
       }
 
       if (/^<aside[\s>]/.test(line.trim())) {
@@ -102,7 +155,7 @@ export function splitArticleContent(content: string): {
   showMidSplit: boolean;
 } {
   const lines = stripInlineArticleDisclaimer(content).split('\n');
-  const allHeadingIds = extractArticleH2s(content).map((h) => h.slug);
+  const allHeadingIds = extractArticleHeadings(content).map((h) => h.slug);
 
   const headingIndices = lines.reduce<number[]>((acc, line, i) => {
     if (isH2Line(line)) acc.push(i);
@@ -118,15 +171,15 @@ export function splitArticleContent(content: string): {
       : -1;
 
   const renderSlice = (sliceLines: string[], idOffset: number) => {
-    const h2Count = sliceLines.filter(isH2Line).length;
-    const ids = allHeadingIds.slice(idOffset, idOffset + h2Count);
+    const headingCount = sliceLines.filter(isTocHeadingLine).length;
+    const ids = allHeadingIds.slice(idOffset, idOffset + headingCount);
     return renderArticleContentLines(sliceLines, ids);
   };
 
   if (midHeadingIdx > 0) {
     const firstLines = lines.slice(0, midHeadingIdx);
     const secondLines = lines.slice(midHeadingIdx);
-    const firstH2Count = firstLines.filter(isH2Line).length;
+    const firstH2Count = firstLines.filter(isTocHeadingLine).length;
 
     return {
       firstHalfHtml: renderSlice(firstLines, 0),

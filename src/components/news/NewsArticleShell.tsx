@@ -50,7 +50,7 @@ const NewsArticleShell = ({ article, children }: NewsArticleShellProps) => (
     </section>
 
     <main className="container mx-auto px-6 pt-4 pb-16">
-      <article className="max-w-5xl mx-auto">
+      <article className="article-editorial">
         <nav aria-label="Breadcrumb" className="py-4 mb-6">
           <ol className="flex flex-wrap items-center gap-0 text-sm">
             <li className="flex items-center">
@@ -79,7 +79,7 @@ const NewsArticleShell = ({ article, children }: NewsArticleShellProps) => (
 
         <NewsLegalDisclaimer className="mb-8" />
 
-        <div className="prose prose-lg max-w-[880px] mx-auto article-content">{children}</div>
+        <div className="article-content">{children}</div>
 
         <Card className="mt-12 p-8 border-border bg-card">
           <h2 className="text-2xl font-serif font-bold mb-4 text-foreground">{article.ctaTitle}</h2>

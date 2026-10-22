@@ -15,6 +15,8 @@ import { SITE_CONFIG } from '@/lib/seo/config';
 import { findLandingPageByUrl } from '@/lib/pathwayRoutes';
 import { FEATURE_BASELINE_DATE } from '@/lib/lastUpdated';
 import LastUpdated from '@/components/LastUpdated.astro';
+import EditorialPhoto from '@/components/EditorialPhoto.astro';
+import PagePhotoCredits from '@/components/PagePhotoCredits.astro';
 
 const title = 'F-1 Student EB-5 Green Card - Skip the Lottery';
 const description =
@@ -172,6 +174,9 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
       </section>
 
       <PreferredSourcesCTA />
+      <div class="container mx-auto px-6 pt-8 max-w-4xl">
+        <EditorialPhoto id="uw-campus" layout="wide" />
+      </div>
 
       <section class="py-20">
         <div class="container mx-auto px-4 max-w-4xl">
@@ -534,6 +539,9 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
       </section>
     </main>
 
+    <div class="container mx-auto px-6 max-w-4xl pb-8">
+      <PagePhotoCredits pathname="/pathways/f1-to-eb5-self-sponsored-green-card" />
+    </div>
     <SiteFooter />
     <StudentToGreenCardInteractive client:load />
     <Toaster client:load />

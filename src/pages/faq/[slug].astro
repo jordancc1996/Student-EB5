@@ -11,7 +11,7 @@ import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateBreadcrumbSchema } from '@/lib/seo/structured-data';
-import { extractArticleH2s, buildTocItems } from '@/lib/research/articleHeadings';
+import { extractArticleHeadings, buildTocItems } from '@/lib/research/articleHeadings';
 import ArticleContents from '@/components/research/ArticleContents.astro';
 import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
 import LastUpdated from '@/components/LastUpdated.astro';
@@ -72,7 +72,7 @@ const qaSchema = {
   breadcrumb: generateBreadcrumbSchema(breadcrumbs),
 };
 
-const tocItems = buildTocItems(extractArticleH2s(entry.body), faq.tocLabels);
+const tocItems = buildTocItems(extractArticleHeadings(entry.body), faq.tocLabels);
 const lastUpdatedIso = getPageLastUpdated(`/faq/${slug}`);
 ---
 
@@ -99,8 +99,8 @@ const lastUpdatedIso = getPageLastUpdated(`/faq/${slug}`);
     <Header client:load />
 
     <main class="pt-4 pb-16">
-      <div class="container mx-auto px-6">
-        <div class="max-w-4xl mx-auto">
+      <div class="article-editorial">
+        <ArticleTocRail items={tocItems}>
           <nav class="flex items-center gap-2 text-sm text-muted-foreground mb-8" aria-label="Breadcrumb">
             <a href="/" class="hover:text-foreground transition-colors inline-flex items-center gap-1">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -122,14 +122,9 @@ const lastUpdatedIso = getPageLastUpdated(`/faq/${slug}`);
 
           <PreferredSourcesCTA />
 
-          <ArticleContents items={tocItems} category={faq.category} />
-        </div>
-      </div>
+          <ArticleContents items={tocItems} />
 
-      <article>
-        <div class="container mx-auto px-6">
-          <div class="max-w-4xl mx-auto">
-            <ArticleTocRail items={tocItems} category={faq.category}>
+          <article>
             <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
 
             <header class="mb-8">
@@ -144,9 +139,9 @@ const lastUpdatedIso = getPageLastUpdated(`/faq/${slug}`);
 
             <div class="rounded-lg border bg-card text-card-foreground shadow-sm mb-8">
               <div class="p-6 pt-6">
-                <div class="article-content prose prose-lg max-w-none">
+                <div class="article-content">
                   <p
-                    class="text-lg leading-relaxed text-muted-foreground [&_a]:text-primary [&_a]:hover:underline"
+                    class="leading-relaxed text-muted-foreground [&_a]:text-primary [&_a]:hover:underline"
                     set:html={entry.body}
                   />
                 </div>
@@ -231,10 +226,9 @@ const lastUpdatedIso = getPageLastUpdated(`/faq/${slug}`);
                 </div>
               </div>
             </div>
-          </ArticleTocRail>
-          </div>
-        </div>
-      </article>
+          </article>
+        </ArticleTocRail>
+      </div>
     </main>
 
     <ConsultationCTA client:visible />

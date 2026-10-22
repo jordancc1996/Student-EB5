@@ -16,6 +16,9 @@ import { SITE_CONFIG } from '@/lib/seo/config';
 import { findLandingPageByUrl, isIndexable } from '@/lib/pathwayRoutes';
 import { FEATURE_BASELINE_DATE } from '@/lib/lastUpdated';
 import { resolveRelatedLinkImage } from '@/lib/relatedLinkImage';
+import EditorialPhoto from '@/components/EditorialPhoto.astro';
+import PagePhotoCredits from '@/components/PagePhotoCredits.astro';
+import { getPlacementsForPath } from '@/data/photoRegistry';
 
 export interface RelatedResearchItem {
   title: string;
@@ -62,6 +65,7 @@ const pathwayEntry = findLandingPageByUrl(new URL(canonicalUrl).pathname);
 const pageIsIndexable = pathwayEntry ? isIndexable(pathwayEntry) : true;
 const lastUpdatedIso = pathwayEntry?.lastReviewed ?? FEATURE_BASELINE_DATE;
 const hasHeroPhoto = Boolean(heroImage);
+const pathwayPhotos = getPlacementsForPath(new URL(canonicalUrl).pathname);
 
 const blogPosts =
   relatedResearch.length > 0 ? await getCollection('blog') : [];
@@ -144,7 +148,9 @@ const relatedResearchCards = relatedResearch.map((item) => {
       <PreferredSourcesCTA />
 
       <div class="container mx-auto px-6 py-12 md:py-16 max-w-4xl prose-pathway">
+        {pathwayPhotos[0] && <EditorialPhoto id={pathwayPhotos[0].id} layout={pathwayPhotos[0].layout} />}
         <slot />
+        {pathwayPhotos[1] && <EditorialPhoto id={pathwayPhotos[1].id} layout={pathwayPhotos[1].layout} />}
       </div>
 
       {
@@ -181,6 +187,7 @@ const relatedResearchCards = relatedResearch.map((item) => {
         <div class="container mx-auto px-6 max-w-4xl space-y-4">
           <LegalDisclaimer />
           <slot name="extraCompliance" />
+          <PagePhotoCredits pathname={new URL(canonicalUrl).pathname} />
         </div>
       </section>
     </main>
@@ -229,5 +236,13 @@ const relatedResearchCards = relatedResearch.map((item) => {
   }
   .prose-pathway :global(ol li strong) {
     color: hsl(var(--foreground));
+  }
+  .prose-pathway :global(.article-figure) {
+    margin: 2rem 0;
+  }
+  .prose-pathway :global(.article-figure img) {
+    width: 100%;
+    height: auto;
+    border-radius: 0.375rem;
   }
 </style>

@@ -1,0 +1,35 @@
+---
+import { getPhotosUsedOnPath } from '@/data/photoRegistry';
+
+interface Props {
+  pathname: string;
+}
+
+const { pathname } = Astro.props;
+const photos = getPhotosUsedOnPath(pathname);
+---
+
+{
+  photos.length > 0 && (
+    <section class="page-photo-credits" aria-label="Photograph credits">
+      <h2 class="page-photo-credits__title">Photograph credits</h2>
+      <ul class="page-photo-credits__list">
+        {
+          photos.map((photo) => (
+            <li>
+              Photo by{' '}
+              <a href={photo.profileUrl} target="_blank" rel="noopener noreferrer">
+                {photo.photographer}
+              </a>{' '}
+              on{' '}
+              <a href={photo.unsplashUrl} target="_blank" rel="noopener noreferrer">
+                Unsplash
+              </a>
+              . Used under the Unsplash License.
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  )
+}

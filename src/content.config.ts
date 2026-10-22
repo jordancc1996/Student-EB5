@@ -45,6 +45,15 @@ const blog = defineCollection({
       tocLabels: z.record(z.string()).optional(),
       /** Override central article→pathway map when set */
       pathwaySlug: z.string().optional(),
+      /** Optional extra Unsplash photos from src/data/photoRegistry.ts */
+      editorialImages: z
+        .array(
+          z.object({
+            id: z.string(),
+            layout: z.enum(['full', 'wide', 'left', 'right', 'portrait']).optional(),
+          }),
+        )
+        .optional(),
     }),
 });
 

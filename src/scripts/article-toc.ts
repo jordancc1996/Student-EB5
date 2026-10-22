@@ -42,7 +42,7 @@ function initTocLinkScroll(page: Element): void {
       const slug = link.dataset.tocLink;
       if (!slug) return;
 
-      const target = page.querySelector<HTMLElement>(`.article-content h2#${CSS.escape(slug)}`);
+      const target = page.querySelector<HTMLElement>(`.article-content #${CSS.escape(slug)}`);
       if (!target) return;
 
       event.preventDefault();
@@ -60,7 +60,7 @@ function initTocActiveTracking(page: Element): void {
     .map((link) => {
       const slug = link.dataset.tocLink;
       if (!slug) return null;
-      return page.querySelector<HTMLElement>(`.article-content h2#${CSS.escape(slug)}`);
+      return page.querySelector<HTMLElement>(`.article-content #${CSS.escape(slug)}`);
     })
     .filter((heading): heading is HTMLElement => heading != null);
 
