@@ -9,8 +9,20 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const DIR = path.resolve('src/assets/pathways');
-const MAX_WIDTH = 1920;
+const MAX_LONG_EDGE = 1920;
 const WEBP_QUALITY = 82;
+
+/** Portrait sources (height > width): cap height. Landscape/square: cap width. */
+function resizeOptions(meta) {
+  const w = meta.width ?? 0;
+  const h = meta.height ?? 0;
+  const isPortrait = h > w;
+  return {
+    ...(isPortrait ? { height: MAX_LONG_EDGE } : { width: MAX_LONG_EDGE }),
+    withoutEnlargement: true,
+    fit: 'inside',
+  };
+}
 
 const TARGETS = [
   'pathway-category-process-mechanics-hero',
@@ -66,15 +78,12 @@ for (const basename of TARGETS) {
 
   await sharp(jpgPath)
     .rotate()
-    .resize({
-      width: MAX_WIDTH,
-      withoutEnlargement: true,
-      fit: 'inside',
-    })
+    .resize(resizeOptions(meta))
     .webp({ quality: WEBP_QUALITY, effort: 4 })
     .toFile(webpPath);
 
   const webpStat = fs.statSync(webpPath);
+  const outMeta = await sharp(webpPath).metadata();
   const jpgStatAfter = fs.statSync(jpgPath);
 
   if (jpgStatAfter.size !== jpgStatBefore.size) {
@@ -82,51 +91,46 @@ for (const basename of TARGETS) {
     process.exitCode = 1;
   }
 
+  const srcW = meta.width ?? 0;
+  const srcH = meta.height ?? 0;
   rows.push({
     name: basename,
     jpgBytes: jpgStatBefore.size,
     webpBytes: webpStat.size,
-    srcW: meta.width ?? 0,
-    srcH: meta.height ?? 0,
+    srcW,
+    srcH,
+    outW: outMeta.width ?? 0,
+    outH: outMeta.height ?? 0,
+    orient: srcH > srcW ? 'portrait' : srcW > srcH ? 'landscape' : 'square',
   });
 }
 
 console.log(
   [
     'basename'.padEnd(48),
-    'JPG'.padStart(10),
+    'orient'.padStart(9),
+    'src WxH'.padStart(12),
+    'out WxH'.padStart(12),
     'WebP'.padStart(10),
-    'ratio'.padStart(8),
-    'src WxH'.padStart(14),
   ].join('  '),
 );
-console.log('-'.repeat(96));
+console.log('-'.repeat(100));
 
-let jpgTotal = 0;
 let webpTotal = 0;
 for (const row of rows) {
-  jpgTotal += row.jpgBytes;
   webpTotal += row.webpBytes;
-  const ratio = ((row.webpBytes / row.jpgBytes) * 100).toFixed(1) + '%';
   console.log(
     [
       row.name.padEnd(48),
-      formatBytes(row.jpgBytes).padStart(10),
+      row.orient.padStart(9),
+      `${row.srcW}x${row.srcH}`.padStart(12),
+      `${row.outW}x${row.outH}`.padStart(12),
       formatBytes(row.webpBytes).padStart(10),
-      ratio.padStart(8),
-      `${row.srcW}x${row.srcH}`.padStart(14),
     ].join('  '),
   );
 }
 
-console.log('-'.repeat(96));
-console.log(
-  [
-    'TOTAL'.padEnd(48),
-    formatBytes(jpgTotal).padStart(10),
-    formatBytes(webpTotal).padStart(10),
-    ((webpTotal / jpgTotal) * 100).toFixed(1) + '%',
-  ].join('  '),
-);
-console.log(`\nWrote ${rows.length} WebP files (max width ${MAX_WIDTH}px, quality ${WEBP_QUALITY}).`);
+console.log('-'.repeat(100));
+console.log(['TOTAL'.padEnd(48), ''.padStart(9), ''.padStart(12), ''.padStart(12), formatBytes(webpTotal).padStart(10)].join('  '));
+console.log(`\nWrote ${rows.length} WebP files (max long edge ${MAX_LONG_EDGE}px, quality ${WEBP_QUALITY}).`);
 console.log('Original JPGs left unchanged.');
