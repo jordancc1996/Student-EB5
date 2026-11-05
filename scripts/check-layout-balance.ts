@@ -2,7 +2,8 @@
  * Desktop layout-balance audit.
  * Visits every built page at 1280px and 1440px and flags sections whose
  * visible content is left- or right-heavy by more than 15% of the container,
- * or whose heading text-align does not match body copy.
+ * whose heading text-align does not match body copy, or whose two-column
+ * body text starts below the bottom of the other column.
  *
  * Usage: npm run test:balance
  * Optional: BALANCE_BASE_URL=http://127.0.0.1:4325 npm run test:balance
@@ -104,6 +105,48 @@ async function measurePage(page: Page, route: string, viewport: number): Promise
         return norm(ha) !== norm(pa) && (norm(ha) === 'center' || norm(pa) === 'center');
       };
 
+      const stackedSplit = (root: Element) => {
+        const grids = [root, ...Array.from(root.querySelectorAll('*'))].filter((node) => {
+          const s = getComputedStyle(node);
+          if (s.display !== 'grid') return false;
+          return s.gridTemplateColumns.trim().split(/\s+/).length >= 2;
+        });
+
+        const isMedia = (node: Element) =>
+          !!node.querySelector('img, picture, form, aside, nav.article-toc, .article-toc-track') ||
+          ['IMG', 'PICTURE', 'FORM', 'ASIDE'].includes(node.tagName);
+        const isText = (node: Element) =>
+          !!node.querySelector('p, h1, h2, h3, li') ||
+          ['P', 'H1', 'H2', 'H3', 'UL', 'OL'].includes(node.tagName);
+
+        for (const grid of grids) {
+          const kids = Array.from(grid.children).filter((child) => visibleBox(child));
+          if (kids.length < 2) continue;
+          for (const mediaKid of kids) {
+            if (!isMedia(mediaKid)) continue;
+            const mediaBox = visibleBox(mediaKid);
+            if (!mediaBox) continue;
+            const sameRow = kids.filter((child) => {
+              const box = visibleBox(child);
+              return box != null && Math.abs(box.top - mediaBox.top) < 24;
+            });
+            const peers = sameRow.filter((child) => child !== mediaKid);
+            if (peers.length !== 1 || !isText(peers[0])) continue;
+            const firstPara = Array.from(peers[0].querySelectorAll('p, li'))
+              .map((n) => visibleBox(n))
+              .find(Boolean);
+            if (firstPara && firstPara.top > mediaBox.bottom + 8) return true;
+            const droppedSiblings = kids.some((child) => {
+              if (child === mediaKid || child === peers[0] || !isText(child)) return false;
+              const box = visibleBox(child);
+              return box != null && box.top > mediaBox.bottom + 8;
+            });
+            if (!firstPara && droppedSiblings) return true;
+          }
+        }
+        return false;
+      };
+
       for (const el of targets) {
         const box = visibleBox(el);
         if (!box) continue;
@@ -136,8 +179,9 @@ async function measurePage(page: Page, route: string, viewport: number): Promise
         const rightGap = Math.max(0, cBox.right - right);
         const imbalance = Math.abs(rightGap - leftGap) / cBox.width;
         const mismatch = alignMismatch(el);
+        const stacked = stackedSplit(el);
         const layout = classify(el);
-        if (imbalance > limit || mismatch) {
+        if (imbalance > limit || mismatch || stacked) {
           flags.push({
             viewport: vp,
             page: routePath,
@@ -146,7 +190,11 @@ async function measurePage(page: Page, route: string, viewport: number): Promise
             rightGap: Math.round(rightGap),
             imbalancePct: Math.round(imbalance * 1000) / 10,
             layout,
-            reason: mismatch && imbalance <= limit ? 'heading/body text-align mismatch' : 'gap imbalance',
+            reason: stacked
+              ? 'split body starts below other column'
+              : mismatch && imbalance <= limit
+                ? 'heading/body text-align mismatch'
+                : 'gap imbalance',
           });
         }
       }
@@ -213,10 +261,14 @@ async function main() {
   console.log(`Wrote ${outPath}`);
 
   const gapFails = flags.filter((f) => f.imbalancePct > IMBALANCE_LIMIT * 100);
+  const stackedFails = flags.filter((f) => f.reason === 'split body starts below other column');
   if (gapFails.length) {
     console.error(`${gapFails.length} section(s) exceed ${IMBALANCE_LIMIT * 100}% gap imbalance.`);
-    process.exit(1);
   }
+  if (stackedFails.length) {
+    console.error(`${stackedFails.length} two-column section(s) start body text below the other column.`);
+  }
+  if (gapFails.length || stackedFails.length) process.exit(1);
   if (failedNav) console.warn(`Navigation failures: ${failedNav}`);
 }
 
