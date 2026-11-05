@@ -37,6 +37,7 @@ function shouldIncludeInSitemap(pageUrl) {
   if (pageUrl.includes('/guides/')) return false;
   if (pageUrl.includes('/tools/concurrent-filing-checker')) return false;
   if (pageUrl.includes('/tools/eb5-feasibility')) return false;
+  if (pageUrl.includes('/private-client-services')) return false;
 
   // Staggered pathway rollout: only include registered pathway URLs when indexable
   try {
@@ -83,6 +84,22 @@ export default defineConfig({
     '/tools/concurrent-filing-checker': '/tools/eb5-concurrent-filing-eligibility',
     '/tools/eb5-feasibility': '/tools/2026-eb5-investment-feasibility-calculator',
     '/student-playbook': '/eb5-green-card-international-students-playbook',
+    '/private-client-services': {
+      status: 301,
+      destination: '/contact',
+    },
+    '/private-client-services/investor-intelligence-reports': {
+      status: 301,
+      destination: '/contact',
+    },
+    '/private-client-services/private-strategy-sessions': {
+      status: 301,
+      destination: '/contact',
+    },
+    '/private-client-services/investor-resource-library': {
+      status: 301,
+      destination: '/contact',
+    },
     '/research/f1-students/stem-opt-eb5-indian-chinese':
       '/research/f1-students/eb5-indian-chinese-students-f1-stem-opt',
     '/research/comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students':

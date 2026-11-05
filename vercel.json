@@ -9,6 +9,46 @@
       "source": "/process/",
       "destination": "/eb5-investment-process",
       "permanent": true
+    },
+    {
+      "source": "/private-client-services",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/private-client-services/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/private-client-services/investor-intelligence-reports",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/private-client-services/investor-intelligence-reports/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/private-client-services/private-strategy-sessions",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/private-client-services/private-strategy-sessions/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/private-client-services/investor-resource-library",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/private-client-services/investor-resource-library/",
+      "destination": "/contact",
+      "permanent": true
     }
   ]
 }

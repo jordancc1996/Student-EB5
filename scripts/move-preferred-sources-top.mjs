@@ -35,7 +35,6 @@ const jobs = [
       'src/pages/eb5-investment-process.astro',
       'src/pages/eb5-green-card-international-students-playbook.astro',
       'src/pages/eb5-investment-immigration-tools.astro',
-      'src/pages/private-client-services/index.astro',
     ],
     insert: (src) => {
       if (src.includes('<PreferredSourcesCTA')) return { src, status: 'already' };
@@ -69,13 +68,10 @@ const jobs = [
       };
     },
   },
-  // I1 resources + PCS children: after Breadcrumb / LastUpdated block start of main
+  // I1 resources: after Breadcrumb / LastUpdated block start of main
   {
     files: [
       'src/pages/resources.astro',
-      'src/pages/private-client-services/investor-intelligence-reports.astro',
-      'src/pages/private-client-services/investor-resource-library.astro',
-      'src/pages/private-client-services/private-strategy-sessions.astro',
     ],
     insert: (src) => {
       if (src.includes('<PreferredSourcesCTA')) return { src, status: 'already' };

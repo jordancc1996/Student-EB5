@@ -72,10 +72,6 @@ const routeNames: Record<string, string> = {
   'parents-and-families': 'Parents & Families',
   'eb5-investment-process': 'EB-5 Investment Process',
   'process': 'EB-5 Investment Process',
-  'private-client-services': 'Private Client Services',
-  'investor-intelligence-reports': 'Investor Intelligence Reports',
-  'private-strategy-sessions': 'Private Strategy Sessions',
-  'investor-resource-library': 'Investor Resource Library',
   'eb5-green-card-international-students-playbook':
     'EB-5 Green Card International Students Playbook',
 };

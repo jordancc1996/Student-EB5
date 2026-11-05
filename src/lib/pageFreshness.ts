@@ -25,7 +25,7 @@ export const LAST_UPDATED_EXCLUDED_PATHS = new Set([
 ]);
 
 /**
- * Static / tool / FAQ / PCS page freshness.
+ * Static / tool / FAQ page freshness.
  * Values are ISO YYYY-MM-DD. Baseline = feature implementation date when
  * no reliable historical modification date was available.
  */
@@ -34,10 +34,6 @@ export const pageLastUpdated: Record<string, string> = {
   '/resources': FEATURE_BASELINE_DATE,
   '/eb5-investment-process': FEATURE_BASELINE_DATE,
   '/eb5-green-card-international-students-playbook': FEATURE_BASELINE_DATE,
-  '/private-client-services': FEATURE_BASELINE_DATE,
-  '/private-client-services/investor-intelligence-reports': FEATURE_BASELINE_DATE,
-  '/private-client-services/investor-resource-library': FEATURE_BASELINE_DATE,
-  '/private-client-services/private-strategy-sessions': FEATURE_BASELINE_DATE,
   '/tools/opt-calculator': FEATURE_BASELINE_DATE,
   '/tools/tuition-calculator': FEATURE_BASELINE_DATE,
   '/tools/grandfathering-countdown': FEATURE_BASELINE_DATE,
