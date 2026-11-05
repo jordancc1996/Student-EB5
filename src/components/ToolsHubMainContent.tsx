@@ -54,7 +54,7 @@ export default function ToolsHubMainContent({ children }: PropsWithChildren) {
 
         <div className="relative z-10 container mx-auto px-6 py-20 text-center">
           <h1
-            className="text-4xl md:text-5xl lg:text-[60px] font-sans font-bold text-white mb-6 drop-shadow-lg leading-tight"
+            className="editorial-h1 text-white mb-6 drop-shadow-lg"
             style={{ fontFamily: pathwayFont }}
           >
             EB-5 Immigration Tools Calculators - OPT Feasibility and Funding

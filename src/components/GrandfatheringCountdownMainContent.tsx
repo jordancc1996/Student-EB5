@@ -67,7 +67,7 @@ const GrandfatheringCountdownMainContent = () => {
       <div className="container mx-auto px-6 pb-16">
         <div className="max-w-4xl mx-auto bg-card border border-border rounded-xl shadow-lg p-8 md:p-10">
           {/* Header */}
-          <h1 className="font-serif text-3xl md:text-4xl font-bold text-center mb-3">
+          <h1 className="editorial-h1 text-center mb-3">
             EB-5 Grandfathering Countdown - Sept 30, 2026 RIA Deadline
           </h1>
           <p className="text-muted-foreground text-center text-lg mb-10">

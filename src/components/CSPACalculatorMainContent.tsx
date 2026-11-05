@@ -118,7 +118,7 @@ const CSPACalculatorMainContent = () => {
 
         <div className="relative z-10 max-w-3xl w-full">
           <div className="text-center mb-12">
-            <h1 className="font-serif text-white text-5xl md:text-6xl mb-4 leading-tight">
+            <h1 className="editorial-h1 text-white mb-4">
               EB-5 CSPA Age Calculator - Derivative Child Age-Out Risk
             </h1>
             <p className="text-gray-200 text-lg max-w-xl mx-auto">

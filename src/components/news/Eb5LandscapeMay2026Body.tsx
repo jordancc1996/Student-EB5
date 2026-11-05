@@ -1,13 +1,15 @@
 export default function Eb5LandscapeMay2026Body() {
   return (
     <>
-              <p>
-                EB-5 visa landscape 2026 shows rural projects at about 47% of filings with adjudications often in 3 to 8 months, alongside I-526E backlog pressure and Gold Card-driven demand.
-              </p>
-
-              <p>
-                The program has been defined in 2026 by surging demand, accelerated processing for specific project categories, and a series of upcoming statutory deadlines that are reshaping strategic planning for global investors. This analysis summarizes new trends in the EB-5 market as of May 2026.
-              </p>
+              <div className="article-intro">
+                <p>
+                  EB-5 visa landscape 2026 shows rural projects at about 47% of filings with adjudications often in 3 to 8 months, alongside I-526E backlog pressure and Gold Card-driven demand.
+                </p>
+                <p>
+                  The program has been defined in 2026 by surging demand, accelerated processing for specific project categories, and a series of upcoming statutory deadlines that are reshaping strategic planning for global investors.
+                </p>
+                <p>This analysis summarizes new trends in the EB-5 market as of May 2026.</p>
+              </div>
 
               <h2 id="analyzing-the-data-surge">Analyzing the Data Surge</h2>
               <p>
@@ -24,8 +26,8 @@ export default function Eb5LandscapeMay2026Body() {
 
               <h3>Post-RIA Filing Share and Adjudication Speed</h3>
 
-              <div className="overflow-x-auto my-8 font-[Georgia]">
-                <table className="w-full border-collapse text-[18px] leading-[1.58]">
+              <div className="overflow-x-auto my-8 table-scroll">
+                <table className="editorial-table w-full">
                   <thead>
                     <tr className="border-b border-border">
                       <th className="px-0 py-4 pr-6 text-left font-normal text-[18px]">Category</th>
@@ -51,6 +53,7 @@ export default function Eb5LandscapeMay2026Body() {
                     </tr>
                   </tbody>
                 </table>
+                <p className="data-source">Source: USCIS I-526E reporting for fiscal year 2025, as cited in this article.</p>
               </div>
               <p>
                 Filing volumes are split nearly evenly between urban and rural projects, but adjudication rates tell a different story. In recent reporting periods, rural petitions have been adjudicated at a rate approximately five times higher than urban petitions. This priority processing is a statutory mandate of the RIA, and its real-world impact has made rural investments a preferred choice for investors seeking the fastest possible route to a green card.

@@ -1,5 +1,6 @@
-/* Font preload handled in index.html - using font-display: swap for performance */
+/* Font preload handled in Layout.astro - using font-display: swap for performance */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import './fonts-source-serif.css';
 
 @tailwind base;
 @tailwind components;
@@ -60,6 +61,10 @@ html {
     --cta-navy: 240 100% 25%;
     
     --radius: 0.25rem;
+
+    --font-body-serif: 'Source Serif 4', 'Source Serif 4 Fallback', Georgia, 'Times New Roman', serif;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-ui: 'Montserrat', sans-serif;
     
     /* Minimal Shadows */
     --shadow-soft: 0 2px 10px -2px hsl(0 0% 0% / 0.1);
@@ -249,17 +254,164 @@ html {
     }
   }
   
-  /* Article Content — publication reading column */
-  .article-content {
-    font-family: 'Montserrat', sans-serif;
+  .editorial-h1,
+  .research-article-title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 2.0625rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: hsl(0 0% 10%);
+  }
+
+  .editorial-h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.625rem;
+    line-height: 1.25;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .editorial-h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.3125rem;
+    line-height: 1.3;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-h4 {
+    font-family: var(--font-ui);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .editorial-kicker {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .editorial-byline,
+  .research-article-meta {
+    font-family: var(--font-ui);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .editorial-prose {
+    font-family: var(--font-body-serif);
     font-size: 1.125rem;
     font-weight: 400;
-    line-height: 1.75;
+    line-height: 1.65;
+    color: hsl(0 0% 10%);
+  }
+
+  .editorial-prose p,
+  .editorial-prose li {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .editorial-prose strong {
+    font-weight: 600;
+  }
+
+  .editorial-prose em {
+    font-style: italic;
+  }
+
+  .data-source {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.45;
+    color: hsl(var(--muted-foreground));
+    margin: 0.5rem 0 0;
+  }
+
+  @media (min-width: 768px) {
+    .editorial-h1,
+    .research-article-title {
+      font-size: 2.875rem;
+    }
+
+    .editorial-h2 {
+      font-size: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .editorial-h3 {
+      font-size: 1.5rem;
+    }
+
+    .editorial-h4 {
+      font-size: 1rem;
+    }
+
+    .editorial-prose {
+      font-size: 1.25rem;
+    }
+
+    .article-content .article-intro {
+      font-size: 1.375rem;
+    }
+  }
+
+  /* Article Content — publication reading column */
+  .article-content {
+    font-family: var(--font-body-serif);
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.65;
     color: hsl(0 0% 10%);
     max-width: none;
     margin-left: 0;
     margin-right: 0;
     width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .article-content {
+      font-size: 1.25rem;
+    }
+
+    .article-content > h1 {
+      font-size: 2.875rem;
+    }
+
+    .article-content > h2 {
+      font-size: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .article-content > h3 {
+      font-size: 1.5rem;
+    }
+
+    .article-content > h4 {
+      font-size: 1rem;
+    }
+
+    .article-content .article-intro {
+      font-size: 1.375rem;
+    }
+
+    .article-content > blockquote {
+      font-size: 1.5rem;
+    }
   }
 
   .article-content > p,
@@ -275,16 +427,16 @@ html {
   }
 
   .article-content > p {
-    font-size: 1.125rem;
+    font-size: inherit;
     font-weight: 400;
-    line-height: 1.75;
-    margin-bottom: 1.625rem;
+    line-height: 1.65;
+    margin-bottom: 1.4em;
   }
 
   .article-content > h1 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: 2.0625rem;
+    font-weight: 500;
     color: hsl(0 0% 10%);
     margin-top: 2.5em;
     margin-bottom: 0.75em;
@@ -294,23 +446,23 @@ html {
   }
 
   .article-content > h2 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 2rem;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: 1.625rem;
+    font-weight: 600;
     color: hsl(0 0% 10%);
-    margin-top: 3rem;
-    margin-bottom: 0.85rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
     line-height: 1.25;
     scroll-margin-top: 6rem;
     clear: both;
   }
 
   .article-content > h3 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 1.3125rem;
     font-weight: 600;
     color: hsl(0 0% 10%);
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     margin-bottom: 0.65rem;
     line-height: 1.3;
     scroll-margin-top: 6rem;
@@ -318,22 +470,23 @@ html {
   }
 
   .article-content > h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.125rem;
+    font-family: var(--font-ui);
+    font-size: 0.9375rem;
     font-weight: 600;
     color: hsl(0 0% 10%);
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
     line-height: 1.35;
+    letter-spacing: 0.02em;
     clear: both;
   }
 
   .article-content > ul,
   .article-content > ol {
-    font-size: 1.125rem;
-    line-height: 1.75;
+    font-size: inherit;
+    line-height: 1.65;
     margin-top: 0.5rem;
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.4em;
     padding-left: 1.25rem;
   }
 
@@ -343,14 +496,16 @@ html {
   }
 
   .article-content > blockquote {
-    font-size: 1.25rem;
-    line-height: 1.65;
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    line-height: 1.5;
     font-style: italic;
+    font-weight: 400;
     color: hsl(0 0% 10% / 0.9);
-    border-left: 4px solid hsl(var(--primary));
+    border-left: 1px solid hsl(var(--border));
     padding-left: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
     clear: both;
   }
 
@@ -369,16 +524,58 @@ html {
   }
 
   .article-content .article-intro {
+    font-family: var(--font-display);
     font-size: 1.25rem;
-    font-style: italic;
+    font-style: normal;
     font-weight: 400;
-    color: hsl(0 0% 10% / 0.9);
-    line-height: 1.7;
+    color: hsl(var(--muted-foreground));
+    line-height: 1.5;
     margin-bottom: 2rem;
-    border-left: 4px solid hsl(var(--primary));
-    padding-left: 1.5rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    border-left: none;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .article-content .article-intro p {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    line-height: inherit;
+    color: inherit;
+    margin: 0 0 0.85em;
+  }
+
+  .article-content .article-intro p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    .article-content > h1 {
+      font-size: 2.875rem;
+    }
+
+    .article-content > h2 {
+      font-size: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .article-content > h3 {
+      font-size: 1.5rem;
+    }
+
+    .article-content > h4 {
+      font-size: 1rem;
+    }
+
+    .article-content .article-intro {
+      font-size: 1.375rem;
+    }
+
+    .article-content > blockquote {
+      font-size: 1.5rem;
+    }
   }
 
   .article-content > figure,
@@ -386,7 +583,7 @@ html {
   .article-content .article-figure {
     max-width: none;
     width: 100%;
-    margin: 2rem 0;
+    margin: 2.5rem 0;
   }
 
   .article-content .article-figure img {
@@ -425,10 +622,12 @@ html {
 
   .article-caption,
   .article-content figcaption {
-    font-size: 0.9375rem;
+    font-family: var(--font-ui);
+    font-size: 0.875rem;
     line-height: 1.5;
     color: hsl(var(--muted-foreground));
-    text-align: center;
+    text-align: left;
+    margin-top: 0.5rem;
   }
 
   .photo-credit,
@@ -505,22 +704,6 @@ html {
   }
 
   /* Research article template — title, metadata, disclaimers */
-  .research-article-title {
-    font-size: 1.875rem;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-  }
-
-  @media (min-width: 768px) {
-    .research-article-title {
-      font-size: 2.5rem;
-    }
-  }
-
-  .research-article-meta {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
 
   .article-legal-disclaimer p {
     font-size: 0.9375rem;
@@ -576,24 +759,24 @@ html {
 
   @media (max-width: 639px) {
     .article-content {
-      font-size: 1.0625rem;
-      line-height: 1.75;
+      font-size: 1.125rem;
+      line-height: 1.65;
     }
 
     .article-content > p {
-      font-size: 1.0625rem;
-      line-height: 1.75;
-      margin-bottom: 1.5rem;
+      font-size: inherit;
+      line-height: 1.65;
+      margin-bottom: 1.4em;
     }
 
     .article-content > ul,
     .article-content > ol {
-      font-size: 1.0625rem;
-      line-height: 1.75;
+      font-size: inherit;
+      line-height: 1.65;
     }
 
     .article-content > h1 {
-      font-size: 1.875rem;
+      font-size: 2.0625rem;
     }
 
     .article-content > h2 {
@@ -602,18 +785,21 @@ html {
     }
 
     .article-content > h3 {
-      font-size: 1.25rem;
-      margin-top: 1.75rem;
+      font-size: 1.3125rem;
+      margin-top: 2.5rem;
     }
 
-    .article-content .article-intro,
+    .article-content .article-intro {
+      font-size: 1.25rem;
+    }
+
     .article-content > blockquote {
-      font-size: 1.125rem;
+      font-size: 1.375rem;
     }
 
     .article-content table {
-      font-size: 1.0625rem;
-      line-height: 1.7;
+      font-size: 0.8125rem;
+      line-height: 1.5;
     }
 
     .article-content aside.not-prose > p:nth-child(2) {
@@ -621,22 +807,83 @@ html {
     }
   }
 
-  /* Article Content Links - Highlighted Backlinks */
   .article-content a {
-    @apply text-blue-600 font-medium underline decoration-2 decoration-blue-400/50 underline-offset-2;
-    @apply hover:text-blue-700 hover:decoration-blue-600;
-    @apply transition-all duration-200;
+    color: inherit;
+    font-weight: 400;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: hsl(var(--muted-foreground));
+    transition: text-decoration-color 150ms ease-out;
     overflow-wrap: anywhere;
+  }
+
+  .article-content a:hover {
+    text-decoration-color: hsl(var(--foreground));
   }
 
   .article-content strong {
     font-weight: 600;
   }
 
-  .article-content table {
-    font-size: 1rem;
-    line-height: 1.6;
+  .article-content em {
+    font-style: italic;
+  }
+
+  .article-content table,
+  .editorial-table {
+    width: 100%;
+    max-width: 55rem;
+    border-collapse: collapse;
+    font-family: var(--font-ui);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-variant-numeric: tabular-nums;
+    color: hsl(0 0% 10%);
+    background: transparent;
+    box-shadow: none;
+    margin: 2.5rem 0;
     clear: both;
+  }
+
+  .article-content thead th,
+  .editorial-table thead th {
+    font-family: var(--font-ui);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: left;
+    border-bottom: 1px solid hsl(var(--border));
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 0.6rem 0.75rem;
+    background: transparent;
+  }
+
+  .article-content tbody td,
+  .editorial-table tbody td {
+    border-bottom: 1px solid hsl(var(--border));
+    border-left: none;
+    border-right: none;
+    padding: 0.65rem 0.75rem;
+    background: transparent;
+  }
+
+  .article-content th:not(:first-child),
+  .article-content td:not(:first-child),
+  .editorial-table th:not(:first-child),
+  .editorial-table td:not(:first-child) {
+    text-align: right;
+  }
+
+  .article-content .overflow-x-auto,
+  .table-scroll {
+    overflow-x: auto;
+    max-width: min(55rem, 100%);
+    margin: 2.5rem 0;
   }
 
   .article-content code {
@@ -780,8 +1027,8 @@ html {
   max-width: 81.25rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .research-article-page .article-editorial [aria-label*='Follow'] > .container {
@@ -798,7 +1045,7 @@ html {
 
 .research-article-page .article-with-toc__main {
   min-width: 0;
-  max-width: 46.25rem;
+  max-width: 45rem;
   width: 100%;
 }
 
@@ -823,7 +1070,7 @@ html {
 
   .research-article-page .article-with-toc {
     display: grid;
-    grid-template-columns: 13.5rem minmax(0, 46.25rem);
+    grid-template-columns: 13.5rem minmax(0, 45rem);
     column-gap: 2rem;
     justify-content: center;
     align-items: stretch;
@@ -873,13 +1120,13 @@ html {
   .research-article-page .article-with-toc__main {
     grid-column: 2;
     min-width: 0;
-    max-width: 46.25rem;
+    max-width: 45rem;
   }
 }
 
 @media (min-width: 1280px) {
   .research-article-page .article-with-toc {
-    grid-template-columns: minmax(12.5rem, 1fr) minmax(0, 46.25rem) minmax(12.5rem, 1fr);
+    grid-template-columns: minmax(12.5rem, 1fr) minmax(0, 45rem) minmax(12.5rem, 1fr);
     column-gap: 2.5rem;
   }
 

@@ -137,7 +137,7 @@ const OPTCalculatorMainContent = () => {
     <main className="min-h-screen bg-background">
       <div className="mx-auto px-10 pb-10 max-w-[900px]">
 
-        <h1 className="text-[2.5rem] font-normal text-muted-foreground mb-4">
+        <h1 className="editorial-h1 mb-4">
           OPT Calculator - F-1 Application and EAD Timelines
         </h1>
         <p className="text-muted-foreground text-lg mb-8 max-w-2xl">
@@ -345,7 +345,7 @@ const OPTCalculatorMainContent = () => {
               <div className="mt-10 border-t border-border pt-10">
                 <h2 className="text-[1.8rem] font-normal text-muted-foreground mb-5">Summary</h2>
                 
-                <table className="w-full border-collapse mb-8">
+                <table className="editorial-table w-full border-collapse mb-8">
                   <tbody>
                     <tr>
                       <td className="p-3 border border-border font-bold text-muted-foreground w-[60%] bg-muted/50">Your I-20 Program end date</td>

@@ -46,7 +46,7 @@ const TuitionCalculatorMainContent = () => {
             <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
               <GraduationCap className="w-8 h-8 text-primary" />
             </div>
-            <h1 className="text-2xl md:text-3xl font-serif font-bold mb-3">
+            <h1 className="editorial-h1 mb-3">
               Tuition Savings Calculator - F-1 vs In-State 4-Year Costs
             </h1>
             <p className="text-muted-foreground text-sm md:text-base">

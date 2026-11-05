@@ -37,10 +37,7 @@ export default function ProcessFaqAccordion({ items }: Props) {
               />
             </CollapsibleTrigger>
             <CollapsibleContent className="px-5 pb-5">
-              <p
-                className="text-muted-foreground leading-relaxed pt-1"
-                style={{ fontFamily: 'Georgia, serif', lineHeight: 1.75 }}
-              >
+              <p className="editorial-prose text-muted-foreground pt-1">
                 {item.answer}
               </p>
             </CollapsibleContent>

@@ -56,6 +56,7 @@ export default {
       fontFamily: {
         serif: ['Playfair Display', 'serif'],
         sans: ['Montserrat', 'sans-serif'],
+        body: ['Source Serif 4', 'Source Serif 4 Fallback', 'Georgia', 'Times New Roman', 'serif'],
       },
       boxShadow: {
         'soft': 'var(--shadow-soft)',

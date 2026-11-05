@@ -59,7 +59,7 @@ const FaqDetailContent = ({ faq, answer, relatedFaqs }: FaqDetailContentProps) =
               {faq.category}
             </Badge>
 
-            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6 leading-tight">
+            <h1 className="editorial-h1 mb-6">
               {faq.question}
             </h1>
           </header>

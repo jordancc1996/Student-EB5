@@ -1,7 +1,7 @@
 import { CheckCircle, XCircle, FileText, Briefcase, Home, TrendingUp, Shield, ArrowRight } from 'lucide-react';
 import { Link } from '@/components/RouterLink';
 
-const pathwayFont = "'Inter', 'Helvetica Neue', sans-serif";
+const pathwayFont = 'var(--font-body-serif)';
 
 const comparisonData = [
   {
@@ -68,7 +68,7 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
       <section className="py-20">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2
-            className="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4 text-center"
+            className="editorial-h2 text-foreground mb-4 text-center mt-0"
             style={{ fontFamily: pathwayFont }}
           >
             H-1B vs. EB-5: A Side-by-Side Reality Check
@@ -81,7 +81,7 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
           </p>
 
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
+            <table className="editorial-table w-full border-collapse">
               <thead>
                 <tr className="border-b-2 border-border">
                   <th
@@ -131,7 +131,7 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
           </div>
 
           <div className="mt-12 text-center">
-            <h3 className="font-sans text-xl md:text-2xl font-medium text-foreground mb-3" style={{ fontFamily: pathwayFont }}>
+            <h3 className="editorial-h3 text-foreground mb-3 mt-0">
               The Numbers Don't Lie. What's Your Best Path?
             </h3>
             <p
@@ -154,7 +154,7 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2
-            className="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4 text-center"
+            className="editorial-h2 text-foreground mb-4 text-center mt-0"
             style={{ fontFamily: pathwayFont }}
           >
             Concurrent Filing: The Killer Feature
@@ -179,7 +179,7 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-card border border-border rounded-lg p-6 text-center">
               <FileText size={32} className="text-primary mx-auto mb-4" />
-              <h3 className="font-sans text-lg font-medium text-foreground mb-2" style={{ fontFamily: pathwayFont }}>
+              <h3 className="editorial-h3 text-foreground mb-2 mt-0">
                 Form I-485
               </h3>
               <p className="text-sm text-muted-foreground" style={{ fontFamily: pathwayFont }}>
@@ -188,7 +188,7 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
             </div>
             <div className="bg-card border border-border rounded-lg p-6 text-center">
               <Briefcase size={32} className="text-primary mx-auto mb-4" />
-              <h3 className="font-sans text-lg font-medium text-foreground mb-2" style={{ fontFamily: pathwayFont }}>
+              <h3 className="editorial-h3 text-foreground mb-2 mt-0">
                 Form I-765 (EAD)
               </h3>
               <p className="text-sm text-muted-foreground" style={{ fontFamily: pathwayFont }}>
@@ -197,7 +197,7 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
             </div>
             <div className="bg-card border border-border rounded-lg p-6 text-center">
               <Shield size={32} className="text-primary mx-auto mb-4" />
-              <h3 className="font-sans text-lg font-medium text-foreground mb-2" style={{ fontFamily: pathwayFont }}>
+              <h3 className="editorial-h3 text-foreground mb-2 mt-0">
                 Form I-131 (AP)
               </h3>
               <p className="text-sm text-muted-foreground" style={{ fontFamily: pathwayFont }}>
@@ -218,7 +218,7 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
           </div>
 
           <div className="mt-12 text-center">
-            <h3 className="font-sans text-xl md:text-2xl font-medium text-foreground mb-3" style={{ fontFamily: pathwayFont }}>
+            <h3 className="editorial-h3 text-foreground mb-3 mt-0">
               Your Concurrent Filing Timeline Starts With One Call
             </h3>
             <p
@@ -242,7 +242,7 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
       <section className="py-20">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2
-            className="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4 text-center"
+            className="editorial-h2 text-foreground mb-4 text-center mt-0"
             style={{ fontFamily: pathwayFont }}
           >
             Source of Funds for Professionals
@@ -262,7 +262,7 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
                   <source.icon size={24} className="text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-sans text-lg font-medium text-foreground mb-1" style={{ fontFamily: pathwayFont }}>
+                  <h3 className="editorial-h3 text-foreground mb-1 mt-0">
                     {source.title}
                   </h3>
                   <p className="text-sm text-muted-foreground" style={{ fontFamily: pathwayFont, lineHeight: 1.7 }}>
@@ -274,7 +274,7 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
           </div>
 
           <div className="mt-12 text-center">
-            <h3 className="font-sans text-xl md:text-2xl font-medium text-foreground mb-3" style={{ fontFamily: pathwayFont }}>
+            <h3 className="editorial-h3 text-foreground mb-3 mt-0">
               You May Already Have the $800K. Find Out in 60 Seconds.
             </h3>
             <p
@@ -297,7 +297,7 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2
-            className="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-8 text-center"
+            className="editorial-h2 text-foreground mb-8 text-center mt-0"
             style={{ fontFamily: pathwayFont }}
           >
             Case Study: From FAANG to Freedom
@@ -323,7 +323,7 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
       <section className="py-20">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2
-            className="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-8 text-center"
+            className="editorial-h2 text-foreground mb-8 text-center mt-0"
             style={{ fontFamily: pathwayFont }}
           >
             Backed by Attorneys and Regional Centers With a Proven Track Record
@@ -395,7 +395,7 @@ export default function H1B60DayClockStaticContent({ teaInvestmentFormatted }: H
 
       <section className="py-16 bg-primary/5">
         <div className="container mx-auto px-4 max-w-3xl text-center">
-          <h2 className="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4" style={{ fontFamily: pathwayFont }}>
+          <h2 className="editorial-h2 text-foreground mb-4 mt-0">
             Ready to Take the First Step?
           </h2>
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-base" style={{ fontFamily: pathwayFont }}>

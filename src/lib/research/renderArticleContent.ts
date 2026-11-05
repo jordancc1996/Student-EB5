@@ -10,7 +10,42 @@ const convertLinks = (text: string) =>
 
 const convertBold = (text: string) => text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
-const formatLine = (text: string) => convertLinks(convertBold(text));
+const convertItalic = (text: string) => text.replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<em>$1</em>');
+
+const formatLine = (text: string) => convertItalic(convertLinks(convertBold(text)));
+
+const ABBREVIATION_PLACEHOLDER = '\uE000';
+
+/** Split standfirst copy into one-sentence paragraphs without breaking U.S., titles, or months. */
+export function splitStandfirstParagraphs(text: string): string[] {
+  const cleaned = text.replace(/<\/?intro>/gi, '').trim();
+  if (!cleaned) return [];
+
+  const blocks = cleaned
+    .split(/\n\s*\n/)
+    .map((block) => block.replace(/\s*\n\s*/g, ' ').trim())
+    .filter(Boolean);
+
+  return blocks.flatMap((block) => {
+    const protectedText = block
+      .replace(/\bU\.S(?:\.C)?\./g, (match) => match.replace(/\./g, ABBREVIATION_PLACEHOLDER))
+      .replace(
+        /\b(?:Mr|Ms|Mrs|Dr|Prof|vs|Inc|Ltd|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\./g,
+        (match) => match.replace('.', ABBREVIATION_PLACEHOLDER),
+      );
+
+    return protectedText
+      .split(/(?<=[.!?])\s+(?=[A-Z0-9])/)
+      .map((part) => part.split(ABBREVIATION_PLACEHOLDER).join('.').trim())
+      .filter(Boolean);
+  });
+}
+
+function renderStandfirstHtml(text: string): string {
+  const paragraphs = splitStandfirstParagraphs(text);
+  if (paragraphs.length === 0) return '';
+  return `<div class="article-intro">${paragraphs.map((paragraph) => `<p>${formatLine(paragraph)}</p>`).join('')}</div>`;
+}
 
 function isInlineArticleDisclaimerLine(line: string): boolean {
   const trimmed = line.trim();
@@ -99,54 +134,94 @@ function renderArticleImage(alt: string, src: string, title?: string, photoIndex
   return `<figure class="article-figure article-figure--${layout}"><img src="${resolvedSrc}" alt="${escapedAlt}" loading="lazy" />${creditMarkup(src)}</figure>`;
 }
 
-export function renderArticleContentLines(contentLines: string[], headingIds?: string[]): string {
+export function renderArticleContentLines(
+  contentLines: string[],
+  headingIds?: string[],
+  options?: { standfirstParagraphs?: boolean },
+): string {
   let headingIndex = 0;
   const photoIndex = { n: 0 };
+  const html: string[] = [];
 
-  return contentLines
-    .map((line) => {
-      const introMatch = line.match(/^<intro>(.+)<\/intro>$/);
-      if (introMatch) return `<p class="article-intro">${introMatch[1]}</p>`;
+  for (let i = 0; i < contentLines.length; i += 1) {
+    const line = contentLines[i];
 
-      const youtubeMatch = line.match(/^<youtube>([^<]+)<\/youtube>$/);
-      if (youtubeMatch) {
-        const videoId = youtubeMatch[1].trim();
-        return `<figure class="article-figure article-figure--wide"><div class="aspect-video w-full overflow-hidden"><iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" class="w-full h-full"></iframe></div></figure>`;
+    if (line.trim().startsWith('<intro>')) {
+      const introParts: string[] = [];
+      let current = line.trim().replace(/^<intro>/, '');
+      if (current.includes('</intro>')) {
+        introParts.push(current.replace(/<\/intro>\s*$/, ''));
+      } else {
+        introParts.push(current);
+        i += 1;
+        while (i < contentLines.length) {
+          const next = contentLines[i];
+          if (next.includes('</intro>')) {
+            introParts.push(next.replace(/<\/intro>\s*$/, ''));
+            break;
+          }
+          introParts.push(next);
+          i += 1;
+        }
       }
+      html.push(renderStandfirstHtml(introParts.join('\n')));
+      continue;
+    }
 
-      const imageMatch = line.match(/^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)$/);
-      if (imageMatch) {
-        const [, alt, src, title] = imageMatch;
-        return renderArticleImage(alt, src, title, photoIndex);
-      }
+    const youtubeMatch = line.match(/^<youtube>([^<]+)<\/youtube>$/);
+    if (youtubeMatch) {
+      const videoId = youtubeMatch[1].trim();
+      html.push(
+        `<figure class="article-figure article-figure--wide"><div class="aspect-video w-full overflow-hidden"><iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" class="w-full h-full"></iframe></div></figure>`,
+      );
+      continue;
+    }
 
-      const heading = parseHeadingLine(line);
-      if (heading) {
-        const id = headingIds?.[headingIndex++];
-        const idAttr = id ? ` id="${id}"` : '';
-        const tag = heading.level === 2 ? 'h2' : 'h3';
-        return `<${tag}${idAttr}>${formatLine(heading.raw)}</${tag}>`;
-      }
-      if (line.startsWith('#### ')) {
-        return `<h4>${formatLine(line.substring(5))}</h4>`;
-      }
-      if (line.startsWith('- ')) {
-        return `<p class="article-list-item">• ${formatLine(line.substring(2))}</p>`;
-      }
-      if (line.startsWith('*') && line.endsWith('*') && !line.startsWith('**') && line.length > 2) {
-        return `<p class="article-italic">${line.substring(1, line.length - 1)}</p>`;
-      }
-      if (line.trim() === '') {
-        return '';
-      }
+    const imageMatch = line.match(/^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)$/);
+    if (imageMatch) {
+      const [, alt, src, title] = imageMatch;
+      html.push(renderArticleImage(alt, src, title, photoIndex));
+      continue;
+    }
 
-      if (/^<aside[\s>]/.test(line.trim())) {
-        return line;
-      }
+    const heading = parseHeadingLine(line);
+    if (heading) {
+      const id = headingIds?.[headingIndex++];
+      const idAttr = id ? ` id="${id}"` : '';
+      const tag = heading.level === 2 ? 'h2' : 'h3';
+      html.push(`<${tag}${idAttr}>${formatLine(heading.raw)}</${tag}>`);
+      continue;
+    }
+    if (line.startsWith('#### ')) {
+      html.push(`<h4>${formatLine(line.substring(5))}</h4>`);
+      continue;
+    }
+    if (line.startsWith('- ')) {
+      html.push(`<p class="article-list-item">• ${formatLine(line.substring(2))}</p>`);
+      continue;
+    }
+    if (line.startsWith('*') && line.endsWith('*') && !line.startsWith('**') && line.length > 2) {
+      html.push(`<p class="article-italic">${line.substring(1, line.length - 1)}</p>`);
+      continue;
+    }
+    if (line.trim() === '') {
+      continue;
+    }
 
-      return `<p>${formatLine(line)}</p>`;
-    })
-    .join('');
+    if (/^<aside[\s>]/.test(line.trim())) {
+      html.push(line);
+      continue;
+    }
+
+    if (options?.standfirstParagraphs) {
+      html.push(renderStandfirstHtml(line));
+      continue;
+    }
+
+    html.push(`<p>${formatLine(line)}</p>`);
+  }
+
+  return html.join('');
 }
 
 export function splitArticleContent(content: string): {
@@ -218,7 +293,7 @@ export function splitArticleBeforeFirstH2(content: string): {
 
   const introLines = lines.slice(0, firstH2Index);
   const bodyLines = lines.slice(firstH2Index);
-  const introHtml = renderArticleContentLines(introLines);
+  const introHtml = renderArticleContentLines(introLines, undefined, { standfirstParagraphs: true });
   const hasVisibleIntro = introLines.some((line) => line.trim().length > 0);
 
   return {
