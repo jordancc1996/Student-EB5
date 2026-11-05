@@ -52,6 +52,9 @@ function readTocLayoutState() {
   const railRect = railNav?.getBoundingClientRect();
   const mid = window.innerWidth / 2;
   const contentMid = contentRect ? contentRect.left + contentRect.width / 2 : 0;
+  const pairLeft = railRect && contentRect ? Math.min(railRect.left, contentRect.left) : null;
+  const pairRight = railRect && contentRect ? Math.max(railRect.right, contentRect.right) : null;
+  const pairMid = pairLeft != null && pairRight != null ? (pairLeft + pairRight) / 2 : 0;
 
   return {
     inlineVisible: isVisible(inline),
@@ -67,6 +70,7 @@ function readTocLayoutState() {
     scrollWidth: document.documentElement.scrollWidth,
     clientWidth: document.documentElement.clientWidth,
     columnCentered: contentRect != null && Math.abs(contentMid - mid) < 16,
+    pairCentered: pairLeft != null && Math.abs(pairMid - mid) < 16,
     contentWidth: contentRect?.width ?? null,
     contentLeft: contentRect?.left ?? null,
     headerLeft: headerRect?.left ?? null,
@@ -161,9 +165,9 @@ async function assertTocVariant(page, label, width, { contentsless = false, expe
       state.contentWidth <= 760;
     results.push(
       await check(
-        `${label}: article column ${wideEnoughForCenter ? 'centered' : 'in reading range'}`,
-        wideEnoughForCenter ? state.columnCentered : articleWidthOk,
-        `width=${state.contentWidth} centered=${state.columnCentered}`,
+        `${label}: article column ${wideEnoughForCenter ? 'pair centered' : 'in reading range'}`,
+        wideEnoughForCenter ? state.pairCentered && articleWidthOk : articleWidthOk,
+        `width=${state.contentWidth} pairCentered=${state.pairCentered}`,
       ),
     );
   }
@@ -393,13 +397,16 @@ async function main() {
     const layout = await page.evaluate(readTocLayoutState);
     results.push(
       await check(
-        `${width}px: article column ${width >= 1280 ? 'centered' : 'in reading range'}`,
+        `${width}px: article column ${width >= 1280 ? 'pair centered' : 'in reading range'}`,
         width >= 1280
-          ? layout.columnCentered
+          ? layout.pairCentered &&
+            typeof layout.contentWidth === 'number' &&
+            layout.contentWidth >= 640 &&
+            layout.contentWidth <= 760
           : typeof layout.contentWidth === 'number' &&
             layout.contentWidth >= 640 &&
             layout.contentWidth <= 760,
-        `width=${layout.contentWidth} centered=${layout.columnCentered}`,
+        `width=${layout.contentWidth} pairCentered=${layout.pairCentered}`,
       ),
     );
     results.push(
