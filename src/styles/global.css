@@ -1126,8 +1126,9 @@ html {
 
 @media (min-width: 1280px) {
   .research-article-page .article-with-toc {
-    grid-template-columns: minmax(12.5rem, 1fr) minmax(0, 45rem) minmax(12.5rem, 1fr);
+    grid-template-columns: 13.5rem minmax(0, 45rem);
     column-gap: 2.5rem;
+    justify-content: center;
   }
 
   .research-article-page .article-with-toc__main {
