@@ -140,7 +140,7 @@ const OPTCalculatorMainContent = () => {
         <h1 className="text-[2.5rem] font-normal text-muted-foreground mb-4">
           OPT Calculator - F-1 Application and EAD Timelines
         </h1>
-        <p className="text-muted-foreground text-lg mb-8 max-w-2xl">
+        <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto md:mx-0">
           The OPT calculator builds your F-1 application window, earliest start date, and latest EAD end date from a single program end date under USCIS timing rules.
         </p>
 

@@ -1,0 +1,10 @@
+---
+interface Props {
+  class?: string;
+  ratio?: '6-6' | '7-5';
+}
+const { class: className = '', ratio = '6-6' } = Astro.props;
+---
+<div class:list={['layout-split', ratio === '7-5' && 'layout-split--7-5', className]}>
+  <slot />
+</div>
