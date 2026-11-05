@@ -61,33 +61,9 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
 }
 
-/* B — homepage (and any) .section-content that pairs copy with a picture. */
-@media (min-width: 768px) {
-  .section-content:has(> picture) {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    column-gap: 2rem;
-    align-items: start;
-  }
-
-  .section-content:has(> picture) > :not(picture) {
-    grid-column: 1 / span 7;
-    max-width: none;
-  }
-
-  .section-content:has(> picture) > picture {
-    grid-column: 8 / span 5;
-    grid-row: 1 / -1;
-    align-self: start;
-  }
-
-  .section-content:has(> picture) .section-image {
-    max-width: none;
-    margin-inline: 0;
-  }
-}
-
-/* A — center a capped column when it is the main child of the page container. */
+/* A — center a capped column when it is the main child of the page container.
+   Do not restyle homepage sections that were already a centered stack or
+   a centered heading block (Benefits, PartnerCredibility, CTA). */
 @media (min-width: 768px) {
   .section-content,
   main > .max-w-2xl,
@@ -96,10 +72,7 @@
   }
 
   section:has(.grid) > .container > h2,
-  section:has(.layout-grid) > .container > h2,
-  main section h2.text-center,
-  main section .text-center > h2,
-  main section .text-center > p {
+  section:has(.layout-grid) > .container > h2 {
     text-align: left;
   }
 }

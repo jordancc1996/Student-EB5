@@ -1,0 +1,14 @@
+---
+description: All website changes go to the long-lived staging branch, never main
+alwaysApply: true
+---
+
+# Staging branch workflow
+
+Use the long-lived `staging` branch for every website change.
+
+1. Commit and push to `staging` only.
+2. Never push or merge to `main` unless the user explicitly says: "merge staging to main".
+3. After each push, report this preview URL and confirm the Vercel Preview deployment finished:
+   https://student-eb-5-git-staging-jordancchaplin-gmailcoms-projects.vercel.app
+4. When the user says "merge staging to main", merge with a merge commit (no squash, no rebase onto main), push `main`, and confirm the production deploy. Do not delete `staging`.

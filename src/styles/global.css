@@ -175,7 +175,7 @@ html {
 
   .section-content {
     @apply mx-auto px-6;
-    max-width: 75rem;
+    max-width: 56rem; /* 896px — Nov 4 production measure */
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
@@ -185,14 +185,6 @@ html {
       padding-top: 6rem;
       padding-bottom: 6rem;
     }
-  }
-
-  .section-content > .section-title,
-  .section-content > .section-text,
-  .section-content > .section-subtitle,
-  .section-content > h2,
-  .section-content > ul {
-    max-width: 45rem;
   }
 
   .feature-card {
