@@ -42,12 +42,12 @@ const Footer = () => {
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-6">
         {/* Main Footer Content */}
-        <div className="py-16 grid lg:grid-cols-4 gap-8">
+        <div className="py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="lg:col-span-2">
+          <div>
             <Link
               to="/"
-              className="flex items-center space-x-3 mb-6 hover:opacity-90 transition-opacity"
+              className="flex items-center space-x-3 mb-4 hover:opacity-90 transition-opacity"
               aria-label="StudentEB5 Home"
             >
               <OptimizedImage src={logoImg} webpSrc={logoImgWebp} alt="StudentEB5" className="h-10 w-auto" />
@@ -60,7 +60,7 @@ const Footer = () => {
             </p>
 
             <div className="mt-6">
-              <h4 className="text-lg font-semibold mb-3 flex items-center">
+              <h4 className="text-lg font-semibold mb-4 flex items-center">
                 <Mail size={18} className="text-accent mr-2" />
                 Stay Updated
               </h4>
@@ -78,8 +78,8 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-serif font-semibold mb-6">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="text-lg font-serif font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <Link 
@@ -95,8 +95,8 @@ const Footer = () => {
 
           {/* EB-5 Resources */}
           <div>
-            <h4 className="text-lg font-serif font-semibold mb-6">EB-5 Resources</h4>
-            <ul className="space-y-3">
+            <h4 className="text-lg font-serif font-semibold mb-4">EB-5 Resources</h4>
+            <ul className="space-y-2">
               {resourceLinks.map((link, index) => (
                 <li key={index}>
                   <Link 
@@ -109,8 +109,8 @@ const Footer = () => {
               ))}
             </ul>
 
-            <h4 className="text-lg font-serif font-semibold mb-4 mt-6">Private Client Services</h4>
-            <ul className="space-y-3">
+            <h4 className="text-lg font-serif font-semibold mb-4 mt-8">Private Client Services</h4>
+            <ul className="space-y-2">
               {privateClientLinks.map((link, index) => (
                 <li key={index}>
                   <Link
@@ -122,9 +122,11 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
+          </div>
 
-            <h4 className="text-lg font-serif font-semibold mb-4 mt-6">Legal</h4>
-            <ul className="space-y-3">
+          <div>
+            <h4 className="text-lg font-serif font-semibold mb-4">Legal</h4>
+            <ul className="space-y-2">
               {legalLinks.map((link, index) => (
                 <li key={index}>
                   {link.external ? (
@@ -149,7 +151,6 @@ const Footer = () => {
               ))}
             </ul>
 
-            {/* Disclaimer */}
             <div className="mt-8 p-4 bg-primary-muted/20 rounded-lg">
               <h5 className="font-semibold text-accent mb-2">Educational Resource</h5>
               <p className="text-xs text-primary-foreground/70 leading-relaxed">
@@ -162,7 +163,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-primary-foreground/20 py-8">
+        <div className="border-t border-primary-foreground/20 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-primary-foreground/70">
               <span>© {currentYear} StudentEB5. All rights reserved.</span>

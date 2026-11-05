@@ -167,57 +167,47 @@ I'd appreciate:
     },
   ];
 
+  const shareButtonClass =
+    'inline-flex h-9 min-w-[6.5rem] flex-1 items-center justify-center gap-1.5 rounded-md border border-border bg-background px-3 text-xs font-medium text-foreground transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:flex-none';
+
   return (
     <div className="mt-10 pt-8 border-t border-border">
       <div className="flex flex-col gap-4">
-        {/* Section Header */}
         <div className="flex items-center gap-3">
           <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Share this article</span>
           <div className="flex-1 h-px bg-border" />
         </div>
 
-        {/* Social Media Buttons */}
         <div className="flex flex-wrap gap-2">
           {socialPlatforms.map((platform) => (
             <button
               key={platform.name}
               onClick={() => handleShare(platform.name, platform.getUrl(), platform.useDirectLink)}
-              className={`inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium border border-border rounded-lg bg-background text-foreground transition-all duration-200 ${platform.color}`}
+              className={`${shareButtonClass} ${platform.color}`}
               aria-label={`Share on ${platform.name}`}
             >
               {platform.icon}
-              <span className="hidden sm:inline">{platform.name}</span>
+              <span>{platform.name}</span>
+            </button>
+          ))}
+          {aiPlatforms.map((platform) => (
+            <button
+              key={platform.name}
+              onClick={() => copyToClipboard(platform.prompt, platform.name)}
+              className={`${shareButtonClass} ${platform.color} ${copiedPlatform === platform.name ? 'ring-2 ring-offset-2 ring-primary' : ''}`}
+              aria-label={`Share to ${platform.name}`}
+            >
+              {platform.icon}
+              <span>
+                {copiedPlatform === platform.name ? 'Copied!' : `Share to ${platform.name}`}
+              </span>
             </button>
           ))}
         </div>
 
-        {/* AI Share Buttons - Separated Section */}
-        <div className="mt-4 pt-4 border-t border-border/50">
-          <div className="flex items-center gap-3 mb-3">
-            <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Discuss with AI</span>
-            <div className="flex-1 h-px bg-border/50" />
-          </div>
-          
-          <div className="flex flex-wrap gap-2">
-            {aiPlatforms.map((platform) => (
-              <button
-                key={platform.name}
-                onClick={() => copyToClipboard(platform.prompt, platform.name)}
-                className={`inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium border border-border rounded-lg bg-background text-foreground transition-all duration-200 ${platform.color} ${copiedPlatform === platform.name ? 'ring-2 ring-offset-2 ring-primary' : ''}`}
-                aria-label={`Share to ${platform.name}`}
-              >
-                {platform.icon}
-                <span>
-                  {copiedPlatform === platform.name ? 'Copied!' : `Share to ${platform.name}`}
-                </span>
-              </button>
-            ))}
-          </div>
-          
-          <p className="mt-3 text-sm text-muted-foreground">
-            Click to copy a formatted prompt, then paste it into your preferred AI assistant.
-          </p>
-        </div>
+        <p className="text-sm text-muted-foreground">
+          Click ChatGPT or Claude to copy a formatted prompt, then paste it into your preferred AI assistant.
+        </p>
       </div>
     </div>
   );

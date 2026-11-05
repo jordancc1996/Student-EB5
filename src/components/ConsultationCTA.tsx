@@ -121,7 +121,7 @@ export const ConsultationCTA = ({
 
   if (isSubmitted) {
     return (
-      <section id="consultation-form" className="py-16 bg-primary/5">
+      <section id="consultation-form" className={`${articleForm ? 'py-16' : 'section-padding'} bg-primary/5`}>
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <div className="bg-background rounded-2xl p-8 shadow-lg">
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -138,7 +138,7 @@ export const ConsultationCTA = ({
   }
 
   return (
-    <section id="consultation-form" className={`py-16 bg-primary/5${articleForm ? ' article-page-form' : ''}`}>
+    <section id="consultation-form" className={`${articleForm ? 'py-16 article-page-form' : 'section-padding'} bg-primary/5`}>
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left side - Content */}
