@@ -41,7 +41,7 @@ const teaInvestmentFormatted = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 0,
 }).format(TEA_INVESTMENT_THRESHOLD);
 
-const pathwayFont = "'Inter', 'Helvetica Neue', sans-serif";
+const pathwayFont = "var(--font-body-serif)";
 const currentYear = new Date().getFullYear();
 const lastUpdatedIso =
   findLandingPageByUrl('/pathways/h1b-60-day-clock')?.lastReviewed ?? FEATURE_BASELINE_DATE;
@@ -112,7 +112,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
           </div>
           <p class="text-white/60 text-sm uppercase tracking-widest mb-4 font-sans">Pathways → H-1B Professionals</p>
           <h1
-            class="font-sans text-4xl md:text-5xl lg:text-[60px] font-bold text-white mb-6 max-w-4xl mx-auto leading-tight"
+            class="editorial-h1 text-white mb-6 max-w-4xl mx-auto"
           >
             You Have 60 Days.<br />Here's How to Make Them Count.
           </h1>
@@ -168,7 +168,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
       <section class="py-16 bg-background">
         <div class="container mx-auto px-6 max-w-6xl">
-          <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center" style={`font-family: ${pathwayFont}`}>
+          <h2 class="editorial-h2 mb-8 text-center mt-0">
             Relevant Blog Articles
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">

@@ -135,11 +135,11 @@ const relatedResearchCards = relatedResearch.map((item) => {
             variant="dark"
             initialPathname={new URL(canonicalUrl).pathname}
           />
-          <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-6 mb-4 leading-tight">
+          <h1 class="editorial-h1 text-white mt-6 mb-4">
             {h1}
           </h1>
           <LastUpdated date={lastUpdatedIso} variant="onDark" class="mb-4" />
-          <p class="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl">
+          <p class="editorial-prose text-lg md:text-xl text-white/90 max-w-3xl mx-auto md:mx-0">
             {subhead}
           </p>
         </div>
@@ -147,7 +147,7 @@ const relatedResearchCards = relatedResearch.map((item) => {
 
       <PreferredSourcesCTA />
 
-      <div class="container mx-auto px-6 py-12 md:py-16 max-w-4xl prose-pathway">
+      <div class="container mx-auto px-5 py-12 md:py-16 max-w-4xl prose-pathway editorial-prose">
         {pathwayPhotos[0] && <EditorialPhoto id={pathwayPhotos[0].id} layout={pathwayPhotos[0].layout} />}
         <slot />
         {pathwayPhotos[1] && <EditorialPhoto id={pathwayPhotos[1].id} layout={pathwayPhotos[1].layout} />}
@@ -157,10 +157,10 @@ const relatedResearchCards = relatedResearch.map((item) => {
         relatedResearch.length > 0 && (
           <section class="py-16 md:py-20 bg-muted/30 border-t border-border">
             <div class="container mx-auto px-6 max-w-6xl">
-              <h2 class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+              <h2 class="editorial-h2 text-foreground mb-8 text-left mt-0">
                 Related Research
               </h2>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="layout-grid md:grid md:grid-cols-2 md:gap-6">
                 {relatedResearchCards.map((card) => (
                   <RelatedResearchCard
                     item={card.item}
@@ -176,7 +176,7 @@ const relatedResearchCards = relatedResearch.map((item) => {
 
       <section class="py-12 md:py-16 border-t border-border">
         <div class="container mx-auto px-6 max-w-4xl text-center mb-8">
-          <h2 class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-3">
+          <h2 class="editorial-h2 text-foreground mb-3 mt-0">
             {secondaryCtaText}
           </h2>
         </div>
@@ -199,22 +199,35 @@ const relatedResearchCards = relatedResearch.map((item) => {
 
 <style>
   .prose-pathway :global(h2) {
-    font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: 1.625rem;
+    font-weight: 600;
     color: hsl(var(--foreground));
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-    line-height: 1.3;
+    line-height: 1.25;
+  }
+  .prose-pathway :global(h3) {
+    font-family: var(--font-display);
+    font-size: 1.3125rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose-pathway :global(h4) {
+    font-family: var(--font-ui);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
   }
   .prose-pathway :global(h2:first-child) {
     margin-top: 0;
   }
   .prose-pathway :global(p) {
-    color: hsl(var(--muted-foreground));
-    line-height: 1.75;
-    margin-bottom: 1rem;
-    font-size: 1.05rem;
+    color: hsl(0 0% 10%);
+    line-height: 1.65;
+    margin-bottom: 1.4em;
+    font-size: inherit;
   }
   .prose-pathway :global(a) {
     color: hsl(var(--primary));
@@ -223,6 +236,18 @@ const relatedResearchCards = relatedResearch.map((item) => {
   }
   .prose-pathway :global(a:hover) {
     opacity: 0.9;
+  }
+  @media (min-width: 768px) {
+    .prose-pathway :global(h2) {
+      font-size: 2rem;
+      margin-top: 3.5rem;
+    }
+    .prose-pathway :global(h3) {
+      font-size: 1.5rem;
+    }
+    .prose-pathway :global(h4) {
+      font-size: 1rem;
+    }
   }
   .prose-pathway :global(ol) {
     list-style: decimal;

@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { LinkedInProfileField, useLinkedInField } from '@/components/LinkedInProfileField';
 import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 
 interface MultiStepLeadCaptureProps {
@@ -52,6 +53,7 @@ export const MultiStepLeadCapture = ({
   const [visaError, setVisaError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [gotcha, setGotcha] = useState('');
+  const { linkedinId, linkedinUrl, setLinkedinUrl, linkedinError, resolveLinkedInUrl } = useLinkedInField();
   const { toast } = useToast();
 
   const validateEmail = (email: string): boolean => {
@@ -102,12 +104,15 @@ export const MultiStepLeadCapture = ({
       setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
+    const linkedinNormalized = resolveLinkedInUrl();
+    if (linkedinNormalized === null) return;
 
     setIsSubmitting(true);
     const result = await submitToFormcarry({
       email,
       name,
       phone,
+      linkedin_url: linkedinNormalized,
       visaStatus,
       occupation,
       source: 'Footer Newsletter',
@@ -225,6 +230,15 @@ export const MultiStepLeadCapture = ({
               <p id={phoneErrorId} role="alert" className="text-sm text-destructive">{phoneError}</p>
             ) : null}
           </div>
+
+          <LinkedInProfileField
+            id={`footer-linkedin-${linkedinId}`}
+            value={linkedinUrl}
+            onChange={setLinkedinUrl}
+            error={linkedinError}
+            labelClassName="text-sm font-medium"
+            inputClassName={inputClassName}
+          />
 
           <div className="space-y-2">
             <Label htmlFor="footer-visa" className="text-sm font-medium">

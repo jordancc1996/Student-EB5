@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { LinkedInProfileField, useLinkedInField } from '@/components/LinkedInProfileField';
 import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
@@ -25,6 +26,7 @@ const CalculatorLeadModal = ({ isOpen, onClose }: CalculatorLeadModalProps) => {
   const [submitError, setSubmitError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [gotcha, setGotcha] = useState('');
+  const { linkedinId, linkedinUrl, setLinkedinUrl, linkedinError, resolveLinkedInUrl } = useLinkedInField();
 
   const handleClose = useCallback(() => {
     onClose();
@@ -38,12 +40,15 @@ const CalculatorLeadModal = ({ isOpen, onClose }: CalculatorLeadModalProps) => {
       setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
+    const linkedinNormalized = resolveLinkedInUrl();
+    if (linkedinNormalized === null) return;
     setSubmitting(true);
     setSubmitError('');
     const result = await submitToFormcarry({
       name,
       email,
       phone,
+      linkedin_url: linkedinNormalized,
       source: 'EB-5 Calculator CTA',
       _gotcha: gotcha,
     });
@@ -132,6 +137,14 @@ const CalculatorLeadModal = ({ isOpen, onClose }: CalculatorLeadModalProps) => {
               <p id={phoneErrorId} role="alert" className="text-destructive text-sm">{phoneError}</p>
             ) : null}
           </div>
+          <LinkedInProfileField
+            id={`calc-lead-linkedin-${linkedinId}`}
+            value={linkedinUrl}
+            onChange={setLinkedinUrl}
+            error={linkedinError}
+            inputClassName="h-11"
+            errorClassName="text-destructive text-sm"
+          />
           {submitError ? (
             <p id={submitErrorId} role="alert" className="text-destructive text-sm">{submitError}</p>
           ) : null}

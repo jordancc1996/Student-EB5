@@ -32,7 +32,7 @@ const NewsArticleShell = ({ article, children }: NewsArticleShellProps) => (
         >
           {article.category}
         </Badge>
-        <h1 className={article.heroTitleClass}>{article.title}</h1>
+        <h1 className="editorial-h1 mb-6 text-white drop-shadow-lg">{article.title}</h1>
         <p className="text-lg md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto mb-8 drop-shadow">
           {article.heroSubtitle}
         </p>

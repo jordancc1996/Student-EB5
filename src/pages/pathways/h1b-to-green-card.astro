@@ -33,7 +33,7 @@ const keywords = [
   'H-1B backlog solution',
 ];
 
-const pathwayFont = "'Inter', 'Helvetica Neue', sans-serif";
+const pathwayFont = "var(--font-body-serif)";
 const lastUpdatedIso =
   findLandingPageByUrl('/pathways/h1b-to-green-card')?.lastReviewed ?? FEATURE_BASELINE_DATE;
 
@@ -167,7 +167,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
         </div>
         <div class="relative z-10 container mx-auto px-4 py-20 text-center">
           <p class="text-white/60 text-sm uppercase tracking-widest mb-4 font-sans">Pathways → H-1B Professionals</p>
-          <h1 class="font-sans text-4xl md:text-5xl lg:text-[60px] font-bold text-white mb-6 max-w-4xl mx-auto leading-tight">
+          <h1 class="editorial-h1 text-white mb-6 max-w-4xl mx-auto">
             H-1B to Green Card EB-5 - Concurrent Filing Without Employer Dependency
           </h1>
           <LastUpdated date={lastUpdatedIso} variant="onDark" class="mb-6" />
@@ -226,10 +226,10 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
             >
               Market Update, April 2026
             </p>
-            <h2 class="font-serif text-2xl font-bold mb-3" style="color: #000000;">
+            <h2 class="editorial-h2 mb-3 mt-0" style="color: #000000;">
               A Rare Window for EB-5 Investors: Concurrent Filing is Open NOW
             </h2>
-            <p class="font-serif text-base leading-relaxed" style="color: #000000;">
+            <p class="editorial-prose text-base" style="color: #000000;">
               EB-5 reserved categories are current on the most recent March 2026 Visa Bulletin. This means that eligible investors in the United States can <span class="underline">file I-526E and I-485 at the same time</span> and bypass years of waiting in other visa categories. See our guide to <a href="/research/j1-f1-h1b-eb5-concurrent-filing" class="underline">EB-5 concurrent filing for H-1B holders</a>. Petitions filed before September 30, 2026, will be grandfathered under current provisions and protect EB-5 investors from any future lapse or congressional inaction. After September 30, 2026, these protections disappear. Review the <a href="/research/eb5-grandfathering-2026-2027-deadlines" class="underline">EB-5 grandfathering deadline analysis</a> for timing details.
             </p>
           </div>
@@ -246,7 +246,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
       <section class="py-40" style="background-color: #FFFFFF;">
         <div class="container mx-auto px-4 max-w-4xl">
-          <h2 class="font-serif text-2xl md:text-[28px] font-bold mb-4 text-center" style="color: #000000;">
+          <h2 class="editorial-h2 mb-4 text-center mt-0" style="color: #000000;">
             H-1B vs. EB-5: A Side-by-Side Reality Check
           </h2>
           <p class="text-center mb-12 max-w-2xl mx-auto" style={`font-family: ${pathwayFont}; line-height: 1.7; color: #000000; font-size: 15px;`}>
@@ -254,7 +254,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
           </p>
 
           <div class="hidden md:block overflow-x-auto">
-            <table class="w-full" style="border-collapse: collapse; border-radius: 0;">
+            <table class="editorial-table w-full" style="border-collapse: collapse; border-radius: 0;">
               <thead>
                 <tr>
                   <th class="text-left w-1/4" style={`padding: 12px 12px; font-family: ${pathwayFont}; font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; color: #000000; border-bottom: 2px solid #000000;`}></th>
@@ -301,7 +301,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
           </div>
 
           <div class="mt-12 text-center">
-            <h3 class="font-serif text-xl md:text-2xl font-bold mb-3" style="color: #000000;">
+            <h3 class="editorial-h3 mb-3 mt-0" style="color: #000000;">
               The Numbers Don't Lie. What's Your Best Path?
             </h3>
             <p class="mb-6 max-w-xl mx-auto" style={`font-family: ${pathwayFont}; line-height: 1.7; color: #000000; font-size: 15px;`}>
@@ -319,7 +319,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
           <div class="mt-16 max-w-3xl mx-auto space-y-10 text-left">
             <div>
-              <h2 class="font-serif text-2xl md:text-[28px] font-bold mb-4" style="color: #000000;">
+              <h2 class="editorial-h2 mb-4 mt-0" style="color: #000000;">
                 What If I Didn't Get Selected in the H-1B Lottery?
               </h2>
               <p style={`font-family: ${pathwayFont}; line-height: 1.7; color: #000000; font-size: 15px;`}>
@@ -327,7 +327,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
               </p>
             </div>
             <div>
-              <h2 class="font-serif text-2xl md:text-[28px] font-bold mb-4" style="color: #000000;">
+              <h2 class="editorial-h2 mb-4 mt-0" style="color: #000000;">
                 A Path That Doesn't Depend on Your Employer
               </h2>
               <p style={`font-family: ${pathwayFont}; line-height: 1.7; color: #000000; font-size: 15px;`}>
@@ -335,7 +335,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
               </p>
             </div>
             <div>
-              <h2 class="font-serif text-2xl md:text-[28px] font-bold mb-4" style="color: #000000;">
+              <h2 class="editorial-h2 mb-4 mt-0" style="color: #000000;">
                 Running Out of H-1B Time?
               </h2>
               <p style={`font-family: ${pathwayFont}; line-height: 1.7; color: #000000; font-size: 15px;`}>
@@ -348,7 +348,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
       <section class="py-40 bg-muted/30">
         <div class="container mx-auto px-4 max-w-4xl">
-          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4 text-center" style={`font-family: ${pathwayFont}`}>
+          <h2 class="editorial-h2 text-foreground mb-4 text-center mt-0">
             Concurrent Filing: The Killer Feature
           </h2>
           <p class="text-muted-foreground text-center mb-12 max-w-3xl mx-auto text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
@@ -358,21 +358,21 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
           <div class="grid md:grid-cols-3 gap-6">
             <div class="bg-card border border-border rounded-lg p-6 text-center">
               <LucideIcon name="FileText" size={32} className="text-primary mx-auto mb-4" />
-              <h3 class="font-sans text-lg font-medium text-foreground mb-2" style={`font-family: ${pathwayFont}`}>Form I-485</h3>
+              <h3 class="editorial-h3 text-foreground mb-2 mt-0">Form I-485</h3>
               <p class="text-sm text-muted-foreground" style={`font-family: ${pathwayFont}`}>
                 Adjustment of Status: your actual green card application, filed at the same time as your I-526E.
               </p>
             </div>
             <div class="bg-card border border-border rounded-lg p-6 text-center">
               <LucideIcon name="Briefcase" size={32} className="text-primary mx-auto mb-4" />
-              <h3 class="font-sans text-lg font-medium text-foreground mb-2" style={`font-family: ${pathwayFont}`}>Form I-765 (EAD)</h3>
+              <h3 class="editorial-h3 text-foreground mb-2 mt-0">Form I-765 (EAD)</h3>
               <p class="text-sm text-muted-foreground" style={`font-family: ${pathwayFont}`}>
                 Employment Authorization Document: work for any employer, start a business, or change jobs freely.
               </p>
             </div>
             <div class="bg-card border border-border rounded-lg p-6 text-center">
               <LucideIcon name="Shield" size={32} className="text-primary mx-auto mb-4" />
-              <h3 class="font-sans text-lg font-medium text-foreground mb-2" style={`font-family: ${pathwayFont}`}>Form I-131 (AP)</h3>
+              <h3 class="editorial-h3 text-foreground mb-2 mt-0">Form I-131 (AP)</h3>
               <p class="text-sm text-muted-foreground" style={`font-family: ${pathwayFont}`}>
                 Advance Parole: travel internationally and re-enter the U.S. without risking your pending application.
               </p>
@@ -390,7 +390,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
           </div>
 
           <div class="mt-12 text-center">
-            <h3 class="font-sans text-xl md:text-2xl font-medium text-foreground mb-3" style={`font-family: ${pathwayFont}`}>
+            <h3 class="editorial-h3 text-foreground mb-3 mt-0">
               Your Concurrent Filing Timeline Starts With One Call
             </h3>
             <p class="text-muted-foreground text-base mb-6 max-w-xl mx-auto" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
@@ -410,7 +410,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
       <section id="feasibility-calculator" class="py-40 scroll-mt-[140px]">
         <div class="container mx-auto px-4 max-w-4xl">
-          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4 text-center" style={`font-family: ${pathwayFont}`}>
+          <h2 class="editorial-h2 text-foreground mb-4 text-center mt-0">
             Source of Funds for Professionals
           </h2>
           <p class="text-muted-foreground text-center mb-12 max-w-3xl mx-auto text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
@@ -425,7 +425,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
                     <LucideIcon name={source.icon} size={24} className="text-primary" />
                   </div>
                   <div>
-                    <h3 class="font-sans text-lg font-medium text-foreground mb-1" style={`font-family: ${pathwayFont}`}>{source.title}</h3>
+                    <h3 class="editorial-h3 text-foreground mb-1 mt-0">{source.title}</h3>
                     <p class="text-sm text-muted-foreground" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
                       {source.description}
                     </p>
@@ -441,7 +441,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
       <section class="py-40 bg-muted/30">
         <div class="container mx-auto px-4 max-w-3xl">
-          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-8 text-center" style={`font-family: ${pathwayFont}`}>
+          <h2 class="editorial-h2 text-foreground mb-8 text-center mt-0">
             What H-1B Holders Are Actually Saying
           </h2>
           <div class="space-y-8">
@@ -477,7 +477,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
       <section class="py-40">
         <div class="container mx-auto px-4 max-w-3xl">
-          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-8 text-center" style={`font-family: ${pathwayFont}`}>
+          <h2 class="editorial-h2 text-foreground mb-8 text-center mt-0">
             Backed by Attorneys and Regional Centers With a Proven Track Record
           </h2>
 

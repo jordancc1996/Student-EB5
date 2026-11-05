@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { LinkedInProfileField, useLinkedInField } from '@/components/LinkedInProfileField';
 import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
@@ -42,6 +43,7 @@ const StudentLeadModal = ({ isOpen, onClose, mode }: StudentLeadModalProps) => {
   const [submitError, setSubmitError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [gotcha, setGotcha] = useState('');
+  const { linkedinId, linkedinUrl, setLinkedinUrl, linkedinError, setLinkedinError, resolveLinkedInUrl } = useLinkedInField();
 
   const config = MODAL_CONFIG[mode];
 
@@ -55,6 +57,8 @@ const StudentLeadModal = ({ isOpen, onClose, mode }: StudentLeadModalProps) => {
       setSubmitError('');
       setPhoneError('');
       setGotcha('');
+      setLinkedinUrl('');
+      setLinkedinError('');
     }, 300);
   }, [onClose]);
 
@@ -66,9 +70,11 @@ const StudentLeadModal = ({ isOpen, onClose, mode }: StudentLeadModalProps) => {
       setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
+    const linkedinNormalized = resolveLinkedInUrl();
+    if (linkedinNormalized === null) return;
     setSubmitting(true);
     setSubmitError('');
-    const result = await submitToFormcarry({ name, email, phone, source: config.source, _gotcha: gotcha });
+    const result = await submitToFormcarry({ name, email, phone, linkedin_url: linkedinNormalized, source: config.source, _gotcha: gotcha });
     if (result.ok) {
       if (mode === 'tuition') {
         window.location.href = '/tools/tuition-calculator';
@@ -152,6 +158,14 @@ const StudentLeadModal = ({ isOpen, onClose, mode }: StudentLeadModalProps) => {
                   <p id={phoneErrorId} role="alert" className="text-destructive text-sm">{phoneError}</p>
                 ) : null}
               </div>
+              <LinkedInProfileField
+                id={`student-lead-linkedin-${linkedinId}`}
+                value={linkedinUrl}
+                onChange={setLinkedinUrl}
+                error={linkedinError}
+                inputClassName="h-11"
+                errorClassName="text-destructive text-sm"
+              />
               {submitError ? (
                 <p id={submitErrorId} role="alert" className="text-destructive text-sm">{submitError}</p>
               ) : null}

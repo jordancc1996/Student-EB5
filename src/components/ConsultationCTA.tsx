@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { LinkedInProfileField, useLinkedInField } from '@/components/LinkedInProfileField';
 import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { Calendar, Clock, Users } from 'lucide-react';
 
@@ -49,6 +50,7 @@ export const ConsultationCTA = ({
   const [visaError, setVisaError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [gotcha, setGotcha] = useState('');
+  const { linkedinId, linkedinUrl, setLinkedinUrl, linkedinError, resolveLinkedInUrl } = useLinkedInField();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedName, setSubmittedName] = useState('');
   const [submittedEmail, setSubmittedEmail] = useState('');
@@ -82,6 +84,7 @@ export const ConsultationCTA = ({
       setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
+    if (resolveLinkedInUrl() === null) return;
     setPhoneError('');
     setStep(2);
   };
@@ -97,12 +100,18 @@ export const ConsultationCTA = ({
       setStep(1);
       return;
     }
+    const linkedinNormalized = resolveLinkedInUrl();
+    if (linkedinNormalized === null) {
+      setStep(1);
+      return;
+    }
 
     setIsSubmitting(true);
     const result = await submitToFormcarry({
       email,
       name,
       phone,
+      linkedin_url: linkedinNormalized,
       visaStatus,
       message,
       formType: 'consultation_request',
@@ -121,7 +130,7 @@ export const ConsultationCTA = ({
 
   if (isSubmitted) {
     return (
-      <section id="consultation-form" className="py-16 bg-primary/5">
+      <section id="consultation-form" className={`${articleForm ? 'py-16' : 'section-padding'} bg-primary/5`}>
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <div className="bg-background rounded-2xl p-8 shadow-lg">
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -138,7 +147,7 @@ export const ConsultationCTA = ({
   }
 
   return (
-    <section id="consultation-form" className={`py-16 bg-primary/5${articleForm ? ' article-page-form' : ''}`}>
+    <section id="consultation-form" className={`${articleForm ? 'py-16 article-page-form' : 'section-padding'} bg-primary/5`}>
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left side - Content */}
@@ -219,6 +228,15 @@ export const ConsultationCTA = ({
                       <p id={phoneErrorId} role="alert" className="text-sm text-destructive">{phoneError}</p>
                     ) : null}
                   </div>
+
+                  <LinkedInProfileField
+                    id={`consultation-linkedin-${linkedinId}`}
+                    value={linkedinUrl}
+                    onChange={setLinkedinUrl}
+                    error={linkedinError}
+                    labelClassName={articleForm ? 'text-base' : undefined}
+                    inputClassName={articleForm ? 'text-base md:text-base' : undefined}
+                  />
 
                   <Button type="submit" className="w-full" size="lg">
                     {buttonLabel}

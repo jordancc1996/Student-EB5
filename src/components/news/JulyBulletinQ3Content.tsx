@@ -5,9 +5,11 @@ const article = getNewsArticle('july-2026-visa-bulletin-eb5-q3-outlook')!;
 
 const JulyBulletinQ3Content = () => (
   <NewsArticleShell article={article}>
-              <p>
-                July 2026 visa bulletin EB-5 confirms India unreserved EB-5 is exhausted for FY 2026, while rural, high-unemployment, and infrastructure reserved categories remain current for Q3 filers.
-              </p>
+              <div className="article-intro">
+                <p>
+                  July 2026 visa bulletin EB-5 confirms India unreserved EB-5 is exhausted for FY 2026, while rural, high-unemployment, and infrastructure reserved categories remain current for Q3 filers.
+                </p>
+              </div>
 
               <h2>Unreserved Category is Exhausted</h2>
               <p>

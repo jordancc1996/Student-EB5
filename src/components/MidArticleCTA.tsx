@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { LinkedInProfileField, useLinkedInField } from '@/components/LinkedInProfileField';
 import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import type { ArticlePathwayCta } from '@/lib/research/resolveArticlePathway';
 
@@ -24,6 +25,7 @@ const MidArticleCTA = ({ mid, pathwayContext }: MidArticleCTAProps) => {
   const [submitError, setSubmitError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [gotcha, setGotcha] = useState('');
+  const { linkedinId, linkedinUrl, setLinkedinUrl, linkedinError, resolveLinkedInUrl } = useLinkedInField();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,6 +34,8 @@ const MidArticleCTA = ({ mid, pathwayContext }: MidArticleCTAProps) => {
       setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
+    const linkedinNormalized = resolveLinkedInUrl();
+    if (linkedinNormalized === null) return;
     setSubmitting(true);
     setSubmitError('');
     setPhoneError('');
@@ -39,6 +43,7 @@ const MidArticleCTA = ({ mid, pathwayContext }: MidArticleCTAProps) => {
       fullName,
       email,
       phone,
+      linkedin_url: linkedinNormalized,
       source: `Mid-Article CTA – ${pathwayContext}`,
       pathwayContext,
       _gotcha: gotcha,
@@ -143,6 +148,13 @@ const MidArticleCTA = ({ mid, pathwayContext }: MidArticleCTAProps) => {
                   {!submitting && <ArrowRight className="ml-1.5 h-3.5 w-3.5" />}
                 </Button>
               </div>
+              <LinkedInProfileField
+                id={`mid-linkedin-${linkedinId}`}
+                value={linkedinUrl}
+                onChange={setLinkedinUrl}
+                error={linkedinError}
+                inputClassName="h-10 text-base"
+              />
               {submitError ? (
                 <p id={submitErrorId} role="alert" className="text-sm text-destructive">{submitError}</p>
               ) : null}

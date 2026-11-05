@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { CheckCircle } from 'lucide-react';
 import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { LinkedInProfileField, useLinkedInField } from '@/components/LinkedInProfileField';
 import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 
 const pathwayFont = "'Inter', 'Helvetica Neue', sans-serif";
@@ -29,6 +30,7 @@ const GiftedFundsModal = ({ open, onOpenChange }: GiftedFundsModalProps) => {
   const [submitError, setSubmitError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [gotcha, setGotcha] = useState('');
+  const { linkedinId, linkedinUrl, setLinkedinUrl, linkedinError, resolveLinkedInUrl } = useLinkedInField();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,12 +39,15 @@ const GiftedFundsModal = ({ open, onOpenChange }: GiftedFundsModalProps) => {
       setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
+    const linkedinNormalized = resolveLinkedInUrl();
+    if (linkedinNormalized === null) return;
     setSubmitting(true);
     setSubmitError('');
     const result = await submitToFormcarry({
       name,
       email,
       phone,
+      linkedin_url: linkedinNormalized,
       parentCountry: country,
       investableAssets: assets,
       visaStatus,
@@ -123,6 +128,14 @@ const GiftedFundsModal = ({ open, onOpenChange }: GiftedFundsModalProps) => {
                   <p id={phoneErrorId} role="alert" className="text-destructive text-sm mt-1">{phoneError}</p>
                 ) : null}
               </div>
+              <LinkedInProfileField
+                id={`gf-linkedin-${linkedinId}`}
+                value={linkedinUrl}
+                onChange={setLinkedinUrl}
+                error={linkedinError}
+                labelClassName="text-sm font-medium"
+                errorClassName="text-destructive text-sm mt-1"
+              />
               <div>
                 <Label htmlFor="gf-country" className="text-sm font-medium">Parent's Country of Origin</Label>
                 <Input id="gf-country" value={country} onChange={e => setCountry(e.target.value)} placeholder="e.g. India, China, Brazil" />

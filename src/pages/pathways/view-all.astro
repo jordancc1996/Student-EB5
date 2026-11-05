@@ -191,10 +191,10 @@ const compareSectionPages = indexablePages.filter((page) => page.id.startsWith('
         }
         <div class="relative z-10 container mx-auto px-6 pt-28 pb-12 md:pb-16 max-w-4xl w-full">
           <Breadcrumb client:load customTitle="View All Pathways" variant="dark" initialPathname="/pathways/view-all" />
-          <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-6 mb-4 leading-tight">
+          <h1 class="editorial-h1 text-white mt-6 mb-4">
             {h1}
           </h1>
-          <p class="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl">
+          <p class="editorial-prose text-lg md:text-xl text-white/90 max-w-3xl mx-auto md:mx-0">
             {subhead}
           </p>
         </div>
@@ -206,13 +206,13 @@ const compareSectionPages = indexablePages.filter((page) => page.id.startsWith('
         {
           statusSections.length > 0 && (
             <section aria-labelledby="by-status-heading">
-              <h2 id="by-status-heading" class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-6">
+              <h2 id="by-status-heading" class="editorial-h2 text-foreground mb-6 mt-0">
                 By Immigration Status
               </h2>
               <div class="space-y-8">
                 {statusSections.map((section) => (
                   <div>
-                    <h3 class="font-serif text-xl font-semibold text-foreground mb-3">{section.label}</h3>
+                    <h3 class="editorial-h3 text-foreground mb-3 mt-0">{section.label}</h3>
                     <ul class="space-y-2 list-none pl-0 m-0">
                       {section.pages.map((page) => (
                         <li>
@@ -235,13 +235,13 @@ const compareSectionPages = indexablePages.filter((page) => page.id.startsWith('
         {
           countrySections.length > 0 && (
             <section aria-labelledby="by-country-heading">
-              <h2 id="by-country-heading" class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-6">
+              <h2 id="by-country-heading" class="editorial-h2 text-foreground mb-6 mt-0">
                 By Country
               </h2>
               <div class="space-y-8">
                 {countrySections.map((section) => (
                   <div>
-                    <h3 class="font-serif text-xl font-semibold text-foreground mb-3">{section.label}</h3>
+                    <h3 class="editorial-h3 text-foreground mb-3 mt-0">{section.label}</h3>
                     <ul class="space-y-2 list-none pl-0 m-0 border-l border-border pl-4">
                       {section.pages.map((page) => (
                         <li>
@@ -264,13 +264,13 @@ const compareSectionPages = indexablePages.filter((page) => page.id.startsWith('
         {
           situationSections.length > 0 && (
             <section aria-labelledby="by-situation-heading">
-              <h2 id="by-situation-heading" class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-6">
+              <h2 id="by-situation-heading" class="editorial-h2 text-foreground mb-6 mt-0">
                 By Situation
               </h2>
               <div class="space-y-8">
                 {situationSections.map((section) => (
                   <div>
-                    <h3 class="font-serif text-xl font-semibold text-foreground mb-3">{section.label}</h3>
+                    <h3 class="editorial-h3 text-foreground mb-3 mt-0">{section.label}</h3>
                     <ul class="space-y-2 list-none pl-0 m-0">
                       {section.pages.map((page) => (
                         <li>
@@ -295,7 +295,7 @@ const compareSectionPages = indexablePages.filter((page) => page.id.startsWith('
             <section aria-labelledby="investment-funding-heading">
               <h2
                 id="investment-funding-heading"
-                class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-6"
+                class="editorial-h2 text-foreground mb-6 mt-0"
               >
                 EB-5 Investment &amp; Funding
               </h2>
@@ -318,7 +318,7 @@ const compareSectionPages = indexablePages.filter((page) => page.id.startsWith('
         {
           compareSectionPages.length > 0 && (
             <section aria-labelledby="compare-heading">
-              <h2 id="compare-heading" class="font-serif text-2xl md:text-3xl font-bold text-foreground mb-6">
+              <h2 id="compare-heading" class="editorial-h2 text-foreground mb-6 mt-0">
                 Compare Your Options
               </h2>
               <ul class="space-y-2 list-none pl-0 m-0">

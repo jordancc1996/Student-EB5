@@ -32,7 +32,7 @@ const keywords = [
   'self sponsored green card for students',
 ];
 
-const pathwayFont = "'Inter', 'Helvetica Neue', sans-serif";
+const pathwayFont = "var(--font-body-serif)";
 const lastUpdatedIso =
   findLandingPageByUrl('/pathways/f1-to-eb5-self-sponsored-green-card')?.lastReviewed ??
   FEATURE_BASELINE_DATE;
@@ -142,7 +142,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
         </div>
         <div class="relative z-10 container mx-auto px-4 py-20 text-center">
           <p class="text-white/60 text-sm uppercase tracking-widest mb-4 font-sans">Pathways → International Students</p>
-          <h1 class="font-sans text-4xl md:text-5xl lg:text-[60px] font-bold text-white mb-6 max-w-4xl mx-auto leading-tight">
+          <h1 class="editorial-h1 text-white mb-6 max-w-4xl mx-auto">
             F-1 Student EB-5 Green Card - Self-Sponsored Path Past the Lottery
           </h1>
           <LastUpdated date={lastUpdatedIso} variant="onDark" class="mb-6" />
@@ -190,10 +190,10 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
             >
               Market Update, April 2026
             </p>
-            <h2 class="font-serif text-2xl font-bold mb-3" style="color: #000000;">
+            <h2 class="editorial-h2 mb-3 mt-0" style="color: #000000;">
               The Filing Window for International Students Is Open NOW
             </h2>
-            <p class="font-serif text-base leading-relaxed" style="color: #000000;">
+            <p class="editorial-prose text-base" style="color: #000000;">
               EB-5 reserved categories are current on the most recent Visa Bulletin. International students on F-1/OPT can <span class="underline">file I-526E and I-485 concurrently</span> and bypass the H-1B lottery entirely. See our guide to <a href="/research/j1-f1-h1b-eb5-concurrent-filing" class="underline">EB-5 concurrent filing for F-1 and H-1B holders</a>. Petitions filed before September 30, 2026 are grandfathered under current provisions. After that date, these protections disappear. Review the <a href="/research/eb5-grandfathering-2026-2027-deadlines" class="underline">EB-5 grandfathering deadline analysis</a> for timing details.
             </p>
           </div>
@@ -210,7 +210,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
       <section class="py-20">
         <div class="container mx-auto px-4 max-w-4xl">
-          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4 text-center" style={`font-family: ${pathwayFont}`}>
+          <h2 class="editorial-h2 text-foreground mb-4 text-center mt-0">
             The Tuition ROI: Save $80,000–$160,000
           </h2>
           <p class="text-muted-foreground text-center mb-12 max-w-3xl mx-auto text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
@@ -247,7 +247,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
       <section class="py-20 bg-muted/30">
         <div class="container mx-auto px-4 max-w-4xl">
-          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4 text-center" style={`font-family: ${pathwayFont}`}>
+          <h2 class="editorial-h2 text-foreground mb-4 text-center mt-0">
             The Hiring Advantage
           </h2>
           <p class="text-muted-foreground text-center mb-12 max-w-3xl mx-auto text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
@@ -256,7 +256,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
           <div class="grid md:grid-cols-2 gap-8">
             <div class="border border-destructive/30 rounded-lg p-6 bg-destructive/5">
-              <h3 class="font-sans text-xl font-medium text-foreground mb-4" style={`font-family: ${pathwayFont}`}>As an F-1 Student</h3>
+              <h3 class="editorial-h3 text-foreground mb-4 mt-0">As an F-1 Student</h3>
               <ul class="space-y-3">
                 {
                   [
@@ -273,7 +273,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
               </ul>
             </div>
             <div class="border border-primary/30 rounded-lg p-6 bg-primary/5">
-              <h3 class="font-sans text-xl font-medium text-foreground mb-4" style={`font-family: ${pathwayFont}`}>With an EB-5 Green Card</h3>
+              <h3 class="editorial-h3 text-foreground mb-4 mt-0">With an EB-5 Green Card</h3>
               <ul class="space-y-3">
                 {
                   [
@@ -296,7 +296,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
       <section class="py-20">
         <div class="container mx-auto px-4 max-w-3xl text-center">
-          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4" style={`font-family: ${pathwayFont}`}>
+          <h2 class="editorial-h2 text-foreground mb-4 mt-0">
             The Numbers Don't Lie. What's Your Best Path?
           </h2>
           <p class="text-muted-foreground mb-8 max-w-2xl mx-auto text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
@@ -320,7 +320,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
               <LucideIcon name="Gift" size={32} className="text-primary" />
             </div>
             <div>
-              <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4" style={`font-family: ${pathwayFont}`}>
+              <h2 class="editorial-h2 text-foreground mb-4 mt-0">
                 The Gifted Funds Path for Families
               </h2>
               <div class="space-y-4 text-muted-foreground text-base" style={`font-family: ${pathwayFont}; line-height: 1.75;`}>
@@ -359,7 +359,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
       <section class="py-20 bg-muted/30">
         <div class="container mx-auto px-4 max-w-4xl">
-          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4 text-center" style={`font-family: ${pathwayFont}`}>
+          <h2 class="editorial-h2 text-foreground mb-4 text-center mt-0">
             The Student EB-5 Timeline
           </h2>
           <p class="text-muted-foreground text-center mb-12 max-w-2xl mx-auto text-base" style={`font-family: ${pathwayFont}`}>
@@ -378,7 +378,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
                   </div>
                   <div class="pb-8">
                     <p class="text-xs text-primary font-medium uppercase tracking-wider mb-1" style={`font-family: ${pathwayFont}`}>{step.phase} — {step.timing}</p>
-                    <h3 class="font-sans text-xl font-medium text-foreground mb-2" style={`font-family: ${pathwayFont}`}>{step.title}</h3>
+                    <h3 class="editorial-h3 text-foreground mb-2 mt-0">{step.title}</h3>
                     <p class="text-muted-foreground text-sm" style={`font-family: ${pathwayFont}; line-height: 1.75;`}>
                       {step.description}
                     </p>
@@ -392,7 +392,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
       <section class="py-40 bg-muted/30">
         <div class="container mx-auto px-4 max-w-3xl">
-          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-8 text-center" style={`font-family: ${pathwayFont}`}>
+          <h2 class="editorial-h2 text-foreground mb-8 text-center mt-0">
             What Students and Families Are Saying
           </h2>
           <div class="space-y-8">
@@ -429,7 +429,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
       <section class="py-20">
         <div class="container mx-auto px-4 max-w-3xl">
           <div class="bg-card border border-border rounded-2xl p-8 md:p-12 text-center">
-            <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4" style={`font-family: ${pathwayFont}`}>
+            <h2 class="editorial-h2 text-foreground mb-4 mt-0">
               From Student to Permanent Resident
             </h2>
             <p class="text-muted-foreground mb-6 max-w-2xl mx-auto text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
@@ -449,7 +449,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
       <section class="py-16 bg-primary/5">
         <div class="container mx-auto px-4 max-w-3xl text-center">
-          <h2 class="font-sans text-2xl md:text-[28px] font-medium text-foreground mb-4" style={`font-family: ${pathwayFont}`}>
+          <h2 class="editorial-h2 text-foreground mb-4 mt-0">
             Start the Conversation with Your Family
           </h2>
           <p class="text-muted-foreground mb-8 max-w-xl mx-auto text-base" style={`font-family: ${pathwayFont}`}>
@@ -477,7 +477,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
       <section class="py-32 bg-background">
         <div class="container mx-auto px-6 max-w-6xl">
-          <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center" style={`font-family: ${pathwayFont}`}>
+          <h2 class="editorial-h2 mb-8 text-center mt-0">
             Relevant Blog Articles
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -521,7 +521,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
         <div class="container mx-auto px-4 max-w-6xl">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="space-y-6">
-              <h2 class="text-3xl md:text-4xl font-medium">
+              <h2 class="editorial-h2 mt-0">
                 Ready to Skip the H-1B Lottery?
               </h2>
               <p class="text-lg text-muted-foreground">

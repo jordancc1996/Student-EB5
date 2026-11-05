@@ -1,0 +1,151 @@
+/* Shared desktop layout: A measure / B split / C grid.
+   Colors, fonts, and content order stay unchanged. */
+
+:root {
+  --layout-measure: 45rem; /* 720px */
+  --layout-container: 75rem;
+}
+
+.layout-container,
+.layout-section > .container {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.layout-measure {
+  width: 100%;
+  max-width: var(--layout-measure);
+  margin-inline: auto;
+}
+
+.layout-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .layout-split {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: center;
+  }
+
+  .layout-split > * {
+    min-width: 0;
+  }
+
+  .layout-split > :first-child {
+    grid-column: span 6;
+  }
+
+  .layout-split > :last-child {
+    grid-column: span 6;
+  }
+
+  .layout-split--7-5 > :first-child {
+    grid-column: span 7;
+  }
+
+  .layout-split--7-5 > :last-child {
+    grid-column: span 5;
+  }
+}
+
+.layout-grid {
+  display: grid;
+  gap: 1.5rem;
+  width: 100%;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+
+/* B — homepage (and any) .section-content that pairs copy with a picture. */
+@media (min-width: 768px) {
+  .section-content:has(> picture) {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 2rem;
+    align-items: start;
+  }
+
+  .section-content:has(> picture) > :not(picture) {
+    grid-column: 1 / span 7;
+    max-width: none;
+  }
+
+  .section-content:has(> picture) > picture {
+    grid-column: 8 / span 5;
+    grid-row: 1 / -1;
+    align-self: start;
+  }
+
+  .section-content:has(> picture) .section-image {
+    max-width: none;
+    margin-inline: 0;
+  }
+}
+
+/* A — center a capped column when it is the main child of the page container. */
+@media (min-width: 768px) {
+  .section-content,
+  main > .max-w-2xl,
+  main > .max-w-3xl {
+    margin-inline: auto;
+  }
+
+  section:has(.grid) > .container > h2,
+  section:has(.layout-grid) > .container > h2,
+  main section h2.text-center,
+  main section .text-center > h2,
+  main section .text-center > p {
+    text-align: left;
+  }
+}
+
+/* A — article reading column centered in the page. */
+.article-content,
+.prose-pathway,
+.article-editorial .article-content {
+  max-width: var(--layout-measure);
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* B — TOC + article as a centered pair (no empty third rail). */
+@media (min-width: 1024px) {
+  .research-article-page .article-with-toc,
+  .article-editorial .article-with-toc {
+    display: grid;
+    grid-template-columns: 13.5rem minmax(0, var(--layout-measure));
+    column-gap: 2rem;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .research-article-page .article-with-toc__main,
+  .article-editorial .article-with-toc__main {
+    max-width: var(--layout-measure);
+  }
+}
+
+@media (min-width: 1280px) {
+  .research-article-page .article-with-toc,
+  .article-editorial .article-with-toc {
+    grid-template-columns: 13.5rem minmax(0, var(--layout-measure));
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .layout-split,
+  .layout-grid {
+    display: block;
+  }
+
+  .layout-split > * + *,
+  .layout-grid > * + * {
+    margin-top: 1.5rem;
+  }
+}

@@ -63,11 +63,19 @@ const LEGACY_FORM = {
 };
 
 function pathwayLinkLabel(copy: PathwayCtaCopy): string {
-  return `Explore EB-5 for ${copy.audienceLabel} →`;
+  const audience = copy.audienceLabel.trim();
+  if (/^eb-?5\b/i.test(audience)) {
+    return `Explore ${audience} →`;
+  }
+  return `Explore EB-5 for ${audience} →`;
 }
 
 function tocLabel(copy: PathwayCtaCopy): string {
-  return `See the EB-5 path for ${copy.audienceLabel} →`;
+  const audience = copy.audienceLabel.trim();
+  if (/^eb-?5\b/i.test(audience)) {
+    return `See the ${audience} path →`;
+  }
+  return `See the EB-5 path for ${audience} →`;
 }
 
 function buildFromPathway(copy: PathwayCtaCopy): ArticlePathwayCta {

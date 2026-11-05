@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { LinkedInProfileField, useLinkedInField } from '@/components/LinkedInProfileField';
 import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
@@ -62,6 +63,7 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
   const [timelineError, setTimelineError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [gotcha, setGotcha] = useState('');
+  const { linkedinId, linkedinUrl, setLinkedinUrl, linkedinError, setLinkedinError, resolveLinkedInUrl } = useLinkedInField();
 
   useEffect(() => {
     if (!isOpen) {
@@ -93,6 +95,8 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
       setTimelineError('');
       setPhoneError('');
       setGotcha('');
+      setLinkedinUrl('');
+      setLinkedinError('');
     }
   }, [isOpen]);
 
@@ -117,6 +121,7 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
       setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
+    if (resolveLinkedInUrl() === null) return;
     setPhoneError('');
     setStep(2);
   };
@@ -166,6 +171,11 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
       setStep(1);
       return;
     }
+    const linkedinNormalized = resolveLinkedInUrl();
+    if (linkedinNormalized === null) {
+      setStep(1);
+      return;
+    }
 
     setSubmitting(true);
     setSubmitError('');
@@ -173,6 +183,7 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
       name,
       email: email.trim(),
       phone,
+      linkedin_url: linkedinNormalized,
       country,
       currently_in_us: inUS,
       visa_type: visaType,
@@ -274,6 +285,14 @@ const FeasibilityModal = ({ isOpen, onClose }: FeasibilityModalProps) => {
                   <p id={phoneErrorId} role="alert" className="text-destructive text-xs mt-1">{phoneError}</p>
                 ) : null}
               </div>
+              <LinkedInProfileField
+                id={`feas-linkedin-${linkedinId}`}
+                value={linkedinUrl}
+                onChange={setLinkedinUrl}
+                error={linkedinError}
+                inputClassName="h-11"
+                errorClassName="text-destructive text-xs mt-1"
+              />
               <Button type="submit" className="w-full h-11 font-semibold text-sm uppercase tracking-wide">
                 Continue
               </Button>

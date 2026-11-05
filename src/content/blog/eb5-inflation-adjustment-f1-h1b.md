@@ -32,8 +32,6 @@ EB-5 can give F-1 students and H-1B professionals a self-sponsored route to U.S.
 
 ## What changes on January 1, 2027?
 
-![Immigration counsel reviewing petition documents before the January 1 2027 EB-5 amount change](../../assets/eb5-petition-document-review.jpg "right")
-
 As of October 21, 2026, USCIS lists:
 
 - $1,050,000 for standard investments outside Targeted Employment Areas (TEAs)
@@ -115,7 +113,7 @@ An EB-5 immigrant petition does not provide employment authorization. An eligibl
 
 For F-1 students and H-1B professionals considering options outside the United States, several international residency programs may provide alternatives. This section is an overview only. For the student-focused comparison, see <a href="/research/golden-visas-vs-eb5-elite-students">golden visas vs EB-5</a>.
 
-### Portugal HQA residency
+### Portugal HQA
 
 Portugal's Highly Qualified Activity (HQA) pathway may appeal to professionals in technology, engineering, research, and other specialized fields. It offers qualifying applicants a potential route to Portuguese residency without a U.S. employer sponsor.
 

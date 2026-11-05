@@ -99,11 +99,11 @@ const StudentPlaybookMainContent = ({ lastUpdatedIso }: { lastUpdatedIso?: strin
 
         {/* Hero content */}
         <div className="relative z-10 container mx-auto px-6 pb-12 pt-32">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto md:mx-0">
             <p className="text-xs font-bold tracking-[0.2em] uppercase text-white/60 mb-4">
               International Student Resource
             </p>
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="editorial-h1 text-white mb-4">
               The EB-5 Green Card International Students Playbook
             </h1>
             {lastUpdatedIso ? (
@@ -112,7 +112,7 @@ const StudentPlaybookMainContent = ({ lastUpdatedIso }: { lastUpdatedIso?: strin
                 <time dateTime={toIsoDate(lastUpdatedIso)}>{formatDisplayDate(lastUpdatedIso)}</time>
               </p>
             ) : null}
-            <p className="text-lg text-white/80 max-w-2xl leading-relaxed">
+            <p className="editorial-prose text-lg text-white/80 max-w-2xl">
               EB-5 green card international students use this playbook to navigate OPT timelines, STEM OPT
               extension risks, concurrent filing, and the September 30, 2026 grandfathering deadline.
             </p>
@@ -148,7 +148,7 @@ const StudentPlaybookMainContent = ({ lastUpdatedIso }: { lastUpdatedIso?: strin
 
           {/* Key Resources Section */}
           <div className="bg-primary/5 rounded-xl p-8 mb-16 border border-primary/20">
-            <h2 className="text-2xl font-serif font-bold mb-6 text-center">Essential Tools for Your Journey</h2>
+            <h2 className="editorial-h2 mb-6 text-center mt-0">Essential Tools for Your Journey</h2>
             <div className="grid md:grid-cols-2 gap-4">
               <a
                 href="/tools/opt-calculator"
@@ -191,7 +191,7 @@ const StudentPlaybookMainContent = ({ lastUpdatedIso }: { lastUpdatedIso?: strin
 
           {/* Related Cluster Content - Hub Links */}
           <div className="mb-16">
-            <h2 className="text-2xl font-serif font-bold mb-2 text-center">F-1 Student EB-5 Resources</h2>
+            <h2 className="editorial-h2 mb-2 text-center mt-0">F-1 Student EB-5 Resources</h2>
             <p className="text-muted-foreground text-center mb-8">
               Explore our complete library of guides, timelines, and tools for international students
             </p>
@@ -214,7 +214,7 @@ const StudentPlaybookMainContent = ({ lastUpdatedIso }: { lastUpdatedIso?: strin
 
           {/* CTA Section */}
           <div className="text-center">
-            <h2 className="text-2xl font-serif font-bold mb-4">Ready to Take the Next Step?</h2>
+            <h2 className="editorial-h2 mb-4 mt-0">Ready to Take the Next Step?</h2>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               Get personalized guidance on your immigration journey. Our team specializes in helping
               international students and professionals navigate the path to permanent residency.
