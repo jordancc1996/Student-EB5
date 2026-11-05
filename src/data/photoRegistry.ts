@@ -232,9 +232,6 @@ export function getPhotoByFilename(filename: string): PhotoRecord | undefined {
 
 /** Editorial placements keyed by site path. Related pages may share a cluster photo. */
 export const photoPlacementsByPath: Record<string, PhotoPlacement[]> = {
-  '/research/eb5-inflation-adjustment-f1-h1b': [
-    { id: 'dc-capitol', layout: 'wide' },
-  ],
   '/research/f1-students/f1-to-eb5-green-card': [
     { id: 'uw-campus', layout: 'right' },
     { id: 'suzzallo-interior', layout: 'wide' },
