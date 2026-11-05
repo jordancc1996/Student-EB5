@@ -142,6 +142,7 @@ const PrivacyPolicyMainContent = () => {
                 <li>Name</li>
                 <li>Email address</li>
                 <li>Phone number</li>
+                <li>Your LinkedIn profile URL, if you choose to provide it</li>
                 <li>Mailing address</li>
                 <li>Country of origin</li>
                 <li>Immigration status (if voluntarily provided)</li>

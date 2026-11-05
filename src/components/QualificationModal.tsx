@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { LinkedInProfileField, useLinkedInField } from '@/components/LinkedInProfileField';
 import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
@@ -39,6 +40,7 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
   const [submitError, setSubmitError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [gotcha, setGotcha] = useState('');
+  const { linkedinId, linkedinUrl, setLinkedinUrl, linkedinError, resolveLinkedInUrl } = useLinkedInField();
 
   useEffect(() => {
     if (!isOpen) {
@@ -92,6 +94,8 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
       setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
+    const linkedinNormalized = resolveLinkedInUrl();
+    if (linkedinNormalized === null) return;
 
     setSubmitting(true);
     setSubmitError('');
@@ -99,6 +103,7 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
       name,
       email,
       phone,
+      linkedin_url: linkedinNormalized,
       investmentAmount,
       visaStatus,
       country,
@@ -202,6 +207,14 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
                   <p id={phoneErrorId} role="alert" className="text-destructive text-xs mt-1">{phoneError}</p>
                 ) : null}
               </div>
+              <LinkedInProfileField
+                id={`qual-linkedin-${linkedinId}`}
+                value={linkedinUrl}
+                onChange={setLinkedinUrl}
+                error={linkedinError}
+                inputClassName="h-11"
+                errorClassName="text-destructive text-xs mt-1"
+              />
               <div className="space-y-1">
                 <Label htmlFor="qual-investment">Investment Amount *</Label>
                 <Select
