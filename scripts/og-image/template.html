@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Playfair+Display:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: #333333;
+      }
+      .frame {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+      }
+      .photo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      .veil {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(38, 38, 38, 0.72) 0%,
+          rgba(38, 38, 38, 0.86) 100%
+        );
+      }
+      .copy {
+        position: absolute;
+        inset: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #f2f2f2;
+      }
+      .wordmark {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 500;
+        font-size: 72px;
+        line-height: 1.1;
+        letter-spacing: 0.02em;
+      }
+      .rule {
+        width: 72px;
+        height: 1px;
+        background: #f2f2f2;
+        margin: 28px 0;
+        opacity: 0.7;
+      }
+      .line {
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 1.4;
+        max-width: 980px;
+        color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <img class="photo" src="__BACKGROUND_SRC__" alt="" />
+      <div class="veil"></div>
+      <div class="copy">
+        <div class="wordmark">StudentEB5</div>
+        <div class="rule"></div>
+        <p class="line">EB-5 for International Students Graduating in the USA</p>
+      </div>
+    </div>
+  </body>
+</html>

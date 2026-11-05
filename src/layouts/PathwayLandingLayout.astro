@@ -59,7 +59,6 @@ const {
 
 const ogTitle = title.includes('StudentEB5') ? title : `${title} | StudentEB5`;
 const documentTitle = title.includes('| StudentEB5') ? title : `${title} | StudentEB5`;
-const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 
 const pathwayEntry = findLandingPageByUrl(new URL(canonicalUrl).pathname);
 const pageIsIndexable = pathwayEntry ? isIndexable(pathwayEntry) : true;
@@ -94,12 +93,9 @@ const relatedResearchCards = relatedResearch.map((item) => {
     <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={metaDescription} />
-    <meta name="twitter:image" content={ogImage} />
     <slot name="head" />
   </Fragment>
 

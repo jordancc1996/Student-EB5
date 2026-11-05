@@ -220,6 +220,7 @@ export function generateBlogSchema() {
     name: `${SITE_CONFIG.name} Research`,
     description: 'Expert research and updates on EB-5 investment immigration for international students',
     url: `${SITE_CONFIG.url}/research`,
+    image: SITE_CONFIG.defaultOgImage,
     publisher: publisherWithLogo(),
   };
 }
@@ -231,6 +232,7 @@ export function generateContactPageSchema() {
     name: `Contact ${SITE_CONFIG.name}`,
     description: 'Get in touch with StudentEB5 for EB-5 investment immigration information and resources',
     url: `${SITE_CONFIG.url}/contact`,
+    image: SITE_CONFIG.defaultOgImage,
     mainEntity: {
       '@type': 'Organization',
       name: SITE_CONFIG.name,
@@ -251,6 +253,7 @@ export function generateAboutPageSchema() {
     name: `About ${SITE_CONFIG.name}`,
     description: 'StudentEB5 is a free educational resource dedicated to helping international students, professionals, and H1B visa holders explore their options for achieving permanent U.S. residency through the EB-5 investment program.',
     url: `${SITE_CONFIG.url}/about`,
+    image: SITE_CONFIG.defaultOgImage,
     mainEntity: {
       '@type': 'Organization',
       name: SITE_CONFIG.name,
@@ -270,6 +273,7 @@ export function generateWebPageSchema(
   url: string,
   breadcrumbs?: BreadcrumbItem[],
   dateModified?: string,
+  image?: string,
 ) {
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
@@ -277,6 +281,7 @@ export function generateWebPageSchema(
     name,
     description,
     url,
+    image: image ?? SITE_CONFIG.defaultOgImage,
     publisher: publisherWithLogo(),
   };
 

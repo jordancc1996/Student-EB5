@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
 import SiteFooter from '@/components/SiteFooter.astro';
@@ -18,10 +19,16 @@ import RelatedResearchCard from '@/components/RelatedResearchCard.astro';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateArticleSchema } from '@/lib/seo/structured-data';
 import {
+  DEFAULT_OG_ALT,
+  DEFAULT_OG_IMAGE,
+  OG_IMAGE_HEIGHT,
+  OG_IMAGE_WIDTH,
+  absoluteShareImageUrl,
+} from '@/lib/seo/shareImage';
+import {
   splitArticleContent,
   splitArticleBeforeFirstH2,
   articleAlreadyHasPostIntroCta,
-  resolveAbsoluteAssetUrl,
 } from '@/lib/research/renderArticleContent';
 import { extractArticleHeadings, buildTocItems } from '@/lib/research/articleHeadings';
 import ArticleContents from '@/components/research/ArticleContents.astro';
@@ -57,7 +64,18 @@ const pageCanonical = `${SITE_CONFIG.url}/research/${slug}`;
 const metaTitle = post.metaTitle.includes('StudentEB5')
   ? post.metaTitle
   : `${post.metaTitle} | StudentEB5`;
-const ogImage = resolveAbsoluteAssetUrl(post.image, SITE_CONFIG.url);
+const ogCrop = post.heroImage
+  ? await getImage({
+      src: post.heroImage,
+      width: OG_IMAGE_WIDTH,
+      height: OG_IMAGE_HEIGHT,
+      format: 'jpg',
+      fit: 'cover',
+      quality: 75,
+    })
+  : null;
+const ogImage = ogCrop ? absoluteShareImageUrl(ogCrop.src) : DEFAULT_OG_IMAGE;
+const ogImageAlt = post.imageAlt || DEFAULT_OG_ALT;
 const lastUpdatedDisplay = resolveArticleLastUpdated(post.date, post.updatedDate);
 const datePublishedIso = toIsoDate(post.date);
 const dateModifiedIso = toIsoDate(lastUpdatedDisplay);
@@ -66,7 +84,7 @@ const articleSchema = {
   ...generateArticleSchema({
     headline: post.title,
     description: post.metaDescription,
-    image: resolveAbsoluteAssetUrl(post.image, SITE_CONFIG.url),
+    image: ogImage,
     datePublished: datePublishedIso,
     dateModified: dateModifiedIso,
     author: post.author,
@@ -108,7 +126,7 @@ const relatedPosts = allPosts
   .map((p) => p.data);
 ---
 
-<Layout>
+<Layout ogImage={ogImage} ogImageAlt={ogImageAlt}>
   <Fragment slot="head">
     <title>{metaTitle}</title>
     <meta name="description" content={post.metaDescription} />
@@ -118,12 +136,9 @@ const relatedPosts = allPosts
     <meta property="og:description" content={post.metaDescription} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={post.metaTitle} />
     <meta name="twitter:description" content={post.metaDescription} />
-    <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
   </Fragment>
 

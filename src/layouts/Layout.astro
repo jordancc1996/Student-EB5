@@ -4,6 +4,14 @@ import '../styles/layout-balance.css';
 import CookieConsentBanner from '@/components/CookieConsentBanner';
 import PdfGuideOfferPopup from '@/components/PdfGuideOfferPopup';
 import WhatsAppCTA from '@/components/WhatsAppCTA';
+import SeoShareImage from '@/components/SeoShareImage.astro';
+
+interface Props {
+  ogImage?: string;
+  ogImageAlt?: string;
+}
+
+const { ogImage, ogImageAlt } = Astro.props;
 ---
 
 <!doctype html>
@@ -29,6 +37,7 @@ import WhatsAppCTA from '@/components/WhatsAppCTA';
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="preload" href="/fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+		<SeoShareImage src={ogImage} alt={ogImageAlt} />
 		<slot name="head" />
 	</head>
 	<body>

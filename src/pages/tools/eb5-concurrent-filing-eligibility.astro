@@ -13,7 +13,6 @@ const title = 'EB-5 Concurrent Filing Eligibility Checker - I-526E and I-485 Tim
 const description =
   'EB-5 concurrent filing eligibility checker shows whether you can file I-526E and I-485 together for EAD and Advance Parole while the petition is pending.';
 const pageCanonical = `${SITE_CONFIG.url}/tools/eb5-concurrent-filing-eligibility`;
-const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = [
   'EB-5 concurrent filing eligibility checker',
   'EB-5 concurrent filing eligibility',
@@ -35,12 +34,9 @@ const lastUpdatedIso = getPageLastUpdated('/tools/eb5-concurrent-filing-eligibil
     <meta property="og:description" content={description} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
   </Fragment>
 
   <div class="min-h-screen bg-background">

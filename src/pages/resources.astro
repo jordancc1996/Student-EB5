@@ -19,7 +19,6 @@ const description =
 const pageCanonical = `${SITE_CONFIG.url}/resources`;
 const ogTitle = `${title} | StudentEB5`;
 const ogDescription = description;
-const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = [
   'EB-5 resources international students',
   'EB-5 guides for students',
@@ -52,12 +51,9 @@ const structuredData = generateWebPageSchema(
     <meta property="og:description" content={ogDescription} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
-    <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
   </Fragment>
 

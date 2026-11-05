@@ -13,7 +13,6 @@ const title = 'EB-5 Investment Process - 9 Steps for F-1 and H-1B | StudentEB5';
 const description =
   'A step-by-step guide to the EB-5 investment process for F-1 students and H-1B professionals — from eligibility through your unconditional Green Card.';
 const pageCanonical = `${SITE_CONFIG.url}/eb5-investment-process`;
-const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const sourceOfFundsHref = '/research/ways-to-fund-eb5-investment-2026';
 const lastUpdatedIso = getPageLastUpdated('/eb5-investment-process');
 
@@ -260,12 +259,9 @@ const structuredData = [
     <meta property="og:description" content={description} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
     {
       structuredData.map((data) => (
         <script

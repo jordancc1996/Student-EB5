@@ -13,7 +13,6 @@ const title = 'EB-5 Regional Center Scorecard - Trust Score Due Diligence | Stud
 const description =
   'EB-5 regional center scorecard rates track record, I-829 approval history, and compliance data so investors can compare centers before committing capital.';
 const pageCanonical = `${SITE_CONFIG.url}/tools/eb5-regional-center-scorecard`;
-const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = [
   'EB-5 regional center scorecard',
   'regional center due diligence',
@@ -35,12 +34,9 @@ const lastUpdatedIso = getPageLastUpdated('/tools/eb5-regional-center-scorecard'
     <meta property="og:description" content={description} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
   </Fragment>
 
   <div class="min-h-screen bg-background">

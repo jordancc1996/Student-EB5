@@ -15,7 +15,6 @@ const title = 'H-1B Lottery Odds Calculator - 2026 Wage Weighted | StudentEB5';
 const description =
   'H-1B lottery odds calculator estimates FY 2026 selection probability by wage tier, country of birth, and registration count under USCIS wage weighting.';
 const pageCanonical = `${SITE_CONFIG.url}/tools/h1b-lottery-odds-calculator`;
-const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = [
   'H-1B lottery odds calculator',
   'H-1B wage level odds',
@@ -36,12 +35,9 @@ const lastUpdatedIso = getPageLastUpdated('/tools/h1b-lottery-odds-calculator');
     <meta property="og:description" content={description} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
   </Fragment>
 
   <div class="min-h-screen bg-background">

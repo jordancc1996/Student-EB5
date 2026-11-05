@@ -13,7 +13,6 @@ const title = 'EB-5 Grandfathering Countdown - Sept 30, 2026 RIA Deadline | Stud
 const description =
   'EB-5 grandfathering countdown tracks days left until the September 30, 2026 RIA protection deadline for investors with pending I-526 or I-526E filings.';
 const pageCanonical = `${SITE_CONFIG.url}/tools/grandfathering-countdown`;
-const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = [
   'EB-5 grandfathering countdown',
   'EB-5 grandfathering deadline',
@@ -33,12 +32,9 @@ const lastUpdatedIso = getPageLastUpdated('/tools/grandfathering-countdown');
     <meta property="og:description" content={description} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
   </Fragment>
 
   <Header client:load />

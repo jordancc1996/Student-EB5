@@ -25,7 +25,7 @@ const feasibilityPath = '/tools/2026-eb5-investment-feasibility-calculator';
 const lastUpdatedIso = getPageLastUpdated(feasibilityPath);
 ---
 
-<Layout>
+<Layout ogImage={ogImage}>
   <Fragment slot="head">
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -35,12 +35,9 @@ const lastUpdatedIso = getPageLastUpdated(feasibilityPath);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
   </Fragment>
 
   <div class="min-h-screen bg-background">
