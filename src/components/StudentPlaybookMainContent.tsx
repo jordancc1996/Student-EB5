@@ -99,7 +99,7 @@ const StudentPlaybookMainContent = ({ lastUpdatedIso }: { lastUpdatedIso?: strin
 
         {/* Hero content */}
         <div className="relative z-10 container mx-auto px-6 pb-12 pt-32">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto md:mx-0">
             <p className="text-xs font-bold tracking-[0.2em] uppercase text-white/60 mb-4">
               International Student Resource
             </p>

@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { useToast } from '@/hooks/use-toast';
 import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { LinkedInProfileField, useLinkedInField } from '@/components/LinkedInProfileField';
 import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 
 const BLOCKED_DOMAINS = [
@@ -42,6 +43,7 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
   const [visaError, setVisaError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [gotcha, setGotcha] = useState('');
+  const { linkedinId, linkedinUrl, setLinkedinUrl, linkedinError, setLinkedinError, resolveLinkedInUrl } = useLinkedInField();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
@@ -87,6 +89,8 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
       setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
+    const linkedinNormalized = resolveLinkedInUrl();
+    if (linkedinNormalized === null) return;
 
     setIsSubmitting(true);
     const result = await submitToFormcarry({
@@ -95,6 +99,7 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
       email,
       visaStatus,
       phone,
+      linkedin_url: linkedinNormalized,
       formType: 'h1b_calculator_schedule_call',
       _gotcha: gotcha,
     });
@@ -123,6 +128,8 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
     setPhone('');
     setEmailError('');
     setVisaError('');
+    setLinkedinUrl('');
+    setLinkedinError('');
     setIsSubmitted(false);
   };
 
@@ -340,6 +347,15 @@ export const ScheduleCallCTA = ({ lowOdds = false }: ScheduleCallCTAProps) => {
                   <p id={phoneErrorId} role="alert" className="text-xs text-destructive">{phoneError}</p>
                 ) : null}
               </div>
+
+              <LinkedInProfileField
+                id={`sched-linkedin-${linkedinId}`}
+                value={linkedinUrl}
+                onChange={setLinkedinUrl}
+                error={linkedinError}
+                errorClassName="text-xs text-destructive"
+                inputClassName="border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-foreground"
+              />
 
               <Button 
                 type="submit" 

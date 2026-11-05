@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { LinkedInProfileField, useLinkedInField } from '@/components/LinkedInProfileField';
 import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
@@ -54,6 +55,7 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
   const [submitError, setSubmitError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [gotcha, setGotcha] = useState('');
+  const { linkedinId, linkedinUrl, setLinkedinUrl, linkedinError, setLinkedinError, resolveLinkedInUrl } = useLinkedInField();
 
   useEffect(() => {
     if (!isOpen) {
@@ -66,6 +68,8 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
       setSubmitError('');
       setPhoneError('');
       setGotcha('');
+      setLinkedinUrl('');
+      setLinkedinError('');
     }
   }, [isOpen]);
 
@@ -92,6 +96,8 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
       setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
+    const linkedinNormalized = resolveLinkedInUrl();
+    if (linkedinNormalized === null) return;
 
     setSubmitting(true);
     setSubmitError('');
@@ -99,6 +105,7 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
       name,
       email,
       phone,
+      linkedin_url: linkedinNormalized,
       occupation,
       source: 'H1B Guide Download',
       _gotcha: gotcha,
@@ -210,6 +217,14 @@ const GuideDownloadModal = ({ isOpen, onClose }: GuideDownloadModalProps) => {
                   <p id={phoneErrorId} role="alert" className="text-destructive text-xs mt-1">{phoneError}</p>
                 ) : null}
               </div>
+              <LinkedInProfileField
+                id={`guide-linkedin-${linkedinId}`}
+                value={linkedinUrl}
+                onChange={setLinkedinUrl}
+                error={linkedinError}
+                inputClassName="h-11"
+                errorClassName="text-destructive text-xs mt-1"
+              />
               <div className="space-y-1">
                 <Label htmlFor="guide-occupation">Occupation *</Label>
                 <Input

@@ -139,7 +139,7 @@ const relatedResearchCards = relatedResearch.map((item) => {
             {h1}
           </h1>
           <LastUpdated date={lastUpdatedIso} variant="onDark" class="mb-4" />
-          <p class="editorial-prose text-lg md:text-xl text-white/90 max-w-3xl">
+          <p class="editorial-prose text-lg md:text-xl text-white/90 max-w-3xl mx-auto md:mx-0">
             {subhead}
           </p>
         </div>
@@ -157,10 +157,10 @@ const relatedResearchCards = relatedResearch.map((item) => {
         relatedResearch.length > 0 && (
           <section class="py-16 md:py-20 bg-muted/30 border-t border-border">
             <div class="container mx-auto px-6 max-w-6xl">
-              <h2 class="editorial-h2 text-foreground mb-8 text-center mt-0">
+              <h2 class="editorial-h2 text-foreground mb-8 text-left mt-0">
                 Related Research
               </h2>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="layout-grid md:grid md:grid-cols-2 md:gap-6">
                 {relatedResearchCards.map((card) => (
                   <RelatedResearchCard
                     item={card.item}

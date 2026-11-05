@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { LinkedInProfileField, useLinkedInField } from '@/components/LinkedInProfileField';
 import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
@@ -34,6 +35,7 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
   const [visaError, setVisaError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [gotcha, setGotcha] = useState('');
+  const { linkedinId, linkedinUrl, setLinkedinUrl, linkedinError, resolveLinkedInUrl } = useLinkedInField();
 
   const show = useCallback(() => {
     if (hasSubmittedForm) return;
@@ -74,6 +76,8 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
       setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
+    const linkedinNormalized = resolveLinkedInUrl();
+    if (linkedinNormalized === null) return;
     setSubmitting(true);
     setSubmitError('');
     setVisaError('');
@@ -81,6 +85,7 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
       name,
       email,
       phone,
+      linkedin_url: linkedinNormalized,
       visaStatus,
       source: 'Student Page - Exit Intent',
       _gotcha: gotcha,
@@ -156,6 +161,14 @@ const StudentExitIntentPopup = ({ hasSubmittedForm }: StudentExitIntentPopupProp
                   <p id={phoneErrorId} role="alert" className="text-destructive text-sm">{phoneError}</p>
                 ) : null}
               </div>
+              <LinkedInProfileField
+                id={`exit-linkedin-${linkedinId}`}
+                value={linkedinUrl}
+                onChange={setLinkedinUrl}
+                error={linkedinError}
+                inputClassName="h-11"
+                errorClassName="text-destructive text-sm"
+              />
               <div className="space-y-1">
                 <Label htmlFor="exit-visa">Current Visa Status *</Label>
                 <Select

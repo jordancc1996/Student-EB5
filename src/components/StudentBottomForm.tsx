@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { LinkedInProfileField, useLinkedInField } from '@/components/LinkedInProfileField';
 import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 import { Calendar } from 'lucide-react';
 
@@ -28,6 +29,7 @@ const StudentBottomForm = ({ onSubmitted }: StudentBottomFormProps) => {
   const [visaError, setVisaError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [gotcha, setGotcha] = useState('');
+  const { linkedinId, linkedinUrl, setLinkedinUrl, linkedinError, resolveLinkedInUrl } = useLinkedInField();
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -40,11 +42,14 @@ const StudentBottomForm = ({ onSubmitted }: StudentBottomFormProps) => {
       setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
+    const linkedinNormalized = resolveLinkedInUrl();
+    if (linkedinNormalized === null) return;
     setIsSubmitting(true);
     const result = await submitToFormcarry({
       name,
       email,
       phone,
+      linkedin_url: linkedinNormalized,
       visaStatus,
       message,
       source: 'Student Page - Bottom Form',
@@ -105,6 +110,12 @@ const StudentBottomForm = ({ onSubmitted }: StudentBottomFormProps) => {
             <p id={phoneErrorId} role="alert" className="text-sm text-destructive">{phoneError}</p>
           ) : null}
         </div>
+        <LinkedInProfileField
+          id={`student-linkedin-${linkedinId}`}
+          value={linkedinUrl}
+          onChange={setLinkedinUrl}
+          error={linkedinError}
+        />
         <div className="space-y-2">
           <Label htmlFor="student-visa">Current Visa Status *</Label>
           <Select

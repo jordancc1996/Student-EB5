@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
 import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { LinkedInProfileField, useLinkedInField } from '@/components/LinkedInProfileField';
 import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, FORMCARRY_GENERIC_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 
 const FREE_EMAIL_DOMAINS = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'aol.com', 'icloud.com'];
@@ -31,6 +32,7 @@ const GatedFeasibilityCalculator = () => {
   const [submitError, setSubmitError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [gotcha, setGotcha] = useState('');
+  const { linkedinId, linkedinUrl, setLinkedinUrl, linkedinError, resolveLinkedInUrl } = useLinkedInField();
 
   const handleCalculate = () => {
     const sum = Object.values(values).reduce((acc, v) => acc + (parseFloat(v) || 0), 0);
@@ -58,12 +60,15 @@ const GatedFeasibilityCalculator = () => {
       setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
+    const linkedinNormalized = resolveLinkedInUrl();
+    if (linkedinNormalized === null) return;
 
     setSubmitting(true);
     setSubmitError('');
     const result = await submitToFormcarry({
       email: trimmed,
       phone,
+      linkedin_url: linkedinNormalized,
       source: 'gated-feasibility-calculator',
       rsu_value: values.rsu,
       k401_balance: values.k401,
@@ -190,6 +195,13 @@ const GatedFeasibilityCalculator = () => {
               />
               {phoneError ? <p id={phoneErrorId} role="alert" className="text-destructive text-sm">{phoneError}</p> : null}
             </div>
+            <LinkedInProfileField
+              id={`gated-linkedin-${linkedinId}`}
+              value={linkedinUrl}
+              onChange={setLinkedinUrl}
+              error={linkedinError}
+              errorClassName="text-destructive text-sm"
+            />
             {emailError ? <p id={emailErrorId} role="alert" className="text-destructive text-sm">{emailError}</p> : null}
             {submitError ? <p id={submitErrorId} role="alert" className="text-destructive text-sm">{submitError}</p> : null}
             <Button type="submit" className="w-full" disabled={submitting}>

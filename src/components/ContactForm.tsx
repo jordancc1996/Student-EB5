@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import FormcarryHoneypot from '@/components/FormcarryHoneypot';
+import { LinkedInProfileField, useLinkedInField } from '@/components/LinkedInProfileField';
 import { FORM_FIELD_MAX, FORM_PHONE_FORMAT_ERROR, isPermissivePhone, submitToFormcarry } from '@/lib/formcarry';
 
 const ContactForm = () => {
@@ -19,6 +20,7 @@ const ContactForm = () => {
   const [submitError, setSubmitError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [gotcha, setGotcha] = useState('');
+  const { linkedinId, linkedinUrl, setLinkedinUrl, linkedinError, resolveLinkedInUrl } = useLinkedInField();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -55,12 +57,15 @@ const ContactForm = () => {
       setPhoneError(FORM_PHONE_FORMAT_ERROR);
       return;
     }
+    const linkedinNormalized = resolveLinkedInUrl();
+    if (linkedinNormalized === null) return;
 
     setIsSubmitting(true);
     setSubmitError('');
     setPhoneError('');
     const result = await submitToFormcarry({
       ...formData,
+      linkedin_url: linkedinNormalized,
       source: 'Contact Page',
       formType: 'contact_form',
       _gotcha: gotcha,
@@ -159,6 +164,14 @@ const ContactForm = () => {
                   <p id={phoneErrorId} role="alert" className="text-sm text-destructive mt-1">{phoneError}</p>
                 ) : null}
               </div>
+
+              <LinkedInProfileField
+                id={`contact-linkedin-${linkedinId}`}
+                value={linkedinUrl}
+                onChange={setLinkedinUrl}
+                error={linkedinError}
+                errorClassName="text-sm text-destructive mt-1"
+              />
 
               <div>
                 <Label htmlFor="currentStatus">Current Immigration Status</Label>

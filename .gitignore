@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 # verification artifacts (local only)
 scripts/.toc-screenshots/
+scripts/layout-balance-report.json
