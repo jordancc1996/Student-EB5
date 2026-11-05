@@ -86,12 +86,9 @@ const lastUpdatedIso = getPageLastUpdated(`/faq/${slug}`);
     <meta property="og:description" content={faq.metaDescription} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content={`${SITE_CONFIG.url}/og-image.jpg`} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={faq.metaTitle} />
     <meta name="twitter:description" content={faq.metaDescription} />
-    <meta name="twitter:image" content={`${SITE_CONFIG.url}/og-image.jpg`} />
     <script type="application/ld+json" set:html={JSON.stringify(qaSchema).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
   </Fragment>
 

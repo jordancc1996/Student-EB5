@@ -24,7 +24,6 @@ const description =
 const pageCanonical = `${SITE_CONFIG.url}/pathways/f1-to-eb5-self-sponsored-green-card`;
 const ogTitle = `${title} | StudentEB5`;
 const ogDescription = description;
-const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = [
   'F-1 student EB-5 green card',
   'F1 to EB5',
@@ -114,12 +113,9 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
     <meta property="og:description" content={ogDescription} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
-    <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
   </Fragment>
 

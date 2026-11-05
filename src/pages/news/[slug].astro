@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths } from 'astro';
+import { getImage } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
 import SiteFooter from '@/components/SiteFooter.astro';
@@ -15,6 +16,13 @@ import { getNewsTocItems } from '@/lib/news/newsArticleHeadings';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateArticleSchema } from '@/lib/seo/structured-data';
 import { toIsoDate } from '@/lib/lastUpdated';
+import {
+  DEFAULT_OG_ALT,
+  DEFAULT_OG_IMAGE,
+  OG_IMAGE_HEIGHT,
+  OG_IMAGE_WIDTH,
+  absoluteShareImageUrl,
+} from '@/lib/seo/shareImage';
 
 export const getStaticPaths: GetStaticPaths = () =>
   newsArticleSlugs.map((slug) => ({
@@ -34,7 +42,18 @@ if (!article) {
 }
 
 const pageCanonical = `${SITE_CONFIG.url}/news/${slug}`;
-const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
+const ogCrop = article.heroImage
+  ? await getImage({
+      src: article.heroImage,
+      width: OG_IMAGE_WIDTH,
+      height: OG_IMAGE_HEIGHT,
+      format: 'jpg',
+      fit: 'cover',
+      quality: 75,
+    })
+  : null;
+const ogImage = ogCrop ? absoluteShareImageUrl(ogCrop.src) : DEFAULT_OG_IMAGE;
+const ogImageAlt = article.heroImageAlt || article.imageAlt || DEFAULT_OG_ALT;
 const tocItems = getNewsTocItems(slug, article.tocLabels);
 const dateModifiedIso = toIsoDate(article.dateModified ?? article.datePublished);
 
@@ -58,7 +77,7 @@ const faqSchema = getNewsFaqSchema(slug);
 const structuredData = faqSchema ? [articleSchema, faqSchema] : [articleSchema];
 ---
 
-<Layout>
+<Layout ogImage={ogImage} ogImageAlt={ogImageAlt}>
   <Fragment slot="head">
     <title>{article.metaTitle}</title>
     <meta name="description" content={article.metaDescription} />
@@ -68,12 +87,9 @@ const structuredData = faqSchema ? [articleSchema, faqSchema] : [articleSchema];
     <meta property="og:description" content={article.metaDescription} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={article.title} />
     <meta name="twitter:description" content={article.metaDescription} />
-    <meta name="twitter:image" content={ogImage} />
     {structuredData.map((data) => (
       <script type="application/ld+json" set:html={JSON.stringify(data).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
     ))}

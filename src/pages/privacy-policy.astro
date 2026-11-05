@@ -14,7 +14,6 @@ const pageCanonical = `${SITE_CONFIG.url}/privacy-policy`;
 const ogTitle = 'Privacy Policy | StudentEB5 EB-5 Immigration Advisors';
 const ogDescription =
   'StudentEB5 privacy policy: how our EB-5 immigration advisors collect, use, and safeguard your information with strict confidentiality and CCPA compliance.';
-const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = ['studenteb5 privacy policy', 'eb5 immigration advisors', 'data protection', 'CCPA compliance'];
 
 const structuredData = generateWebPageSchema(
@@ -34,12 +33,9 @@ const structuredData = generateWebPageSchema(
     <meta property="og:description" content={ogDescription} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
-    <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
   </Fragment>
 

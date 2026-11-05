@@ -14,7 +14,8 @@
     "verify:toc": "node scripts/verify-article-toc.mjs",
     "verify:toc:live": "node scripts/verify-toc-live-deploy.mjs",
     "verify:post-deploy": "node scripts/verify-toc-live-deploy.mjs",
-    "test:balance": "node --experimental-strip-types scripts/check-layout-balance.ts"
+    "test:balance": "node --experimental-strip-types scripts/check-layout-balance.ts",
+    "make:og-image": "node scripts/make-og-image.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.0",

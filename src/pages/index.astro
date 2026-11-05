@@ -27,7 +27,6 @@ const rawCanonical = `${SITE_CONFIG.url}/`;
 const pageCanonical = rawCanonical.replace(/\/+$/, '') || rawCanonical;
 const ogTitle = title;
 const ogDescription = description;
-const ogImage = `${SITE_CONFIG.url}/og-image.jpg`;
 const keywords = [
   'EB-5 for international students graduating in the USA',
   'EB-5 for international students',
@@ -62,12 +61,9 @@ const structuredData = [
     <meta property="og:description" content={ogDescription} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
-    <meta name="twitter:image" content={ogImage} />
     {structuredData.map((data) => (
       <script type="application/ld+json" set:html={JSON.stringify(data).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
     ))}
