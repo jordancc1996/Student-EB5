@@ -23,7 +23,7 @@ const editorialPhotos = getPlacementsForPath(`/news/${article.slug}`);
 
 <>
   <section
-    class={`relative -mt-[120px] pt-[120px] ${article.heroMinHeightClass} flex items-center justify-center overflow-hidden`}
+    class={`relative -mt-[120px] pt-[120px] ${article.heroMinHeightClass} flex items-center overflow-hidden`}
   >
     <OptimizedImage
       src={article.heroImage}
@@ -35,15 +35,17 @@ const editorialPhotos = getPlacementsForPath(`/news/${article.slug}`);
       sizes="100vw"
     />
     <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/75"></div>
-    <div class="relative z-10 container mx-auto px-6 py-16 text-center text-white max-w-5xl">
+    <div class="relative z-10 w-full py-16 text-white">
+      <div class="article-editorial">
+        <div class="article-title-block">
       <div class="editorial-kicker mb-5 text-white/80">
         {article.category}
       </div>
-      <h1 class="editorial-h1 mb-6 text-white drop-shadow-lg">{article.title}</h1>
-      <p class="text-lg md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto mb-8 drop-shadow">
+      <h1 class="editorial-h1 mb-6 text-white drop-shadow-lg text-left">{article.title}</h1>
+      <p class="text-lg md:text-2xl text-white/90 leading-relaxed max-w-3xl mb-8 drop-shadow">
         {article.heroSubtitle}
       </p>
-      <div class="flex flex-wrap items-center justify-center gap-6 text-base text-white/90 font-medium">
+      <div class="flex flex-wrap items-center justify-start gap-6 text-base text-white/90 font-medium">
         <div class="flex items-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
           <span>Published {article.date}</span>
@@ -55,6 +57,8 @@ const editorialPhotos = getPlacementsForPath(`/news/${article.slug}`);
         <div class="flex items-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           <span>{article.readTime}</span>
+        </div>
+      </div>
         </div>
       </div>
     </div>

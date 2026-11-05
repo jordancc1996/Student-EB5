@@ -1,6 +1,6 @@
 import { Link } from '@/components/RouterLink';
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, GraduationCap, Clock, Calendar, DollarSign, Wallet, Dice5, Briefcase, Compass, Users, List, FileCheck, Baby, ListChecks, ShieldCheck, FileText, UserCheck, BookOpen } from 'lucide-react';
+import { Menu, X, ChevronDown, GraduationCap, Clock, Calendar, DollarSign, Wallet, Dice5, Briefcase, Compass, Users, List, FileCheck, Baby, ListChecks, ShieldCheck } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -90,13 +90,6 @@ const Header = ({ transparent = false }: HeaderProps) => {
     { name: 'H-1B Professionals', href: '/pathways/h1b-to-green-card', icon: Briefcase },
     { name: 'Parents & Families', href: '/pathways/parents-and-families', icon: Users },
     { name: 'View All Pathways', href: '/pathways/view-all', icon: List },
-  ];
-
-  const privateClientLinks = [
-    { name: 'Overview', href: '/private-client-services', icon: Briefcase },
-    { name: 'Investor Intelligence Reports', href: '/private-client-services/investor-intelligence-reports', icon: FileText },
-    { name: 'Private Strategy Sessions', href: '/private-client-services/private-strategy-sessions', icon: UserCheck },
-    { name: 'Investor Resource Library', href: '/private-client-services/investor-resource-library', icon: BookOpen },
   ];
 
   const toolLinks = [
@@ -224,40 +217,6 @@ const Header = ({ transparent = false }: HeaderProps) => {
 
             <span className={dotClasses} aria-hidden="true">•</span>
 
-            {/* Private Client Services Dropdown */}
-            <div
-              onMouseEnter={() => handleDropdownEnter('private-client')}
-              onMouseLeave={handleDropdownLeave}
-            >
-              <DropdownMenu modal={false} open={openDropdown === 'private-client'} onOpenChange={(o) => setOpenDropdown(o ? 'private-client' : null)}>
-                <DropdownMenuTrigger
-                  aria-label="Private Client Services menu"
-                  className={`${linkClasses} gap-1.5 cursor-pointer border-none outline-none data-[state=open]:bg-transparent`}
-                >
-                  Private Client Services
-                  <ChevronDown size={12} className="transition-transform duration-200 data-[state=open]:rotate-180" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  align="center"
-                  sideOffset={12}
-                  onMouseEnter={() => handleDropdownEnter('private-client')}
-                  onMouseLeave={handleDropdownLeave}
-                  className="bg-background border shadow-lg z-[100] min-w-[280px] p-2"
-                >
-                  {privateClientLinks.map((link) => (
-                    <DropdownMenuItem key={link.href} asChild className="py-2.5 px-3 cursor-pointer">
-                      <Link to={link.href} className="w-full cursor-pointer flex items-center gap-2.5">
-                        <link.icon size={16} className="text-muted-foreground" />
-                        {link.name}
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-
-            <span className={dotClasses} aria-hidden="true">•</span>
-
             {/* Tools Dropdown */}
             <div
               onMouseEnter={() => handleDropdownEnter('tools')}
@@ -345,23 +304,6 @@ const Header = ({ transparent = false }: HeaderProps) => {
                   Pathways
                 </span>
                 {pathwayLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className="px-4 py-3 text-foreground text-[14px] rounded-md hover:bg-muted/60 transition-colors flex items-center gap-2.5"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <link.icon size={16} className="text-muted-foreground" />
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-
-              <div className="mt-3 pt-3 border-t border-border/40">
-                <span className="px-4 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-1 block">
-                  Private Client Services
-                </span>
-                {privateClientLinks.map((link) => (
                   <Link
                     key={link.href}
                     to={link.href}

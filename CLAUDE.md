@@ -238,7 +238,7 @@ Storage by page type:
 - Research: frontmatter `updatedDate` (preserve original `date`)
 - News: `dateModified` in `src/data/newsArticles.ts`
 - Pathways: per-entry `lastReviewed` in `src/lib/pathwayRoutes.ts`
-- Tools / static / FAQ / PCS: `src/lib/pageFreshness.ts` path registry
+- Tools / static / FAQ: `src/lib/pageFreshness.ts` path registry
 
 Use `src/components/LastUpdated.astro` for display. Keep Article schema
 `dateModified` in sync. Never mass-refresh dates on deploy. See

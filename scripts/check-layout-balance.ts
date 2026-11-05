@@ -36,7 +36,12 @@ function routesFromDist(distDir: string): string[] {
       else if (entry.name === 'index.html') {
         const rel = path.relative(distDir, path.dirname(full)).replace(/\\/g, '/');
         const route = rel === '' || rel === '.' ? '/' : `/${rel.replace(/\/$/, '')}`;
-        if (!SKIP_PATHS.has(route) && !route.startsWith('/guides/')) routes.push(route);
+        if (
+          !SKIP_PATHS.has(route) &&
+          !route.startsWith('/guides/') &&
+          !route.startsWith('/private-client-services')
+        )
+          routes.push(route);
       }
     }
   };
