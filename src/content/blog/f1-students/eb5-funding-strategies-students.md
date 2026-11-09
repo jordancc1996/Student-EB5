@@ -10,6 +10,7 @@ updatedDate: September 3, 2026
 category: Student Guide
 readTime: 11 min read
 image: ../../../assets/how-to-fund-eb5-investment.jpg
+heroImage: ../../../assets/how-to-fund-eb5-investment.jpg
 imageAlt: Family reviewing financial options to fund an EB-5 investment
 author: StudentEB5 Team
 keywords:

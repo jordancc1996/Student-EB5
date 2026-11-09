@@ -106,8 +106,8 @@ const articleBody = injectEditorialPhotos(
     layout: item.layout ?? 'wide',
   })),
 );
-const { introHtml, bodyMarkdown, showPostIntroCta } = splitArticleBeforeFirstH2(articleBody);
-const { firstHalfHtml, secondHalfHtml, showMidSplit } = splitArticleContent(
+const { introHtml, bodyMarkdown, showPostIntroCta } = await splitArticleBeforeFirstH2(articleBody);
+const { firstHalfHtml, secondHalfHtml, showMidSplit } = await splitArticleContent(
   showPostIntroCta ? bodyMarkdown : articleBody,
 );
 const renderPostIntroCta =

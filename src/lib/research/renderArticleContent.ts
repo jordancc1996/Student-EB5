@@ -1,6 +1,6 @@
 import { getPhotoByFilename } from '@/data/photoRegistry';
+import { articleImageTag, lookupArticleImage, optimizeArticleImage, upgradeRawArticleImages } from '@/lib/images/articleImage';
 import { extractArticleHeadings } from './articleHeadings';
-import { resolveInlineArticleImageSrc } from './resolveInlineArticleImage';
 
 const convertLinks = (text: string) =>
   text.replace(
@@ -127,14 +127,17 @@ function creditMarkup(src: string): string {
   return `<p class="photo-credit">Photo by <a href="${photo.profileUrl}" target="_blank" rel="noopener noreferrer">${photo.photographer}</a> on <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a></p>`;
 }
 
-function renderArticleImage(alt: string, src: string, title?: string, photoIndex?: { n: number }): string {
-  const resolvedSrc = resolveInlineArticleImageSrc(src);
+async function renderArticleImage(alt: string, src: string, title?: string, photoIndex?: { n: number }): Promise<string> {
+  const metadata = lookupArticleImage(src);
+  if (!metadata) {
+    throw new Error(`Article image is not in the image pipeline: ${src}`);
+  }
+  const image = await optimizeArticleImage(metadata);
   const layout = resolveImageLayout(title, src, alt, photoIndex ?? { n: 0 });
-  const escapedAlt = alt.replace(/"/g, '&quot;');
-  return `<figure class="article-figure article-figure--${layout}"><img src="${resolvedSrc}" alt="${escapedAlt}" loading="lazy" />${creditMarkup(src)}</figure>`;
+  return `<figure class="article-figure article-figure--${layout}" data-orientation="${image.orientation}">${articleImageTag(image, alt)}${creditMarkup(src)}</figure>`;
 }
 
-export function renderArticleContentLines(
+export async function renderArticleContentLines(
   contentLines: string[],
   headingIds?: string[],
   options?: { standfirstParagraphs?: boolean },
@@ -144,7 +147,7 @@ export function renderArticleContentLines(
   const html: string[] = [];
 
   for (let i = 0; i < contentLines.length; i += 1) {
-    const line = contentLines[i];
+    const line = contentLines[i].replace(/\r$/, '');
 
     if (line.trim().startsWith('<intro>')) {
       const introParts: string[] = [];
@@ -180,7 +183,7 @@ export function renderArticleContentLines(
     const imageMatch = line.match(/^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)$/);
     if (imageMatch) {
       const [, alt, src, title] = imageMatch;
-      html.push(renderArticleImage(alt, src, title, photoIndex));
+      html.push(await renderArticleImage(alt, src, title, photoIndex));
       continue;
     }
 
@@ -221,14 +224,14 @@ export function renderArticleContentLines(
     html.push(`<p>${formatLine(line)}</p>`);
   }
 
-  return html.join('');
+  return upgradeRawArticleImages(html.join(''));
 }
 
-export function splitArticleContent(content: string): {
+export async function splitArticleContent(content: string): Promise<{
   firstHalfHtml: string;
   secondHalfHtml: string | null;
   showMidSplit: boolean;
-} {
+}> {
   const lines = stripInlineArticleDisclaimer(content).split('\n');
   const allHeadingIds = extractArticleHeadings(content).map((h) => h.slug);
 
@@ -257,14 +260,14 @@ export function splitArticleContent(content: string): {
     const firstH2Count = firstLines.filter(isTocHeadingLine).length;
 
     return {
-      firstHalfHtml: renderSlice(firstLines, 0),
-      secondHalfHtml: renderSlice(secondLines, firstH2Count),
+      firstHalfHtml: await renderSlice(firstLines, 0),
+      secondHalfHtml: await renderSlice(secondLines, firstH2Count),
       showMidSplit: true,
     };
   }
 
   return {
-    firstHalfHtml: renderSlice(lines, 0),
+    firstHalfHtml: await renderSlice(lines, 0),
     secondHalfHtml: null,
     showMidSplit: false,
   };
@@ -274,11 +277,11 @@ export function splitArticleContent(content: string): {
  * Split article markdown at the first H2 so a post-intro CTA can sit between
  * introductory content and the first section heading.
  */
-export function splitArticleBeforeFirstH2(content: string): {
+export async function splitArticleBeforeFirstH2(content: string): Promise<{
   introHtml: string;
   bodyMarkdown: string;
   showPostIntroCta: boolean;
-} {
+}> {
   const cleaned = stripInlineArticleDisclaimer(content);
   const lines = cleaned.split('\n');
   const firstH2Index = lines.findIndex(isH2Line);
@@ -293,7 +296,7 @@ export function splitArticleBeforeFirstH2(content: string): {
 
   const introLines = lines.slice(0, firstH2Index);
   const bodyLines = lines.slice(firstH2Index);
-  const introHtml = renderArticleContentLines(introLines, undefined, { standfirstParagraphs: true });
+  const introHtml = await renderArticleContentLines(introLines, undefined, { standfirstParagraphs: true });
   const hasVisibleIntro = introLines.some((line) => line.trim().length > 0);
 
   return {

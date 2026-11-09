@@ -144,7 +144,7 @@ function causeColumn(cause) {
   if (cause === 'typography') return 'typography';
   if (['h1', 'heading-skip', 'heading-id', 'toc-mismatch'].includes(cause)) return 'headings';
   if (['seo', 'duplicate-meta'].includes(cause)) return 'seo';
-  if (['no-hero', 'image-alt', 'hero-dimensions', 'image-overflow'].includes(cause)) return 'images';
+  if (['no-hero', 'image-alt', 'hero-dimensions', 'image-overflow', 'body-dimensions', 'body-srcset', 'body-lazy', 'body-height', 'cls'].includes(cause)) return 'images';
   if (cause === 'broken-link') return 'links';
   return 'template';
 }
@@ -293,6 +293,12 @@ function readPageSnapshot() {
     missingAlt: [...document.querySelectorAll('.article-content img')]
       .filter((img) => !(img.getAttribute('alt') || '').trim())
       .map((img) => img.currentSrc || img.getAttribute('src') || 'image'),
+    bodyImages: [...document.querySelectorAll('.article-content img')].map((img) => ({
+      width: img.getAttribute('width') || '',
+      height: img.getAttribute('height') || '',
+      srcset: img.getAttribute('srcset') || '',
+      loading: img.getAttribute('loading') || '',
+    })),
     h1s,
     bodyHeadings,
     tocIds,
@@ -583,6 +589,34 @@ function addIssue(row, cause, note) {
   row.issues.push({ cause, note });
 }
 
+async function measureArticleImages(page) {
+  return page.evaluate(async () => {
+    document.documentElement.style.scrollBehavior = 'auto';
+    await document.fonts.ready;
+    await new Promise((resolve) => setTimeout(resolve, 400));
+    window.__cls = 0;
+    window.__clsSources = [];
+    const imgs = [...document.querySelectorAll('.article-content img')];
+    for (const img of imgs) {
+      img.scrollIntoView({ block: 'center' });
+      if (!img.complete) {
+        await new Promise((resolve) => {
+          img.addEventListener('load', resolve, { once: true });
+          img.addEventListener('error', resolve, { once: true });
+        });
+      }
+      if (img.decode) await img.decode().catch(() => {});
+    }
+    window.scrollTo(0, 0);
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    return {
+      cls: Number(window.__cls || 0),
+      sources: window.__clsSources || [],
+      heights: imgs.map((img) => Math.round(img.getBoundingClientRect().height)),
+    };
+  });
+}
+
 async function auditPage(page, pagePath, routes, redirects, inSitemap) {
   const row = {
     url: pagePath,
@@ -594,6 +628,7 @@ async function auditPage(page, pagePath, routes, redirects, inSitemap) {
   };
   if (!inSitemap) addIssue(row, 'not-in-sitemap', 'published article is missing from the sitemap');
 
+  await page.setViewportSize({ width: 1440, height: 900 });
   const response = await page.goto(`${BASE}${pagePath}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
   if (!response || response.status() >= 400) {
     addIssue(row, 'http', `HTTP ${response?.status() ?? 'none'}`);
@@ -621,6 +656,19 @@ async function auditPage(page, pagePath, routes, redirects, inSitemap) {
     if (!snapshot.heroWidth || !snapshot.heroHeight) addIssue(row, 'hero-dimensions', 'hero image has no width/height');
   }
   if (snapshot.missingAlt.length) addIssue(row, 'image-alt', `body image missing alt (${snapshot.missingAlt.length})`);
+  const missingSize = snapshot.bodyImages.filter((img) => !img.width || !img.height);
+  if (missingSize.length) addIssue(row, 'body-dimensions', `${missingSize.length} body image(s) missing width/height`);
+  const missingSrcset = snapshot.bodyImages.filter((img) => !img.srcset);
+  if (missingSrcset.length) addIssue(row, 'body-srcset', `${missingSrcset.length} body image(s) missing srcset`);
+  const notLazy = snapshot.bodyImages.filter((img) => img.loading !== 'lazy');
+  if (notLazy.length) addIssue(row, 'body-lazy', `${notLazy.length} body image(s) are not lazy`);
+  const measured = await measureArticleImages(page);
+  const tall = measured.heights.filter((height) => height > 640);
+  if (tall.length) addIssue(row, 'body-height', `${tall.length} body image(s) taller than 640px at 1440 (${tall.join(', ')})`);
+  if (measured.cls > 0.05) {
+    const top = [...measured.sources].sort((a, b) => b.value - a.value)[0];
+    addIssue(row, 'cls', `CLS ${measured.cls.toFixed(3)}${top ? ` (${top.name})` : ''}`);
+  }
   for (const problem of snapshot.blockProblems) {
     if (problem.startsWith('missing shared')) continue;
     addIssue(row, 'block-order', problem);
@@ -722,6 +770,19 @@ async function main() {
   console.log(`Preview ${BASE}`);
   const browser = await launchChromium();
   const page = await browser.newPage();
+  await page.addInitScript(() => {
+    window.__cls = 0;
+    window.__clsSources = [];
+    new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        if (entry.hadRecentInput) continue;
+        window.__cls += entry.value;
+        const node = entry.sources && entry.sources[0] && entry.sources[0].node;
+        const name = node ? `${node.tagName}.${String(node.className || '').slice(0, 60)}` : 'unknown';
+        window.__clsSources.push({ value: entry.value, name });
+      }
+    }).observe({ type: 'layout-shift', buffered: true });
+  });
   await page.route('**/*', (route) => {
     const url = route.request().url();
     if (/googletagmanager|google-analytics|clarity\.ms|news\.google/.test(url)) return route.abort();

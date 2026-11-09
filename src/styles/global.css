@@ -1325,6 +1325,38 @@ html {
   overflow-x: auto;
 }
 
+/* In-article images: landscape fills the column. Portrait is height-capped and centered. */
+.article-content .article-figure[data-orientation="portrait"] {
+  float: none;
+  clear: both;
+  width: 100%;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article-content .article-figure[data-orientation="landscape"] img,
+.article-content img[data-orientation="landscape"] {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: min(70vh, 640px);
+  object-fit: contain;
+  object-position: center;
+}
+
+.article-content .article-figure[data-orientation="portrait"] img,
+.article-content img[data-orientation="portrait"] {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: min(70vh, 640px);
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: contain;
+}
+
 .article-with-toc--has-rail .article-content figure,
 .article-with-toc--has-rail .article-content img,
 .article-with-toc--has-rail .article-content video,

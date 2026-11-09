@@ -81,6 +81,8 @@ The H1 is left-aligned. Its left edge matches the article column (within 16px). 
 ## Images
 
 - The hero `img` has non-empty alt text and `width` and `height` attributes.
-- Images inside the article body have non-empty alt text.
+- Images inside the article body have non-empty alt text, intrinsic `width` and `height`, a responsive `srcset`, and `loading="lazy"`.
+- At 1440px, no in-article image is taller than 640px. Landscape images fill the column width. Portrait images are limited to `min(70vh, 640px)` and centered in the column.
+- Cumulative layout shift on each article is 0.05 or less.
 - Body images stay inside the article column. The page has no horizontal scroll.
 - Rail thumbnails are decorative (`alt=""`). The link text is the article title.

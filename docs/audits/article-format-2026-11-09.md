@@ -3,14 +3,11 @@
 Reference: `/research/eb5-inflation-adjustment-f1-h1b`. Checklist: `docs/article-format.md`.
 
 Checked 41 articles (38 research, 3 news). Content collection articles: 41.
-Format failures: 0. Content items waiting for approval: 1.
+Format failures: 0. Content items waiting for approval: 0.
 
 ## Failures by cause
 
-### no-hero (content, 1)
-
-- `/research/f1-students/eb5-funding-strategies-students`: no hero image
-
+None.
 ## Pages
 
 | URL | type | template | template | blocks | layout | typography | headings | seo | images | links | notes |
@@ -41,7 +38,7 @@ Format failures: 0. Content items waiting for approval: 1.
 | `/research/eb5-visa-aging-out-crisis-solution` | research | research-article-page--rail | pass | pass | pass | pass | pass | pass | pass | pass |  |
 | `/research/eb5-vs-trump-gold-card-2026` | research | research-article-page--rail | pass | pass | pass | pass | pass | pass | pass | pass |  |
 | `/research/evaluating-eb5-projects-pending-i956f` | research | research-article-page--rail | pass | pass | pass | pass | pass | pass | pass | pass |  |
-| `/research/f1-students/eb5-funding-strategies-students` | research | research-article-page--rail | pass | pass | pass | pass | pass | pass | fail | pass | no-hero: no hero image |
+| `/research/f1-students/eb5-funding-strategies-students` | research | research-article-page--rail | pass | pass | pass | pass | pass | pass | pass | pass |  |
 | `/research/f1-students/eb5-indian-chinese-students-f1-stem-opt` | research | research-article-page--rail | pass | pass | pass | pass | pass | pass | pass | pass |  |
 | `/research/f1-students/f1-to-eb5-green-card` | research | research-article-page--rail | pass | pass | pass | pass | pass | pass | pass | pass |  |
 | `/research/golden-visa-global-education-student-stories` | research | research-article-page--rail | pass | pass | pass | pass | pass | pass | pass | pass |  |
