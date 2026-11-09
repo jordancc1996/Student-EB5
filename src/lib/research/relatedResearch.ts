@@ -1,3 +1,5 @@
+import type { ImageMetadata } from 'astro';
+
 export interface RelatedResearchCandidate {
   title: string;
   href: string;
@@ -5,6 +7,7 @@ export interface RelatedResearchCandidate {
   category: string;
   keywords: string[];
   timestamp: number;
+  image?: ImageMetadata;
 }
 
 export interface RelatedResearchLink {
@@ -12,6 +15,7 @@ export interface RelatedResearchLink {
   href: string;
   date: string;
   dateTime?: string;
+  image?: ImageMetadata;
 }
 
 function normalize(value: string): string {
@@ -25,13 +29,13 @@ function dateTimeFromLabel(date: string): string | undefined {
 }
 
 /**
- * 3–5 related research links.
+ * Four related research links.
  * Same category or shared keywords come first, then more recent posts fill the list.
  */
 export function selectRelatedResearch(
   current: { href: string; category: string; keywords: string[] },
   candidates: RelatedResearchCandidate[],
-  limit = 5,
+  limit = 4,
 ): RelatedResearchLink[] {
   const currentKeywords = new Set(current.keywords.map(normalize).filter(Boolean));
   const currentCategory = normalize(current.category);
@@ -64,5 +68,6 @@ export function selectRelatedResearch(
     href: candidate.href,
     date: candidate.date,
     dateTime: dateTimeFromLabel(candidate.date),
+    image: candidate.image,
   }));
 }

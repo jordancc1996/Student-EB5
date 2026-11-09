@@ -1,6 +1,8 @@
 ---
+import { getImage } from 'astro:assets';
 import type { RelatedResearchLink } from '@/lib/research/relatedResearch';
 import { DEFAULT_ARTICLE_CONSULTATION } from '@/lib/research/resolveArticlePathway';
+import ogFallback from '../../../public/og-image.jpg';
 
 interface Props {
   related: RelatedResearchLink[];
@@ -15,6 +17,20 @@ const {
   buttonLabel = DEFAULT_ARTICLE_CONSULTATION.buttonLabel,
   buttonHref = DEFAULT_ARTICLE_CONSULTATION.href,
 } = Astro.props;
+
+const items = await Promise.all(
+  related.map(async (item) => {
+    const thumb = await getImage({
+      src: item.image ?? ogFallback,
+      width: 176,
+      height: 120,
+      format: 'webp',
+      fit: 'cover',
+      quality: 70,
+    });
+    return { ...item, thumbSrc: thumb.src };
+  }),
+);
 ---
 
 <div class="article-rail-card rounded-lg border border-border bg-card text-card-foreground p-5">
@@ -30,21 +46,32 @@ const {
 </div>
 
 {
-  related.length > 0 && (
+  items.length > 0 && (
     <nav class="article-rail-related" aria-label="Related research">
       <p class="article-contents__label">Related research</p>
-      <ul class="article-contents__list">
-        {related.map((item) => (
-          <li>
+      <ul class="article-contents__list article-rail-related__list">
+        {items.map((item) => (
+          <li class="article-rail-related__item">
             <a href={item.href} class="article-contents__link article-rail-related__link">
-              <span class="article-rail-related__title">{item.title}</span>
-              {item.dateTime ? (
-                <time class="article-rail-related__date" datetime={item.dateTime}>
-                  {item.date}
-                </time>
-              ) : (
-                <span class="article-rail-related__date">{item.date}</span>
-              )}
+              <img
+                class="article-rail-related__thumb"
+                src={item.thumbSrc}
+                alt=""
+                width="88"
+                height="60"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="article-rail-related__copy">
+                <span class="article-rail-related__title">{item.title}</span>
+                {item.dateTime ? (
+                  <time class="article-rail-related__date" datetime={item.dateTime}>
+                    {item.date}
+                  </time>
+                ) : (
+                  <span class="article-rail-related__date">{item.date}</span>
+                )}
+              </span>
             </a>
           </li>
         ))}

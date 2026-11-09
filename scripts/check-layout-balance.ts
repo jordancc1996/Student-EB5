@@ -329,7 +329,8 @@ async function main() {
   const articleRoutes = routes.filter(isArticleRoute);
   const railFlags: RailFlag[] = [];
   for (const width of ARTICLE_RAIL_WIDTHS) {
-    await page.setViewportSize({ width, height: 1400 });
+    const height = width >= 1920 ? 1080 : width >= 1440 ? 900 : 800;
+    await page.setViewportSize({ width, height });
     for (const route of articleRoutes) {
       const url = `${base}${route}`;
       try {

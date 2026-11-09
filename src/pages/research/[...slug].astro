@@ -130,6 +130,7 @@ const railRelated = selectRelatedResearch(
     category: p.data.category,
     keywords: p.data.keywords,
     timestamp: new Date(p.data.date).getTime() || 0,
+    image: p.data.heroImage,
   })),
 );
 const relatedPosts = allPosts
