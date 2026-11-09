@@ -1319,6 +1319,12 @@ html {
   margin-inline: 0;
 }
 
+.article-content .not-prose {
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+}
+
 .article-with-toc--has-rail .article-content figure,
 .article-with-toc--has-rail .article-content img,
 .article-with-toc--has-rail .article-content video,

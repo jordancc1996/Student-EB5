@@ -15,6 +15,7 @@
     "verify:toc:live": "node scripts/verify-toc-live-deploy.mjs",
     "verify:post-deploy": "node scripts/verify-toc-live-deploy.mjs",
     "test:balance": "node --experimental-strip-types scripts/check-layout-balance.ts",
+    "test:article-format": "npm run build && node scripts/check-article-format.mjs",
     "make:og-image": "node scripts/make-og-image.mjs"
   },
   "dependencies": {

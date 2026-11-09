@@ -13,7 +13,11 @@ import LastUpdated from '@/components/LastUpdated.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import EditorialPhoto from '@/components/EditorialPhoto.astro';
 import PagePhotoCredits from '@/components/PagePhotoCredits.astro';
+import ShareButtons from '@/components/ShareButtons';
+import RelatedResearchCard from '@/components/RelatedResearchCard.astro';
 import { getPlacementsForPath } from '@/data/photoRegistry';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { formatDisplayDate } from '@/lib/lastUpdated';
 
 interface Props {
   article: NewsArticleMeta;
@@ -22,8 +26,14 @@ interface Props {
 
 const { article, tocItems } = Astro.props;
 const lastUpdated = article.dateModified ?? article.datePublished;
+const lastUpdatedDisplay = formatDisplayDate(lastUpdated);
+const pageCanonical = `${SITE_CONFIG.url}/news/${article.slug}`;
 const editorialPhotos = getPlacementsForPath(`/news/${article.slug}`);
 const researchPosts = await getCollection('blog');
+const relatedPosts = [...researchPosts]
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3)
+  .map((post) => post.data);
 const railRelated = selectRelatedResearch(
   { href: `/news/${article.slug}`, category: article.category, keywords: article.keywords },
   researchPosts.map((p) => ({
@@ -46,6 +56,8 @@ const railRelated = selectRelatedResearch(
       src={article.heroImage}
       alt={article.heroImageAlt}
       title={article.title}
+      width={article.heroImage.width}
+      height={article.heroImage.height}
       className="absolute inset-0 w-full h-full object-cover"
       loading="eager"
       fetchPriority="high"
@@ -62,7 +74,7 @@ const railRelated = selectRelatedResearch(
       <p class="text-lg md:text-2xl text-white/90 leading-relaxed max-w-3xl mb-8 drop-shadow">
         {article.heroSubtitle}
       </p>
-      <div class="flex flex-wrap items-center justify-start gap-6 text-base text-white/90 font-medium">
+      <div class="research-article-meta flex flex-wrap items-center justify-start gap-6 text-white/90">
         <div class="flex items-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
           <span>Published {article.date}</span>
@@ -139,6 +151,56 @@ const railRelated = selectRelatedResearch(
             </div>
           </div>
         </article>
+
+        <div class="mt-12 p-6 bg-muted/50 border border-border rounded-lg">
+          <p class="article-bottom-disclaimer text-muted-foreground leading-relaxed m-0">
+            <strong class="text-foreground">Disclaimer:</strong> The opinions expressed on this website are solely those of the author/presenter. The information provided is for general informational purposes only and should not be considered professional or legal advice. Student EB5 and its contributors do not endorse or take responsibility for any actions taken based on the information presented here. Visitors are strongly advised to consult with qualified immigration attorneys and financial advisors before making any EB-5 investment decisions or taking any actions based on the content on this website.
+          </p>
+        </div>
+
+        <ShareButtons
+          client:visible
+          url={pageCanonical}
+          title={article.title}
+          excerpt={article.excerpt}
+        />
+
+        <footer class="mt-12 pt-8 border-t">
+          <div class="flex items-center justify-between">
+            <div class="article-footer-meta text-muted-foreground">
+              Published <time datetime={article.datePublished}>{article.date}</time>
+              {` · Last updated: ${lastUpdatedDisplay}`}
+            </div>
+            <a
+              href="/contact"
+              class="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+            >
+              Learn More
+            </a>
+          </div>
+        </footer>
+
+        <section class="mt-16 pt-8 border-t">
+          <h2 class="editorial-h2 mb-8 mt-0">Related Articles</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {
+              relatedPosts.map((relatedPost) => (
+                <RelatedResearchCard
+                  variant="article"
+                  item={{
+                    title: relatedPost.title,
+                    url: `/research/${relatedPost.slug}`,
+                  }}
+                  image={relatedPost.image}
+                  imageAlt={relatedPost.imageAlt}
+                  category={relatedPost.category}
+                  date={relatedPost.date}
+                  readTime={relatedPost.readTime}
+                />
+              ))
+            }
+          </div>
+        </section>
       </ArticleTocRail>
     </div>
   </main>
