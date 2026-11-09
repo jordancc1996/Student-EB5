@@ -106,8 +106,8 @@ const articleBody = injectEditorialPhotos(
     layout: item.layout ?? 'wide',
   })),
 );
-const { introHtml, bodyMarkdown, showPostIntroCta } = splitArticleBeforeFirstH2(articleBody);
-const { firstHalfHtml, secondHalfHtml, showMidSplit } = splitArticleContent(
+const { introHtml, bodyMarkdown, showPostIntroCta } = await splitArticleBeforeFirstH2(articleBody);
+const { firstHalfHtml, secondHalfHtml, showMidSplit } = await splitArticleContent(
   showPostIntroCta ? bodyMarkdown : articleBody,
 );
 const renderPostIntroCta =
@@ -130,6 +130,7 @@ const railRelated = selectRelatedResearch(
     category: p.data.category,
     keywords: p.data.keywords,
     timestamp: new Date(p.data.date).getTime() || 0,
+    image: p.data.heroImage,
   })),
 );
 const relatedPosts = allPosts
@@ -164,6 +165,8 @@ const relatedPosts = allPosts
           <OptimizedImage
             src={post.heroImage}
             alt={post.imageAlt}
+            width={post.heroImage.width}
+            height={post.heroImage.height}
             className="absolute inset-0 w-full h-full object-cover"
             loading="eager"
             fetchPriority="high"

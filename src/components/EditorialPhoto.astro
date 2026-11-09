@@ -1,7 +1,7 @@
 ---
-import OptimizedImage from '@/components/OptimizedImage.astro';
 import PhotoCredit from '@/components/PhotoCredit.astro';
 import { getPhoto } from '@/data/photoRegistry';
+import { optimizeArticleImage } from '@/lib/images/articleImage';
 import { photoAssets } from '@/lib/photos/photoAssets';
 import type { PhotoLayout } from '@/lib/photos/types';
 
@@ -13,16 +13,22 @@ interface Props {
 const { id, layout = 'wide' } = Astro.props;
 const photo = getPhoto(id);
 const asset = photoAssets[id];
+const image = photo && asset ? await optimizeArticleImage(asset) : null;
 ---
 
 {
-  photo && asset ? (
-    <figure class={`article-figure article-figure--${layout}`}>
-      <OptimizedImage
-        src={asset}
+  photo && image ? (
+    <figure class={`article-figure article-figure--${layout}`} data-orientation={image.orientation}>
+      <img
+        src={image.src}
+        srcset={image.srcset}
+        sizes={image.sizes}
+        width={image.width}
+        height={image.height}
         alt={photo.alt}
         loading="lazy"
-        sizes="(max-width: 768px) 100vw, 740px"
+        decoding="async"
+        data-orientation={image.orientation}
       />
       <PhotoCredit photo={photo} />
     </figure>

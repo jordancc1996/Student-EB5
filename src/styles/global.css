@@ -1254,6 +1254,57 @@ html {
   }
 }
 
+.article-rail-related .article-contents__list {
+  border-left: none;
+}
+
+.article-rail-related .article-contents__link {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-left: 0;
+  padding: 0;
+  border-left: none;
+}
+
+.article-rail-related__item + .article-rail-related__item {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid hsl(var(--border));
+}
+
+.article-rail-related__thumb {
+  display: block;
+  width: 88px;
+  height: 60px;
+  flex: 0 0 88px;
+  border-radius: 4px;
+  object-fit: cover;
+  box-shadow: none;
+}
+
+.article-rail-related__copy {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.article-rail-related__title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.article-rail-related__link:hover .article-rail-related__title {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-rail-related__link:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
 .article-rail-related__date {
   display: block;
   margin-top: 0.15rem;
@@ -1266,6 +1317,44 @@ html {
 .article-with-toc--has-rail .article-content {
   max-width: none;
   margin-inline: 0;
+}
+
+.article-content .not-prose {
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+/* In-article images: landscape fills the column. Portrait is height-capped and centered. */
+.article-content .article-figure[data-orientation="portrait"] {
+  float: none;
+  clear: both;
+  width: 100%;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article-content .article-figure[data-orientation="landscape"] img,
+.article-content img[data-orientation="landscape"] {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: min(70vh, 640px);
+  object-fit: contain;
+  object-position: center;
+}
+
+.article-content .article-figure[data-orientation="portrait"] img,
+.article-content img[data-orientation="portrait"] {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: min(70vh, 640px);
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: contain;
 }
 
 .article-with-toc--has-rail .article-content figure,
@@ -1293,6 +1382,8 @@ html {
   max-width: none;
   padding-left: 0;
   padding-right: 0;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 /* Shared shape tokens — radii and shadows only; no color or font changes */
