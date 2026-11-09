@@ -24,9 +24,13 @@ if (!fs.existsSync(BACKGROUND)) {
 const ext = path.extname(BACKGROUND).toLowerCase();
 const mime = ext === '.png' ? 'image/png' : ext === '.webp' ? 'image/webp' : 'image/jpeg';
 const backgroundDataUrl = `data:${mime};base64,${fs.readFileSync(BACKGROUND).toString('base64')}`;
+const playfairDataUrl = `data:font/woff2;base64,${fs.readFileSync(path.join(ROOT, 'public', 'fonts', 'playfair-display-latin-400-normal.woff2')).toString('base64')}`;
+const robotoDataUrl = `data:font/woff2;base64,${fs.readFileSync(path.join(ROOT, 'public', 'fonts', 'roboto-latin-400-normal.woff2')).toString('base64')}`;
 const html = fs
   .readFileSync(TEMPLATE, 'utf8')
-  .replace('__BACKGROUND_SRC__', backgroundDataUrl);
+  .replace('__BACKGROUND_SRC__', backgroundDataUrl)
+  .replace('__PLAYFAIR_SRC__', playfairDataUrl)
+  .replace('__ROBOTO_SRC__', robotoDataUrl);
 
 const browser = await launchChromium();
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });

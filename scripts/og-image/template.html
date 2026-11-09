@@ -2,13 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Playfair+Display:wght@500;600&display=swap"
-      rel="stylesheet"
-    />
     <style>
+      @font-face {
+        font-family: 'Playfair Display';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(__PLAYFAIR_SRC__) format('woff2');
+      }
+      @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(__ROBOTO_SRC__) format('woff2');
+      }
       * {
         box-sizing: border-box;
         margin: 0;
@@ -53,7 +61,7 @@
       }
       .wordmark {
         font-family: 'Playfair Display', Georgia, serif;
-        font-weight: 500;
+        font-weight: 400;
         font-size: 72px;
         line-height: 1.1;
         letter-spacing: 0.02em;
@@ -66,7 +74,7 @@
         opacity: 0.7;
       }
       .line {
-        font-family: Montserrat, sans-serif;
+        font-family: Roboto, Arial, sans-serif;
         font-weight: 400;
         font-size: 28px;
         line-height: 1.4;

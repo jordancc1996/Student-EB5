@@ -38,27 +38,29 @@ The consultation block and photo credits may sit between the related articles an
 |---|---|
 | Under 1024px | Inline Contents block. Article uses the full content width. No side TOC. No right rail. |
 | 1024–1439px | Side TOC (13.5rem / 216px) plus a 45rem / 720px article. The pair is centered. Outer margins match within 16px. No right rail. |
-| 1440–1679px | TOC 15rem (240px), article up to 48rem (768px), rail 18rem (288px), gap 3rem. Centered, equal outer margins (within 16px). |
-| 1680–1919px | TOC 290px, article 780px, rail 330px, gap 56px. Centered, equal outer margins (within 16px). |
-| 1920–2399px | TOC 320px, article 800px, rail 360px, gap 64px. Body text 21px. Centered, equal outer margins (within 16px). |
-| 2400px and up | TOC 340px, article 860px, rail 380px, gap 72px. Body text 22px. Centered, equal outer margins (within 16px). |
+| 1440–1679px | TOC 15rem (240px), article up to 45.5rem (728px), rail 18rem (288px), gap 3rem plus 20px. The article column is slightly narrower than the previous 48rem so a Roboto line stays within 78 characters. The extra width is in the gaps, so the outer margins stay the same. |
+| 1680–1919px | TOC 290px, article 716px, rail 330px, gap 88px. Centered, equal outer margins (within 16px). |
+| 1920–2399px | TOC 320px, article 768px, rail 360px, gap 80px. Body text 21px. Centered, equal outer margins (within 16px). |
+| 2400px and up | TOC 340px, article 792px, rail 380px, gap 106px. Body text 22px. Centered, equal outer margins (within 16px). |
 
 Body lines stay within 65–78 characters. From 1440px the rail shows, in order: advisor card, 4 related items with thumbnails, Google preferred-sources block. Thumbnails are 88×60, and 96×64 from 1920px. The page itself does not scroll sideways. At 1920×1080 the rail content fits without an inner scrollbar.
 
 ## Typography
 
-Root size is 16px. Families: Playfair Display (`--font-display`), Source Serif 4 (`--font-body-serif`), Montserrat (`--font-ui`).
+Root size is 16px. The body element is 17px. Families: Playfair Display (`--font-display`) and Roboto (`--font-sans`). Georgia and Arial are fallbacks only.
 
 | Element | Family | Weight | Size |
 |---|---|---|---|
-| Body paragraph | Source Serif 4 | 400 | 18px under 768px, 20px from 768px, 21px from 1920px, 22px from 2400px |
-| Standfirst (`.article-intro`) | Playfair Display | 400 | 18px under 768px, 22px from 768px |
-| H1 (`.research-article-title` / `.editorial-h1`) | Playfair Display | 500 | 33px under 768px, 46px from 768px |
-| H2 | Playfair Display | 600 | 26px under 768px, 32px from 768px |
-| H3 | Playfair Display | 600 | 21px under 768px, 24px from 768px |
-| H4 | Montserrat | 600 | 15px under 768px, 16px from 768px |
-| Kicker | Montserrat | 600 | 12px, uppercase |
-| Published / Last updated / reading time row | Montserrat | 500 | 13px |
+| Body paragraph | Roboto | 400 | 18px under 768px, 20px from 768px, 21px from 1920px, 22px from 2400px. Line height 1.7. Paragraph spacing 1.25em. Left aligned. |
+| Standfirst (`.article-intro`) | Roboto | 400 | 20px under 768px, 22px from 768px. Line height 1.55. |
+| H1 (`.research-article-title` / `.editorial-h1`) | Playfair Display | 400 | 36px under 768px, 52px from 768px |
+| H2 | Playfair Display | 400 | 28px under 768px, 36px from 768px |
+| H3 | Playfair Display | 500 | 22px under 768px, 26px from 768px |
+| H4 | Roboto | 500 | 18px under 768px, 20px from 768px |
+| Kicker | Roboto | 500 | 13px, uppercase |
+| Published / Last updated / reading time row | Roboto | 500 | 13px |
+| Contents links | Roboto | 400 (active 500) | 15px, 16px from 1680px. H3 entries are 1px smaller. |
+| Pull quote | Playfair Display italic | 400 | 26px under 768px, 28px from 768px |
 
 The H1 is left-aligned. Its left edge matches the article column (within 16px). The title block does not print a separate byline. The author is in the schema only.
 

@@ -282,12 +282,12 @@ async function measureArticleRail(page: Page, route: string, viewport: number): 
       }
       const tracks =
         vp >= 2400
-          ? { toc: 340, article: 860, rail: 380 }
+          ? { toc: 340, article: 792, rail: 380 }
           : vp >= 1920
-            ? { toc: 320, article: 800, rail: 360 }
+            ? { toc: 320, article: 768, rail: 360 }
             : vp >= 1680
-              ? { toc: 290, article: 780, rail: 330 }
-              : { toc: 240, article: 768, rail: 288 };
+              ? { toc: 290, article: 716, rail: 330 }
+              : { toc: 240, article: 728, rail: 288 };
       const widthOff = (actual: number, expected: number) => Math.abs(actual - expected) > 16;
       if (widthOff(toc.width, tracks.toc)) fail(`TOC width ${Math.round(toc.width)}px, expected ${tracks.toc}`);
       if (widthOff(main.width, tracks.article)) fail(`article width ${Math.round(main.width)}px, expected ${tracks.article}`);

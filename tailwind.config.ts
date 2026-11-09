@@ -54,9 +54,9 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
-        sans: ['Montserrat', 'sans-serif'],
-        body: ['Source Serif 4', 'Source Serif 4 Fallback', 'Georgia', 'Times New Roman', 'serif'],
+        serif: ['Playfair Display', 'Playfair Display Fallback', 'Georgia', 'serif'],
+        sans: ['Roboto', 'Roboto Fallback', 'Arial', 'system-ui', 'sans-serif'],
+        body: ['Roboto', 'Roboto Fallback', 'Arial', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         'soft': 'var(--shadow-soft)',

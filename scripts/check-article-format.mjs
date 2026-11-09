@@ -561,10 +561,10 @@ function bodySizeFor(width) {
 }
 
 function articleTracks(width) {
-  if (width >= 2400) return { toc: 340, article: 860, rail: 380, tocFont: 16 };
-  if (width >= 1920) return { toc: 320, article: 800, rail: 360, tocFont: 16 };
-  if (width >= 1680) return { toc: 290, article: 780, rail: 330, tocFont: 15 };
-  if (width >= 1440) return { toc: 240, article: 768, rail: 288, tocFont: 14.4 };
+  if (width >= 2400) return { toc: 340, article: 792, rail: 380, tocFont: 16 };
+  if (width >= 1920) return { toc: 320, article: 768, rail: 360, tocFont: 16 };
+  if (width >= 1680) return { toc: 290, article: 716, rail: 330, tocFont: 16 };
+  if (width >= 1440) return { toc: 240, article: 728, rail: 288, tocFont: 15 };
   return null;
 }
 
@@ -572,14 +572,14 @@ function checkFonts(fonts, width) {
   const wide = width >= 768;
   const notes = [];
   const expect = [
-    ['body', fonts.body, 'Source Serif 4', 400, bodySizeFor(width)],
-    ['standfirst', fonts.intro, 'Playfair Display', 400, wide ? 22 : 18],
-    ['H1', fonts.h1, 'Playfair Display', 500, wide ? 46 : 33],
-    ['H2', fonts.h2, 'Playfair Display', 600, wide ? 32 : 26],
-    ['H3', fonts.h3, 'Playfair Display', 600, wide ? 24 : 21],
-    ['H4', fonts.h4, 'Montserrat', 600, wide ? 16 : 15],
-    ['kicker', fonts.kicker, 'Montserrat', 600, 12],
-    ['date row', fonts.meta, 'Montserrat', 500, 13],
+    ['body', fonts.body, 'Roboto', 400, bodySizeFor(width)],
+    ['standfirst', fonts.intro, 'Roboto', 400, wide ? 22 : 20],
+    ['H1', fonts.h1, 'Playfair Display', 400, wide ? 52 : 36],
+    ['H2', fonts.h2, 'Playfair Display', 400, wide ? 36 : 28],
+    ['H3', fonts.h3, 'Playfair Display', 500, wide ? 26 : 22],
+    ['H4', fonts.h4, 'Roboto', 500, wide ? 20 : 18],
+    ['kicker', fonts.kicker, 'Roboto', 500, 13],
+    ['date row', fonts.meta, 'Roboto', 500, 13],
   ];
   for (const [label, font, family, weight, size] of expect) {
     if (!font) {
@@ -724,9 +724,9 @@ async function auditPage(page, pagePath, routes, redirects, inSitemap) {
   await page.waitForSelector('h1', { timeout: 15000 });
   await page.evaluate(async () => {
     await Promise.race([document.fonts.ready, new Promise((resolve) => setTimeout(resolve, 8000))]);
-    await document.fonts.load("500 33px 'Playfair Display'");
-    await document.fonts.load("400 20px 'Source Serif 4'");
-    await document.fonts.load("500 13px Montserrat");
+    await document.fonts.load("400 36px 'Playfair Display'");
+    await document.fonts.load("400 20px Roboto");
+    await document.fonts.load("500 13px Roboto");
   });
 
   const snapshot = await page.evaluate(readPageSnapshot);
