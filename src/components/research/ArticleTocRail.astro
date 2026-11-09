@@ -68,7 +68,7 @@ const hasSideRail = Astro.slots.has('rail');
         var railAnchor = root.querySelector('[data-article-follow-rail]');
         if (!follow || !inlineAnchor || !railAnchor) return;
 
-        var wide = window.matchMedia('(min-width: 1280px)');
+        var wide = window.matchMedia('(min-width: 1440px)');
         function placeFollow() {
           if (wide.matches) railAnchor.appendChild(follow);
           else inlineAnchor.appendChild(follow);
@@ -111,16 +111,19 @@ const hasSideRail = Astro.slots.has('rail');
 
           var sticky = root.querySelector('.article-side-rail__sticky');
           var rail = root.querySelector('.article-side-rail');
-          if (!sticky || !rail || getComputedStyle(rail).display === 'none') return;
+          if (!sticky || !rail || getComputedStyle(rail).display === 'none') {
+            if (sticky) sticky.style.maxHeight = '';
+            return;
+          }
           var railRect = rail.getBoundingClientRect();
+          var stickyTop = headerHeight + 24;
+          var preferred = window.innerHeight - headerHeight - 48;
           var limit = obstacleTop(railRect);
-          var top = sticky.getBoundingClientRect().top;
-          var maxHeight = Math.max(120, Math.round(limit - top - 16));
-          sticky.style.maxHeight = maxHeight + 'px';
-          page.style.setProperty(
-            '--article-rail-bottom-clearance',
-            Math.max(16, Math.round(window.innerHeight - limit + 16)) + 'px',
-          );
+          var maxHeight = preferred;
+          if (limit < window.innerHeight - 1) {
+            maxHeight = Math.min(preferred, limit - stickyTop - 16);
+          }
+          sticky.style.maxHeight = Math.max(120, Math.round(maxHeight)) + 'px';
         }
 
         syncRailChrome();

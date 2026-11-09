@@ -1014,7 +1014,7 @@ html {
   border-top: none;
 }
 
-/* Editorial article shell. Rail pages widen to ~1500px from 1280px up. */
+/* Editorial article shell. Rail pages widen to ~1500px from 1440px up. */
 .research-article-page .article-editorial {
   width: 100%;
   max-width: 81.25rem;
@@ -1159,7 +1159,9 @@ html {
   .research-article-page .article-title-block {
     column-gap: 2.5rem;
   }
+}
 
+@media (min-width: 1440px) {
   .research-article-page--rail {
     --article-toc-col: 15rem;
     --article-body-col: 48rem;
@@ -1213,7 +1215,7 @@ html {
   max-width: 100%;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   .article-with-toc--has-rail [data-article-follow-inline] {
     display: none;
   }
@@ -1225,7 +1227,7 @@ html {
   min-width: 0;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   .research-article-page--rail .article-side-rail {
     display: block;
     align-self: stretch;
@@ -1235,7 +1237,7 @@ html {
   .article-side-rail__sticky {
     position: sticky;
     top: calc(var(--article-header-offset) + 1.5rem);
-    max-height: calc(100vh - var(--article-header-offset) - 1.5rem - var(--article-rail-bottom-clearance));
+    max-height: calc(100vh - var(--article-header-offset) - 48px);
     overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior: contain;

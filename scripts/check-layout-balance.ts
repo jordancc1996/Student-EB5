@@ -255,8 +255,8 @@ async function measureArticleRail(page: Page, route: string, viewport: number): 
       const railRect = rail?.getBoundingClientRect();
       const railVisible = !!rail && railStyle?.display !== 'none' && (railRect?.width ?? 0) > 8;
 
-      if (vp < 1280) {
-        if (railVisible) fail('side rail is visible below 1280px');
+      if (vp < 1440) {
+        if (railVisible) fail('side rail is visible below 1440px');
         return flags;
       }
 
@@ -279,6 +279,13 @@ async function measureArticleRail(page: Page, route: string, viewport: number): 
       const rightMargin = clientWidth - railRect.right;
       if (Math.abs(leftMargin - rightMargin) > 16) {
         fail(`outer margins differ by ${Math.abs(leftMargin - rightMargin).toFixed(1)}px (left ${leftMargin.toFixed(1)}, right ${rightMargin.toFixed(1)})`);
+      }
+      const sticky = rail.querySelector('.article-side-rail__sticky');
+      const stickyHeight = sticky ? sticky.getBoundingClientRect().height : 0;
+      if (stickyHeight < window.innerHeight * 0.6) {
+        fail(
+          `sticky rail visible height ${Math.round(stickyHeight)}px is under 60% of ${window.innerHeight}px`,
+        );
       }
       return flags;
     },

@@ -237,7 +237,7 @@ async function assertTocVariant(page, label, width, { contentsless = false, expe
         state.railLeftOfContent,
       ),
     );
-    const wideRail = expectSideRail && width >= 1280;
+    const wideRail = expectSideRail && width >= 1440;
     const articleWidthOk =
       typeof state.contentWidth === 'number' &&
       state.contentWidth >= 640 &&
@@ -254,9 +254,9 @@ async function assertTocVariant(page, label, width, { contentsless = false, expe
     }
   }
 
-  if (expectSideRail && width >= 1280) {
+  if (expectSideRail && width >= 1440) {
     results.push(...(await assertThreeTrack(label, state, width)));
-  } else if (width <= 768) {
+  } else if (width < 1440) {
     results.push(await check(`${label}: no side rail`, !state.sideRailVisible));
   }
 
@@ -529,7 +529,7 @@ async function main() {
     await gotoFirstPartyReady(page, `${BASE}${ARTICLE_WITH_TOC}`);
     await page.evaluate(() => (document.fonts ? document.fonts.ready : null));
     const layout = await page.evaluate(readTocLayoutState);
-    if (width >= 1280) {
+    if (width >= 1440) {
       results.push(...(await assertThreeTrack(`${width}px`, layout, width)));
     } else {
       results.push(
