@@ -973,6 +973,52 @@ html {
   border-left-color: hsl(var(--accent));
 }
 
+.research-article-page nav.article-toc .article-contents__link--sub {
+  padding-left: calc(0.85rem + 12px);
+}
+
+.research-article-page nav.article-toc .article-contents__text {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 1680px) {
+  .research-article-page nav.article-toc .article-contents__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 0.5rem;
+  }
+
+  .research-article-page nav.article-toc .article-contents__link {
+    font-size: 15px;
+    line-height: 1.45;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .research-article-page nav.article-toc .article-contents__link--sub {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .research-article-page nav.article-toc .article-contents__list {
+    gap: 14px;
+  }
+
+  .research-article-page nav.article-toc .article-contents__link {
+    font-size: 16px;
+  }
+
+  .research-article-page nav.article-toc .article-contents__link--sub {
+    font-size: 15px;
+  }
+}
+
 .research-article-page .article-contents__cta {
   margin: 1.25rem 0 0;
   padding: 0.75rem 0 0;
@@ -1014,7 +1060,7 @@ html {
   border-top: none;
 }
 
-/* Editorial article shell. Rail pages widen to ~1500px from 1440px up. */
+/* Editorial article shell. From 1680px the rail shell grows with the screen. */
 .research-article-page .article-editorial {
   width: 100%;
   max-width: 81.25rem;
@@ -1200,12 +1246,42 @@ html {
   }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1680px) {
   .research-article-page--rail {
-    --article-toc-col: 16rem;
-    --article-body-col: 50rem;
-    --article-rail-col: 20rem;
-    --article-col-gap: 3.5rem;
+    --article-toc-col: 290px;
+    --article-body-col: 780px;
+    --article-rail-col: 330px;
+    --article-col-gap: 56px;
+  }
+
+  .research-article-page--rail .article-editorial {
+    max-width: none;
+  }
+}
+
+@media (min-width: 1920px) {
+  .research-article-page--rail {
+    --article-toc-col: 320px;
+    --article-body-col: 800px;
+    --article-rail-col: 360px;
+    --article-col-gap: 64px;
+  }
+
+  .research-article-page--rail .article-content {
+    font-size: 21px;
+  }
+}
+
+@media (min-width: 2400px) {
+  .research-article-page--rail {
+    --article-toc-col: 340px;
+    --article-body-col: 860px;
+    --article-rail-col: 380px;
+    --article-col-gap: 72px;
+  }
+
+  .research-article-page--rail .article-content {
+    font-size: 22px;
   }
 }
 
@@ -1281,6 +1357,14 @@ html {
   border-radius: 4px;
   object-fit: cover;
   box-shadow: none;
+}
+
+@media (min-width: 1920px) {
+  .article-rail-related__thumb {
+    width: 96px;
+    height: 64px;
+    flex-basis: 96px;
+  }
 }
 
 .article-rail-related__copy {

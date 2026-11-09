@@ -30,11 +30,28 @@ function initArticleToc(): void {
     });
   });
 
-  initTocLinkScroll(page);
-  initTocActiveTracking(page);
+  const tracking = initTocActiveTracking(page);
+  initTocLinkScroll(page, tracking);
 }
 
-function initTocLinkScroll(page: Element): void {
+function sectionSlugFor(page: Element, slug: string): string {
+  const link = [...page.querySelectorAll<HTMLAnchorElement>('nav.article-toc [data-toc-link]')].find(
+    (item) => item.dataset.tocLink === slug,
+  );
+  return link?.closest<HTMLElement>('[data-toc-section]')?.dataset.tocSection || '';
+}
+
+function showTocSection(page: Element, sectionSlug: string): void {
+  page.querySelectorAll<HTMLElement>('nav.article-toc li[data-toc-level="3"]').forEach((item) => {
+    const ownSection = item.dataset.tocSection || '';
+    item.hidden = !sectionSlug || ownSection !== sectionSlug;
+  });
+}
+
+function initTocLinkScroll(
+  page: Element,
+  tracking: { setActive: (slug: string, hold?: boolean) => void } | null,
+): void {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   page.querySelectorAll<HTMLAnchorElement>('[data-toc-link]').forEach((link) => {
@@ -46,15 +63,16 @@ function initTocLinkScroll(page: Element): void {
       if (!target) return;
 
       event.preventDefault();
+      if (link.closest('nav.article-toc')) tracking?.setActive(slug, true);
       target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
       history.pushState(null, '', `#${slug}`);
     });
   });
 }
 
-function initTocActiveTracking(page: Element): void {
+function initTocActiveTracking(page: Element): { setActive: (slug: string, hold?: boolean) => void } | null {
   const links = [...page.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')];
-  if (!links.length) return;
+  if (!links.length) return null;
 
   const headings = links
     .map((link) => {
@@ -64,16 +82,26 @@ function initTocActiveTracking(page: Element): void {
     })
     .filter((heading): heading is HTMLElement => heading != null);
 
-  if (!headings.length) return;
+  if (!headings.length) return null;
 
   let activeSlug = '';
+  let holdSlug = '';
+  let holdUntil = 0;
 
-  const setActive = (slug: string) => {
-    if (!slug || slug === activeSlug) return;
+  const setActive = (slug: string, hold = false) => {
+    if (!slug) return;
+    if (hold) {
+      holdSlug = slug;
+      holdUntil = performance.now() + 1000;
+    } else if (performance.now() < holdUntil && slug !== holdSlug) {
+      return;
+    }
+    if (slug === activeSlug && !hold) return;
     activeSlug = slug;
     links.forEach((link) => {
       link.classList.toggle('is-active', link.dataset.tocLink === slug);
     });
+    showTocSection(page, sectionSlugFor(page, slug));
   };
 
   const observer = new IntersectionObserver(
@@ -102,6 +130,8 @@ function initTocActiveTracking(page: Element): void {
     const slug = location.hash.replace(/^#/, '');
     if (slug) setActive(slug);
   });
+
+  return { setActive };
 }
 
 if (document.readyState === 'loading') {

@@ -38,10 +38,12 @@ The consultation block and photo credits may sit between the related articles an
 |---|---|
 | Under 1024px | Inline Contents block. Article uses the full content width. No side TOC. No right rail. |
 | 1024–1439px | Side TOC (13.5rem / 216px) plus a 45rem / 720px article. The pair is centered. Outer margins match within 16px. No right rail. |
-| 1440–1599px | TOC 15rem, article up to 48rem, rail 18rem, gap 3rem. Centered, equal outer margins (within 16px). |
-| 1600px and up | TOC 16rem, article up to 50rem, rail 20rem, gap 3.5rem. Shell max-width 93.75rem. Centered, equal outer margins (within 16px). |
+| 1440–1679px | TOC 15rem (240px), article up to 48rem (768px), rail 18rem (288px), gap 3rem. Centered, equal outer margins (within 16px). |
+| 1680–1919px | TOC 290px, article 780px, rail 330px, gap 56px. Centered, equal outer margins (within 16px). |
+| 1920–2399px | TOC 320px, article 800px, rail 360px, gap 64px. Body text 21px. Centered, equal outer margins (within 16px). |
+| 2400px and up | TOC 340px, article 860px, rail 380px, gap 72px. Body text 22px. Centered, equal outer margins (within 16px). |
 
-From 1440px the rail shows, in order: advisor card, 4 related items with thumbnails, Google preferred-sources block. The page itself does not scroll sideways.
+Body lines stay within 65–78 characters. From 1440px the rail shows, in order: advisor card, 4 related items with thumbnails, Google preferred-sources block. Thumbnails are 88×60, and 96×64 from 1920px. The page itself does not scroll sideways. At 1920×1080 the rail content fits without an inner scrollbar.
 
 ## Typography
 
@@ -49,7 +51,7 @@ Root size is 16px. Families: Playfair Display (`--font-display`), Source Serif 4
 
 | Element | Family | Weight | Size |
 |---|---|---|---|
-| Body paragraph | Source Serif 4 | 400 | 18px under 768px, 20px from 768px |
+| Body paragraph | Source Serif 4 | 400 | 18px under 768px, 20px from 768px, 21px from 1920px, 22px from 2400px |
 | Standfirst (`.article-intro`) | Playfair Display | 400 | 18px under 768px, 22px from 768px |
 | H1 (`.research-article-title` / `.editorial-h1`) | Playfair Display | 500 | 33px under 768px, 46px from 768px |
 | H2 | Playfair Display | 600 | 26px under 768px, 32px from 768px |
@@ -64,7 +66,8 @@ The H1 is left-aligned. Its left edge matches the article column (within 16px). 
 
 - Exactly one H1, and it is the article title.
 - Inside the article body, H2, H3, and H4 do not skip a level (H2 then H4 is a skip).
-- Every body H2 is a TOC entry. The TOC label may be shortened. The link target is the heading id.
+- Every body H2 is a TOC entry. The side TOC shows the full heading, wrapping to at most 3 lines. The link target is the heading id.
+- The side TOC lists H2s. H3s under a section appear when that section is the active scroll position, or when its H2 is clicked.
 - The side TOC is visible from 1024px up when the article has 3 or more H2s. Under 1024px those articles show the inline Contents block.
 - "Related Articles" and other headings outside `.article-content` are not TOC entries.
 
