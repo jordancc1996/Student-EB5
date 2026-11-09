@@ -86,7 +86,8 @@
   margin-inline: auto;
 }
 
-/* B — TOC + article as a centered pair (no empty third rail). */
+/* B — TOC + article as a centered pair below 1280px.
+   From 1280px, research and news articles add a right rail. */
 @media (min-width: 1024px) {
   .research-article-page .article-with-toc,
   .article-editorial .article-with-toc {
@@ -104,10 +105,22 @@
 }
 
 @media (min-width: 1280px) {
-  .research-article-page .article-with-toc,
-  .article-editorial .article-with-toc {
+  .research-article-page .article-with-toc:not(.article-with-toc--has-rail),
+  .article-editorial .article-with-toc:not(.article-with-toc--has-rail) {
     grid-template-columns: 13.5rem minmax(0, var(--layout-measure));
     justify-content: center;
+  }
+
+  .article-editorial .article-with-toc--has-rail {
+    grid-template-columns: var(--article-toc-col, 15rem) minmax(0, var(--article-body-col, 48rem)) var(--article-rail-col, 18rem);
+    column-gap: var(--article-col-gap, 3rem);
+    justify-content: center;
+  }
+
+  .article-editorial .article-with-toc--has-rail .article-with-toc__main,
+  .article-with-toc--has-rail .article-content {
+    max-width: none;
+    margin-inline: 0;
   }
 }
 

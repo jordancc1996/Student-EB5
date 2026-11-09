@@ -1014,7 +1014,7 @@ html {
   border-top: none;
 }
 
-/* Editorial article shell: ~1300px container, ~740px reading column */
+/* Editorial article shell. Rail pages widen to ~1500px from 1280px up. */
 .research-article-page .article-editorial {
   width: 100%;
   max-width: 81.25rem;
@@ -1022,6 +1022,15 @@ html {
   margin-right: auto;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+}
+
+.research-article-page--rail {
+  --article-header-offset: 4.5rem;
+  --article-rail-bottom-clearance: 6.5rem;
+  --article-toc-col: 13.5rem;
+  --article-body-col: 45rem;
+  --article-rail-col: 18rem;
+  --article-col-gap: 2rem;
 }
 
 .research-article-page .article-editorial [aria-label*='Follow'] > .container {
@@ -1041,6 +1050,7 @@ html {
   max-width: 45rem;
   width: 100%;
   margin-inline: auto;
+  overflow-x: auto;
 }
 
 .research-article-page .article-toc-track {
@@ -1136,19 +1146,151 @@ html {
 }
 
 @media (min-width: 1280px) {
-  .research-article-page .article-with-toc {
+  .research-article-page .article-with-toc:not(.article-with-toc--has-rail) {
     grid-template-columns: 13.5rem minmax(0, 45rem);
     column-gap: 2.5rem;
     justify-content: center;
   }
 
-  .research-article-page .article-with-toc__main {
+  .research-article-page .article-with-toc:not(.article-with-toc--has-rail) .article-with-toc__main {
     grid-column: 2;
   }
 
   .research-article-page .article-title-block {
     column-gap: 2.5rem;
   }
+
+  .research-article-page--rail {
+    --article-toc-col: 15rem;
+    --article-body-col: 48rem;
+    --article-rail-col: 18rem;
+    --article-col-gap: 3rem;
+  }
+
+  .research-article-page--rail .article-editorial {
+    max-width: 93.75rem;
+  }
+
+  .research-article-page--rail .article-with-toc--has-rail {
+    grid-template-columns: var(--article-toc-col) minmax(0, var(--article-body-col)) var(--article-rail-col);
+    column-gap: var(--article-col-gap);
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .research-article-page--rail .article-with-toc--has-rail .article-toc-track {
+    grid-column: 1;
+  }
+
+  .research-article-page--rail .article-with-toc--has-rail .article-with-toc__main {
+    grid-column: 2;
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .research-article-page--rail .article-with-toc--has-rail .article-side-rail {
+    grid-column: 3;
+  }
+
+  .research-article-page--rail .article-title-block {
+    grid-template-columns: var(--article-toc-col) minmax(0, var(--article-body-col)) var(--article-rail-col);
+    column-gap: var(--article-col-gap);
+  }
+}
+
+@media (min-width: 1600px) {
+  .research-article-page--rail {
+    --article-toc-col: 16rem;
+    --article-body-col: 50rem;
+    --article-rail-col: 20rem;
+    --article-col-gap: 3.5rem;
+  }
+}
+
+.article-side-rail {
+  display: none;
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .article-with-toc--has-rail [data-article-follow-inline] {
+    display: none;
+  }
+}
+
+.article-with-toc--has-rail .article-with-toc__main,
+.article-with-toc--has-rail .article-toc-track,
+.article-with-toc--has-rail .article-side-rail {
+  min-width: 0;
+}
+
+@media (min-width: 1280px) {
+  .research-article-page--rail .article-side-rail {
+    display: block;
+    align-self: stretch;
+    width: 100%;
+  }
+
+  .article-side-rail__sticky {
+    position: sticky;
+    top: calc(var(--article-header-offset) + 1.5rem);
+    max-height: calc(100vh - var(--article-header-offset) - 1.5rem - var(--article-rail-bottom-clearance));
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  .article-side-rail__sticky:hover {
+    scrollbar-color: hsl(var(--muted-foreground) / 0.35) transparent;
+  }
+
+  .article-side-rail__sticky > * + * {
+    margin-top: 1.75rem;
+  }
+}
+
+.article-rail-related__date {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.article-with-toc--has-rail .article-content {
+  max-width: none;
+  margin-inline: 0;
+}
+
+.article-with-toc--has-rail .article-content figure,
+.article-with-toc--has-rail .article-content img,
+.article-with-toc--has-rail .article-content video,
+.article-with-toc--has-rail .article-content iframe,
+.article-with-toc--has-rail .article-content table,
+.article-with-toc--has-rail .article-content .editorial-table,
+.article-with-toc--has-rail .article-content .overflow-x-auto,
+.article-with-toc--has-rail .article-content .table-scroll {
+  max-width: 100%;
+}
+
+.article-with-toc--has-rail .article-content .overflow-x-auto,
+.article-with-toc--has-rail .article-content .table-scroll {
+  overflow-x: auto;
+}
+
+.article-side-rail [aria-label*='Follow'] {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.article-side-rail [aria-label*='Follow'] > .container {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Shared shape tokens — radii and shadows only; no color or font changes */

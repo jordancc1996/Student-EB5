@@ -12,7 +12,7 @@ const PILOT_PATHWAY = '/pathways/eb5-for-tech-workers';
 const PILOT_TOC_LABEL = 'See the EB-5 path for tech workers →';
 const NEWS_ARTICLE = '/news/july-2026-visa-bulletin-eb5-q3-outlook';
 const FAQ_ARTICLE = '/faq/what-is-eb5-visa-program';
-const VIEWPORTS = [375, 1023, 1024, 1180, 1440];
+const VIEWPORTS = [375, 768, 1023, 1024, 1180, 1440];
 const WIDE_VIEWPORTS = [1024, 1180, 1280, 1440, 1920];
 const FIRST_PARTY_READY = '.article-content';
 
@@ -50,11 +50,72 @@ function readTocLayoutState() {
   const contentRect = content?.getBoundingClientRect();
   const headerRect = headerColumn?.getBoundingClientRect();
   const railRect = railNav?.getBoundingClientRect();
+  const sideRail = document.querySelector('.article-side-rail');
+  const sideRect = sideRail?.getBoundingClientRect();
+  const tocTrack = document.querySelector('.article-toc-track');
+  const tocRect = tocTrack?.getBoundingClientRect();
   const mid = window.innerWidth / 2;
   const contentMid = contentRect ? contentRect.left + contentRect.width / 2 : 0;
   const pairLeft = railRect && contentRect ? Math.min(railRect.left, contentRect.left) : null;
   const pairRight = railRect && contentRect ? Math.max(railRect.right, contentRect.right) : null;
   const pairMid = pairLeft != null && pairRight != null ? (pairLeft + pairRight) / 2 : 0;
+  const sideStyle = sideRail ? getComputedStyle(sideRail) : null;
+  const sideRailVisible = !!sideRail && sideStyle.display !== 'none' && (sideRect?.width ?? 0) > 8;
+  const viewWidth = document.documentElement.clientWidth;
+  const leftMargin = tocRect ? tocRect.left : null;
+  const rightMargin = sideRect ? viewWidth - sideRect.right : null;
+  const tracksOverlap =
+    tocRect && contentRect && sideRect
+      ? tocRect.right > contentRect.left + 1 || contentRect.right > sideRect.left + 1
+      : false;
+
+  const lineProbe = (() => {
+    const paras = [...document.querySelectorAll('.article-content p')].filter((p) => {
+      const text = (p.textContent || '').replace(/\s+/g, ' ').trim();
+      if (text.length < 80) return false;
+      if (p.closest('.article-legal-disclaimer, aside, .article-rail-card')) return false;
+      const style = getComputedStyle(p);
+      return style.display !== 'none' && style.visibility !== 'hidden';
+    });
+    const para = paras.find((el) => !el.closest('.article-intro')) || paras[0];
+    if (!para) return null;
+    const walker = document.createTreeWalker(para, NodeFilter.SHOW_TEXT);
+    let textNode = null;
+    let longest = 0;
+    while (walker.nextNode()) {
+      const len = (walker.currentNode.textContent || '').trim().length;
+      if (len > longest) {
+        longest = len;
+        textNode = walker.currentNode;
+      }
+    }
+    if (!textNode) return null;
+    const text = textNode.textContent || '';
+    const range = document.createRange();
+    range.setStart(textNode, 0);
+    range.setEnd(textNode, Math.min(1, text.length));
+    let lo = 1;
+    let hi = text.length;
+    let best = 1;
+    while (lo <= hi) {
+      const midPoint = (lo + hi) >> 1;
+      range.setEnd(textNode, midPoint);
+      const rects = [...range.getClientRects()];
+      const tops = rects.map((rect) => Math.round(rect.top));
+      const single = rects.length > 0 && tops.every((top) => Math.abs(top - tops[0]) <= 1);
+      if (single) {
+        best = midPoint;
+        lo = midPoint + 1;
+      } else {
+        hi = midPoint - 1;
+      }
+    }
+    return {
+      chars: best,
+      fontSize: getComputedStyle(para).fontSize,
+      width: Math.round(para.getBoundingClientRect().width),
+    };
+  })();
 
   return {
     inlineVisible: isVisible(inline),
@@ -80,6 +141,23 @@ function readTocLayoutState() {
       contentRect != null &&
       headerRect != null &&
       Math.abs(contentRect.left - headerRect.left) < 2,
+    sideRailVisible,
+    sideRailText: sideRail ? (sideRail.textContent || '').replace(/\s+/g, ' ').trim() : '',
+    sideRailLinkCount: sideRail ? sideRail.querySelectorAll('a').length : 0,
+    followInRail: !!sideRail?.querySelector('[data-article-follow]'),
+    followInline: !!document.querySelector('[data-article-follow-inline] [data-article-follow]'),
+    leftMargin,
+    rightMargin,
+    marginDelta: leftMargin != null && rightMargin != null ? Math.abs(leftMargin - rightMargin) : null,
+    tracksOverlap,
+    tocWidth: tocRect?.width ?? null,
+    sideRailWidth: sideRect?.width ?? null,
+    lineProbe,
+    titleAligned: (() => {
+      const title = document.querySelector('.article-title-block h1');
+      if (!title || !contentRect) return true;
+      return Math.abs(title.getBoundingClientRect().left - contentRect.left) < 3;
+    })(),
   };
 }
 
@@ -89,9 +167,10 @@ async function check(name, pass, detail = '') {
   return pass;
 }
 
-async function assertTocVariant(page, label, width, { contentsless = false, expectedCtaHref = '/pathways', expectedCtaLabel = 'See your path from visa to green card →' } = {}) {
+async function assertTocVariant(page, label, width, { contentsless = false, expectedCtaHref = '/pathways', expectedCtaLabel = 'See your path from visa to green card →', expectSideRail = false } = {}) {
   const results = [];
   const isDesktop = width >= 1024;
+  await page.evaluate(() => (document.fonts ? document.fonts.ready : null));
   const state = await page.evaluate(readTocLayoutState);
 
   if (isDesktop) {
@@ -158,18 +237,27 @@ async function assertTocVariant(page, label, width, { contentsless = false, expe
         state.railLeftOfContent,
       ),
     );
-    const wideEnoughForCenter = width >= 1280;
+    const wideRail = expectSideRail && width >= 1280;
     const articleWidthOk =
       typeof state.contentWidth === 'number' &&
       state.contentWidth >= 640 &&
       state.contentWidth <= 760;
-    results.push(
-      await check(
-        `${label}: article column ${wideEnoughForCenter ? 'pair centered' : 'in reading range'}`,
-        wideEnoughForCenter ? state.pairCentered && articleWidthOk : articleWidthOk,
-        `width=${state.contentWidth} pairCentered=${state.pairCentered}`,
-      ),
-    );
+    if (!wideRail) {
+      const wideEnoughForCenter = width >= 1280;
+      results.push(
+        await check(
+          `${label}: article column ${wideEnoughForCenter ? 'pair centered' : 'in reading range'}`,
+          wideEnoughForCenter ? state.pairCentered && articleWidthOk : articleWidthOk,
+          `width=${state.contentWidth} pairCentered=${state.pairCentered}`,
+        ),
+      );
+    }
+  }
+
+  if (expectSideRail && width >= 1280) {
+    results.push(...(await assertThreeTrack(label, state, width)));
+  } else if (width <= 768) {
+    results.push(await check(`${label}: no side rail`, !state.sideRailVisible));
   }
 
   if (!contentsless && state.linkCount > 0 && !isDesktop) {
@@ -185,7 +273,51 @@ async function assertTocVariant(page, label, width, { contentsless = false, expe
   return { results, state };
 }
 
-async function verifyTemplate(browser, path, templateLabel, { contentsless = false, expectedCtaHref, expectedCtaLabel } = {}) {
+async function assertThreeTrack(label, state, width) {
+  const results = [];
+  const centered = typeof state.marginDelta === 'number' && state.marginDelta <= 16;
+  const railFilled =
+    state.sideRailVisible &&
+    state.sideRailText.length > 40 &&
+    state.sideRailLinkCount >= 3 &&
+    /Talk to an EB-5 advisor/.test(state.sideRailText) &&
+    /Related research/.test(state.sideRailText);
+  results.push(
+    await check(
+      `${label}: TOC + article + rail centered`,
+      state.sideRailVisible && centered,
+      `left=${state.leftMargin} right=${state.rightMargin} delta=${state.marginDelta}`,
+    ),
+  );
+  results.push(
+    await check(
+      `${label}: rail is not empty`,
+      railFilled,
+      `links=${state.sideRailLinkCount} text=${state.sideRailText.slice(0, 80)}`,
+    ),
+  );
+  results.push(await check(`${label}: tracks do not overlap`, state.sideRailVisible && !state.tracksOverlap));
+  results.push(await check(`${label}: title aligns with article column`, state.titleAligned !== false));
+  results.push(
+    await check(
+      `${label}: Google follow sits in the rail`,
+      state.followInRail && !state.followInline,
+    ),
+  );
+  if (width >= 1440 && state.lineProbe) {
+    const charsOk = state.lineProbe.chars >= 65 && state.lineProbe.chars <= 78;
+    results.push(
+      await check(
+        `${label}: body line is 65-78 characters`,
+        charsOk,
+        `${state.lineProbe.chars} chars at ${state.lineProbe.fontSize} / ${state.lineProbe.width}px`,
+      ),
+    );
+  }
+  return results;
+}
+
+async function verifyTemplate(browser, path, templateLabel, { contentsless = false, expectedCtaHref, expectedCtaLabel, expectSideRail = false } = {}) {
   const results = [];
 
   for (const width of VIEWPORTS) {
@@ -196,6 +328,7 @@ async function verifyTemplate(browser, path, templateLabel, { contentsless = fal
       contentsless,
       expectedCtaHref,
       expectedCtaLabel,
+      expectSideRail,
     });
     results.push(...blockResults);
 
@@ -394,21 +527,22 @@ async function main() {
   for (const width of WIDE_VIEWPORTS) {
     const page = await browser.newPage({ viewport: { width, height: 900 } });
     await gotoFirstPartyReady(page, `${BASE}${ARTICLE_WITH_TOC}`);
+    await page.evaluate(() => (document.fonts ? document.fonts.ready : null));
     const layout = await page.evaluate(readTocLayoutState);
-    results.push(
-      await check(
-        `${width}px: article column ${width >= 1280 ? 'pair centered' : 'in reading range'}`,
-        width >= 1280
-          ? layout.pairCentered &&
-            typeof layout.contentWidth === 'number' &&
-            layout.contentWidth >= 640 &&
-            layout.contentWidth <= 760
-          : typeof layout.contentWidth === 'number' &&
+    if (width >= 1280) {
+      results.push(...(await assertThreeTrack(`${width}px`, layout, width)));
+    } else {
+      results.push(
+        await check(
+          `${width}px: article column in reading range`,
+          typeof layout.contentWidth === 'number' &&
             layout.contentWidth >= 640 &&
             layout.contentWidth <= 760,
-        `width=${layout.contentWidth} pairCentered=${layout.pairCentered}`,
-      ),
-    );
+          `width=${layout.contentWidth}`,
+        ),
+      );
+      results.push(await check(`${width}px: no side rail`, !layout.sideRailVisible));
+    }
     results.push(
       await check(
         `${width}px: no horizontal scrollbar`,
@@ -425,14 +559,16 @@ async function main() {
   results.push(...(await verifyTemplate(browser, ARTICLE_WITH_TOC, 'research', {
     expectedCtaHref: ARTICLE_WITH_TOC_PATHWAY,
     expectedCtaLabel: ARTICLE_WITH_TOC_LABEL,
+    expectSideRail: true,
   })));
   results.push(
     ...(await verifyTemplate(browser, PILOT_ARTICLE, 'research-pilot', {
       expectedCtaHref: PILOT_PATHWAY,
       expectedCtaLabel: PILOT_TOC_LABEL,
+      expectSideRail: true,
     })),
   );
-  results.push(...(await verifyTemplate(browser, NEWS_ARTICLE, 'news')));
+  results.push(...(await verifyTemplate(browser, NEWS_ARTICLE, 'news', { expectSideRail: true })));
   results.push(...(await verifyTemplate(browser, FAQ_ARTICLE, 'faq', { contentsless: true })));
 
   results.push(...(await verifyColorSchemes(browser, BASE, check)));

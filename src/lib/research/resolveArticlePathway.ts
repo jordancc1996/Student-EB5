@@ -54,11 +54,17 @@ const LEGACY_POST_INTRO = {
   href: '/pathways',
 };
 
-const LEGACY_FORM = {
-  headline: 'Talk to Someone Who Knows EB-5',
+export const DEFAULT_ARTICLE_CONSULTATION = {
   subheadline:
     'Book a free 30-minute consultation. Find out if EB-5 fits your situation and learn the next step.',
   buttonLabel: 'Get My Free Evaluation',
+  href: '#consultation-form',
+} as const;
+
+const LEGACY_FORM = {
+  headline: 'Talk to Someone Who Knows EB-5',
+  subheadline: DEFAULT_ARTICLE_CONSULTATION.subheadline,
+  buttonLabel: DEFAULT_ARTICLE_CONSULTATION.buttonLabel,
   pathwayContext: 'general',
 };
 

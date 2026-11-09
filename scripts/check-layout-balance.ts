@@ -224,6 +224,68 @@ function printTable(flags: Flag[]) {
   console.log(`\n${rows.length} flagged section(s) across ${VIEWPORTS.join('/')}px.`);
 }
 
+const ARTICLE_RAIL_WIDTHS = [375, 768, 1280, 1440, 1920] as const;
+
+function isArticleRoute(route: string): boolean {
+  return (
+    (route.startsWith('/research/') && route.length > '/research/'.length) ||
+    (route.startsWith('/news/') && route.length > '/news/'.length)
+  );
+}
+
+type RailFlag = {
+  viewport: number;
+  page: string;
+  reason: string;
+};
+
+async function measureArticleRail(page: Page, route: string, viewport: number): Promise<RailFlag[]> {
+  return page.evaluate(
+    ({ routePath, vp }) => {
+      const flags: RailFlag[] = [];
+      const fail = (reason: string) => flags.push({ viewport: vp, page: routePath, reason });
+      const scrollWidth = document.documentElement.scrollWidth;
+      const clientWidth = document.documentElement.clientWidth;
+      if (scrollWidth > clientWidth + 1) {
+        fail(`horizontal scroll ${scrollWidth} > ${clientWidth}`);
+      }
+
+      const rail = document.querySelector('.article-side-rail');
+      const railStyle = rail ? getComputedStyle(rail) : null;
+      const railRect = rail?.getBoundingClientRect();
+      const railVisible = !!rail && railStyle?.display !== 'none' && (railRect?.width ?? 0) > 8;
+
+      if (vp < 1280) {
+        if (railVisible) fail('side rail is visible below 1280px');
+        return flags;
+      }
+
+      const toc = document.querySelector('.article-toc-track')?.getBoundingClientRect();
+      const main = document.querySelector('.article-with-toc__main')?.getBoundingClientRect();
+      if (!railVisible || !rail || !railRect || !toc || !main) {
+        fail('TOC, article, or rail track is missing');
+        return flags;
+      }
+
+      const text = (rail.textContent || '').replace(/\s+/g, ' ').trim();
+      const linkCount = rail.querySelectorAll('a').length;
+      if (text.length < 40 || linkCount < 3 || !/Talk to an EB-5 advisor/.test(text) || !/Related research/.test(text)) {
+        fail(`rail is empty or incomplete (${linkCount} links)`);
+      }
+      if (toc.right > main.left + 1 || main.right > railRect.left + 1) {
+        fail('tracks overlap');
+      }
+      const leftMargin = toc.left;
+      const rightMargin = clientWidth - railRect.right;
+      if (Math.abs(leftMargin - rightMargin) > 16) {
+        fail(`outer margins differ by ${Math.abs(leftMargin - rightMargin).toFixed(1)}px (left ${leftMargin.toFixed(1)}, right ${rightMargin.toFixed(1)})`);
+      }
+      return flags;
+    },
+    { routePath: route, vp: viewport },
+  );
+}
+
 async function main() {
   const distDir = path.resolve(process.cwd(), 'dist');
   if (!fs.existsSync(distDir)) {
@@ -257,8 +319,40 @@ async function main() {
     }
   }
 
+  const articleRoutes = routes.filter(isArticleRoute);
+  const railFlags: RailFlag[] = [];
+  for (const width of ARTICLE_RAIL_WIDTHS) {
+    await page.setViewportSize({ width, height: 1400 });
+    for (const route of articleRoutes) {
+      const url = `${base}${route}`;
+      try {
+        const res = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 20000 });
+        if (!res || res.status() >= 400) {
+          railFlags.push({ viewport: width, page: route, reason: `HTTP ${res?.status() ?? 'none'}` });
+          continue;
+        }
+        await page.waitForSelector('.article-content', { timeout: 15000 });
+        railFlags.push(...(await measureArticleRail(page, route, width)));
+      } catch (err) {
+        railFlags.push({
+          viewport: width,
+          page: route,
+          reason: err instanceof Error ? err.message : 'navigation failed',
+        });
+      }
+    }
+  }
+
   await browser.close();
   printTable(flags);
+  if (railFlags.length) {
+    console.log('\nArticle rail checks:');
+    for (const flag of railFlags) {
+      console.log(`FAIL ${flag.page} @${flag.viewport}: ${flag.reason}`);
+    }
+  } else {
+    console.log(`\nArticle rail checks passed for ${articleRoutes.length} article(s) at ${ARTICLE_RAIL_WIDTHS.join('/')}px.`);
+  }
 
   const unique = flags.filter((f) => f.viewport === 1280);
   const outPath = path.resolve(process.cwd(), 'scripts/layout-balance-report.json');
@@ -273,7 +367,7 @@ async function main() {
   if (stackedFails.length) {
     console.error(`${stackedFails.length} two-column section(s) start body text below the other column.`);
   }
-  if (gapFails.length || stackedFails.length) process.exit(1);
+  if (gapFails.length || stackedFails.length || railFlags.length) process.exit(1);
   if (failedNav) console.warn(`Navigation failures: ${failedNav}`);
 }
 

@@ -1,10 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import type { NewsArticleMeta } from '@/data/newsArticles';
 import type { TocItem } from '@/lib/research/articleHeadings';
 import OptimizedImage from '@/components/OptimizedImage.astro';
 import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
 import ArticleContents from '@/components/research/ArticleContents.astro';
+import ArticleSideRail from '@/components/research/ArticleSideRail.astro';
 import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
+import { DEFAULT_ARTICLE_CONSULTATION } from '@/lib/research/resolveArticlePathway';
+import { selectRelatedResearch } from '@/lib/research/relatedResearch';
 import LastUpdated from '@/components/LastUpdated.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import EditorialPhoto from '@/components/EditorialPhoto.astro';
@@ -19,6 +23,18 @@ interface Props {
 const { article, tocItems } = Astro.props;
 const lastUpdated = article.dateModified ?? article.datePublished;
 const editorialPhotos = getPlacementsForPath(`/news/${article.slug}`);
+const researchPosts = await getCollection('blog');
+const railRelated = selectRelatedResearch(
+  { href: `/news/${article.slug}`, category: article.category, keywords: article.keywords },
+  researchPosts.map((p) => ({
+    title: p.data.title,
+    href: `/research/${p.data.slug}`,
+    date: p.data.date,
+    category: p.data.category,
+    keywords: p.data.keywords,
+    timestamp: new Date(p.data.date).getTime() || 0,
+  })),
+);
 ---
 
 <>
@@ -67,6 +83,12 @@ const editorialPhotos = getPlacementsForPath(`/news/${article.slug}`);
   <main class="pt-4 pb-8">
     <div class="article-editorial">
       <ArticleTocRail items={tocItems}>
+        <ArticleSideRail
+          slot="rail"
+          related={railRelated}
+          subheadline={DEFAULT_ARTICLE_CONSULTATION.subheadline}
+          buttonLabel={DEFAULT_ARTICLE_CONSULTATION.buttonLabel}
+        />
         <nav aria-label="Breadcrumb" class="py-4 mb-6">
           <ol class="flex flex-wrap items-center gap-0 text-sm">
             <li class="flex items-center">
@@ -87,7 +109,11 @@ const editorialPhotos = getPlacementsForPath(`/news/${article.slug}`);
           </ol>
         </nav>
 
-        <PreferredSourcesCTA />
+        <div data-article-follow-inline>
+          <div data-article-follow>
+            <PreferredSourcesCTA />
+          </div>
+        </div>
 
         <ArticleContents items={tocItems} />
 

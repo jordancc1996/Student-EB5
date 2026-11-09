@@ -10,9 +10,10 @@ interface Props {
 
 const { items, pathwayToc } = Astro.props;
 const hasContents = items.length >= 1;
+const hasSideRail = Astro.slots.has('rail');
 ---
 
-<div class="article-with-toc">
+<div class:list={['article-with-toc', hasSideRail && 'article-with-toc--has-rail']}>
   <div class="article-toc-track">
     <nav class="article-toc" aria-label="Contents">
       {hasContents && <p class="article-contents__label">Contents</p>}
@@ -41,6 +42,99 @@ const hasContents = items.length >= 1;
   <div class="article-with-toc__main">
     <slot />
   </div>
+  {
+    hasSideRail && (
+      <aside class="article-side-rail" aria-label="More from this article">
+        <div class="article-side-rail__sticky">
+          <slot name="rail" />
+          <div data-article-follow-rail></div>
+        </div>
+      </aside>
+    )
+  }
 </div>
+
+{
+  hasSideRail && (
+    <script is:inline>
+      (function () {
+        var root = document.currentScript && document.currentScript.previousElementSibling;
+        if (!root || !root.classList || !root.classList.contains('article-with-toc')) {
+          root = document.querySelector('.article-with-toc--has-rail');
+        }
+        if (!root) return;
+        var follow = root.querySelector('[data-article-follow]');
+        var inlineAnchor = root.querySelector('[data-article-follow-inline]');
+        var railAnchor = root.querySelector('[data-article-follow-rail]');
+        if (!follow || !inlineAnchor || !railAnchor) return;
+
+        var wide = window.matchMedia('(min-width: 1280px)');
+        function placeFollow() {
+          if (wide.matches) railAnchor.appendChild(follow);
+          else inlineAnchor.appendChild(follow);
+        }
+        placeFollow();
+        if (typeof wide.addEventListener === 'function') wide.addEventListener('change', placeFollow);
+
+        var page = root.closest('.research-article-page--rail') || document.documentElement;
+        function obstacleTop(railRect) {
+          var limit = window.innerHeight;
+          var whatsapp = document.querySelector('a[aria-label="Chat with an EB-5 Advisor on WhatsApp"]');
+          if (whatsapp) {
+            var whatsappRect = whatsapp.getBoundingClientRect();
+            if (
+              whatsappRect.height > 0 &&
+              whatsappRect.left < railRect.right - 4 &&
+              whatsappRect.right > railRect.left + 4
+            ) {
+              limit = Math.min(limit, whatsappRect.top);
+            }
+          }
+          var cookie = document.querySelector('.fixed.inset-x-0.bottom-0');
+          if (cookie) {
+            var cookieRect = cookie.getBoundingClientRect();
+            if (
+              cookieRect.height > 24 &&
+              cookieRect.top < window.innerHeight &&
+              cookieRect.left < railRect.right - 4 &&
+              cookieRect.right > railRect.left + 4
+            ) {
+              limit = Math.min(limit, cookieRect.top);
+            }
+          }
+          return limit;
+        }
+        function syncRailChrome() {
+          var header = document.querySelector('nav.nav-simple');
+          var headerHeight = header ? Math.round(header.getBoundingClientRect().height) : 72;
+          page.style.setProperty('--article-header-offset', headerHeight + 'px');
+
+          var sticky = root.querySelector('.article-side-rail__sticky');
+          var rail = root.querySelector('.article-side-rail');
+          if (!sticky || !rail || getComputedStyle(rail).display === 'none') return;
+          var railRect = rail.getBoundingClientRect();
+          var limit = obstacleTop(railRect);
+          var top = sticky.getBoundingClientRect().top;
+          var maxHeight = Math.max(120, Math.round(limit - top - 16));
+          sticky.style.maxHeight = maxHeight + 'px';
+          page.style.setProperty(
+            '--article-rail-bottom-clearance',
+            Math.max(16, Math.round(window.innerHeight - limit + 16)) + 'px',
+          );
+        }
+
+        syncRailChrome();
+        window.addEventListener('resize', syncRailChrome);
+        window.addEventListener('scroll', syncRailChrome, { passive: true });
+        window.setTimeout(syncRailChrome, 900);
+        window.setTimeout(syncRailChrome, 2200);
+        if (typeof ResizeObserver === 'function') {
+          var header = document.querySelector('nav.nav-simple');
+          if (header) new ResizeObserver(syncRailChrome).observe(header);
+        }
+      })();
+    </script>
+  )
+}
 
 <script src="../../scripts/article-toc.ts"></script>

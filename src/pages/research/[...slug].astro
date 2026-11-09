@@ -32,10 +32,12 @@ import {
 } from '@/lib/research/renderArticleContent';
 import { extractArticleHeadings, buildTocItems } from '@/lib/research/articleHeadings';
 import ArticleContents from '@/components/research/ArticleContents.astro';
+import ArticleSideRail from '@/components/research/ArticleSideRail.astro';
 import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
 import LastUpdated from '@/components/LastUpdated.astro';
 import { resolveArticleLastUpdated, toIsoDate } from '@/lib/lastUpdated';
 import { resolveArticlePathway } from '@/lib/research/resolveArticlePathway';
+import { selectRelatedResearch } from '@/lib/research/relatedResearch';
 import { injectEditorialPhotos } from '@/lib/photos/injectEditorialPhotos';
 import PagePhotoCredits from '@/components/PagePhotoCredits.astro';
 
@@ -119,6 +121,17 @@ const articlePathway = resolveArticlePathway(slug, {
 });
 
 const allPosts = await getCollection('blog');
+const railRelated = selectRelatedResearch(
+  { href: `/research/${slug}`, category: post.category, keywords: post.keywords },
+  allPosts.map((p) => ({
+    title: p.data.title,
+    href: `/research/${p.data.slug}`,
+    date: p.data.date,
+    category: p.data.category,
+    keywords: p.data.keywords,
+    timestamp: new Date(p.data.date).getTime() || 0,
+  })),
+);
 const relatedPosts = allPosts
   .filter((p) => p.data.slug !== slug)
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
@@ -142,7 +155,7 @@ const relatedPosts = allPosts
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
   </Fragment>
 
-  <div class="min-h-screen bg-background research-article-page">
+  <div class="min-h-screen bg-background research-article-page research-article-page--rail">
     <Header client:load />
 
     {
@@ -190,6 +203,12 @@ const relatedPosts = allPosts
     <main class="pt-4 pb-8">
       <div class="article-editorial">
         <ArticleTocRail items={tocItems} pathwayToc={articlePathway.toc}>
+          <ArticleSideRail
+            slot="rail"
+            related={railRelated}
+            subheadline={articlePathway.form.subheadline}
+            buttonLabel={articlePathway.form.buttonLabel}
+          />
           <nav aria-label="Breadcrumb" class="py-4 mb-6">
             <ol class="flex flex-wrap items-center gap-0 text-sm">
               <li class="flex items-center">
@@ -211,7 +230,11 @@ const relatedPosts = allPosts
             </ol>
           </nav>
 
-          <PreferredSourcesCTA />
+          <div data-article-follow-inline>
+            <div data-article-follow>
+              <PreferredSourcesCTA />
+            </div>
+          </div>
 
           {
             !hasHero && (

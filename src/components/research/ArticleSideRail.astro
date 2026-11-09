@@ -1,0 +1,54 @@
+---
+import type { RelatedResearchLink } from '@/lib/research/relatedResearch';
+import { DEFAULT_ARTICLE_CONSULTATION } from '@/lib/research/resolveArticlePathway';
+
+interface Props {
+  related: RelatedResearchLink[];
+  subheadline?: string;
+  buttonLabel?: string;
+  buttonHref?: string;
+}
+
+const {
+  related,
+  subheadline = DEFAULT_ARTICLE_CONSULTATION.subheadline,
+  buttonLabel = DEFAULT_ARTICLE_CONSULTATION.buttonLabel,
+  buttonHref = DEFAULT_ARTICLE_CONSULTATION.href,
+} = Astro.props;
+---
+
+<div class="article-rail-card rounded-lg border border-border bg-card text-card-foreground p-5">
+  <p class="font-serif text-lg font-semibold text-foreground m-0 mb-2 leading-snug">Talk to an EB-5 advisor</p>
+  <p class="text-sm text-muted-foreground leading-relaxed m-0 mb-4">{subheadline}</p>
+  <a
+    href={buttonHref}
+    class="inline-flex h-11 w-full items-center justify-center gap-2 whitespace-normal rounded-md bg-primary px-8 text-center text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+    data-article-rail-cta
+  >
+    {buttonLabel}
+  </a>
+</div>
+
+{
+  related.length > 0 && (
+    <nav class="article-rail-related" aria-label="Related research">
+      <p class="article-contents__label">Related research</p>
+      <ul class="article-contents__list">
+        {related.map((item) => (
+          <li>
+            <a href={item.href} class="article-contents__link article-rail-related__link">
+              <span class="article-rail-related__title">{item.title}</span>
+              {item.dateTime ? (
+                <time class="article-rail-related__date" datetime={item.dateTime}>
+                  {item.date}
+                </time>
+              ) : (
+                <span class="article-rail-related__date">{item.date}</span>
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
