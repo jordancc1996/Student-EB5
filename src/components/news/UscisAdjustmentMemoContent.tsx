@@ -1,15 +1,16 @@
 import { getNewsArticle } from '@/data/newsArticles';
+import ArticleSummary from '@/components/ArticleSummary';
 import NewsArticleShell from './NewsArticleShell';
 
 const article = getNewsArticle('uscis-adjustment-of-status-memo-eb5-investors')!;
 
 const UscisAdjustmentMemoContent = () => (
   <NewsArticleShell article={article}>
-              <div className="article-intro">
+              <ArticleSummary>
                 <p>
                   USCIS adjustment of status EB-5 guidance adds discretionary I-485 review for concurrent filers on H-1B, L-1, and F-1, while RIA concurrent filing rights remain unchanged.
                 </p>
-              </div>
+              </ArticleSummary>
 
               <h2>The Core Message of the Memo</h2>
               <p>

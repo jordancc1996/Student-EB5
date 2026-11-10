@@ -60,11 +60,6 @@ export function extractArticleH2s(content: string): ArticleH2[] {
     .map(({ text, slug }) => ({ text, slug }));
 }
 
-export function truncateTocLabel(label: string, maxLength = 64): string {
-  if (label.length <= maxLength) return label;
-  return `${label.slice(0, maxLength - 1).trimEnd()}…`;
-}
-
 export interface TocItem {
   slug: string;
   label: string;
@@ -77,7 +72,7 @@ export function buildTocItems(
 ): TocItem[] {
   return headings.map((heading) => ({
     slug: heading.slug,
-    label: truncateTocLabel(tocLabels?.[heading.slug] ?? heading.text),
+    label: tocLabels?.[heading.slug] ?? heading.text,
     level: 'level' in heading ? heading.level : 2,
   }));
 }

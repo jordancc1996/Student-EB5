@@ -1,7 +1,9 @@
+import ArticleSummary from '@/components/ArticleSummary';
+
 export default function Eb5LandscapeMay2026Body() {
   return (
     <>
-              <div className="article-intro">
+              <ArticleSummary>
                 <p>
                   EB-5 visa landscape 2026 shows rural projects at about 47% of filings with adjudications often in 3 to 8 months, alongside I-526E backlog pressure and Gold Card-driven demand.
                 </p>
@@ -9,7 +11,7 @@ export default function Eb5LandscapeMay2026Body() {
                   The program has been defined in 2026 by surging demand, accelerated processing for specific project categories, and a series of upcoming statutory deadlines that are reshaping strategic planning for global investors.
                 </p>
                 <p>This analysis summarizes new trends in the EB-5 market as of May 2026.</p>
-              </div>
+              </ArticleSummary>
 
               <h2 id="analyzing-the-data-surge">Analyzing the Data Surge</h2>
               <p>

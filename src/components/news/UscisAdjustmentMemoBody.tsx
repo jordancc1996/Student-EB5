@@ -1,11 +1,13 @@
+import ArticleSummary from '@/components/ArticleSummary';
+
 export default function UscisAdjustmentMemoBody() {
   return (
     <>
-              <div className="article-intro">
+              <ArticleSummary>
                 <p>
                   USCIS adjustment of status EB-5 guidance adds discretionary I-485 review for concurrent filers on H-1B, L-1, and F-1, while RIA concurrent filing rights remain unchanged.
                 </p>
-              </div>
+              </ArticleSummary>
 
               <h2 id="the-core-message-of-the-memo">The Core Message of the Memo</h2>
               <p>

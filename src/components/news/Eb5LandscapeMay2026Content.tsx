@@ -1,11 +1,12 @@
 import { getNewsArticle } from '@/data/newsArticles';
+import ArticleSummary from '@/components/ArticleSummary';
 import NewsArticleShell from './NewsArticleShell';
 
 const article = getNewsArticle('eb5-visa-landscape-news-update-may-2026')!;
 
 const Eb5LandscapeMay2026Content = () => (
   <NewsArticleShell article={article}>
-              <div className="article-intro">
+              <ArticleSummary>
                 <p>
                   EB-5 visa landscape 2026 shows rural projects at about 47% of filings with adjudications often in 3 to 8 months, alongside I-526E backlog pressure and Gold Card-driven demand.
                 </p>
@@ -13,7 +14,7 @@ const Eb5LandscapeMay2026Content = () => (
                   The program has been defined in 2026 by surging demand, accelerated processing for specific project categories, and a series of upcoming statutory deadlines that are reshaping strategic planning for global investors.
                 </p>
                 <p>This analysis summarizes new trends in the EB-5 market as of May 2026.</p>
-              </div>
+              </ArticleSummary>
 
               <h2>Analyzing the Data Surge</h2>
               <p>

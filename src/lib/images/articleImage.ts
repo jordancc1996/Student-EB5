@@ -2,7 +2,7 @@ import { getImage, type ImageMetadata } from 'astro:assets';
 
 const CANDIDATE_WIDTHS = [480, 720, 800, 1200, 1600];
 
-export const ARTICLE_IMAGE_SIZES = '(min-width: 1600px) 800px, (min-width: 1440px) 768px, (min-width: 1024px) 720px, 100vw';
+export const ARTICLE_IMAGE_SIZES = '(min-width: 2400px) 792px, (min-width: 1920px) 768px, (min-width: 1680px) 716px, (min-width: 1440px) 728px, (min-width: 1024px) 720px, 100vw';
 
 export interface OptimizedArticleImage {
   src: string;

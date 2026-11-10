@@ -41,10 +41,27 @@ export function splitStandfirstParagraphs(text: string): string[] {
   });
 }
 
-function renderStandfirstHtml(text: string): string {
+function renderSummaryInnerHtml(text: string): string {
   const paragraphs = splitStandfirstParagraphs(text);
   if (paragraphs.length === 0) return '';
-  return `<div class="article-intro">${paragraphs.map((paragraph) => `<p>${formatLine(paragraph)}</p>`).join('')}</div>`;
+  return paragraphs.map((paragraph) => `<p>${formatLine(paragraph)}</p>`).join('');
+}
+
+function renderStandfirstHtml(text: string): string {
+  const inner = renderSummaryInnerHtml(text);
+  if (!inner) return '';
+  return `<aside class="article-summary" aria-label="Summary"><p class="article-summary__label">Summary</p><div class="article-summary__body">${inner}</div></aside>`;
+}
+
+/** Pull the marked <intro> summary out of the article markdown. The rest is body copy. */
+export function extractMarkedIntro(content: string): { intro: string | null; rest: string } {
+  const match = content.match(/<intro>([\s\S]*?)<\/intro>/i);
+  if (!match || match.index == null) return { intro: null, rest: content };
+  const rest = `${content.slice(0, match.index)}${content.slice(match.index + match[0].length)}`.replace(
+    /^\n+/,
+    '',
+  );
+  return { intro: match[1].trim(), rest };
 }
 
 function isInlineArticleDisclaimerLine(line: string): boolean {
@@ -278,31 +295,36 @@ export async function splitArticleContent(content: string): Promise<{
  * introductory content and the first section heading.
  */
 export async function splitArticleBeforeFirstH2(content: string): Promise<{
-  introHtml: string;
+  summaryHtml: string;
+  introRemainderHtml: string;
   bodyMarkdown: string;
   showPostIntroCta: boolean;
 }> {
   const cleaned = stripInlineArticleDisclaimer(content);
-  const lines = cleaned.split('\n');
+  const marked = extractMarkedIntro(cleaned);
+  const lines = marked.rest.split('\n');
   const firstH2Index = lines.findIndex(isH2Line);
+  const summaryHtml = marked.intro ? renderSummaryInnerHtml(marked.intro) : '';
 
   if (firstH2Index <= 0) {
     return {
-      introHtml: '',
-      bodyMarkdown: cleaned,
-      showPostIntroCta: false,
+      summaryHtml,
+      introRemainderHtml: '',
+      bodyMarkdown: marked.rest,
+      showPostIntroCta: Boolean(summaryHtml),
     };
   }
 
   const introLines = lines.slice(0, firstH2Index);
   const bodyLines = lines.slice(firstH2Index);
-  const introHtml = await renderArticleContentLines(introLines, undefined, { standfirstParagraphs: true });
-  const hasVisibleIntro = introLines.some((line) => line.trim().length > 0);
+  const introRemainderHtml = await renderArticleContentLines(introLines);
+  const hasVisibleLead = introLines.some((line) => line.trim().length > 0);
 
   return {
-    introHtml,
+    summaryHtml,
+    introRemainderHtml,
     bodyMarkdown: bodyLines.join('\n'),
-    showPostIntroCta: hasVisibleIntro,
+    showPostIntroCta: Boolean(summaryHtml) || hasVisibleLead,
   };
 }
 

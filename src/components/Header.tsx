@@ -111,15 +111,15 @@ const Header = ({ transparent = false }: HeaderProps) => {
   // Elegant navigation link styles - uppercase, letter-spaced, refined sizing
   // Larger tap targets via px-3 py-2, smooth color transitions, clear focus ring
   const baseLinkClasses =
-    'inline-flex items-center px-2 py-1 rounded-sm text-[13px] uppercase tracking-[0.15em] font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent';
+    'inline-flex items-center whitespace-nowrap px-1.5 py-1 rounded-sm text-[15px] uppercase tracking-[0.1em] font-normal transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent';
   const linkClasses = useWhiteText
     ? `${baseLinkClasses} text-white hover:text-white/70 focus-visible:ring-white/60`
     : `${baseLinkClasses} text-foreground hover:text-foreground/60 focus-visible:ring-foreground/40`;
 
   // Logo styles - slightly larger, still elegant
   const logoClasses = useWhiteText
-    ? 'text-white hover:text-white/70 transition-colors text-[15px] uppercase tracking-[0.2em] font-semibold'
-    : 'text-foreground hover:text-foreground/70 transition-colors text-[15px] uppercase tracking-[0.2em] font-semibold';
+    ? 'text-white hover:text-white/70 transition-colors whitespace-nowrap text-[15px] uppercase tracking-[0.14em] font-medium'
+    : 'text-foreground hover:text-foreground/70 transition-colors whitespace-nowrap text-[15px] uppercase tracking-[0.14em] font-medium';
 
   const dotClasses = `${useWhiteText ? 'text-white/40' : 'text-foreground/25'} text-xs select-none`;
 
@@ -136,7 +136,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
       >
         <div className="container mx-auto px-4">
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-center gap-x-2 lg:gap-x-3">
+          <div className="hidden lg:flex items-center justify-center gap-x-1 xl:gap-x-3">
             <Link to="/" className={`${logoClasses} px-3 py-2`} aria-label="StudentEB5 Home">StudentEB5</Link>
             <span className={dotClasses} aria-hidden="true">•</span>
             <Link to="/research" className={linkClasses}>Research</Link>
@@ -201,7 +201,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
                 >
                   {resourceCategories.map((category) => (
                     <div key={category.label} className="mb-1 last:mb-0">
-                      <div className="px-3 pt-2 pb-1 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                      <div className="px-3 pt-2 pb-1 text-[13px] font-medium text-muted-foreground uppercase tracking-wider">
                         {category.label}
                       </div>
                       {category.links.map((link) => (
@@ -256,7 +256,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
           </div>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden flex items-center justify-between">
+          <div className="lg:hidden flex items-center justify-between">
             <Link to="/" className={logoClasses} aria-label="StudentEB5 Home">StudentEB5</Link>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -300,7 +300,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
               ))}
 
               <div className="mt-3 pt-3 border-t border-border/40">
-                <span className="px-4 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-1 block">
+                <span className="px-4 text-[13px] font-medium text-muted-foreground uppercase tracking-wider mb-1 block">
                   Pathways
                 </span>
                 {pathwayLinks.map((link) => (
@@ -318,7 +318,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
 
               {resourceCategories.map((category) => (
                 <div key={category.label} className="mt-3 pt-3 border-t border-border/40">
-                  <span className="px-4 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-1 block">
+                  <span className="px-4 text-[13px] font-medium text-muted-foreground uppercase tracking-wider mb-1 block">
                     {category.label}
                   </span>
                   {category.links.map((link) => (
@@ -335,7 +335,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
               ))}
 
               <div className="mt-3 pt-3 border-t border-border/40">
-                <span className="px-4 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-1 block">
+                <span className="px-4 text-[13px] font-medium text-muted-foreground uppercase tracking-wider mb-1 block">
                   Tools
                 </span>
                 {toolLinks.map((link) => (

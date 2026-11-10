@@ -224,7 +224,7 @@ function printTable(flags: Flag[]) {
   console.log(`\n${rows.length} flagged section(s) across ${VIEWPORTS.join('/')}px.`);
 }
 
-const ARTICLE_RAIL_WIDTHS = [375, 768, 1280, 1440, 1920] as const;
+const ARTICLE_RAIL_WIDTHS = [375, 768, 1280, 1440, 1680, 1920, 2400, 2560, 3440] as const;
 
 function isArticleRoute(route: string): boolean {
   return (
@@ -280,12 +280,32 @@ async function measureArticleRail(page: Page, route: string, viewport: number): 
       if (Math.abs(leftMargin - rightMargin) > 16) {
         fail(`outer margins differ by ${Math.abs(leftMargin - rightMargin).toFixed(1)}px (left ${leftMargin.toFixed(1)}, right ${rightMargin.toFixed(1)})`);
       }
+      const tracks =
+        vp >= 2400
+          ? { toc: 340, article: 792, rail: 380 }
+          : vp >= 1920
+            ? { toc: 320, article: 768, rail: 360 }
+            : vp >= 1680
+              ? { toc: 290, article: 716, rail: 330 }
+              : { toc: 240, article: 728, rail: 288 };
+      const widthOff = (actual: number, expected: number) => Math.abs(actual - expected) > 16;
+      if (widthOff(toc.width, tracks.toc)) fail(`TOC width ${Math.round(toc.width)}px, expected ${tracks.toc}`);
+      if (widthOff(main.width, tracks.article)) fail(`article width ${Math.round(main.width)}px, expected ${tracks.article}`);
+      if (widthOff(railRect.width, tracks.rail)) fail(`rail width ${Math.round(railRect.width)}px, expected ${tracks.rail}`);
       const sticky = rail.querySelector('.article-side-rail__sticky');
       const stickyHeight = sticky ? sticky.getBoundingClientRect().height : 0;
       if (stickyHeight < window.innerHeight * 0.6) {
         fail(
           `sticky rail visible height ${Math.round(stickyHeight)}px is under 60% of ${window.innerHeight}px`,
         );
+      }
+      if (vp === 1920 && sticky) {
+        const header = document.querySelector('nav.nav-simple');
+        const headerHeight = header ? header.getBoundingClientRect().height : 72;
+        const available = window.innerHeight - headerHeight - 48;
+        if (sticky.scrollHeight > available + 1) {
+          fail(`rail content ${Math.round(sticky.scrollHeight)}px exceeds the viewport (${Math.round(available)}px available)`);
+        }
       }
       return flags;
     },

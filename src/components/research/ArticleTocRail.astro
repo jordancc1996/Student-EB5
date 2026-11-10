@@ -11,6 +11,13 @@ interface Props {
 const { items, pathwayToc } = Astro.props;
 const hasContents = items.length >= 1;
 const hasSideRail = Astro.slots.has('rail');
+
+const tocRows: Array<TocItem & { section: string }> = [];
+let section = '';
+for (const item of items) {
+  if (item.level === 2 || !section) section = item.slug;
+  tocRows.push({ ...item, section });
+}
 ---
 
 <div class:list={['article-with-toc', hasSideRail && 'article-with-toc--has-rail']}>
@@ -21,14 +28,19 @@ const hasSideRail = Astro.slots.has('rail');
         hasContents && (
           <ol class="article-contents__list">
             {
-              items.map((item) => (
-                <li>
+              tocRows.map((item) => (
+                <li
+                  data-toc-section={item.section}
+                  data-toc-level={item.level}
+                  hidden={item.level === 3 && item.section !== item.slug}
+                >
                   <a
                     href={`#${item.slug}`}
                     class:list={['article-contents__link', item.level === 3 && 'article-contents__link--sub']}
                     data-toc-link={item.slug}
+                    data-toc-level={item.level}
                   >
-                    {item.label}
+                    <span class="article-contents__text">{item.label}</span>
                   </a>
                 </li>
               ))

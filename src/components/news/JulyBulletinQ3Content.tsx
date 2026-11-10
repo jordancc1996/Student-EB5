@@ -1,15 +1,16 @@
 import { getNewsArticle } from '@/data/newsArticles';
+import ArticleSummary from '@/components/ArticleSummary';
 import NewsArticleShell from './NewsArticleShell';
 
 const article = getNewsArticle('july-2026-visa-bulletin-eb5-q3-outlook')!;
 
 const JulyBulletinQ3Content = () => (
   <NewsArticleShell article={article}>
-              <div className="article-intro">
+              <ArticleSummary>
                 <p>
                   July 2026 visa bulletin EB-5 confirms India unreserved EB-5 is exhausted for FY 2026, while rural, high-unemployment, and infrastructure reserved categories remain current for Q3 filers.
                 </p>
-              </div>
+              </ArticleSummary>
 
               <h2>Unreserved Category is Exhausted</h2>
               <p>

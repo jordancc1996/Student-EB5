@@ -15,9 +15,14 @@ const PORT = Number(process.env.FORMAT_PORT || 4411);
 let BASE = `http://127.0.0.1:${PORT}`;
 const VIEWPORTS = [
   { width: 375, height: 812 },
+  { width: 768, height: 900 },
   { width: 1280, height: 800 },
   { width: 1440, height: 900 },
+  { width: 1680, height: 900 },
   { width: 1920, height: 1080 },
+  { width: 2400, height: 1080 },
+  { width: 2560, height: 1080 },
+  { width: 3440, height: 1080 },
 ];
 const CONTENT_CAUSES = new Set(['no-hero', 'image-alt', 'heading-skip', 'duplicate-meta']);
 const COLUMNS = ['template', 'blocks', 'layout', 'typography', 'headings', 'seo', 'images', 'links'];
@@ -349,6 +354,26 @@ function readViewport(width) {
     };
   }
 
+  function contrastRatio(foreground, background) {
+    const channels = (value) => {
+      const match = String(value).match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+      return match ? [Number(match[1]), Number(match[2]), Number(match[3])] : null;
+    };
+    const lum = (rgb) => {
+      const linear = rgb.map((channel) => {
+        const value = channel / 255;
+        return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+      });
+      return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2];
+    };
+    const fg = channels(foreground);
+    const bg = channels(background);
+    if (!fg || !bg) return null;
+    const lighter = Math.max(lum(fg), lum(bg));
+    const darker = Math.min(lum(fg), lum(bg));
+    return (lighter + 0.05) / (darker + 0.05);
+  }
+
   const visibleParts = [toc, main, rail].filter(shown);
   const left = visibleParts.length ? Math.min(...visibleParts.map((el) => el.getBoundingClientRect().left)) : null;
   const right = visibleParts.length ? Math.max(...visibleParts.map((el) => el.getBoundingClientRect().right)) : null;
@@ -365,10 +390,57 @@ function readViewport(width) {
   }
 
   const body = [...document.querySelectorAll('.article-content p')].find(
-    (el) => !el.closest('.article-intro, figcaption') && !el.classList.contains('data-source') && !el.classList.contains('photo-credit'),
+    (el) => !el.closest('.article-intro, .article-summary, figcaption') && !el.classList.contains('data-source') && !el.classList.contains('photo-credit'),
   );
   const thumbs = [...document.querySelectorAll('.article-side-rail .article-rail-related__thumb')];
   const follow = document.querySelector('[data-article-follow]');
+  const tocLinks = [...document.querySelectorAll('nav.article-toc .article-contents__link')];
+  const h3Items = [...document.querySelectorAll('nav.article-toc li[data-toc-level="3"]')];
+  const h3Sections = new Set(h3Items.map((item) => item.dataset.tocSection));
+  const charsPerLine = (() => {
+    const column = document.querySelector('.article-content');
+    const sample = body || document.querySelector('.article-content p');
+    if (!column || !sample) return null;
+    const style = getComputedStyle(sample);
+    const probe = document.createElement('p');
+    probe.textContent = 'The investment threshold for a targeted employment area is $800,000 before USCIS filing fees and attorney costs. '.repeat(6);
+    probe.style.position = 'absolute';
+    probe.style.visibility = 'hidden';
+    probe.style.left = '0';
+    probe.style.top = '0';
+    probe.style.margin = '0';
+    probe.style.width = `${column.getBoundingClientRect().width}px`;
+    probe.style.font = style.font;
+    probe.style.letterSpacing = style.letterSpacing;
+    probe.style.wordSpacing = style.wordSpacing;
+    column.appendChild(probe);
+    const textNode = probe.firstChild;
+    const text = textNode ? textNode.textContent || '' : '';
+    if (!textNode || !text) {
+      probe.remove();
+      return null;
+    }
+    const range = document.createRange();
+    range.setStart(textNode, 0);
+    let lo = 1;
+    let hi = text.length;
+    let best = 1;
+    while (lo <= hi) {
+      const midPoint = (lo + hi) >> 1;
+      range.setEnd(textNode, midPoint);
+      const rects = [...range.getClientRects()];
+      const tops = rects.map((rect) => Math.round(rect.top));
+      const single = rects.length > 0 && tops.every((top) => Math.abs(top - tops[0]) <= 1);
+      if (single) {
+        best = midPoint;
+        lo = midPoint + 1;
+      } else {
+        hi = midPoint - 1;
+      }
+    }
+    probe.remove();
+    return best;
+  })();
 
   return {
     hScroll: doc.scrollWidth > clientWidth + 1 || (main ? main.scrollWidth > main.clientWidth + 1 : false),
@@ -386,9 +458,36 @@ function readViewport(width) {
     googleInRail: Boolean(rail && follow && rail.contains(follow)),
     thumbCount: thumbs.length,
     thumbsLoaded: thumbs.filter((img) => img.complete && img.naturalWidth > 0).length,
+    thumbWidth: thumbs[0] ? Math.round(thumbs[0].getBoundingClientRect().width) : 0,
+    tocFont: tocLinks[0] ? Number.parseFloat(getComputedStyle(tocLinks[0]).fontSize) : null,
+    tocVisibleCount: tocLinks.filter((link) => {
+      const item = link.closest('li');
+      return !item?.hidden && link.getBoundingClientRect().height > 0;
+    }).length,
+    h3SectionCount: h3Sections.size,
+    hiddenH3Count: h3Items.filter((item) => item.hidden).length,
+    charsPerLine,
+    summary: (() => {
+      const panel = document.querySelector('.article-summary');
+      const text = document.querySelector('.article-summary__body p, .article-summary__body li');
+      const content = document.querySelector('.article-content');
+      if (!panel || !content) return { present: Boolean(panel) };
+      const panelBox = panel.getBoundingClientRect();
+      const contentBox = content.getBoundingClientRect();
+      const label = getComputedStyle(document.querySelector('.article-summary__label'));
+      const textStyle = text ? getComputedStyle(text) : null;
+      const bg = getComputedStyle(panel).backgroundColor;
+      return {
+        present: true,
+        align: Math.abs(Math.round(panelBox.left - contentBox.left)),
+        wider: panelBox.width - contentBox.width > 2,
+        contrast: textStyle ? contrastRatio(textStyle.color, bg) : null,
+        labelContrast: contrastRatio(label.color, bg),
+      };
+    })(),
     fonts: {
       body: fontOf(body),
-      intro: fontOf(document.querySelector('.article-content .article-intro')),
+      summary: fontOf(document.querySelector('.article-summary__body p, .article-summary__body li')),
       h1: fontOf(h1),
       h2: fontOf(document.querySelector('.article-content > h2')),
       h3: fontOf(document.querySelector('.article-content > h3')),
@@ -494,22 +593,42 @@ function checkHeadings(snapshot) {
   return causes.length ? causes : notes;
 }
 
+function bodySizeFor(width) {
+  if (width >= 2400) return 22;
+  if (width >= 1920) return 21;
+  return width >= 768 ? 20 : 18;
+}
+
+function summarySizeFor(width) {
+  if (width >= 2400) return 24;
+  if (width >= 1920) return 23;
+  return width >= 768 ? 22 : 20;
+}
+
+function articleTracks(width) {
+  if (width >= 2400) return { toc: 340, article: 792, rail: 380, tocFont: 16 };
+  if (width >= 1920) return { toc: 320, article: 768, rail: 360, tocFont: 16 };
+  if (width >= 1680) return { toc: 290, article: 716, rail: 330, tocFont: 16 };
+  if (width >= 1440) return { toc: 240, article: 728, rail: 288, tocFont: 15 };
+  return null;
+}
+
 function checkFonts(fonts, width) {
   const wide = width >= 768;
   const notes = [];
   const expect = [
-    ['body', fonts.body, 'Source Serif 4', 400, wide ? 20 : 18],
-    ['standfirst', fonts.intro, 'Playfair Display', 400, wide ? 22 : 18],
-    ['H1', fonts.h1, 'Playfair Display', 500, wide ? 46 : 33],
-    ['H2', fonts.h2, 'Playfair Display', 600, wide ? 32 : 26],
-    ['H3', fonts.h3, 'Playfair Display', 600, wide ? 24 : 21],
-    ['H4', fonts.h4, 'Montserrat', 600, wide ? 16 : 15],
-    ['kicker', fonts.kicker, 'Montserrat', 600, 12],
-    ['date row', fonts.meta, 'Montserrat', 500, 13],
+    ['body', fonts.body, 'Roboto', 400, bodySizeFor(width)],
+    ['summary', fonts.summary, 'Roboto', 500, summarySizeFor(width)],
+    ['H1', fonts.h1, 'Playfair Display', 400, wide ? 52 : 36],
+    ['H2', fonts.h2, 'Playfair Display', 400, wide ? 36 : 28],
+    ['H3', fonts.h3, 'Playfair Display', 500, wide ? 26 : 22],
+    ['H4', fonts.h4, 'Roboto', 500, wide ? 20 : 18],
+    ['kicker', fonts.kicker, 'Roboto', 500, 13],
+    ['date row', fonts.meta, 'Roboto', 500, 13],
   ];
   for (const [label, font, family, weight, size] of expect) {
     if (!font) {
-      if (label === 'standfirst' || label === 'H2' || label === 'H3' || label === 'H4') continue;
+      if (label === 'H2' || label === 'H3' || label === 'H4') continue;
       notes.push(`${label} missing at ${width}px`);
       continue;
     }
@@ -543,10 +662,22 @@ function checkLayout(view, width, h2Count) {
   } else {
     if (!view.railVisible) notes.push(`rail missing at ${width}px`);
     if (h2Count >= 3 && !view.tocVisible) notes.push(`side TOC missing at ${width}px`);
-    const tocTarget = width >= 1600 ? 256 : 240;
-    const railTarget = width >= 1600 ? 320 : 288;
-    if (view.tocVisible && Math.abs(view.tocWidth - tocTarget) > 16) notes.push(`TOC width ${view.tocWidth}px at ${width}px`);
-    if (view.railVisible && Math.abs(view.railWidth - railTarget) > 16) notes.push(`rail width ${view.railWidth}px at ${width}px`);
+    const tracks = articleTracks(width);
+    if (tracks && view.tocVisible && Math.abs(view.tocWidth - tracks.toc) > 16) notes.push(`TOC width ${view.tocWidth}px at ${width}px`);
+    if (tracks && view.articleWidth != null && Math.abs(view.articleWidth - tracks.article) > 16) notes.push(`article width ${view.articleWidth}px at ${width}px`);
+    if (tracks && view.railVisible && Math.abs(view.railWidth - tracks.rail) > 16) notes.push(`rail width ${view.railWidth}px at ${width}px`);
+    if (tracks && view.tocFont != null && Math.abs(view.tocFont - tracks.tocFont) > 0.75) notes.push(`TOC link ${view.tocFont}px at ${width}px`);
+    // The sample sentence is a little narrower than average body copy.
+    // On the reference article the real paragraph measures 76 characters.
+    const charMax = width >= 2400 ? 82 : 78;
+    if (width >= 1680 && view.charsPerLine != null && (view.charsPerLine < 65 || view.charsPerLine > charMax)) {
+      notes.push(`body line is ${view.charsPerLine} characters at ${width}px`);
+    }
+    if (view.h3SectionCount > 1 && view.hiddenH3Count === 0) notes.push(`all H3 TOC entries are expanded at ${width}px`);
+    const thumbTarget = width >= 1920 ? 96 : 88;
+    if (view.railVisible && view.thumbWidth && Math.abs(view.thumbWidth - thumbTarget) > 2) {
+      notes.push(`rail thumbnail ${view.thumbWidth}px wide at ${width}px`);
+    }
     if (!view.advisor) notes.push(`advisor card missing at ${width}px`);
     if (!view.googleInRail) notes.push(`Google block is not in the rail at ${width}px`);
     if (view.thumbCount !== 4 || view.thumbsLoaded !== 4) notes.push(`related thumbnails ${view.thumbsLoaded}/${view.thumbCount} loaded at ${width}px`);
@@ -593,7 +724,7 @@ async function measureArticleImages(page) {
   return page.evaluate(async () => {
     document.documentElement.style.scrollBehavior = 'auto';
     await document.fonts.ready;
-    await new Promise((resolve) => setTimeout(resolve, 400));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     window.__cls = 0;
     window.__clsSources = [];
     const imgs = [...document.querySelectorAll('.article-content img')];
@@ -638,9 +769,9 @@ async function auditPage(page, pagePath, routes, redirects, inSitemap) {
   await page.waitForSelector('h1', { timeout: 15000 });
   await page.evaluate(async () => {
     await Promise.race([document.fonts.ready, new Promise((resolve) => setTimeout(resolve, 8000))]);
-    await document.fonts.load("500 33px 'Playfair Display'");
-    await document.fonts.load("400 20px 'Source Serif 4'");
-    await document.fonts.load("500 13px Montserrat");
+    await document.fonts.load("400 36px 'Playfair Display'");
+    await document.fonts.load("400 20px Roboto");
+    await document.fonts.load("500 13px Roboto");
   });
 
   const snapshot = await page.evaluate(readPageSnapshot);
@@ -692,6 +823,13 @@ async function auditPage(page, pagePath, routes, redirects, inSitemap) {
     }
     const view = await page.evaluate(readViewport, viewport.width);
     for (const note of checkFonts(view.fonts, viewport.width)) addIssue(row, 'typography', note);
+    if (!view.summary?.present) addIssue(row, 'typography', `summary missing at ${viewport.width}px`);
+    else {
+      if (view.summary.align > 2) addIssue(row, 'layout', `summary is ${view.summary.align}px off the article column at ${viewport.width}px`);
+      if (view.summary.wider) addIssue(row, 'layout', `summary is wider than the article column at ${viewport.width}px`);
+      if (view.summary.contrast != null && view.summary.contrast < 4.5) addIssue(row, 'typography', `summary text contrast ${view.summary.contrast.toFixed(2)} at ${viewport.width}px`);
+      if (view.summary.labelContrast != null && view.summary.labelContrast < 4.5) addIssue(row, 'typography', `summary label contrast ${view.summary.labelContrast.toFixed(2)} at ${viewport.width}px`);
+    }
     for (const note of checkLayout(view, viewport.width, snapshot.h2Count)) addIssue(row, 'layout', note);
     if (view.overflow.length) addIssue(row, 'image-overflow', `${view.overflow.length} item(s) overflow at ${viewport.width}px`);
   }
