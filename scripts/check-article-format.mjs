@@ -15,6 +15,7 @@ const PORT = Number(process.env.FORMAT_PORT || 4411);
 let BASE = `http://127.0.0.1:${PORT}`;
 const VIEWPORTS = [
   { width: 375, height: 812 },
+  { width: 768, height: 900 },
   { width: 1280, height: 800 },
   { width: 1440, height: 900 },
   { width: 1680, height: 900 },
@@ -353,6 +354,26 @@ function readViewport(width) {
     };
   }
 
+  function contrastRatio(foreground, background) {
+    const channels = (value) => {
+      const match = String(value).match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+      return match ? [Number(match[1]), Number(match[2]), Number(match[3])] : null;
+    };
+    const lum = (rgb) => {
+      const linear = rgb.map((channel) => {
+        const value = channel / 255;
+        return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+      });
+      return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2];
+    };
+    const fg = channels(foreground);
+    const bg = channels(background);
+    if (!fg || !bg) return null;
+    const lighter = Math.max(lum(fg), lum(bg));
+    const darker = Math.min(lum(fg), lum(bg));
+    return (lighter + 0.05) / (darker + 0.05);
+  }
+
   const visibleParts = [toc, main, rail].filter(shown);
   const left = visibleParts.length ? Math.min(...visibleParts.map((el) => el.getBoundingClientRect().left)) : null;
   const right = visibleParts.length ? Math.max(...visibleParts.map((el) => el.getBoundingClientRect().right)) : null;
@@ -369,7 +390,7 @@ function readViewport(width) {
   }
 
   const body = [...document.querySelectorAll('.article-content p')].find(
-    (el) => !el.closest('.article-intro, figcaption') && !el.classList.contains('data-source') && !el.classList.contains('photo-credit'),
+    (el) => !el.closest('.article-intro, .article-summary, figcaption') && !el.classList.contains('data-source') && !el.classList.contains('photo-credit'),
   );
   const thumbs = [...document.querySelectorAll('.article-side-rail .article-rail-related__thumb')];
   const follow = document.querySelector('[data-article-follow]');
@@ -378,7 +399,7 @@ function readViewport(width) {
   const h3Sections = new Set(h3Items.map((item) => item.dataset.tocSection));
   const charsPerLine = (() => {
     const column = document.querySelector('.article-content');
-    const sample = document.querySelector('.article-content p');
+    const sample = body || document.querySelector('.article-content p');
     if (!column || !sample) return null;
     const style = getComputedStyle(sample);
     const probe = document.createElement('p');
@@ -446,9 +467,27 @@ function readViewport(width) {
     h3SectionCount: h3Sections.size,
     hiddenH3Count: h3Items.filter((item) => item.hidden).length,
     charsPerLine,
+    summary: (() => {
+      const panel = document.querySelector('.article-summary');
+      const text = document.querySelector('.article-summary__body p, .article-summary__body li');
+      const content = document.querySelector('.article-content');
+      if (!panel || !content) return { present: Boolean(panel) };
+      const panelBox = panel.getBoundingClientRect();
+      const contentBox = content.getBoundingClientRect();
+      const label = getComputedStyle(document.querySelector('.article-summary__label'));
+      const textStyle = text ? getComputedStyle(text) : null;
+      const bg = getComputedStyle(panel).backgroundColor;
+      return {
+        present: true,
+        align: Math.abs(Math.round(panelBox.left - contentBox.left)),
+        wider: panelBox.width - contentBox.width > 2,
+        contrast: textStyle ? contrastRatio(textStyle.color, bg) : null,
+        labelContrast: contrastRatio(label.color, bg),
+      };
+    })(),
     fonts: {
       body: fontOf(body),
-      intro: fontOf(document.querySelector('.article-content .article-intro')),
+      summary: fontOf(document.querySelector('.article-summary__body p, .article-summary__body li')),
       h1: fontOf(h1),
       h2: fontOf(document.querySelector('.article-content > h2')),
       h3: fontOf(document.querySelector('.article-content > h3')),
@@ -560,6 +599,12 @@ function bodySizeFor(width) {
   return width >= 768 ? 20 : 18;
 }
 
+function summarySizeFor(width) {
+  if (width >= 2400) return 24;
+  if (width >= 1920) return 23;
+  return width >= 768 ? 22 : 20;
+}
+
 function articleTracks(width) {
   if (width >= 2400) return { toc: 340, article: 792, rail: 380, tocFont: 16 };
   if (width >= 1920) return { toc: 320, article: 768, rail: 360, tocFont: 16 };
@@ -573,7 +618,7 @@ function checkFonts(fonts, width) {
   const notes = [];
   const expect = [
     ['body', fonts.body, 'Roboto', 400, bodySizeFor(width)],
-    ['standfirst', fonts.intro, 'Roboto', 400, wide ? 22 : 20],
+    ['summary', fonts.summary, 'Roboto', 500, summarySizeFor(width)],
     ['H1', fonts.h1, 'Playfair Display', 400, wide ? 52 : 36],
     ['H2', fonts.h2, 'Playfair Display', 400, wide ? 36 : 28],
     ['H3', fonts.h3, 'Playfair Display', 500, wide ? 26 : 22],
@@ -583,7 +628,7 @@ function checkFonts(fonts, width) {
   ];
   for (const [label, font, family, weight, size] of expect) {
     if (!font) {
-      if (label === 'standfirst' || label === 'H2' || label === 'H3' || label === 'H4') continue;
+      if (label === 'H2' || label === 'H3' || label === 'H4') continue;
       notes.push(`${label} missing at ${width}px`);
       continue;
     }
@@ -778,6 +823,13 @@ async function auditPage(page, pagePath, routes, redirects, inSitemap) {
     }
     const view = await page.evaluate(readViewport, viewport.width);
     for (const note of checkFonts(view.fonts, viewport.width)) addIssue(row, 'typography', note);
+    if (!view.summary?.present) addIssue(row, 'typography', `summary missing at ${viewport.width}px`);
+    else {
+      if (view.summary.align > 2) addIssue(row, 'layout', `summary is ${view.summary.align}px off the article column at ${viewport.width}px`);
+      if (view.summary.wider) addIssue(row, 'layout', `summary is wider than the article column at ${viewport.width}px`);
+      if (view.summary.contrast != null && view.summary.contrast < 4.5) addIssue(row, 'typography', `summary text contrast ${view.summary.contrast.toFixed(2)} at ${viewport.width}px`);
+      if (view.summary.labelContrast != null && view.summary.labelContrast < 4.5) addIssue(row, 'typography', `summary label contrast ${view.summary.labelContrast.toFixed(2)} at ${viewport.width}px`);
+    }
     for (const note of checkLayout(view, viewport.width, snapshot.h2Count)) addIssue(row, 'layout', note);
     if (view.overflow.length) addIssue(row, 'image-overflow', `${view.overflow.length} item(s) overflow at ${viewport.width}px`);
   }

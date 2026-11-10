@@ -52,7 +52,7 @@ Root size is 16px. The body element is 17px. Families: Playfair Display (`--font
 | Element | Family | Weight | Size |
 |---|---|---|---|
 | Body paragraph | Roboto | 400 | 18px under 768px, 20px from 768px, 21px from 1920px, 22px from 2400px. Line height 1.7. Paragraph spacing 1.25em. Left aligned. |
-| Standfirst (`.article-intro`) | Roboto | 400 | 20px under 768px, 22px from 768px. Line height 1.55. |
+| Summary (`.article-summary`) | Roboto | 500 | 20px under 768px, 22px from 768px, 23px from 1920px, 24px from 2400px. Line height 1.55. Label is Roboto 500, 13px, uppercase. |
 | H1 (`.research-article-title` / `.editorial-h1`) | Playfair Display | 400 | 36px under 768px, 52px from 768px |
 | H2 | Playfair Display | 400 | 28px under 768px, 36px from 768px |
 | H3 | Playfair Display | 500 | 22px under 768px, 26px from 768px |

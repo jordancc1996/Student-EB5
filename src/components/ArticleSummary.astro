@@ -1,0 +1,12 @@
+---
+interface Props {
+  html: string;
+}
+
+const { html } = Astro.props;
+---
+
+<aside class="article-summary" aria-label="Summary">
+  <p class="article-summary__label">Summary</p>
+  <div class="article-summary__body" set:html={html} />
+</aside>

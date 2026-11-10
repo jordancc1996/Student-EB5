@@ -35,6 +35,7 @@ import ArticleContents from '@/components/research/ArticleContents.astro';
 import ArticleSideRail from '@/components/research/ArticleSideRail.astro';
 import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
 import LastUpdated from '@/components/LastUpdated.astro';
+import ArticleSummary from '@/components/ArticleSummary.astro';
 import { resolveArticleLastUpdated, toIsoDate } from '@/lib/lastUpdated';
 import { resolveArticlePathway } from '@/lib/research/resolveArticlePathway';
 import { selectRelatedResearch } from '@/lib/research/relatedResearch';
@@ -106,7 +107,7 @@ const articleBody = injectEditorialPhotos(
     layout: item.layout ?? 'wide',
   })),
 );
-const { introHtml, bodyMarkdown, showPostIntroCta } = await splitArticleBeforeFirstH2(articleBody);
+const { summaryHtml, introRemainderHtml, bodyMarkdown, showPostIntroCta } = await splitArticleBeforeFirstH2(articleBody);
 const { firstHalfHtml, secondHalfHtml, showMidSplit } = await splitArticleContent(
   showPostIntroCta ? bodyMarkdown : articleBody,
 );
@@ -283,10 +284,11 @@ const relatedPosts = allPosts
 
           <article>
             <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
+            {summaryHtml && <ArticleSummary html={summaryHtml} />}
             {
               showPostIntroCta ? (
                 <>
-                  <div class="article-content" set:html={introHtml} />
+                  {introRemainderHtml && <div class="article-content" set:html={introRemainderHtml} />}
                   {renderPostIntroCta && <PostIntroCTA postIntro={articlePathway.postIntro} />}
                   <div class="article-content" set:html={firstHalfHtml} />
                 </>

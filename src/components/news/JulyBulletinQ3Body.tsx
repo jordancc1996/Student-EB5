@@ -1,11 +1,13 @@
+import ArticleSummary from '@/components/ArticleSummary';
+
 export default function JulyBulletinQ3Body() {
   return (
     <>
-              <div className="article-intro">
+              <ArticleSummary>
                 <p>
                   July 2026 visa bulletin EB-5 confirms India unreserved EB-5 is exhausted for FY 2026, while rural, high-unemployment, and infrastructure reserved categories remain current for Q3 filers.
                 </p>
-              </div>
+              </ArticleSummary>
 
               <h2 id="unreserved-category-is-exhausted">Unreserved Category is Exhausted</h2>
               <p>
