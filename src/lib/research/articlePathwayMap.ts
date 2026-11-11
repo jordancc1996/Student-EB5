@@ -12,6 +12,7 @@ export const ARTICLE_PATHWAY_MAP: Record<string, string> = {
   'comparisons/is-eb5-worth-it-indian-chinese-students': 'f1-to-eb5-self-sponsored-green-card',
   'complete-2027-eb5-guide': 'eb5-vs-other-visa-options',
   'eb5-2026-official-white-paper': 'h1b-to-green-card',
+  'eb5-attorney-hiring-questions': 'eb5-concurrent-filing',
   'eb5-capital-stack': 'eb5-project-due-diligence',
   'eb5-comprehensive-faq-timeline-international-students': 'f1-to-eb5-self-sponsored-green-card',
   'eb5-cryptocurrency-source-of-funds': 'eb5-source-of-funds',

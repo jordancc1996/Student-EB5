@@ -35,6 +35,7 @@ Site domain: https://www.studenteb5.com/
 | comparisons/is-eb5-worth-it-indian-chinese-students | **Is EB-5 worth it for Indian and Chinese international students** (H-1B vs EB-5 lifetime cost / ROI / financial angle); former slug `comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students` redirects |
 | complete-2027-eb5-guide | EB-5 program complete guide |
 | eb5-2026-official-white-paper | EB-5 2026 white paper / attorney insights |
+| eb5-attorney-hiring-questions | **EB-5 attorney hiring questions** (experience, written fee scope, immigration advice versus project advice; not I-526E filing cost, not mandamus counsel) |
 | eb5-capital-stack | EB-5 capital stack |
 | eb5-comprehensive-faq-timeline-international-students | EB-5 FAQ international students timelines |
 | eb5-cryptocurrency-source-of-funds | EB-5 cryptocurrency source of funds |
@@ -124,6 +125,7 @@ Site domain: https://www.studenteb5.com/
 | 2026-11-10 | `eb5-mandamus-delayed-petition` | Should I file mandamus for a delayed EB-5 petition | OUTCOME A (one mandamus URL; not the RFE-response article, not petition-invalidation timing, not a general attorney-hiring guide) |
 | 2026-11-10 | `i526e-rfe-response` | I-526E request for evidence | OUTCOME A (response after the notice; not mandamus, not source-of-funds ownership, not I-526E filing cost) |
 | 2026-11-10 | `eb5-job-creation-report` | EB-5 job creation report | OUTCOME B (report-reading guide; score about 46 vs rural due-diligence Q2 and Q5; links to that checklist; not capital stack, not pre-investment overview, not I-956F project review) |
+| 2026-11-11 | `eb5-attorney-hiring-questions` | EB-5 attorney hiring questions | OUTCOME B (hiring interview; score about 45 vs the short Attorney Selection section in `investment/i526e-filing-cost`; links to that cost page and to the mandamus hiring section; not a second mandamus URL) |
 
 ### H-1B alternative cluster — keyword boundaries
 
@@ -166,7 +168,7 @@ These pages can share investor / due-diligence audience overlap but **do not com
 | Page | Owns | Does not own |
 |------|------|--------------|
 | `investment/what-to-know-before-investing-in-eb5` | **What to know before investing in EB-5** — eligibility, SOF readiness, high-level RC/project checks before capital | I-526E filing cost / filing stack (Part 2); 19 rural DD questions; rural RC selection; RC shutdown / Section M; pathway “Is EB-5 worth it / risk and due diligence” |
-| `investment/i526e-filing-cost` | **I-526E filing cost** — attorney fees, USCIS fees, regional center admin fees, pre-file FAQs | Pre-investment eligibility / “what to know before investing”; unpublished EB-5 total cost breakdown |
+| `investment/i526e-filing-cost` | **I-526E filing cost** — attorney fees, USCIS fees, regional center admin fees, pre-file FAQs | Pre-investment eligibility / “what to know before investing”; unpublished EB-5 total cost breakdown; EB-5 attorney hiring questions |
 | `19-questions-rural-eb5-project-due-diligence` | Rural project due diligence questions, including job-coverage and expected-job-creation interview items | Pre-investment overview; how to read an EB-5 job creation report |
 | `eb5-job-creation-report` | **EB-5 job creation report**: what the analysis counts, the assumptions, allocation rules, and the cushion | Rural due-diligence interview script; capital stack; what to know before investing; pending I-956F project review |
 | `choosing-rural-eb5-regional-center-guide` | How to choose a rural regional center | Pre-investment overview |
@@ -290,3 +292,21 @@ These pages can share 2026–2027 calendar overlap but **do not compete for the 
 - Keep monitoring after you invest
 
 Existing H2 overlap stays on `19-questions-rural-eb5-project-due-diligence`: "What's the job coverage for this project?" and "What is the expected job creation for the EB-5 project?" Those remain sponsor-interview questions. This article links to them and does not replace them.
+
+### Keyword ownership — `eb5-attorney-hiring-questions`
+
+| Role | Keyword |
+|------|---------|
+| Primary | EB-5 attorney hiring questions |
+| Secondary | EB-5 attorney fee scope; EB-5 counsel experience; immigration lawyer versus project advice |
+| Forbidden (do not re-own) | I-526E filing cost / attorney fee amounts (`investment/i526e-filing-cost`); questions to ask before hiring mandamus counsel (`eb5-mandamus-delayed-petition`); I-526E request for evidence (`i526e-rfe-response`); what to know before investing in EB-5; EB-5 job creation report; EB-5 capital stack |
+
+### H2 inventory — `eb5-attorney-hiring-questions`
+
+- Ask about experience with cases like yours
+- Get the scope and fee in writing
+- Clarify what advice the lawyer provides
+- Ask how the firm works with clients
+- Compare the answers, not just the price
+
+Existing H2 overlap stays on `investment/i526e-filing-cost`: "Part 3: Attorney Selection" remains a short cost-article note. This page links to that guide and does not own fee amounts. The mandamus heading "Questions to ask before hiring mandamus counsel" stays limited to litigation.
