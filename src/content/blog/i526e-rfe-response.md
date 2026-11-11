@@ -25,7 +25,7 @@ relatedPosts:
 
 <intro>I-526E request for evidence notices are not denials, and USCIS policy sets a maximum response time of 12 weeks. The notice means USCIS needs more information or documents before it decides the petition. The practical first step is to read the notice carefully and have an immigration attorney explain what the agency is asking for.</intro>
 
-USCIS guidance says a request for evidence identifies the eligibility requirement that has not been established, explains why the evidence is insufficient, and states the response deadline. The notice may also give examples of evidence that could help establish eligibility. Read the entire notice, including any instructions about how to submit the response.
+USCIS guidance says a request for evidence identifies the eligibility requirement that has not been established, explains why the evidence is insufficient, and states the response deadline. The notice may also give examples of evidence that could help establish eligibility. Read the entire notice, including any instructions about how to submit the response. <a href="https://www.uscis.gov/policy-manual/volume-1-part-e-chapter-6" target="_blank" rel="noopener noreferrer">USCIS Policy Manual, Evidence</a>
 
 ## Identify each question USCIS raised
 
@@ -41,11 +41,11 @@ A strong response answers the questions USCIS actually asked. If the notice asks
 
 For each question, work with counsel to identify the supporting evidence and explain how it addresses the concern. If a document is unavailable, tell the attorney promptly. Counsel can assess whether alternative records may help and how to explain the gap. Do not create or alter records to make them appear more complete.
 
-USCIS expects the petitioner to establish eligibility. Its Policy Manual also says evidence submitted in response to a request for evidence must establish eligibility at the time the petition was filed. A response may clarify or add evidence. It cannot fix every underlying problem.
+USCIS expects the petitioner to establish eligibility. Its Policy Manual also says evidence submitted in response to a request for evidence must establish eligibility at the time the petition was filed. A response may clarify or add evidence. It cannot fix every underlying problem. <a href="https://www.uscis.gov/policy-manual/volume-1-part-e-chapter-6" target="_blank" rel="noopener noreferrer">USCIS Policy Manual, Evidence</a>
 
 ## Track the deadline and filing instructions
 
-The notice states when USCIS must receive the response. The response period can vary, and USCIS policy sets a maximum response time of 12 weeks for a request for evidence. Follow the date and instructions in the notice. Do not assume the deadline can be extended.
+The notice states when USCIS must receive the response. The response period can vary, and USCIS policy sets a maximum response time of 12 weeks for a request for evidence. Follow the date and instructions in the notice. Do not assume the deadline can be extended. <a href="https://www.uscis.gov/policy-manual/volume-1-part-e-chapter-6" target="_blank" rel="noopener noreferrer">USCIS Policy Manual, Evidence</a>
 
 Give counsel enough time to review the requested material and prepare the response. If records are needed from a bank, employer, business, or another person, start requesting them right away. Before submission, confirm that each issue has been addressed, the documents are organized, and the response follows the instructions in the notice. Keep a complete copy of what is sent.
 
