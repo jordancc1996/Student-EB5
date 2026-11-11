@@ -48,6 +48,7 @@ Site domain: https://www.studenteb5.com/
 | eb5-job-creation-report | **EB-5 job creation report** (how to read direct, indirect, and induced counts, assumptions, allocation, and the cushion; not the rural interview checklist) |
 | eb5-lifeline-h1b-workers | EB-5 for H-1B workers / employer dependency |
 | eb5-mandamus-delayed-petition | **Should I file mandamus for a delayed EB-5 petition** (federal suit asking USCIS to adjudicate; not approval, not an RFE response guide, not petition-invalidation timing) |
+| eb5-regional-center-vs-direct | **EB-5 regional center vs direct** (job counting, management, and documents; not the short FAQ, not rural regional center selection, not the full program guide) |
 | i526e-rfe-response | **I-526E request for evidence** (what to do after the notice arrives; deadline, matching evidence, respond or withdraw) |
 | eb5-timing-risks-petition-invalidation | EB-5 petition timing / invalidation risks |
 | eb5-visa-aging-out-crisis-solution | EB-5 aging out / CSPA children |
@@ -126,6 +127,7 @@ Site domain: https://www.studenteb5.com/
 | 2026-11-10 | `i526e-rfe-response` | I-526E request for evidence | OUTCOME A (response after the notice; not mandamus, not source-of-funds ownership, not I-526E filing cost) |
 | 2026-11-10 | `eb5-job-creation-report` | EB-5 job creation report | OUTCOME B (report-reading guide; score about 46 vs rural due-diligence Q2 and Q5; links to that checklist; not capital stack, not pre-investment overview, not I-956F project review) |
 | 2026-11-11 | `eb5-attorney-hiring-questions` | EB-5 attorney hiring questions | OUTCOME B (hiring interview; score about 45 vs the short Attorney Selection section in `investment/i526e-filing-cost`; links to that cost page and to the mandamus hiring section; not a second mandamus URL) |
+| 2026-11-11 | `eb5-regional-center-vs-direct` | EB-5 regional center vs direct | OUTCOME B (comparison of the two routes; score about 42 vs the short direct/regional center notes in `complete-2027-eb5-guide` and the Reform and Integrity Act analysis; the FAQ at `/faq/direct-vs-regional-center-eb5` stays the short answer and links here) |
 
 ### H-1B alternative cluster — keyword boundaries
 
@@ -310,3 +312,20 @@ Existing H2 overlap stays on `19-questions-rural-eb5-project-due-diligence`: "Wh
 - Compare the answers, not just the price
 
 Existing H2 overlap stays on `investment/i526e-filing-cost`: "Part 3: Attorney Selection" remains a short cost-article note. This page links to that guide and does not own fee amounts. The mandamus heading "Questions to ask before hiring mandamus counsel" stays limited to litigation.
+
+### Keyword ownership — `eb5-regional-center-vs-direct`
+
+| Role | Keyword |
+|------|---------|
+| Primary | EB-5 regional center vs direct |
+| Secondary | direct EB-5 job creation; regional center indirect jobs; EB-5 direct investment management |
+| Forbidden (do not re-own) | Complete EB-5 program guide (`complete-2027-eb5-guide`); Reform and Integrity Act analysis (`post-reform-integrity-act-analysis`); how to choose a rural regional center (`choosing-rural-eb5-regional-center-guide`); EB-5 job creation report (`eb5-job-creation-report`); EB-5 capital stack (`eb5-capital-stack`); regional center shutdown |
+
+### H2 inventory — `eb5-regional-center-vs-direct`
+
+- Job creation is a key difference
+- Decide how involved you want to be
+- Compare the work and documents
+- Match the route to your priorities
+
+Existing overlap stays short: `complete-2027-eb5-guide` still defines the two routes under Step 1, and `post-reform-integrity-act-analysis` still has the question "What is the difference between regional center and direct investment models?" `/faq/direct-vs-regional-center-eb5` stays a short answer and links to this page.
