@@ -11,6 +11,8 @@ keywords:
   - EB 5 comparison
   - investment immigration
 links:
+  - text: EB-5 regional center vs direct investment
+    url: /research/eb5-regional-center-vs-direct
   - text: Guide to Choosing a Regional Center
     url: /research/choosing-rural-eb5-regional-center-guide
 relatedFaqs:

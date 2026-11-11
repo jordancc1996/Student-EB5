@@ -35,6 +35,7 @@ Site domain: https://www.studenteb5.com/
 | comparisons/is-eb5-worth-it-indian-chinese-students | **Is EB-5 worth it for Indian and Chinese international students** (H-1B vs EB-5 lifetime cost / ROI / financial angle); former slug `comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students` redirects |
 | complete-2027-eb5-guide | EB-5 program complete guide |
 | eb5-2026-official-white-paper | EB-5 2026 white paper / attorney insights |
+| eb5-attorney-hiring-questions | **EB-5 attorney hiring questions** (experience, written fee scope, immigration advice versus project advice; not I-526E filing cost, not mandamus counsel) |
 | eb5-capital-stack | EB-5 capital stack |
 | eb5-comprehensive-faq-timeline-international-students | EB-5 FAQ international students timelines |
 | eb5-cryptocurrency-source-of-funds | EB-5 cryptocurrency source of funds |
@@ -44,7 +45,11 @@ Site domain: https://www.studenteb5.com/
 | eb5-inflation-adjustment-f1-h1b | **EB-5 inflation adjustment** (January 1, 2027 minimum-investment change for F-1 and H-1B filings); not the September 30 grandfathering or reauthorization deadlines |
 | eb5-investments-africa-mena-regions | EB-5 Africa MENA |
 | eb5-investor-qa-part-1 | EB-5 investor Q&A |
+| eb5-job-creation-report | **EB-5 job creation report** (how to read direct, indirect, and induced counts, assumptions, allocation, and the cushion; not the rural interview checklist) |
 | eb5-lifeline-h1b-workers | EB-5 for H-1B workers / employer dependency |
+| eb5-mandamus-delayed-petition | **Should I file mandamus for a delayed EB-5 petition** (federal suit asking USCIS to adjudicate; not approval, not an RFE response guide, not petition-invalidation timing) |
+| eb5-regional-center-vs-direct | **EB-5 regional center vs direct** (job counting, management, and documents; not the short FAQ, not rural regional center selection, not the full program guide) |
+| i526e-rfe-response | **I-526E request for evidence** (what to do after the notice arrives; deadline, matching evidence, respond or withdraw) |
 | eb5-timing-risks-petition-invalidation | EB-5 petition timing / invalidation risks |
 | eb5-visa-aging-out-crisis-solution | EB-5 aging out / CSPA children |
 | eb5-vs-trump-gold-card-2026 | EB-5 vs Trump Gold Card |
@@ -118,6 +123,11 @@ Site domain: https://www.studenteb5.com/
 | 2026-09-03 | `investment/i526e-filing-cost` | I-526E filing cost | OUTCOME B reslug (attorney fees / USCIS fees / RC admin / pre-file FAQs; not pre-investment “what to know before investing” or unpublished total-cost-breakdown); old slugs `investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b` and `investment/eb5-i526e-filing-attorney-cost-f1-h1b` redirect |
 | 2026-09-03 | `f1-students/eb5-funding-strategies-students` | EB-5 funding strategies for international students | OUTCOME B retitle (student petitioner / parental gift overlay on four routes; URL unchanged). Do not own generic how/ways to fund EB-5 (`ways-to-fund-eb5-investment-2026`) |
 | 2026-10-21 | `eb5-inflation-adjustment-f1-h1b` | EB-5 inflation adjustment | OUTCOME B (January 1, 2027 CPI adjustment to $800,000 / $1,050,000 minimums for F-1 and H-1B; not Sept 30 grandfathering, not reauthorization, not generic “EB-5 visa deadline”) |
+| 2026-11-10 | `eb5-mandamus-delayed-petition` | Should I file mandamus for a delayed EB-5 petition | OUTCOME A (one mandamus URL; not the RFE-response article, not petition-invalidation timing, not a general attorney-hiring guide) |
+| 2026-11-10 | `i526e-rfe-response` | I-526E request for evidence | OUTCOME A (response after the notice; not mandamus, not source-of-funds ownership, not I-526E filing cost) |
+| 2026-11-10 | `eb5-job-creation-report` | EB-5 job creation report | OUTCOME B (report-reading guide; score about 46 vs rural due-diligence Q2 and Q5; links to that checklist; not capital stack, not pre-investment overview, not I-956F project review) |
+| 2026-11-11 | `eb5-attorney-hiring-questions` | EB-5 attorney hiring questions | OUTCOME B (hiring interview; score about 45 vs the short Attorney Selection section in `investment/i526e-filing-cost`; links to that cost page and to the mandamus hiring section; not a second mandamus URL) |
+| 2026-11-11 | `eb5-regional-center-vs-direct` | EB-5 regional center vs direct | OUTCOME B (comparison of the two routes; score about 42 vs the short direct/regional center notes in `complete-2027-eb5-guide` and the Reform and Integrity Act analysis; the FAQ at `/faq/direct-vs-regional-center-eb5` stays the short answer and links here) |
 
 ### H-1B alternative cluster — keyword boundaries
 
@@ -160,8 +170,9 @@ These pages can share investor / due-diligence audience overlap but **do not com
 | Page | Owns | Does not own |
 |------|------|--------------|
 | `investment/what-to-know-before-investing-in-eb5` | **What to know before investing in EB-5** — eligibility, SOF readiness, high-level RC/project checks before capital | I-526E filing cost / filing stack (Part 2); 19 rural DD questions; rural RC selection; RC shutdown / Section M; pathway “Is EB-5 worth it / risk and due diligence” |
-| `investment/i526e-filing-cost` | **I-526E filing cost** — attorney fees, USCIS fees, regional center admin fees, pre-file FAQs | Pre-investment eligibility / “what to know before investing”; unpublished EB-5 total cost breakdown |
-| `19-questions-rural-eb5-project-due-diligence` | Rural project due diligence questions | Pre-investment overview |
+| `investment/i526e-filing-cost` | **I-526E filing cost** — attorney fees, USCIS fees, regional center admin fees, pre-file FAQs | Pre-investment eligibility / “what to know before investing”; unpublished EB-5 total cost breakdown; EB-5 attorney hiring questions |
+| `19-questions-rural-eb5-project-due-diligence` | Rural project due diligence questions, including job-coverage and expected-job-creation interview items | Pre-investment overview; how to read an EB-5 job creation report |
+| `eb5-job-creation-report` | **EB-5 job creation report**: what the analysis counts, the assumptions, allocation rules, and the cushion | Rural due-diligence interview script; capital stack; what to know before investing; pending I-956F project review |
 | `choosing-rural-eb5-regional-center-guide` | How to choose a rural regional center | Pre-investment overview |
 | `regional-center-shutdown-eb5-investor-protections` | Regional center termination / investor protections | Pre-investment checklist |
 | `/pathways/eb5-risk-and-due-diligence` | Pathway-level risk / at-risk capital / “is it worth it” | This research keyword |
@@ -236,3 +247,85 @@ These pages can share 2026–2027 calendar overlap but **do not compete for the 
 | Primary | EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT |
 | Secondary | STEM OPT cap-gap strategy; F-1 Duration of Status NPRM 2026; STEM OPT extension risks Indian Chinese |
 | Forbidden (do not re-own) | F-1 to EB-5 green card; immigration backup plan Indian tech workers; EB-5 grandfathering deadline deep-dive; EB-5 concurrent filing J-1 F-1 H-1B process; **Is EB-5 worth it / H-1B vs EB-5 lifetime cost / financial ROI angle** (`comparisons/is-eb5-worth-it-indian-chinese-students`); pathway primary keywords for `/pathways/eb5-for-indian-students` and `/pathways/eb5-for-chinese-students` |
+
+### Keyword ownership — `eb5-mandamus-delayed-petition`
+
+| Role | Keyword |
+|------|---------|
+| Primary | Should I file mandamus for a delayed EB-5 petition |
+| Secondary | EB-5 mandamus lawsuit; delayed I-526E mandamus; unreasonable delay EB-5 petition |
+| Forbidden (do not re-own) | EB-5 petition invalidation / timing risks (`eb5-timing-risks-petition-invalidation`); ways to fund EB-5; I-526E filing cost; what to do after an I-526E request for evidence; questions to ask an EB-5 attorney before hiring (general) |
+
+### H2 inventory — `eb5-mandamus-delayed-petition`
+
+- How an attorney assesses the delay
+- What happens after a mandamus lawsuit is filed
+- Review the petition before taking action
+- Questions to ask before hiring mandamus counsel (mandamus litigation only; do not treat as the general attorney-hiring article)
+
+### Keyword ownership — `i526e-rfe-response`
+
+| Role | Keyword |
+|------|---------|
+| Primary | I-526E request for evidence |
+| Secondary | EB-5 RFE response; I-526E RFE deadline; what to do after an I-526E RFE |
+| Forbidden (do not re-own) | Should I file mandamus for a delayed EB-5 petition (`eb5-mandamus-delayed-petition`); ways to fund EB-5 / source of funds (`ways-to-fund-eb5-investment-2026`); I-526E filing cost (`investment/i526e-filing-cost`) |
+
+### H2 inventory — `i526e-rfe-response`
+
+- Identify each question USCIS raised
+- Match the evidence to the request
+- Track the deadline and filing instructions
+- Whether to respond, withdraw, or take another route
+
+### Keyword ownership — `eb5-job-creation-report`
+
+| Role | Keyword |
+|------|---------|
+| Primary | EB-5 job creation report |
+| Secondary | direct indirect induced EB-5 jobs; EB-5 job allocation; EB-5 job cushion |
+| Forbidden (do not re-own) | Rural EB-5 due diligence questions (`19-questions-rural-eb5-project-due-diligence`); what to know before investing in EB-5 (`investment/what-to-know-before-investing-in-eb5`); EB-5 capital stack (`eb5-capital-stack`); EB-5 projects pending I-956F (`evaluating-eb5-projects-pending-i956f`) |
+
+### H2 inventory — `eb5-job-creation-report`
+
+- Find out what the analysis includes
+- Test whether the project can carry out the plan
+- Understand how jobs are allocated
+- Keep monitoring after you invest
+
+Existing H2 overlap stays on `19-questions-rural-eb5-project-due-diligence`: "What's the job coverage for this project?" and "What is the expected job creation for the EB-5 project?" Those remain sponsor-interview questions. This article links to them and does not replace them.
+
+### Keyword ownership — `eb5-attorney-hiring-questions`
+
+| Role | Keyword |
+|------|---------|
+| Primary | EB-5 attorney hiring questions |
+| Secondary | EB-5 attorney fee scope; EB-5 counsel experience; immigration lawyer versus project advice |
+| Forbidden (do not re-own) | I-526E filing cost / attorney fee amounts (`investment/i526e-filing-cost`); questions to ask before hiring mandamus counsel (`eb5-mandamus-delayed-petition`); I-526E request for evidence (`i526e-rfe-response`); what to know before investing in EB-5; EB-5 job creation report; EB-5 capital stack |
+
+### H2 inventory — `eb5-attorney-hiring-questions`
+
+- Ask about experience with cases like yours
+- Get the scope and fee in writing
+- Clarify what advice the lawyer provides
+- Ask how the firm works with clients
+- Compare the answers, not just the price
+
+Existing H2 overlap stays on `investment/i526e-filing-cost`: "Part 3: Attorney Selection" remains a short cost-article note. This page links to that guide and does not own fee amounts. The mandamus heading "Questions to ask before hiring mandamus counsel" stays limited to litigation.
+
+### Keyword ownership — `eb5-regional-center-vs-direct`
+
+| Role | Keyword |
+|------|---------|
+| Primary | EB-5 regional center vs direct |
+| Secondary | direct EB-5 job creation; regional center indirect jobs; EB-5 direct investment management |
+| Forbidden (do not re-own) | Complete EB-5 program guide (`complete-2027-eb5-guide`); Reform and Integrity Act analysis (`post-reform-integrity-act-analysis`); how to choose a rural regional center (`choosing-rural-eb5-regional-center-guide`); EB-5 job creation report (`eb5-job-creation-report`); EB-5 capital stack (`eb5-capital-stack`); regional center shutdown |
+
+### H2 inventory — `eb5-regional-center-vs-direct`
+
+- Job creation is a key difference
+- Decide how involved you want to be
+- Compare the work and documents
+- Match the route to your priorities
+
+Existing overlap stays short: `complete-2027-eb5-guide` still defines the two routes under Step 1, and `post-reform-integrity-act-analysis` still has the question "What is the difference between regional center and direct investment models?" `/faq/direct-vs-regional-center-eb5` stays a short answer and links to this page.
