@@ -8,9 +8,9 @@ excerpt: "Questions for an EB-5 attorney should cover experience with similar pe
 date: November 11, 2026
 category: EB-5 Strategy
 readTime: 6 min read
-image: ../../assets/eb5-immigration-attorney-selection-i526e.jpg
-heroImage: ../../assets/eb5-immigration-attorney-selection-i526e.jpg
-imageAlt: Attorney and investor reviewing petition documents at a desk
+image: ../../assets/eb5-attorney-signing.jpg
+heroImage: ../../assets/eb5-attorney-signing.jpg
+imageAlt: Person in a blue suit completing a form at a desk
 author: StudentEB5 Team
 keywords:
   - EB-5 attorney hiring questions
@@ -40,6 +40,8 @@ USCIS permits individuals to file without a representative. If you choose to hir
 Ask what the fee covers. Does the engagement include preparation and filing of Form I-526E only, or does it also cover adjustment of status or consular processing? Are responses to requests for evidence included? What about the later I-829 petition, document translations, expert review, or litigation?
 
 Ask how the firm handles work that falls outside the initial agreement. If USCIS requests more evidence, will the firm quote a separate fee? If you need a second filing or a legal motion, how will costs be estimated? Request the scope of work and payment terms in writing.
+
+![Hands reviewing an agreement at a conference table](../../assets/eb5-attorney-agreement.jpg)
 
 The site's <a href="/research/investment/i526e-filing-cost">I-526E filing cost guide</a> covers broader filing costs. Attorney fees, government fees, and project charges are separate, so ask the firm to explain each category.
 

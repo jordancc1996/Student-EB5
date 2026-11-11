@@ -8,9 +8,9 @@ excerpt: "A regional center investment and a direct EB-5 investment differ in jo
 date: November 11, 2026
 category: EB-5 Strategy
 readTime: 5 min read
-image: ../../assets/blog-regional-center-guide.jpg
-heroImage: ../../assets/blog-regional-center-guide.jpg
-imageAlt: Hand reviewing printed charts and documents on a desk
+image: ../../assets/eb5-direct-office.jpg
+heroImage: ../../assets/eb5-direct-office.jpg
+imageAlt: Open office with desks and shelves of binders
 author: StudentEB5 Team
 keywords:
   - EB-5 regional center vs direct
@@ -44,6 +44,8 @@ If you are considering a direct business, ask whether you have the time and expe
 ## Compare the work and documents
 
 Ask what documents already exist and who is responsible for preparing them. A regional center project may include an economic analysis, business plan, offering documents, and project filings. A direct investment may require a detailed business plan and clear evidence that the enterprise can create and document the required jobs.
+
+![Hands on a laptop with charts arranged across a desk](../../assets/eb5-route-comparison-charts.jpg)
 
 USCIS reviews the investor's eligibility and petition evidence in either route. A project's approval does not guarantee that an individual investor's petition will be approved. Nor does an immigration approval guarantee that the business will perform well or that invested capital will be repaid.
 

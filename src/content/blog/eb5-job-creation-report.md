@@ -8,9 +8,9 @@ excerpt: "An EB-5 job-creation report states how a project expects to meet the e
 date: November 10, 2026
 category: Investment Guide
 readTime: 5 min read
-image: ../../assets/i526e-filing-cost-eb5-fees.jpg
-heroImage: ../../assets/i526e-filing-cost-eb5-fees.jpg
-imageAlt: Printed charts, a calculator, and an open notebook on a desk
+image: ../../assets/eb5-job-creation-construction.jpg
+heroImage: ../../assets/eb5-job-creation-construction.jpg
+imageAlt: Workers in safety vests standing above a building foundation
 author: StudentEB5 Team
 keywords:
   - EB-5 job creation report
@@ -30,6 +30,8 @@ USCIS requires an EB-5 investment to create at least 10 qualifying full-time job
 ## Find out what the analysis includes
 
 Ask whether the report counts direct, indirect, or induced jobs. Direct jobs are tied to an employer-employee relationship with the new commercial enterprise or, in some cases, the job-creating entity. Indirect jobs are created outside those entities as a result of the project. Induced jobs may result when workers spend their wages in the local economy.
+
+![Printed page with a line chart on a stack of financial pages](../../assets/eb5-job-creation-chart.jpg)
 
 Next, ask what expenditures or revenues drive the job estimate. Does the analysis rely on construction spending, ongoing operations, or both? Are the amounts in the report consistent with the project budget and business plan? Does the report explain which costs qualify and how the methodology connects those costs to job estimates?
 

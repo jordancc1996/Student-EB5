@@ -8,9 +8,9 @@ excerpt: "An I-526E request for evidence means USCIS needs more information befo
 date: November 10, 2026
 category: EB-5 Strategy
 readTime: 5 min read
-image: ../../assets/eb5-immigration-attorney-selection-i526e.jpg
-heroImage: ../../assets/eb5-immigration-attorney-selection-i526e.jpg
-imageAlt: Immigration attorney reviewing petition documents with an investor
+image: ../../assets/eb5-rfe-binder.jpg
+heroImage: ../../assets/eb5-rfe-binder.jpg
+imageAlt: Open binder holding a short stack of documents
 author: StudentEB5 Team
 keywords:
   - I-526E request for evidence

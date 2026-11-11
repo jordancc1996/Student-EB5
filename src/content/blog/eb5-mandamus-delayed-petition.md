@@ -8,9 +8,9 @@ excerpt: "A mandamus lawsuit can ask a federal court to order USCIS to decide a 
 date: November 10, 2026
 category: EB-5 Strategy
 readTime: 5 min read
-image: ../../assets/eb5-petition-document-review.jpg
-heroImage: ../../assets/eb5-petition-document-review.jpg
-imageAlt: Person signing a stack of documents with a pen during a file review
+image: ../../assets/eb5-mandamus-file-desk.jpg
+heroImage: ../../assets/eb5-mandamus-file-desk.jpg
+imageAlt: File folders, loose pages, and two pens on a desk
 author: StudentEB5 Team
 keywords:
   - should I file mandamus for a delayed EB-5 petition
@@ -36,6 +36,8 @@ The project can matter as well. Counsel may want to know whether USCIS has acted
 ## What happens after a mandamus lawsuit is filed
 
 Some investors file individually. In other circumstances, investors may join a group lawsuit. The appropriate approach depends on the legal and factual details. Once a case is filed, the government has an opportunity to respond. It may agree to a schedule, request more time, contest the lawsuit, or take action on the underlying petition.
+
+![Courthouse facade with arched entry doors](../../assets/eb5-mandamus-courthouse.jpg)
 
 None of those possibilities guarantees approval. USCIS may adjudicate the petition while the lawsuit is pending, but adjudication is not the same as approval. The agency could issue a request for evidence or deny the petition. If a court dismisses the lawsuit, that does not automatically mean USCIS has denied the underlying petition. The petition may continue through the administrative process.
 
