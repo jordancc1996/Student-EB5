@@ -46,6 +46,7 @@ Site domain: https://www.studenteb5.com/
 | eb5-investor-qa-part-1 | EB-5 investor Q&A |
 | eb5-lifeline-h1b-workers | EB-5 for H-1B workers / employer dependency |
 | eb5-mandamus-delayed-petition | **Should I file mandamus for a delayed EB-5 petition** (federal suit asking USCIS to adjudicate; not approval, not an RFE response guide, not petition-invalidation timing) |
+| i526e-rfe-response | **I-526E request for evidence** (what to do after the notice arrives; deadline, matching evidence, respond or withdraw) |
 | eb5-timing-risks-petition-invalidation | EB-5 petition timing / invalidation risks |
 | eb5-visa-aging-out-crisis-solution | EB-5 aging out / CSPA children |
 | eb5-vs-trump-gold-card-2026 | EB-5 vs Trump Gold Card |
@@ -120,6 +121,7 @@ Site domain: https://www.studenteb5.com/
 | 2026-09-03 | `f1-students/eb5-funding-strategies-students` | EB-5 funding strategies for international students | OUTCOME B retitle (student petitioner / parental gift overlay on four routes; URL unchanged). Do not own generic how/ways to fund EB-5 (`ways-to-fund-eb5-investment-2026`) |
 | 2026-10-21 | `eb5-inflation-adjustment-f1-h1b` | EB-5 inflation adjustment | OUTCOME B (January 1, 2027 CPI adjustment to $800,000 / $1,050,000 minimums for F-1 and H-1B; not Sept 30 grandfathering, not reauthorization, not generic “EB-5 visa deadline”) |
 | 2026-11-10 | `eb5-mandamus-delayed-petition` | Should I file mandamus for a delayed EB-5 petition | OUTCOME A (one mandamus URL; not the RFE-response article, not petition-invalidation timing, not a general attorney-hiring guide) |
+| 2026-11-10 | `i526e-rfe-response` | I-526E request for evidence | OUTCOME A (response after the notice; not mandamus, not source-of-funds ownership, not I-526E filing cost) |
 
 ### H-1B alternative cluster — keyword boundaries
 
@@ -253,3 +255,18 @@ These pages can share 2026–2027 calendar overlap but **do not compete for the 
 - What happens after a mandamus lawsuit is filed
 - Review the petition before taking action
 - Questions to ask before hiring mandamus counsel (mandamus litigation only; do not treat as the general attorney-hiring article)
+
+### Keyword ownership — `i526e-rfe-response`
+
+| Role | Keyword |
+|------|---------|
+| Primary | I-526E request for evidence |
+| Secondary | EB-5 RFE response; I-526E RFE deadline; what to do after an I-526E RFE |
+| Forbidden (do not re-own) | Should I file mandamus for a delayed EB-5 petition (`eb5-mandamus-delayed-petition`); ways to fund EB-5 / source of funds (`ways-to-fund-eb5-investment-2026`); I-526E filing cost (`investment/i526e-filing-cost`) |
+
+### H2 inventory — `i526e-rfe-response`
+
+- Identify each question USCIS raised
+- Match the evidence to the request
+- Track the deadline and filing instructions
+- Whether to respond, withdraw, or take another route

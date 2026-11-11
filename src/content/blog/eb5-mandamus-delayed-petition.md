@@ -25,7 +25,7 @@ relatedPosts:
 
 <intro>Should I file mandamus for a delayed EB-5 petition is a fact-specific decision under 28 U.S.C. section 1361. A long wait can raise the question of whether a lawsuit will get USCIS to act. A mandamus lawsuit may be an option in some cases. It is not an automatic next step. The useful question is whether the delay is unreasonable under the circumstances, and whether litigation makes sense for that petition.</intro>
 
-Mandamus is a federal court action asking the government to perform a duty it has not completed. In an immigration case, that generally means asking the court to require the agency to adjudicate a petition. It does not ask the court to approve it. USCIS may approve the petition, deny it, issue a request for evidence, or take another action. Filing suit does not guarantee a favorable decision or a specific timeline.
+Mandamus is a federal court action asking the government to perform a duty it has not completed. In an immigration case, that generally means asking the court to require the agency to adjudicate a petition. It does **not** ask the court to approve it. USCIS may approve the petition, deny it, issue a request for evidence, or take another action. Filing suit does not guarantee a favorable decision or a specific timeline. <a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title28-section1361&amp;num=0&amp;edition=prelim" target="_blank" rel="noopener noreferrer">28 U.S.C. section 1361</a>
 
 ## How an attorney assesses the delay
 
