@@ -44,6 +44,7 @@ Site domain: https://www.studenteb5.com/
 | eb5-inflation-adjustment-f1-h1b | **EB-5 inflation adjustment** (January 1, 2027 minimum-investment change for F-1 and H-1B filings); not the September 30 grandfathering or reauthorization deadlines |
 | eb5-investments-africa-mena-regions | EB-5 Africa MENA |
 | eb5-investor-qa-part-1 | EB-5 investor Q&A |
+| eb5-job-creation-report | **EB-5 job creation report** (how to read direct, indirect, and induced counts, assumptions, allocation, and the cushion; not the rural interview checklist) |
 | eb5-lifeline-h1b-workers | EB-5 for H-1B workers / employer dependency |
 | eb5-mandamus-delayed-petition | **Should I file mandamus for a delayed EB-5 petition** (federal suit asking USCIS to adjudicate; not approval, not an RFE response guide, not petition-invalidation timing) |
 | i526e-rfe-response | **I-526E request for evidence** (what to do after the notice arrives; deadline, matching evidence, respond or withdraw) |
@@ -122,6 +123,7 @@ Site domain: https://www.studenteb5.com/
 | 2026-10-21 | `eb5-inflation-adjustment-f1-h1b` | EB-5 inflation adjustment | OUTCOME B (January 1, 2027 CPI adjustment to $800,000 / $1,050,000 minimums for F-1 and H-1B; not Sept 30 grandfathering, not reauthorization, not generic “EB-5 visa deadline”) |
 | 2026-11-10 | `eb5-mandamus-delayed-petition` | Should I file mandamus for a delayed EB-5 petition | OUTCOME A (one mandamus URL; not the RFE-response article, not petition-invalidation timing, not a general attorney-hiring guide) |
 | 2026-11-10 | `i526e-rfe-response` | I-526E request for evidence | OUTCOME A (response after the notice; not mandamus, not source-of-funds ownership, not I-526E filing cost) |
+| 2026-11-10 | `eb5-job-creation-report` | EB-5 job creation report | OUTCOME B (report-reading guide; score about 46 vs rural due-diligence Q2 and Q5; links to that checklist; not capital stack, not pre-investment overview, not I-956F project review) |
 
 ### H-1B alternative cluster — keyword boundaries
 
@@ -165,7 +167,8 @@ These pages can share investor / due-diligence audience overlap but **do not com
 |------|------|--------------|
 | `investment/what-to-know-before-investing-in-eb5` | **What to know before investing in EB-5** — eligibility, SOF readiness, high-level RC/project checks before capital | I-526E filing cost / filing stack (Part 2); 19 rural DD questions; rural RC selection; RC shutdown / Section M; pathway “Is EB-5 worth it / risk and due diligence” |
 | `investment/i526e-filing-cost` | **I-526E filing cost** — attorney fees, USCIS fees, regional center admin fees, pre-file FAQs | Pre-investment eligibility / “what to know before investing”; unpublished EB-5 total cost breakdown |
-| `19-questions-rural-eb5-project-due-diligence` | Rural project due diligence questions | Pre-investment overview |
+| `19-questions-rural-eb5-project-due-diligence` | Rural project due diligence questions, including job-coverage and expected-job-creation interview items | Pre-investment overview; how to read an EB-5 job creation report |
+| `eb5-job-creation-report` | **EB-5 job creation report**: what the analysis counts, the assumptions, allocation rules, and the cushion | Rural due-diligence interview script; capital stack; what to know before investing; pending I-956F project review |
 | `choosing-rural-eb5-regional-center-guide` | How to choose a rural regional center | Pre-investment overview |
 | `regional-center-shutdown-eb5-investor-protections` | Regional center termination / investor protections | Pre-investment checklist |
 | `/pathways/eb5-risk-and-due-diligence` | Pathway-level risk / at-risk capital / “is it worth it” | This research keyword |
@@ -270,3 +273,20 @@ These pages can share 2026–2027 calendar overlap but **do not compete for the 
 - Match the evidence to the request
 - Track the deadline and filing instructions
 - Whether to respond, withdraw, or take another route
+
+### Keyword ownership — `eb5-job-creation-report`
+
+| Role | Keyword |
+|------|---------|
+| Primary | EB-5 job creation report |
+| Secondary | direct indirect induced EB-5 jobs; EB-5 job allocation; EB-5 job cushion |
+| Forbidden (do not re-own) | Rural EB-5 due diligence questions (`19-questions-rural-eb5-project-due-diligence`); what to know before investing in EB-5 (`investment/what-to-know-before-investing-in-eb5`); EB-5 capital stack (`eb5-capital-stack`); EB-5 projects pending I-956F (`evaluating-eb5-projects-pending-i956f`) |
+
+### H2 inventory — `eb5-job-creation-report`
+
+- Find out what the analysis includes
+- Test whether the project can carry out the plan
+- Understand how jobs are allocated
+- Keep monitoring after you invest
+
+Existing H2 overlap stays on `19-questions-rural-eb5-project-due-diligence`: "What's the job coverage for this project?" and "What is the expected job creation for the EB-5 project?" Those remain sponsor-interview questions. This article links to them and does not replace them.
