@@ -23,6 +23,7 @@ export const ARTICLE_PATHWAY_MAP: Record<string, string> = {
   'eb5-investor-qa-part-1': 'eb5-vs-other-visa-options',
   'eb5-lifeline-h1b-workers': 'eb5-concurrent-filing',
   'eb5-timing-risks-petition-invalidation': 'eb5-concurrent-filing',
+  'eb5-mandamus-delayed-petition': 'eb5-concurrent-filing',
   'eb5-visa-aging-out-crisis-solution': 'eb5-child-aging-out',
   'eb5-vs-trump-gold-card-2026': 'eb5-vs-other-visa-options',
   'evaluating-eb5-projects-pending-i956f': 'i956f-approved-eb5-projects',

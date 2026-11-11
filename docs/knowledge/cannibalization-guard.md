@@ -45,6 +45,7 @@ Site domain: https://www.studenteb5.com/
 | eb5-investments-africa-mena-regions | EB-5 Africa MENA |
 | eb5-investor-qa-part-1 | EB-5 investor Q&A |
 | eb5-lifeline-h1b-workers | EB-5 for H-1B workers / employer dependency |
+| eb5-mandamus-delayed-petition | **Should I file mandamus for a delayed EB-5 petition** (federal suit asking USCIS to adjudicate; not approval, not an RFE response guide, not petition-invalidation timing) |
 | eb5-timing-risks-petition-invalidation | EB-5 petition timing / invalidation risks |
 | eb5-visa-aging-out-crisis-solution | EB-5 aging out / CSPA children |
 | eb5-vs-trump-gold-card-2026 | EB-5 vs Trump Gold Card |
@@ -118,6 +119,7 @@ Site domain: https://www.studenteb5.com/
 | 2026-09-03 | `investment/i526e-filing-cost` | I-526E filing cost | OUTCOME B reslug (attorney fees / USCIS fees / RC admin / pre-file FAQs; not pre-investment “what to know before investing” or unpublished total-cost-breakdown); old slugs `investment/eb5-i526e-filing-attorney-cost-part-2-f1-h1b` and `investment/eb5-i526e-filing-attorney-cost-f1-h1b` redirect |
 | 2026-09-03 | `f1-students/eb5-funding-strategies-students` | EB-5 funding strategies for international students | OUTCOME B retitle (student petitioner / parental gift overlay on four routes; URL unchanged). Do not own generic how/ways to fund EB-5 (`ways-to-fund-eb5-investment-2026`) |
 | 2026-10-21 | `eb5-inflation-adjustment-f1-h1b` | EB-5 inflation adjustment | OUTCOME B (January 1, 2027 CPI adjustment to $800,000 / $1,050,000 minimums for F-1 and H-1B; not Sept 30 grandfathering, not reauthorization, not generic “EB-5 visa deadline”) |
+| 2026-11-10 | `eb5-mandamus-delayed-petition` | Should I file mandamus for a delayed EB-5 petition | OUTCOME A (one mandamus URL; not the RFE-response article, not petition-invalidation timing, not a general attorney-hiring guide) |
 
 ### H-1B alternative cluster — keyword boundaries
 
@@ -236,3 +238,18 @@ These pages can share 2026–2027 calendar overlap but **do not compete for the 
 | Primary | EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT |
 | Secondary | STEM OPT cap-gap strategy; F-1 Duration of Status NPRM 2026; STEM OPT extension risks Indian Chinese |
 | Forbidden (do not re-own) | F-1 to EB-5 green card; immigration backup plan Indian tech workers; EB-5 grandfathering deadline deep-dive; EB-5 concurrent filing J-1 F-1 H-1B process; **Is EB-5 worth it / H-1B vs EB-5 lifetime cost / financial ROI angle** (`comparisons/is-eb5-worth-it-indian-chinese-students`); pathway primary keywords for `/pathways/eb5-for-indian-students` and `/pathways/eb5-for-chinese-students` |
+
+### Keyword ownership — `eb5-mandamus-delayed-petition`
+
+| Role | Keyword |
+|------|---------|
+| Primary | Should I file mandamus for a delayed EB-5 petition |
+| Secondary | EB-5 mandamus lawsuit; delayed I-526E mandamus; unreasonable delay EB-5 petition |
+| Forbidden (do not re-own) | EB-5 petition invalidation / timing risks (`eb5-timing-risks-petition-invalidation`); ways to fund EB-5; I-526E filing cost; what to do after an I-526E request for evidence; questions to ask an EB-5 attorney before hiring (general) |
+
+### H2 inventory — `eb5-mandamus-delayed-petition`
+
+- How an attorney assesses the delay
+- What happens after a mandamus lawsuit is filed
+- Review the petition before taking action
+- Questions to ask before hiring mandamus counsel (mandamus litigation only; do not treat as the general attorney-hiring article)
