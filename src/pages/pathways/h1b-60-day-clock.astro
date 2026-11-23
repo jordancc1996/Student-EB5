@@ -213,9 +213,12 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
     <Toaster client:load />
 
     <footer class="border-t border-border/40 py-6">
-      <div class="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-muted-foreground">
-        <span>© {currentYear} StudentEB5. All rights reserved.</span>
-        <a href="/privacy-policy" class="hover:text-foreground transition-colors hover:underline"> Privacy Policy </a>
+      <div class="container mx-auto px-4 flex flex-col gap-2 text-sm text-muted-foreground">
+        <p>{SITE_CONFIG.addressLine}</p>
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-2">
+          <span>© {currentYear} StudentEB5. All rights reserved.</span>
+          <a href="/privacy-policy" class="hover:text-foreground transition-colors hover:underline"> Privacy Policy </a>
+        </div>
       </div>
     </footer>
   </div>

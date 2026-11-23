@@ -4,6 +4,7 @@ import { MultiStepLeadCapture } from '@/components/MultiStepLeadCapture';
 import logoImg from '@/assets/studenteb5-logo.png';
 import logoImgWebp from '@/assets/studenteb5-logo.webp';
 import OptimizedImage from '@/components/OptimizedImage';
+import { SITE_CONFIG } from '@/lib/seo/config';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -49,6 +50,9 @@ const Footer = () => {
               StudentEB5 is an educational resource helping international students, 
               professionals, and H1B visa holders understand the EB-5 investment program 
               and explore pathways to US permanent residency.
+            </p>
+            <p className="text-primary-foreground/90 leading-relaxed mb-6 max-w-md">
+              {SITE_CONFIG.addressLine}
             </p>
 
             <div className="mt-6">

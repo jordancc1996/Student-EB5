@@ -96,6 +96,10 @@ const structuredData = generateContactPageSchema();
             <a href="/faq" class="text-primary hover:underline">complete FAQ</a>
             for answers to common EB-5 questions.
           </p>
+          <p>
+            <a href={`mailto:${SITE_CONFIG.email}`} class="text-primary hover:underline">{SITE_CONFIG.email}</a>
+          </p>
+          <p>{SITE_CONFIG.addressLine}</p>
         </div>
       </div>
     </main>
