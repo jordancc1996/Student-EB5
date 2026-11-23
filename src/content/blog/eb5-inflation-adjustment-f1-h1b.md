@@ -2,8 +2,8 @@
 id: 47
 slug: eb5-inflation-adjustment-f1-h1b
 title: "EB-5 Inflation Adjustment - January 1 2027 Deadline for F-1 and H-1B Holders"
-metaTitle: "EB-5 Inflation Adjustment - January 1 2027 Deadline for F-1 and H-1B Holders | StudentEB5"
-metaDescription: "EB-5 inflation adjustment on January 1, 2027 may raise the current $800,000 TEA and $1,050,000 standard minimums for F-1 and H-1B petitions filed after that date."
+metaTitle: "EB-5 Inflation Adjustment - January 1, 2027 | StudentEB5"
+metaDescription: "EB-5 inflation adjustment on January 1, 2027 may raise the $800,000 TEA and $1,050,000 standard amounts. See who is affected."
 excerpt: January 1, 2027 is the first statutory inflation adjustment to EB-5 minimum investments. This guide explains what changes for F-1 students and H-1B holders, and how that date differs from the September 30, 2026 grandfathering deadline.
 date: October 21, 2026
 category: EB-5 Program

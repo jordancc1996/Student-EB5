@@ -2,7 +2,7 @@
 id: 5
 slug: what-is-regional-center
 question: What is a Regional Center?
-metaTitle: What is an EB-5 Regional Center? Complete Explanation
+metaTitle: "What Is an EB-5 Regional Center? | StudentEB5"
 metaDescription: EB-5 Regional Centers are USCIS-designated organizations with pre-vetted projects. Learn how they simplify your investment.
 category: Regional Centers
 keywords:

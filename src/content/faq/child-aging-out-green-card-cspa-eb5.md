@@ -2,7 +2,7 @@
 id: 16
 slug: child-aging-out-green-card-cspa-eb5
 question: What Happens If My Child Turns 21 Before My EB-5 Green Card Is Approved?
-metaTitle: "Child Aging Out Green Card: CSPA and EB-5 Options Explained"
+metaTitle: "Child Aging Out - CSPA and EB-5 | StudentEB5"
 metaDescription: What happens if my child turns 21 before my green card is approved? Learn how CSPA EB-5 and child-as-principal filings protect aging-out dependents.
 category: Eligibility
 keywords:

@@ -10,6 +10,7 @@ import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { seoTitle } from '@/lib/seo/documentTitle';
 import { generateBreadcrumbSchema } from '@/lib/seo/structured-data';
 import { extractArticleHeadings, buildTocItems } from '@/lib/research/articleHeadings';
 import ArticleContents from '@/components/research/ArticleContents.astro';
@@ -53,9 +54,7 @@ const relatedFaqs = [...sameCategory, ...curatedOther, ...remaining]
   .map((item) => ({ ...item.data, answer: item.body ?? '' }));
 
 const pageCanonical = `${SITE_CONFIG.url}/faq/${slug}`;
-const metaTitle = faq.metaTitle.includes('StudentEB5')
-  ? faq.metaTitle
-  : `${faq.metaTitle} | StudentEB5`;
+const metaTitle = seoTitle(faq.metaTitle);
 
 const breadcrumbs = [
   { name: 'Home', url: SITE_CONFIG.url },
@@ -89,12 +88,12 @@ const lastUpdatedIso = getPageLastUpdated(`/faq/${slug}`);
     <meta name="description" content={faq.metaDescription} />
     <meta name="keywords" content={faq.keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />
-    <meta property="og:title" content={faq.metaTitle} />
+    <meta property="og:title" content={metaTitle} />
     <meta property="og:description" content={faq.metaDescription} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:title" content={faq.metaTitle} />
+    <meta name="twitter:title" content={metaTitle} />
     <meta name="twitter:description" content={faq.metaDescription} />
     <script type="application/ld+json" set:html={JSON.stringify(qaSchema).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
   </Fragment>

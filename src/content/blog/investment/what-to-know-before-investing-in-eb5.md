@@ -2,7 +2,7 @@
 id: 42
 slug: investment/what-to-know-before-investing-in-eb5
 title: "What to Know Before Investing in EB-5: 2026 Pre-Investment Checklist for F-1 and H-1B Investors"
-metaTitle: "What to Know Before Investing in EB-5: 2026 Pre-Investment Checklist for F-1 and H-1B Investors | StudentEB5"
+metaTitle: "What to Know Before an EB-5 Investment | StudentEB5"
 metaDescription: "What to know before investing in EB-5 includes investor eligibility, lawful source of funds, and project due diligence before you commit $800,000 in 2026."
 excerpt: "What to know before investing in EB-5 starts with three critical areas. These areas include investor eligibility, documentation of lawful sources of funds, and extensive due diligence on the regional center track record and the business plan of the project. Before committing $800,000, prospective investors should understand these requirements and evaluate both the immigration and financial risks involved."
 date: June 11, 2026

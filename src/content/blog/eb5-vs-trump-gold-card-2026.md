@@ -2,7 +2,7 @@
 id: 13
 slug: eb5-vs-trump-gold-card-2026
 title: "EB-5 vs Trump Gold Card - Why $800,000 Beats a $1M Donation in 2026"
-metaTitle: "EB-5 vs Trump Gold Card - Why $800,000 Beats a $1M Donation in 2026 | StudentEB5"
+metaTitle: "EB-5 vs Gold Card - 2026 Cost Comparison | StudentEB5"
 metaDescription: "EB-5 vs Trump Gold Card: one $800,000 recoupable filing covers a family, while the Gold Card proposal asks $1 million per person with no capital return in 2026."
 excerpt: "The proposed Trump Gold Card has been met with skepticism due to its legal ambiguity and uncertain path to a Green Card. Discover why the EB-5 program's established structure makes it the overwhelmingly more attractive option."
 date: December 19, 2025

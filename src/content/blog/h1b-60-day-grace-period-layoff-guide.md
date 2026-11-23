@@ -2,7 +2,7 @@
 id: 34
 slug: h1b-60-day-grace-period-layoff-guide
 title: "H-1B 60-Day Grace Period - Layoff Action Plan to Keep Lawful Status"
-metaTitle: "H-1B 60-Day Grace Period - Layoff Action Plan to Keep Lawful Status | StudentEB5"
+metaTitle: "H-1B Grace Period - Layoff Status Plan | StudentEB5"
 metaDescription: "H-1B 60-day grace period rules after a 2026 layoff: clock starts at termination under 8 CFR 214.1(l)(2), then bridge options and EB-5 concurrent filing."
 excerpt: When an H-1B layoff hits, the 60-day grace period clock starts immediately. This guide breaks down the regulatory mechanics under 8 CFR 214.1(l)(2), bridging strategies including B-1/B-2 and H-4 EAD, cap-exempt employer transfers, and EB-5 concurrent filing as a permanent solution.
 date: June 3, 2026

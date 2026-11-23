@@ -2,7 +2,7 @@
 id: 23
 slug: choosing-rural-eb5-regional-center-guide
 title: "Rural EB-5 Regional Center - How to Choose a Safe Project Partner"
-metaTitle: "Rural EB-5 Regional Center - How to Choose a Safe Project Partner | StudentEB5"
+metaTitle: "Rural EB-5 Regional Center - How to Choose | StudentEB5"
 metaDescription: "Rural EB-5 regional center selection starts with 5 checks before you invest $800,000: USCIS status, 95%+ approvals, I-956F, capital stack, and clean management."
 excerpt: The decision to invest in the EB-5 immigrant investor program is a significant life changing decision. A critical component of this journey is the selection of a reputable and reliable regional center. This article provides a framework and important questions to ask during due diligence.
 date: January 10, 2026

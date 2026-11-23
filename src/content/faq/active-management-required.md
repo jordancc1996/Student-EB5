@@ -2,7 +2,7 @@
 id: 8
 slug: active-management-required
 question: Do I need to actively manage the EB-5 investment?
-metaTitle: Do I Need to Manage My EB-5 Investment? Passive vs Active
+metaTitle: "EB-5 Active Management - Passive Capital | StudentEB5"
 metaDescription: No active management needed for EB-5. Explore passive investment options through regional centers for students and professionals.
 category: Investment
 keywords:

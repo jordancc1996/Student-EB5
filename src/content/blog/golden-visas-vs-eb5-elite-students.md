@@ -2,7 +2,7 @@
 id: 14
 slug: golden-visas-vs-eb5-elite-students
 title: Golden Visas vs EB-5 - Which Path Fits Elite International Students
-metaTitle: Golden Visas vs EB-5 - Which Path Fits Elite International Students | StudentEB5
+metaTitle: "Golden Visas vs EB-5 - Student Path Fit | StudentEB5"
 metaDescription: "Golden visas vs EB-5 for students: an $800,000 U.S. path buys residency and in-state tuition; EU golden visas cut foreign tuition and open Schengen mobility."
 excerpt: Explore how affluent families use EB-5 and Golden Visa programs to secure educational and professional futures for their children studying in the U.S. and abroad.
 date: December 19, 2025

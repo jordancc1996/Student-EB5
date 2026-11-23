@@ -10,13 +10,14 @@ import OptimizedImage from '@/components/OptimizedImage.astro';
 import contactHero from '@/assets/contact-hero-new.jpg';
 import contactHeroWebp from '@/assets/contact-hero-new.webp';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { seoTitle } from '@/lib/seo/documentTitle';
 import { generateContactPageSchema } from '@/lib/seo/structured-data';
 
-const title = 'EB-5 Immigration Consultation - Free Strategy Call';
+const title = 'EB-5 Consultation - Free Strategy Call | StudentEB5';
 const description =
   'EB-5 immigration consultation helps F-1 and H-1B investors map concurrent filing, $800,000 TEA capital, and the Sept 30, 2026 grandfathering deadline.';
 const pageCanonical = `${SITE_CONFIG.url}/contact`;
-const ogTitle = `${title} | StudentEB5`;
+const ogTitle = seoTitle(title);
 const ogDescription = description;
 const keywords = [
   'EB-5 immigration consultation',
@@ -30,7 +31,7 @@ const structuredData = generateContactPageSchema();
 
 <Layout>
   <Fragment slot="head">
-    <title>{title} | StudentEB5</title>
+    <title>{ogTitle}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />

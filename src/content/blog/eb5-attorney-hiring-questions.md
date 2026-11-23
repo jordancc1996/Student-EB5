@@ -2,7 +2,7 @@
 id: 51
 slug: eb5-attorney-hiring-questions
 title: "EB-5 Attorney Hiring Questions - What to Confirm Before You Retain Counsel"
-metaTitle: "EB-5 Attorney Hiring Questions - What to Confirm Before You Retain Counsel | StudentEB5"
+metaTitle: "EB-5 Attorney Questions - Before You Retain | StudentEB5"
 metaDescription: "EB-5 attorney hiring questions start with I-526E experience and a written fee scope. Confirm who prepares the petition before you retain counsel for the case."
 excerpt: "Questions for an EB-5 attorney should cover experience with similar petitions, the written fee scope, and which decisions need a different professional."
 date: November 11, 2026

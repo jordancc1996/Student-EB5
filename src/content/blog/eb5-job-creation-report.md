@@ -2,7 +2,7 @@
 id: 50
 slug: eb5-job-creation-report
 title: "EB-5 Job Creation Report - How to Read the Project Analysis"
-metaTitle: "EB-5 Job Creation Report - How to Read the Project Analysis | StudentEB5"
+metaTitle: "EB-5 Job Creation Report - How to Read It | StudentEB5"
 metaDescription: "EB-5 job creation report review starts with the 10 full-time jobs USCIS requires for each investor. The projected total is only one part of the analysis."
 excerpt: "An EB-5 job-creation report states how a project expects to meet the employment rule. Read what it counts, which assumptions it uses, and how jobs are allocated."
 date: November 10, 2026

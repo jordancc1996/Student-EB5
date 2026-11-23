@@ -17,6 +17,7 @@ import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import ArticleEmailContact from '@/components/ArticleEmailContact.astro';
 import RelatedResearchCard from '@/components/RelatedResearchCard.astro';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { seoTitle } from '@/lib/seo/documentTitle';
 import { generateArticleSchema } from '@/lib/seo/structured-data';
 import {
   DEFAULT_OG_ALT,
@@ -64,9 +65,7 @@ if (!entry.body) {
 
 const hasHero = !!post.heroImage;
 const pageCanonical = `${SITE_CONFIG.url}/research/${slug}`;
-const metaTitle = post.metaTitle.includes('StudentEB5')
-  ? post.metaTitle
-  : `${post.metaTitle} | StudentEB5`;
+const metaTitle = seoTitle(post.metaTitle);
 const ogCrop = post.heroImage
   ? await getImage({
       src: post.heroImage,
@@ -147,12 +146,12 @@ const relatedPosts = allPosts
     <meta name="description" content={post.metaDescription} />
     <meta name="keywords" content={post.keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />
-    <meta property="og:title" content={post.metaTitle} />
+    <meta property="og:title" content={metaTitle} />
     <meta property="og:description" content={post.metaDescription} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:title" content={post.metaTitle} />
+    <meta name="twitter:title" content={metaTitle} />
     <meta name="twitter:description" content={post.metaDescription} />
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
   </Fragment>

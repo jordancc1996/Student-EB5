@@ -14,6 +14,7 @@ import RelatedPathways from '@/components/RelatedPathways.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { seoTitle } from '@/lib/seo/documentTitle';
 import { findLandingPageByUrl, isIndexable } from '@/lib/pathwayRoutes';
 import { FEATURE_BASELINE_DATE } from '@/lib/lastUpdated';
 import { resolveRelatedLinkImage } from '@/lib/relatedLinkImage';
@@ -58,8 +59,8 @@ const {
   heroImageAlt = '',
 } = Astro.props;
 
-const ogTitle = title.includes('StudentEB5') ? title : `${title} | StudentEB5`;
-const documentTitle = title.includes('| StudentEB5') ? title : `${title} | StudentEB5`;
+const documentTitle = seoTitle(title);
+const ogTitle = documentTitle;
 
 const pathwayEntry = findLandingPageByUrl(new URL(canonicalUrl).pathname);
 const pageIsIndexable = pathwayEntry ? isIndexable(pathwayEntry) : true;

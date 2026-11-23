@@ -2,7 +2,7 @@
 id: 6
 slug: family-members-included
 question: Can family members be included in the EB-5 application?
-metaTitle: "EB-5 Family Benefits: Can Spouse & Children Get Green Cards?"
+metaTitle: "EB-5 Family Green Cards - Spouse and Child | StudentEB5"
 metaDescription: Yes! EB-5 includes spouse and unmarried children under 21. Learn how your entire family can get US green cards through one EB 5 investment.
 category: Eligibility
 keywords:

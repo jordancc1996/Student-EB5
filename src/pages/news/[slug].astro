@@ -14,6 +14,7 @@ import { getNewsArticle, newsArticleSlugs } from '@/data/newsArticles';
 import { getNewsFaqSchema } from '@/data/newsFaqSchemas';
 import { getNewsTocItems } from '@/lib/news/newsArticleHeadings';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { seoTitle } from '@/lib/seo/documentTitle';
 import { generateArticleSchema } from '@/lib/seo/structured-data';
 import { toIsoDate } from '@/lib/lastUpdated';
 import {
@@ -79,16 +80,16 @@ const structuredData = faqSchema ? [articleSchema, faqSchema] : [articleSchema];
 
 <Layout ogImage={ogImage} ogImageAlt={ogImageAlt}>
   <Fragment slot="head">
-    <title>{article.metaTitle}</title>
+    <title>{seoTitle(article.metaTitle)}</title>
     <meta name="description" content={article.metaDescription} />
     <meta name="keywords" content={article.keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />
-    <meta property="og:title" content={article.title} />
+    <meta property="og:title" content={seoTitle(article.metaTitle)} />
     <meta property="og:description" content={article.metaDescription} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta name="twitter:title" content={article.title} />
+    <meta name="twitter:title" content={seoTitle(article.metaTitle)} />
     <meta name="twitter:description" content={article.metaDescription} />
     {structuredData.map((data) => (
       <script type="application/ld+json" set:html={JSON.stringify(data).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />

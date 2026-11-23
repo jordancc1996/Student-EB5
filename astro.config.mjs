@@ -6,12 +6,15 @@ import { fileURLToPath } from 'node:url';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import { landingPages, isIndexable } from './src/lib/pathwayRoutes.ts';
+import { isNoindexPath } from './src/lib/seo/indexing.ts';
+import { lastmodByPath } from './src/lib/seo/sitemapLastmod.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const pathwayByPathname = new Map(
   landingPages.map((page) => [page.url, page]),
 );
+const lastmods = lastmodByPath();
 
 /**
  * @param {string} pageUrl full absolute URL from @astrojs/sitemap
@@ -43,6 +46,7 @@ function shouldIncludeInSitemap(pageUrl) {
   try {
     const { pathname } = new URL(pageUrl);
     const normalized = pathname.replace(/\/$/, '') || '/';
+    if (isNoindexPath(normalized)) return false;
     const pathwayEntry = pathwayByPathname.get(normalized);
     if (pathwayEntry && !isIndexable(pathwayEntry)) return false;
   } catch {
@@ -65,6 +69,13 @@ export default defineConfig({
       serialize(item) {
         if (item.url.endsWith('/')) {
           item.url = item.url.replace(/\/+$/, '') || item.url;
+        }
+        try {
+          const pathname = new URL(item.url).pathname.replace(/\/$/, '') || '/';
+          const lastmod = lastmods.get(pathname);
+          if (lastmod) item.lastmod = lastmod;
+        } catch {
+          // Leave lastmod unset when the sitemap URL cannot be parsed.
         }
         return item;
       },

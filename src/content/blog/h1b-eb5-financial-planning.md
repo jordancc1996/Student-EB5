@@ -2,7 +2,7 @@
 id: 9
 slug: h1b-eb5-financial-planning
 title: H-1B EB-5 Financial Planning - Budget $800,000 Plus Fees Before You File
-metaTitle: H-1B EB-5 Financial Planning - Budget $800,000 Plus Fees Before You File | StudentEB5
+metaTitle: "H-1B EB-5 Planning - Budget Before Filing | StudentEB5"
 metaDescription: "H-1B EB-5 financial planning starts at $800,000 investment capital plus $50,000 to $80,000 in legal, admin, and USCIS fees before the I-526E is filed in 2026."
 excerpt: Navigate the transition from H-1B to permanent residency through EB-5 investment. Discover funding strategies, financial requirements, and essential planning steps for H-1B professionals.
 date: November 15, 2025

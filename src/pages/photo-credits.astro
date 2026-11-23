@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import SiteFooter from '@/components/SiteFooter.astro';
 import { photoRegistry, photoPlacementsByPath } from '@/data/photoRegistry';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { isNoindexPath } from '@/lib/seo/indexing';
 
 const pagesByPhoto = new Map<string, string[]>();
 for (const [page, placements] of Object.entries(photoPlacementsByPath)) {
@@ -19,10 +20,13 @@ const pageCanonical = `${SITE_CONFIG.url}/photo-credits`;
 
 <Layout>
   <Fragment slot="head">
-    <title>Photo Credits | StudentEB5</title>
+    <title>Photo Credits for Site Photographs | StudentEB5</title>
     <meta name="description" content="Unsplash photographer credits for photographs used on StudentEB5 research, news, and pathway pages." />
     <link rel="canonical" href={pageCanonical} />
-    <meta name="robots" content="noindex, follow" />
+    <meta property="og:title" content="Photo Credits for Site Photographs | StudentEB5" />
+    <meta property="og:description" content="Unsplash photographer credits for photographs used on StudentEB5 research, news, and pathway pages." />
+    <meta property="og:url" content={pageCanonical} />
+    {isNoindexPath('/photo-credits') && <meta name="robots" content="noindex, follow" />}
   </Fragment>
 
   <div class="min-h-screen bg-background">

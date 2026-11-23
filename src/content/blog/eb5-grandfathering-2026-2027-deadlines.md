@@ -2,7 +2,7 @@
 id: 18
 slug: eb5-grandfathering-2026-2027-deadlines
 title: "EB-5 Grandfathering Deadline 2026 - Why September 30 Locks In Your Petition"
-metaTitle: "EB-5 Grandfathering Deadline 2026 - Why September 30 Locks In Your Petition | StudentEB5"
+metaTitle: "EB-5 Grandfathering - September 30, 2026 | StudentEB5"
 metaDescription: "The EB-5 grandfathering deadline 2026 is September 30. File I-526E by then to keep adjudication protection even if Congress changes the program in 2027."
 excerpt: Understanding the critical September 30, 2026 grandfathering deadline and the 2027 program reauthorization - why acting now secures your path to a U.S. Green Card.
 date: December 23, 2025

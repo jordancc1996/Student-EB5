@@ -2,7 +2,7 @@
 id: 22
 slug: eb5-comprehensive-faq-timeline-international-students
 title: "EB-5 FAQ International Students - Timelines, Fees, and Concurrent Filing"
-metaTitle: "EB-5 FAQ International Students - Timelines, Fees, and Concurrent Filing | StudentEB5"
+metaTitle: "EB-5 FAQ for Students - Timelines and Fees | StudentEB5"
 metaDescription: "EB-5 FAQ international students ask most: $800,000 TEA investment, concurrent I-526E and I-485 filing, and work authorization typically within 3 to 6 months."
 excerpt: The EB-5 program has recently become increasingly attractive due to the 2022 Reform and Integrity Act and its addition of concurrent filing. This comprehensive FAQ and Timeline analysis addresses the most critical questions international students and their families have about leveraging the EB-5 program.
 date: January 5, 2026

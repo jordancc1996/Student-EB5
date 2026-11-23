@@ -2,7 +2,7 @@
 id: 12
 slug: h1b-grace-period-eb5-options
 question: What Are My Options During the H-1B 60-Day Grace Period If I Have Been Laid Off, and Can I Start EB-5?
-metaTitle: H-1B Laid Off? EB-5 Options During the 60-Day Grace Period
+metaTitle: "H-1B Layoff and EB-5 - 60-Day Grace | StudentEB5"
 metaDescription: H-1B laid off—what are my options? Apply for EB-5 during the H-1B grace period to stay in the U.S. and avoid deportation.
 category: Eligibility
 keywords:

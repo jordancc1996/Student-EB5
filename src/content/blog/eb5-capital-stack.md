@@ -2,7 +2,7 @@
 id: 31
 slug: eb5-capital-stack
 title: EB-5 Capital Stack - Where Your $800,000 Sits in Project Financing
-metaTitle: EB-5 Capital Stack - Where Your $800,000 Sits in Project Financing | StudentEB5
+metaTitle: "EB-5 Capital Stack - Where $800,000 Sits | StudentEB5"
 metaDescription: The EB-5 capital stack shows where your $800,000 sits among senior debt, mezzanine, and equity. Avoid projects where EB-5 funds exceed half of total financing.
 excerpt: "The capital stack is the structure of all the different sources of financing for an investment. Its composition directly impacts an investor's risk, the priority of their repayment and the overall stability of the project."
 date: March 2, 2026

@@ -2,7 +2,7 @@
 id: 10
 slug: best-alternative-to-h1b-o1-eb1-eb5
 title: "What Is the Best Alternative to H-1B? O-1 vs EB-1 vs EB-5 for Skilled Professionals"
-metaTitle: "What Is the Best Alternative to H-1B? O-1 vs EB-1 vs EB-5 for Skilled Professionals | StudentEB5"
+metaTitle: "H-1B Alternatives - O-1, EB-1, and EB-5 | StudentEB5"
 metaDescription: "What is the best alternative to H-1B? Compare O-1, EB-1, and EB-5 pathways for skilled professionals facing new H-1B fees and uncertainty."
 excerpt: Skilled professionals facing H-1B lottery odds, new fees, and policy uncertainty compare O-1, EB-1, and EB-5 as alternatives. Learn which pathway fits achievement-based versus capital-based eligibility.
 date: November 17, 2025

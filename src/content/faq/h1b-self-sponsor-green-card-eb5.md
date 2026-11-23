@@ -2,7 +2,7 @@
 id: 11
 slug: h1b-self-sponsor-green-card-eb5
 question: Can H-1B Holders Self-Sponsor a Green Card Through EB-5?
-metaTitle: "H-1B to EB-5: Self-Sponsor a Green Card Without an Employer"
+metaTitle: "H-1B to EB-5 - Self-Sponsored Green Card | StudentEB5"
 metaDescription: Can H-1B holders self sponsor a green card through EB-5? Yes—EB-5 is an employer independent green card path. Learn how it works.
 category: Eligibility
 keywords:

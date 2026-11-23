@@ -2,7 +2,7 @@
 id: 21
 slug: golden-visa-global-education-student-stories
 title: "Golden Visa Education - Student Stories on Tuition Savings and Residency"
-metaTitle: "Golden Visa Education - Student Stories on Tuition Savings and Residency | StudentEB5"
+metaTitle: "Golden Visa Education - Tuition and Residency | StudentEB5"
 metaDescription: "Golden visa education stories show families cutting six figures in tuition: one EB-5 case projected over $280,000 in UVA in-state savings across two children."
 excerpt: "A growing number of families are finding a strategic solution that gives asymmetrical upside. Investment migration programs like the U.S. EB-5 and European Golden Visas have become powerful tools for securing a family's education and professional future."
 date: January 5, 2026

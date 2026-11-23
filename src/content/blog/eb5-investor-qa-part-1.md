@@ -2,7 +2,7 @@
 id: 38
 slug: eb5-investor-qa-part-1
 title: EB-5 Investor Q&A - Processing Times, TEA Projects, and Capital Risk
-metaTitle: EB-5 Investor Q&A - Processing Times, TEA Projects, and Capital Risk | StudentEB5
+metaTitle: "EB-5 Investor Q&A - Times, TEA, and Risk | StudentEB5"
 metaDescription: "EB-5 investor Q&A for June 2026 covers processing times, rural vs high-unemployment TEA projects, capital protection, and the Sept 30 grandfathering deadline."
 excerpt: A comprehensive Q&A for EB-5 investors covering project selection, rural and high unemployment area processing differences, green card timelines, capital tie-up periods, the grandfathering clause, L-1B to EB-5 transitions, and source of funds preparation timelines.
 date: June 11, 2026

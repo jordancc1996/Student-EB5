@@ -13,6 +13,7 @@ import { getCollection } from 'astro:content';
 import h1bHeroImage from '@/assets/h1b-pathway-hero.jpg';
 import h1bHeroImageWebp from '@/assets/h1b-pathway-hero.webp';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { seoTitle } from '@/lib/seo/documentTitle';
 import { findLandingPageByUrl } from '@/lib/pathwayRoutes';
 import { FEATURE_BASELINE_DATE } from '@/lib/lastUpdated';
 import LastUpdated from '@/components/LastUpdated.astro';
@@ -20,11 +21,11 @@ import EditorialPhoto from '@/components/EditorialPhoto.astro';
 import PagePhotoCredits from '@/components/PagePhotoCredits.astro';
 import RelatedPathways from '@/components/RelatedPathways.astro';
 
-const title = 'H-1B to Green Card EB-5 - Concurrent Filing Without Employer Dependency';
+const title = 'H-1B to EB-5 - Concurrent Filing Path | StudentEB5';
 const description =
   'H-1B to green card EB-5 lets Indian and Chinese tech workers file I-526E and I-485 together, target $800,000 TEA projects, and seek EAD within months.';
 const pageCanonical = `${SITE_CONFIG.url}/pathways/h1b-to-green-card`;
-const ogTitle = `${title} | StudentEB5`;
+const ogTitle = seoTitle(title);
 const ogDescription = description;
 const keywords = [
   'H-1B to green card EB-5',
@@ -131,7 +132,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 
 <Layout>
   <Fragment slot="head">
-    <title>{title} | StudentEB5</title>
+    <title>{ogTitle}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />

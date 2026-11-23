@@ -2,7 +2,7 @@
 id: 46
 slug: f1-students/eb5-indian-chinese-students-f1-stem-opt
 title: "EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT | Analysis of the Cap-Gap Strategy"
-metaTitle: "EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT | Analysis of the Cap-Gap Strategy | StudentEB5"
+metaTitle: "EB-5 for Indian and Chinese Students on OPT | StudentEB5"
 metaDescription: "EB-5 for Indian and Chinese students on F-1 and STEM OPT covers cap-gap timing, the 85,000 H-1B lottery, and the Sept 30, 2026 grandfathering deadline."
 excerpt: Indian and Chinese STEM OPT students face 2026 Duration of Status proposals, OPT re-evaluation, and H-1B cap-gap risk. This article maps STEM OPT timing against EB-5 as a self-sponsored backup before the September 30, 2026 grandfathering deadline.
 date: August 4, 2026

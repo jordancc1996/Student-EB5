@@ -2,7 +2,7 @@
 id: 1
 slug: how-eb5-visa-transforms-us-education-experience
 title: EB-5 Visa Education - How Permanent Residency Cuts Tuition in 2026
-metaTitle: EB-5 Visa Education - How Permanent Residency Cuts Tuition in 2026 | StudentEB5
+metaTitle: "EB-5 and Tuition - In-State Rate Savings | StudentEB5"
 metaDescription: "EB-5 visa education can save $200,000 or more in tuition over four years via in-state rates; multi-child families often see $400,000 to $600,000 combined."
 excerpt: Discover how the EB-5 program can dramatically lower education costs, grant access to scholarships, and eliminate visa uncertainty for international students.
 date: January 29, 2026
