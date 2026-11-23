@@ -10,6 +10,7 @@ import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
 import LastUpdated from '@/components/LastUpdated.astro';
 import OptimizedImage from '@/components/OptimizedImage.astro';
 import RelatedResearchCard from '@/components/RelatedResearchCard.astro';
+import RelatedPathways from '@/components/RelatedPathways.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
@@ -148,6 +149,8 @@ const relatedResearchCards = relatedResearch.map((item) => {
         <slot />
         {pathwayPhotos[1] && <EditorialPhoto id={pathwayPhotos[1].id} layout={pathwayPhotos[1].layout} />}
       </div>
+
+      <RelatedPathways pathname={new URL(canonicalUrl).pathname} />
 
       {
         relatedResearch.length > 0 && (

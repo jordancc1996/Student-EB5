@@ -29,6 +29,12 @@ const newsOrder = [...newsArticles].sort((a, b) => b.datePublished.localeCompare
 const newsIndex = newsOrder.findIndex((item) => item.slug === article.slug);
 const olderPost = newsIndex >= 0 ? newsOrder[newsIndex + 1] : undefined;
 const newerPost = newsIndex > 0 ? newsOrder[newsIndex - 1] : undefined;
+const farPost =
+  newsOrder.length > 2 && newsIndex === 0
+    ? newsOrder[newsOrder.length - 1]
+    : newsOrder.length > 2 && newsIndex === newsOrder.length - 1
+      ? newsOrder[0]
+      : undefined;
 const lastUpdated = article.dateModified ?? article.datePublished;
 const lastUpdatedDisplay = formatDisplayDate(lastUpdated);
 const pageCanonical = `${SITE_CONFIG.url}/news/${article.slug}`;
@@ -191,6 +197,10 @@ const railRelated = selectRelatedResearch(
                 <a href={`/news/${olderPost.slug}`} class="text-primary hover:underline">
                   Previous: {olderPost.breadcrumbLabel}
                 </a>
+              ) : farPost ? (
+                <a href={`/news/${farPost.slug}`} class="text-primary hover:underline">
+                  Also: {farPost.breadcrumbLabel}
+                </a>
               ) : (
                 <span></span>
               )
@@ -200,6 +210,10 @@ const railRelated = selectRelatedResearch(
               newerPost ? (
                 <a href={`/news/${newerPost.slug}`} class="text-primary hover:underline">
                   Next: {newerPost.breadcrumbLabel}
+                </a>
+              ) : farPost ? (
+                <a href={`/news/${farPost.slug}`} class="text-primary hover:underline">
+                  Also: {farPost.breadcrumbLabel}
                 </a>
               ) : (
                 <span></span>

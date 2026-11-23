@@ -92,7 +92,7 @@ To narrow the field in a crowded market, prioritize projects with the following 
 - **Excellent Developer Track Record:** The real estate developer should have a clean record of completed projects, no bankruptcies within the last twenty to thirty years, and verifiable references from prior EB-5 investors.
 - **Repayment Structure:** Look for a structural repayment guarantee between the New Commercial Enterprise (NCE, the entity pooling the EB-5 funds) and the Job Creating Entity (JCE, the developer). The guarantee cannot run directly to the investor, because that would conflict with the strict USCIS requirement that your capital remain "at risk," but it can be structured at the NCE-to-JCE level.
 
-For a deeper checklist, see our <a href="/research/19-questions-rural-eb5-project-due-diligence">19 due diligence questions for rural EB-5 projects</a> and our guide on <a href="/research/choosing-rural-eb5-regional-center-guide">how to choose an EB-5 regional center</a>.
+For a deeper checklist, see our <a href="/research/19-questions-rural-eb5-project-due-diligence">19 due diligence questions for rural EB-5 projects</a> and our guide on <a href="/research/choosing-rural-eb5-regional-center-guide">how to choose an EB-5 regional center</a>. If the regional center is terminated after you file, <a href="/research/regional-center-shutdown-eb5-investor-protections">regional center shutdown investor protections</a> cover what a good-faith investor can still do.
 
 ## What to Expect Next
 
