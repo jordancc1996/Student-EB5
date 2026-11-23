@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Info } from "lucide-react";
 import {
@@ -119,7 +119,7 @@ const AssetLiquidationCalc = () => {
 
 // --- Main Component ---
 
-const EB5FeasibilityToolMainContent = () => {
+const EB5FeasibilityToolMainContent = ({ children }: { children?: ReactNode }) => {
   // Inputs
   const [income, setIncome] = useState(0);
   const [liquidAssets, setLiquidAssets] = useState(0);
@@ -167,7 +167,7 @@ const EB5FeasibilityToolMainContent = () => {
         </div>
 
         {/* Hero Section */}
-        <div className="bg-foreground text-background py-6">
+        <div className="bg-foreground text-background py-1">
           <div className="max-w-5xl mx-auto px-4 flex justify-between items-center">
             <h2 className="text-2xl font-serif font-bold tracking-wide">
               StudentEB5 <span className="font-sans text-amber-500 font-light text-lg">| Feasibility Tool</span>
@@ -181,17 +181,18 @@ const EB5FeasibilityToolMainContent = () => {
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 py-4">
+        <div className="max-w-5xl mx-auto px-4 py-1">
           <Breadcrumb customTitle="EB-5 Investment Feasibility Tool" initialPathname={FEASIBILITY_PATH} />
-          <h1 className="editorial-h1 mt-4">
+          <h1 className="editorial-h1 mt-1">
             EB-5 Investment Feasibility Calculator - $800K TEA Eligibility Check
           </h1>
           <p className="mt-3 text-muted-foreground text-lg max-w-3xl mx-auto md:mx-0">
             The EB-5 investment feasibility calculator tests whether your income, liquid assets, and gifts can cover the $800,000 TEA or $1,050,000 standard capital requirement.
           </p>
+          {children}
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="max-w-5xl mx-auto px-4 pt-2 pb-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
           
           {/* --- LEFT COLUMN: INPUTS --- */}
           <div className="lg:col-span-5 space-y-6 print:hidden">

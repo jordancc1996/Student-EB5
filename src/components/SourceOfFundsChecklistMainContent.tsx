@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import NextStepsCTA from '@/components/tools/NextStepsCTA';
 import heroImage from '@/assets/about-hero-new.jpg';
 
@@ -67,7 +67,7 @@ const SOURCES: SourceOption[] = [
   },
 ];
 
-const SourceOfFundsChecklistMainContent = () => {
+const SourceOfFundsChecklistMainContent = ({ children }: { children?: ReactNode }) => {
   const [selected, setSelected] = useState<SourceKey | ''>('');
 
   const active = SOURCES.find((s) => s.key === selected);
@@ -75,7 +75,7 @@ const SourceOfFundsChecklistMainContent = () => {
   return (
     <main>
       <div
-        className="relative min-h-screen flex items-center justify-center p-6 py-20"
+        className="relative flex items-start justify-center px-6 pt-6 pb-10"
         style={{
           backgroundImage: `url(${heroImage.src})`,
           backgroundSize: 'cover',
@@ -85,13 +85,14 @@ const SourceOfFundsChecklistMainContent = () => {
         <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative z-10 max-w-4xl w-full">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <h1 className="editorial-h1 text-white mb-3">
               EB-5 Source of Funds Checklist - Personalized I-526E Document List
             </h1>
             <p className="text-gray-300 text-base max-w-2xl mx-auto">
               The EB-5 source of funds checklist generates a personalized document list for gifts, salary, property sales, and investment liquidation before Form I-526E.
             </p>
+            {children}
           </div>
 
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 md:p-12 shadow-2xl">

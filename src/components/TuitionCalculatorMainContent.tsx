@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { GraduationCap } from 'lucide-react';
 import { Link } from '@/components/RouterLink';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -15,7 +15,7 @@ const tuitionData: Record<string, { intl: number; inState: number }> = {
   "University of Washington (Seattle)": { intl: 44076, inState: 12643 }
 };
 
-const TuitionCalculatorMainContent = () => {
+const TuitionCalculatorMainContent = ({ children }: { children?: ReactNode }) => {
   const [selectedUniversity, setSelectedUniversity] = useState<string>('');
 
   const universityNames = Object.keys(tuitionData);
@@ -36,14 +36,14 @@ const TuitionCalculatorMainContent = () => {
   };
 
   return (
-    <main className="container mx-auto px-6 pt-8 pb-8">
+    <main className="container mx-auto px-6 pt-4 pb-8">
 
       {/* Calculator Widget */}
       <div className="max-w-2xl mx-auto">
         <Card className="p-8 md:p-10 shadow-lg border-border/50">
           {/* Header */}
-          <div className="text-center mb-8">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+          <div className="text-center mb-4">
+            <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-primary/10 flex items-center justify-center">
               <GraduationCap className="w-8 h-8 text-primary" />
             </div>
             <h1 className="editorial-h1 mb-3">
@@ -52,6 +52,7 @@ const TuitionCalculatorMainContent = () => {
             <p className="text-muted-foreground text-sm md:text-base">
               The tuition savings calculator compares F-1 international and in-state rates over a standard 4-year degree so students can see EB-5 cost impact before enrollment.
             </p>
+            {children}
           </div>
 
           {/* University Selector */}

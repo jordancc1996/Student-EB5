@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { GRANDFATHERING_DEADLINE } from '@/lib/eb5-dates';
 
-const GrandfatheringCountdownMainContent = () => {
+const GrandfatheringCountdownMainContent = ({ children }: { children?: ReactNode }) => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -61,7 +61,7 @@ const GrandfatheringCountdownMainContent = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-background">
 
       {/* Main Content */}
       <div className="container mx-auto px-6 pb-16">
@@ -70,9 +70,10 @@ const GrandfatheringCountdownMainContent = () => {
           <h1 className="editorial-h1 text-center mb-3">
             EB-5 Grandfathering Countdown - Sept 30, 2026 RIA Deadline
           </h1>
-          <p className="text-muted-foreground text-center text-lg mb-10">
+          <p className="text-muted-foreground text-center text-lg mb-3">
             The EB-5 grandfathering countdown shows how many days remain until the September 30, 2026 RIA deadline protects pending I-526 and I-526E filings.
           </p>
+          {children}
 
           {/* Countdown Clock */}
           <div className="flex justify-center gap-4 md:gap-6 mb-12 flex-wrap">

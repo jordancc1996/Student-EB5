@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { RotateCcw } from 'lucide-react';
 import NextStepsCTA from '@/components/tools/NextStepsCTA';
 import heroImage from '@/assets/about-hero-new.jpg';
@@ -7,7 +7,7 @@ type LocationField = 'inside' | 'outside' | null;
 type Country = '' | 'current' | 'backlogged';
 type Category = '' | 'reserved' | 'unreserved';
 
-const ConcurrentFilingCheckerMainContent = () => {
+const ConcurrentFilingCheckerMainContent = ({ children }: { children?: ReactNode }) => {
   const [location, setLocation] = useState<LocationField>(null);
   const [country, setCountry] = useState<Country>('');
   const [category, setCategory] = useState<Category>('');
@@ -53,7 +53,7 @@ const ConcurrentFilingCheckerMainContent = () => {
   return (
     <main>
       <div
-        className="relative min-h-screen flex items-center justify-center p-6"
+        className="relative flex items-start justify-center px-6 pt-2 pb-10"
         style={{
           backgroundImage: `url(${heroImage.src})`,
           backgroundSize: 'cover',
@@ -63,13 +63,14 @@ const ConcurrentFilingCheckerMainContent = () => {
         <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative z-10 max-w-3xl w-full">
-          <div className="text-center mb-12">
+          <div className="text-center mb-3">
             <h1 className="editorial-h1 text-white mb-4">
               EB-5 Concurrent Filing Eligibility Checker - I-526E and I-485 Timing
             </h1>
             <p className="text-gray-200 text-lg max-w-xl mx-auto">
               The EB-5 concurrent filing eligibility checker determines whether your status and priority date let you file I-526E and I-485 together for EAD and Advance Parole.
             </p>
+            {children}
           </div>
 
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12 shadow-2xl">

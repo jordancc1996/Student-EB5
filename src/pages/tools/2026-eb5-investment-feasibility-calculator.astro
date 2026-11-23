@@ -6,8 +6,11 @@ import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import EB5FeasibilityToolMainContent from '@/components/EB5FeasibilityToolMainContent';
 import LastUpdated from '@/components/LastUpdated.astro';
+import ToolGuide from '@/components/tools/ToolGuide.astro';
+import { toolGuides } from '@/data/toolGuides';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateFAQSchema, generateWebApplicationSchema } from '@/lib/seo/structured-data';
 
 const title = 'EB-5 Feasibility Calculator - TEA Check | StudentEB5';
 const description =
@@ -38,13 +41,15 @@ const lastUpdatedIso = getPageLastUpdated(feasibilityPath);
     <meta property="og:site_name" content={SITE_CONFIG.name} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateWebApplicationSchema({ name: toolGuides.feasibility.h1, url: pageCanonical, description, applicationCategory: toolGuides.feasibility.category }))} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateFAQSchema(toolGuides.feasibility.faqs))} />
   </Fragment>
 
   <div class="min-h-screen bg-background">
     <Header client:load />
 
     <section class="relative -mt-[120px] pt-[120px] bg-slate-900 print:hidden">
-      <div class="container mx-auto px-4 py-6">
+      <div class="container mx-auto px-4 py-2">
         <Breadcrumb
           client:load
           variant="dark"
@@ -53,12 +58,12 @@ const lastUpdatedIso = getPageLastUpdated(feasibilityPath);
       </div>
     </section>
 
-    <div class="container mx-auto px-4 py-3 max-w-4xl print:hidden">
-      <LastUpdated date={lastUpdatedIso} />
-  <PreferredSourcesCTA />
-    </div>
+    <EB5FeasibilityToolMainContent client:load>
+      <LastUpdated date={lastUpdatedIso} class="mt-3 print:hidden" />
+    </EB5FeasibilityToolMainContent>
 
-    <EB5FeasibilityToolMainContent client:load />
+    <ToolGuide guide={toolGuides.feasibility} />
+    <PreferredSourcesCTA />
 
     <SiteFooter />
   </div>

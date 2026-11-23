@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, type ReactNode } from 'react';
 
 const ONE_DAY = 24 * 60 * 60 * 1000;
 
@@ -39,7 +39,7 @@ const formatDate = (dateObj: Date | null): string => {
   return `${mm}/${dd}/${yyyy}`;
 };
 
-const OPTCalculatorMainContent = () => {
+const OPTCalculatorMainContent = ({ children }: { children?: ReactNode }) => {
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 5 }, (_, i) => currentYear + i);
 
@@ -134,15 +134,16 @@ const OPTCalculatorMainContent = () => {
   };
 
   return (
-    <main className="min-h-screen bg-background">
-      <div className="mx-auto px-10 pb-10 max-w-[900px]">
+    <main className="bg-background">
+      <div className="mx-auto px-10 pt-4 pb-10 max-w-[900px]">
 
         <h1 className="editorial-h1 mb-4">
           OPT Calculator - F-1 Application and EAD Timelines
         </h1>
-        <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto md:mx-0">
+        <p className="text-muted-foreground text-lg mb-3 max-w-2xl mx-auto md:mx-0">
           The OPT calculator builds your F-1 application window, earliest start date, and latest EAD end date from a single program end date under USCIS timing rules.
         </p>
+        {children}
 
         {/* Level of Study & Program End Date */}
         <div className="mb-10">

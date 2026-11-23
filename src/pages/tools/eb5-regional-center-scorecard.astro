@@ -6,8 +6,11 @@ import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import RegionalCenterScorecardMainContent from '@/components/RegionalCenterScorecardMainContent';
 import LastUpdated from '@/components/LastUpdated.astro';
+import ToolGuide from '@/components/tools/ToolGuide.astro';
+import { toolGuides } from '@/data/toolGuides';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateFAQSchema, generateWebApplicationSchema } from '@/lib/seo/structured-data';
 
 const title = 'EB-5 Regional Center Scorecard - Diligence | StudentEB5';
 const description =
@@ -37,6 +40,8 @@ const lastUpdatedIso = getPageLastUpdated('/tools/eb5-regional-center-scorecard'
     <meta property="og:site_name" content={SITE_CONFIG.name} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateWebApplicationSchema({ name: toolGuides.scorecard.h1, url: pageCanonical, description, applicationCategory: toolGuides.scorecard.category }))} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateFAQSchema(toolGuides.scorecard.faqs))} />
   </Fragment>
 
   <div class="min-h-screen bg-background">
@@ -53,12 +58,12 @@ const lastUpdatedIso = getPageLastUpdated('/tools/eb5-regional-center-scorecard'
       </div>
     </section>
 
-    <div class="container mx-auto px-4 py-3 max-w-4xl">
-      <LastUpdated date={lastUpdatedIso} />
-  <PreferredSourcesCTA />
-    </div>
+    <RegionalCenterScorecardMainContent client:load>
+      <LastUpdated date={lastUpdatedIso} variant="onDark" class="mt-3" />
+    </RegionalCenterScorecardMainContent>
 
-    <RegionalCenterScorecardMainContent client:load />
+    <ToolGuide guide={toolGuides.scorecard} />
+    <PreferredSourcesCTA />
 
     <SiteFooter />
   </div>

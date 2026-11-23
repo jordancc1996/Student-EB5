@@ -174,6 +174,29 @@ export function generateArticleSchema(article: ArticleSchema) {
   };
 }
 
+export function generateWebApplicationSchema(app: {
+  name: string;
+  url: string;
+  description: string;
+  applicationCategory: 'FinanceApplication' | 'UtilitiesApplication';
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: app.name,
+    url: app.url,
+    description: app.description,
+    applicationCategory: app.applicationCategory,
+    operatingSystem: 'Web',
+    isAccessibleForFree: true,
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+  };
+}
+
 export function generateFAQSchema(faqs: FAQItem[]) {
   return {
     '@context': 'https://schema.org',
