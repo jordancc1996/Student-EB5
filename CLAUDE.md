@@ -55,6 +55,10 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+## Workflow
+
+After a branch is merged into main and the production deploy is confirmed, delete that branch on origin and locally. Never delete main or staging.
+
 ## Documentation
 
 Full documentation: https://docs.astro.build
