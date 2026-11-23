@@ -38,12 +38,19 @@ if (!entry.body) {
 }
 
 const allFaqs = await getCollection('faq');
-const relatedFaqs = faq.relatedFaqs
-  ? allFaqs
-      .filter((item) => faq.relatedFaqs?.includes(item.data.slug))
-      .sort((a, b) => a.data.id - b.data.id)
-      .map((item) => ({ ...item.data, answer: item.body ?? '' }))
-  : [];
+const otherFaqs = allFaqs.filter((item) => item.data.slug !== slug);
+const curated = new Set(faq.relatedFaqs ?? []);
+const byId = (a: CollectionEntry<'faq'>, b: CollectionEntry<'faq'>) => a.data.id - b.data.id;
+const sameCategory = otherFaqs.filter((item) => item.data.category === faq.category).sort(byId);
+const curatedOther = otherFaqs
+  .filter((item) => item.data.category !== faq.category && curated.has(item.data.slug))
+  .sort(byId);
+const remaining = otherFaqs
+  .filter((item) => item.data.category !== faq.category && !curated.has(item.data.slug))
+  .sort(byId);
+const relatedFaqs = [...sameCategory, ...curatedOther, ...remaining]
+  .slice(0, 5)
+  .map((item) => ({ ...item.data, answer: item.body ?? '' }));
 
 const pageCanonical = `${SITE_CONFIG.url}/faq/${slug}`;
 const metaTitle = faq.metaTitle.includes('StudentEB5')

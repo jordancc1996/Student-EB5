@@ -5,8 +5,9 @@ import logoImg from '@/assets/studenteb5-logo.png';
 import logoImgWebp from '@/assets/studenteb5-logo.webp';
 import OptimizedImage from '@/components/OptimizedImage';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import type { ReactNode } from 'react';
 
-const Footer = () => {
+const Footer = ({ children }: { children?: ReactNode }) => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
@@ -142,6 +143,7 @@ const Footer = () => {
               </p>
             </div>
           </div>
+          {children}
         </div>
 
         {/* Bottom Bar */}
