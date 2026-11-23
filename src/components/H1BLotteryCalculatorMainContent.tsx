@@ -405,7 +405,7 @@ const H1BLotteryCalculatorMainContent = () => {
                   // Empty State / Instructions
                   <div className="h-full flex flex-col justify-center items-center p-8 text-center text-muted-foreground border-2 border-dashed border-border rounded-3xl min-h-[400px]">
                     <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mb-4"><ArrowRight className="w-5 h-5" /></div>
-                    <p className="max-w-xs">Complete the steps on the left to generate your personalized H-1B odds dashboard.</p>
+                    <p className="max-w-xs">Complete the steps on the left to show the H-1B odds table.</p>
                   </div>
                 )}
               </div>
@@ -419,7 +419,7 @@ const H1BLotteryCalculatorMainContent = () => {
                   <span className="italic font-light">Your Lottery Odds</span>
                 </h2>
                 <p className="text-muted-foreground text-lg mb-10 max-w-2xl">
-                  Here are our assumptions. Many of the numbers are based on lottery data from last year (FY2026), adjusted for the new wage-weighted selection system:
+                  Here are the assumptions stored in this calculator. The job, state, and county you select do not change the four percents:
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

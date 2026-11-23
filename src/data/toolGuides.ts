@@ -1,3 +1,19 @@
+import {
+  FEASIBILITY_ADMIN_ALLOWANCE,
+  FEASIBILITY_ATTORNEY_ALLOWANCE,
+  FEASIBILITY_DEFAULT_MONTHLY_EXPENSES,
+  FEASIBILITY_DOCS_ALLOWANCE,
+  FEASIBILITY_RELOCATION_ALLOWANCE,
+  FEASIBILITY_RESERVE_MONTHS,
+  FEASIBILITY_USCIS_ALLOWANCE,
+  GRANDFATHERING_FILING_DEADLINE,
+  NON_TEA_INVESTMENT_THRESHOLD,
+  RC_PROGRAM_AUTHORIZED_THROUGH,
+  TEA_INVESTMENT_THRESHOLD,
+  formatProgramDate,
+  formatProgramDollars,
+} from '@/data/program';
+
 export interface ToolGuideStep {
   title: string;
   body: string;
@@ -83,26 +99,26 @@ export const toolGuides = {
     h1: 'EB-5 Investment Feasibility Calculator - $800K TEA Eligibility Check',
     category: 'FinanceApplication',
     steps: [
-      { title: 'Enter the financial snapshot', body: 'Fill annual income, liquid assets, semi-liquid assets, monthly expenses, and debts. Monthly expenses start at 5,000 if you leave that field alone.' },
-      { title: 'Choose TEA or standard investment', body: 'TEA uses the 800,000 dollar capital amount. Standard uses 1,050,000 dollars. Those figures are the investment only.' },
+      { title: 'Enter the financial snapshot', body: `Fill liquid assets, semi-liquid assets, monthly expenses, and debts. Monthly expenses start at ${formatProgramDollars(FEASIBILITY_DEFAULT_MONTHLY_EXPENSES)} dollars if you leave that field alone.` },
+      { title: 'Choose TEA or standard investment', body: `TEA uses the ${formatProgramDollars(TEA_INVESTMENT_THRESHOLD)} dollar capital amount. Standard uses ${formatProgramDollars(NON_TEA_INVESTMENT_THRESHOLD)} dollars. Those figures are the investment only.` },
       { title: 'Read the position label', body: 'The page shows Strong Position, Moderate Position, or a shortfall. The label updates as you change the numbers. Use Print Report if you want a paper copy.' },
     ],
     method: [
-      'The investment amount is 800,000 dollars for TEA or 1,050,000 dollars otherwise. The tool then adds fixed planning figures: 35,000 attorney, 11,160 USCIS, 60,000 administration, 7,500 documents, and 35,000 relocation. That sum is the EB-5 cost stack in this calculator.',
-      'A 24-month living reserve equals monthly expenses times 24. Strong Position means liquid assets minus the cost stack are at least that reserve. Moderate Position means liquid plus semi-liquid assets, minus debts, cover the cost stack plus the reserve, but liquid assets alone do not. Otherwise the page shows a shortfall.',
+      `The investment amount is ${formatProgramDollars(TEA_INVESTMENT_THRESHOLD)} dollars for TEA or ${formatProgramDollars(NON_TEA_INVESTMENT_THRESHOLD)} dollars otherwise. The tool then adds fixed planning figures: ${formatProgramDollars(FEASIBILITY_ATTORNEY_ALLOWANCE)} attorney, ${formatProgramDollars(FEASIBILITY_USCIS_ALLOWANCE)} USCIS, ${formatProgramDollars(FEASIBILITY_ADMIN_ALLOWANCE)} administration, ${formatProgramDollars(FEASIBILITY_DOCS_ALLOWANCE)} documents, and ${formatProgramDollars(FEASIBILITY_RELOCATION_ALLOWANCE)} relocation. That sum is the EB-5 cost stack in this calculator.`,
+      `A ${FEASIBILITY_RESERVE_MONTHS}-month living reserve equals monthly expenses times ${FEASIBILITY_RESERVE_MONTHS}. Strong Position means liquid assets minus the cost stack are at least that reserve. Moderate Position means liquid plus semi-liquid assets, minus debts, cover the cost stack plus the reserve, but liquid assets alone do not. Otherwise the page shows a shortfall.`,
     ],
     rules: [
-      { text: 'The 800,000 dollar TEA amount and the 1,050,000 dollar standard amount are the capital minimums used across this site. They do not include filing, legal, or administration fees.', label: 'USCIS: About the EB-5 visa classification', href: eb5About },
+      { text: `The ${formatProgramDollars(TEA_INVESTMENT_THRESHOLD)} dollar TEA amount and the ${formatProgramDollars(NON_TEA_INVESTMENT_THRESHOLD)} dollar standard amount are the capital minimums used across this site. They do not include filing, legal, or administration fees.`, label: 'USCIS: About the EB-5 visa classification', href: eb5About },
       { text: 'The fee lines are planning allowances inside this calculator, not a USCIS invoice. The filing-cost article separates attorney, USCIS, and regional center charges from the investment.', label: 'I-526E filing cost', href: '/research/investment/i526e-filing-cost' },
     ],
     example: {
-      intro: 'TEA selected, liquid assets 1,200,000 dollars, semi-liquid assets 0, debts 0, monthly expenses 5,000. Annual income can be filled in. This status test does not use the income field.',
+      intro: `TEA selected, liquid assets 1,200,000 dollars, semi-liquid assets 0, debts 0, monthly expenses ${formatProgramDollars(FEASIBILITY_DEFAULT_MONTHLY_EXPENSES)}.`,
       inputs: ['Investment type: TEA', 'Liquid assets: 1200000', 'Semi-liquid assets: 0', 'Debts: 0', 'Monthly expenses: 5000'],
       result: 'Cost stack is 948,660 dollars and the 24-month reserve is 120,000 dollars. Liquid assets cover the stack with 251,340 dollars left, which is 50.3 months of the entered expenses. The label is Strong Position.',
     },
     faqs: [
-      { question: 'Does the feasibility calculator include attorney and USCIS fees?', answer: 'Yes. It adds 35,000, 11,160, 60,000, 7,500, and 35,000 on top of the 800,000 or 1,050,000 investment. Those add-ons are planning figures stored in this calculator. They are not a quote from USCIS.' },
-      { question: 'Why can income be entered if the color does not use it?', answer: 'The income box is on the form, but the Strong, Moderate, and shortfall tests use liquid assets, semi-liquid assets, debts, the cost stack, and the 24-month reserve. Changing only income does not change the label.' },
+      { question: 'Does the feasibility calculator include attorney and USCIS fees?', answer: `Yes. It adds ${formatProgramDollars(FEASIBILITY_ATTORNEY_ALLOWANCE)}, ${formatProgramDollars(FEASIBILITY_USCIS_ALLOWANCE)}, ${formatProgramDollars(FEASIBILITY_ADMIN_ALLOWANCE)}, ${formatProgramDollars(FEASIBILITY_DOCS_ALLOWANCE)}, and ${formatProgramDollars(FEASIBILITY_RELOCATION_ALLOWANCE)} on top of the ${formatProgramDollars(TEA_INVESTMENT_THRESHOLD)} or ${formatProgramDollars(NON_TEA_INVESTMENT_THRESHOLD)} investment. Those add-ons are planning figures stored in this calculator. They are not a quote from USCIS.` },
+      { question: 'Which entries change the position label?', answer: `Liquid assets, semi-liquid assets, debts, monthly expenses, and the TEA or standard choice. The reserve is monthly expenses times ${FEASIBILITY_RESERVE_MONTHS}.` },
       { question: 'What is a semi-liquid asset in this tool?', answer: 'The form treats retirement accounts and real estate as semi-liquid. The note on the page says those assets take time to reach and can face tax or penalties. They count toward Moderate Position, not toward the liquid cushion test.' },
       { question: 'Is a Strong Position the same as EB-5 eligibility?', answer: 'No. The banner on the tool says the result is preliminary and is not legal or financial advice. Source of funds, project choice, and filing rules are separate from this cash test.' },
     ],
@@ -119,12 +135,12 @@ export const toolGuides = {
   },
   lottery: {
     toolName: 'H-1B lottery odds calculator',
-    h1: 'H-1B Lottery Odds Calculator - 2026 Wage-Weighted Selection Odds',
+    h1: 'H-1B Lottery Odds Calculator',
     category: 'UtilitiesApplication',
     steps: [
       { title: 'Select a job title', body: 'Search the job list and pick a title. The tool stores the SOC code on that row. The odds table itself does not change with the title.' },
       { title: 'Select a state and a county', body: 'Both fields are required before the table appears. The county list depends on the state you pick.' },
-      { title: 'Read the four wage-level rows', body: 'Each row shows a salary band, a ticket count from 1 to 4, and a selection percent. Reset clears the job, state, and county.' },
+      { title: 'Read the four rows', body: 'Each row shows a salary band, a ticket count from 1 to 4, and a selection percent. The job, state, and county do not change those percents. Reset clears the job, state, and county.' },
     ],
     method: [
       'The model starts from 343,000 registrations and keeps 75 percent of that figure, which is 257,250. It then splits those registrations into wage levels at 40 percent, 42 percent, 11 percent, and 7 percent. Level 1 gets 1 ticket, level 2 gets 2, level 3 gets 3, and level 4 gets 4.',
@@ -386,31 +402,31 @@ export const toolGuides = {
   },
   grandfathering: {
     toolName: 'EB-5 grandfathering countdown',
-    h1: 'EB-5 Grandfathering Countdown - Sept 30, 2026 RIA Deadline',
+    h1: 'EB-5 Grandfathering & 2027 Sunset Countdown',
     category: 'UtilitiesApplication',
     steps: [
-      { title: 'Read the four clock units', body: 'The page shows days, hours, minutes, and seconds. There is no date field to type.' },
-      { title: 'Compare the days figure with the milestone cards', body: 'The cards list source of funds, project selection, I-526E preparation, and filing, each with a duration range stored on the page.' },
-      { title: 'Use the action list under the clock', body: 'The numbered plan repeats those stages in order and ends with a link to the contact page. The clock updates from the current time while you read.' },
+      { title: 'Read the status line', body: `The line states that the ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} grandfathering filing date has passed. There is no date field to type.` },
+      { title: 'Read the four clock units', body: `The clock counts down to the end of ${formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)} in US Eastern time. It shows days, hours, minutes, and seconds.` },
+      { title: 'Read the filing distinction', body: `Petitions properly filed on or before ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} have grandfathering protection. Petitions filed later can still be filed while the program is authorized, but without that protection.` },
     ],
     method: [
-      'The deadline in the code is September 30, 2026, at 11:59:59 p.m. US Eastern. The clock subtracts the current time from that instant and splits the remainder into days, hours, minutes, and seconds.',
-      'If the deadline has passed, the units stay at zero. The milestone durations on the cards are labels. They are not added into the clock.',
+      `The clock target is the end of ${formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}, at 11:59:59 p.m. US Eastern. The page subtracts the current time from that instant and splits the remainder into days, hours, minutes, and seconds.`,
+      `The ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} date is a status statement, not the clock target. Milestone cards are labels. They are not added into the clock.`,
     ],
     rules: [
-      { text: 'The September 30, 2026 date is the grandfathering deadline used on this site countdown and in the grandfathering article.', label: 'EB-5 grandfathering deadline article', href: '/research/eb5-grandfathering-2026-2027-deadlines' },
-      { text: 'The same site distinguishes that filing deadline from the January 1, 2027 investment-amount adjustment.', label: 'EB-5 inflation adjustment', href: '/research/eb5-inflation-adjustment-f1-h1b' },
+      { text: `Petitions properly filed on or before ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} have grandfathering protection. That date is the filing date used on this page and in the grandfathering article.`, label: 'EB-5 grandfathering deadline article', href: '/research/eb5-grandfathering-2026-2027-deadlines' },
+      { text: 'The same site distinguishes the grandfathering filing date from the January 1, 2027 investment-amount adjustment.', label: 'EB-5 inflation adjustment', href: '/research/eb5-inflation-adjustment-f1-h1b' },
       { text: 'The EB-5 classification overview USCIS publishes is the program page already cited in the inflation article.', label: 'USCIS: About the EB-5 visa classification', href: eb5About },
     ],
     example: {
-      intro: 'There is no typed input. Open the page and read the Days unit. The deadline in the code is September 30, 2026, at 11:59:59 p.m. Eastern.',
+      intro: `There is no typed input. Open the page and read the Days unit. The clock target is the end of ${formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)} in US Eastern time.`,
       inputs: ['No form fields. The input is the current time.'],
-      result: 'After that instant, Days, Hours, Minutes, and Seconds each show 00. Before that instant, Days is the whole days remaining, hours stay below 24, and minutes and seconds stay below 60.',
+      result: `Days is the whole days until that instant. Hours stay below 24. Minutes and seconds stay below 60. The status line states that ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} has passed.`,
     },
     faqs: [
-      { question: 'Can I enter a different deadline?', answer: 'No. The date is fixed in the page code as September 30, 2026, 11:59:59 p.m. Eastern. Changing your computer clock changes the displayed remainder.' },
-      { question: 'Do the milestone months get subtracted from the days?', answer: 'No. The cards are separate text. The clock is only the time left until the fixed deadline.' },
-      { question: 'What happens after the deadline in this tool?', answer: 'The remainder is not allowed to go negative. The four units display zero once the deadline instant has passed.' },
+      { question: 'Can I enter a different date?', answer: `No. The grandfathering filing date is ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)}. The clock target is the end of ${formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)} in US Eastern time.` },
+      { question: 'What is the difference between the two dates?', answer: `Petitions properly filed on or before ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} have grandfathering protection. Petitions filed later can still be filed while the program is authorized, but without that protection.` },
+      { question: 'Do the milestone months get subtracted from the days?', answer: `No. The cards are separate text. The clock is only the time until the end of ${formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}.` },
       { question: 'Is the clock a filing confirmation?', answer: 'No. It counts time. Filing Form I-526E, source of funds, and project choice are the steps listed under the clock, not something the clock completes.' },
     ],
     related: [

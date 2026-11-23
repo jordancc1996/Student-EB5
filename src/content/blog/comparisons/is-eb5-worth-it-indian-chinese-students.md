@@ -6,7 +6,7 @@ metaTitle: "Is EB-5 Worth It for Indian and Chinese Students"
 metaDescription: "Is EB-5 worth it for Indian and Chinese International Students? An analysis of H-1B vs EB-5 Lifetime Costs"
 excerpt: International students and their families often weigh the immediate cost of U.S. education and immigration without measuring the lifetime earnings gap created by visa choice. This analysis compares H-1B wage and mobility limits against the financial return of an EB-5 path for Indian and Chinese students.
 date: June 17, 2026
-updatedDate: September 1, 2026
+updatedDate: November 23, 2026
 category: Comparisons
 readTime: 9 min read
 image: ../../../assets/lifetime-costs-h1b-vs-eb5-hero.jpg
@@ -44,7 +44,7 @@ Over a 40-year career, this annual gap compounds into a massive discrepancy in l
 
 The H-1B visa carries significant limitations and inherent instability for international workers. It is a nonimmigrant visa tied to a specific employer, which naturally suppresses wages and limits job mobility. This dependency diminishes the worker's bargaining power in salary negotiations. Research by the National Bureau of Economic Research indicates that H-1B workers earn approximately 16% less than their American counterparts for the same job.
 
-The annual statutory cap of 85,000 visas has produced a lottery system where demand far outstrips supply. According to the American Association of Universities, roughly one in four STEM graduates on temporary visas does not manage to stay in the United States. The H-1B program continues to become more difficult, with policy changes targeting the program directly. The new $100,000 fee on most new H-1B petitions and a shift to a wage-weighted selection model that favors mid-career hires over fresh graduates have already stacked the odds against recent international alumni.
+The annual statutory cap of 85,000 visas has produced a lottery system where demand far outstrips supply. According to the American Association of Universities, roughly one in four STEM graduates on temporary visas does not manage to stay in the United States. The H-1B program continues to become more difficult, with policy changes targeting the program directly. The new $100,000 fee on most new H-1B petitions and a shift to a selection model that favors mid-career hires over fresh graduates have already stacked the odds against recent international alumni.
 
 For those who do secure an H-1B visa, the path to permanent residency via the EB-2 and EB-3 categories is characterized by substantial backlogs. During this prolonged waiting period (which can extend for over a decade), the H-1B worker remains in temporary status and is subject to a 60-day grace period to find new employment if laid off. For a closer look at this risk, see our <a href="/pathways/h1b-60-day-clock">H-1B 60-Day Grace Period Guide</a> and our <a href="/research/h1b-eb5-financial-planning">financial planning guide for H-1B holders</a>.
 

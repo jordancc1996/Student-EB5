@@ -10,11 +10,15 @@ import ToolGuide from '@/components/tools/ToolGuide.astro';
 import { toolGuides } from '@/data/toolGuides';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import {
+  NON_TEA_INVESTMENT_THRESHOLD,
+  TEA_INVESTMENT_THRESHOLD,
+  formatProgramDollars,
+} from '@/data/program';
 import { generateFAQSchema, generateWebApplicationSchema } from '@/lib/seo/structured-data';
 
 const title = 'EB-5 Feasibility Calculator - TEA Check | StudentEB5';
-const description =
-  'EB-5 investment feasibility calculator checks whether income, assets, and gifts can fund the $800,000 TEA or $1,050,000 standard investment amount in 2026.';
+const description = `EB-5 investment feasibility calculator checks whether liquid assets and gifts can fund the $${formatProgramDollars(TEA_INVESTMENT_THRESHOLD)} TEA or $${formatProgramDollars(NON_TEA_INVESTMENT_THRESHOLD)} standard investment amount.`;
 const pageCanonical = `${SITE_CONFIG.url}/tools/2026-eb5-investment-feasibility-calculator`;
 const ogImage = `${SITE_CONFIG.url}/images/eb5-feasibility-og.jpg`;
 const keywords = [

@@ -3,24 +3,14 @@ import { GraduationCap } from 'lucide-react';
 import { Link } from '@/components/RouterLink';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
-
-const tuitionData: Record<string, { intl: number; inState: number }> = {
-  "Arizona State University (ASU)": { intl: 39910, inState: 12482 },
-  "UC San Diego": { intl: 48878, inState: 14610 },
-  "UC Irvine": { intl: 48006, inState: 14312 },
-  "UC Berkeley": { intl: 48176, inState: 14312 },
-  "UCLA": { intl: 48315, inState: 13804 },
-  "University of Illinois Urbana-Champaign (UIUC)": { intl: 38860, inState: 18042 },
-  "University of Michigan (Ann Arbor)": { intl: 60094, inState: 17786 },
-  "University of Washington (Seattle)": { intl: 44076, inState: 12643 }
-};
+import { TUITION_ACADEMIC_YEAR, tuitionPair, tuitionSchools } from '@/data/tuitionFigures';
 
 const TuitionCalculatorMainContent = ({ children }: { children?: ReactNode }) => {
   const [selectedUniversity, setSelectedUniversity] = useState<string>('');
 
-  const universityNames = Object.keys(tuitionData);
+  const universityNames = tuitionSchools();
 
-  const data = selectedUniversity ? tuitionData[selectedUniversity] : null;
+  const data = selectedUniversity ? tuitionPair(selectedUniversity) : null;
   const annualIntl = data?.intl || 0;
   const annualInState = data?.inState || 0;
   const annualSavings = annualIntl - annualInState;
@@ -77,6 +67,9 @@ const TuitionCalculatorMainContent = ({ children }: { children?: ReactNode }) =>
           {/* Results */}
           {data && (
             <div className="space-y-6">
+              <p className="text-xs text-muted-foreground">
+                Estimates for {data.academicYear}. Check the school's current published tuition.
+              </p>
               {/* Visual Bar Chart */}
               <div className="space-y-4">
                 <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">4-Year Cost Comparison</p>
@@ -142,7 +135,7 @@ const TuitionCalculatorMainContent = ({ children }: { children?: ReactNode }) =>
           {/* Disclaimer */}
           <div className="mt-8 pt-6 border-t border-border">
             <p className="text-xs text-muted-foreground leading-relaxed">
-              *Figures are estimates based on 2024-2025 academic year tuition data for non-resident (International) vs. resident (In-State) status. Actual costs may vary by specific college within the university, credit load, and annual tuition increases. Does not include room, board, or other fees unless part of the standard tuition calculation.
+              *Figures are estimates based on {TUITION_ACADEMIC_YEAR} academic year tuition data for non-resident (International) vs. resident (In-State) status. Actual costs may vary by specific college within the university, credit load, and annual tuition increases. Does not include room, board, or other fees unless part of the standard tuition calculation.
             </p>
           </div>
         </Card>

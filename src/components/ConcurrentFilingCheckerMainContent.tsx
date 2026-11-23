@@ -157,6 +157,9 @@ const ConcurrentFilingCheckerMainContent = ({ children }: { children?: ReactNode
                 <p className="text-gray-200 mb-8 leading-relaxed max-w-xl mx-auto">
                   {getResult().msg}
                 </p>
+                <p className="text-gray-200 mb-8 leading-relaxed max-w-xl mx-auto">
+                  This is an estimate based on the rules summarized on this page, not a USCIS determination or legal advice.
+                </p>
                 <NextStepsCTA
                   heading="Lock In Your Place in the EB-5 Queue"
                   description="If you are eligible, concurrent filing protects your priority date and unlocks an EAD and Advance Parole within months."

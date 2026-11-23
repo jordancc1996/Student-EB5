@@ -10,11 +10,15 @@ import ToolGuide from '@/components/tools/ToolGuide.astro';
 import { toolGuides } from '@/data/toolGuides';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import {
+  GRANDFATHERING_FILING_DEADLINE,
+  RC_PROGRAM_AUTHORIZED_THROUGH,
+  formatProgramDate,
+} from '@/data/program';
 import { generateFAQSchema, generateWebApplicationSchema } from '@/lib/seo/structured-data';
 
-const title = 'EB-5 Grandfathering Countdown - 2026 Deadline | StudentEB5';
-const description =
-  'EB-5 grandfathering countdown tracks days left until the September 30, 2026 RIA protection deadline for investors with pending I-526 or I-526E filings.';
+const title = 'EB-5 Grandfathering & 2027 Sunset Countdown';
+const description = `The ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} grandfathering filing date has passed. This countdown runs to ${formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}, while the regional center program is authorized.`;
 const pageCanonical = `${SITE_CONFIG.url}/tools/grandfathering-countdown`;
 const keywords = [
   'EB-5 grandfathering countdown',

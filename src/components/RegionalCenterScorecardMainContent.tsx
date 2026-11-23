@@ -165,6 +165,9 @@ const RegionalCenterScorecardMainContent = ({ children }: { children?: ReactNode
               <p className="text-gray-300 text-sm max-w-md mx-auto mb-10 leading-relaxed italic">
                 Note: This score is an estimate based on self-reported institutional data. A high score does not guarantee financial return, but indicates a strong historical compliance profile.
               </p>
+              <p className="text-gray-300 text-sm max-w-md mx-auto mb-10 leading-relaxed italic">
+                This is an estimate based on the rules summarized on this page, not a USCIS determination or legal advice.
+              </p>
 
               <NextStepsCTA
                 heading="Move Beyond Self-Reported Data"

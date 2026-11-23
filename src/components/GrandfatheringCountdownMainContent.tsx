@@ -1,29 +1,31 @@
 import { useState, useEffect, type ReactNode } from 'react';
-import { GRANDFATHERING_DEADLINE } from '@/lib/eb5-dates';
+import {
+  GRANDFATHERING_FILING_DEADLINE,
+  RC_PROGRAM_AUTHORIZED_THROUGH,
+  RC_PROGRAM_AUTHORIZED_THROUGH_INSTANT,
+  formatProgramDate,
+} from '@/data/program';
+
+const SUNSET_TARGET = new Date(RC_PROGRAM_AUTHORIZED_THROUGH_INSTANT).getTime();
+const filingDateLabel = formatProgramDate(GRANDFATHERING_FILING_DEADLINE);
+const authorizedThroughLabel = formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH);
+
+function timeUntilSunset(now: number) {
+  const difference = Math.max(SUNSET_TARGET - now, 0);
+  return {
+    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+    seconds: Math.floor((difference % (1000 * 60)) / 1000),
+  };
+}
 
 const GrandfatheringCountdownMainContent = ({ children }: { children?: ReactNode }) => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
+  const [timeLeft, setTimeLeft] = useState(() => timeUntilSunset(Date.now()));
 
   useEffect(() => {
-    const targetDate = new Date(GRANDFATHERING_DEADLINE).getTime();
-
     const calculateTimeLeft = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000)
-        });
-      }
+      setTimeLeft(timeUntilSunset(Date.now()));
     };
 
     calculateTimeLeft();
@@ -54,8 +56,8 @@ const GrandfatheringCountdownMainContent = ({ children }: { children?: ReactNode
     {
       step: 4,
       title: "USCIS Filing",
-      duration: "Before Sept 30, 2026",
-      description: "Submit I-526E to lock in current rules.",
+      duration: `Authorized through ${authorizedThroughLabel}`,
+      description: "A petition filed after the grandfathering date can still be filed while the program is authorized. It does not have grandfathering protection.",
       highlight: true
     }
   ];
@@ -68,35 +70,38 @@ const GrandfatheringCountdownMainContent = ({ children }: { children?: ReactNode
         <div className="max-w-4xl mx-auto bg-card border border-border rounded-xl shadow-lg p-8 md:p-10">
           {/* Header */}
           <h1 className="editorial-h1 text-center mb-3">
-            EB-5 Grandfathering Countdown - Sept 30, 2026 RIA Deadline
+            EB-5 Grandfathering & 2027 Sunset Countdown
           </h1>
+          <p className="text-foreground text-center font-medium mb-3">
+            The {filingDateLabel} grandfathering filing date has passed.
+          </p>
           <p className="text-muted-foreground text-center text-lg mb-3">
-            The EB-5 grandfathering countdown shows how many days remain until the September 30, 2026 RIA deadline protects pending I-526 and I-526E filings.
+            This countdown runs to {authorizedThroughLabel}. Petitions properly filed on or before {filingDateLabel} have grandfathering protection. Petitions filed later can still be filed while the program is authorized, but without that protection.
           </p>
           {children}
 
           {/* Countdown Clock */}
           <div className="flex justify-center gap-4 md:gap-6 mb-12 flex-wrap">
             <div className="bg-foreground text-background px-5 py-4 md:px-6 md:py-5 rounded-lg min-w-[80px] md:min-w-[100px] text-center shadow-lg">
-              <div className="text-3xl md:text-4xl font-bold leading-none">
+              <div className="text-3xl md:text-4xl font-bold leading-none" suppressHydrationWarning>
                 {String(timeLeft.days).padStart(2, '0')}
               </div>
               <div className="text-xs uppercase tracking-widest mt-2 opacity-80">Days</div>
             </div>
             <div className="bg-foreground text-background px-5 py-4 md:px-6 md:py-5 rounded-lg min-w-[80px] md:min-w-[100px] text-center shadow-lg">
-              <div className="text-3xl md:text-4xl font-bold leading-none">
+              <div className="text-3xl md:text-4xl font-bold leading-none" suppressHydrationWarning>
                 {String(timeLeft.hours).padStart(2, '0')}
               </div>
               <div className="text-xs uppercase tracking-widest mt-2 opacity-80">Hours</div>
             </div>
             <div className="bg-foreground text-background px-5 py-4 md:px-6 md:py-5 rounded-lg min-w-[80px] md:min-w-[100px] text-center shadow-lg">
-              <div className="text-3xl md:text-4xl font-bold leading-none">
+              <div className="text-3xl md:text-4xl font-bold leading-none" suppressHydrationWarning>
                 {String(timeLeft.minutes).padStart(2, '0')}
               </div>
               <div className="text-xs uppercase tracking-widest mt-2 opacity-80">Minutes</div>
             </div>
             <div className="bg-foreground text-background px-5 py-4 md:px-6 md:py-5 rounded-lg min-w-[80px] md:min-w-[100px] text-center shadow-lg">
-              <div className="text-3xl md:text-4xl font-bold leading-none">
+              <div className="text-3xl md:text-4xl font-bold leading-none" suppressHydrationWarning>
                 {String(timeLeft.seconds).padStart(2, '0')}
               </div>
               <div className="text-xs uppercase tracking-widest mt-2 opacity-80">Seconds</div>
@@ -137,7 +142,7 @@ const GrandfatheringCountdownMainContent = ({ children }: { children?: ReactNode
                 Your Action Plan
               </h2>
               <p className="text-muted-foreground text-center mb-8 max-w-xl mx-auto text-sm">
-                Follow these steps to file before the September 30, 2026 deadline and lock in grandfathering protections.
+                These steps are the filing sequence. A petition filed after {filingDateLabel} does not receive grandfathering protection.
               </p>
 
               <div className="max-w-lg mx-auto space-y-0">
@@ -145,7 +150,7 @@ const GrandfatheringCountdownMainContent = ({ children }: { children?: ReactNode
                   { step: 1, title: 'Verify Your Source of Funds', desc: 'Document the lawful origin of your investment capital. This is the most time-intensive step.' },
                   { step: 2, title: 'Select a Qualifying Project', desc: 'Conduct due diligence on Regional Center projects. Prioritize Rural TEA for faster processing.' },
                   { step: 3, title: 'Engage an Immigration Attorney', desc: 'Retain experienced EB-5 counsel to prepare your I-526E petition and supporting evidence.' },
-                  { step: 4, title: 'Wire Funds and File I-526E', desc: 'Transfer your investment and submit the petition to USCIS before the deadline.' },
+                  { step: 4, title: 'Wire Funds and File I-526E', desc: 'Transfer the investment and submit the petition to USCIS while the program is authorized.' },
                   { step: 5, title: 'File I-485 Concurrently (If Eligible)', desc: 'If you are in the U.S. with a current priority date, file adjustment of status at the same time.' },
                 ].map((item, i, arr) => (
                   <div key={item.step} className="flex gap-4">
@@ -169,7 +174,7 @@ const GrandfatheringCountdownMainContent = ({ children }: { children?: ReactNode
                   href="/contact"
                   className="inline-flex items-center justify-center rounded-full bg-foreground text-background px-8 py-4 text-base font-medium hover:bg-foreground/90 transition-colors"
                 >
-                  Book Your Strategy Call Before the Deadline
+                  Book a Strategy Call
                 </a>
                 <p className="text-xs text-muted-foreground mt-3">Free 30-minute consultation. No obligation.</p>
               </div>

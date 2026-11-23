@@ -214,6 +214,9 @@ const CSPACalculatorMainContent = ({ children }: { children?: ReactNode }) => {
                 <p className="text-gray-200 mb-8 leading-relaxed max-w-xl mx-auto">
                   {result.msg}
                 </p>
+                <p className="text-gray-200 mb-8 leading-relaxed max-w-xl mx-auto">
+                  This is an estimate based on the rules summarized on this page, not a USCIS determination or legal advice.
+                </p>
                 <NextStepsCTA
                   heading="Protect Your Child's EB-5 Eligibility"
                   description="A CSPA specialist can review filing windows, sought-to-acquire deadlines, and Reserved category timing for your family."

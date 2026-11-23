@@ -14,16 +14,15 @@ import { Toaster } from '@/components/ui/toaster';
 import heroImage from '@/assets/h1b-lottery-hero.jpg';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
-const title = 'H-1B Lottery Odds - Wage-Weighted Calculator | StudentEB5';
+const title = 'H-1B Lottery Odds Calculator | StudentEB5';
 const description =
-  'H-1B lottery odds calculator estimates FY 2026 selection probability by wage tier, country of birth, and registration count under USCIS wage weighting.';
+  'H-1B lottery odds calculator shows four selection percents from a fixed model. Filling the job, state, and county fields does not change those percents.';
 const pageCanonical = `${SITE_CONFIG.url}/tools/h1b-lottery-odds-calculator`;
 const keywords = [
   'H-1B lottery odds calculator',
-  'H-1B wage level odds',
-  'FY 2026 H-1B lottery',
-  'wage-weighted H-1B lottery',
   'H-1B selection probability',
+  'FY 2026 H-1B lottery',
+  'H-1B registration model',
 ];
 const lastUpdatedIso = getPageLastUpdated('/tools/h1b-lottery-odds-calculator');
 ---
@@ -56,10 +55,10 @@ const lastUpdatedIso = getPageLastUpdated('/tools/h1b-lottery-odds-calculator');
 
       <div class="relative z-10 text-center px-4 py-8">
         <h1 class="editorial-h1 text-white mb-4">
-          H-1B Lottery Odds Calculator - 2026 Wage-Weighted Selection Odds
+          H-1B Lottery Odds Calculator
         </h1>
         <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
-          The H-1B lottery odds calculator estimates your FY 2026 selection probability across Wage Levels 1 to 4 based on your SOC code, offered wage, and work location.
+          The H-1B lottery odds calculator shows four selection percents from a fixed model. The job, state, and county you select do not change those percents.
         </p>
         <LastUpdated date={lastUpdatedIso} variant="onDark" class="mt-3" />
       </div>
