@@ -2,7 +2,7 @@
 id: 1
 slug: what-is-eb5-visa-program
 question: What is the EB-5 visa program?
-metaTitle: "EB-5 Visa Program - Student Guide | StudentEB5"
+metaTitle: "What Is the EB-5 Visa Program? | StudentEB5"
 metaDescription: "Discover the EB-5 investor program: how it works, investment requirements, and how students can earn US green cards."
 category: General
 keywords:
