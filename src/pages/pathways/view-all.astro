@@ -6,6 +6,7 @@ import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import OptimizedImage from '@/components/OptimizedImage.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
+import RelatedPathways from '@/components/RelatedPathways.astro';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import {
@@ -345,6 +346,7 @@ const compareSectionPages = indexablePages.filter((page) => page.id.startsWith('
       </div>
     </main>
 
+    <RelatedPathways pathname="/pathways/view-all" />
     <SiteFooter />
     <Toaster client:load />
   </div>
