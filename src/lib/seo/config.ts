@@ -1,11 +1,25 @@
 import type { PageRoute } from "./types";
 
+const address = {
+  streetAddress: '1412 Broadway 21st Floor',
+  addressLocality: 'New York',
+  addressRegion: 'NY',
+  postalCode: '10018',
+  addressCountry: 'US',
+} as const;
+
+/** Visible line. Derived from `address` so footer, contact, and JSON-LD stay identical. */
+export const BUSINESS_ADDRESS_LINE =
+  `${address.streetAddress}, ${address.addressLocality}, ${address.addressRegion} ${address.postalCode}`;
+
 export const SITE_CONFIG = {
   name: 'StudentEB5',
   url: 'https://studenteb5.com',
   description: 'EB-5 resources for F-1 students and H-1B professionals. Expert guidance on investment immigration to secure US permanent residency.',
   logo: 'https://studenteb5.com/favicon.png',
   email: 'admin@studenteb5.com',
+  address,
+  addressLine: BUSINESS_ADDRESS_LINE,
   defaultOgImage: 'https://studenteb5.com/og-image.jpg',
 } as const;
 

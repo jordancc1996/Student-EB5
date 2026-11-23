@@ -5,6 +5,13 @@ import CookieConsentBanner from '@/components/CookieConsentBanner';
 import PdfGuideOfferPopup from '@/components/PdfGuideOfferPopup';
 import WhatsAppCTA from '@/components/WhatsAppCTA';
 import SeoShareImage from '@/components/SeoShareImage.astro';
+import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateOrganizationSchema } from '@/lib/seo/structured-data';
+
+const organizationSchema = JSON.stringify(generateOrganizationSchema()).replace(
+  /https:\/\/www\.studenteb5\.com/g,
+  SITE_CONFIG.url,
+);
 
 interface Props {
   ogImage?: string;
@@ -39,6 +46,7 @@ const { ogImage, ogImageAlt } = Astro.props;
 		<link rel="preload" href="/fonts/playfair-display-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/fonts/roboto-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
 		<SeoShareImage src={ogImage} alt={ogImageAlt} />
+		<script type="application/ld+json" set:html={organizationSchema} />
 		<slot name="head" />
 	</head>
 	<body>

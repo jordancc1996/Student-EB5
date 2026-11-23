@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import type { NewsArticleMeta } from '@/data/newsArticles';
+import { newsArticles, type NewsArticleMeta } from '@/data/newsArticles';
 import type { TocItem } from '@/lib/research/articleHeadings';
 import OptimizedImage from '@/components/OptimizedImage.astro';
 import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
@@ -25,6 +25,10 @@ interface Props {
 }
 
 const { article, tocItems } = Astro.props;
+const newsOrder = [...newsArticles].sort((a, b) => b.datePublished.localeCompare(a.datePublished));
+const newsIndex = newsOrder.findIndex((item) => item.slug === article.slug);
+const olderPost = newsIndex >= 0 ? newsOrder[newsIndex + 1] : undefined;
+const newerPost = newsIndex > 0 ? newsOrder[newsIndex - 1] : undefined;
 const lastUpdated = article.dateModified ?? article.datePublished;
 const lastUpdatedDisplay = formatDisplayDate(lastUpdated);
 const pageCanonical = `${SITE_CONFIG.url}/news/${article.slug}`;
@@ -179,6 +183,30 @@ const railRelated = selectRelatedResearch(
             </a>
           </div>
         </footer>
+
+        <nav class="mt-12 pt-8 border-t" aria-label="More news">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            {
+              olderPost ? (
+                <a href={`/news/${olderPost.slug}`} class="text-primary hover:underline">
+                  Previous: {olderPost.breadcrumbLabel}
+                </a>
+              ) : (
+                <span></span>
+              )
+            }
+            <a href="/news" class="text-primary font-medium hover:underline">Back to News</a>
+            {
+              newerPost ? (
+                <a href={`/news/${newerPost.slug}`} class="text-primary hover:underline">
+                  Next: {newerPost.breadcrumbLabel}
+                </a>
+              ) : (
+                <span></span>
+              )
+            }
+          </div>
+        </nav>
 
         <section class="mt-16 pt-8 border-t">
           <h2 class="editorial-h2 mb-8 mt-0">Related Articles</h2>

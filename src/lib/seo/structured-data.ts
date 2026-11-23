@@ -1,6 +1,17 @@
 import { SITE_CONFIG } from './config';
 import type { ArticleSchema, BreadcrumbItem, FAQItem } from './types';
 
+function postalAddress() {
+  return {
+    '@type': 'PostalAddress' as const,
+    streetAddress: SITE_CONFIG.address.streetAddress,
+    addressLocality: SITE_CONFIG.address.addressLocality,
+    addressRegion: SITE_CONFIG.address.addressRegion,
+    postalCode: SITE_CONFIG.address.postalCode,
+    addressCountry: SITE_CONFIG.address.addressCountry,
+  };
+}
+
 function publisherWithLogo() {
   return {
     '@type': 'Organization',
@@ -33,6 +44,7 @@ export function generateOrganizationSchema() {
     image: SITE_CONFIG.defaultOgImage,
     description: SITE_CONFIG.description,
     email: SITE_CONFIG.email,
+    address: postalAddress(),
     foundingDate: '2024-01-01',
     areaServed: {
       '@type': 'Country',
@@ -53,6 +65,7 @@ export function generateOrganizationSchema() {
       contactType: 'Customer Service',
       email: SITE_CONFIG.email,
       availableLanguage: ['English'],
+      address: postalAddress(),
     },
   };
 }
