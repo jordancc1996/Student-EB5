@@ -12,6 +12,7 @@ export interface RelatedResearchCardItem {
 interface Props {
   item: RelatedResearchCardItem;
   image?: ImageMetadata;
+  imageWebp?: ImageMetadata;
   imageAlt?: string;
   /** Default `pathway` preserves the live pathway card markup. */
   variant?: 'pathway' | 'article';
@@ -24,6 +25,7 @@ interface Props {
 const {
   item,
   image,
+  imageWebp,
   imageAlt,
   variant = 'pathway',
   category,
@@ -90,10 +92,13 @@ const articleSizes = sizes ?? '(max-width: 768px) 100vw, 33vw';
           hasImage && image ? (
             <OptimizedImage
               src={image}
+              webpSrc={imageWebp}
               alt={imageAlt || item.title}
               className="w-full h-full object-cover"
               loading="lazy"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes={sizes ?? '(max-width: 768px) 100vw, 50vw'}
+              width={image.width}
+              height={image.height}
             />
           ) : (
             <div class="flex h-full w-full min-h-[10rem] items-center justify-center bg-hero-dark text-white/70" aria-hidden="true">

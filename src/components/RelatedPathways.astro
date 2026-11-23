@@ -1,12 +1,12 @@
 ---
 import RelatedResearchCard from '@/components/RelatedResearchCard.astro';
-import { getRelatedPathways } from '@/lib/relatedPathways';
+import { getRelatedPathwayCards } from '@/lib/relatedPathwayCards';
 
 interface Props {
   pathname: string;
 }
 
-const related = getRelatedPathways(Astro.props.pathname);
+const related = await getRelatedPathwayCards(Astro.props.pathname);
 ---
 
 {
@@ -14,9 +14,15 @@ const related = getRelatedPathways(Astro.props.pathname);
     <section class="py-16 md:py-20 bg-muted/30 border-t border-border">
       <div class="container mx-auto px-6 max-w-6xl">
         <h2 class="editorial-h2 text-foreground mb-8 text-left mt-0">Related Pathways</h2>
-        <div class="layout-grid md:grid md:grid-cols-2 md:gap-6">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {related.map((page) => (
-            <RelatedResearchCard item={{ title: page.title, url: page.url }} />
+            <RelatedResearchCard
+              item={{ title: page.title, url: page.url }}
+              image={page.image}
+              imageWebp={page.imageWebp}
+              imageAlt={page.imageAlt}
+              sizes="(max-width: 768px) 100vw, 25vw"
+            />
           ))}
         </div>
       </div>
