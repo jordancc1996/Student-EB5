@@ -10,6 +10,7 @@ import JourneyCTA from '@/components/JourneyCTA.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { seoTitle } from '@/lib/seo/documentTitle';
 import { generateWebPageSchema } from '@/lib/seo/structured-data';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
 
@@ -17,7 +18,7 @@ const title = 'EB-5 Resources for International Students';
 const description =
   'EB-5 resources international students need include filing guides, source-of-funds checklists, research articles, and tools tied to the Sept 30, 2026 deadline.';
 const pageCanonical = `${SITE_CONFIG.url}/resources`;
-const ogTitle = `${title} | StudentEB5`;
+const ogTitle = seoTitle(title);
 const ogDescription = description;
 const keywords = [
   'EB-5 resources international students',
@@ -43,7 +44,7 @@ const structuredData = generateWebPageSchema(
 
 <Layout>
   <Fragment slot="head">
-    <title>{title} | StudentEB5</title>
+    <title>{ogTitle}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />

@@ -2,7 +2,7 @@
 id: 9
 slug: direct-vs-regional-center-eb5
 question: What is the difference between direct EB-5 and regional center EB-5?
-metaTitle: "Direct EB-5 vs Regional Center: Which is Better for Students?"
+metaTitle: "Direct EB-5 vs Regional Center | StudentEB5"
 metaDescription: Compare direct EB-5 and regional center EB-5 investments. Learn which EB 5 investment option is best for international students seeking US green cards.
 category: Regional Centers
 keywords:

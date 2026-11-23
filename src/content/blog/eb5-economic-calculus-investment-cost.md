@@ -2,7 +2,7 @@
 id: 26
 slug: eb5-economic-calculus-investment-cost
 title: "EB-5 Investment Cost - What the $800,000 Really Buys in 2026"
-metaTitle: EB-5 Investment Cost - What the $800,000 Really Buys in 2026 | StudentEB5
+metaTitle: "EB-5 Investment Cost - What $800,000 Buys | StudentEB5"
 metaDescription: "EB-5 investment cost goes beyond the $800,000 TEA minimum. Budget $60,000 to $80,000 in fees and five to seven years of locked capital opportunity cost."
 excerpt: "The EB-5 immigrant investor program represents a significant investment in a family's future that extends beyond financial returns. The program requires substantial capital and has significant opportunity costs but recent reforms like the RIA have introduced new tools and incentives to enhance the EB-5 investment attractiveness."
 date: January 14, 2026

@@ -2,7 +2,7 @@
 id: 41
 slug: f1-students/eb5-funding-strategies-students
 title: "EB-5 Funding Strategies for International Students | HELOC, SBLOC, IRA and Parental Gifts"
-metaTitle: "EB-5 Funding Strategies for International Students | HELOC, SBLOC, IRA & Parental Gifts | StudentEB5"
+metaTitle: "EB-5 Funding for Students - Gifts and Loans | StudentEB5"
 metaDescription: "EB-5 funding strategies for international students include HELOC, retirement assets, securities-backed loans, and parental gifts for the $800,000 investment."
 excerpt: Funding an $800,000 EB-5 investment as a student rarely means writing a single check. This guide breaks down the four most common student funding routes — HELOC, SDIRA rollovers, securities-based lines of credit, and documented parental gifts — and the seven-year source-of-funds trace USCIS requires for each.
 date: June 2, 2026

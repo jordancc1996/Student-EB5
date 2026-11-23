@@ -19,13 +19,12 @@ const blogPostsArray = (await getCollection('blog'))
 const featuredPost = blogPostsArray[0];
 const gridPosts = blogPostsArray.slice(1);
 
-const title = 'EB-5 Research: Expert Articles for Students & H-1B Professionals';
+const title = 'EB-5 Research for Students and H-1B | StudentEB5';
 const description =
   'Expert EB-5 visa articles, policy updates, and success stories. Immigration insights for F-1 students and H-1B workers seeking green cards.';
 const pageCanonical = `${SITE_CONFIG.url}/research`;
-const ogTitle = 'EB-5 Immigration Research: Insights for Students & Professionals';
-const ogDescription =
-  'Stay informed with expert EB-5 articles covering investment strategies, policy updates, processing timelines, and real success stories from students and H-1B professionals who secured their green cards.';
+const ogTitle = title;
+const ogDescription = description;
 const keywords = [
   'EB-5 research',
   'immigration articles',

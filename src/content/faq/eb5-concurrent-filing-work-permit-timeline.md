@@ -2,7 +2,7 @@
 id: 14
 slug: eb5-concurrent-filing-work-permit-timeline
 question: How Does EB-5 Concurrent Filing Work, and How Quickly Can I Get a Work Permit?
-metaTitle: "EB-5 Concurrent Filing: How Fast Is the EAD and Work Permit?"
+metaTitle: "EB-5 Concurrent Filing - EAD Timing | StudentEB5"
 metaDescription: Can I work while EB-5 is pending? Learn how long for EB-5 EAD, the Advance Parole timeline, and how concurrent filing fast-tracks work authorization.
 category: Process
 keywords:

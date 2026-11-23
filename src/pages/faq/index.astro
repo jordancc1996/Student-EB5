@@ -14,6 +14,7 @@ import { getCollection } from 'astro:content';
 import faqHero from '@/assets/faq-hero.jpg';
 import faqHeroWebp from '@/assets/faq-hero.webp';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { seoTitle } from '@/lib/seo/documentTitle';
 import { generateFAQSchema } from '@/lib/seo/structured-data';
 
 const faqEntries = await getCollection('faq');
@@ -36,7 +37,7 @@ const title = 'EB-5 Investor FAQ - Timelines, Fees and Filing';
 const description =
   'EB-5 investor FAQ answers cover concurrent filing, $800,000 TEA investment, rural set-asides, gifted funds, and H-1B grace period options for families.';
 const pageCanonical = `${SITE_CONFIG.url}/faq`;
-const ogTitle = `${title} | StudentEB5`;
+const ogTitle = seoTitle(title);
 const ogDescription = description;
 const keywords = [
   'EB-5 investor FAQ',
@@ -50,7 +51,7 @@ const structuredData = generateFAQSchema(faqSchemaItems);
 
 <Layout>
   <Fragment slot="head">
-    <title>{title} | StudentEB5</title>
+    <title>{ogTitle}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />

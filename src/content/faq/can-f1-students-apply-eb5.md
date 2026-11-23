@@ -2,7 +2,7 @@
 id: 4
 slug: can-f1-students-apply-eb5
 question: Can international students on F-1 visa apply for EB-5?
-metaTitle: Can F-1 Students Apply for EB-5 Visa? Complete Guide
+metaTitle: "F-1 to EB-5 - How Students Apply | StudentEB5"
 metaDescription: Yes! F-1 students can apply for EB-5 investment immigration. Learn how to transition from student visa to green card without the H-1B lottery.
 category: Eligibility
 keywords:

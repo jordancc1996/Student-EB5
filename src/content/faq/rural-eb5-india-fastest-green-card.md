@@ -2,7 +2,7 @@
 id: 13
 slug: rural-eb5-india-fastest-green-card
 question: What Is Rural EB-5 and Why Does It Matter Specifically for Indian Nationals?
-metaTitle: "Rural EB-5 for Indian Nationals: Fastest Green Card Path"
+metaTitle: "Rural EB-5 for Indian Nationals | StudentEB5"
 metaDescription: "Rural EB-5 India: a reserved visa category that helps Indian nationals avoid decades-long EB-2 waits and secure the fastest green card."
 category: Investment
 keywords:

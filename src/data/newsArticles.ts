@@ -50,7 +50,7 @@ export const newsArticles: NewsArticleMeta[] = [
     imageAlt: 'Statue of Liberty under a clear blue sky representing the July 2026 EB-5 visa bulletin Q3 outlook',
     heroImageAlt: 'July 2026 Visa Bulletin analysis for EB-5 Q3 investor outlook',
     href: '/news/july-2026-visa-bulletin-eb5-q3-outlook',
-    metaTitle: 'July 2026 Visa Bulletin EB-5 - Q3 Outlook for China and India Investors | StudentEB5',
+    metaTitle: 'July 2026 Visa Bulletin - EB-5 Outlook | StudentEB5',
     metaDescription:
       'July 2026 visa bulletin EB-5 shows China and India final action date movement for Q3. Rural reserved category remains current for most applicants this quarter.',
     heroSubtitle:
@@ -90,7 +90,7 @@ export const newsArticles: NewsArticleMeta[] = [
     imageAlt: 'USCIS adjustment of status policy memo impact on EB-5 investors',
     heroImageAlt: 'USCIS adjustment of status policy memo and implications for EB-5 investors',
     href: '/news/uscis-adjustment-of-status-memo-eb5-investors',
-    metaTitle: 'USCIS Adjustment of Status EB-5 - What the 2025 Policy Memo Means for Concurrent Filers | StudentEB5',
+    metaTitle: 'USCIS EB-5 Adjustment Memo - Concurrent Filing | StudentEB5',
     metaDescription:
       'USCIS adjustment of status EB-5 memo adds discretionary I-485 review for concurrent filers on H-1B, L-1, and F-1 without changing RIA concurrent filing rights.',
     heroSubtitle:
@@ -130,7 +130,7 @@ export const newsArticles: NewsArticleMeta[] = [
     imageAlt: 'EB-5 visa landscape news update for May 2026',
     heroImageAlt: 'Stone stairway symbolizing the EB-5 visa landscape and investor pathway in 2026',
     href: '/news/eb5-visa-landscape-news-update-may-2026',
-    metaTitle: 'EB-5 Visa Landscape 2026 - Market Update on Rural Filings, Backlogs, and the Gold Card | StudentEB5',
+    metaTitle: 'EB-5 Visa Landscape - May 2026 Update | StudentEB5',
     metaDescription:
       'EB-5 visa landscape 2026 covers rural filings (~47% share, often 3-8 month adjudications), I-526E backlog pressure, and Gold Card-driven demand spikes.',
     heroSubtitle:

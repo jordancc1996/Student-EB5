@@ -8,17 +8,17 @@ import JourneyCTA from '@/components/JourneyCTA.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { seoTitle } from '@/lib/seo/documentTitle';
 import { generateWebPageSchema } from '@/lib/seo/structured-data';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
 import StudentPlaybookMainContent from '@/components/StudentPlaybookMainContent';
 
 const title =
-  'EB-5 Green Card International Students Playbook - F-1 OPT and STEM Strategy Guide';
+  'EB-5 Student Playbook - F-1 and OPT | StudentEB5';
 const description =
   'EB-5 green card international students playbook covers OPT timelines, STEM OPT risks, concurrent filing, and the Sept 30, 2026 grandfathering deadline.';
 const pageCanonical = `${SITE_CONFIG.url}/eb5-green-card-international-students-playbook`;
-const ogTitle =
-  'EB-5 Green Card International Students Playbook - F-1 OPT and STEM Strategy Guide | StudentEB5';
+const ogTitle = seoTitle(title);
 const ogDescription = description;
 const keywords = [
   'EB-5 green card international students playbook',
@@ -49,7 +49,7 @@ const structuredData = generateWebPageSchema(
 
 <Layout>
   <Fragment slot="head">
-    <title>{title} | StudentEB5</title>
+    <title>{ogTitle}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href={pageCanonical} />

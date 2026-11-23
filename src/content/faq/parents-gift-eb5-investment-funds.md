@@ -2,7 +2,7 @@
 id: 15
 slug: parents-gift-eb5-investment-funds
 question: Can My Parents Gift Me the Funds for an EB-5 Investment, and How Does That Work?
-metaTitle: Can Parents Gift EB-5 Funds? Source of Funds Rules Explained
+metaTitle: "Parents Gifting EB-5 Funds - Source Rules | StudentEB5"
 metaDescription: Can parents gift EB-5 money? Yes—learn how EB-5 gifted funds work and why the source of the gift must also be fully documented.
 category: Investment
 keywords:

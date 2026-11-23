@@ -2,7 +2,7 @@
 id: 11
 slug: eb5-visa-aging-out-crisis-solution
 title: EB-5 Aging Out - How Rural Filing Protects Children Under 21
-metaTitle: EB-5 Aging Out - How Rural Filing Protects Children Under 21 | StudentEB5
+metaTitle: "EB-5 Aging Out - Rural Filing and CSPA | StudentEB5"
 metaDescription: "EB-5 aging out protection locks a child's CSPA age at I-526E filing. An $800,000 rural TEA path can keep dependents under 21 while I-485 stays pending."
 excerpt: The aging out crisis affects dependents of nonimmigrant visas who turn 21 and lose eligibility. Discover why the EB-5 visa offers the most direct and certain solution for families.
 date: December 3, 2025

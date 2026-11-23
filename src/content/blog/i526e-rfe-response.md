@@ -2,7 +2,7 @@
 id: 49
 slug: i526e-rfe-response
 title: "I-526E Request for Evidence - What to Do After the Notice"
-metaTitle: "I-526E Request for Evidence - What to Do After the Notice | StudentEB5"
+metaTitle: "I-526E Request for Evidence - How to Respond | StudentEB5"
 metaDescription: "I-526E request for evidence notices set a response deadline, and USCIS policy allows up to 12 weeks. An RFE asks for more evidence. It is not a denial."
 excerpt: "An I-526E request for evidence means USCIS needs more information before it decides the petition. Read the notice, match the response to each question, and follow the deadline."
 date: November 10, 2026

@@ -2,7 +2,7 @@
 id: 19
 slug: best-opportunity-investment-migration-2026
 title: Investment Migration 2026 - Why This Is the Last Year at $800,000 TEA
-metaTitle: Investment Migration 2026 - Why This Is the Last Year at $800,000 TEA | StudentEB5
+metaTitle: "EB-5 at $800,000 - 2026 Filing Window | StudentEB5"
 metaDescription: "Investment migration 2026 is the last year to file EB-5 at the $800,000 TEA minimum before the Jan 1, 2027 inflation hike and Sept 30 grandfathering cutoff."
 excerpt: 2026 is primed to be the most investor friendly year in the last decade. A convergence of critical legislative deadlines, strategic visa availability and 2026 being the last year before inflation adjustments creates a rare opportunity.
 date: December 29, 2025

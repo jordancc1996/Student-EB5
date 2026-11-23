@@ -2,7 +2,7 @@
 id: 48
 slug: eb5-mandamus-delayed-petition
 title: "Should I File Mandamus for a Delayed EB-5 Petition - What Counsel Reviews First"
-metaTitle: "Should I File Mandamus for a Delayed EB-5 Petition - What Counsel Reviews First | StudentEB5"
+metaTitle: "EB-5 Mandamus - Review Before You File | StudentEB5"
 metaDescription: "Should I file mandamus for a delayed EB-5 petition after review under 28 U.S.C. section 1361. The suit asks USCIS to decide the case, not to approve it."
 excerpt: "A mandamus lawsuit can ask a federal court to order USCIS to decide a delayed EB-5 petition. It does not ask the court to approve the case, and the timing depends on the record."
 date: November 10, 2026
