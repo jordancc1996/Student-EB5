@@ -6,21 +6,24 @@ import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import H1BLotteryCalculatorMainContent from '@/components/H1BLotteryCalculatorMainContent';
 import LastUpdated from '@/components/LastUpdated.astro';
+import ToolGuide from '@/components/tools/ToolGuide.astro';
+import { toolGuides } from '@/data/toolGuides';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
+import { generateFAQSchema, generateWebApplicationSchema } from '@/lib/seo/structured-data';
 import { Toaster } from '@/components/ui/toaster';
 import heroImage from '@/assets/h1b-lottery-hero.jpg';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { H1B_WEIGHTED_SELECTION_EFFECTIVE, formatProgramDate } from '@/data/program';
 
-const title = 'H-1B Lottery Odds - Wage-Weighted Calculator | StudentEB5';
+const title = 'Wage-Weighted H-1B Lottery Odds Calculator';
 const description =
-  'H-1B lottery odds calculator estimates FY 2026 selection probability by wage tier, country of birth, and registration count under USCIS wage weighting.';
+  "Estimate your H-1B selection odds under the wage-weighted lottery for each of the four wage levels, using this calculator's stated assumptions.";
 const pageCanonical = `${SITE_CONFIG.url}/tools/h1b-lottery-odds-calculator`;
 const keywords = [
   'H-1B lottery odds calculator',
-  'H-1B wage level odds',
-  'FY 2026 H-1B lottery',
-  'wage-weighted H-1B lottery',
   'H-1B selection probability',
+  'FY 2026 H-1B lottery',
+  'H-1B registration model',
 ];
 const lastUpdatedIso = getPageLastUpdated('/tools/h1b-lottery-odds-calculator');
 ---
@@ -38,24 +41,27 @@ const lastUpdatedIso = getPageLastUpdated('/tools/h1b-lottery-odds-calculator');
     <meta property="og:site_name" content={SITE_CONFIG.name} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateWebApplicationSchema({ name: toolGuides.lottery.h1, url: pageCanonical, description, applicationCategory: toolGuides.lottery.category }))} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateFAQSchema(toolGuides.lottery.faqs))} />
   </Fragment>
 
   <div class="min-h-screen bg-background">
     <Header client:load />
 
     <section
-      class="relative -mt-[120px] pt-[120px] min-h-[50vh] flex items-center justify-center bg-cover bg-center"
+      class="relative -mt-[120px] pt-[120px] flex items-center justify-center bg-cover bg-center"
       style={`background-image: url(${heroImage.src})`}
     >
       <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
 
-      <div class="relative z-10 text-center px-4 py-16 md:py-24">
+      <div class="relative z-10 text-center px-4 py-8">
         <h1 class="editorial-h1 text-white mb-4">
-          H-1B Lottery Odds Calculator - 2026 Wage-Weighted Selection Odds
+          Wage-Weighted H-1B Lottery Odds Calculator
         </h1>
         <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
-          The H-1B lottery odds calculator estimates your FY 2026 selection probability across Wage Levels 1 to 4 based on your SOC code, offered wage, and work location.
+          Estimate your H-1B selection odds under the wage-weighted lottery for each of the four wage levels. The weighted selection rule took effect {formatProgramDate(H1B_WEIGHTED_SELECTION_EFFECTIVE)}.
         </p>
+        <LastUpdated date={lastUpdatedIso} variant="onDark" class="mt-3" />
       </div>
     </section>
 
@@ -66,13 +72,11 @@ const lastUpdatedIso = getPageLastUpdated('/tools/h1b-lottery-odds-calculator');
         initialPathname="/tools/h1b-lottery-odds-calculator"
       />
 
-      <div class="py-3">
-        <LastUpdated date={lastUpdatedIso} />
-  <PreferredSourcesCTA />
-      </div>
-
       <H1BLotteryCalculatorMainContent client:load />
     </main>
+
+    <ToolGuide guide={toolGuides.lottery} />
+    <PreferredSourcesCTA />
 
     <SiteFooter />
     <Toaster client:load />

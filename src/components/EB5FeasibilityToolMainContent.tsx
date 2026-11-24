@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Info } from "lucide-react";
 import {
@@ -8,9 +8,20 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import {
-  TEA_INVESTMENT_THRESHOLD,
+  FEASIBILITY_ADMIN_ALLOWANCE,
+  FEASIBILITY_ATTORNEY_ALLOWANCE,
+  FEASIBILITY_DEFAULT_MONTHLY_EXPENSES,
+  FEASIBILITY_DOCS_ALLOWANCE,
+  FEASIBILITY_EARLY_WITHDRAWAL_RATE,
+  FEASIBILITY_ESTIMATED_TAX_RATE,
+  FEASIBILITY_LIQUIDATION_SAMPLE_AMOUNT,
+  FEASIBILITY_RELOCATION_ALLOWANCE,
+  FEASIBILITY_RESERVE_MONTHS,
+  FEASIBILITY_USCIS_ALLOWANCE,
   NON_TEA_INVESTMENT_THRESHOLD,
-} from "@/lib/eb5-investment";
+  TEA_INVESTMENT_THRESHOLD,
+  formatProgramDollars,
+} from "@/data/program";
 
 const FEASIBILITY_PATH = "/tools/2026-eb5-investment-feasibility-calculator";
 
@@ -75,9 +86,9 @@ const TimelineStep = ({ title, time, desc, last }: TimelineStepProps) => (
 );
 
 const AssetLiquidationCalc = () => {
-  const [amount, setAmount] = useState(200000);
-  const penalty = amount * 0.10;
-  const taxes = amount * 0.30;
+  const [amount, setAmount] = useState(FEASIBILITY_LIQUIDATION_SAMPLE_AMOUNT);
+  const penalty = amount * FEASIBILITY_EARLY_WITHDRAWAL_RATE;
+  const taxes = amount * FEASIBILITY_ESTIMATED_TAX_RATE;
   const net = amount - penalty - taxes;
 
   return (
@@ -101,11 +112,11 @@ const AssetLiquidationCalc = () => {
 
       <div className="space-y-1 bg-background p-3 rounded border border-border">
         <div className="flex justify-between text-red-600">
-          <span>Early Withdrawal Penalty (10%):</span>
+          <span>Early Withdrawal Penalty ({Math.round(FEASIBILITY_EARLY_WITHDRAWAL_RATE * 100)}%):</span>
           <span>-${penalty.toLocaleString()}</span>
         </div>
         <div className="flex justify-between text-red-600 border-b border-border pb-1 mb-1">
-          <span>Est. Income Taxes (30%):</span>
+          <span>Est. Income Taxes ({Math.round(FEASIBILITY_ESTIMATED_TAX_RATE * 100)}%):</span>
           <span>-${taxes.toLocaleString()}</span>
         </div>
         <div className="flex justify-between font-bold text-green-700 text-base">
@@ -119,23 +130,21 @@ const AssetLiquidationCalc = () => {
 
 // --- Main Component ---
 
-const EB5FeasibilityToolMainContent = () => {
+const EB5FeasibilityToolMainContent = ({ children }: { children?: ReactNode }) => {
   // Inputs
-  const [income, setIncome] = useState(0);
   const [liquidAssets, setLiquidAssets] = useState(0);
   const [semiLiquidAssets, setSemiLiquidAssets] = useState(0);
-  const [monthlyExpenses, setMonthlyExpenses] = useState(5000);
+  const [monthlyExpenses, setMonthlyExpenses] = useState(FEASIBILITY_DEFAULT_MONTHLY_EXPENSES);
   const [debts, setDebts] = useState(0);
   const [investmentType, setInvestmentType] = useState<'TEA' | 'NON_TEA'>('TEA');
 
-  // Constants
   const INVESTMENT_AMOUNT = investmentType === 'TEA' ? TEA_INVESTMENT_THRESHOLD : NON_TEA_INVESTMENT_THRESHOLD;
-  const FEES_ATTORNEY = 35000;
-  const FEES_USCIS = 11160;
-  const FEES_ADMIN = 60000;
-  const FEES_DOCS = 7500;
-  const FEES_RELOCATION = 35000;
-  const RESERVE_MONTHS = 24;
+  const FEES_ATTORNEY = FEASIBILITY_ATTORNEY_ALLOWANCE;
+  const FEES_USCIS = FEASIBILITY_USCIS_ALLOWANCE;
+  const FEES_ADMIN = FEASIBILITY_ADMIN_ALLOWANCE;
+  const FEES_DOCS = FEASIBILITY_DOCS_ALLOWANCE;
+  const FEES_RELOCATION = FEASIBILITY_RELOCATION_ALLOWANCE;
+  const RESERVE_MONTHS = FEASIBILITY_RESERVE_MONTHS;
 
   // Calculations
   const livingReserve = monthlyExpenses * RESERVE_MONTHS;
@@ -167,7 +176,7 @@ const EB5FeasibilityToolMainContent = () => {
         </div>
 
         {/* Hero Section */}
-        <div className="bg-foreground text-background py-6">
+        <div className="bg-foreground text-background py-1">
           <div className="max-w-5xl mx-auto px-4 flex justify-between items-center">
             <h2 className="text-2xl font-serif font-bold tracking-wide">
               StudentEB5 <span className="font-sans text-amber-500 font-light text-lg">| Feasibility Tool</span>
@@ -181,17 +190,18 @@ const EB5FeasibilityToolMainContent = () => {
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 py-4">
+        <div className="max-w-5xl mx-auto px-4 py-1">
           <Breadcrumb customTitle="EB-5 Investment Feasibility Tool" initialPathname={FEASIBILITY_PATH} />
-          <h1 className="editorial-h1 mt-4">
-            EB-5 Investment Feasibility Calculator - $800K TEA Eligibility Check
+          <h1 className="editorial-h1 mt-1">
+            {`EB-5 Investment Feasibility Calculator - $${Math.round(TEA_INVESTMENT_THRESHOLD / 1000)}K TEA Eligibility Check`}
           </h1>
           <p className="mt-3 text-muted-foreground text-lg max-w-3xl mx-auto md:mx-0">
-            The EB-5 investment feasibility calculator tests whether your income, liquid assets, and gifts can cover the $800,000 TEA or $1,050,000 standard capital requirement.
+            {`The EB-5 investment feasibility calculator tests whether liquid assets and gifts can cover the $${formatProgramDollars(TEA_INVESTMENT_THRESHOLD)} TEA or $${formatProgramDollars(NON_TEA_INVESTMENT_THRESHOLD)} standard capital requirement.`}
           </p>
+          {children}
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="max-w-5xl mx-auto px-4 pt-2 pb-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
           
           {/* --- LEFT COLUMN: INPUTS --- */}
           <div className="lg:col-span-5 space-y-6 print:hidden">
@@ -200,11 +210,6 @@ const EB5FeasibilityToolMainContent = () => {
                 1. Financial Snapshot
               </h2>
               
-              <CurrencyInput 
-                label="Total Annual Income" 
-                value={income} 
-                onChange={setIncome} 
-              />
               <CurrencyInput 
                 label="Total Liquid Assets" 
                 value={liquidAssets} 

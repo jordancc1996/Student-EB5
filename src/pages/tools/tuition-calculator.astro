@@ -6,8 +6,11 @@ import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import TuitionCalculatorMainContent from '@/components/TuitionCalculatorMainContent';
 import LastUpdated from '@/components/LastUpdated.astro';
+import ToolGuide from '@/components/tools/ToolGuide.astro';
+import { toolGuides } from '@/data/toolGuides';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateFAQSchema, generateWebApplicationSchema } from '@/lib/seo/structured-data';
 
 const title = 'Tuition Savings Calculator - F-1 vs In-State | StudentEB5';
 const description =
@@ -36,6 +39,8 @@ const lastUpdatedIso = getPageLastUpdated('/tools/tuition-calculator');
     <meta property="og:site_name" content={SITE_CONFIG.name} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateWebApplicationSchema({ name: toolGuides.tuition.h1, url: pageCanonical, description, applicationCategory: toolGuides.tuition.category }))} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateFAQSchema(toolGuides.tuition.faqs))} />
   </Fragment>
 
   <div class="min-h-screen bg-gradient-to-br from-background to-secondary/20">
@@ -52,12 +57,12 @@ const lastUpdatedIso = getPageLastUpdated('/tools/tuition-calculator');
       </div>
     </section>
 
-    <div class="container mx-auto px-6 py-3 max-w-4xl">
-      <LastUpdated date={lastUpdatedIso} />
-  <PreferredSourcesCTA />
-    </div>
+    <TuitionCalculatorMainContent client:load>
+      <LastUpdated date={lastUpdatedIso} class="mt-3" />
+    </TuitionCalculatorMainContent>
 
-    <TuitionCalculatorMainContent client:load />
+    <ToolGuide guide={toolGuides.tuition} />
+    <PreferredSourcesCTA />
 
     <SiteFooter />
   </div>

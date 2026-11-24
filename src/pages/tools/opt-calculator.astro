@@ -6,8 +6,11 @@ import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import OPTCalculatorMainContent from '@/components/OPTCalculatorMainContent';
 import LastUpdated from '@/components/LastUpdated.astro';
+import ToolGuide from '@/components/tools/ToolGuide.astro';
+import { toolGuides } from '@/data/toolGuides';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateFAQSchema, generateWebApplicationSchema } from '@/lib/seo/structured-data';
 
 const title = 'OPT Calculator - F-1 Dates and EAD Timing | StudentEB5';
 const description =
@@ -36,6 +39,8 @@ const lastUpdatedIso = getPageLastUpdated('/tools/opt-calculator');
     <meta property="og:site_name" content={SITE_CONFIG.name} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateWebApplicationSchema({ name: toolGuides.opt.h1, url: pageCanonical, description, applicationCategory: toolGuides.opt.category }))} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateFAQSchema(toolGuides.opt.faqs))} />
   </Fragment>
 
   <Header client:load />
@@ -51,12 +56,12 @@ const lastUpdatedIso = getPageLastUpdated('/tools/opt-calculator');
     </div>
   </section>
 
-  <div class="mx-auto px-10 py-3 max-w-[900px]">
-    <LastUpdated date={lastUpdatedIso} />
-  <PreferredSourcesCTA />
-  </div>
+  <OPTCalculatorMainContent client:load>
+    <LastUpdated date={lastUpdatedIso} class="mb-4" />
+  </OPTCalculatorMainContent>
 
-  <OPTCalculatorMainContent client:load />
+  <ToolGuide guide={toolGuides.opt} />
+  <PreferredSourcesCTA />
 
   <SiteFooter />
 </Layout>

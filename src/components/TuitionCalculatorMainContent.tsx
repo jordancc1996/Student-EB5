@@ -1,26 +1,16 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { GraduationCap } from 'lucide-react';
 import { Link } from '@/components/RouterLink';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
+import { TUITION_ACADEMIC_YEAR, tuitionPair, tuitionSchools } from '@/data/tuitionFigures';
 
-const tuitionData: Record<string, { intl: number; inState: number }> = {
-  "Arizona State University (ASU)": { intl: 39910, inState: 12482 },
-  "UC San Diego": { intl: 48878, inState: 14610 },
-  "UC Irvine": { intl: 48006, inState: 14312 },
-  "UC Berkeley": { intl: 48176, inState: 14312 },
-  "UCLA": { intl: 48315, inState: 13804 },
-  "University of Illinois Urbana-Champaign (UIUC)": { intl: 38860, inState: 18042 },
-  "University of Michigan (Ann Arbor)": { intl: 60094, inState: 17786 },
-  "University of Washington (Seattle)": { intl: 44076, inState: 12643 }
-};
-
-const TuitionCalculatorMainContent = () => {
+const TuitionCalculatorMainContent = ({ children }: { children?: ReactNode }) => {
   const [selectedUniversity, setSelectedUniversity] = useState<string>('');
 
-  const universityNames = Object.keys(tuitionData);
+  const universityNames = tuitionSchools();
 
-  const data = selectedUniversity ? tuitionData[selectedUniversity] : null;
+  const data = selectedUniversity ? tuitionPair(selectedUniversity) : null;
   const annualIntl = data?.intl || 0;
   const annualInState = data?.inState || 0;
   const annualSavings = annualIntl - annualInState;
@@ -36,14 +26,14 @@ const TuitionCalculatorMainContent = () => {
   };
 
   return (
-    <main className="container mx-auto px-6 pt-8 pb-8">
+    <main className="container mx-auto px-6 pt-4 pb-8">
 
       {/* Calculator Widget */}
       <div className="max-w-2xl mx-auto">
         <Card className="p-8 md:p-10 shadow-lg border-border/50">
           {/* Header */}
-          <div className="text-center mb-8">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+          <div className="text-center mb-4">
+            <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-primary/10 flex items-center justify-center">
               <GraduationCap className="w-8 h-8 text-primary" />
             </div>
             <h1 className="editorial-h1 mb-3">
@@ -52,6 +42,7 @@ const TuitionCalculatorMainContent = () => {
             <p className="text-muted-foreground text-sm md:text-base">
               The tuition savings calculator compares F-1 international and in-state rates over a standard 4-year degree so students can see EB-5 cost impact before enrollment.
             </p>
+            {children}
           </div>
 
           {/* University Selector */}
@@ -76,6 +67,9 @@ const TuitionCalculatorMainContent = () => {
           {/* Results */}
           {data && (
             <div className="space-y-6">
+              <p className="text-xs text-muted-foreground">
+                Estimates for {data.academicYear}. Check the school's current published tuition.
+              </p>
               {/* Visual Bar Chart */}
               <div className="space-y-4">
                 <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">4-Year Cost Comparison</p>
@@ -141,7 +135,7 @@ const TuitionCalculatorMainContent = () => {
           {/* Disclaimer */}
           <div className="mt-8 pt-6 border-t border-border">
             <p className="text-xs text-muted-foreground leading-relaxed">
-              *Figures are estimates based on 2024-2025 academic year tuition data for non-resident (International) vs. resident (In-State) status. Actual costs may vary by specific college within the university, credit load, and annual tuition increases. Does not include room, board, or other fees unless part of the standard tuition calculation.
+              *Figures are estimates based on {TUITION_ACADEMIC_YEAR} academic year tuition data for non-resident (International) vs. resident (In-State) status. Actual costs may vary by specific college within the university, credit load, and annual tuition increases. Does not include room, board, or other fees unless part of the standard tuition calculation.
             </p>
           </div>
         </Card>

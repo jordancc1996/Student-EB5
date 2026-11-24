@@ -6,8 +6,11 @@ import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import ConcurrentFilingCheckerMainContent from '@/components/ConcurrentFilingCheckerMainContent';
 import LastUpdated from '@/components/LastUpdated.astro';
+import ToolGuide from '@/components/tools/ToolGuide.astro';
+import { toolGuides } from '@/data/toolGuides';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateFAQSchema, generateWebApplicationSchema } from '@/lib/seo/structured-data';
 
 const title = 'EB-5 Concurrent Filing Checker - I-485 | StudentEB5';
 const description =
@@ -37,6 +40,8 @@ const lastUpdatedIso = getPageLastUpdated('/tools/eb5-concurrent-filing-eligibil
     <meta property="og:site_name" content={SITE_CONFIG.name} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateWebApplicationSchema({ name: toolGuides.concurrent.h1, url: pageCanonical, description, applicationCategory: toolGuides.concurrent.category }))} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateFAQSchema(toolGuides.concurrent.faqs))} />
   </Fragment>
 
   <div class="min-h-screen bg-background">
@@ -53,12 +58,12 @@ const lastUpdatedIso = getPageLastUpdated('/tools/eb5-concurrent-filing-eligibil
       </div>
     </section>
 
-    <div class="container mx-auto px-4 py-3 max-w-4xl">
-      <LastUpdated date={lastUpdatedIso} />
-  <PreferredSourcesCTA />
-    </div>
+    <ConcurrentFilingCheckerMainContent client:load>
+      <LastUpdated date={lastUpdatedIso} variant="onDark" class="mt-3" />
+    </ConcurrentFilingCheckerMainContent>
 
-    <ConcurrentFilingCheckerMainContent client:load />
+    <ToolGuide guide={toolGuides.concurrent} />
+    <PreferredSourcesCTA />
 
     <SiteFooter />
   </div>
