@@ -1,6 +1,12 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { Search, ChevronDown, CheckCircle2, X, RefreshCw, ArrowRight, MapPin } from 'lucide-react';
 import { ScheduleCallCTA } from '@/components/ScheduleCallCTA';
+import {
+  H1B_ENTRIES_PER_WAGE_LEVEL,
+  H1B_WEIGHTED_RULE_SOURCE,
+  H1B_WEIGHTED_SELECTION_EFFECTIVE,
+  formatProgramDate,
+} from '@/data/program';
 
 // --- DATA: JOB CONFIGURATION ---
 interface SocOption {
@@ -202,22 +208,32 @@ const H1BLotteryCalculatorMainContent = () => {
     const countL3 = totalRegistrations * dist.L3;
     const countL4 = totalRegistrations * dist.L4;
     
-    const totalTickets = (countL1 * 1) + (countL2 * 2) + (countL3 * 3) + (countL4 * 4);
+    const totalTickets =
+      countL1 * H1B_ENTRIES_PER_WAGE_LEVEL[1] +
+      countL2 * H1B_ENTRIES_PER_WAGE_LEVEL[2] +
+      countL3 * H1B_ENTRIES_PER_WAGE_LEVEL[3] +
+      countL4 * H1B_ENTRIES_PER_WAGE_LEVEL[4];
     const f = totalSelectionsNeeded / totalTickets;
 
-    const getOdds = (level: number) => {
-      const odds = 1 - Math.pow((1 - f), level);
+    const getOdds = (level: 1 | 2 | 3 | 4) => {
+      const tickets = H1B_ENTRIES_PER_WAGE_LEVEL[level];
+      const odds = 1 - Math.pow(1 - f, tickets);
       return (odds * 100).toFixed(1) + "%";
+    };
+
+    const ticketLabel = (level: 1 | 2 | 3 | 4) => {
+      const count = H1B_ENTRIES_PER_WAGE_LEVEL[level];
+      return `${count} ${count === 1 ? 'ticket' : 'tickets'}`;
     };
 
     const baseWage = 64000; 
     const gap = 14000;
     
     return [
-      { level: 1, salary: `$${(baseWage).toLocaleString()} - $${(baseWage + gap).toLocaleString()}`, odds: getOdds(1), tickets: "1 ticket" },
-      { level: 2, salary: `$${(baseWage + gap + 1).toLocaleString()} - $${(baseWage + (gap*2)).toLocaleString()}`, odds: getOdds(2), tickets: "2 tickets" },
-      { level: 3, salary: `$${(baseWage + (gap*2) + 1).toLocaleString()} - $${(baseWage + (gap*3)).toLocaleString()}`, odds: getOdds(3), tickets: "3 tickets" },
-      { level: 4, salary: `$${(baseWage + (gap*3) + 1).toLocaleString()}+`, odds: getOdds(4), tickets: "4 tickets" },
+      { level: 1, salary: `$${(baseWage).toLocaleString()} - $${(baseWage + gap).toLocaleString()}`, odds: getOdds(1), tickets: ticketLabel(1) },
+      { level: 2, salary: `$${(baseWage + gap + 1).toLocaleString()} - $${(baseWage + (gap*2)).toLocaleString()}`, odds: getOdds(2), tickets: ticketLabel(2) },
+      { level: 3, salary: `$${(baseWage + (gap*2) + 1).toLocaleString()} - $${(baseWage + (gap*3)).toLocaleString()}`, odds: getOdds(3), tickets: ticketLabel(3) },
+      { level: 4, salary: `$${(baseWage + (gap*3) + 1).toLocaleString()}+`, odds: getOdds(4), tickets: ticketLabel(4) },
     ];
   }, [selectedSoc, selectedState, selectedCounty]);
 
@@ -380,7 +396,7 @@ const H1BLotteryCalculatorMainContent = () => {
                     <div className="bg-card rounded-2xl border border-border shadow-soft overflow-hidden">
                       <div className="grid grid-cols-4 bg-muted border-b border-border px-6 py-4">
                         <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Wage Level</div>
-                        <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Yearly Salary</div>
+                        <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Example salary (actual level depends on job and location)</div>
                         <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider text-right">Selection Odds</div>
                         <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider text-right">Lottery Tickets</div>
                       </div>
@@ -419,7 +435,8 @@ const H1BLotteryCalculatorMainContent = () => {
                   <span className="italic font-light">Your Lottery Odds</span>
                 </h2>
                 <p className="text-muted-foreground text-lg mb-10 max-w-2xl">
-                  Here are the assumptions stored in this calculator. The job, state, and county you select do not change the four percents:
+                  Under the weighted selection rule effective {formatProgramDate(H1B_WEIGHTED_SELECTION_EFFECTIVE)}, each registration gets {H1B_ENTRIES_PER_WAGE_LEVEL[1]} to {H1B_ENTRIES_PER_WAGE_LEVEL[4]} entries depending on the wage level (I to IV) the offered salary meets for that job and work location in Department of Labor wage data. This calculator does not look up that data. Ask your employer which level your offer meets, then read the odds for that level. The registration and selection totals are this calculator's own estimates.{' '}
+                  <a href={H1B_WEIGHTED_RULE_SOURCE} className="underline">DHS weighted selection rule</a>.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -530,7 +547,7 @@ const H1BLotteryCalculatorMainContent = () => {
                       </div>
                       <div className="flex items-start gap-2">
                         <span className="font-mono bg-muted px-1 rounded text-foreground">w</span>
-                        <span>= number of tickets (1-4 based on wage level)</span>
+                        <span>= number of tickets ({H1B_ENTRIES_PER_WAGE_LEVEL[1]} to {H1B_ENTRIES_PER_WAGE_LEVEL[4]} based on wage level)</span>
                       </div>
                     </div>
                   </div>

@@ -11,8 +11,8 @@ Owner and attorney review list. Each row is a rule, date, dollar figure, or scor
 | H-1B lottery odds | Share of the registration base kept in the model. | 0.75 | none | inline totalRegistrations |
 | H-1B lottery odds | Selections used by the model. | 120141 | none | totalSelectionsNeeded |
 | H-1B lottery odds | Share of registrations assigned to levels 1, 2, 3, and 4. | 0.40, 0.42, 0.11, 0.07 | none | dist |
-| H-1B lottery odds | Tickets per level. | 1, 2, 3, 4 | none | inline in getOdds |
-| H-1B lottery odds | Salary-band label start and step. These labels do not change the percents. | 64000 start, 14000 step | none | baseWage, gap |
+| H-1B lottery odds | Entries per wage level under the weighted selection rule effective 2026-02-27. | 1, 2, 3, 4 | https://www.govinfo.gov/content/pkg/FR-2025-12-29/pdf/2025-23853.pdf | H1B_ENTRIES_PER_WAGE_LEVEL |
+| H-1B lottery odds | Example salary-band label start and step. The actual level depends on the job and location. This calculator does not look up that wage. | 64000 start, 14000 step | none | baseWage, gap |
 | H-1B lottery odds | Low-odds flag when the selected job level percent is under this number. | 30 | none | inline userOddsLow |
 | H-1B lottery odds | Methodology text states a consular processing fee. No source is stored for that sentence. | 100000 | none | inline methodology text |
 | Feasibility calculator | TEA capital investment amount only. Excludes fees. | 800000 | https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-fifth-preference-eb-5/about-the-eb-5-visa-classification | TEA_INVESTMENT_THRESHOLD |

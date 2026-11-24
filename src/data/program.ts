@@ -32,6 +32,12 @@ export const FEASIBILITY_LIQUIDATION_SAMPLE_AMOUNT = 200000;
 export const FEASIBILITY_EARLY_WITHDRAWAL_RATE = 0.1;
 export const FEASIBILITY_ESTIMATED_TAX_RATE = 0.3;
 
+export const H1B_WEIGHTED_SELECTION_EFFECTIVE = '2026-02-27';
+
+export const H1B_ENTRIES_PER_WAGE_LEVEL = { 1: 1, 2: 2, 3: 3, 4: 4 };
+
+export const H1B_WEIGHTED_RULE_SOURCE = 'https://www.govinfo.gov/content/pkg/FR-2025-12-29/pdf/2025-23853.pdf';
+
 export function formatProgramDate(isoDate: string): string {
   const [year, month, day] = isoDate.split('-').map(Number);
   return new Date(Date.UTC(year, month - 1, day)).toLocaleDateString('en-US', {
