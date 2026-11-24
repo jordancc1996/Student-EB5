@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="372" viewBox="0 0 1200 372" role="img">
+  <title>Diagram comparing concurrent I-526E and adjustment in the United States with consular processing abroad.</title>
+  <desc>Diagram comparing concurrent I-526E and adjustment in the United States with consular processing abroad.</desc>
+  <rect width="100%" height="100%" fill="#FAF9F6"/>
+  <text x="36" y="64" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="28" fill="#262626">Concurrent filing and consular processing</text>
+  <rect x="36" y="112" width="552" height="220" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="312" y="160" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="22" fill="#262626">In the U.S.</text>
+<text x="312" y="208" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">I-526E with adjustment</text>
+<text x="312" y="242" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">Work and travel authorization</text>
+<rect x="612" y="112" width="552" height="220" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="888" y="160" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="22" fill="#262626">Abroad</text>
+<text x="888" y="208" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">Consular processing</text>
+<text x="888" y="242" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">Immigrant visa interview</text>
+</svg>

@@ -20,6 +20,8 @@ import LastUpdated from '@/components/LastUpdated.astro';
 import EditorialPhoto from '@/components/EditorialPhoto.astro';
 import PagePhotoCredits from '@/components/PagePhotoCredits.astro';
 import RelatedPathways from '@/components/RelatedPathways.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
+import { absoluteShareImageUrl } from '@/lib/seo/shareImage';
 import {
   GRANDFATHERING_FILING_DEADLINE,
   RC_PROGRAM_AUTHORIZED_THROUGH,
@@ -34,6 +36,8 @@ const description =
 const pageCanonical = `${SITE_CONFIG.url}/pathways/h1b-to-green-card`;
 const ogTitle = seoTitle(title);
 const ogDescription = description;
+const ogImage = absoluteShareImageUrl('/images/pathways/og/h1b-to-green-card.jpg');
+const ogImageAlt = 'Golden Gate Bridge at sunset representing the pathway from H-1B to permanent residency';
 const keywords = [
   'H-1B to green card EB-5',
   'H-1B EB-5 concurrent filing',
@@ -53,6 +57,14 @@ const structuredData = [
     url: pageCanonical,
     description:
       'H-1B to green card EB-5 lets Indian and Chinese tech workers file I-526E and I-485 together, target $800,000 TEA projects, and seek EAD within months.',
+    image: ogImage,
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: ogImage,
+      width: 1200,
+      height: 630,
+      caption: ogImageAlt,
+    },
     dateModified: lastUpdatedIso,
     isPartOf: { '@type': 'WebSite', name: SITE_CONFIG.name, url: SITE_CONFIG.url },
     about: { '@type': 'Thing', name: 'EB-5 Immigrant Investor Program' },
@@ -137,7 +149,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 );
 ---
 
-<Layout fullBleedHero>
+<Layout fullBleedHero ogImage={ogImage} ogImageAlt={ogImageAlt}>
   <Fragment slot="head">
     <title>{ogTitle}</title>
     <meta name="description" content={description} />
@@ -361,6 +373,8 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
           <p class="text-muted-foreground text-center mb-12 max-w-3xl mx-auto text-base" style={`font-family: ${pathwayFont}; line-height: 1.7;`}>
             This is the #1 reason H-1B holders choose EB-5. Concurrent Filing allows you to submit your green card application and receive work/travel authorization while your I-526E petition is still being processed.
           </p>
+
+          <PathwayDiagram id="h1b-concurrent-filing" />
 
           <div class="grid md:grid-cols-3 gap-6">
             <div class="bg-card border border-border rounded-lg p-6 text-center">

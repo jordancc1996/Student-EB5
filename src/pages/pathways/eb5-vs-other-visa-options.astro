@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -47,6 +48,8 @@ const hero = getPathwayCategoryHero('visa-comparison');
   ]}
 >
   <h2>EB-5 vs. other U.S. visa categories</h2>
+
+  <PathwayDiagram id="eb5-vs-other-visas-comparison" />
   <div class="not-prose grid md:grid-cols-1 gap-6 mb-6">
     <div class="rounded-lg border border-border bg-card p-6">
       <h3 class="font-serif text-xl font-semibold text-foreground mb-3">E-2 (treaty investor)</h3>

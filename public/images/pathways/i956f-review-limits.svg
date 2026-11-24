@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="392" viewBox="0 0 1200 392" role="img">
+  <title>Diagram of the business plan, capital stack, sponsor history, and offering documents.</title>
+  <desc>Diagram of the business plan, capital stack, sponsor history, and offering documents.</desc>
+  <rect width="100%" height="100%" fill="#FAF9F6"/>
+  <text x="36" y="64" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="28" fill="#262626">What I-956F approval does not replace</text>
+  <rect x="36" y="108" width="1128" height="52" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="60" y="141" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="18" fill="#262626">Business plan</text>
+<rect x="36" y="172" width="1128" height="52" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="60" y="205" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="18" fill="#262626">Capital stack</text>
+<rect x="36" y="236" width="1128" height="52" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="60" y="269" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="18" fill="#262626">Sponsor history</text>
+<rect x="36" y="300" width="1128" height="52" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="60" y="333" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="18" fill="#262626">Offering documents</text>
+</svg>

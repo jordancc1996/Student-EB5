@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img">
+  <title>Diagram of a child under 21, derivative status on a petition, and a CSPA review.</title>
+  <desc>Diagram of a child under 21, derivative status on a petition, and a CSPA review.</desc>
+  <rect width="100%" height="100%" fill="#FAF9F6"/>
+  <text x="36" y="64" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="28" fill="#262626">A child approaching 21</text>
+  <rect x="36" y="128" width="361" height="132" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="216.5" y="200" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626"><tspan x="216.5" dy="0">Under 21</tspan></text>
+<line x1="399" y1="194" x2="410" y2="194" stroke="#262626" stroke-width="1.5"/>
+<polygon points="409,190 417,194 409,198" fill="#262626"/>
+<rect x="419" y="128" width="361" height="132" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="599.5" y="189" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626"><tspan x="599.5" dy="0">Derivative</tspan><tspan x="599.5" dy="22">on petition</tspan></text>
+<line x1="782" y1="194" x2="793" y2="194" stroke="#262626" stroke-width="1.5"/>
+<polygon points="792,190 800,194 792,198" fill="#262626"/>
+<rect x="802" y="128" width="361" height="132" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="982.5" y="189" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626"><tspan x="982.5" dy="0">CSPA</tspan><tspan x="982.5" dy="22">review</tspan></text>
+</svg>

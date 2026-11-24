@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -41,6 +42,8 @@ const hero = getPathwayHero('eb5-for-opt-students');
   keywords={['EB-5 for OPT students', 'STEM OPT EB-5', 'OPT concurrent filing', 'EB-5 during STEM OPT']}
 >
   <h2>Why some students evaluate EB-5 during OPT or STEM OPT</h2>
+
+  <PathwayDiagram id="opt-eb5-timeline" />
   <p>
     OPT and STEM OPT provide temporary work authorization after graduation, not a permanent immigration path. Many
     students use that window to pursue H-1B selection, but lottery outcomes are uncertain, and STEM OPT still ends on a

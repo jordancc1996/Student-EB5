@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
@@ -70,6 +71,8 @@ const hero = getPathwayHero('eb5-for-korean-investors');
   </p>
 
   <h2>For investors</h2>
+
+  <PathwayDiagram id="korean-eb5-tracks" />
   <p>
     Most investors use the reduced Targeted Employment Area (TEA) investment threshold of {teaFormatted} rather than the
     standard amount. That figure is capital investment only (not filing fees, legal fees, or regional center

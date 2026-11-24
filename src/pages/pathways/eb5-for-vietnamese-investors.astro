@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
@@ -75,6 +76,8 @@ const hero = getPathwayHero('eb5-for-vietnamese-investors');
   </p>
 
   <h2>For investors</h2>
+
+  <PathwayDiagram id="vietnamese-eb5-tracks" />
   <p>
     Most investors use the reduced Targeted Employment Area (TEA) investment threshold of {teaFormatted}. That amount
     is capital only and excludes fees and professional costs. Source-of-funds documentation is especially important when

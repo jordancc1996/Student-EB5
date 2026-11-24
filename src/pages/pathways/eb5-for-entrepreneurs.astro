@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -57,6 +58,8 @@ const hero = getPathwayHero('eb5-for-entrepreneurs');
   </p>
 
   <h2>Business income as source of funds</h2>
+
+  <PathwayDiagram id="entrepreneur-income-flow" />
   <p>
     USCIS can accept business income as part of an EB-5 source-of-funds showing when the trail is clear: ownership,
     tax filings, financial statements, and a documented path from the business to the investor and then into the

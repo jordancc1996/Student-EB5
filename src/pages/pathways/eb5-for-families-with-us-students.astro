@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -63,6 +64,8 @@ const hero = getPathwayHero('eb5-for-families-with-us-students');
   </p>
 
   <h2>What families typically weigh</h2>
+
+  <PathwayDiagram id="student-family-decisions" />
   <p>
     Decision points usually include when to start source-of-funds work relative to graduation, whether a parent or the
     student will be the investor of record, how a spouse and siblings under 21 might be included as derivatives, and how

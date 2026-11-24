@@ -127,6 +127,26 @@ for (const slug of focus) {
   );
 }
 
+if (process.argv.includes('--all')) {
+  console.log('');
+  console.log('Pairs over 30 percent (share of the first page)');
+  const rows = [];
+  for (const left of pages) {
+    const mine = bySlug.get(left);
+    for (const right of pages) {
+      if (left === right) continue;
+      const shared = overlap(mine, bySlug.get(right));
+      const share = pct(shared.length, mine.length);
+      if (share > 30) rows.push({ left, right, share, hit: shared.length, total: mine.length });
+    }
+  }
+  rows.sort((a, b) => b.share - a.share || a.left.localeCompare(b.left));
+  for (const row of rows) {
+    console.log(`${row.left} -> ${row.right}: ${row.share}% (${row.hit}/${row.total})`);
+  }
+  if (!rows.length) console.log('none');
+}
+
 if (process.argv.includes('--detail')) {
   console.log('\n--- shared sentences ---');
   for (const slug of focus) {

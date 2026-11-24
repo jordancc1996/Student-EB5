@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -50,6 +51,8 @@ const hero = getPathwayHero('eb5-for-startup-founders');
   </p>
 
   <h2>Why investor-status independence matters</h2>
+
+  <PathwayDiagram id="founder-eb5-track" />
   <p>
     EB-5's structure is built around a qualifying investment and petition, not around continued employment by a third-party
     sponsor. For some founders, that independence is the point: immigration planning can proceed on a track that is not

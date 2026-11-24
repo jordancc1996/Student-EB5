@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import ProcessFaqAccordion from '@/components/ProcessFaqAccordion';
 import { SITE_CONFIG } from '@/lib/seo/config';
@@ -65,6 +66,8 @@ const hero = getPathwayHero('eb5-for-tech-workers');
   </p>
 
   <h2>Layoff exposure and an employer-independent track</h2>
+
+  <PathwayDiagram id="tech-worker-eb5-track" />
   <p>
     Tech hiring cycles can compress quickly. A layoff can start a grace-period clock, force a rapid job search within
     status rules, or push a household to leave the U.S. EB-5, once filed as a separate immigrant petition, does not

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="372" viewBox="0 0 1200 372" role="img">
+  <title>Diagram comparing a founder who may need company sponsorship with an EB-5 qualifying investment and petition.</title>
+  <desc>Diagram comparing a founder who may need company sponsorship with an EB-5 qualifying investment and petition.</desc>
+  <rect width="100%" height="100%" fill="#FAF9F6"/>
+  <text x="36" y="64" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="28" fill="#262626">A founder and an investor petition</text>
+  <rect x="36" y="112" width="552" height="220" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="312" y="160" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="22" fill="#262626">Founder</text>
+<text x="312" y="208" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">The company may</text>
+<text x="312" y="242" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">need to sponsor them</text>
+<rect x="612" y="112" width="552" height="220" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="888" y="160" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="22" fill="#262626">EB-5</text>
+<text x="888" y="208" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">Qualifying investment</text>
+<text x="888" y="242" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">and a petition</text>
+</svg>

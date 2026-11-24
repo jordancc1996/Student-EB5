@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -55,6 +56,8 @@ const hero = getPathwayHero('eb5-for-j1');
   </p>
 
   <h2>Why timing review matters for J-1 holders</h2>
+
+  <PathwayDiagram id="j1-eb5-timing" />
   <p>
     J-1 holders who may be subject to 212(e) often evaluate whether an EB-5 filing should wait on waiver progress,
     whether consular processing is required, or whether concurrent filing is available for their current status. Those

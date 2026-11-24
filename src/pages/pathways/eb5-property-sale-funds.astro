@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -41,6 +42,8 @@ const hero = getPathwayCategoryHero('source-of-funds');
     acquired the property, the sale itself (contract, closing statement, tax records where relevant), receipt of funds
     into a controlled account, and the subsequent transfer into the EB-5 investment or escrow, without unexplained gaps.
   </p>
+
+  <PathwayDiagram id="property-sale-flow" />
   <p>
     Exact document lists vary by country and transaction history; that detail belongs in attorney-led preparation and in
     the fuller research guide

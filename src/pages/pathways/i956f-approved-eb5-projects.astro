@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -43,6 +44,8 @@ const hero = getPathwayCategoryHero('project-due-diligence');
     It is not a substitute for independent review of the business plan, capital stack, sponsor history, or offering
     documents, and it does not assure immigration approval or return of capital for any investor.
   </p>
+
+  <PathwayDiagram id="i956f-review-limits" />
   <p>
     Some investors also evaluate projects that are still pending I-956F adjudication. That situation involves different
     timing and documentation questions. Read the fuller discussion in

@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -73,6 +74,8 @@ const hero = getPathwayCategoryHero('project-due-diligence');
   </p>
 
   <h2>Rural EB-5 vs. Urban EB-5</h2>
+
+  <PathwayDiagram id="rural-vs-urban-eb5" />
   <p>
     Investors often compare rural reserved-category projects with urban Targeted Employment Area (TEA) projects that
     use the same reduced investment threshold but draw from different visa-allocation pools. Practical differences

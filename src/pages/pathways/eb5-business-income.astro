@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -47,6 +48,8 @@ const hero = getPathwayCategoryHero('source-of-funds');
     registrations, tax filings, and financial statements are commonly part of that record. The exact package depends on
     the jurisdiction and business structure.
   </p>
+
+  <PathwayDiagram id="business-income-flow" />
   <p>
     Established operators evaluating EB-5 more broadly should also read
     <a href="/pathways/eb5-for-entrepreneurs">EB-5 for entrepreneurs &amp; business owners</a>. For the fuller menu of

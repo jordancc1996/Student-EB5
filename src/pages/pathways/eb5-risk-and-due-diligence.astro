@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -74,6 +75,8 @@ const hero = getPathwayCategoryHero('project-due-diligence');
   </p>
 
   <h2>What actually reduces risk</h2>
+
+  <PathwayDiagram id="risk-diligence-checks" />
   <p>
     Diligence cannot eliminate risk, but investors commonly examine factors that help them understand how a project is
     structured. Treat each as an evaluation point, not a promise:

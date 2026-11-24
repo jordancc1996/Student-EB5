@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -62,6 +63,8 @@ const hero = getPathwayCategoryHero('status-transition');
   </p>
 
   <h2>Why some EB-2 applicants look at EB-5</h2>
+
+  <PathwayDiagram id="eb2-vs-eb5-comparison" />
   <p>
     EB-5 is a separate immigrant category built around a qualifying investment and job-creation requirements, not around
     employer sponsorship. Some applicants evaluate it as a parallel or alternative path when EB-2 visa availability

@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -61,6 +62,8 @@ const hero = getPathwayHero('eb5-for-graduate-students');
   </p>
 
   <h2>Timing relative to graduation and OPT</h2>
+
+  <PathwayDiagram id="graduate-eb5-timeline" />
   <p>
     Some graduate students begin EB-5 planning mid-program so that I-526E readiness is not compressed into the first OPT
     year. Others wait until near graduation. Either approach should be checked against current program rules, investment
