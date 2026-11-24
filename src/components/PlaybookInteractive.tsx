@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { GRANDFATHERING_FILING_DEADLINE, RC_PROGRAM_AUTHORIZED_THROUGH, formatProgramDate } from '@/data/program';
 import PlaybookExitIntentPopup from '@/components/PlaybookExitIntentPopup';
 import { Button } from '@/components/ui/button';
 import {
@@ -49,8 +50,9 @@ const PlaybookInteractive = () => {
           </DialogHeader>
 
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Our advisors work specifically with international students navigating OPT expiration, H-1B lottery
-            risk, and the September 30, 2026 grandfathering deadline.
+            Our advisors work specifically with international students navigating OPT expiration and H-1B lottery
+            risk. Petitions filed on or before {formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} kept grandfathering protection.
+            Petitions can still be filed through {formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)} without that protection.
           </p>
 
           <div className="flex flex-col gap-3 pt-2">

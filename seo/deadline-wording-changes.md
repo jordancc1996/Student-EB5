@@ -309,3 +309,66 @@ Each row is a changed line. Before lines use the old line number. After lines us
 - **After** line 16: import { GRANDFATHERING_FILING_DEADLINE, formatProgramDate } from '@/data/program';
 - **Before** line 19:   'EB-5 resources international students need include filing guides, source-of-funds checklists, research articles, and tools tied to the Sept 30, 2026 deadline.';
 - **After** line 20:   `EB-5 resources international students need include guides, checklists, research, and tools for planning after the ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} grandfathering date.`;
+
+## Round 2, November 23, 2026
+
+Dates render from GRANDFATHERING_FILING_DEADLINE and RC_PROGRAM_AUTHORIZED_THROUGH.
+
+### src/pages/pathways/index.astro
+
+- **Before** line 15: EB-5 green card pathways help H-1B professionals and F-1 students choose concurrent filing routes before the Sept 30, 2026 grandfathering deadline hits.
+- **After** line 16: EB-5 green card pathways compare concurrent filing. The September 30, 2026 protection date has passed. Filing continues through September 30, 2027.
+- **Before** line 76: EB-5 green card pathways for H-1B and F-1 applicants compare concurrent filing, $800,000 TEA capital, and the Sept 30, 2026 grandfathering deadline.
+- **After** line 76: EB-5 green card pathways for H-1B and F-1 applicants compare concurrent filing and $800,000 TEA capital. Petitions filed on or before September 30, 2026 kept grandfathering protection. Petitions can still be filed through September 30, 2027 without that protection.
+
+### src/pages/about.astro
+
+- **Before** line 22: EB-5 immigration advisors international students use StudentEB5 for F-1 and H-1B green card strategy, $800,000 TEA paths, and Sept 30, 2026 filing timing.
+- **After** line 23: EB-5 immigration advisors international students map $800,000 TEA paths. The September 30, 2026 date has passed. Filing continues through September 30, 2027.
+- **Before** line 75: EB-5 immigration advisors international students trust StudentEB5 to map $800,000 TEA filings, concurrent EAD timing, and the Sept 30, 2026 grandfathering window.
+- **After** line 75: EB-5 immigration advisors international students trust StudentEB5 to map $800,000 TEA filings and concurrent EAD timing. The September 30, 2026 protection date has passed. Filing continues through September 30, 2027.
+
+### src/pages/contact.astro
+
+- **Before** line 18: EB-5 immigration consultation helps F-1 and H-1B investors map concurrent filing, $800,000 TEA capital, and the Sept 30, 2026 grandfathering deadline.
+- **After** line 19: EB-5 immigration consultation covers $800,000 TEA capital. The September 30, 2026 date has passed. Filing continues through September 30, 2027.
+- **Before** line 70: EB-5 immigration consultation for F-1 and H-1B applicants covers $800,000 TEA capital, concurrent filing, and the Sept 30, 2026 grandfathering deadline.
+- **After** line 70: EB-5 immigration consultation for F-1 and H-1B applicants covers $800,000 TEA capital and concurrent filing. Petitions filed on or before September 30, 2026 kept grandfathering protection. Petitions can still be filed through September 30, 2027 without that protection.
+
+### src/pages/eb5-green-card-international-students-playbook.astro
+
+- **Before** line 19: EB-5 green card international students playbook covers OPT timelines, STEM OPT risks, concurrent filing, and the Sept 30, 2026 grandfathering deadline.
+- **After** line 20: EB-5 green card international students playbook covers OPT timelines. The September 30, 2026 date has passed. Filing continues through September 30, 2027.
+
+### src/pages/eb5-investment-immigration-tools.astro
+
+- **Before** line 13: EB-5 immigration tools calculators cover OPT timelines, $800,000 feasibility checks, H-1B lottery odds, and the Sept 30, 2026 grandfathering countdown.
+- **After** line 14: EB-5 immigration tools calculators cover $800,000 checks and planning after September 30, 2026. Filing continues through September 30, 2027.
+
+### src/pages/faq/index.astro
+
+- **Before** line 90: EB-5 investor FAQ topics include the $800,000 TEA threshold, concurrent filing EADs, gifted funds, and the Sept 30, 2026 grandfathering deadline.
+- **After** line 90: EB-5 investor FAQ topics include the $800,000 TEA threshold, concurrent filing EADs, and gifted funds. The September 30, 2026 protection date has passed. Filing continues through September 30, 2027.
+- This line is the hero paragraph, not a FAQ answer. The FAQ JSON-LD was left unchanged.
+
+### src/components/ToolsHubMainContent.tsx
+
+- **Before** line 18: Track time remaining until the September 30, 2026 EB-5 grandfathering deadline with milestone markers.
+- **After** line 19: The September 30, 2026 grandfathering filing date has passed. The countdown tracks authorization through September 30, 2027.
+- **Before** line 67: EB-5 immigration tools calculators here include OPT dates, $800,000 feasibility, lottery odds, and the Sept 30, 2026 grandfathering countdown.
+- **After** line 67: EB-5 immigration tools calculators here include OPT dates, $800,000 feasibility, and lottery odds. The September 30, 2026 grandfathering filing date has passed. The countdown tracks authorization through September 30, 2027.
+
+### src/components/StudentPlaybookMainContent.tsx
+
+- **Before** line 117: EB-5 green card international students use this playbook to navigate OPT timelines, STEM OPT extension risks, concurrent filing, and the September 30, 2026 grandfathering deadline.
+- **After** line 117: EB-5 green card international students use this playbook to navigate OPT timelines, STEM OPT extension risks, and concurrent filing. Petitions filed on or before September 30, 2026 kept grandfathering protection. Petitions can still be filed through September 30, 2027 without that protection.
+
+### src/components/PlaybookInteractive.tsx
+
+- **Before** line 53: Our advisors work specifically with international students navigating OPT expiration, H-1B lottery risk, and the September 30, 2026 grandfathering deadline.
+- **After** line 53: Our advisors work specifically with international students navigating OPT expiration and H-1B lottery risk. Petitions filed on or before September 30, 2026 kept grandfathering protection. Petitions can still be filed through September 30, 2027 without that protection.
+
+### src/content/blog/eb5-grandfathering-2026-2027-deadlines.md
+
+- **Before** line 6: The EB-5 grandfathering deadline 2026 was September 30. Filings on or before it kept protection. Later filings lack it through September 30, 2027.
+- **After** line 6: The EB-5 grandfathering deadline 2026 was September 30. Earlier filings kept protection; later ones can still be filed through Sept 30, 2027.

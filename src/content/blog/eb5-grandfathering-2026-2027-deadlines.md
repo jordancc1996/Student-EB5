@@ -3,7 +3,7 @@ id: 18
 slug: eb5-grandfathering-2026-2027-deadlines
 title: "EB-5 Grandfathering Deadline 2026 - Why September 30 Locks In Your Petition"
 metaTitle: "EB-5 Grandfathering - September 30, 2026 | StudentEB5"
-metaDescription: "The EB-5 grandfathering deadline 2026 was September 30. Filings on or before it kept protection. Later filings lack it through September 30, 2027."
+metaDescription: "The EB-5 grandfathering deadline 2026 was September 30. Earlier filings kept protection; later ones can still be filed through Sept 30, 2027."
 excerpt: The September 30, 2026 grandfathering filing date has passed. This article explains protection for petitions filed before and after it while the program is authorized through September 30, 2027.
 date: December 23, 2025
 updatedDate: November 23, 2026

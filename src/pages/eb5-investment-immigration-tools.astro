@@ -7,10 +7,11 @@ import Breadcrumb from '@/components/Breadcrumb';
 import ToolsHubMainContent from '@/components/ToolsHubMainContent';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { seoTitle } from '@/lib/seo/documentTitle';
+import { GRANDFATHERING_FILING_DEADLINE, RC_PROGRAM_AUTHORIZED_THROUGH, formatProgramDate } from '@/data/program';
 
 const title = 'EB-5 Immigration Tools and Calculators';
 const description =
-  'EB-5 immigration tools calculators cover OPT timelines, $800,000 feasibility checks, H-1B lottery odds, and the Sept 30, 2026 grandfathering countdown.';
+  `EB-5 immigration tools calculators cover $800,000 checks and planning after ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)}. Filing continues through ${formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}.`;
 const pageCanonical = `${SITE_CONFIG.url}/eb5-investment-immigration-tools`;
 const ogTitle = seoTitle(title);
 const ogDescription = description;
@@ -36,8 +37,7 @@ const structuredData = [
     '@type': 'CollectionPage',
     name: 'EB-5 Immigration Tools and Calculators',
     url: pageCanonical,
-    description:
-      'EB-5 immigration tools calculators cover OPT timelines, $800,000 feasibility checks, H-1B lottery odds, and the Sept 30, 2026 grandfathering countdown.',
+    description,
     isPartOf: { '@type': 'WebSite', name: SITE_CONFIG.name, url: SITE_CONFIG.url },
     mainEntity: {
       '@type': 'ItemList',

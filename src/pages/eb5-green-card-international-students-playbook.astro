@@ -12,11 +12,12 @@ import { seoTitle } from '@/lib/seo/documentTitle';
 import { generateWebPageSchema } from '@/lib/seo/structured-data';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
 import StudentPlaybookMainContent from '@/components/StudentPlaybookMainContent';
+import { GRANDFATHERING_FILING_DEADLINE, RC_PROGRAM_AUTHORIZED_THROUGH, formatProgramDate } from '@/data/program';
 
 const title =
   'EB-5 Student Playbook - F-1 and OPT | StudentEB5';
 const description =
-  'EB-5 green card international students playbook covers OPT timelines, STEM OPT risks, concurrent filing, and the Sept 30, 2026 grandfathering deadline.';
+  `EB-5 green card international students playbook covers OPT timelines. The ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} date has passed. Filing continues through ${formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}.`;
 const pageCanonical = `${SITE_CONFIG.url}/eb5-green-card-international-students-playbook`;
 const ogTitle = seoTitle(title);
 const ogDescription = description;
