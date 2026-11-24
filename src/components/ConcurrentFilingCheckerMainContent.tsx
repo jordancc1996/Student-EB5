@@ -131,8 +131,8 @@ const ConcurrentFilingCheckerMainContent = ({ children }: { children?: ReactNode
                     className="w-full bg-transparent border-b border-white/30 text-white py-2 focus:outline-none focus:border-white appearance-none cursor-pointer"
                   >
                     <option className="text-black" value="">Select Project Type...</option>
-                    <option className="text-black" value="reserved">Reserved: rural, high-unemployment or infrastructure</option>
-                    <option className="text-black" value="unreserved">Unreserved: outside those categories</option>
+                    <option className="text-black" value="reserved">Reserved set-aside project</option>
+                    <option className="text-black" value="unreserved">Unreserved project</option>
                   </select>
                 </div>
 

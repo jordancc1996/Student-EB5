@@ -370,12 +370,12 @@ export const toolGuides = {
     category: 'UtilitiesApplication',
     steps: [
       { title: 'Mark whether you are inside or outside the United States', body: 'The two buttons are the location field. Outside the United States always takes the consular result.' },
-      { title: 'Select country of birth and project category', body: 'Country is Rest of World or China or India. Category is Reserved: rural, high-unemployment or infrastructure, or Unreserved: outside those categories.' },
+      { title: 'Select country of birth and project category', body: 'Country is Rest of World or China or India. Category is Reserved set-aside project (rural, high-unemployment or infrastructure) or Unreserved project (outside those categories).' },
       { title: 'Run the check', body: 'All three fields are required. The result title is Consular Processing, You Are Eligible, or Retrogression Warning.' },
     ],
     method: [
       'If the location is outside the United States, the result is Consular Processing, regardless of country or category. The message says concurrent filing is described here as a benefit for people already in the United States.',
-      'If the location is inside the United States, the result is You Are Eligible when the category is Reserved: rural, high-unemployment or infrastructure, or the country is Rest of World. China or India combined with Unreserved: outside those categories returns Retrogression Warning. The eligible message mentions filing I-526E and I-485 together and then EAD and Advance Parole.',
+      'If the location is inside the United States, the result is You Are Eligible when the category is Reserved set-aside project, or the country is Rest of World. China or India combined with Unreserved project returns Retrogression Warning. The eligible message mentions filing I-526E and I-485 together and then EAD and Advance Parole.',
     ],
     rules: [
       { text: 'The three results are the branches in this checker. They are not a USCIS eligibility determination.', label: 'EB-5 concurrent filing pathway', href: '/pathways/eb5-concurrent-filing' },
@@ -383,13 +383,13 @@ export const toolGuides = {
       { text: 'Visa availability for China and India is published in the Visa Bulletin. This checker uses a yes-or-no country field, not a live chart.', label: 'Visa Bulletin', href: visaBulletin },
     ],
     example: {
-      intro: 'Inside the United States, Rest of World, and Reserved: rural, high-unemployment or infrastructure.',
-      inputs: ['Location: Inside U.S.', 'Country of birth: Rest of World (Current)', 'Project category: Reserved: rural, high-unemployment or infrastructure'],
+      intro: 'Inside the United States, Rest of World, and Reserved set-aside project.',
+      inputs: ['Location: Inside U.S.', 'Country of birth: Rest of World (Current)', 'Project category: Reserved set-aside project'],
       result: 'The title is You Are Eligible. The message says I-526E and I-485 can be filed together and mentions the EAD and Advance Parole.',
     },
     faqs: [
       { question: 'What if I am outside the United States?', answer: 'The checker returns Consular Processing for that button, even if the country is Rest of World and the project is reserved. It tells you the path runs through the National Visa Center.' },
-      { question: 'When does China or India get the eligible result?', answer: 'Inside the United States, China or India with Reserved: rural, high-unemployment or infrastructure returns You Are Eligible. The same country with Unreserved: outside those categories returns Retrogression Warning.' },
+      { question: 'When does China or India get the eligible result?', answer: 'Inside the United States, China or India with Reserved set-aside project returns You Are Eligible. The same country with Unreserved project returns Retrogression Warning.' },
       { question: 'Does the checker look up the Visa Bulletin?', answer: 'No. It uses the country menu and the category menu only. A current or backlogged date on a later bulletin will not change the result until those menus change.' },
       { question: 'Does You Are Eligible mean USCIS will accept the I-485?', answer: 'No. It is the label for that combination of buttons. Maintaining status, a current priority date, and a complete filing are separate from this page. The pending-green-card page USCIS publishes is linked from the site inflation article.' },
     ],
