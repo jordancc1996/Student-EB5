@@ -3,6 +3,11 @@ import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
 import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import {
+  EB5_RESERVED_SHARE_HIGH_UNEMPLOYMENT,
+  EB5_RESERVED_SHARE_RURAL,
+  EB5_RESERVED_SHARES_SOURCE,
+} from '@/data/program';
 
 const title = 'Rural EB-5 - Reserved Visa Set-Aside | StudentEB5';
 const metaDescription =
@@ -83,9 +88,11 @@ const hero = getPathwayCategoryHero('project-due-diligence');
   </p>
   <ul>
     <li>
-      <strong>Visa allocation.</strong> Rural reserved visas are drawn from the reserved set-aside; many urban TEA
-      projects use the unreserved (standard) allocation. Relative wait times can differ by country of birth and change
-      over time.
+      <strong>Visa allocation.</strong> Rural projects draw from the rural set-aside ({EB5_RESERVED_SHARE_RURAL}% of
+      EB-5 visas each year), and urban projects in a designated high-unemployment area draw from a separate
+      high-unemployment set-aside ({EB5_RESERVED_SHARE_HIGH_UNEMPLOYMENT}%), <a href={EB5_RESERVED_SHARES_SOURCE} target="_blank" rel="noopener noreferrer">according to USCIS</a>. Projects
+      outside these categories use the unreserved allocation. Relative wait times can differ by country of birth and
+      change over time.
     </li>
     <li>
       <strong>Typical project types.</strong> Rural pipelines often include hospitality, infrastructure-adjacent, and

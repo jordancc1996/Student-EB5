@@ -32,6 +32,28 @@ function readBool(name) {
   return match[1] === 'true';
 }
 
+function readNumber(name) {
+  const match = source.match(new RegExp(`export const ${name} = (\\d+);`));
+  if (!match) throw new Error(`Missing number ${name} in src/data/program.ts`);
+  return match[1];
+}
+
+const ruralShare = readNumber('EB5_RESERVED_SHARE_RURAL');
+const highUnemploymentShare = readNumber('EB5_RESERVED_SHARE_HIGH_UNEMPLOYMENT');
+
+function withReservedShares(spec) {
+  if (spec.id !== 'rural-vs-urban-eb5') return spec;
+  return {
+    ...spec,
+    columns: spec.columns.map((column, index) => {
+      const share = index === 0 ? ruralShare : highUnemploymentShare;
+      const lines = [...column.lines];
+      lines[0] = `Reserved set-aside (${share}%)`;
+      return { ...column, lines };
+    }),
+  };
+}
+
 const month = readConst('VISA_BULLETIN_LATEST_MONTH');
 const setAsidesCurrent = readBool('EB5_SET_ASIDES_CURRENT');
 if (!setAsidesCurrent) {
@@ -338,7 +360,7 @@ function builtDiagram(spec) {
   throw new Error(`Unknown diagram kind ${spec.kind}`);
 }
 
-const allDiagrams = diagrams.concat(extraSpecs.map(builtDiagram));
+const allDiagrams = diagrams.concat(extraSpecs.map((spec) => builtDiagram(withReservedShares(spec))));
 
 const manifest = {};
 for (const diagram of allDiagrams) {

@@ -256,10 +256,10 @@ export const extraSpecs = [
     heading: 'Rural reserved and urban TEA',
     columns: [
       { heading: 'Rural', lines: ['Reserved set-aside', 'Statutory rural definitions'] },
-      { heading: 'Urban TEA', lines: ['Unreserved allocation', 'High-unemployment metro areas'] },
+      { heading: 'Urban high-unemployment TEA', lines: ['Reserved set-aside', 'Designated high-unemployment areas'] },
     ],
-    alt: 'Diagram comparing a rural reserved set-aside with an urban TEA unreserved allocation.',
-    caption: 'The diagram compares a rural reserved set-aside with an urban TEA unreserved allocation.',
+    alt: 'Diagram comparing the rural reserved set-aside with the separate high-unemployment reserved set-aside.',
+    caption: 'Rural and urban high-unemployment projects each have their own reserved share of EB-5 visas.',
   },
   {
     id: 'eb2-vs-eb5-comparison',

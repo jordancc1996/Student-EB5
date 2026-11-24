@@ -712,7 +712,7 @@ export const landingPages: LandingPage[] = [
       '/research/19-questions-rural-eb5-project-due-diligence',
     ],
     hasDedicatedContent: true,
-    lastReviewed: LAST_REVIEWED,
+    lastReviewed: '2026-11-24',
     publishDate: PUBLISH_DATE_RELEASED,
   },
   {
