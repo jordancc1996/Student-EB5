@@ -6,8 +6,11 @@ import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import SourceOfFundsCalculatorMainContent from '@/components/SourceOfFundsCalculatorMainContent';
 import LastUpdated from '@/components/LastUpdated.astro';
+import ToolGuide from '@/components/tools/ToolGuide.astro';
+import { toolGuides } from '@/data/toolGuides';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateFAQSchema, generateWebApplicationSchema } from '@/lib/seo/structured-data';
 
 const title = 'EB-5 Source of Funds Calculator - Gift or Loan | StudentEB5';
 const description =
@@ -36,13 +39,15 @@ const lastUpdatedIso = getPageLastUpdated('/tools/source-of-funds-calculator');
     <meta property="og:site_name" content={SITE_CONFIG.name} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateWebApplicationSchema({ name: toolGuides.funds.h1, url: pageCanonical, description, applicationCategory: toolGuides.funds.category }))} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateFAQSchema(toolGuides.funds.faqs))} />
   </Fragment>
 
   <div class="min-h-screen bg-gradient-to-b from-background to-muted/20">
     <Header client:load />
 
     <section class="relative -mt-[120px] pt-[120px] bg-slate-900">
-      <div class="container mx-auto px-4 py-6">
+      <div class="container mx-auto px-4 py-2">
         <Breadcrumb
           client:load
           customTitle="Source of Funds Calculator"
@@ -52,12 +57,12 @@ const lastUpdatedIso = getPageLastUpdated('/tools/source-of-funds-calculator');
       </div>
     </section>
 
-    <div class="container mx-auto px-4 py-3 max-w-4xl">
-      <LastUpdated date={lastUpdatedIso} />
-  <PreferredSourcesCTA />
-    </div>
+    <SourceOfFundsCalculatorMainContent client:load>
+      <LastUpdated date={lastUpdatedIso} class="mt-3" />
+    </SourceOfFundsCalculatorMainContent>
 
-    <SourceOfFundsCalculatorMainContent client:load />
+    <ToolGuide guide={toolGuides.funds} />
+    <PreferredSourcesCTA />
 
     <SiteFooter />
   </div>

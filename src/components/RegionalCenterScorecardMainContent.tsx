@@ -1,5 +1,5 @@
 import NextStepsCTA from '@/components/tools/NextStepsCTA';
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import heroImage from '@/assets/eb5-scorecard-hero.jpg';
 
 interface ScoreResult {
@@ -8,7 +8,7 @@ interface ScoreResult {
   labelColor: string;
 }
 
-const RegionalCenterScorecardMainContent = () => {
+const RegionalCenterScorecardMainContent = ({ children }: { children?: ReactNode }) => {
   const [years, setYears] = useState('');
   const [approvals, setApprovals] = useState('');
   const [violations, setViolations] = useState('0');
@@ -58,7 +58,7 @@ const RegionalCenterScorecardMainContent = () => {
   return (
     <main>
       <div
-        className="relative min-h-screen flex flex-col items-center justify-center p-6 py-24"
+        className="relative flex flex-col items-center justify-start px-6 pt-6 pb-10"
         style={{
           backgroundImage: `url(${heroImage.src})`,
           backgroundSize: 'cover',
@@ -68,11 +68,12 @@ const RegionalCenterScorecardMainContent = () => {
         <div className="absolute inset-0 bg-black/75" />
 
         <div className="relative z-10 max-w-4xl w-full">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <h1 className="editorial-h1 text-white mb-4">EB-5 Regional Center Scorecard - Trust Score Due Diligence</h1>
             <p className="text-gray-300 text-base max-w-2xl mx-auto">
               The EB-5 regional center scorecard converts years in operation, I-829 approvals, and compliance history into a trust score investors can compare before committing capital.
             </p>
+            {children}
           </div>
 
           {!result ? (
@@ -163,6 +164,9 @@ const RegionalCenterScorecardMainContent = () => {
 
               <p className="text-gray-300 text-sm max-w-md mx-auto mb-10 leading-relaxed italic">
                 Note: This score is an estimate based on self-reported institutional data. A high score does not guarantee financial return, but indicates a strong historical compliance profile.
+              </p>
+              <p className="text-gray-300 text-sm max-w-md mx-auto mb-10 leading-relaxed italic">
+                This is an estimate based on the rules summarized on this page, not a USCIS determination or legal advice.
               </p>
 
               <NextStepsCTA

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { RotateCcw } from 'lucide-react';
 import heroImage from '@/assets/about-hero-new.jpg';
 import NextStepsCTA from '@/components/tools/NextStepsCTA';
@@ -28,7 +28,7 @@ interface Result {
   msg: string;
 }
 
-const CSPACalculatorMainContent = () => {
+const CSPACalculatorMainContent = ({ children }: { children?: ReactNode }) => {
   const [dob, setDob] = useState('');
   const [filingDate, setFilingDate] = useState('');
   const [approvalDate, setApprovalDate] = useState('');
@@ -107,7 +107,7 @@ const CSPACalculatorMainContent = () => {
   return (
     <main>
       <div
-        className="relative min-h-screen flex items-center justify-center p-6"
+        className="relative flex items-start justify-center px-6 pt-6 pb-10"
         style={{
           backgroundImage: `url(${heroImage.src})`,
           backgroundSize: 'cover',
@@ -117,13 +117,14 @@ const CSPACalculatorMainContent = () => {
         <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative z-10 max-w-3xl w-full">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <h1 className="editorial-h1 text-white mb-4">
               EB-5 CSPA Age Calculator - Derivative Child Age-Out Risk
             </h1>
             <p className="text-gray-200 text-lg max-w-xl mx-auto">
               The EB-5 CSPA age calculator projects a derivative child's protected age under 2026 USCIS rules so parents can see age-out risk before filing I-526E.
             </p>
+            {children}
           </div>
 
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12 shadow-2xl">
@@ -212,6 +213,9 @@ const CSPACalculatorMainContent = () => {
 
                 <p className="text-gray-200 mb-8 leading-relaxed max-w-xl mx-auto">
                   {result.msg}
+                </p>
+                <p className="text-gray-200 mb-8 leading-relaxed max-w-xl mx-auto">
+                  This is an estimate based on the rules summarized on this page, not a USCIS determination or legal advice.
                 </p>
                 <NextStepsCTA
                   heading="Protect Your Child's EB-5 Eligibility"

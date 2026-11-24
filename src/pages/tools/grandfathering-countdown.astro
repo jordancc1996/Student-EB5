@@ -6,12 +6,19 @@ import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
 import GrandfatheringCountdownMainContent from '@/components/GrandfatheringCountdownMainContent';
 import LastUpdated from '@/components/LastUpdated.astro';
+import ToolGuide from '@/components/tools/ToolGuide.astro';
+import { toolGuides } from '@/data/toolGuides';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import {
+  GRANDFATHERING_FILING_DEADLINE,
+  RC_PROGRAM_AUTHORIZED_THROUGH,
+  formatProgramDate,
+} from '@/data/program';
+import { generateFAQSchema, generateWebApplicationSchema } from '@/lib/seo/structured-data';
 
-const title = 'EB-5 Grandfathering Countdown - 2026 Deadline | StudentEB5';
-const description =
-  'EB-5 grandfathering countdown tracks days left until the September 30, 2026 RIA protection deadline for investors with pending I-526 or I-526E filings.';
+const title = 'EB-5 Grandfathering & 2027 Sunset Countdown';
+const description = `The ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} grandfathering filing date has passed. This countdown runs to ${formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}, while the regional center program is authorized.`;
 const pageCanonical = `${SITE_CONFIG.url}/tools/grandfathering-countdown`;
 const keywords = [
   'EB-5 grandfathering countdown',
@@ -35,6 +42,8 @@ const lastUpdatedIso = getPageLastUpdated('/tools/grandfathering-countdown');
     <meta property="og:site_name" content={SITE_CONFIG.name} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateWebApplicationSchema({ name: toolGuides.grandfathering.h1, url: pageCanonical, description, applicationCategory: toolGuides.grandfathering.category }))} />
+    <script type="application/ld+json" set:html={JSON.stringify(generateFAQSchema(toolGuides.grandfathering.faqs))} />
   </Fragment>
 
   <Header client:load />
@@ -50,12 +59,12 @@ const lastUpdatedIso = getPageLastUpdated('/tools/grandfathering-countdown');
     </div>
   </section>
 
-  <div class="container mx-auto px-6 py-3 max-w-4xl">
-    <LastUpdated date={lastUpdatedIso} />
-  <PreferredSourcesCTA />
-  </div>
+  <GrandfatheringCountdownMainContent client:load>
+    <LastUpdated date={lastUpdatedIso} class="mb-4 text-center" />
+  </GrandfatheringCountdownMainContent>
 
-  <GrandfatheringCountdownMainContent client:load />
+  <ToolGuide guide={toolGuides.grandfathering} />
+  <PreferredSourcesCTA />
 
   <SiteFooter />
 </Layout>

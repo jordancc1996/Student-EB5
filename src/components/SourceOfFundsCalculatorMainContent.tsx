@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, type ReactNode } from 'react';
 import { Link } from '@/components/RouterLink';
 import { Wallet, TrendingUp, Building, PiggyBank, DollarSign, ChevronDown, ArrowRight, ArrowLeft, CheckCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,7 +11,7 @@ import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
 
 type TaxStatus = 'nra' | 'resident';
 
-const SourceOfFundsCalculatorMainContent = () => {
+const SourceOfFundsCalculatorMainContent = ({ children }: { children?: ReactNode }) => {
   const [step, setStep] = useState(1);
   const [taxStatus, setTaxStatus] = useState<TaxStatus>('nra');
   const [targetFunding, setTargetFunding] = useState<string>(String(TEA_INVESTMENT_THRESHOLD));
@@ -90,23 +90,24 @@ const SourceOfFundsCalculatorMainContent = () => {
   ];
 
   return (
-    <main className="container mx-auto px-4 pt-8 pb-24">
+    <main className="container mx-auto px-4 pt-2 pb-16">
       <div className="max-w-4xl mx-auto">
         {/* Hero */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
-            <Wallet className="w-8 h-8 text-primary" />
+        <div className="text-center mb-1">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-2">
+            <Wallet className="w-6 h-6 text-primary" />
           </div>
-          <h1 className="editorial-h1 mb-4">
+          <h1 className="editorial-h1 mb-3">
             EB-5 Source of Funds Calculator - Gift, Loan, Salary, Crypto Paths
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             The EB-5 source of funds calculator compares gift, loan, salary, and crypto funding paths so investors can reach the $800,000 TEA minimum with lower tax drag.
           </p>
+          {children}
         </div>
 
         {/* Step Indicator */}
-        <div className="flex items-center justify-center gap-2 mb-10">
+        <div className="flex items-center justify-center gap-2 mb-4">
           {steps.map((s, i) => (
             <div key={s.num} className="flex items-center gap-2">
               <button

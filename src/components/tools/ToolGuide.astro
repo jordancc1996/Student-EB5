@@ -1,0 +1,138 @@
+---
+import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
+
+interface Step {
+  title: string;
+  body: string;
+}
+interface Rule {
+  text: string;
+  label: string;
+  href: string;
+}
+interface GuideLink {
+  href: string;
+  label: string;
+}
+interface Faq {
+  question: string;
+  answer: string;
+}
+export interface ToolGuideData {
+  toolName: string;
+  steps: Step[];
+  method: string[] | null;
+  rules: Rule[];
+  example: { intro: string; inputs: string[]; result: string };
+  faqs: Faq[];
+  related: GuideLink[];
+  learn: GuideLink[];
+}
+
+interface Props {
+  guide: ToolGuideData;
+}
+const { guide } = Astro.props;
+const linkClass =
+  'block border border-border bg-card p-4 text-foreground hover:bg-muted transition-colors duration-150 ease-out';
+---
+
+<div class="container mx-auto px-4 md:px-8 max-w-4xl pb-8">
+  <section class="border-t border-border pt-10 mt-4">
+    <h2 class="editorial-h2 text-foreground mb-4 mt-0">How to use the {guide.toolName}</h2>
+    <ol class="list-decimal pl-6 space-y-3 text-foreground leading-relaxed">
+      {
+        guide.steps.map((step) => (
+          <li>
+            <span class="font-medium">{step.title}.</span> {step.body}
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  {
+    guide.method && (
+      <section class="pt-10">
+        <h2 class="editorial-h2 text-foreground mb-4 mt-0">How the calculation works</h2>
+        {guide.method.map((paragraph) => (
+          <p class="text-muted-foreground leading-relaxed mb-4">{paragraph}</p>
+        ))}
+        <ul class="space-y-3">
+          {guide.rules.map((rule) => (
+            <li class="text-foreground leading-relaxed">
+              {rule.text}{' '}
+              <a
+                href={rule.href}
+                class="underline underline-offset-2 hover:text-foreground/80"
+                {...(rule.href.startsWith('http')
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
+              >
+                {rule.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <section class="pt-10">
+    <h2 class="editorial-h2 text-foreground mb-4 mt-0">Worked example</h2>
+    <p class="text-muted-foreground leading-relaxed mb-4">{guide.example.intro}</p>
+    <div class="border border-border bg-card p-6">
+      <p class="font-medium text-foreground mb-2">Inputs</p>
+      <ul class="list-disc pl-6 space-y-1 text-foreground mb-4">
+        {guide.example.inputs.map((line) => <li>{line}</li>)}
+      </ul>
+      <p class="text-foreground leading-relaxed m-0">{guide.example.result}</p>
+    </div>
+  </section>
+
+  <section class="pt-10">
+    <h2 class="editorial-h2 text-foreground mb-4 mt-0">Common questions</h2>
+    {
+      guide.faqs.map((faq) => (
+        <div class="mb-6">
+          <h3 class="font-serif text-xl text-foreground mb-2 mt-0">{faq.question}</h3>
+          <p class="text-muted-foreground leading-relaxed m-0">{faq.answer}</p>
+        </div>
+      ))
+    }
+  </section>
+
+  <section class="pt-10">
+    <h2 class="editorial-h2 text-foreground mb-4 mt-0">Related tools</h2>
+    <ul class="grid gap-4 sm:grid-cols-2 list-none p-0 m-0">
+      {
+        guide.related.map((item) => (
+          <li>
+            <a href={item.href} class={linkClass}>
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="pt-10">
+    <h2 class="editorial-h2 text-foreground mb-4 mt-0">Learn more</h2>
+    <ul class="space-y-3 list-none p-0 m-0">
+      {
+        guide.learn.map((item) => (
+          <li>
+            <a href={item.href} class="text-foreground underline underline-offset-2 hover:text-foreground/80">
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <div class="pt-10">
+    <LegalDisclaimer />
+  </div>
+</div>
