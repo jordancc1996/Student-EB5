@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { GraduationCap, Clock, Calendar, Dice5, DollarSign, Wallet } from 'lucide-react';
+import { GraduationCap, Clock, Calendar, Dice5, DollarSign, Wallet, CalendarClock } from 'lucide-react';
 import toolsHero from '@/assets/tools-hero.jpg';
 import { GRANDFATHERING_FILING_DEADLINE, RC_PROGRAM_AUTHORIZED_THROUGH, formatProgramDate } from '@/data/program';
 
@@ -41,6 +41,12 @@ const tools = [
     icon: Wallet,
     title: 'Source of Funds Calculator',
     desc: 'Evaluate your funding sources including RSUs, 401k, savings, and other assets for EB-5 investment.',
+  },
+  {
+    href: '/research/h1b-60-day-grace-period-layoff-guide',
+    icon: CalendarClock,
+    title: 'H-1B grace period calculator',
+    desc: 'Estimate the earlier of 60 days after the last day of employment and the I-94 date.',
   },
 ];
 
