@@ -4,6 +4,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { extraSpecs } from './pathway-diagram-extras.mjs';
 
 const root = process.cwd();
 const programPath = path.join(root, 'src/data/program.ts');
@@ -29,6 +30,28 @@ function readBool(name) {
   const match = source.match(new RegExp(`export const ${name} = (true|false)`));
   if (!match) throw new Error(`Missing boolean ${name} in src/data/program.ts`);
   return match[1] === 'true';
+}
+
+function readNumber(name) {
+  const match = source.match(new RegExp(`export const ${name} = (\\d+);`));
+  if (!match) throw new Error(`Missing number ${name} in src/data/program.ts`);
+  return match[1];
+}
+
+const ruralShare = readNumber('EB5_RESERVED_SHARE_RURAL');
+const highUnemploymentShare = readNumber('EB5_RESERVED_SHARE_HIGH_UNEMPLOYMENT');
+
+function withReservedShares(spec) {
+  if (spec.id !== 'rural-vs-urban-eb5') return spec;
+  return {
+    ...spec,
+    columns: spec.columns.map((column, index) => {
+      const share = index === 0 ? ruralShare : highUnemploymentShare;
+      const lines = [...column.lines];
+      lines[0] = `Reserved set-aside (${share}%)`;
+      return { ...column, lines };
+    }),
+  };
 }
 
 const month = readConst('VISA_BULLETIN_LATEST_MONTH');
@@ -59,7 +82,7 @@ function esc(value) {
     .replace(/"/g, '&quot;');
 }
 
-function flowSvg(title, steps, desc) {
+function flowSvg(title, steps, desc, svgTitle) {
   const width = 1200;
   const height = 360;
   const pad = 36;
@@ -94,7 +117,7 @@ function flowSvg(title, steps, desc) {
       );
     }
   });
-  return wrapSvg(width, height, title, parts.join('\n'), desc);
+  return wrapSvg(width, height, svgTitle || title, parts.join('\n'), desc, title);
 }
 
 function queueSvg(country, finalActionDate, desc) {
@@ -143,13 +166,14 @@ function queueSvg(country, finalActionDate, desc) {
   return wrapSvg(width, height, `EB-5 visa lines, ${country}`, parts.join('\n'), desc);
 }
 
-function wrapSvg(width, height, title, body, desc) {
+function wrapSvg(width, height, title, body, desc, heading) {
+  const visible = heading || title;
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img">
   <title>${esc(title)}</title>
   <desc>${esc(desc || title)}</desc>
   <rect width="100%" height="100%" fill="${PAPER}"/>
-  <text x="36" y="64" font-family="${DISPLAY}" font-size="28" fill="${INK}">${esc(title)}</text>
+  <text x="36" y="64" font-family="${DISPLAY}" font-size="28" fill="${INK}">${esc(visible)}</text>
   ${body}
 </svg>
 `;
@@ -273,8 +297,73 @@ const diagrams = [
   },
 ];
 
+function comparisonSvg(heading, columns, alt) {
+  const width = 1200;
+  const pad = 36;
+  const gap = 24;
+  const cardW = Math.floor((width - pad * 2 - gap * (columns.length - 1)) / columns.length);
+  const cardH = 220;
+  const cardY = 112;
+  const parts = [];
+  columns.forEach((column, index) => {
+    const x = pad + index * (cardW + gap);
+    const lines = [column.heading, ...column.lines];
+    const lineSvg = lines
+      .map((line, lineIndex) => {
+        const y = cardY + (lineIndex === 0 ? 48 : 96 + (lineIndex - 1) * 34);
+        const family = lineIndex === 0 ? DISPLAY : SANS;
+        const size = lineIndex === 0 ? 22 : 16;
+        return `<text x="${x + cardW / 2}" y="${y}" text-anchor="middle" font-family="${family}" font-size="${size}" fill="${INK}">${esc(line)}</text>`;
+      })
+      .join('\n');
+    parts.push(
+      `<rect x="${x}" y="${cardY}" width="${cardW}" height="${cardH}" fill="${CARD}" stroke="${INK}" stroke-width="1.5"/>`,
+      lineSvg,
+    );
+  });
+  const height = cardY + cardH + 40;
+  return { svg: wrapSvg(width, height, alt, parts.join('\n'), alt, heading), width, height };
+}
+
+function checklistSvg(heading, steps, alt) {
+  const width = 1200;
+  const rowH = 64;
+  const top = 108;
+  const height = top + steps.length * rowH + 28;
+  const parts = steps.map((step, index) => {
+    const y = top + index * rowH;
+    return [
+      `<rect x="36" y="${y}" width="1128" height="52" fill="${CARD}" stroke="${INK}" stroke-width="1.5"/>`,
+      `<text x="60" y="${y + 33}" font-family="${SANS}" font-size="18" fill="${INK}">${esc(step)}</text>`,
+    ].join('\n');
+  });
+  return { svg: wrapSvg(width, height, alt, parts.join('\n'), alt, heading), width, height };
+}
+
+function builtDiagram(spec) {
+  if (spec.kind === 'flow') {
+    return {
+      ...spec,
+      width: 1200,
+      height: 360,
+      svg: flowSvg(spec.heading, spec.steps, spec.alt, spec.alt),
+    };
+  }
+  if (spec.kind === 'comparison') {
+    const drawn = comparisonSvg(spec.heading, spec.columns, spec.alt);
+    return { ...spec, ...drawn };
+  }
+  if (spec.kind === 'checklist') {
+    const drawn = checklistSvg(spec.heading, spec.steps, spec.alt);
+    return { ...spec, ...drawn };
+  }
+  throw new Error(`Unknown diagram kind ${spec.kind}`);
+}
+
+const allDiagrams = diagrams.concat(extraSpecs.map((spec) => builtDiagram(withReservedShares(spec))));
+
 const manifest = {};
-for (const diagram of diagrams) {
+for (const diagram of allDiagrams) {
   fs.writeFileSync(path.join(outDir, diagram.file), diagram.svg);
   manifest[diagram.id] = {
     src: `/images/pathways/${diagram.file}`,
@@ -287,4 +376,4 @@ for (const diagram of diagrams) {
 
 const manifestPath = path.join(root, 'src/data/pathwayDiagrams.json');
 fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
-console.log(`Wrote ${diagrams.length} diagrams and ${manifestPath}`);
+console.log(`Wrote ${allDiagrams.length} diagrams and ${manifestPath}`);

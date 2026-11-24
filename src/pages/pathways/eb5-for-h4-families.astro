@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -45,6 +46,8 @@ const hero = getPathwayHero('eb5-for-h4-families');
   </p>
 
   <h2>How spouses and children can be included</h2>
+
+  <PathwayDiagram id="h4-derivative-inclusion" />
   <p>
     When a qualifying principal investor files an EB-5 petition, a spouse and unmarried children under 21 can typically
     be included as derivative beneficiaries, subject to age-out and CSPA considerations that must be reviewed for each

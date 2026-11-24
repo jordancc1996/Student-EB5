@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
@@ -72,6 +73,8 @@ const hero = getPathwayHero('eb5-for-wealthy-families');
   </p>
 
   <h2>Family residency and multi-child timing</h2>
+
+  <PathwayDiagram id="family-timing-timeline" />
   <p>
     EB-5 can include a spouse and unmarried children under 21 as derivatives on the investor's petition when eligibility
     rules are met. High-net-worth households often evaluate filing timing against several academic calendars at once

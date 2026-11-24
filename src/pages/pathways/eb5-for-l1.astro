@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -60,6 +61,8 @@ const hero = getPathwayHero('eb5-for-l1');
   </p>
 
   <h2>Planning while L-1 remains valid</h2>
+
+  <PathwayDiagram id="l1-eb5-timeline" />
   <p>
     Some L-1 holders begin source-of-funds and project diligence while still in valid L status so that a future I-526E
     filing is not compressed against a maximum-stay deadline. Concurrent filing may be available for eligible investors

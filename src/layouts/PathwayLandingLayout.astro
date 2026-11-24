@@ -14,6 +14,8 @@ import RelatedPathways from '@/components/RelatedPathways.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import fs from 'node:fs';
+import path from 'node:path';
 import { absoluteShareImageUrl } from '@/lib/seo/shareImage';
 import { seoTitle } from '@/lib/seo/documentTitle';
 import { findLandingPageByUrl, isIndexable } from '@/lib/pathwayRoutes';
@@ -69,38 +71,28 @@ const lastUpdatedIso = pathwayEntry?.lastReviewed ?? FEATURE_BASELINE_DATE;
 const hasHeroPhoto = Boolean(heroImage);
 const pagePath = new URL(canonicalUrl).pathname.replace(/\/$/, '') || '/';
 const pathwayPhotos = getPlacementsForPath(pagePath);
-const countryOgSlugs = new Set([
-  'eb5-for-indian-students',
-  'eb5-for-chinese-students',
-  'eb5-for-indian-families',
-  'eb5-for-chinese-families',
-  'eb5-for-indian-investors',
-  'eb5-for-chinese-investors',
-  'eb5-for-indian-h1b',
-]);
 const pageSlug = pagePath.split('/').pop() ?? '';
-const shareImageUrl = countryOgSlugs.has(pageSlug)
-  ? absoluteShareImageUrl(`/images/pathways/og/${pageSlug}.jpg`)
+const ogRel = `/images/pathways/og/${pageSlug}.jpg`;
+const shareImageUrl = fs.existsSync(path.join(process.cwd(), 'public', ogRel.replace(/^\//, '')))
+  ? absoluteShareImageUrl(ogRel)
   : undefined;
-const heroShareUrl = heroImage ? absoluteShareImageUrl(heroImage.src) : undefined;
-const pageSchema =
-  shareImageUrl && heroImage && heroShareUrl
-    ? JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'WebPage',
-        name: documentTitle,
-        description: metaDescription,
-        url: canonicalUrl,
-        image: heroShareUrl,
-        primaryImageOfPage: {
-          '@type': 'ImageObject',
-          url: heroShareUrl,
-          width: heroImage.width,
-          height: heroImage.height,
-          caption: heroImageAlt,
-        },
-      }).replace(/</g, '\\u003c')
-    : '';
+const pageSchema = shareImageUrl
+  ? JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: documentTitle,
+      description: metaDescription,
+      url: canonicalUrl,
+      image: shareImageUrl,
+      primaryImageOfPage: {
+        '@type': 'ImageObject',
+        url: shareImageUrl,
+        width: 1200,
+        height: 630,
+        caption: heroImageAlt || h1,
+      },
+    }).replace(/</g, '\\u003c')
+  : '';
 
 const blogPosts =
   relatedResearch.length > 0 ? await getCollection('blog') : [];

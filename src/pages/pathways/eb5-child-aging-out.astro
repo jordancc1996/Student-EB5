@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -47,6 +48,8 @@ const hero = getPathwayCategoryHero('process-mechanics');
   ]}
 >
   <h2>The aging-out problem, in plain language</h2>
+
+  <PathwayDiagram id="child-aging-out-timeline" />
   <p>
     Under many family and employment-based immigrant petitions, unmarried children can be included as derivatives only
     while they remain under 21 (with limited statutory protections). The Child Status Protection Act (CSPA) can, in some

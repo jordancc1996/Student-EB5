@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="372" viewBox="0 0 1200 372" role="img">
+  <title>Diagram comparing H-1B temporary employer-sponsored status with the EB-5 immigrant investor category.</title>
+  <desc>Diagram comparing H-1B temporary employer-sponsored status with the EB-5 immigrant investor category.</desc>
+  <rect width="100%" height="100%" fill="#FAF9F6"/>
+  <text x="36" y="64" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="28" fill="#262626">H-1B and EB-5</text>
+  <rect x="36" y="112" width="552" height="220" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="312" y="160" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="22" fill="#262626">H-1B</text>
+<text x="312" y="208" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">Temporary work status</text>
+<text x="312" y="242" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">Employer-sponsored</text>
+<text x="312" y="276" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">Lottery or cap rules</text>
+<rect x="612" y="112" width="552" height="220" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="888" y="160" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="22" fill="#262626">EB-5</text>
+<text x="888" y="208" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">Immigrant investor category</text>
+<text x="888" y="242" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">Qualifying investment</text>
+<text x="888" y="276" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">Not an employer sponsor</text>
+</svg>

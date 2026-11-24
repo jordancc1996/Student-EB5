@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import {
@@ -136,6 +137,8 @@ const hero = getPathwayHero('parents-and-families');
   </p>
 
   <h2>General funding principles (applies to any country)</h2>
+
+  <PathwayDiagram id="parent-gift-trail" />
   <p>
     Regardless of country, USCIS looks at the same core question: can the source of the invested funds be documented as
     lawful, and can the path the money took to reach the investor be traced clearly? For gifted funds, this typically

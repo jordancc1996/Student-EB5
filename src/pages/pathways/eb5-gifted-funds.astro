@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -51,6 +52,8 @@ const hero = getPathwayCategoryHero('source-of-funds');
     a parent, spouse, sibling, or other family member may gift it. USCIS still looks through to the donor’s lawful
     original source and requires a complete trail from donor to investor to the new commercial enterprise or escrow.
   </p>
+
+  <PathwayDiagram id="gifted-funds-flow" />
   <p>
     Parent-to-student cases with country-specific remittance issues are covered in depth on
     <a href="/pathways/eb5-for-chinese-families">EB-5 for Chinese families</a> and

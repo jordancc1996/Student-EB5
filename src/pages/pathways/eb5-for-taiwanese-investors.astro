@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
@@ -74,6 +75,8 @@ const hero = getPathwayHero('eb5-for-taiwanese-investors');
   </p>
 
   <h2>For investors</h2>
+
+  <PathwayDiagram id="taiwanese-eb5-tracks" />
   <p>
     Most investors use the reduced Targeted Employment Area (TEA) investment threshold of {teaFormatted}, which covers
     capital only. After documenting lawful source of funds and selecting a project, investors file Form I-526E,

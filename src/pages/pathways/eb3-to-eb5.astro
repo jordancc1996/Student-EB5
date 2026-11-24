@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -61,6 +62,8 @@ const hero = getPathwayCategoryHero('status-transition');
   </p>
 
   <h2>Why EB-5 shows up for EB-3 households</h2>
+
+  <PathwayDiagram id="eb3-vs-eb5-comparison" />
   <p>
     EB-5 does not replace the need for a qualifying investment or USCIS petition standards, but it does change the
     sponsorship model: the investor is the petitioner through capital and job creation, not through a job offer alone.

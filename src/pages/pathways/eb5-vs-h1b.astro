@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -42,6 +43,8 @@ const hero = getPathwayCategoryHero('visa-comparison');
   keywords={['EB-5 vs H-1B', 'H-1B or EB-5', 'investment vs H-1B']}
 >
   <h2>Two different kinds of status</h2>
+
+  <PathwayDiagram id="eb5-vs-h1b-comparison" />
   <div class="not-prose grid md:grid-cols-2 gap-6 mb-6">
     <div class="rounded-lg border border-border bg-card p-6">
       <h3 class="font-serif text-xl font-semibold text-foreground mb-3">H-1B</h3>

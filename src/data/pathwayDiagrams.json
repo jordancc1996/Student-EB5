@@ -47,5 +47,229 @@
     "height": 360,
     "alt": "Diagram of an H-1B holder filing a separate I-526E petition and then a green card.",
     "caption": "The diagram shows an Indian H-1B holder filing a separate I-526E petition and then a green card."
+  },
+  "gifted-funds-flow": {
+    "src": "/images/pathways/gifted-funds-flow.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of a family gift moving from the donor through a lawful source to the investor and then to the enterprise or escrow.",
+    "caption": "The diagram shows a family gift moving from the donor through a lawful source to the investor and then to the enterprise or escrow."
+  },
+  "business-income-flow": {
+    "src": "/images/pathways/business-income-flow.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of business ownership, lawful earnings, and distributions moving into invested capital.",
+    "caption": "The diagram shows business ownership, lawful earnings, and distributions moving into invested capital."
+  },
+  "property-sale-flow": {
+    "src": "/images/pathways/property-sale-flow.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of a property sale moving through a controlled account into the investment or escrow.",
+    "caption": "The diagram shows a property sale moving through a controlled account into the investment or escrow."
+  },
+  "entrepreneur-income-flow": {
+    "src": "/images/pathways/entrepreneur-income-flow.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of ownership and tax filings leading from the business to the investor and the qualifying investment.",
+    "caption": "The diagram shows ownership and tax filings leading from the business to the investor and the qualifying investment."
+  },
+  "parent-gift-trail": {
+    "src": "/images/pathways/parent-gift-trail.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of a signed gift letter, the giver source of funds, bank records, and the investor.",
+    "caption": "The diagram shows a signed gift letter, the giver source of funds, bank records, and the transfer to the investor."
+  },
+  "opt-eb5-timeline": {
+    "src": "/images/pathways/opt-eb5-timeline.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of OPT or STEM OPT, source of funds, project selection, and an I-526E filing.",
+    "caption": "The diagram shows OPT or STEM OPT, source of funds, project selection, and an I-526E filing."
+  },
+  "graduate-eb5-timeline": {
+    "src": "/images/pathways/graduate-eb5-timeline.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of mid-program planning, source of funds, I-526E readiness, and OPT.",
+    "caption": "The diagram shows mid-program planning, source of funds, I-526E readiness, and OPT."
+  },
+  "h4-derivative-inclusion": {
+    "src": "/images/pathways/h4-derivative-inclusion.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of an H-4 household, an EB-5 petition, a spouse, and children under 21.",
+    "caption": "The diagram shows an H-4 household, an EB-5 petition, a spouse, and unmarried children under 21."
+  },
+  "j1-eb5-timing": {
+    "src": "/images/pathways/j1-eb5-timing.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of J-1 status, a 212(e) review, a waiver or home residence, and an EB-5 filing.",
+    "caption": "The diagram shows J-1 status, a 212(e) review, a waiver or home residence, and an EB-5 filing."
+  },
+  "l1-eb5-timeline": {
+    "src": "/images/pathways/l1-eb5-timeline.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of valid L-1 status, source of funds, project diligence, and an I-526E filing.",
+    "caption": "The diagram shows valid L-1 status, source of funds, project diligence, and an I-526E filing."
+  },
+  "tech-worker-eb5-track": {
+    "src": "/images/pathways/tech-worker-eb5-track.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of H-1B status, employer-tied work, and a separate EB-5 petition.",
+    "caption": "The diagram shows H-1B status, employer-tied work, and a separate EB-5 petition."
+  },
+  "child-aging-out-timeline": {
+    "src": "/images/pathways/child-aging-out-timeline.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of a child under 21, derivative status on a petition, and a CSPA review.",
+    "caption": "The diagram shows a child under 21, derivative status on a petition, and a CSPA review."
+  },
+  "h1b-concurrent-filing": {
+    "src": "/images/pathways/h1b-concurrent-filing.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of H-1B status, an I-526E petition, an I-485 application, and an EAD.",
+    "caption": "The diagram shows H-1B status, an I-526E petition, an I-485 application filed at the same time, and an EAD."
+  },
+  "student-eb5-timeline": {
+    "src": "/images/pathways/student-eb5-timeline.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of a degree or OPT, an I-526E filing, concurrent I-485 filing, and green card approval.",
+    "caption": "The diagram shows a degree or OPT, an I-526E filing, concurrent I-485 filing, and green card approval."
+  },
+  "h1b-grace-period-timeline": {
+    "src": "/images/pathways/h1b-grace-period-timeline.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of a layoff, the 60-day grace period, concurrent I-526E and I-485 filing, and an EAD.",
+    "caption": "The diagram shows a layoff, the 60-day grace period, concurrent I-526E and I-485 filing, and an EAD."
+  },
+  "family-timing-timeline": {
+    "src": "/images/pathways/family-timing-timeline.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of education clocks, OPT windows, aging-out risk, and filing timing.",
+    "caption": "The diagram shows education clocks, OPT windows, aging-out risk, and filing timing for a family."
+  },
+  "founder-eb5-track": {
+    "src": "/images/pathways/founder-eb5-track.svg",
+    "width": 1200,
+    "height": 372,
+    "alt": "Diagram comparing a founder who may need company sponsorship with an EB-5 qualifying investment and petition.",
+    "caption": "The diagram compares a founder who may need company sponsorship with an EB-5 qualifying investment and petition."
+  },
+  "source-of-funds-paths": {
+    "src": "/images/pathways/source-of-funds-paths.svg",
+    "width": 1200,
+    "height": 456,
+    "alt": "Diagram listing gifted funds, property-sale proceeds, business income, loaned funds, and inherited funds.",
+    "caption": "The diagram lists gifted funds, property-sale proceeds, business income, loaned funds, and inherited funds."
+  },
+  "project-diligence-checks": {
+    "src": "/images/pathways/project-diligence-checks.svg",
+    "width": 1200,
+    "height": 328,
+    "alt": "Diagram of job creation, deploying capital as described, and operating through the sustainment period.",
+    "caption": "The diagram shows job creation, deploying capital as described, and operating through the sustainment period."
+  },
+  "i956f-review-limits": {
+    "src": "/images/pathways/i956f-review-limits.svg",
+    "width": 1200,
+    "height": 392,
+    "alt": "Diagram of the business plan, capital stack, sponsor history, and offering documents.",
+    "caption": "The diagram shows the business plan, capital stack, sponsor history, and offering documents that I-956F approval does not replace."
+  },
+  "risk-diligence-checks": {
+    "src": "/images/pathways/risk-diligence-checks.svg",
+    "width": 1200,
+    "height": 456,
+    "alt": "Diagram of regional center record, capital-stack position, business plan quality, sponsor experience, and TEA or reserved-category designation.",
+    "caption": "The diagram lists regional center record, capital-stack position, business plan quality, sponsor experience, and TEA or reserved-category designation."
+  },
+  "student-family-decisions": {
+    "src": "/images/pathways/student-family-decisions.svg",
+    "width": 1200,
+    "height": 392,
+    "alt": "Diagram of source of funds, who is the investor of record, derivatives under 21, and concurrent filing with F-1 or OPT.",
+    "caption": "The diagram lists source of funds, who is the investor of record, derivatives under 21, and concurrent filing with F-1 or OPT."
+  },
+  "eb5-vs-h1b-comparison": {
+    "src": "/images/pathways/eb5-vs-h1b-comparison.svg",
+    "width": 1200,
+    "height": 372,
+    "alt": "Diagram comparing H-1B temporary employer-sponsored status with the EB-5 immigrant investor category.",
+    "caption": "The diagram compares H-1B temporary employer-sponsored status with the EB-5 immigrant investor category."
+  },
+  "eb5-vs-eb2-niw-comparison": {
+    "src": "/images/pathways/eb5-vs-eb2-niw-comparison.svg",
+    "width": 1200,
+    "height": 372,
+    "alt": "Diagram comparing EB-5 capital, source of funds, and job creation with an EB-2 NIW self-petition.",
+    "caption": "The diagram compares EB-5 capital, source of funds, and job creation with an EB-2 NIW self-petition."
+  },
+  "eb5-vs-other-visas-comparison": {
+    "src": "/images/pathways/eb5-vs-other-visas-comparison.svg",
+    "width": 1200,
+    "height": 372,
+    "alt": "Diagram comparing E-2 treaty investor status, L-1 intracompany transfer, and O-1 extraordinary ability.",
+    "caption": "The diagram compares E-2 treaty investor status, L-1 intracompany transfer, and O-1 extraordinary ability."
+  },
+  "rural-vs-urban-eb5": {
+    "src": "/images/pathways/rural-vs-urban-eb5.svg",
+    "width": 1200,
+    "height": 372,
+    "alt": "Diagram comparing the rural reserved set-aside with the separate high-unemployment reserved set-aside.",
+    "caption": "Rural and urban high-unemployment projects each have their own reserved share of EB-5 visas."
+  },
+  "eb2-vs-eb5-comparison": {
+    "src": "/images/pathways/eb2-vs-eb5-comparison.svg",
+    "width": 1200,
+    "height": 372,
+    "alt": "Diagram comparing an employer-sponsored EB-2 case with an EB-5 qualifying investment and job creation.",
+    "caption": "The diagram compares an employer-sponsored EB-2 case with an EB-5 qualifying investment and job creation."
+  },
+  "eb3-vs-eb5-comparison": {
+    "src": "/images/pathways/eb3-vs-eb5-comparison.svg",
+    "width": 1200,
+    "height": 372,
+    "alt": "Diagram comparing employer-sponsored EB-3 with an EB-5 petition based on capital and job creation.",
+    "caption": "The diagram compares employer-sponsored EB-3 with an EB-5 petition based on capital and job creation."
+  },
+  "concurrent-vs-consular": {
+    "src": "/images/pathways/concurrent-vs-consular.svg",
+    "width": 1200,
+    "height": 372,
+    "alt": "Diagram comparing concurrent I-526E and adjustment in the United States with consular processing abroad.",
+    "caption": "The diagram compares concurrent I-526E and adjustment in the United States with consular processing abroad."
+  },
+  "korean-eb5-tracks": {
+    "src": "/images/pathways/korean-eb5-tracks.svg",
+    "width": 1200,
+    "height": 372,
+    "alt": "Diagram comparing a Korean investor I-526E filing, an F-1 student track, and a parental gift.",
+    "caption": "The diagram compares a Korean investor I-526E filing, an F-1 student track, and a parental gift."
+  },
+  "taiwanese-eb5-tracks": {
+    "src": "/images/pathways/taiwanese-eb5-tracks.svg",
+    "width": 1200,
+    "height": 372,
+    "alt": "Diagram comparing a Taiwanese investor I-526E filing, OPT and H-1B planning, and gifted capital.",
+    "caption": "The diagram compares a Taiwanese investor I-526E filing, OPT and H-1B planning, and gifted capital."
+  },
+  "vietnamese-eb5-tracks": {
+    "src": "/images/pathways/vietnamese-eb5-tracks.svg",
+    "width": 1200,
+    "height": 372,
+    "alt": "Diagram comparing a Vietnamese investor I-526E filing, an OPT and H-1B sequence, and parental gifts.",
+    "caption": "The diagram compares a Vietnamese investor I-526E filing, an OPT and H-1B sequence, and parental gifts."
   }
 }

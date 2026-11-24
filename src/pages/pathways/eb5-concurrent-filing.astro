@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -47,6 +48,8 @@ const hero = getPathwayCategoryHero('process-mechanics');
   ]}
 >
   <h2>Concurrent filing vs. consular processing</h2>
+
+  <PathwayDiagram id="concurrent-vs-consular" />
   <p>
     If you are already in the U.S. on a valid nonimmigrant status and a visa number is available (or other eligibility
     rules allow it), concurrent filing generally means submitting Form I-526E together with an adjustment of status

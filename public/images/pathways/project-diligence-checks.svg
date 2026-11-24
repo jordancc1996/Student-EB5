@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="328" viewBox="0 0 1200 328" role="img">
+  <title>Diagram of job creation, deploying capital as described, and operating through the sustainment period.</title>
+  <desc>Diagram of job creation, deploying capital as described, and operating through the sustainment period.</desc>
+  <rect width="100%" height="100%" fill="#FAF9F6"/>
+  <text x="36" y="64" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="28" fill="#262626">What the project has to do</text>
+  <rect x="36" y="108" width="1128" height="52" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="60" y="141" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="18" fill="#262626">Create jobs</text>
+<rect x="36" y="172" width="1128" height="52" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="60" y="205" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="18" fill="#262626">Deploy capital as described</text>
+<rect x="36" y="236" width="1128" height="52" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="60" y="269" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="18" fill="#262626">Operate through the sustainment period</text>
+</svg>

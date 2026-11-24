@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import ProcessFaqAccordion from '@/components/ProcessFaqAccordion';
 import { SITE_CONFIG } from '@/lib/seo/config';
@@ -73,6 +74,8 @@ const hero = getPathwayCategoryHero('source-of-funds');
   </p>
 
   <h2>Common funding paths</h2>
+
+  <PathwayDiagram id="source-of-funds-paths" />
   <ul>
     <li>
       <a href="/pathways/eb5-gifted-funds">Gifted funds</a>, including gifts from any family member, not only parents.

@@ -19,6 +19,8 @@ import LastUpdated from '@/components/LastUpdated.astro';
 import EditorialPhoto from '@/components/EditorialPhoto.astro';
 import PagePhotoCredits from '@/components/PagePhotoCredits.astro';
 import RelatedPathways from '@/components/RelatedPathways.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
+import { absoluteShareImageUrl } from '@/lib/seo/shareImage';
 import {
   GRANDFATHERING_FILING_DEADLINE,
   RC_PROGRAM_AUTHORIZED_THROUGH,
@@ -33,6 +35,8 @@ const description =
 const pageCanonical = `${SITE_CONFIG.url}/pathways/f1-to-eb5-self-sponsored-green-card`;
 const ogTitle = seoTitle(title);
 const ogDescription = description;
+const ogImage = absoluteShareImageUrl('/images/pathways/og/f1-to-eb5-self-sponsored-green-card.jpg');
+const ogImageAlt = 'Graduate holding cap in front of university representing the student pathway to permanent residency';
 const keywords = [
   'F-1 student EB-5 green card',
   'F1 to EB5',
@@ -53,6 +57,14 @@ const structuredData = [
     url: pageCanonical,
     description:
       'F-1 student EB-5 green card paths use an $800,000 TEA investment and concurrent filing so OPT graduates can work without the H-1B lottery selection risk.',
+    image: ogImage,
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: ogImage,
+      width: 1200,
+      height: 630,
+      caption: ogImageAlt,
+    },
     dateModified: lastUpdatedIso,
     isPartOf: { '@type': 'WebSite', name: SITE_CONFIG.name, url: SITE_CONFIG.url },
     about: { '@type': 'Thing', name: 'EB-5 Immigrant Investor Program' },
@@ -112,7 +124,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 );
 ---
 
-<Layout fullBleedHero>
+<Layout fullBleedHero ogImage={ogImage} ogImageAlt={ogImageAlt}>
   <Fragment slot="head">
     <title>{ogTitle}</title>
     <meta name="description" content={description} />
@@ -372,6 +384,8 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
           <p class="text-muted-foreground text-center mb-12 max-w-2xl mx-auto text-base" style={`font-family: ${pathwayFont}`}>
             When to file to ensure you never have to leave the country after graduation.
           </p>
+
+          <PathwayDiagram id="student-eb5-timeline" />
 
           <div class="space-y-6">
             {

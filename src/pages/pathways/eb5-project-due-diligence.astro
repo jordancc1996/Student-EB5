@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -42,6 +43,8 @@ const hero = getPathwayCategoryHero('project-due-diligence');
     invested principal is later returned. Project selection is therefore one of the most consequential decisions in the
     process, and it cannot be reduced to a single approval stamp or marketing claim.
   </p>
+
+  <PathwayDiagram id="project-diligence-checks" />
   <p>
     Use this page as a hand-off to deeper material. The structured question list for rural offerings is here:
     <a href="/research/19-questions-rural-eb5-project-due-diligence"

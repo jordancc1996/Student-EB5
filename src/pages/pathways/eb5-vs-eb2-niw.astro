@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayCategoryHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 
@@ -37,6 +38,8 @@ const hero = getPathwayCategoryHero('visa-comparison');
   keywords={['EB-5 vs EB-2 NIW', 'EB-5 or National Interest Waiver', 'NIW vs EB-5']}
 >
   <h2>Which framework fits your situation</h2>
+
+  <PathwayDiagram id="eb5-vs-eb2-niw-comparison" />
   <div class="not-prose grid md:grid-cols-2 gap-6 mb-6">
     <div class="rounded-lg border border-border bg-card p-6">
       <h3 class="font-serif text-xl font-semibold text-foreground mb-3">EB-5</h3>
