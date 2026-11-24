@@ -13,6 +13,7 @@ import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { getHeroPoster } from '@/lib/images/heroPoster';
 import {
   generateWebsiteSchema,
   generateProfessionalServiceSchema,
@@ -42,6 +43,7 @@ const keywords = [
   'permanent residency',
 ];
 
+const heroPoster = await getHeroPoster();
 const structuredData = [
   generateWebsiteSchema(),
   generateProfessionalServiceSchema(),
@@ -51,6 +53,13 @@ const structuredData = [
 
 <Layout fullBleedHero>
   <Fragment slot="head">
+    <link
+      rel="preload"
+      as="image"
+      imagesrcset={heroPoster.srcset}
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />

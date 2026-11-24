@@ -1,6 +1,8 @@
 ---
 import heroVideo from '@/assets/hero-background-video.mp4';
-import heroBackground from '@/assets/hero-background.jpg';
+import { getHeroPoster } from '@/lib/images/heroPoster';
+
+const heroPoster = await getHeroPoster();
 
 const pathways = [
   {
@@ -24,17 +26,37 @@ const pathways = [
     style="aspect-ratio: 16/9; min-height: 100vh;"
   >
     <video
-      autoplay
       muted
       loop
       playsinline
+      preload="none"
       class="absolute inset-0 w-full h-full object-cover opacity-60"
-      poster={heroBackground.src}
+      poster={heroPoster.src828}
       width={1920}
       height={1080}
-    >
-      <source src={heroVideo} type="video/mp4" />
-    </video>
+      data-hero-src={heroVideo}
+      data-poster-1280={heroPoster.src1280}
+    ></video>
+    <script is:inline>
+      (function () {
+        var video = document.querySelector('video[data-hero-src]');
+        if (!video) return;
+        if (window.innerWidth > 900) {
+          video.poster = video.getAttribute('data-poster-1280');
+        }
+        function startHeroVideo() {
+          var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          var connection = navigator.connection;
+          if (reduced || (connection && connection.saveData)) return;
+          if (video.getAttribute('src')) return;
+          video.src = video.getAttribute('data-hero-src');
+          var playAttempt = video.play();
+          if (playAttempt && playAttempt.catch) playAttempt.catch(function () {});
+        }
+        if (document.readyState === 'complete') startHeroVideo();
+        else window.addEventListener('load', startHeroVideo, { once: true });
+      })();
+    </script>
   </div>
 
   <div class="hero-content fade-in">
