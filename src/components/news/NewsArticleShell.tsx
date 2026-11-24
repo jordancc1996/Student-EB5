@@ -13,7 +13,7 @@ interface NewsArticleShellProps {
 const NewsArticleShell = ({ article, children }: NewsArticleShellProps) => (
   <>
     <section
-      className={`relative -mt-[120px] pt-[120px] ${article.heroMinHeightClass} flex items-center justify-center overflow-hidden`}
+      className={`relative pt-[120px] ${article.heroMinHeightClass} flex items-center justify-center overflow-hidden`}
     >
       <OptimizedImage
         src={article.heroImage}

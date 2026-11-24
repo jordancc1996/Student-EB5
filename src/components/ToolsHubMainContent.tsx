@@ -48,7 +48,7 @@ export default function ToolsHubMainContent({ children }: PropsWithChildren) {
   return (
     <>
       <section
-        className="relative -mt-[120px] pt-[120px] min-h-[400px] flex items-center justify-center bg-cover bg-center"
+        className="relative pt-[120px] min-h-[400px] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${toolsHero.src})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
