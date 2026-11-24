@@ -15,6 +15,24 @@ export const RC_PROGRAM_AUTHORIZED_THROUGH = '2027-09-30';
 
 export const VISA_BULLETIN_LATEST_MONTH = 'November 2026';
 
+/**
+ * November 2026 Visa Bulletin, Employment-Based Final Action.
+ * 5th Unreserved (C5, T5, I5, R5, NU, RU): China 01DEC16, India 01DEC23.
+ * Set-asides (rural, high unemployment, infrastructure) are C for both in that bulletin only.
+ */
+export const EB5_UNRESERVED_FAD_CHINA = '2016-12-01';
+export const EB5_UNRESERVED_FAD_INDIA = '2023-12-01';
+export const EB5_SET_ASIDES_CURRENT = true;
+
+/** Same November 2026 employment-based final action chart. EB-2 and EB-3. */
+export const EB2_FAD_INDIA = '2013-11-01';
+export const EB3_FAD_INDIA = '2014-01-22';
+export const EB2_FAD_CHINA = '2021-10-01';
+export const EB3_FAD_CHINA = '2022-01-22';
+
+export const VISA_BULLETIN_NOVEMBER_2026_URL =
+  'https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2027/visa-bulletin-for-november-2026.html';
+
 export const VISA_BULLETIN_SOURCE = 'https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html';
 
 /**

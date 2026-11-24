@@ -2,6 +2,15 @@
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
+import {
+  EB2_FAD_CHINA,
+  EB3_FAD_CHINA,
+  EB5_SET_ASIDES_CURRENT,
+  EB5_UNRESERVED_FAD_CHINA,
+  VISA_BULLETIN_LATEST_MONTH,
+  VISA_BULLETIN_NOVEMBER_2026_URL,
+  formatProgramDate,
+} from '@/data/program';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 
 const title = 'EB-5 Visa for Chinese Investors: A 2026 Guide | StudentEB5';
@@ -60,9 +69,9 @@ const hero = getPathwayHero('eb5-for-chinese-investors');
 >
   <Fragment slot="extraCompliance">
     <p class="text-sm text-muted-foreground leading-relaxed border border-border rounded-lg bg-secondary/40 p-4 m-0">
-      EB-5 investment involves financial risk, including potential loss of principal, and does not guarantee a green
-      card, visa availability, or any specific processing time. Consult a qualified immigration attorney and a
-      FINRA-registered financial adviser for guidance specific to your situation.
+      EB-5 investment by a Chinese national involves financial risk, including potential loss of principal, and does not guarantee a green
+      card, visa availability, or any specific processing time. A Chinese national should consult a qualified immigration attorney and a
+      FINRA-registered financial adviser before relying on this page.
     </p>
   </Fragment>
 
@@ -76,10 +85,9 @@ const hero = getPathwayHero('eb5-for-chinese-investors');
 
   <h2>Investment requirements</h2>
   <p>
-    EB-5 requires a qualifying investment in a new commercial enterprise, structured to create the required number of
-    U.S. jobs. Most investors use the reduced Targeted Employment Area (TEA) investment threshold of {teaFormatted}
-    rather than the standard amount. See our full
-    <a href="/research/eb5-economic-calculus-investment-cost">EB-5 Investment Cost breakdown</a> for current figures.
+    For Chinese nationals, an EB-5 petition needs a qualifying investment in a new commercial enterprise structured to create the required number of United States jobs. Most investors use the reduced Targeted Employment Area (TEA) investment threshold of {teaFormatted}
+    rather than the standard amount. Chinese investors can separate the capital amount from fees on the
+    <a href="/research/eb5-economic-calculus-investment-cost">EB-5 investment cost breakdown</a>.
   </p>
 
   <h2>Visa category and timing: what "country of birth" means for Chinese investors</h2>
@@ -97,30 +105,34 @@ const hero = getPathwayHero('eb5-for-chinese-investors');
     program structure context, see the
     <a href="/research/complete-2027-eb5-guide">complete EB-5 guide</a>.
   </p>
+  <p>
+    In the <a href={VISA_BULLETIN_NOVEMBER_2026_URL} target="_blank" rel="noopener noreferrer">{VISA_BULLETIN_LATEST_MONTH} Visa Bulletin</a>, the EB-5 unreserved final action date for China, mainland born, is {formatProgramDate(EB5_UNRESERVED_FAD_CHINA)}.
+  </p>
+  <p>
+    In the {VISA_BULLETIN_LATEST_MONTH} Visa Bulletin, the EB-2 final action date for China is {formatProgramDate(EB2_FAD_CHINA)}, and the EB-3 final action date for China is {formatProgramDate(EB3_FAD_CHINA)}.
+  </p>
+  {EB5_SET_ASIDES_CURRENT && (
+    <p>
+      The <a href="/pathways/rural-eb5">rural</a>, high-unemployment, and infrastructure EB-5 set-asides are current for China in the {VISA_BULLETIN_LATEST_MONTH} Visa Bulletin.
+    </p>
+  )}
 
   <h2>The filing process, in brief</h2>
-  <ol>
-    <li>Select a project and complete source-of-funds documentation</li>
-    <li>
-      File Form I-526E (with concurrent adjustment of status filing for investors already in the U.S. on a valid
-      nonimmigrant status, or consular processing for investors abroad)
-    </li>
-    <li>Receive work authorization and travel document during the concurrent filing period, where applicable</li>
-    <li>Await visa number availability and I-526E adjudication</li>
-    <li>File Form I-829 to remove conditions on permanent residence</li>
-  </ol>
   <p>
-    For the full step-by-step guide, see the
-    <a href="/eb5-investment-process">EB-5 investment process</a>.
+    Chinese investors already in the United States should read
+    <a href="/pathways/eb5-concurrent-filing">EB-5 concurrent filing</a> for the adjustment step, and the
+    <a href="/eb5-investment-process">EB-5 investment process</a> page for Form I-526E through Form I-829.
   </p>
 
   <h2>Choosing a project</h2>
   <p>
-    Project selection is one of the most consequential decisions in the EB-5 process. Regional centers with USCIS
-    I-956F approval have had their compliance and job-creation methodology reviewed by USCIS, which is one factor (not the only factor) in evaluating a project. See our
-    <a href="/research/19-questions-rural-eb5-project-due-diligence">due diligence guide</a> and
-    <a href="/research/choosing-rural-eb5-regional-center-guide">rural EB-5 regional center guide</a> for the fuller list
-    of questions to ask before committing capital.
+    The <a href="/pathways/rural-eb5">rural EB-5 page</a> explains the rural set-aside, and the
+    <a href="/research/19-questions-rural-eb5-project-due-diligence">due diligence guide</a> plus the
+    <a href="/research/choosing-rural-eb5-regional-center-guide">rural regional center guide</a> hold the project questions for a Chinese investor.
+  </p>
+  <p>
+    For a Chinese national, the annual foreign exchange facilitation quota is explained on the
+    <a href="/pathways/eb5-for-chinese-families">EB-5 for Chinese families</a> page and is not restated here.
   </p>
 
   <h2>For students and families</h2>
