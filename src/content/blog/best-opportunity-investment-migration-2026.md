@@ -3,7 +3,7 @@ id: 19
 slug: best-opportunity-investment-migration-2026
 title: Investment Migration 2026 - Why This Is the Last Year at $800,000 TEA
 metaTitle: "EB-5 at $800,000 - 2026 Filing Window | StudentEB5"
-metaDescription: "Investment migration 2026 is the last year to file EB-5 at the $800,000 TEA minimum before the Jan 1, 2027 inflation hike and Sept 30 grandfathering cutoff."
+metaDescription: "Investment migration 2026 is the last year to file EB-5 at the $800,000 TEA minimum before the Jan 1, 2027 inflation adjustment."
 excerpt: 2026 is primed to be the most investor friendly year in the last decade. A convergence of critical legislative deadlines, strategic visa availability and 2026 being the last year before inflation adjustments creates a rare opportunity.
 date: December 29, 2025
 updatedDate: November 23, 2026
@@ -27,7 +27,7 @@ relatedPosts:
   - f1-students/f1-to-eb5-green-card
 ---
 
-<intro>Investment migration 2026 is the last year to file an EB-5 petition at the current $800,000 TEA minimum before the scheduled January 1, 2027 inflation adjustment, and petitions filed on or before September 30, 2026 kept grandfathering protection. Rural TEA set-aside visa categories remain current for all countries including India and China as of late 2025, allowing backlogged nationals to bypass decades-long waits in the unreserved category. The sections below explain set-aside visa mechanics, the grandfathering deadline, and the step-by-step filing process for international students entering the program this year.</intro>
+<intro>Investment migration 2026 is the last year to file an EB-5 petition at the current $800,000 TEA minimum before the scheduled January 1, 2027 inflation adjustment, and petitions filed on or before September 30, 2026 kept grandfathering protection. Rural TEA set-aside visa categories remained current for all countries, including India and China, in the November 2026 Visa Bulletin, allowing backlogged nationals to bypass decades-long waits in the unreserved category. The sections below explain set-aside visa mechanics, the grandfathering deadline, and the step-by-step filing process for international students entering the program this year.</intro>
 
 ## The Regulatory and Financial Arbitrage Opportunity
 

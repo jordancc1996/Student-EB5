@@ -3,8 +3,8 @@ id: 35
 slug: eb5-timing-risks-petition-invalidation
 title: "EB-5 Petition Invalidation - Timing Risks That Kill Filings Before Submit"
 metaTitle: "EB-5 Petition Timing - Risks Before Filing | StudentEB5"
-metaDescription: "EB-5 petition invalidation risk spikes in 2026 around Sept 30 grandfathering, the Jan 1, 2027 investment hike, and partial-funding mistakes USCIS denies."
-excerpt: "The 2026 EB-5 landscape is the most unforgiving in the program's history. This analysis separates legislative noise from real risk and breaks down the three converging dates — the September 30, 2026 grandfathering window, the January 1, 2027 inflation adjustment, and the September 30, 2027 program expiration — that are driving filing surges, capacity bottlenecks, and the partial-funding mistakes USCIS is using to invalidate petitions."
+metaDescription: "EB-5 petition invalidation risk in 2026 and 2027: the passed Sept 30 grandfathering date, the Jan 1, 2027 investment hike, and partial-funding mistakes."
+excerpt: "The 2026 EB-5 landscape is the most unforgiving in the program's history. This analysis separates legislative noise from real risk and breaks down the three converging dates — the September 30, 2026 grandfathering date, now passed, the January 1, 2027 inflation adjustment, and the September 30, 2027 program expiration — that are driving filing surges, capacity bottlenecks, and the partial-funding mistakes USCIS is using to invalidate petitions."
 date: June 4, 2026
 updatedDate: November 23, 2026
 category: EB-5 Strategy

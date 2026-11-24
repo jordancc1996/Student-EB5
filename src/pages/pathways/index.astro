@@ -13,7 +13,7 @@ import { GRANDFATHERING_FILING_DEADLINE, RC_PROGRAM_AUTHORIZED_THROUGH, formatPr
 
 const title = 'EB-5 Pathways - H-1B and F-1 Routes | StudentEB5';
 const description =
-  `EB-5 green card pathways compare concurrent filing. The ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} protection date has passed. Filing continues through ${formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}.`;
+  `EB-5 green card pathways compare concurrent filing. The ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} protection date has passed. The program is authorized through ${formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}.`;
 const pageCanonical = `${SITE_CONFIG.url}/pathways`;
 const ogTitle = seoTitle(title);
 const ogDescription = description;
@@ -75,7 +75,7 @@ const hasHeroPhoto = Boolean(hero.image);
           <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto editorial-prose">
             EB-5 green card pathways for H-1B and F-1 applicants compare concurrent filing and $800,000 TEA capital.
             Petitions filed on or before {formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} kept grandfathering protection.
-            Petitions can still be filed through {formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)} without that protection.
+            Petitions can still be filed while the program is authorized through {formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}, without that protection.
           </p>
         </div>
       </section>

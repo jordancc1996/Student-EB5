@@ -1,9 +1,9 @@
 ---
 id: 31
 slug: eb5-2026-official-white-paper
-title: EB-5 2026 White Paper - Attorney Insights on Filing Before Sept 30
+title: "EB-5 2026 White Paper - Attorney Insights on Filing and Grandfathering"
 metaTitle: "EB-5 2026 White Paper - Filing Insights | StudentEB5"
-metaDescription: "EB-5 2026 white paper findings for H-1B and F-1 investors: concurrent filing, rural set-asides, and why the Sept 30, 2026 grandfathering window is closing."
+metaDescription: "EB-5 2026 white paper findings for H-1B and F-1 investors: concurrent filing, rural set-asides, and what the passed Sept 30, 2026 grandfathering date means."
 excerpt: This white paper analyzes insights from leading EB-5 attorneys, independent researchers, and EB-5 business professionals to provide a comprehensive overview of the current state of the EB-5 program and a roadmap for prospective investors.
 date: March 11, 2026
 updatedDate: November 23, 2026

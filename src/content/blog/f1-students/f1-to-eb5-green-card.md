@@ -3,8 +3,8 @@ id: 28
 slug: f1-students/f1-to-eb5-green-card
 title: "F-1 to EB-5 - Green Card Guide for International Students in 2026"
 metaTitle: "F-1 to EB-5 - Green Card for Students | StudentEB5"
-metaDescription: "F-1 to EB-5 in 2026: invest $800,000 in a TEA, file I-526E and I-485 together, and aim for an EAD within 3 to 6 months before Sept 30 grandfathering."
-excerpt: The EB-5 immigrant investor program offers F-1 international students a powerful alternative to the limitations of the F-1 and H-1B visas. With concurrent filing now available, students can gain work and travel authorization within 3-6 months. Two critical deadlines in the next 12-36 months threaten this opportunity.
+metaDescription: "F-1 to EB-5 in 2026: invest $800,000 in a TEA, file I-526E and I-485 together, and aim for an EAD within 3 to 6 months. Grandfathering ended Sept 30, 2026."
+excerpt: The EB-5 immigrant investor program offers F-1 international students a powerful alternative to the limitations of the F-1 and H-1B visas. With concurrent filing now available, students can gain work and travel authorization within 3-6 months. The September 30, 2026 grandfathering date has passed, and the program is authorized through September 30, 2027.
 date: February 10, 2026
 updatedDate: November 23, 2026
 category: Student Guide
@@ -41,7 +41,7 @@ tocLabels:
 
 The F-1 student visa is a golden ticket to the highest level of education in the United States. The F-1 visa opens doors to the top universities in the world and fosters invaluable experiences for international students. Those dreams of building a life in the United States and a career post-graduation are exciting for all international students but can quickly become frustrating when confronted with the reality of the limitations of student visas and the uncertainty of the <a href="/research/eb5-lifeline-h1b-workers">H-1B visa</a>.
 
-The EB-5 immigrant investor program is the fastest and most reliable way for international students to receive a green card and fulfill their American dreams. This comprehensive guide will explore the transition from an F-1 student visa to an EB-5 green card and provide a detailed roadmap for navigating the journey. The guide will discuss the intricacies of the <a href="/research/complete-2027-eb5-guide">EB-5 program</a>, the game-changing implications of the <a href="/research/post-reform-integrity-act-analysis">EB-5 Reform and Integrity Act of 2022</a> and the critical upcoming deadlines of September 30, 2026, and September 30, 2027 that every potential investor should understand.
+The EB-5 immigrant investor program is the fastest and most reliable way for international students to receive a green card and fulfill their American dreams. This comprehensive guide will explore the transition from an F-1 student visa to an EB-5 green card and provide a detailed roadmap for navigating the journey. The guide will discuss the intricacies of the <a href="/research/complete-2027-eb5-guide">EB-5 program</a>, the game-changing implications of the <a href="/research/post-reform-integrity-act-analysis">EB-5 Reform and Integrity Act of 2022</a> and the September 30, 2026 grandfathering date, which has passed, and the September 30, 2027 authorization date that every potential investor should understand.
 
 ## The F-1 Student Visa and Its Many Limitations
 

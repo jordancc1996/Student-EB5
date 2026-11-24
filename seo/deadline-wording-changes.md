@@ -372,3 +372,78 @@ Dates render from GRANDFATHERING_FILING_DEADLINE and RC_PROGRAM_AUTHORIZED_THROU
 
 - **Before** line 6: The EB-5 grandfathering deadline 2026 was September 30. Filings on or before it kept protection. Later filings lack it through September 30, 2027.
 - **After** line 6: The EB-5 grandfathering deadline 2026 was September 30. Earlier filings kept protection; later ones can still be filed through Sept 30, 2027.
+
+## Round 3, November 23, 2026
+
+### src/data/program.ts
+
+- **After**: VISA_BULLETIN_LATEST_MONTH = 'November 2026'
+- **After**: VISA_BULLETIN_SOURCE = 'https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html'
+
+### src/pages/pathways/h1b-to-green-card.astro
+
+- **Before**: EB-5 reserved categories are current on the most recent March 2026 Visa Bulletin.
+- **After**: As of the November 2026 Visa Bulletin, the EB-5 rural, high-unemployment and infrastructure set-aside categories are current for all countries, including India and China.
+
+### src/pages/pathways/f1-to-eb5-self-sponsored-green-card.astro
+
+- **Before**: EB-5 reserved categories are current on the most recent Visa Bulletin.
+- **After**: As of the November 2026 Visa Bulletin, the EB-5 rural, high-unemployment and infrastructure set-aside categories are current for all countries.
+
+### src/content/blog/best-opportunity-investment-migration-2026.md
+
+- **Before** intro: Rural TEA set-aside visa categories remain current for all countries including India and China as of late 2025.
+- **After** intro: Rural TEA set-aside visa categories remained current for all countries, including India and China, in the November 2026 Visa Bulletin.
+- **Before** metaDescription: Investment migration 2026 is the last year to file EB-5 at the $800,000 TEA minimum before the Jan 1, 2027 inflation hike and Sept 30 grandfathering cutoff.
+- **After** metaDescription: Investment migration 2026 is the last year to file EB-5 at the $800,000 TEA minimum before the Jan 1, 2027 inflation adjustment.
+
+### src/content/blog/eb5-2026-official-white-paper.md
+
+- **Before** title: EB-5 2026 White Paper - Attorney Insights on Filing Before Sept 30
+- **After** title: EB-5 2026 White Paper - Attorney Insights on Filing and Grandfathering
+- **Before** metaDescription: EB-5 2026 white paper findings for H-1B and F-1 investors: concurrent filing, rural set-asides, and why the Sept 30, 2026 grandfathering window is closing.
+- **After** metaDescription: EB-5 2026 white paper findings for H-1B and F-1 investors: concurrent filing, rural set-asides, and what the passed Sept 30, 2026 grandfathering date means.
+
+### src/content/blog/f1-students/eb5-indian-chinese-students-f1-stem-opt.md
+
+- **Before** metaDescription: EB-5 for Indian and Chinese students on F-1 and STEM OPT covers cap-gap timing, the 85,000 H-1B lottery, and the Sept 30, 2026 grandfathering deadline.
+- **After** metaDescription: EB-5 for Indian and Chinese students on F-1 and STEM OPT covers cap-gap timing, the 85,000 H-1B lottery, and filing after the Sept 30, 2026 grandfathering date.
+- **Before** excerpt phrase: before the September 30, 2026 grandfathering deadline
+- **After** excerpt phrase: after the September 30, 2026 grandfathering date
+
+### src/content/blog/f1-students/f1-to-eb5-green-card.md
+
+- **Before** metaDescription: F-1 to EB-5 in 2026: invest $800,000 in a TEA, file I-526E and I-485 together, and aim for an EAD within 3 to 6 months before Sept 30 grandfathering.
+- **After** metaDescription: F-1 to EB-5 in 2026: invest $800,000 in a TEA, file I-526E and I-485 together, and aim for an EAD within 3 to 6 months. Grandfathering ended Sept 30, 2026.
+- **Before** excerpt: Two critical deadlines in the next 12-36 months threaten this opportunity.
+- **After** excerpt: The September 30, 2026 grandfathering date has passed, and the program is authorized through September 30, 2027.
+- **Before** line 44: the critical upcoming deadlines of September 30, 2026, and September 30, 2027
+- **After** line 44: the September 30, 2026 grandfathering date, which has passed, and the September 30, 2027 authorization date
+
+### src/content/blog/eb5-timing-risks-petition-invalidation.md
+
+- **Before** metaDescription: EB-5 petition invalidation risk spikes in 2026 around Sept 30 grandfathering, the Jan 1, 2027 investment hike, and partial-funding mistakes USCIS denies.
+- **After** metaDescription: EB-5 petition invalidation risk in 2026 and 2027: the passed Sept 30 grandfathering date, the Jan 1, 2027 investment hike, and partial-funding mistakes.
+- **Before** excerpt phrase: the September 30, 2026 grandfathering window
+- **After** excerpt phrase: the September 30, 2026 grandfathering date, now passed
+
+### src/content/blog/eb5-investments-africa-mena-regions.md
+
+- **Before** metaDescription: EB-5 Africa MENA demand is rising under the Reform and Integrity Act for $800,000 TEA filings, source-of-funds hurdles, and the Sept 30, 2026 cutoff.
+- **After** metaDescription: EB-5 Africa MENA demand is rising under the Reform and Integrity Act for $800,000 TEA filings, source-of-funds hurdles, and the passed Sept 30, 2026 date.
+- **Before** excerpt phrase: the critical September 30, 2026 grandfathering deadline
+- **After** excerpt phrase: what the passed September 30, 2026 grandfathering date means
+
+### Filing continues through
+
+- **Before** about description: EB-5 immigration advisors international students map $800,000 TEA paths. The September 30, 2026 date has passed. Filing continues through September 30, 2027.
+- **After** about description: EB-5 immigration advisors international students use for $800,000 TEA paths after September 30, 2026. The program is authorized through September 30, 2027.
+- **Before** about hero: Filing continues through September 30, 2027.
+- **After** about hero: The program is authorized through September 30, 2027.
+- **Before** pathways description: Filing continues through September 30, 2027.
+- **After** pathways description: The program is authorized through September 30, 2027.
+- **Before** pathways hero: Petitions can still be filed through September 30, 2027 without that protection.
+- **After** pathways hero: Petitions can still be filed while the program is authorized through September 30, 2027, without that protection.
+- **Before** contact, tools, and FAQ hero: Filing continues through September 30, 2027.
+- **After** contact, tools, and FAQ hero: The program is authorized through September 30, 2027.
+- **Not changed** src/pages/eb5-green-card-international-students-playbook.astro description. Replacing "Filing continues through" makes the description 163 characters, above the 160 limit. It was not rewritten.

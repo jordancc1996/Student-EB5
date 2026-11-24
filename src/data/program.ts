@@ -13,6 +13,10 @@ export const GRANDFATHERING_FILING_DEADLINE = '2026-09-30';
 
 export const RC_PROGRAM_AUTHORIZED_THROUGH = '2027-09-30';
 
+export const VISA_BULLETIN_LATEST_MONTH = 'November 2026';
+
+export const VISA_BULLETIN_SOURCE = 'https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html';
+
 /**
  * End of the authorization calendar day in US Eastern time.
  * September 30 falls in daylight time, so the offset is -04:00.
