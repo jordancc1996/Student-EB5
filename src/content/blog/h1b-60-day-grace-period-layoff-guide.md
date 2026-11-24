@@ -2,7 +2,7 @@
 id: 34
 slug: h1b-60-day-grace-period-layoff-guide
 title: "H-1B 60-day grace period: dates, options, and EB-5"
-metaTitle: "H-1B 60-day grace period dates"
+metaTitle: "H-1B 60-Day Grace Period: Calculator and Rules"
 metaDescription: "H-1B 60-day grace period is up to 60 consecutive days or the I-94 date, whichever is shorter, under 8 CFR 214.1(l)(2)."
 excerpt: The H-1B 60-day grace period is up to 60 consecutive days or the end of the authorized validity period, whichever is shorter, under 8 CFR 214.1(l)(2). This page estimates that date and lists the options USCIS describes after termination.
 date: June 3, 2026

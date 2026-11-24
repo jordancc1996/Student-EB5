@@ -73,9 +73,14 @@ export const H1B_GRACE_PERIOD_MAX_DAYS = 60;
 export const H1B_GRACE_PERIOD_REGULATION_TEXT =
   'An alien admitted or otherwise provided status in E-1, E-2, E-3, H-1B, H-1B1, L-1, O-1 or TN classification and his or her dependents shall not be considered to have failed to maintain nonimmigrant status solely on the basis of a cessation of the employment on which the alien\'s classification was based, for up to 60 consecutive days or until the end of the authorized validity period, whichever is shorter, once during each authorized validity period. DHS may eliminate or shorten this 60-day period as a matter of discretion. Unless otherwise authorized under 8 CFR 274a.12, the alien may not work during such a period.';
 
-/** USCIS, Options for Nonimmigrant Workers Following Termination of Employment. Archived page. */
+/**
+ * USCIS guidance (archived). No current non-archived page exists on uscis.gov.
+ * The 60-day rule itself is 8 CFR 214.1(l)(2).
+ */
 export const USCIS_TERMINATION_OPTIONS_URL =
   'https://www.uscis.gov/working-in-the-united-states/information-for-employers-and-employees/options-for-nonimmigrant-workers-following-termination-of-employment';
+
+export const USCIS_TERMINATION_LINK_LABEL = 'USCIS guidance (archived)';
 
 export const USCIS_TERMINATION_PAGE_ARCHIVED =
   'The information on this page is out of date. However, some of the content may still be useful, so we have archived the page.';

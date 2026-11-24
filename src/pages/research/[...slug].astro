@@ -49,6 +49,7 @@ import {
   USCIS_EB5_ADJUSTMENT,
   USCIS_H1B_NEW_PETITION,
   USCIS_POST_TERMINATION_OPTIONS,
+  USCIS_TERMINATION_LINK_LABEL,
   USCIS_TERMINATION_OPTIONS_URL,
   USCIS_TERMINATION_PAGE_ARCHIVED,
 } from '@/data/program';
@@ -330,7 +331,7 @@ const relatedPosts = allPosts
                 <div class="article-content">
                   <h2>What you can do in the 60 days</h2>
                   <p>
-                    <a href={USCIS_TERMINATION_OPTIONS_URL}>USCIS, Options for Nonimmigrant Workers Following Termination of Employment</a>
+                    <a href={USCIS_TERMINATION_OPTIONS_URL}>{USCIS_TERMINATION_LINK_LABEL}</a>
                     {' '}states: {USCIS_TERMINATION_PAGE_ARCHIVED} USCIS describes these options on that page:
                   </p>
                   <ul>
