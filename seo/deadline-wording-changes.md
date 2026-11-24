@@ -447,3 +447,8 @@ Dates render from GRANDFATHERING_FILING_DEADLINE and RC_PROGRAM_AUTHORIZED_THROU
 - **Before** contact, tools, and FAQ hero: Filing continues through September 30, 2027.
 - **After** contact, tools, and FAQ hero: The program is authorized through September 30, 2027.
 - **Not changed** src/pages/eb5-green-card-international-students-playbook.astro description. Replacing "Filing continues through" makes the description 163 characters, above the 160 limit. It was not rewritten.
+
+### Playbook description (supplied replacement)
+
+- **Before** src/pages/eb5-green-card-international-students-playbook.astro description: EB-5 green card international students playbook covers OPT timelines. The September 30, 2026 date has passed. Filing continues through September 30, 2027.
+- **After** src/pages/eb5-green-card-international-students-playbook.astro description: EB-5 green card international students playbook covers OPT timelines after September 30, 2026. The program is authorized through September 30, 2027. (148 characters)
