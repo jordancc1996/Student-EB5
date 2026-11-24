@@ -3,6 +3,7 @@ import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import ProcessFaqAccordion from '@/components/ProcessFaqAccordion';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { generateFAQSchema } from '@/lib/seo/structured-data';
 
 const title = 'How Indian Families Can Fund an EB-5 Investment | StudentEB5';
 const metaDescription =
@@ -21,12 +22,12 @@ const relatedResearch = [
   {
     title: 'Ways to Fund EB-5: Gifted, Loaned, and Crypto Paths',
     url: '/research/ways-to-fund-eb5-investment-2026',
-    description: 'Gift, loan, and other lawful funding paths USCIS reviews for EB-5 capital.',
+    description: 'Gift, loan, and other lawful funding paths USCIS reviews when the investor\'s capital is coming from India.',
   },
   {
     title: 'What to Know Before Investing in EB-5',
     url: '/research/investment/what-to-know-before-investing-in-eb5',
-    description: 'What to verify before committing capital and filing I-526E.',
+    description: 'What an Indian family should verify before committing capital and filing Form I-526E.',
   },
 ];
 
@@ -48,6 +49,7 @@ const faqItems = [
   },
 ];
 const hero = getPathwayHero('eb5-for-indian-families');
+const rbiLrsUrl = 'https://www.rbi.org.in/Scripts/BS_ViewMasterDirections.aspx?id=10192';
 
 ---
 
@@ -61,7 +63,7 @@ const hero = getPathwayHero('eb5-for-indian-families');
   heroImageWebp={hero.webp}
   heroImageAlt="EB-5 pathway for Indian families"
   relatedResearch={relatedResearch}
-  secondaryCtaText="Talk to Someone Who Understands Cross-Border EB-5 Funding"
+  secondaryCtaText="Talk with someone about an EB-5 remittance from India"
   breadcrumbTitle="EB-5 for Indian Families"
   keywords={[
     'Indian parents EB-5 funding',
@@ -72,52 +74,49 @@ const hero = getPathwayHero('eb5-for-indian-families');
 >
   <Fragment slot="extraCompliance">
     <p class="text-sm text-muted-foreground leading-relaxed border border-border rounded-lg bg-secondary/40 p-4 m-0">
-      This page provides educational information only and does not constitute legal, financial, tax, or immigration
-      advice. Consult a qualified immigration attorney and a cross-border tax adviser before moving investment capital
-      or entering into a gift arrangement.
+      This page provides educational information about EB-5 funding from India and does not constitute legal, financial, tax, or immigration advice.
+      Consult a qualified immigration attorney and a cross-border tax adviser before a family in India moves investment capital or signs a gift arrangement.
     </p>
   </Fragment>
+
+  <script type="application/ld+json" set:html={JSON.stringify(generateFAQSchema(faqItems))} />
 
   <h2>Who this page is for</h2>
   <p>
     In many EB-5 cases involving Indian international students or young professionals, the child is the investor of
-    record, but a parent or other family member is the actual source of the funds. This is a normal and accepted
-    structure in EB-5. USCIS does not require the investor to have personally earned the investment capital. What USCIS
-    does require is a clear, documented, lawful trail showing where the money came from and how it reached the investor.
-    This page focuses on that funding and documentation process; for the broader student decision (EB-5 vs. the H-1B
-    path), see our guide to
-    <a href="/pathways/eb5-for-indian-students">EB-5 for Indian international students</a>.
+    record, but a parent or other family member is the actual source of the funds.
+    The gift letter for an Indian parent, and the records that show the gift reached the student, are on the
+    <a href="/pathways/eb5-gifted-funds">EB-5 with gifted funds</a> page.
+    The lawful-source file those records have to support is on the
+    <a href="/pathways/eb5-source-of-funds">EB-5 source of funds</a> page.
+    The student decision for an Indian F-1 applicant is on the
+    <a href="/pathways/eb5-for-indian-students">EB-5 for Indian international students</a> page.
   </p>
 
   <h2>How the gift structure typically works</h2>
-  <ol>
-    <li>
-      <strong>Establish the gift relationship.</strong> A parent (or other family member) formally gifts funds to the
-      student investor, documented with a signed gift letter or deed of gift.
-    </li>
-    <li>
-      <strong>Document the parent's source of funds.</strong> USCIS looks through to the original source of the gifted
-      funds, not just the gift itself. This can include income records, business ownership documentation, property sale
-      records, or other lawful sources going back multiple years.
-    </li>
-    <li>
-      <strong>Trace the path of funds.</strong> Bank records showing the money moving from the parent's account to the
-      student's account, and then to the new commercial enterprise or regional center escrow account, need to form a
-      complete, unbroken paper trail.
-    </li>
-    <li>
-      <strong>Plan for LRS and RBI compliance.</strong> India's Liberalised Remittance Scheme (LRS) governs how
-      individuals can remit funds abroad, and Reserve Bank of India (RBI) rules affect how investment capital can leave
-      India. These limits and procedures change. Families should confirm current requirements with a cross-border
-      tax/financial adviser familiar with RBI regulations rather than relying on outdated figures. See official
-      <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">RBI</a> materials for authoritative
-      updates.
-    </li>
-    <li>
-      <strong>Prepare documentation before, not after.</strong> Gathering these records early (ideally before a project
-      is selected or a petition is filed) gives families more time to address any gaps.
-    </li>
-  </ol>
+  <p>
+    For an Indian family, start with the
+    <a href="/pathways/eb5-gifted-funds">EB-5 with gifted funds</a> page and the
+    <a href="/pathways/eb5-source-of-funds">EB-5 source of funds</a> page rather than restating those steps here.
+  </p>
+  <p>
+    Under the Reserve Bank of India
+    <a href={rbiLrsUrl} target="_blank" rel="noopener noreferrer">Liberalised Remittance Scheme</a>, an authorised dealer may allow a resident individual to remit up to USD 250,000 per financial year, April through March, for a permitted current or capital account transaction.
+  </p>
+  <p>
+    The scheme is not available to companies, partnership firms, Hindu Undivided Families, or trusts.
+  </p>
+  <p>
+    A resident individual may remit up to that annual amount as a gift to a person resident outside India.
+  </p>
+  <p>
+    For a capital-account remittance, the
+    <a href={rbiLrsUrl} target="_blank" rel="noopener noreferrer">Master Direction</a>
+    tells the bank to obtain the prior-year bank statement or, if none is available, the latest income-tax assessment order or return.
+  </p>
+  <p>
+    The same direction says banks should not extend credit to a resident individual to fund a capital-account remittance under the scheme.
+  </p>
 
   <h2>Common documentation questions</h2>
   <div class="not-prose mb-8">
@@ -126,11 +125,9 @@ const hero = getPathwayHero('eb5-for-indian-families');
 
   <h2>Tax and advisory considerations</h2>
   <p>
-    Moving investment capital across borders can carry tax implications on both sides (U.S. and India), separate from
-    the immigration process itself. This page does not provide tax or legal advice. Families considering this path
-    typically work with a cross-border tax adviser and a U.S. immigration attorney together, early in the process,
-    rather than addressing tax questions after funds have already moved. For funding-path options and a pre-filing
-    checklist, see
+    This page does not give tax advice for capital moving from India to an EB-5 investment.
+    A family in India should have a cross-border tax adviser and a United States immigration attorney review the transfer before money moves.
+    For funding-path options and a pre-filing checklist, see
     <a href="/research/ways-to-fund-eb5-investment-2026">ways to fund an EB-5 investment</a> and the
     <a href="/research/investment/what-to-know-before-investing-in-eb5">What to Know Before Investing in EB-5</a>.
   </p>

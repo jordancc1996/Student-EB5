@@ -2,6 +2,15 @@
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import {
+  EB2_FAD_INDIA,
+  EB3_FAD_INDIA,
+  EB5_SET_ASIDES_CURRENT,
+  EB5_UNRESERVED_FAD_INDIA,
+  VISA_BULLETIN_LATEST_MONTH,
+  VISA_BULLETIN_NOVEMBER_2026_URL,
+  formatProgramDate,
+} from '@/data/program';
 
 const title = 'EB-5 for Indian H-1B Professionals | StudentEB5';
 const metaDescription =
@@ -60,6 +69,20 @@ const hero = getPathwayHero('eb5-for-indian-h1b');
     its own rules, capital requirements, and category dynamics. It is not a guaranteed faster outcome. For shared H-1B
     concurrent-filing and employer-independence mechanics (without repeating them here), see
     <a href="/pathways/h1b-to-green-card">H-1B to green card via EB-5</a>.
+  </p>
+  <p>
+    In the <a href={VISA_BULLETIN_NOVEMBER_2026_URL} target="_blank" rel="noopener noreferrer">{VISA_BULLETIN_LATEST_MONTH} Visa Bulletin</a>, the final action date for India is {formatProgramDate(EB2_FAD_INDIA)} in EB-2 and {formatProgramDate(EB3_FAD_INDIA)} in EB-3.
+  </p>
+  <p>
+    The EB-5 unreserved final action date for India in the {VISA_BULLETIN_LATEST_MONTH} Visa Bulletin is {formatProgramDate(EB5_UNRESERVED_FAD_INDIA)}.
+  </p>
+  {EB5_SET_ASIDES_CURRENT && (
+    <p>
+      The EB-5 <a href="/pathways/rural-eb5">rural</a>, high-unemployment, and infrastructure set-asides are current for India in the {VISA_BULLETIN_LATEST_MONTH} Visa Bulletin.
+    </p>
+  )}
+  <p>
+    A final action date is the priority-date cutoff for a visa number in that month, not a promise that a new Indian H-1B filing will be current.
   </p>
 
   <h2>A separate process from your H-1B employer petition</h2>

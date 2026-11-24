@@ -230,7 +230,7 @@ export const landingPages: LandingPage[] = [
       '/eb5-green-card-international-students-playbook',
     ],
     hasDedicatedContent: true,
-    lastReviewed: LAST_REVIEWED,
+    lastReviewed: '2026-11-23',
     publishDate: PUBLISH_DATE_ALREADY_LIVE,
   },
   {
@@ -249,7 +249,7 @@ export const landingPages: LandingPage[] = [
       '/pathways/eb5-for-chinese-students',
     ],
     hasDedicatedContent: true,
-    lastReviewed: LAST_REVIEWED,
+    lastReviewed: '2026-11-23',
     publishDate: PUBLISH_DATE_ALREADY_LIVE,
   },
   {
@@ -274,7 +274,7 @@ export const landingPages: LandingPage[] = [
       '/research/complete-2027-eb5-guide',
     ],
     hasDedicatedContent: true,
-    lastReviewed: LAST_REVIEWED,
+    lastReviewed: '2026-11-23',
     publishDate: PUBLISH_DATE_ALREADY_LIVE,
   },
   {
@@ -388,7 +388,7 @@ export const landingPages: LandingPage[] = [
       '/research/best-immigration-backup-plan-indian-tech-workers-2026',
     ],
     hasDedicatedContent: true,
-    lastReviewed: LAST_REVIEWED,
+    lastReviewed: '2026-11-23',
     publishDate: PUBLISH_DATE_DEFAULT,
   },
   {
@@ -414,7 +414,7 @@ export const landingPages: LandingPage[] = [
       '/research/f1-students/eb5-indian-chinese-students-f1-stem-opt',
     ],
     hasDedicatedContent: true,
-    lastReviewed: LAST_REVIEWED,
+    lastReviewed: '2026-11-23',
     publishDate: PUBLISH_DATE_DEFAULT,
   },
   {
@@ -442,7 +442,7 @@ export const landingPages: LandingPage[] = [
       '/pathways/h1b-to-green-card',
     ],
     hasDedicatedContent: true,
-    lastReviewed: LAST_REVIEWED,
+    lastReviewed: '2026-11-23',
     publishDate: PUBLISH_DATE_DEFAULT,
   },
   {
@@ -461,7 +461,7 @@ export const landingPages: LandingPage[] = [
       '/research/investment/what-to-know-before-investing-in-eb5',
     ],
     hasDedicatedContent: true,
-    lastReviewed: LAST_REVIEWED,
+    lastReviewed: '2026-11-23',
     publishDate: PUBLISH_DATE_DEFAULT,
   },
   {
