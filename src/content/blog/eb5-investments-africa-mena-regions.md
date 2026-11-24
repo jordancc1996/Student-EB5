@@ -3,9 +3,10 @@ id: 31
 slug: eb5-investments-africa-mena-regions
 title: EB-5 Africa MENA - Investor Profiles, Source of Funds, and 2026 Deadlines
 metaTitle: "EB-5 Africa and MENA - Source of Funds | StudentEB5"
-metaDescription: "EB-5 Africa MENA demand is rising under the Reform and Integrity Act for $800,000 TEA filings, source-of-funds hurdles, and the Sept 30, 2026 cutoff."
-excerpt: The EB-5 program has seen a surge in interest from investors in Africa and the MENA region. This analysis explores ideal investor profiles, source of funds challenges, project due diligence, and the critical September 30, 2026 grandfathering deadline.
+metaDescription: "EB-5 Africa MENA demand is rising under the Reform and Integrity Act for $800,000 TEA filings, source-of-funds hurdles, and the passed Sept 30, 2026 date."
+excerpt: The EB-5 program has seen a surge in interest from investors in Africa and the MENA region. This analysis explores ideal investor profiles, source of funds challenges, project due diligence, and what the passed September 30, 2026 grandfathering date means.
 date: April 7, 2026
+updatedDate: November 23, 2026
 category: Regional Analysis
 readTime: 18 min read
 image: ../../assets/blog-eb5-africa-mena.jpg
@@ -123,7 +124,7 @@ The EB-5 immigrant investor program remains a powerful and viable tool for famil
 
 For families considering the EB-5 program in the near future the prep work must begin immediately. This involves clarifying priorities, engaging experienced immigration counsel and conducting substantial due diligence. Investors must carefully evaluate potential projects, prioritizing job creation and capital safety over speculative financial returns.
 
-By taking a sequential, well-structured approach and acting before the critical September 30, 2026 deadline, investors can navigate the complexities of the EB-5 program with confidence. The EB-5 program is a strategic decision that can secure a lasting legacy and exciting opportunities for future African and MENA generations in the United States.
+The September 30, 2026 grandfathering filing date has passed. Petitions filed on or before that date kept protection. Petitions can still be filed while the program is authorized through September 30, 2027, without that protection. The EB-5 program is a strategic decision that can secure a lasting legacy and exciting opportunities for future African and MENA generations in the United States.
 
 ### References
 

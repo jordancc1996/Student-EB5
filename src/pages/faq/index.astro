@@ -16,6 +16,7 @@ import faqHeroWebp from '@/assets/faq-hero.webp';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { seoTitle } from '@/lib/seo/documentTitle';
 import { generateFAQSchema } from '@/lib/seo/structured-data';
+import { GRANDFATHERING_FILING_DEADLINE, RC_PROGRAM_AUTHORIZED_THROUGH, formatProgramDate } from '@/data/program';
 
 const faqEntries = await getCollection('faq');
 
@@ -86,8 +87,8 @@ const structuredData = generateFAQSchema(faqSchemaItems);
           EB-5 Investor FAQ - Timelines Fees Concurrent Filing and Gifts
         </h1>
         <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-          EB-5 investor FAQ topics include the $800,000 TEA threshold, concurrent filing EADs, gifted funds, and the
-          Sept 30, 2026 grandfathering deadline. For deeper analysis, see our{' '}
+          EB-5 investor FAQ topics include the $800,000 TEA threshold, concurrent filing EADs, and gifted funds. The {formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} protection date has passed. The program is authorized through {formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}.
+          For deeper analysis, see our{' '}
           <a href="/research/eb5-comprehensive-faq-timeline-international-students" class="text-white underline underline-offset-4 hover:text-white/90">EB-5 FAQ and timeline for international students</a>
           {' '}and the{' '}
           <a href="/research/complete-2027-eb5-guide" class="text-white underline underline-offset-4 hover:text-white/90">complete 2027 EB-5 guide</a>.

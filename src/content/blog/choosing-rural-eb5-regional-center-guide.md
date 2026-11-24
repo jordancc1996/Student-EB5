@@ -6,7 +6,7 @@ metaTitle: "Rural EB-5 Regional Center - How to Choose | StudentEB5"
 metaDescription: "Rural EB-5 regional center selection starts with 5 checks before you invest $800,000: USCIS status, 95%+ approvals, I-956F, capital stack, and clean management."
 excerpt: The decision to invest in the EB-5 immigrant investor program is a significant life changing decision. A critical component of this journey is the selection of a reputable and reliable regional center. This article provides a framework and important questions to ask during due diligence.
 date: January 10, 2026
-updatedDate: April 15, 2026
+updatedDate: November 23, 2026
 category: Investment Guide
 readTime: 18 min read
 image: ../../assets/blog-regional-center-guide.jpg
@@ -85,7 +85,7 @@ O-1 visa holders are individuals recognized for extraordinary ability in their f
 
 ## Critical Deadlines
 
-The EB-5 program is set to sunset September 30, 2027. The grandfathering clause for the current EB-5 conditions is set to expire a year earlier on September 30, 2026. Track these deadlines with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>. This clause provides a crucial layer of protection for investors who file their I-526E before September 30, 2026. RIA introduced a mechanism to adjust the minimum threshold for investment for inflation every year with the first adjustment scheduled for January 1, 2027. The current amount is $800,000 for TEA. Experts anticipate a significant upward adjustment at the start of 2027. If investors file before September 30, 2026, they effectively lock in the same conditions and the lower investment amount. Read more about <a href="/research/eb5-grandfathering-2026-2027-deadlines">EB-5 grandfathering explained</a>.
+The EB-5 program is authorized through September 30, 2027. The grandfathering filing date was September 30, 2026. Track the authorization date with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>. Regional center petitions properly filed on or before September 30, 2026 have statutory protection if the program later lapses. RIA introduced a mechanism to adjust the minimum threshold for investment for inflation every year with the first adjustment scheduled for January 1, 2027. The current amount is $800,000 for TEA. Experts anticipate a significant upward adjustment at the start of 2027. Petitions filed after September 30, 2026 do not get grandfathering protection. Read more about <a href="/research/eb5-grandfathering-2026-2027-deadlines">EB-5 grandfathering explained</a>.
 
 ## Conclusion
 

@@ -3,10 +3,10 @@ id: 46
 slug: f1-students/eb5-indian-chinese-students-f1-stem-opt
 title: "EB-5 for Indian Students and Chinese Students on F-1 and STEM OPT | Analysis of the Cap-Gap Strategy"
 metaTitle: "EB-5 for Indian and Chinese Students on OPT | StudentEB5"
-metaDescription: "EB-5 for Indian and Chinese students on F-1 and STEM OPT covers cap-gap timing, the 85,000 H-1B lottery, and the Sept 30, 2026 grandfathering deadline."
-excerpt: Indian and Chinese STEM OPT students face 2026 Duration of Status proposals, OPT re-evaluation, and H-1B cap-gap risk. This article maps STEM OPT timing against EB-5 as a self-sponsored backup before the September 30, 2026 grandfathering deadline.
+metaDescription: "EB-5 for Indian and Chinese students on F-1 and STEM OPT covers cap-gap timing, the 85,000 H-1B lottery, and filing after the Sept 30, 2026 grandfathering date."
+excerpt: Indian and Chinese STEM OPT students face 2026 Duration of Status proposals, OPT re-evaluation, and H-1B cap-gap risk. This article maps STEM OPT timing against EB-5 as a self-sponsored backup after the September 30, 2026 grandfathering date.
 date: August 4, 2026
-updatedDate: August 31, 2026
+updatedDate: November 23, 2026
 category: Student Guide
 readTime: 9 min read
 image: ../../../assets/blog-stem-opt-eb5-indian-chinese.jpg
@@ -70,9 +70,9 @@ For process detail across F-1, J-1, and H-1B, see <a href="/research/j1-f1-h1b-e
 
 ## Grandfathering Deadline: September 30, 2026
 
-RIA grandfathering protects I-526E petitions filed on or before September 30, 2026. Those filings remain adjudicable even if the regional center program is not reauthorized on the later schedule. STEM OPT students who wait for one more lottery cycle can lose both work authorization runway and that filing protection at once.
+RIA grandfathering protects I-526E petitions filed on or before September 30, 2026. Those filings remain adjudicable even if the regional center program is not reauthorized on the later schedule. STEM OPT students who did not file on or before that date did not keep that filing protection.
 
-For deadline mechanics and the 2027 distinction, see <a href="/research/eb5-grandfathering-2026-2027-deadlines">EB-5 grandfathering deadlines</a>. Use our <a href="/tools/2026-eb5-investment-feasibility-calculator">EB-5 Feasibility Calculator</a> to check whether your current assets qualify before the September 30, 2026 grandfathering deadline, then <a href="/contact">schedule a free consultation</a> to review your STEM OPT timeline against the filing window.
+For deadline mechanics and the 2027 distinction, see <a href="/research/eb5-grandfathering-2026-2027-deadlines">EB-5 grandfathering deadlines</a>. Use our <a href="/tools/2026-eb5-investment-feasibility-calculator">EB-5 Feasibility Calculator</a> to check whether your current assets qualify. The September 30, 2026 grandfathering filing date has passed.
 
 ---
 

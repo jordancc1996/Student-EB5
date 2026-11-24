@@ -6,7 +6,7 @@ metaTitle: "EB-5 for Indian Professionals - EB-2 Backlog | StudentEB5"
 metaDescription: "EB-5 guide Indian professionals need in 2026: $800,000 TEA filing, source-of-funds prep, and the Sept 30 grandfathering deadline for adjudication protection."
 excerpt: The EB-5 immigrant investor program has emerged as a crucial alternative for Indian professionals stuck in decades-long green card backlogs. H-1B holders face constant instability which makes permanent residency an urgent need.
 date: February 20, 2026
-updatedDate: April 14, 2026
+updatedDate: November 23, 2026
 category: H-1B Professional Guide
 readTime: 12 min read
 image: ../../assets/blog-eb5-indian-professionals.jpg
@@ -50,7 +50,7 @@ The H-1B visa is a popular pathway to temporary residency for skilled foreign pr
 
 ### The Critical September 30, 2026 Grandfathering Deadline
 
-There is a looming deadline for prospective EB-5 investors, and it falls on September 30, 2026. The EB-5 Reform and Integrity Act of 2022 introduced a "grandfathering" provision that added a countdown clock to the EB-5 program. If an investor's Form I-526E petition is filed by this date, USCIS will continue to process it even if the Regional Center program is not reauthorized in the future. The grandfathering protection only applies to petitions filed by the 2026 deadline. This creates a hard stop for investors who want to ensure their petition is adjudicated under the current rules.
+The grandfathering filing date was September 30, 2026, and it has passed. The EB-5 Reform and Integrity Act of 2022 introduced a grandfathering provision. A regional center petition properly filed on or before that date has statutory protection if the program later lapses. Petitions filed after September 30, 2026 do not get that protection. Petitions can still be filed while the program is authorized through September 30, 2027.
 
 ## What is the EB-5 Program?
 
@@ -78,7 +78,7 @@ Before an investor can commit to an EB-5 project they must focus on documenting 
 
 This level of documentation is required for all sources of funds which can include employment income, business ownership, gifts from family, property sales and loans. Each source has its own complexities that must be carefully navigated.
 
-Rushing this process creates risk. The pressure of the <a href="/tools/grandfathering-countdown">September 30, 2026 deadline</a> can tempt investors to take shortcuts such as filing an incomplete or "skeleton" petition, but this is a dangerous strategy that can lead to significant delays and even denial.
+Rushing this process creates risk. The <a href="/tools/grandfathering-countdown">September 30, 2026 filing date</a> has passed. Rushing an incomplete or "skeleton" petition is still a dangerous strategy that can lead to significant delays and even denial.
 
 A skeleton petition is one that is filed quickly to secure a filing date but lacks the comprehensive documentation required by USCIS and can result in RFEs (Request for Evidence), NOIDs (Notice of Intent to Deny) and outright denials.
 
@@ -92,7 +92,7 @@ The EB-5 program offers a viable and attractive path to permanent residency for 
 
 ### What is the September 30, 2026, deadline and why does it matter?
 
-The September 30, 2026, deadline is a grandfathering provision introduced by the EB-5 Reform and Integrity Act. An investor who files their I-526E petition by this date is guaranteed to have their petition processed by USCIS regardless of whether the Regional Center program is reauthorized in the future.
+The September 30, 2026 filing date has passed. A regional center petition properly filed on or before that date has statutory protection if the program later lapses. Petitions filed after that date do not get that protection.
 
 ### Why is the EB-5 program particularly relevant for Indian professionals right now?
 
@@ -113,7 +113,7 @@ The investor's H-1B status remains valid when they apply for the EB-5 visa. The 
 
 <h3>Why is the EB-5 program particularly urgent for Indian professionals in 2026?</h3>
 
-<p>Indian professionals face decades-long backlogs in EB-2 and EB-3 visa categories which makes permanent residency through traditional employment-based routes almost impossible (decade-long waits are expected). Additionally, the instability of H-1B visas and the critical September 30, 2026 grandfathering deadline under the EB-5 Reform and Integrity Act create a narrow window to file Form I-526E petitions and secure processing under current rules.</p>
+<p>Indian professionals face decades-long backlogs in EB-2 and EB-3 visa categories which makes permanent residency through traditional employment-based routes almost impossible (decade-long waits are expected). Additionally, the instability of H-1B visas remains. The September 30, 2026 grandfathering filing date has passed. Petitions filed on or before that date kept protection.</p>
 
 <h3>What are the core requirements of the EB-5 immigrant investor program?</h3>
 

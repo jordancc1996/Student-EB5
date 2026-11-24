@@ -10,6 +10,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { formatDisplayDate, toIsoDate } from '@/lib/lastUpdated';
+import { GRANDFATHERING_FILING_DEADLINE, RC_PROGRAM_AUTHORIZED_THROUGH, formatProgramDate } from '@/data/program';
 
 const playbookSections: {
   icon: LucideIcon;
@@ -114,7 +115,8 @@ const StudentPlaybookMainContent = ({ lastUpdatedIso }: { lastUpdatedIso?: strin
             ) : null}
             <p className="editorial-prose text-lg text-white/80 max-w-2xl">
               EB-5 green card international students use this playbook to navigate OPT timelines, STEM OPT
-              extension risks, concurrent filing, and the September 30, 2026 grandfathering deadline.
+              extension risks, and concurrent filing. Petitions filed on or before {formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} kept grandfathering protection.
+              Petitions can still be filed through {formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)} without that protection.
             </p>
           </div>
         </div>

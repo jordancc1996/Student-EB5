@@ -3,10 +3,10 @@ id: 13
 slug: eb5-lifeline-h1b-workers
 title: EB-5 Visa H-1B Workers - Escape Employer Dependency With Concurrent Filing
 metaTitle: "EB-5 for H-1B Workers - Concurrent Filing | StudentEB5"
-metaDescription: "EB-5 visa H-1B workers can file I-526E and I-485 together, get an EAD within months, and exit lottery risk via an $800,000 rural TEA before Sept 30, 2026."
+metaDescription: "EB-5 visa H-1B workers can file I-526E and I-485 together, get an EAD within months, and use an $800,000 rural TEA. The Sept 30, 2026 date has passed."
 excerpt: The H-1B program faces unprecedented challenges. Learn how the EB-5 immigrant investor program offers H-1B workers independence, security, and a direct route to permanent residency.
 date: December 9, 2025
-updatedDate: February 26, 2026
+updatedDate: November 23, 2026
 category: Immigration Strategy
 readTime: 10 min read
 image: ../../assets/blog-eb5-h1b-lifeline.jpg
@@ -32,7 +32,7 @@ tocLabels:
   the-eb-5-visa-solution: A green card without employer sponsorship
 ---
 
-<intro>EB-5 visa H-1B workers get the only self-sponsored green card path that removes employer dependency, lets you file I-526E and I-485 together, and delivers an Employment Authorization Document within months. An $800,000 investment in a rural TEA project also qualifies for the 20% rural visa set-aside, which can reduce wait times to 4–8 months for backlogged nationals from India and China. Filing before September 30, 2026 locks in grandfathering protection under current program rules. The sections below compare EB-5 against H-1B on sponsorship, job mobility, family inclusion, and concurrent filing mechanics.</intro>
+<intro>EB-5 visa H-1B workers get the only self-sponsored green card path that removes employer dependency, lets you file I-526E and I-485 together, and delivers an Employment Authorization Document within months. An $800,000 investment in a rural TEA project also qualifies for the 20% rural visa set-aside, which can reduce wait times to 4–8 months for backlogged nationals from India and China. Petitions filed on or before September 30, 2026 kept grandfathering protection. Petitions filed now can still proceed while the program is authorized through September 30, 2027, without that protection. The sections below compare EB-5 against H-1B on sponsorship, job mobility, family inclusion, and concurrent filing mechanics.</intro>
 
 ## The H-1B Program: Benefits and Challenges
 

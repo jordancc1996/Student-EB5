@@ -6,6 +6,7 @@ metaTitle: "H-1B Grace Period - Layoff Status Plan | StudentEB5"
 metaDescription: "H-1B 60-day grace period rules after a 2026 layoff: clock starts at termination under 8 CFR 214.1(l)(2), then bridge options and EB-5 concurrent filing."
 excerpt: When an H-1B layoff hits, the 60-day grace period clock starts immediately. This guide breaks down the regulatory mechanics under 8 CFR 214.1(l)(2), bridging strategies including B-1/B-2 and H-4 EAD, cap-exempt employer transfers, and EB-5 concurrent filing as a permanent solution.
 date: June 3, 2026
+updatedDate: November 23, 2026
 category: H-1B Strategy
 readTime: 11 min read
 image: ../../assets/blog-h1b-60-day-grace-period.jpg
@@ -99,7 +100,7 @@ This concurrent filing mechanism completely insulates the worker from the conseq
 
 ### September 30, 2026 EB-5 Grandfathering Deadline
 
-The EB-5 program is the best option for recently laid-off H-1B professionals, but this might not last long. Grandfathering provisions that protect investors from future legislative lapses or program expirations are scheduled to expire on September 30, 2026. Additionally, an inflation-adjusted increase is anticipated in early 2027, which is expected to raise the minimum TEA investment to $940,000 – $950,000. For the full deadline breakdown, review our <a href="/research/eb5-grandfathering-2026-2027-deadlines">EB-5 grandfathering and 2027 price increase analysis</a>.
+The EB-5 program is the best option for recently laid-off H-1B professionals, but this might not last long. The September 30, 2026 grandfathering filing date has passed. Petitions filed on or before that date kept protection. Petitions filed after that date do not. Additionally, an inflation-adjusted increase is anticipated in early 2027, which is expected to raise the minimum TEA investment to $940,000 – $950,000. For the full deadline breakdown, review our <a href="/research/eb5-grandfathering-2026-2027-deadlines">EB-5 grandfathering and 2027 price increase analysis</a>.
 
 Individuals interested in pursuing the EB-5 pathway are encouraged to review the <a href="/pathways/h1b-to-green-card">H-1B to green card pathway</a> and the <a href="/eb5-investment-process">EB-5 investment process</a>, or <a href="/contact">contact the professionals at StudentEB5 for a complimentary consultation</a> to determine whether the EB-5 program aligns with their immigration, educational, and long-term goals.
 

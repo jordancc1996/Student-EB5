@@ -1,11 +1,12 @@
 ---
 id: 31
 slug: eb5-2026-official-white-paper
-title: EB-5 2026 White Paper - Attorney Insights on Filing Before Sept 30
+title: "EB-5 2026 White Paper - Attorney Insights on Filing and Grandfathering"
 metaTitle: "EB-5 2026 White Paper - Filing Insights | StudentEB5"
-metaDescription: "EB-5 2026 white paper findings for H-1B and F-1 investors: concurrent filing, rural set-asides, and why the Sept 30, 2026 grandfathering window is closing."
+metaDescription: "EB-5 2026 white paper findings for H-1B and F-1 investors: concurrent filing, rural set-asides, and what the passed Sept 30, 2026 grandfathering date means."
 excerpt: This white paper analyzes insights from leading EB-5 attorneys, independent researchers, and EB-5 business professionals to provide a comprehensive overview of the current state of the EB-5 program and a roadmap for prospective investors.
 date: March 11, 2026
+updatedDate: November 23, 2026
 category: White Paper
 readTime: 20 min read
 image: ../../assets/blog-eb5-whitepaper-2026.jpg
@@ -35,7 +36,7 @@ relatedPosts:
 
 The EB-5 program grants a path to a U.S. Green Card for foreign nationals who invest in a U.S. business that creates jobs for American workers. The EB-5 program has been fundamentally reshaped by the <a href="/research/post-reform-integrity-act-analysis">Reform and Integrity Act of 2022</a>. This landmark legislation reauthorized the popular Regional Center program and has introduced changes that dramatically improved the program and provided greater stability for investors. As a result of the RIA the program has become an increasingly attractive option for individuals on <a href="/research/eb5-lifeline-h1b-workers">H-1B</a> and <a href="/research/f1-students/f1-to-eb5-green-card">F-1 visas</a> already residing in the United States who face long backlogs (typically over a decade long) in other employment-based visa categories.
 
-However, the window of opportunity to take full advantage of the more favorable current rules is closing. A critical <a href="/research/eb5-grandfathering-2026-2027-deadlines">"grandfathering" provision</a> is set to expire on September 30, 2026, giving those interested in EB-5 only a few months to make a move. Track the countdown with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>.
+The September 30, 2026 grandfathering filing date has passed. A <a href="/research/eb5-grandfathering-2026-2027-deadlines">grandfathering provision</a> protects regional center petitions properly filed on or before that date if the program later lapses. Petitions filed after that date do not get that protection. Track authorization through September 30, 2027 with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>.
 
 ## Post-RIA Renaissance
 
@@ -53,11 +54,11 @@ Another significant improvement is the clarification of the investment "sustainm
 
 ## September 30, 2026: The Grandfathering Deadline
 
-The RIA has brought many positive changes but the legislation has also introduced a critical timeline that investors cannot afford to ignore. The Reform and Integrity Act included a grandfathering provision that protects investors who file their I-526E petitions on or before September 30, 2026. This provision ensures that petitions filed by this date will continue to be processed by USCIS even if the Regional Center Program is not reauthorized beyond its current expiration date of September 30, 2027. Anyone who files before September 30, 2026 is protected from any future changes to the EB-5 program.
+The RIA has brought many positive changes but the legislation has also introduced a critical timeline that investors cannot afford to ignore. The Reform and Integrity Act included a grandfathering provision for regional center petitions properly filed on or before September 30, 2026. The program is authorized through September 30, 2027. Regional center petitions properly filed on or before September 30, 2026 have statutory protection if the program later lapses. Petitions filed after that date do not.
 
 The deadline requires only that the petition be filed by that date. This means investors who begin the process now have sufficient time to prepare their documentation, select a project and submit their petition before the deadline.
 
-This creates a powerful incentive to act quickly. Filing after this date exposes investors to significant regulatory and political risk. The investment amount is already scheduled to increase to account for inflation on January 1, 2027 and other changes could be implemented in any future reauthorization of the program. Use our <a href="/tools/2026-eb5-investment-feasibility-calculator">EB-5 Investment Feasibility Calculator</a> to assess your financial readiness.
+Petitions filed after September 30, 2026 do not get grandfathering protection. Filing after this date exposes investors to significant regulatory and political risk. The investment amount is already scheduled to increase to account for inflation on January 1, 2027 and other changes could be implemented in any future reauthorization of the program. Use our <a href="/tools/2026-eb5-investment-feasibility-calculator">EB-5 Investment Feasibility Calculator</a> to assess your financial readiness.
 
 ## The Retrogression Puzzle: Rural vs. High Unemployment Areas
 
@@ -156,7 +157,7 @@ This is a common scenario. If you're on H-1B and have been laid off or are facin
 
 ### What is the significance of the September 30, 2026 grandfather deadline for EB-5 investors?
 
-The September 30, 2026, deadline is critical because investors must file their I-526E petitions by this date to be protected under the <a href="/research/eb5-grandfathering-2026-2027-deadlines">grandfathering provision</a>. This protection ensures their cases will continue processing even if the Regional Center Program is not reauthorized beyond its sunset date of September 30, 2027. Filing after September 30, 2026 exposes investors to potential regulatory changes, political risks and an anticipated increase in the minimum investment amount due to inflation starting January 1, 2027. Track the countdown with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>.
+The September 30, 2026 filing date has passed. Regional center petitions properly filed on or before that date have statutory protection if the program later lapses. Petitions can still be filed while the program is authorized through September 30, 2027, without that protection. Filing after September 30, 2026 exposes investors to potential regulatory changes, political risks and an anticipated increase in the minimum investment amount due to inflation starting January 1, 2027. Track the countdown with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>.
 
 ### How does the Reform and Integrity Act of 2022 (RIA) improve the EB-5 process for H-1B and F-1 Visa holders?
 

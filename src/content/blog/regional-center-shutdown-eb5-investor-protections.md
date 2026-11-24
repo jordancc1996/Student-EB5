@@ -6,7 +6,7 @@ metaTitle: "Regional Center Shutdown - EB-5 Protections | StudentEB5"
 metaDescription: "Regional center shutdown EB-5 rules under Section M cover good-faith investors, priority date retention, and amendment deadlines in 2026."
 excerpt: When USCIS terminates an EB-5 regional center, what happens to pending I-526E petitions, priority dates, and concurrent filings? A breakdown of Section M good-faith investor protections under the Reform and Integrity Act of 2022 for H-1B professionals and F-1 students.
 date: June 23, 2026
-updatedDate: August 31, 2026
+updatedDate: November 23, 2026
 category: Regional Analysis
 readTime: 9 min read
 image: ../../assets/blog-regional-center-shutdown.jpg
@@ -31,6 +31,8 @@ relatedPosts:
 ---
 
 <intro>What happens to an investor if an EB-5 regional center is terminated after an investor commits $800,000 - $1,050,000? This is a question that every EB-5 investor needs to ask themselves, so they are prepared for any worst case scenario (SPOILER: this answer isn't always straightforward). If an EB-5 regional center is terminated, the investor does not automatically lose their EB-5 case. Section 203(b)(5)(M) provides protections that may allow a good-faith investor to keep their immigration eligibility. Depending on the circumstances, the investor may be able to continue with the existing investment, reassociate with another approved regional center, or make a qualifying investment in a different new commercial enterprise. Post-RIA investors generally have 180 days after receiving formal notice of termination to take the required action and amend their I-526E petition. Investors who qualify for these protections may also retain their original priority date and receive age-out protection for eligible children. These protections primarily address the investor's immigration eligibility. They do not guarantee that the investor will recover their EB-5 investment if the regional center or underlying project experiences financial problems.</intro>
+
+Update, November 23, 2026: The September 30, 2026 grandfathering filing date has passed. This article now explains what that means for petitions filed before and after it.
 
 Most regional centers offer a structured and compliant approach to EB-5 investment, and with the right due diligence most investors move through the program smoothly. However, a small percentage of regional centers carry inherent risks. One of the most significant concerns for investors is the potential for a regional center to shut down unexpectedly. Understanding the implications of a regional center closure and the protections available is essential for safeguarding both financial investments and immigration prospects.
 
@@ -85,6 +87,6 @@ The EB-5 program offers a more predictable path to permanent residency for indiv
 
 We believe thorough due diligence is the best defense against regional center termination and the best way to mitigate financial and immigration risk. Prospective investors should carefully evaluate regional centers based on their track record of petition approvals, financial stability, and compliance with USCIS regulations. Assessing the economic viability of a regional center's business plan is essential, and asking the right questions to evaluate the track record of the regional center team is equally important. Our <a href="/research/choosing-rural-eb5-regional-center-guide">regional center selection guide</a> and <a href="/research/19-questions-rural-eb5-project-due-diligence">19 due diligence questions</a> walk through how to vet a project before committing capital.
 
-With the <a href="/research/eb5-grandfathering-2026-2027-deadlines">September 30, 2026 deadline</a> approaching, we highly recommend securing a place in the current EB-5 program before the window closes. If you are an international student or H-1B professional seeking a reliable path to a U.S. green card, please <a href="/contact">contact StudentEB5 today</a> to explore your options.
+The <a href="/research/eb5-grandfathering-2026-2027-deadlines">September 30, 2026 grandfathering filing date</a> has passed. Petitions filed on or before that date kept protection. Petitions filed now can still proceed while the program is authorized through September 30, 2027, without that protection. If you are an international student or H-1B professional seeking a reliable path to a U.S. green card, please <a href="/contact">contact StudentEB5 today</a> to explore your options.
 
 *The opinions expressed on this website are solely those of the author/presenter. The information provided is for general informational purposes only and should not be considered professional or legal advice. Student EB5 and its contributors do not endorse or take responsibility for any actions taken based on the information presented here. Visitors are strongly advised to consult with qualified immigration attorneys and financial advisors before making any EB-5 investment decisions or taking any actions based on the content on this website.*

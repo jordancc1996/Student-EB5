@@ -105,14 +105,14 @@ export default function Eb5LandscapeMay2026Body() {
 
               <h2 id="2026-and-2027-countdowns">2026 and 2027 Countdowns</h2>
               <p>
-                The most pressing information for investors today is the series of deadlines approaching in 2026 and 2027. These are not merely administrative dates. They are statutory triggers that may change cost, timing, and protection levels within the EB-5 program.
+                The September 30, 2026 grandfathering filing date has passed. The regional center program is authorized through September 30, 2027. These dates are statutory triggers for protection and authorization.
               </p>
               <h3>September 30, 2026</h3>
               <p>
-                The RIA introduced a grandfathering provision that is one of the most important protections offered to EB-5 investors. This provision is designed to protect investors who file by September 30, 2026, even if the program later faces a lapse in authorization.
+                The RIA introduced a grandfathering provision for regional center petitions properly filed on or before September 30, 2026. Those petitions have statutory protection if the program later lapses.
               </p>
               <p>
-                In the past, when the Regional Center program expired, many investors were left in uncertainty with petitions frozen for months or years. Investors who file before the grandfathering deadline may be locked in under the current statutory framework, regardless of what happens in Congress later. This deadline is a primary driver of the filing surge expected through the end of 2026. Use the <a href="/tools/grandfathering-countdown">EB-5 grandfathering countdown tool</a> to track this window.
+                In the past, when the Regional Center program expired, many investors were left in uncertainty with petitions frozen for months or years. Petitions filed on or before September 30, 2026 have statutory protection if the program later lapses. Petitions filed after that date do not. Use the <a href="/tools/grandfathering-countdown">EB-5 grandfathering countdown tool</a> to track authorization through September 30, 2027.
               </p>
               <h3>January 1, 2027</h3>
               <p>
@@ -179,7 +179,7 @@ export default function Eb5LandscapeMay2026Body() {
               <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
               <h3>What is the EB-5 grandfathering deadline in 2026?</h3>
               <p>
-                The EB-5 grandfathering deadline is September 30, 2026. Investors who file before this date may receive protection if the Regional Center program later faces a lapse in authorization.
+                The EB-5 grandfathering filing date was September 30, 2026. Regional center petitions properly filed on or before that date have statutory protection if the program later lapses. Petitions filed after that date do not get that protection, but they can still be filed while the program is authorized through September 30, 2027.
               </p>
 
               <h3>When could EB-5 investment amounts increase?</h3>

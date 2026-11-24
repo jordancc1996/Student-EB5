@@ -156,6 +156,28 @@ for (const urlPath of sitemapPaths) {
   if (noindexPaths.has(urlPath)) failures.push(`${urlPath}: noindex page is in the sitemap`);
 }
 
+const upcomingDeadline = /(before|by)\s+Sept(ember|\.)?\s+30,?\s+2026/i;
+const indexable = new Set(sitemapPaths.filter((urlPath) => !noindexPaths.has(urlPath)));
+
+function visibleText(html) {
+  const body = html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i)?.[1] ?? html;
+  return decode(
+    body
+      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+      .replace(/<[^>]+>/g, ' '),
+  );
+}
+
+for (const page of pages) {
+  if (!indexable.has(page.urlPath)) continue;
+  for (const sentence of visibleText(page.html).split(/(?<=[.!?])\s+/)) {
+    if (upcomingDeadline.test(sentence) && !/on or before/i.test(sentence)) {
+      warnings.push(`${page.urlPath}: upcoming September 30, 2026 wording: ${sentence.slice(0, 180)}`);
+    }
+  }
+}
+
 function linksTo(html, urlPath) {
   const hrefs = html.match(/href=["']([^"']+)["']/gi) ?? [];
   for (const raw of hrefs) {

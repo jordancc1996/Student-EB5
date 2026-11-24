@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import { GraduationCap, Clock, Calendar, Dice5, DollarSign, Wallet } from 'lucide-react';
 import toolsHero from '@/assets/tools-hero.jpg';
+import { GRANDFATHERING_FILING_DEADLINE, RC_PROGRAM_AUTHORIZED_THROUGH, formatProgramDate } from '@/data/program';
 
 const pathwayFont = "'Inter', 'Helvetica Neue', sans-serif";
 
@@ -15,7 +16,7 @@ const tools = [
     href: '/tools/grandfathering-countdown',
     icon: Clock,
     title: 'Grandfathering Countdown',
-    desc: 'Track time remaining until the September 30, 2026 EB-5 grandfathering deadline with milestone markers.',
+    desc: `The ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} grandfathering filing date has passed. The countdown tracks authorization through ${formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}.`,
   },
   {
     href: '/tools/opt-calculator',
@@ -63,8 +64,7 @@ export default function ToolsHubMainContent({ children }: PropsWithChildren) {
             className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-md"
             style={{ fontFamily: pathwayFont }}
           >
-            EB-5 immigration tools calculators here include OPT dates, $800,000 feasibility, lottery odds, and the Sept
-            30, 2026 grandfathering countdown. Start with the{' '}
+            EB-5 immigration tools calculators here include OPT dates, $800,000 feasibility, and lottery odds. The {formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} grandfathering filing date has passed. The countdown tracks authorization through {formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}. Start with the{' '}
             <a href="/eb5-green-card-international-students-playbook" className="text-white underline underline-offset-4 hover:text-white/90">
               International Student Playbook
             </a>{' '}

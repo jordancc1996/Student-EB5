@@ -153,7 +153,7 @@ const ResourcesMainContent = () => {
         </h1>
         <p className="text-xl text-muted-foreground mb-4">
           EB-5 resources international students use here include USCIS forms, playbook links, and research tied to the
-          $800,000 TEA and Sept 30, 2026 filing window.
+          $800,000 TEA and planning after the September 30, 2026 grandfathering date.
         </p>
         <p className="text-lg text-muted-foreground">
           New to EB-5? Read the{' '}

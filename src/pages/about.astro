@@ -16,10 +16,11 @@ import { SITE_CONFIG } from '@/lib/seo/config';
 import { seoTitle } from '@/lib/seo/documentTitle';
 import { generateAboutPageSchema } from '@/lib/seo/structured-data';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
+import { GRANDFATHERING_FILING_DEADLINE, RC_PROGRAM_AUTHORIZED_THROUGH, formatProgramDate } from '@/data/program';
 
 const title = 'EB-5 Immigration Advisors for F-1 and H-1B';
 const description =
-  'EB-5 immigration advisors international students use StudentEB5 for F-1 and H-1B green card strategy, $800,000 TEA paths, and Sept 30, 2026 filing timing.';
+  `EB-5 immigration advisors international students use for $800,000 TEA paths after ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)}. The program is authorized through ${formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}.`;
 const pageCanonical = `${SITE_CONFIG.url}/about`;
 const ogTitle = seoTitle(title);
 const ogDescription = description;
@@ -71,8 +72,8 @@ const lastUpdatedIso = getPageLastUpdated('/about');
           EB-5 Immigration Advisors International Students - F-1 and H-1B Guidance
         </h1>
         <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-          EB-5 immigration advisors international students trust StudentEB5 to map $800,000 TEA filings, concurrent EAD
-          timing, and the Sept 30, 2026 grandfathering window.
+          EB-5 immigration advisors international students trust StudentEB5 to map $800,000 TEA filings and concurrent EAD
+          timing. The {formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} protection date has passed. The program is authorized through {formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}.
         </p>
       </div>
     </section>

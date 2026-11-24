@@ -20,6 +20,13 @@ import LastUpdated from '@/components/LastUpdated.astro';
 import EditorialPhoto from '@/components/EditorialPhoto.astro';
 import PagePhotoCredits from '@/components/PagePhotoCredits.astro';
 import RelatedPathways from '@/components/RelatedPathways.astro';
+import {
+  GRANDFATHERING_FILING_DEADLINE,
+  RC_PROGRAM_AUTHORIZED_THROUGH,
+  VISA_BULLETIN_LATEST_MONTH,
+  VISA_BULLETIN_SOURCE,
+  formatProgramDate,
+} from '@/data/program';
 
 const title = 'H-1B to EB-5 - Concurrent Filing Path | StudentEB5';
 const description =
@@ -228,7 +235,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
               A Rare Window for EB-5 Investors: Concurrent Filing is Open NOW
             </h2>
             <p class="editorial-prose text-base" style="color: #000000;">
-              EB-5 reserved categories are current on the most recent March 2026 Visa Bulletin. This means that eligible investors in the United States can <span class="underline">file I-526E and I-485 at the same time</span> and bypass years of waiting in other visa categories. See our guide to <a href="/research/j1-f1-h1b-eb5-concurrent-filing" class="underline">EB-5 concurrent filing for H-1B holders</a>. Petitions filed before September 30, 2026, will be grandfathered under current provisions and protect EB-5 investors from any future lapse or congressional inaction. After September 30, 2026, these protections disappear. Review the <a href="/research/eb5-grandfathering-2026-2027-deadlines" class="underline">EB-5 grandfathering deadline analysis</a> for timing details.
+              As of the {VISA_BULLETIN_LATEST_MONTH} <a href={VISA_BULLETIN_SOURCE} class="underline">Visa Bulletin</a>, the EB-5 rural, high-unemployment and infrastructure set-aside categories are current for all countries, including India and China. This means that eligible investors in the United States can <span class="underline">file I-526E and I-485 at the same time</span> and bypass years of waiting in other visa categories. See our guide to <a href="/research/j1-f1-h1b-eb5-concurrent-filing" class="underline">EB-5 concurrent filing for H-1B holders</a>. Petitions filed on or before {formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} kept grandfathering protection. Petitions filed now can still proceed while the program is authorized through {formatProgramDate(RC_PROGRAM_AUTHORIZED_THROUGH)}, without that protection. Review the <a href="/research/eb5-grandfathering-2026-2027-deadlines" class="underline">EB-5 grandfathering deadline analysis</a> for timing details.
             </p>
           </div>
           <div class="text-center mt-6">

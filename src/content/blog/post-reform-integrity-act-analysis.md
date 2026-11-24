@@ -6,7 +6,7 @@ metaTitle: "EB-5 Reform and Integrity Act - Investor Changes"
 metaDescription: "The EB-5 Reform and Integrity Act of 2022 added concurrent filing, rural priority processing in 4 to 8 months, and mandatory I-956F pre-approval."
 excerpt: The 2022 enactment of the EB-5 Reform and Integrity Act has fundamentally reshaped the landscape of US investment immigration. The EB-5 has transitioned into a transparent and regulated program with investor safety being the main focus.
 date: January 12, 2026
-updatedDate: March 3, 2026
+updatedDate: November 23, 2026
 category: Legislation
 readTime: 15 min read
 image: ../../assets/blog-ria-analysis.jpg
@@ -76,9 +76,9 @@ A solid project should have its equity secured and a signed construction loan te
 
 ## The Future of EB-5
 
-The program has two looming deadlines that were established by the Reform and Integrity Act. Track these with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>:
+The program has two dates that were established by the Reform and Integrity Act. Track the authorization date with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>:
 
-**September 30, 2026 (Grandfathering Deadline):** Petitions filed before this date will be protected under current rules even if the law changes or expires later. Read more about <a href="/research/eb5-grandfathering-2026-2027-deadlines">grandfathering explained</a>.
+**September 30, 2026 (Grandfathering Deadline):** That filing date has passed. Regional center petitions properly filed on or before it have statutory protection if the program later lapses. Petitions filed after it do not. Read more about <a href="/research/eb5-grandfathering-2026-2027-deadlines">grandfathering explained</a>.
 
 **September 30, 2027 (RIA Sunset):** Current legislation is scheduled to expire the program on this date.
 
@@ -106,7 +106,7 @@ EB-5 capital must remain "at risk". If a project fails to create the required jo
 
 ### What is grandfathering?
 
-Petitions filed before September 30, 2026 are grandfathered meaning they will continue to be processed according to current rules even if the EB-5 law expires or is changed by congress.
+Petitions filed on or before September 30, 2026 have statutory protection if the program later lapses. Petitions filed after that date do not get that protection.
 
 ---
 

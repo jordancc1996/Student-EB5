@@ -6,7 +6,7 @@ metaTitle: H-1B Layoffs EB-5 - Self-Sponsored Green Card | StudentEB5
 metaDescription: "H-1B layoffs EB-5 planning in 2026 pairs the 60-day grace period with an $800,000 TEA investment so tech workers can exit employer dependency."
 excerpt: The H-1B visa ties workers to employers, leaving them vulnerable during tech layoffs. The EB-5 immigrant investor program offers a self-sponsored alternative path to permanent residency, career freedom, and entrepreneurship for skilled professionals with the financial means to invest.
 date: February 26, 2026
-updatedDate: April 14, 2026
+updatedDate: November 23, 2026
 category: H-1B Resources
 readTime: 12 min read
 image: ../../assets/blog-h1b-tech-layoffs-eb5.jpg
@@ -92,9 +92,9 @@ For H-1B workers already residing in the United States, the EB-5 process can be 
 
 ## Conclusion
 
-The EB-5 immigrant investor program remains a viable and direct path to permanent residency in the United States for those who have the necessary capital. The EB-5 offers a degree of control and flexibility not found in any other visa categories. The recent reforms allowing for concurrent filing have made the program even more attractive to individuals already in the United States. While the initial investment is significant, the long-term returns make it a compelling proposition. <a href="/research/eb5-grandfathering-2026-2027-deadlines">Grandfathering deadlines</a> for the current program are on September 30, 2026, and investors are encouraged to act now to receive the benefits of the current program before the grandfathering provision expires. Track the deadline with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>.
+The EB-5 immigrant investor program remains a viable and direct path to permanent residency in the United States for those who have the necessary capital. The EB-5 offers a degree of control and flexibility not found in any other visa categories. The recent reforms allowing for concurrent filing have made the program even more attractive to individuals already in the United States. While the initial investment is significant, the long-term returns make it a compelling proposition. The <a href="/research/eb5-grandfathering-2026-2027-deadlines">September 30, 2026 grandfathering filing date</a> has passed. Petitions filed on or before that date kept protection. Petitions can still be filed while the program is authorized through September 30, 2027, without that protection.
 
-Ready to take the next step toward U.S. permanent residency? With the September 30, 2026 grandfathering deadline approaching now is the time to secure your place in the current EB-5 program before the window closes. Review the <a href="/pathways/h1b-to-green-card">H-1B to green card pathway</a> and the <a href="/eb5-investment-process">EB-5 investment process</a>.
+Ready to take the next step toward U.S. permanent residency? The September 30, 2026 grandfathering filing date has passed. Petitions filed on or before that date kept protection. Review the <a href="/pathways/h1b-to-green-card">H-1B to green card pathway</a> and the <a href="/eb5-investment-process">EB-5 investment process</a>.
 
 <a href="/contact">Contact Student EB5</a> today to explore your options and begin your journey to a green card.
 
