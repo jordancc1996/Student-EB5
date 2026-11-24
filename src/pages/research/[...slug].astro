@@ -42,6 +42,16 @@ import { resolveArticlePathway } from '@/lib/research/resolveArticlePathway';
 import { selectRelatedResearch } from '@/lib/research/relatedResearch';
 import { injectEditorialPhotos } from '@/lib/photos/injectEditorialPhotos';
 import PagePhotoCredits from '@/components/PagePhotoCredits.astro';
+import H1bGracePeriodCalculator from '@/components/H1bGracePeriodCalculator';
+import { GRACE_PERIOD_FAQS } from '@/lib/h1bGracePeriod';
+import {
+  H1B_GRACE_PERIOD_REGULATION_URL,
+  USCIS_EB5_ADJUSTMENT,
+  USCIS_H1B_NEW_PETITION,
+  USCIS_POST_TERMINATION_OPTIONS,
+  USCIS_TERMINATION_OPTIONS_URL,
+  USCIS_TERMINATION_PAGE_ARCHIVED,
+} from '@/data/program';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getCollection('blog');
@@ -58,6 +68,27 @@ interface Props {
 const { entry } = Astro.props;
 const post = entry.data;
 const slug = post.slug;
+const isGraceCalculator = slug === 'h1b-60-day-grace-period-layoff-guide';
+const graceFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: GRACE_PERIOD_FAQS.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+const graceAppSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'H-1B grace period calculator',
+  url: `${SITE_CONFIG.url}/research/h1b-60-day-grace-period-layoff-guide`,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  description:
+    'Estimates the earlier of 60 days after the last day of employment and the I-94 expiration date.',
+};
 
 if (!entry.body) {
   throw new Error(`Blog entry missing body: ${slug}`);
@@ -154,6 +185,16 @@ const relatedPosts = allPosts
     <meta name="twitter:title" content={metaTitle} />
     <meta name="twitter:description" content={post.metaDescription} />
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
+    {
+      isGraceCalculator && (
+        <script type="application/ld+json" set:html={JSON.stringify(graceFaqSchema)} />
+      )
+    }
+    {
+      isGraceCalculator && (
+        <script type="application/ld+json" set:html={JSON.stringify(graceAppSchema)} />
+      )
+    }
   </Fragment>
 
   <div class="min-h-screen bg-background research-article-page research-article-page--rail">
@@ -182,6 +223,7 @@ const relatedPosts = allPosts
             <h1 class="research-article-title mb-6 drop-shadow-lg text-white text-left">
               {post.title}
             </h1>
+            {isGraceCalculator && <H1bGracePeriodCalculator client:load />}
             <div class="research-article-meta flex flex-wrap items-center justify-start gap-6 text-white/90 font-medium">
               <div class="flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
@@ -283,6 +325,30 @@ const relatedPosts = allPosts
 
           <article>
             <LegalDisclaimer className="mb-8 article-legal-disclaimer" />
+            {
+              isGraceCalculator && (
+                <div class="article-content">
+                  <h2>What you can do in the 60 days</h2>
+                  <p>
+                    <a href={USCIS_TERMINATION_OPTIONS_URL}>USCIS, Options for Nonimmigrant Workers Following Termination of Employment</a>
+                    {' '}states: {USCIS_TERMINATION_PAGE_ARCHIVED} USCIS describes these options on that page:
+                  </p>
+                  <ul>
+                    {USCIS_POST_TERMINATION_OPTIONS.map((option) => (
+                      <li>{option}</li>
+                    ))}
+                  </ul>
+                  <p>{USCIS_H1B_NEW_PETITION}</p>
+                  <p>
+                    {USCIS_EB5_ADJUSTMENT}{' '}
+                    <a href="/pathways/eb5-concurrent-filing">EB-5 concurrent filing</a>
+                    {' '}and the{' '}
+                    <a href="/pathways/h1b-to-green-card">H-1B to green card pathway</a>
+                    {' '}describe that EB-5 filing on this site.
+                  </p>
+                </div>
+              )
+            }
             {summaryHtml && <ArticleSummary html={summaryHtml} />}
             {
               showPostIntroCta ? (
@@ -303,6 +369,19 @@ const relatedPosts = allPosts
               />
             )}
             {secondHalfHtml && <div class="article-content" set:html={secondHalfHtml} />}
+            {
+              isGraceCalculator && (
+                <div class="article-content">
+                  <h2>Grace period questions</h2>
+                  {GRACE_PERIOD_FAQS.map((item) => (
+                    <div>
+                      <h3>{item.question}</h3>
+                      <p>{item.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              )
+            }
           </article>
 
           <div class="mt-12 p-6 bg-muted/50 border border-border rounded-lg">

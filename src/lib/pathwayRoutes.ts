@@ -189,7 +189,7 @@ export const landingPages: LandingPage[] = [
   {
     id: 'h1b-60-day-clock',
     url: '/pathways/h1b-60-day-clock',
-    title: 'H-1B 60-Day Grace Period Guide',
+    title: 'EB-5 options after an H-1B layoff',
     applicableWhen: {
       statuses: ['h1b'],
       situations: ['h1b-layoff'],
@@ -202,7 +202,7 @@ export const landingPages: LandingPage[] = [
       '/research/h1b-tech-layoffs-eb5-entrepreneurship',
     ],
     hasDedicatedContent: true,
-    lastReviewed: LAST_REVIEWED,
+    lastReviewed: '2026-11-24',
     publishDate: PUBLISH_DATE_ALREADY_LIVE,
   },
   {

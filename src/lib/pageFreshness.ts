@@ -44,6 +44,7 @@ export const pageLastUpdated: Record<string, string> = {
   '/tools/eb5-regional-center-scorecard': '2026-11-23',
   '/tools/source-of-funds-calculator': '2026-11-23',
   '/tools/h1b-lottery-odds-calculator': '2026-11-23',
+  '/faq/h1b-grace-period-eb5-options': '2026-11-24',
 };
 
 export function normalizePathname(pathname: string): string {

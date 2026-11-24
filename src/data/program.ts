@@ -64,6 +64,51 @@ export const H1B_ENTRIES_PER_WAGE_LEVEL = { 1: 1, 2: 2, 3: 3, 4: 4 };
 
 export const H1B_WEIGHTED_RULE_SOURCE = 'https://www.govinfo.gov/content/pkg/FR-2025-12-29/pdf/2025-23853.pdf';
 
+/** 8 CFR 214.1(l)(2), current eCFR text. */
+export const H1B_GRACE_PERIOD_REGULATION_URL =
+  'https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-214/section-214.1';
+
+export const H1B_GRACE_PERIOD_MAX_DAYS = 60;
+
+export const H1B_GRACE_PERIOD_REGULATION_TEXT =
+  'An alien admitted or otherwise provided status in E-1, E-2, E-3, H-1B, H-1B1, L-1, O-1 or TN classification and his or her dependents shall not be considered to have failed to maintain nonimmigrant status solely on the basis of a cessation of the employment on which the alien\'s classification was based, for up to 60 consecutive days or until the end of the authorized validity period, whichever is shorter, once during each authorized validity period. DHS may eliminate or shorten this 60-day period as a matter of discretion. Unless otherwise authorized under 8 CFR 274a.12, the alien may not work during such a period.';
+
+/** USCIS, Options for Nonimmigrant Workers Following Termination of Employment. Archived page. */
+export const USCIS_TERMINATION_OPTIONS_URL =
+  'https://www.uscis.gov/working-in-the-united-states/information-for-employers-and-employees/options-for-nonimmigrant-workers-following-termination-of-employment';
+
+export const USCIS_TERMINATION_PAGE_ARCHIVED =
+  'The information on this page is out of date. However, some of the content may still be useful, so we have archived the page.';
+
+export const USCIS_POST_TERMINATION_OPTIONS = [
+  'File an application for a change of nonimmigrant status.',
+  'File an application for adjustment of status.',
+  'File an application for a compelling circumstances employment authorization document.',
+  'Be the beneficiary of a nonfrivolous petition to change employer.',
+  'Depart the United States.',
+] as const;
+
+export const USCIS_H1B_NEW_PETITION =
+  'If the worker is an eligible H-1B nonimmigrant and an employer files a new nonfrivolous H-1B petition on their behalf, the worker can begin work immediately after USCIS receives the petition and continue to maintain their H-1B status.';
+
+export const USCIS_GRACE_PERIOD_LENGTH =
+  'Regulations permit a discretionary grace period that allows workers in E-1, E-2, E-3, H-1B, H-1B1, L-1, O-1, or TN classifications (and their dependents) to be considered as having maintained status in that same classification after the end of employment for up to 60 consecutive calendar days or until the end of the authorized nonimmigrant validity period, whichever is shorter.';
+
+export const USCIS_GRACE_PERIOD_START =
+  'The maximum 60-day grace period starts the day after termination of employment, which is typically determined based on the last day for which a salary or wage is paid.';
+
+export const USCIS_GRACE_PERIOD_NO_ACTION =
+  'If the worker takes no action within the grace period, they and their dependents may then need to depart the United States within 60 days, or when their authorized validity period ends, whichever is shorter.';
+
+export const USCIS_GRACE_PERIOD_ONCE =
+  'You are eligible for the maximum 60-day grace period once during each authorized employer petition validity period.';
+
+export const USCIS_GRACE_PERIOD_NO_WORK =
+  'Employment is prohibited during the up to 60-day grace period unless otherwise authorized.';
+
+export const USCIS_EB5_ADJUSTMENT =
+  'Some workers may be eligible to file a self-petitioned immigrant visa petition concurrently with an adjustment of status application. Examples of immigrant classifications that are eligible for self-petitioning include EB-1 Extraordinary Ability and EB-5 Immigrant Investor.';
+
 export function formatProgramDate(isoDate: string): string {
   const [year, month, day] = isoDate.split('-').map(Number);
   return new Date(Date.UTC(year, month - 1, day)).toLocaleDateString('en-US', {
