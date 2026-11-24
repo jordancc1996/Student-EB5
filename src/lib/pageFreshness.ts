@@ -38,7 +38,7 @@ export const pageLastUpdated: Record<string, string> = {
   '/tools/tuition-calculator': '2026-11-23',
   '/tools/grandfathering-countdown': '2026-11-23',
   '/tools/2026-eb5-investment-feasibility-calculator': '2026-11-23',
-  '/tools/eb5-concurrent-filing-eligibility': '2026-11-23',
+  '/tools/eb5-concurrent-filing-eligibility': '2026-11-24',
   '/tools/eb5-cspa-calculator': '2026-11-23',
   '/tools/eb5-source-of-funds-checklist': '2026-11-23',
   '/tools/eb5-regional-center-scorecard': '2026-11-23',

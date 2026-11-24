@@ -46,7 +46,7 @@ const ConcurrentFilingCheckerMainContent = ({ children }: { children?: ReactNode
     }
     return {
       title: 'Retrogression Warning',
-      msg: "In the 'Unreserved' category, China and India face backlogs. We recommend a Rural or Reserved project to bypass this and file concurrently.",
+      msg: "In the 'Unreserved' category, China and India face backlogs. A project in a reserved category (rural, high-unemployment or infrastructure) may avoid this.",
     };
   };
 
@@ -131,8 +131,8 @@ const ConcurrentFilingCheckerMainContent = ({ children }: { children?: ReactNode
                     className="w-full bg-transparent border-b border-white/30 text-white py-2 focus:outline-none focus:border-white appearance-none cursor-pointer"
                   >
                     <option className="text-black" value="">Select Project Type...</option>
-                    <option className="text-black" value="reserved">Rural / Reserved (Priority)</option>
-                    <option className="text-black" value="unreserved">Urban / Unreserved</option>
+                    <option className="text-black" value="reserved">Reserved: rural, high-unemployment or infrastructure</option>
+                    <option className="text-black" value="unreserved">Unreserved: outside those categories</option>
                   </select>
                 </div>
 
