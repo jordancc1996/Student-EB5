@@ -25,10 +25,20 @@ function formatProgramDate(isoDate) {
   });
 }
 
+function readBool(name) {
+  const match = source.match(new RegExp(`export const ${name} = (true|false)`));
+  if (!match) throw new Error(`Missing boolean ${name} in src/data/program.ts`);
+  return match[1] === 'true';
+}
+
 const month = readConst('VISA_BULLETIN_LATEST_MONTH');
-const setAside = readConst('EB5_SET_ASIDE_FINAL_ACTION');
-const indiaDate = formatProgramDate(readConst('EB5_UNRESERVED_FINAL_ACTION_INDIA'));
-const chinaDate = formatProgramDate(readConst('EB5_UNRESERVED_FINAL_ACTION_CHINA'));
+const setAsidesCurrent = readBool('EB5_SET_ASIDES_CURRENT');
+if (!setAsidesCurrent) {
+  throw new Error('EB5_SET_ASIDES_CURRENT is false, so the queue diagram cannot say current');
+}
+const setAsideWord = 'current';
+const indiaDate = formatProgramDate(readConst('EB5_UNRESERVED_FAD_INDIA'));
+const chinaDate = formatProgramDate(readConst('EB5_UNRESERVED_FAD_CHINA'));
 const indiaRule = readConst('INDIA_REMITTANCE_RULE');
 const chinaRule = readConst('CHINA_REMITTANCE_RULE');
 
@@ -49,7 +59,7 @@ function esc(value) {
     .replace(/"/g, '&quot;');
 }
 
-function flowSvg(title, steps) {
+function flowSvg(title, steps, desc) {
   const width = 1200;
   const height = 360;
   const pad = 36;
@@ -84,10 +94,10 @@ function flowSvg(title, steps) {
       );
     }
   });
-  return wrapSvg(width, height, title, parts.join('\n'));
+  return wrapSvg(width, height, title, parts.join('\n'), desc);
 }
 
-function queueSvg(country, finalActionDate) {
+function queueSvg(country, finalActionDate, desc) {
   const width = 1200;
   const height = 420;
   const cardY = 120;
@@ -96,27 +106,48 @@ function queueSvg(country, finalActionDate) {
   const left = 56;
   const right = width - 56 - cardW;
   const cards = [
-    { x: left, label: 'Set-aside final action', value: setAside, note: 'Rural, high-unemployment, and infrastructure' },
-    { x: right, label: 'Unreserved final action', value: finalActionDate, note: country },
+    {
+      x: left,
+      lines: [
+        'Set-aside (rural, high unemployment,',
+        `infrastructure): ${setAsideWord}`,
+        `${month} Visa Bulletin`,
+      ],
+    },
+    {
+      x: right,
+      lines: [
+        'Unreserved: final action date',
+        finalActionDate,
+        `${month} Visa Bulletin`,
+      ],
+    },
   ];
   const parts = cards.map((card) => {
+    const lineSvg = card.lines
+      .map((line, index) => {
+        const y = cardY + 62 + index * 40;
+        const family = index === 1 ? DISPLAY : SANS;
+        const size = index === 1 ? 26 : 16;
+        return `<text x="${card.x + cardW / 2}" y="${y}" text-anchor="middle" font-family="${family}" font-size="${size}" fill="${INK}">${esc(line)}</text>`;
+      })
+      .join('\n');
     return [
       `<rect x="${card.x}" y="${cardY}" width="${cardW}" height="${cardH}" fill="${CARD}" stroke="${INK}" stroke-width="1.5"/>`,
-      `<text x="${card.x + cardW / 2}" y="${cardY + 58}" text-anchor="middle" font-family="${SANS}" font-size="16" fill="${INK}">${esc(card.label)}</text>`,
-      `<text x="${card.x + cardW / 2}" y="${cardY + 112}" text-anchor="middle" font-family="${DISPLAY}" font-size="32" fill="${INK}">${esc(card.value)}</text>`,
-      `<text x="${card.x + cardW / 2}" y="${cardY + 156}" text-anchor="middle" font-family="${SANS}" font-size="15" fill="${INK}">${esc(card.note)}</text>`,
+      lineSvg,
     ].join('\n');
   });
   parts.push(
-    `<text x="${width / 2}" y="370" text-anchor="middle" font-family="${SANS}" font-size="15" fill="${INK}">${esc(month)} Visa Bulletin</text>`,
+    `<text x="${width / 2}" y="390" text-anchor="middle" font-family="${SANS}" font-size="15" fill="${INK}">A final action date is not a processing time.</text>`,
   );
-  return wrapSvg(width, height, `EB-5 visa lines, ${country}`, parts.join('\n'));
+  return wrapSvg(width, height, `EB-5 visa lines, ${country}`, parts.join('\n'), desc);
 }
 
-function wrapSvg(width, height, title, body) {
+function wrapSvg(width, height, title, body, desc) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img">
   <title>${esc(title)}</title>
+  <desc>${esc(desc || title)}</desc>
   <rect width="100%" height="100%" fill="${PAPER}"/>
   <text x="36" y="64" font-family="${DISPLAY}" font-size="28" fill="${INK}">${esc(title)}</text>
   ${body}
@@ -130,97 +161,115 @@ const diagrams = [
     file: 'f1-eb5-timeline-india.svg',
     width: 1200,
     height: 360,
-    alt: 'Diagram of graduation, OPT, STEM OPT, a combined I-526E and I-485 filing, and an employment authorization document for an Indian student.',
+    alt: 'Diagram of graduation, OPT, STEM OPT, an I-526E filing, and work authorization for an Indian student.',
     caption:
-      'The diagram shows graduation, OPT, STEM OPT, a combined I-526E and I-485 filing, and an employment authorization document.',
-    svg: flowSvg('F-1 to EB-5 timeline', [
-      { lines: ['Graduation'] },
-      { lines: ['OPT'] },
-      { lines: ['STEM OPT'] },
-      { lines: ['I-526E', 'and I-485'] },
-      { lines: ['EAD'] },
-    ]),
+      'The diagram shows graduation, OPT, STEM OPT, an I-526E filing, and work authorization for an Indian student.',
+    svg: flowSvg(
+      'F-1 to EB-5 timeline',
+      [
+        { lines: ['Graduation'] },
+        { lines: ['OPT'] },
+        { lines: ['STEM OPT'] },
+        { lines: ['I-526E'] },
+        { lines: ['Work', 'authorization'] },
+      ],
+      'Diagram of graduation, OPT, STEM OPT, an I-526E filing, and work authorization for an Indian student.',
+    ),
   },
   {
     id: 'f1-eb5-timeline-china',
     file: 'f1-eb5-timeline-china.svg',
     width: 1200,
     height: 360,
-    alt: 'Diagram of graduation, OPT, STEM OPT, a combined I-526E and I-485 filing, and an employment authorization document for a Chinese student.',
+    alt: 'Diagram of graduation, OPT, STEM OPT, an I-526E filing, and work authorization for a Chinese student.',
     caption:
-      'The diagram shows graduation, OPT, STEM OPT, a combined I-526E and I-485 filing, and an employment authorization document.',
-    svg: flowSvg('F-1 to EB-5 timeline', [
-      { lines: ['Graduation'] },
-      { lines: ['OPT'] },
-      { lines: ['STEM OPT'] },
-      { lines: ['I-526E', 'and I-485'] },
-      { lines: ['EAD'] },
-    ]),
+      'The diagram shows graduation, OPT, STEM OPT, an I-526E filing, and work authorization for a Chinese student.',
+    svg: flowSvg(
+      'F-1 to EB-5 timeline',
+      [
+        { lines: ['Graduation'] },
+        { lines: ['OPT'] },
+        { lines: ['STEM OPT'] },
+        { lines: ['I-526E'] },
+        { lines: ['Work', 'authorization'] },
+      ],
+      'Diagram of graduation, OPT, STEM OPT, an I-526E filing, and work authorization for a Chinese student.',
+    ),
   },
   {
     id: 'gift-funds-india',
     file: 'gift-funds-india.svg',
     width: 1200,
     height: 360,
-    alt: `Diagram of a parent gift moving through gift documents, the ${indiaRule}, the student, escrow, and the project.`,
-    caption: `The diagram shows a parent gift moving through gift documents and the ${indiaRule} to the student, escrow, and the project.`,
-    svg: flowSvg('How a parent gift reaches the project', [
-      { lines: ['Parent'] },
-      { lines: ['Gift', 'documents'] },
-      { lines: indiaRule.split(' ') },
-      { lines: ['Student'] },
-      { lines: ['Escrow'] },
-      { lines: ['Project'] },
-    ]),
+    alt: `Diagram of a parent gift moving through gift documents and the ${indiaRule} to the student.`,
+    caption: `The diagram shows a parent gift moving through gift documents and the ${indiaRule} to an Indian student.`,
+    svg: flowSvg(
+      'How a parent gift reaches the student',
+      [
+        { lines: ['Parent'] },
+        { lines: ['Gift', 'documents'] },
+        { lines: indiaRule.split(' ') },
+        { lines: ['Student'] },
+      ],
+      `Diagram of a parent gift moving through gift documents and the ${indiaRule} to the student.`,
+    ),
   },
   {
     id: 'gift-funds-china',
     file: 'gift-funds-china.svg',
     width: 1200,
     height: 360,
-    alt: `Diagram of a parent gift moving through gift documents, the ${chinaRule}, the student, escrow, and the project.`,
-    caption: `The diagram shows a parent gift moving through gift documents and the ${chinaRule} to the student, escrow, and the project.`,
-    svg: flowSvg('How a parent gift reaches the project', [
-      { lines: ['Parent'] },
-      { lines: ['Gift', 'documents'] },
-      { lines: chinaRule.split(' ') },
-      { lines: ['Student'] },
-      { lines: ['Escrow'] },
-      { lines: ['Project'] },
-    ]),
+    alt: `Diagram of a parent gift moving through gift documents and the ${chinaRule} to the student.`,
+    caption: `The diagram shows a parent gift moving through gift documents and the ${chinaRule} to a Chinese student.`,
+    svg: flowSvg(
+      'How a parent gift reaches the student',
+      [
+        { lines: ['Parent'] },
+        { lines: ['Gift', 'documents'] },
+        { lines: chinaRule.split(' ') },
+        { lines: ['Student'] },
+      ],
+      `Diagram of a parent gift moving through gift documents and the ${chinaRule} to the student.`,
+    ),
   },
   {
     id: 'visa-lines-india',
     file: 'visa-lines-india.svg',
     width: 1200,
     height: 420,
-    alt: 'Diagram comparing the EB-5 set-aside final action with the unreserved final action date for India.',
-    caption: `The diagram compares the set-aside final action, marked ${setAside} in the ${month} Visa Bulletin, with the unreserved final action date for India of ${indiaDate}.`,
-    svg: queueSvg('India', indiaDate),
+    alt: `Diagram comparing the EB-5 set-aside line, marked ${setAsideWord}, with the unreserved final action date for India.`,
+    caption: `The diagram compares the set-aside line, marked ${setAsideWord} in the ${month} Visa Bulletin, with the unreserved final action date for India of ${indiaDate}.`,
+    svg: queueSvg(
+      'India',
+      indiaDate,
+      `Diagram comparing the EB-5 set-aside line, marked ${setAsideWord}, with the unreserved final action date for India.`,
+    ),
   },
   {
     id: 'visa-lines-china',
     file: 'visa-lines-china.svg',
     width: 1200,
     height: 420,
-    alt: 'Diagram comparing the EB-5 set-aside final action with the unreserved final action date for China.',
-    caption: `The diagram compares the set-aside final action, marked ${setAside} in the ${month} Visa Bulletin, with the unreserved final action date for China of ${chinaDate}.`,
-    svg: queueSvg('China', chinaDate),
+    alt: `Diagram comparing the EB-5 set-aside line, marked ${setAsideWord}, with the unreserved final action date for China.`,
+    caption: `The diagram compares the set-aside line, marked ${setAsideWord} in the ${month} Visa Bulletin, with the unreserved final action date for China of ${chinaDate}.`,
+    svg: queueSvg(
+      'China',
+      chinaDate,
+      `Diagram comparing the EB-5 set-aside line, marked ${setAsideWord}, with the unreserved final action date for China.`,
+    ),
   },
   {
     id: 'h1b-eb5-status-india',
     file: 'h1b-eb5-status-india.svg',
     width: 1200,
     height: 360,
-    alt: 'Diagram of an H-1B holder filing I-526E and I-485, then an employment authorization document and advance parole, then a green card.',
-    caption:
-      'The diagram shows an H-1B holder filing I-526E and I-485 together, then an employment authorization document and advance parole, then a green card.',
-    svg: flowSvg('H-1B to EB-5 while keeping status', [
-      { lines: ['H-1B'] },
-      { lines: ['I-526E', 'and I-485'] },
-      { lines: ['EAD and', 'advance parole'] },
-      { lines: ['Green card'] },
-    ]),
+    alt: 'Diagram of an H-1B holder filing a separate I-526E petition and then a green card.',
+    caption: 'The diagram shows an Indian H-1B holder filing a separate I-526E petition and then a green card.',
+    svg: flowSvg(
+      'H-1B and a separate EB-5 petition',
+      [{ lines: ['H-1B'] }, { lines: ['I-526E'] }, { lines: ['Green card'] }],
+      'Diagram of an H-1B holder filing a separate I-526E petition and then a green card.',
+    ),
   },
 ];
 

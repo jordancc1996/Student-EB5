@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img">
   <title>EB-5 visa lines, China</title>
+  <desc>Diagram comparing the EB-5 set-aside line, marked current, with the unreserved final action date for China.</desc>
   <rect width="100%" height="100%" fill="#FAF9F6"/>
   <text x="36" y="64" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="28" fill="#262626">EB-5 visa lines, China</text>
   <rect x="56" y="120" width="520" height="200" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
-<text x="316" y="178" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">Set-aside final action</text>
-<text x="316" y="232" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="32" fill="#262626">Current</text>
-<text x="316" y="276" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="15" fill="#262626">Rural, high-unemployment, and infrastructure</text>
+<text x="316" y="182" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">Set-aside (rural, high unemployment,</text>
+<text x="316" y="222" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="26" fill="#262626">infrastructure): current</text>
+<text x="316" y="262" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">November 2026 Visa Bulletin</text>
 <rect x="624" y="120" width="520" height="200" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
-<text x="884" y="178" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">Unreserved final action</text>
-<text x="884" y="232" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="32" fill="#262626">December 1, 2016</text>
-<text x="884" y="276" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="15" fill="#262626">China</text>
-<text x="600" y="370" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="15" fill="#262626">November 2026 Visa Bulletin</text>
+<text x="884" y="182" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">Unreserved: final action date</text>
+<text x="884" y="222" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="26" fill="#262626">December 1, 2016</text>
+<text x="884" y="262" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626">November 2026 Visa Bulletin</text>
+<text x="600" y="390" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="15" fill="#262626">A final action date is not a processing time.</text>
 </svg>
