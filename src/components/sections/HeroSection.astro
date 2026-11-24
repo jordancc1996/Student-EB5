@@ -1,5 +1,6 @@
 ---
-import heroVideo from '@/assets/hero-background-video.mp4';
+import heroVideo from '@/assets/hero-background-video-1080.mp4';
+import heroVideoNarrow from '@/assets/hero-background-video-720.mp4';
 import { getHeroPoster } from '@/lib/images/heroPoster';
 
 const heroPoster = await getHeroPoster();
@@ -35,13 +36,16 @@ const pathways = [
       width={1920}
       height={1080}
       data-hero-src={heroVideo}
+      data-hero-src-narrow={heroVideoNarrow}
       data-poster-1280={heroPoster.src1280}
     ></video>
     <script is:inline>
       (function () {
         var video = document.querySelector('video[data-hero-src]');
         if (!video) return;
-        if (window.innerWidth > 900) {
+        if (window.innerWidth <= 900) {
+          video.setAttribute('data-hero-src', video.getAttribute('data-hero-src-narrow'));
+        } else {
           video.poster = video.getAttribute('data-poster-1280');
         }
         function startHeroVideo() {
