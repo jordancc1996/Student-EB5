@@ -56,8 +56,10 @@ const hasHeroPhoto = Boolean(hero.image);
               <OptimizedImage
                 src={hero.image}
                 webpSrc={hero.webp}
-                alt="EB-5 green card pathways"
+                alt="Brick museum building with a cactus bed and a bronze sculpture in front."
                 className="w-full h-full object-cover"
+                width={hero.image.width}
+                height={hero.image.height}
                 loading="eager"
                 fetchPriority="high"
                 sizes="100vw"

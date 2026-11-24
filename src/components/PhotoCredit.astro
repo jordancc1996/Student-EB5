@@ -8,7 +8,13 @@ interface Props {
 const { photo } = Astro.props;
 ---
 
-<p class="photo-credit">
-  Photo by <a href={photo.profileUrl} target="_blank" rel="noopener noreferrer">{photo.photographer}</a> on
-  <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>
-</p>
+{
+  photo.source === 'unsplash' ? (
+    <p class="photo-credit">
+      Photo by <a href={photo.profileUrl} target="_blank" rel="noopener noreferrer">{photo.photographer}</a> on
+      <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>
+    </p>
+  ) : (
+    <p class="photo-credit">Photograph supplied for this page.</p>
+  )
+}

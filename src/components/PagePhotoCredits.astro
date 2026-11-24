@@ -15,19 +15,23 @@ const photos = getPhotosUsedOnPath(pathname);
       <h2 class="page-photo-credits__title">Photograph credits</h2>
       <ul class="page-photo-credits__list">
         {
-          photos.map((photo) => (
-            <li>
-              Photo by{' '}
-              <a href={photo.profileUrl} target="_blank" rel="noopener noreferrer">
-                {photo.photographer}
-              </a>{' '}
-              on{' '}
-              <a href={photo.unsplashUrl} target="_blank" rel="noopener noreferrer">
-                Unsplash
-              </a>
-              . Used under the Unsplash License.
-            </li>
-          ))
+          photos.map((photo) =>
+            photo.source === 'unsplash' ? (
+              <li>
+                Photo by{' '}
+                <a href={photo.profileUrl} target="_blank" rel="noopener noreferrer">
+                  {photo.photographer}
+                </a>{' '}
+                on{' '}
+                <a href={photo.unsplashUrl} target="_blank" rel="noopener noreferrer">
+                  Unsplash
+                </a>
+                . Used under the Unsplash License.
+              </li>
+            ) : (
+              <li>Photograph supplied for this page. No photographer is named on the file.</li>
+            ),
+          )
         }
       </ul>
     </section>

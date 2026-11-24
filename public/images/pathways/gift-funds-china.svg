@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img">
+  <title>How a parent gift reaches the project</title>
+  <rect width="100%" height="100%" fill="#FAF9F6"/>
+  <text x="36" y="64" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="28" fill="#262626">How a parent gift reaches the project</text>
+  <rect x="36" y="128" width="169" height="132" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="120.5" y="200" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626"><tspan x="120.5" dy="0">Parent</tspan></text>
+<line x1="207" y1="194" x2="218" y2="194" stroke="#262626" stroke-width="1.5"/>
+<polygon points="217,190 225,194 217,198" fill="#262626"/>
+<rect x="227" y="128" width="169" height="132" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="311.5" y="189" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626"><tspan x="311.5" dy="0">Gift</tspan><tspan x="311.5" dy="22">documents</tspan></text>
+<line x1="398" y1="194" x2="409" y2="194" stroke="#262626" stroke-width="1.5"/>
+<polygon points="408,190 416,194 408,198" fill="#262626"/>
+<rect x="418" y="128" width="169" height="132" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="502.5" y="178" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626"><tspan x="502.5" dy="0">SAFE</tspan><tspan x="502.5" dy="22">facilitation</tspan><tspan x="502.5" dy="22">quota</tspan></text>
+<line x1="589" y1="194" x2="600" y2="194" stroke="#262626" stroke-width="1.5"/>
+<polygon points="599,190 607,194 599,198" fill="#262626"/>
+<rect x="609" y="128" width="169" height="132" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="693.5" y="200" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626"><tspan x="693.5" dy="0">Student</tspan></text>
+<line x1="780" y1="194" x2="791" y2="194" stroke="#262626" stroke-width="1.5"/>
+<polygon points="790,190 798,194 790,198" fill="#262626"/>
+<rect x="800" y="128" width="169" height="132" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="884.5" y="200" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626"><tspan x="884.5" dy="0">Escrow</tspan></text>
+<line x1="971" y1="194" x2="982" y2="194" stroke="#262626" stroke-width="1.5"/>
+<polygon points="981,190 989,194 981,198" fill="#262626"/>
+<rect x="991" y="128" width="169" height="132" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="1075.5" y="200" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626"><tspan x="1075.5" dy="0">Project</tspan></text>
+</svg>

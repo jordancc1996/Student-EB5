@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
 import {
@@ -59,7 +60,7 @@ const hero = getPathwayHero('eb5-for-chinese-investors');
   breadcrumbTitle="EB-5 for Chinese Investors"
   heroImage={hero.image}
   heroImageWebp={hero.webp}
-  heroImageAlt="EB-5 pathway for Chinese investors"
+  heroImageAlt="Beijing skyline at dusk, with the looped CCTV headquarters and a tall rectangular tower."
   keywords={[
     'EB-5 for Chinese investors',
     'EB-5 China 2026',
@@ -116,6 +117,8 @@ const hero = getPathwayHero('eb5-for-chinese-investors');
       The <a href="/pathways/rural-eb5">rural</a>, high-unemployment, and infrastructure EB-5 set-asides are current for China in the {VISA_BULLETIN_LATEST_MONTH} Visa Bulletin.
     </p>
   )}
+
+  <PathwayDiagram id="visa-lines-china" />
 
   <h2>The filing process, in brief</h2>
   <p>

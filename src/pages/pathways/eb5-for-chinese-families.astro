@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import ProcessFaqAccordion from '@/components/ProcessFaqAccordion';
 import { SITE_CONFIG } from '@/lib/seo/config';
@@ -63,7 +64,7 @@ const safeEnglishUrl = 'https://www.safe.gov.cn/en/2017/0119/1244.html';
   subhead={subhead}
   heroImage={hero.image}
   heroImageWebp={hero.webp}
-  heroImageAlt="EB-5 pathway for Chinese families"
+  heroImageAlt="A family of four sits on a yellow checkered blanket in a grassy field."
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk with someone about an EB-5 remittance from China"
   breadcrumbTitle="EB-5 for Chinese Families"
@@ -110,6 +111,8 @@ const safeEnglishUrl = 'https://www.safe.gov.cn/en/2017/0119/1244.html';
   <p>
     Above the quota, a <a href={safeEnglishUrl} target="_blank" rel="noopener noreferrer">current-account purchase</a> requires the bank to review documents that show the transaction.
   </p>
+
+  <PathwayDiagram id="gift-funds-china" />
 
   <h2>Common documentation questions</h2>
   <div class="not-prose mb-8">

@@ -175,8 +175,10 @@ const compareSectionPages = indexablePages.filter((page) => page.id.startsWith('
               <OptimizedImage
                 src={hero.image}
                 webpSrc={hero.webp}
-                alt="Browse all EB-5 pathways"
+                alt="A tan campus complex with a reflecting pool, palm trees, and a modern block building."
                 className="w-full h-full object-cover"
+                width={hero.image.width}
+                height={hero.image.height}
                 loading="eager"
                 fetchPriority="high"
                 sizes="100vw"

@@ -36,6 +36,18 @@ export const VISA_BULLETIN_NOVEMBER_2026_URL =
 export const VISA_BULLETIN_SOURCE = 'https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html';
 
 /**
+ * November 2026 Visa Bulletin, Employment-Based fifth preference.
+ * Unreserved final action dates. Set-asides are Current in that bulletin.
+ */
+export const EB5_UNRESERVED_FINAL_ACTION_CHINA = '2016-12-01';
+export const EB5_UNRESERVED_FINAL_ACTION_INDIA = '2023-12-01';
+export const EB5_SET_ASIDE_FINAL_ACTION = 'Current';
+
+/** Remittance rule names used on the family pathway diagrams. */
+export const INDIA_REMITTANCE_RULE = 'Liberalised Remittance Scheme';
+export const CHINA_REMITTANCE_RULE = 'SAFE facilitation quota';
+
+/**
  * End of the authorization calendar day in US Eastern time.
  * September 30 falls in daylight time, so the offset is -04:00.
  */

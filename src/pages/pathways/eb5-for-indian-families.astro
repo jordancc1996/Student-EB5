@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import ProcessFaqAccordion from '@/components/ProcessFaqAccordion';
 import { SITE_CONFIG } from '@/lib/seo/config';
@@ -61,7 +62,7 @@ const rbiLrsUrl = 'https://www.rbi.org.in/Scripts/BS_ViewMasterDirections.aspx?i
   subhead={subhead}
   heroImage={hero.image}
   heroImageWebp={hero.webp}
-  heroImageAlt="EB-5 pathway for Indian families"
+  heroImageAlt="Two adults walk a dirt path through dense green trees, one carrying a child on the shoulders."
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk with someone about an EB-5 remittance from India"
   breadcrumbTitle="EB-5 for Indian Families"
@@ -117,6 +118,8 @@ const rbiLrsUrl = 'https://www.rbi.org.in/Scripts/BS_ViewMasterDirections.aspx?i
   <p>
     The same direction says banks should not extend credit to a resident individual to fund a capital-account remittance under the scheme.
   </p>
+
+  <PathwayDiagram id="gift-funds-india" />
 
   <h2>Common documentation questions</h2>
   <div class="not-prose mb-8">

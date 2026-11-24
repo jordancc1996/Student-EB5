@@ -1,0 +1,33 @@
+---
+import diagrams from '@/data/pathwayDiagrams.json';
+
+interface DiagramRecord {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  caption: string;
+}
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+const diagram = (diagrams as Record<string, DiagramRecord>)[id];
+if (!diagram) {
+  throw new Error(`Missing pathway diagram: ${id}`);
+}
+---
+
+<figure class="article-figure">
+  <img
+    src={diagram.src}
+    alt={diagram.alt}
+    width={diagram.width}
+    height={diagram.height}
+    loading="lazy"
+    decoding="async"
+  />
+  <figcaption class="photo-credit">{diagram.caption}</figcaption>
+</figure>

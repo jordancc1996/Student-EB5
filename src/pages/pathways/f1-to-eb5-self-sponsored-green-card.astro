@@ -139,6 +139,8 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
             webpSrc={studentHeroImageWebp}
             alt="Graduate holding cap in front of university representing the student pathway to permanent residency"
             className="w-full h-full object-cover"
+            width={studentHeroImage.width}
+            height={studentHeroImage.height}
             loading="eager"
             fetchPriority="high"
             sizes="100vw"

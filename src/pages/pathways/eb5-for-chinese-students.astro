@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import {
@@ -52,7 +53,7 @@ const hero = getPathwayHero('eb5-for-chinese-students');
   subhead={subhead}
   heroImage={hero.image}
   heroImageWebp={hero.webp}
-  heroImageAlt="EB-5 pathway for Chinese students"
+  heroImageAlt="A graduate in a black gown and yellow hood stands in a brick campus corridor under room signs."
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk with someone about EB-5 for a Chinese student on F-1"
   breadcrumbTitle="EB-5 for Chinese Students"
@@ -91,6 +92,8 @@ const hero = getPathwayHero('eb5-for-chinese-students');
       is educational. A Chinese student should talk with a qualified immigration attorney about that student's specific situation.
     </p>
   </div>
+
+  <PathwayDiagram id="f1-eb5-timeline-china" />
 
   <h2>Why Chinese F-1 students look at EB-5</h2>
   <p>

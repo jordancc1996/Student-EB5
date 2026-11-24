@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import {
@@ -42,7 +43,7 @@ const hero = getPathwayHero('eb5-for-indian-students');
   subhead={subhead}
   heroImage={hero.image}
   heroImageWebp={hero.webp}
-  heroImageAlt="EB-5 pathway for Indian students"
+  heroImageAlt="Brick Liberty Bell pavilion in Philadelphia, with flags along the wall and visitors in front of the bell."
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk with someone about EB-5 for an Indian student on F-1"
   breadcrumbTitle="EB-5 for Indian Students"
@@ -81,6 +82,8 @@ const hero = getPathwayHero('eb5-for-indian-students');
       is educational. An Indian student should talk with a qualified immigration attorney about that student's specific situation.
     </p>
   </div>
+
+  <PathwayDiagram id="f1-eb5-timeline-india" />
 
   <h2>Why Indian F-1 students look at EB-5</h2>
   <p>

@@ -141,6 +141,9 @@ function creditMarkup(src: string): string {
   const filename = src.split('/').pop()?.split('?')[0] ?? '';
   const photo = getPhotoByFilename(filename);
   if (!photo) return '';
+  if (photo.source !== 'unsplash') {
+    return `<p class="photo-credit">Photograph supplied for this page.</p>`;
+  }
   return `<p class="photo-credit">Photo by <a href="${photo.profileUrl}" target="_blank" rel="noopener noreferrer">${photo.photographer}</a> on <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a></p>`;
 }
 

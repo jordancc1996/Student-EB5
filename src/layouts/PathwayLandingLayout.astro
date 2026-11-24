@@ -14,6 +14,7 @@ import RelatedPathways from '@/components/RelatedPathways.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo/config';
+import { absoluteShareImageUrl } from '@/lib/seo/shareImage';
 import { seoTitle } from '@/lib/seo/documentTitle';
 import { findLandingPageByUrl, isIndexable } from '@/lib/pathwayRoutes';
 import { FEATURE_BASELINE_DATE } from '@/lib/lastUpdated';
@@ -66,7 +67,40 @@ const pathwayEntry = findLandingPageByUrl(new URL(canonicalUrl).pathname);
 const pageIsIndexable = pathwayEntry ? isIndexable(pathwayEntry) : true;
 const lastUpdatedIso = pathwayEntry?.lastReviewed ?? FEATURE_BASELINE_DATE;
 const hasHeroPhoto = Boolean(heroImage);
-const pathwayPhotos = getPlacementsForPath(new URL(canonicalUrl).pathname);
+const pagePath = new URL(canonicalUrl).pathname.replace(/\/$/, '') || '/';
+const pathwayPhotos = getPlacementsForPath(pagePath);
+const countryOgSlugs = new Set([
+  'eb5-for-indian-students',
+  'eb5-for-chinese-students',
+  'eb5-for-indian-families',
+  'eb5-for-chinese-families',
+  'eb5-for-indian-investors',
+  'eb5-for-chinese-investors',
+  'eb5-for-indian-h1b',
+]);
+const pageSlug = pagePath.split('/').pop() ?? '';
+const shareImageUrl = countryOgSlugs.has(pageSlug)
+  ? absoluteShareImageUrl(`/images/pathways/og/${pageSlug}.jpg`)
+  : undefined;
+const heroShareUrl = heroImage ? absoluteShareImageUrl(heroImage.src) : undefined;
+const pageSchema =
+  shareImageUrl && heroImage && heroShareUrl
+    ? JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: documentTitle,
+        description: metaDescription,
+        url: canonicalUrl,
+        image: heroShareUrl,
+        primaryImageOfPage: {
+          '@type': 'ImageObject',
+          url: heroShareUrl,
+          width: heroImage.width,
+          height: heroImage.height,
+          caption: heroImageAlt,
+        },
+      }).replace(/</g, '\\u003c')
+    : '';
 
 const blogPosts =
   relatedResearch.length > 0 ? await getCollection('blog') : [];
@@ -80,7 +114,7 @@ const relatedResearchCards = relatedResearch.map((item) => {
 });
 ---
 
-<Layout>
+<Layout ogImage={shareImageUrl} ogImageAlt={shareImageUrl ? heroImageAlt : undefined}>
   <Fragment slot="head">
     <title>{documentTitle}</title>
     <meta name="description" content={metaDescription} />
@@ -94,6 +128,7 @@ const relatedResearchCards = relatedResearch.map((item) => {
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={canonicalUrl} />
+    {pageSchema && <script type="application/ld+json" set:html={pageSchema} />}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE_CONFIG.name} />
     <meta name="twitter:title" content={ogTitle} />
@@ -116,6 +151,8 @@ const relatedResearchCards = relatedResearch.map((item) => {
                 webpSrc={heroImageWebp}
                 alt={heroImageAlt || h1}
                 className="w-full h-full object-cover"
+                width={heroImage.width}
+                height={heroImage.height}
                 loading="eager"
                 fetchPriority="high"
                 sizes="100vw"
@@ -269,5 +306,13 @@ const relatedResearchCards = relatedResearch.map((item) => {
     width: 100%;
     height: auto;
     border-radius: 0.375rem;
+  }
+  .prose-pathway :global(.article-figure[data-orientation="portrait"] img) {
+    width: auto;
+    max-width: 100%;
+    height: min(70vh, 640px);
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
   }
 </style>
