@@ -37,11 +37,19 @@ content is client-rendered, so Astro's static HTML output should fix indexing.
    before proceeding — do not silently work around it.
 
 ## Current status
-- STUDENT-EB5 has been freshly initialized with `npm create astro@latest` 
-  (minimal template) and has tailwind + @astrojs/react integrations added.
-- Tailwind config and global CSS have not yet been ported from the 
-  reference project (next step).
-- No pages have been converted yet.
+- Astro 7.4.13 static site with React islands, deployed on Vercel. Production is https://studenteb5.com (apex; www redirects to the apex).
+- The build emits 126 pages, not counting 22 redirect stubs: 41 pathway pages, 11 tool pages (10 under `/tools` plus the tools hub), 43 research articles plus the `/research` index, 17 FAQ pages (16 answers and the index), 4 news pages (3 articles and the index), and 9 other pages (home, about, contact, resources, playbook, investment process, photo credits, privacy policy, and 404).
+- `src/data/program.ts` is the source for dates, investment thresholds, and Visa Bulletin constants. Update `VISA_BULLETIN_LATEST_MONTH` monthly.
+- `src/data/photoRegistry.ts` holds the photos and credits.
+- `src/lib/seo/` holds titles, canonicals, JSON-LD, and sitemap lastmod.
+- `scripts/seo-check.mjs` runs after every build. `scripts/measure-duplication.mjs` measures sentence overlap on built pathway pages. `scripts/generate-pathway-diagrams.mjs` and `scripts/generate-pathway-og-images.mjs` run in prebuild.
+- Render legal and financial figures from `program.ts`. Do not retype them.
+- No styling changes without owner approval.
+- Every change goes to the throwaway `staging` branch and is reviewed before merge.
+- Delete merged branches. Never delete `main` or `staging`.
+- Full-bleed hero pages pass `fullBleedHero` to `Layout` instead of using a negative top margin.
+- In-body images use `loading="lazy"` and `fetchpriority="low"`. Hero images use `loading="eager"` and `fetchpriority="high"`.
+- Requires `VERCEL_DEEP_CLONE=true` so sitemap lastmod dates come from git history. A shallow clone makes those dates unavailable.
 
 ---
 
