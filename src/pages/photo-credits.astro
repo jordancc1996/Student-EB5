@@ -36,6 +36,7 @@ const pageCanonical = `${SITE_CONFIG.url}/photo-credits`;
       <p class="text-muted-foreground mb-10">
         Body photographs added in the site-wide photography upgrade come from Unsplash and are used under the
         <a href="https://unsplash.com/license" class="underline underline-offset-2">Unsplash License</a>.
+        Photographs supplied for the India and China pathway pages have no named photographer and are not Unsplash images.
         Existing custom heroes and charts are not listed here. People shown in campus or civic photographs are not
         StudentEB5 clients or EB-5 applicants.
       </p>
@@ -44,10 +45,16 @@ const pageCanonical = `${SITE_CONFIG.url}/photo-credits`;
           photoRegistry.map((photo) => (
             <li>
               <p class="font-medium m-0">{photo.alt}</p>
-              <p class="photo-credit m-0 mt-1">
-                Photo by <a href={photo.profileUrl}>{photo.photographer}</a> on
-                <a href={photo.unsplashUrl}>Unsplash</a>
-              </p>
+              {
+                photo.source === 'unsplash' ? (
+                  <p class="photo-credit m-0 mt-1">
+                    Photo by <a href={photo.profileUrl}>{photo.photographer}</a> on
+                    <a href={photo.unsplashUrl}>Unsplash</a>
+                  </p>
+                ) : (
+                  <p class="photo-credit m-0 mt-1">Photograph supplied for this page. No photographer is named on the file.</p>
+                )
+              }
               <p class="text-xs text-muted-foreground mt-2 mb-0">
                 Used on {(pagesByPhoto.get(photo.id) ?? []).join(', ') || 'registry only'}
               </p>

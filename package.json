@@ -7,6 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/generate-pathway-diagrams.mjs && node scripts/generate-pathway-og-images.mjs",
     "build": "astro build && node scripts/verify-dist-asset-urls.mjs && node scripts/seo-check.mjs dist",
     "preview": "astro preview",
     "astro": "astro",

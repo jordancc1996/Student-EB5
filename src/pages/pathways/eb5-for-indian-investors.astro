@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { TEA_INVESTMENT_THRESHOLD } from '@/lib/eb5-investment';
@@ -51,7 +52,7 @@ const hero = getPathwayHero('eb5-for-indian-investors');
   subhead={subhead}
   heroImage={hero.image}
   heroImageWebp={hero.webp}
-  heroImageAlt="EB-5 pathway for Indian investors"
+  heroImageAlt="High-rise towers along a waterfront, including a tall white tower, seen across blue water and palm trees."
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone Who Understands EB-5 for Indian Investors"
   breadcrumbTitle="EB-5 for Indian Investors"
@@ -114,6 +115,8 @@ const hero = getPathwayHero('eb5-for-indian-investors');
       The <a href="/pathways/rural-eb5">rural</a>, high-unemployment, and infrastructure EB-5 set-asides are current for India in the {VISA_BULLETIN_LATEST_MONTH} Visa Bulletin.
     </p>
   )}
+
+  <PathwayDiagram id="visa-lines-india" />
 
   <h2>The filing process, in brief</h2>
   <p>

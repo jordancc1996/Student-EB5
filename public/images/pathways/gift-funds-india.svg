@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img">
+  <title>How a parent gift reaches the student</title>
+  <desc>Diagram of a parent gift moving through gift documents and the Liberalised Remittance Scheme to the student.</desc>
+  <rect width="100%" height="100%" fill="#FAF9F6"/>
+  <text x="36" y="64" font-family="Georgia, 'Palatino Linotype', Palatino, serif" font-size="28" fill="#262626">How a parent gift reaches the student</text>
+  <rect x="36" y="128" width="265" height="132" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="168.5" y="200" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626"><tspan x="168.5" dy="0">Parent</tspan></text>
+<line x1="303" y1="194" x2="314" y2="194" stroke="#262626" stroke-width="1.5"/>
+<polygon points="313,190 321,194 313,198" fill="#262626"/>
+<rect x="323" y="128" width="265" height="132" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="455.5" y="189" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626"><tspan x="455.5" dy="0">Gift</tspan><tspan x="455.5" dy="22">documents</tspan></text>
+<line x1="590" y1="194" x2="601" y2="194" stroke="#262626" stroke-width="1.5"/>
+<polygon points="600,190 608,194 600,198" fill="#262626"/>
+<rect x="610" y="128" width="265" height="132" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="742.5" y="178" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626"><tspan x="742.5" dy="0">Liberalised</tspan><tspan x="742.5" dy="22">Remittance</tspan><tspan x="742.5" dy="22">Scheme</tspan></text>
+<line x1="877" y1="194" x2="888" y2="194" stroke="#262626" stroke-width="1.5"/>
+<polygon points="887,190 895,194 887,198" fill="#262626"/>
+<rect x="897" y="128" width="265" height="132" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+<text x="1029.5" y="200" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif" font-size="16" fill="#262626"><tspan x="1029.5" dy="0">Student</tspan></text>
+</svg>

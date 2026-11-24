@@ -1,5 +1,6 @@
 ---
 import PathwayLandingLayout from '../../layouts/PathwayLandingLayout.astro';
+import PathwayDiagram from '@/components/PathwayDiagram.astro';
 import { getPathwayHero } from '@/lib/pathwayHeroes';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import {
@@ -44,7 +45,7 @@ const hero = getPathwayHero('eb5-for-indian-h1b');
   subhead={subhead}
   heroImage={hero.image}
   heroImageWebp={hero.webp}
-  heroImageAlt="EB-5 pathway for Indian H-1B professionals"
+  heroImageAlt="An empty open office with rows of desks, monitors, and a wall screen showing a line chart."
   relatedResearch={relatedResearch}
   secondaryCtaText="Talk to Someone About EB-5 for Indian H-1B Holders"
   breadcrumbTitle="EB-5 for Indian H-1B"
@@ -94,6 +95,8 @@ const hero = getPathwayHero('eb5-for-indian-h1b');
       >Best Immigration Backup Plan for Indian Tech Workers</a
     >.
   </p>
+
+  <PathwayDiagram id="h1b-eb5-status-india" />
 
   <h2>IT staffing and consulting H-1B holders</h2>
   <p>

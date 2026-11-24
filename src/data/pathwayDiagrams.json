@@ -1,0 +1,51 @@
+{
+  "f1-eb5-timeline-india": {
+    "src": "/images/pathways/f1-eb5-timeline-india.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of graduation, OPT, STEM OPT, an I-526E filing, and work authorization for an Indian student.",
+    "caption": "The diagram shows graduation, OPT, STEM OPT, an I-526E filing, and work authorization for an Indian student."
+  },
+  "f1-eb5-timeline-china": {
+    "src": "/images/pathways/f1-eb5-timeline-china.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of graduation, OPT, STEM OPT, an I-526E filing, and work authorization for a Chinese student.",
+    "caption": "The diagram shows graduation, OPT, STEM OPT, an I-526E filing, and work authorization for a Chinese student."
+  },
+  "gift-funds-india": {
+    "src": "/images/pathways/gift-funds-india.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of a parent gift moving through gift documents and the Liberalised Remittance Scheme to the student.",
+    "caption": "The diagram shows a parent gift moving through gift documents and the Liberalised Remittance Scheme to an Indian student."
+  },
+  "gift-funds-china": {
+    "src": "/images/pathways/gift-funds-china.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of a parent gift moving through gift documents and the SAFE facilitation quota to the student.",
+    "caption": "The diagram shows a parent gift moving through gift documents and the SAFE facilitation quota to a Chinese student."
+  },
+  "visa-lines-india": {
+    "src": "/images/pathways/visa-lines-india.svg",
+    "width": 1200,
+    "height": 420,
+    "alt": "Diagram comparing the EB-5 set-aside line, marked current, with the unreserved final action date for India.",
+    "caption": "The diagram compares the set-aside line, marked current in the November 2026 Visa Bulletin, with the unreserved final action date for India of December 1, 2023."
+  },
+  "visa-lines-china": {
+    "src": "/images/pathways/visa-lines-china.svg",
+    "width": 1200,
+    "height": 420,
+    "alt": "Diagram comparing the EB-5 set-aside line, marked current, with the unreserved final action date for China.",
+    "caption": "The diagram compares the set-aside line, marked current in the November 2026 Visa Bulletin, with the unreserved final action date for China of December 1, 2016."
+  },
+  "h1b-eb5-status-india": {
+    "src": "/images/pathways/h1b-eb5-status-india.svg",
+    "width": 1200,
+    "height": 360,
+    "alt": "Diagram of an H-1B holder filing a separate I-526E petition and then a green card.",
+    "caption": "The diagram shows an Indian H-1B holder filing a separate I-526E petition and then a green card."
+  }
+}
