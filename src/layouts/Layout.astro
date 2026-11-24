@@ -16,9 +16,10 @@ const organizationSchema = JSON.stringify(generateOrganizationSchema()).replace(
 interface Props {
   ogImage?: string;
   ogImageAlt?: string;
+  fullBleedHero?: boolean;
 }
 
-const { ogImage, ogImageAlt } = Astro.props;
+const { ogImage, ogImageAlt, fullBleedHero = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -49,7 +50,7 @@ const { ogImage, ogImageAlt } = Astro.props;
 		<script type="application/ld+json" set:html={organizationSchema} />
 		<slot name="head" />
 	</head>
-	<body>
+	<body class={fullBleedHero ? 'has-full-bleed-hero' : undefined}>
 		<!-- Google Tag Manager (noscript) -->
 		<noscript
 			><iframe

@@ -28,7 +28,7 @@ const hero = getPathwaysIndexHero();
 const hasHeroPhoto = Boolean(hero.image);
 ---
 
-<Layout>
+<Layout fullBleedHero>
   <Fragment slot="head">
     <title>{ogTitle}</title>
     <meta name="description" content={description} />
@@ -48,7 +48,7 @@ const hasHeroPhoto = Boolean(hero.image);
 
     <main>
       <section
-        class={`relative -mt-[120px] pt-[120px] min-h-[50vh] flex items-center justify-center overflow-hidden ${hasHeroPhoto ? '' : 'bg-hero-dark'}`}
+        class={`relative pt-[120px] min-h-[50vh] flex items-center justify-center overflow-hidden ${hasHeroPhoto ? '' : 'bg-hero-dark'}`}
       >
         {
           hasHeroPhoto && hero.image ? (

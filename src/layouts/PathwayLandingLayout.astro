@@ -114,7 +114,7 @@ const relatedResearchCards = relatedResearch.map((item) => {
 });
 ---
 
-<Layout ogImage={shareImageUrl} ogImageAlt={shareImageUrl ? heroImageAlt : undefined}>
+<Layout fullBleedHero ogImage={shareImageUrl} ogImageAlt={shareImageUrl ? heroImageAlt : undefined}>
   <Fragment slot="head">
     <title>{documentTitle}</title>
     <meta name="description" content={metaDescription} />
@@ -141,7 +141,7 @@ const relatedResearchCards = relatedResearch.map((item) => {
 
     <main>
       <section
-        class={`relative -mt-[120px] pt-[120px] min-h-[45vh] flex items-end md:items-center justify-center overflow-hidden ${hasHeroPhoto ? '' : 'bg-hero-dark'}`}
+        class={`relative pt-[120px] min-h-[45vh] flex items-end md:items-center justify-center overflow-hidden ${hasHeroPhoto ? '' : 'bg-hero-dark'}`}
       >
         {
           hasHeroPhoto && heroImage ? (

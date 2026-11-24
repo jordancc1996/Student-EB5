@@ -82,7 +82,7 @@ const StudentPlaybookMainContent = ({ lastUpdatedIso }: { lastUpdatedIso?: strin
   return (
     <>
       <section
-        className="relative -mt-[120px] w-full min-h-[420px] flex flex-col justify-end bg-cover bg-center"
+        className="relative w-full min-h-[420px] flex flex-col justify-end bg-cover bg-center"
         style={{ backgroundImage: `url(${heroImage.src})` }}
       >
         {/* Prefer WebP when the browser supports it (JPEG remains the CSS fallback above). */}

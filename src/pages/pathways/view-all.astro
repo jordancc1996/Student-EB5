@@ -148,7 +148,7 @@ const investmentFundingPages = indexablePages.filter(
 const compareSectionPages = indexablePages.filter((page) => page.id.startsWith('eb5-vs-'));
 ---
 
-<Layout>
+<Layout fullBleedHero>
   <Fragment slot="head">
     <title>{title}</title>
     <meta name="description" content={metaDescription} />
@@ -167,7 +167,7 @@ const compareSectionPages = indexablePages.filter((page) => page.id.startsWith('
 
     <main>
       <section
-        class={`relative -mt-[120px] pt-[120px] min-h-[45vh] flex items-end md:items-center justify-center overflow-hidden ${hasHeroPhoto ? '' : 'bg-hero-dark'}`}
+        class={`relative pt-[120px] min-h-[45vh] flex items-end md:items-center justify-center overflow-hidden ${hasHeroPhoto ? '' : 'bg-hero-dark'}`}
       >
         {
           hasHeroPhoto && hero.image ? (

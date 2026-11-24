@@ -140,7 +140,7 @@ const relatedPosts = allPosts
   .map((p) => p.data);
 ---
 
-<Layout ogImage={ogImage} ogImageAlt={ogImageAlt}>
+<Layout fullBleedHero={hasHero} ogImage={ogImage} ogImageAlt={ogImageAlt}>
   <Fragment slot="head">
     <title>{metaTitle}</title>
     <meta name="description" content={post.metaDescription} />
@@ -161,7 +161,7 @@ const relatedPosts = allPosts
 
     {
       hasHero && post.heroImage && (
-        <section class="relative -mt-[120px] pt-[120px] min-h-[60vh] flex items-center overflow-hidden">
+        <section class="relative pt-[120px] min-h-[60vh] flex items-center overflow-hidden">
           <OptimizedImage
             src={post.heroImage}
             alt={post.imageAlt}

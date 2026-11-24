@@ -56,7 +56,7 @@ const structuredData = [
 ];
 ---
 
-<Layout>
+<Layout fullBleedHero>
   <Fragment slot="head">
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -77,7 +77,7 @@ const structuredData = [
   <div class="min-h-screen bg-background">
     <Header client:load />
 
-    <section class="relative h-[55vh] min-h-[450px] flex items-center justify-center -mt-[120px] pt-[120px]">
+    <section class="relative h-[55vh] min-h-[450px] flex items-center justify-center pt-[120px]">
       <div class="absolute inset-0">
         <img
           src={newsHero.src}

@@ -78,7 +78,7 @@ const faqSchema = getNewsFaqSchema(slug);
 const structuredData = faqSchema ? [articleSchema, faqSchema] : [articleSchema];
 ---
 
-<Layout ogImage={ogImage} ogImageAlt={ogImageAlt}>
+<Layout fullBleedHero ogImage={ogImage} ogImageAlt={ogImageAlt}>
   <Fragment slot="head">
     <title>{seoTitle(article.metaTitle)}</title>
     <meta name="description" content={article.metaDescription} />

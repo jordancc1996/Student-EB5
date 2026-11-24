@@ -112,7 +112,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
 );
 ---
 
-<Layout>
+<Layout fullBleedHero>
   <Fragment slot="head">
     <title>{ogTitle}</title>
     <meta name="description" content={description} />
@@ -132,7 +132,7 @@ const relevantBlogPosts = PATHWAY_BLOG_SLUGS.map((slug) => blogPostsBySlug.get(s
     <Header client:load />
 
     <main>
-      <section class="relative -mt-[120px] pt-[120px] min-h-[60vh] flex items-center justify-center">
+      <section class="relative pt-[120px] min-h-[60vh] flex items-center justify-center">
         <div class="absolute inset-0">
           <OptimizedImage
             src={studentHeroImage}

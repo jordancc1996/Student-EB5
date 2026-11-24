@@ -30,7 +30,7 @@ const keywords = [
 const structuredData = generateContactPageSchema();
 ---
 
-<Layout>
+<Layout fullBleedHero>
   <Fragment slot="head">
     <title>{ogTitle}</title>
     <meta name="description" content={description} />
@@ -49,7 +49,7 @@ const structuredData = generateContactPageSchema();
   <div class="min-h-screen bg-background">
     <Header client:load />
 
-    <section class="relative h-[70vh] min-h-[500px] flex items-center justify-center -mt-[120px] pt-[120px]">
+    <section class="relative h-[70vh] min-h-[500px] flex items-center justify-center pt-[120px]">
       <div class="absolute inset-0">
         <OptimizedImage
           src={contactHero}
