@@ -3,10 +3,10 @@ id: 25
 slug: complete-2027-eb5-guide
 title: EB-5 Immigrant Investor Program 2027 - Complete Guide
 metaTitle: "EB-5 Investor Program - 2027 Guide | StudentEB5"
-metaDescription: "The EB-5 immigrant investor program 2027 still uses an $800,000 TEA minimum covering filing steps, rural set-asides, and the Sept 30, 2026 deadline."
+metaDescription: "The EB-5 immigrant investor program 2027 still uses an $800,000 TEA minimum. The Sept 30, 2026 deadline for grandfathering protection has passed."
 excerpt: The EB-5 immigrant investor program is a clear pathway to receive a green card and eventually U.S. citizenship. It is one of the most direct and flexible immigration options in the world. The Reform and Integrity Act of 2022 has made the program much more investor friendly and significantly more attractive due to the introduction of concurrent filing.
 date: January 14, 2026
-updatedDate: March 3, 2026
+updatedDate: November 23, 2026
 category: Comprehensive Guide
 readTime: 20 min read
 image: ../../assets/blog-2027-eb5-guide.jpg
@@ -36,7 +36,9 @@ tocLabels:
   what-is-the-eb-5-immigrant-investor-program: EB-5 Program Overview
 ---
 
-<intro>The EB-5 immigrant investor program 2027 still grants U.S. permanent residency to foreign nationals who invest $800,000 in a rural or high-unemployment Targeted Employment Area project, or $1,050,000 in a standard-area project. Investors must also create at least 10 full-time U.S. jobs. Since the 2022 Reform and Integrity Act, investors already in the U.S. on F-1, H-1B, or similar status can file their I-485 adjustment of status concurrently with their I-526E petition and receive work and travel authorization within 3–6 months. Filing before September 30, 2026 locks in current program rules under the grandfathering provision. The sections below cover every requirement, the step-by-step filing process, rural set-aside visas, and the 2027 reauthorization deadline.</intro>
+<intro>The EB-5 immigrant investor program 2027 still grants U.S. permanent residency to foreign nationals who invest $800,000 in a rural or high-unemployment Targeted Employment Area project, or $1,050,000 in a standard-area project. Investors must also create at least 10 full-time U.S. jobs. Since the 2022 Reform and Integrity Act, investors already in the U.S. on F-1, H-1B, or similar status can file their I-485 adjustment of status concurrently with their I-526E petition and receive work and travel authorization within 3–6 months. Petitions filed on or before September 30, 2026 kept grandfathering protection. Petitions filed now can still proceed while the program is authorized through September 30, 2027, without that protection. The sections below cover every requirement, the step-by-step filing process, rural set-aside visas, and the 2027 authorization date.</intro>
+
+Update, November 23, 2026: The September 30, 2026 grandfathering filing date has passed. This article now explains what that means for petitions filed before and after it.
 
 ## What is the EB-5 Immigrant Investor Program?
 
@@ -228,7 +230,7 @@ When evaluating an EB-5 project, investors should consider the following:
 
 ### Q9: What happens when the EB-5 program authorization expires in 2027?
 
-The regional center program is currently authorized through September 30, 2027. Its future will depend on congressional actions. **Investors who file their petitions before September 30, 2026 will protect themselves from any changes and be protected by grandfathering provisions.** Learn more about the <a href="/research/eb5-grandfathering-2026-2027-deadlines">critical 2026 and 2027 deadlines</a> and track the countdown with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>.
+The regional center program is currently authorized through September 30, 2027. Its future will depend on congressional actions. **Petitions filed on or before September 30, 2026 kept grandfathering protection. Petitions filed after that date do not, but they can still be filed while the program is authorized through September 30, 2027.** Learn more about the <a href="/research/eb5-grandfathering-2026-2027-deadlines">critical 2026 and 2027 deadlines</a> and track the countdown with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>.
 
 ## Conclusion
 

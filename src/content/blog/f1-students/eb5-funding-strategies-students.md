@@ -6,7 +6,7 @@ metaTitle: "EB-5 Funding for Students - Gifts and Loans | StudentEB5"
 metaDescription: "EB-5 funding strategies for international students include HELOC, retirement assets, securities-backed loans, and parental gifts for the $800,000 investment."
 excerpt: Funding an $800,000 EB-5 investment as a student rarely means writing a single check. This guide breaks down the four most common student funding routes — HELOC, SDIRA rollovers, securities-based lines of credit, and documented parental gifts — and the seven-year source-of-funds trace USCIS requires for each.
 date: June 2, 2026
-updatedDate: September 3, 2026
+updatedDate: November 23, 2026
 category: Student Guide
 readTime: 11 min read
 image: ../../../assets/how-to-fund-eb5-investment.jpg
@@ -95,7 +95,7 @@ For a deeper breakdown of acceptable funding combinations and the documentary st
 
 ## The September 30, 2026 grandfathering deadline applies to funding timelines
 
-Source-of-funds packages take time. Coordinating bank letters, translated tax filings, property valuations, and broker statements across multiple jurisdictions typically requires three to six months of work with immigration counsel before a petition is filing-ready. Families planning to file under current rules need to start the funding documentation process well before the <a href="/research/eb5-grandfathering-2026-2027-deadlines">September 30, 2026 grandfathering deadline</a>, after which the minimum investment is projected to rise to approximately $1,050,000 for TEA projects in 2027. Our <a href="/tools/grandfathering-countdown">Grandfathering Countdown</a> tracks the remaining window.
+Source-of-funds packages take time. Coordinating bank letters, translated tax filings, property valuations, and broker statements across multiple jurisdictions typically requires three to six months of work with immigration counsel before a petition is filing-ready. The <a href="/research/eb5-grandfathering-2026-2027-deadlines">September 30, 2026 grandfathering filing date</a> has passed. Petitions filed on or before that date kept protection. The minimum investment is projected to rise to approximately $1,050,000 for TEA projects in 2027. Our <a href="/tools/grandfathering-countdown">Grandfathering Countdown</a> tracks authorization through September 30, 2027.
 
 ## Conclusion
 

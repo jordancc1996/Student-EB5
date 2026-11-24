@@ -6,6 +6,7 @@ metaTitle: "EB-5 Petition Timing - Risks Before Filing | StudentEB5"
 metaDescription: "EB-5 petition invalidation risk spikes in 2026 around Sept 30 grandfathering, the Jan 1, 2027 investment hike, and partial-funding mistakes USCIS denies."
 excerpt: "The 2026 EB-5 landscape is the most unforgiving in the program's history. This analysis separates legislative noise from real risk and breaks down the three converging dates — the September 30, 2026 grandfathering window, the January 1, 2027 inflation adjustment, and the September 30, 2027 program expiration — that are driving filing surges, capacity bottlenecks, and the partial-funding mistakes USCIS is using to invalidate petitions."
 date: June 4, 2026
+updatedDate: November 23, 2026
 category: EB-5 Strategy
 readTime: 9 min read
 image: ../../assets/blog-eb5-timing-risks-clock.jpg
@@ -33,6 +34,8 @@ relatedPosts:
 
 The <a href="/research/post-reform-integrity-act-analysis">EB-5 Reform and Integrity Act of 2022</a> fundamentally altered the framework of the EB-5 program by introducing new compliance mandates, integrity measures, and set-aside visa categories. These changes were designed to protect investors and modernize the program, but they have also created a minefield of potential errors for the unwary. USCIS has dramatically shifted its adjudication posture as well. The agency is now leveraging artificial intelligence to scrutinize applications, abandoning previous leniency and issuing outright denials for practices that were once commonplace in the EB-5 industry.</intro>
 
+Update, November 23, 2026: The September 30, 2026 grandfathering filing date has passed. This article now explains what that means for petitions filed before and after it.
+
 ## What This Article Covers
 
 Today we will discuss how to navigate these complex changes and address:
@@ -45,15 +48,15 @@ For prospective investors, understanding these dynamics is no longer optional. I
 
 ## The September 30, 2026 Grandfathering Deadline
 
-The EB-5 program has a series of important deadlines coming in the next 6–24 months. EB-5 prospective investors are panicking due to a misunderstanding of current legislative risk. It is essential to separate the actual legislative risk from the marketing noise designed to create artificial urgency by EB-5 brokers and regional centers.
+The September 30, 2026 grandfathering filing date has passed. EB-5 prospective investors are panicking due to a misunderstanding of current legislative risk. It is essential to separate the actual legislative risk from the marketing noise designed to create artificial urgency by EB-5 brokers and regional centers.
 
 The most widely discussed date in the EB-5 space is September 30, 2026. This date is frequently and incorrectly cited as the expiration of the EB-5 regional center program, and this is a fundamental misinterpretation of the law.
 
-When Congress drafted the Reform and Integrity Act, they sought to address a critical flaw from previous program lapses. The critical flaw affected pending investors when the program's reauthorization temporarily expired. To resolve this, Congress created a grandfathering provision. The statute dictates that any investor who files their I-526E petition on or before September 30, 2026 will have their petition processed to its conclusion regardless of whether the broader regional center program is subsequently reauthorized.
+When Congress drafted the Reform and Integrity Act, they sought to address a critical flaw from previous program lapses. The critical flaw affected pending investors when the program's reauthorization temporarily expired. To resolve this, Congress created a grandfathering provision. The statute dictates that a regional center petition properly filed on or before September 30, 2026 has statutory protection if the program later lapses.
 
 This provision was intended to provide certainty and smooth out demand. Instead, it has created panic. The September 30, 2026 deadline is a milestone for statutory protection, not the end of the EB-5 program. The EB-5 regional center program is currently authorized until September 30, 2027.
 
-The 2026 date is not an expiration, but it remains a critical deadline for risk mitigation. Investors who file after September 30, 2026 will not benefit from this grandfathering protection. If Congress fails to renew the program in 2027, those post-2026 investors could find their petitions held in abeyance indefinitely. While panic is unwarranted, deliberate action to file before the grandfathering deadline is highly advisable. Track the countdown directly with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>.
+The 2026 date is not an expiration. It is the grandfathering filing date, and it has passed. Petitions filed after September 30, 2026 do not get that protection. Petitions can still be filed while the program is authorized through September 30, 2027. Track the authorization countdown with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>.
 
 ## January 1, 2027: The Inflation Adjustment That Can Invalidate a Petition
 

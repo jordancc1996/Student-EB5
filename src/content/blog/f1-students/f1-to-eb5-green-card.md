@@ -6,7 +6,7 @@ metaTitle: "F-1 to EB-5 - Green Card for Students | StudentEB5"
 metaDescription: "F-1 to EB-5 in 2026: invest $800,000 in a TEA, file I-526E and I-485 together, and aim for an EAD within 3 to 6 months before Sept 30 grandfathering."
 excerpt: The EB-5 immigrant investor program offers F-1 international students a powerful alternative to the limitations of the F-1 and H-1B visas. With concurrent filing now available, students can gain work and travel authorization within 3-6 months. Two critical deadlines in the next 12-36 months threaten this opportunity.
 date: February 10, 2026
-updatedDate: March 5, 2026
+updatedDate: November 23, 2026
 category: Student Guide
 readTime: 10 min read
 image: ../../../assets/blog-f1-to-eb5-comprehensive-guide.jpg
@@ -37,7 +37,7 @@ tocLabels:
   optional-practical-training-opt: When OPT is running out
 ---
 
-<intro>F-1 to EB-5 is the clearest green card path for international students facing F-1 limits and H-1B lottery risk, with an $800,000 TEA investment and concurrent filing for work authorization in 3 to 6 months. The program grants green cards to investors who commit $800,000 in a Targeted Employment area (or $1,050,000 elsewhere) and create at least 10 full time U.S. jobs. In 2022, the EB-5 program was revamped and made significantly more attractive to prospective investors by allowing F-1 students to simultaneously file their investor petition and green card application which allowed the investor to gain the benefits of the green card without having the green card within just 3-6 months. Two critical deadlines are looming in the next 12-36 months that threaten the current EB-5 opportunity. Filing by September 30, 2026 guarantees petition processing while the program itself is authorized only through September 30, 2027. F-1 students with the financial means are urged to act quickly and file before the 2026 deadline to secure a green card before the current environment is changed.</intro>
+<intro>F-1 to EB-5 is the clearest green card path for international students facing F-1 limits and H-1B lottery risk, with an $800,000 TEA investment and concurrent filing for work authorization in 3 to 6 months. The program grants green cards to investors who commit $800,000 in a Targeted Employment area (or $1,050,000 elsewhere) and create at least 10 full time U.S. jobs. In 2022, the EB-5 program was revamped and made significantly more attractive to prospective investors by allowing F-1 students to simultaneously file their investor petition and green card application which allowed the investor to gain the benefits of the green card without having the green card within just 3-6 months. The September 30, 2026 grandfathering filing date has passed. Petitions filed on or before that date kept protection. The program is authorized through September 30, 2027, and petitions filed after September 30, 2026 do not get that protection.</intro>
 
 The F-1 student visa is a golden ticket to the highest level of education in the United States. The F-1 visa opens doors to the top universities in the world and fosters invaluable experiences for international students. Those dreams of building a life in the United States and a career post-graduation are exciting for all international students but can quickly become frustrating when confronted with the reality of the limitations of student visas and the uncertainty of the <a href="/research/eb5-lifeline-h1b-workers">H-1B visa</a>.
 
@@ -109,19 +109,19 @@ The EB-5 Reform and Integrity Act of 2022 reauthorized the EB-5 regional center 
 
 ### September 30, 2026: The Grandfathering Deadline
 
-The RIA includes a provision that protects investors who file their I-526E petition on or before September 30, 2026. This grandfathering clause is codified in the Immigration and Nationality act and ensures that any petition filed by this date will be adjudicated by USCIS even if the regional center program is not reauthorized by Congress in the future. This represents a safe deadline for investors. By filing on or before September 30, 2026 investors insulate themselves from any political uncertainty regarding program reauthorization. Learn more about the <a href="/research/eb5-grandfathering-2026-2027-deadlines">grandfathering provision</a>.
+The RIA protects regional center petitions properly filed on or before September 30, 2026 if the program later lapses. That filing date has passed. Petitions filed after that date do not get that protection. Learn more about the <a href="/research/eb5-grandfathering-2026-2027-deadlines">grandfathering provision</a>.
 
 ### September 30, 2027: The Program Expiration Date
 
-The EB-5 regional center program is currently authorized to exist until September 30, 2027. This means that investors can file I-526E petitions after the September 30, 2026 grandfathering deadline. However, these petitions will not be protected by the grandfathering clause.
+The EB-5 regional center program is authorized through September 30, 2027. Petitions can still be filed. Petitions filed after September 30, 2026 do not get grandfathering protection.
 
-If congress fails to reauthorize the program by September 30, 2027, USCIS would lose the legal authority to process any petitions filed after the 2026 deadline. Investors who file between October 1, 2026 and September 30, 2027 are betting on Congress to reauthorize the program.
+Petitions filed after the 2026 filing date do not have the statutory protection that applies to petitions filed on or before September 30, 2026.
 
-The most prudent course of action for any F-1 student considering the EB-5 path is to treat September 30, 2026 as the true deadline.
+The September 30, 2026 grandfathering filing date has passed.
 
 ## Conclusion
 
-The transition from an F-1 student visa to an EB-5 green card is a complex but a highly rewarding journey. The EB-5 program offers a unique opportunity for F-1 students to bypass the uncertainties of the H-1B lottery, and the long backlogs of other employment based Green Card categories. The window of opportunity to take advantage of the EB-5 program with full protection of the grandfathering clause is closing. The September 30, 2026 deadline represents a potential hard cut off for prospective investors. For F-1 students that have the financial means to invest now is the time to act. Review the <a href="/eb5-green-card-international-students-playbook">International Student Playbook</a> and the <a href="/eb5-investment-process">EB-5 investment process</a> before you file. Seeking the guidance of experienced immigration and investment professionals and moving forward with a sense of urgency can turn an American dream into reality. <a href="/contact">Contact StudentEB5</a> for a free consultation.
+The transition from an F-1 student visa to an EB-5 green card is a complex but a highly rewarding journey. The EB-5 program offers a unique opportunity for F-1 students to bypass the uncertainties of the H-1B lottery, and the long backlogs of other employment based Green Card categories. The September 30, 2026 grandfathering filing date has passed. Petitions filed on or before that date kept protection. Petitions filed now can still proceed while the program is authorized through September 30, 2027, without that protection. Review the <a href="/eb5-green-card-international-students-playbook">International Student Playbook</a> and the <a href="/eb5-investment-process">EB-5 investment process</a> before you file. Seeking the guidance of experienced immigration and investment professionals and moving forward with a sense of urgency can turn an American dream into reality. <a href="/contact">Contact StudentEB5</a> for a free consultation.
 
 ## Forms Filed Concurrently as an F-1 Student
 
@@ -214,7 +214,7 @@ Because the EB-5 timeline from filing to green card commonly runs two to three y
 
 ### What is the difference between the September 30, 2026 and September 30, 2027 deadline?
 
-The September 30, 2026 deadline is a grandfathering deadline. If the investor files their I-526E petition on or before this date USCIS is legally required to process the investors petition even if congress does not reauthorize the EB-5 regional center program. The September 30, 2027 deadline is the date the program itself is set to expire. Petitions filed after the 2026 deadline but before the 2027 deadline are not protected by the grandfathering clause.
+The September 30, 2026 date was the grandfathering filing date, and it has passed. A regional center petition properly filed on or before that date has statutory protection if the program later lapses. The program is authorized through September 30, 2027. Petitions filed after September 30, 2026 do not get that protection.
 
 ### Can I file my Green Card Application (Form I-485) at the same time as my EB-5 petition (Form I-526E)?
 

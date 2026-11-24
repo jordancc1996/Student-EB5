@@ -6,7 +6,7 @@ metaTitle: "I-526E Filing Cost - Fees Beyond the Investment | StudentEB5"
 metaDescription: "I-526E filing cost covers attorney fees, USCIS fees, and regional center charges beyond the investment. See the line items."
 excerpt: Once you have cleared the pre-investment checks, the filing phase begins. This Part 2 guide walks through attorney selection, the full cost breakdown of an EB-5 petition, and seven of the most common questions backlogged H-1B professionals and F-1 students ask before filing Form I-526E.
 date: June 12, 2026
-updatedDate: September 3, 2026
+updatedDate: November 23, 2026
 category: Investment Guide
 readTime: 8 min read
 image: ../../../assets/eb5-pre-investment-guide.jpg
@@ -93,7 +93,7 @@ Retrogression for the EB-5 reserved categories could occur in the next few month
 
 ### Q5: Will EB-5 expire?
 
-The Reform and Integrity Act of 2022 extended the program through September 30, 2027. The RIA also added a grandfathering provision dated September 30, 2026: investors who apply before that date will be ushered into the EB-5 program under the current rules and processed through final adjudication regardless of what happens to the program's authorization afterward. This grandfathering clause is a critical protection for investors committing capital to EB-5 today.
+The Reform and Integrity Act of 2022 extended the program through September 30, 2027. The RIA also added a grandfathering provision dated September 30, 2026. That filing date has passed. Regional center petitions properly filed on or before that date have statutory protection if the program later lapses. Petitions filed after that date do not get that protection.
 
 ### Q6: How is EB-5 different from the Trump Gold Card?
 

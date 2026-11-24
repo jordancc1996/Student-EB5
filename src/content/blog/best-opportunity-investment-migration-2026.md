@@ -6,7 +6,7 @@ metaTitle: "EB-5 at $800,000 - 2026 Filing Window | StudentEB5"
 metaDescription: "Investment migration 2026 is the last year to file EB-5 at the $800,000 TEA minimum before the Jan 1, 2027 inflation hike and Sept 30 grandfathering cutoff."
 excerpt: 2026 is primed to be the most investor friendly year in the last decade. A convergence of critical legislative deadlines, strategic visa availability and 2026 being the last year before inflation adjustments creates a rare opportunity.
 date: December 29, 2025
-updatedDate: April 15, 2026
+updatedDate: November 23, 2026
 category: Investment Strategy
 readTime: 10 min read
 image: ../../assets/blog-2026-eb5-opportunity.jpg
@@ -27,7 +27,7 @@ relatedPosts:
   - f1-students/f1-to-eb5-green-card
 ---
 
-<intro>Investment migration 2026 is the last year to file an EB-5 petition at the current $800,000 TEA minimum before the scheduled January 1, 2027 inflation adjustment, and the September 30, 2026 grandfathering deadline locks in adjudication protection under existing rules. Rural TEA set-aside visa categories remain current for all countries including India and China as of late 2025, allowing backlogged nationals to bypass decades-long waits in the unreserved category. The sections below explain set-aside visa mechanics, the grandfathering deadline, and the step-by-step filing process for international students entering the program this year.</intro>
+<intro>Investment migration 2026 is the last year to file an EB-5 petition at the current $800,000 TEA minimum before the scheduled January 1, 2027 inflation adjustment, and petitions filed on or before September 30, 2026 kept grandfathering protection. Rural TEA set-aside visa categories remain current for all countries including India and China as of late 2025, allowing backlogged nationals to bypass decades-long waits in the unreserved category. The sections below explain set-aside visa mechanics, the grandfathering deadline, and the step-by-step filing process for international students entering the program this year.</intro>
 
 ## The Regulatory and Financial Arbitrage Opportunity
 
@@ -43,9 +43,9 @@ This is extremely valuable for investors from countries with long-standing backl
 
 ## The Critical Upcoming Deadline
 
-The most urgent factor within the rare 2026 opportunity window is the looming legislative deadline for the EB-5 program. The EB-5 regional center program is scheduled to sunset in 2027 and grandfathering protections are expiring on September 30, 2026. Track this deadline with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>.
+The September 30, 2026 grandfathering filing date has passed. The EB-5 regional center program is authorized through September 30, 2027. Petitions filed on or before September 30, 2026 kept grandfathering protection. Track the authorization date with our <a href="/tools/grandfathering-countdown">Grandfathering Countdown Timer</a>.
 
-Under current law, investors who file their petition after that date may not benefit from statutory protections if the program is allowed to lapse. Filing before this grandfathering date is the most obvious and critical step for risk mitigation. There is strong confidence within the industry that the program will be reauthorized due to its bipartisan support and beneficial economic impact, but it is not worth taking the gamble and waiting to see. The September 2026 deadline represents a clear line in the sand for investors that are thinking about getting a green card. Learn more about <a href="/research/eb5-grandfathering-2026-2027-deadlines">EB-5 grandfathering explained</a>.
+Under current law, investors who file their petition after that date may not benefit from statutory protections if the program is allowed to lapse. Petitions filed on or before September 30, 2026 kept grandfathering protection. Petitions filed now can still proceed while the program is authorized through September 30, 2027, without that protection. The September 30, 2026 filing date has passed. Learn more about <a href="/research/eb5-grandfathering-2026-2027-deadlines">EB-5 grandfathering explained</a>.
 
 ## Program Durability and Track Record
 

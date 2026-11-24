@@ -6,6 +6,7 @@ metaTitle: "EB-5 Concurrent Filing - J-1, F-1, and H-1B | StudentEB5"
 metaDescription: "EB-5 concurrent filing lets J-1, F-1, and H-1B holders from India and China file I-526E with I-485, bypass decade-long EB-2 waits, and secure an EAD."
 excerpt: Indian and Chinese professionals on J-1, F-1, and H-1B visas can use the EB-5 program as a self-sponsored pathway to permanent residency, bypassing decade-long EB-2 and EB-3 backlogs through concurrent filing.
 date: June 1, 2026
+updatedDate: November 23, 2026
 category: H-1B Strategy
 readTime: 9 min read
 image: ../../assets/blog-j1-f1-h1b-eb5.jpg
@@ -78,7 +79,7 @@ These interim benefits are typically approved within 4-8 months of filing, estab
 
 For Indian and Chinese professionals on J-1, F-1, and H-1B visas, the Post-RIA EB-5 program represents a predictable self-sponsored alternative to decades-long employment backlogs. The ability to file concurrently provides immediate professional mobility, entrepreneurial freedom, and family stability within months of filing.
 
-With the upcoming <a href="/research/eb5-grandfathering-2026-2027-deadlines">grandfathering deadline on September 30, 2026</a>, and the projected price increase on January 1, 2027, J-1, F-1, and H-1B visa holders need to consider this pathway and initiate preparation early if they want a chance at the EB-5. Compiling seven years of source of funds documentation and conducting project due diligence typically requires several months of coordination with experienced immigration counsel and reputable regional centers. By taking proactive steps non-immigrant professionals can secure their status and establish a permanent foundation in the United States.
+The <a href="/research/eb5-grandfathering-2026-2027-deadlines">September 30, 2026 grandfathering filing date</a> has passed. Petitions filed on or before that date kept protection. The projected price increase on January 1, 2027 is a separate date. J-1, F-1, and H-1B visa holders can still file while the program is authorized through September 30, 2027, without grandfathering protection. Compiling seven years of source of funds documentation and conducting project due diligence typically requires several months of coordination with experienced immigration counsel and reputable regional centers. By taking proactive steps non-immigrant professionals can secure their status and establish a permanent foundation in the United States.
 
 If you're interested in learning more about the EB-5 program, review the <a href="/eb5-investment-process">EB-5 investment process</a> and the <a href="/eb5-green-card-international-students-playbook">International Student Playbook</a>, or contact the professionals at StudentEB5 to <a href="/contact">set up a free consultation</a> to decide if the EB-5 program is right for your situation.
 

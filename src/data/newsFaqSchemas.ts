@@ -7,7 +7,7 @@ export const landscapeMay2026FaqSchema = {
       name: 'What is the EB-5 grandfathering deadline in 2026?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'The EB-5 grandfathering deadline is September 30, 2026. Investors who file before this date may receive protection if the Regional Center program later faces a lapse in authorization.',
+        text: 'The EB-5 grandfathering filing date was September 30, 2026. Regional center petitions properly filed on or before that date have statutory protection if the program later lapses. Petitions filed after that date do not get that protection, but they can still be filed while the program is authorized through September 30, 2027.',
       },
     },
     {

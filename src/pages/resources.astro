@@ -13,10 +13,11 @@ import { SITE_CONFIG } from '@/lib/seo/config';
 import { seoTitle } from '@/lib/seo/documentTitle';
 import { generateWebPageSchema } from '@/lib/seo/structured-data';
 import { getPageLastUpdated } from '@/lib/pageFreshness';
+import { GRANDFATHERING_FILING_DEADLINE, formatProgramDate } from '@/data/program';
 
 const title = 'EB-5 Resources for International Students';
 const description =
-  'EB-5 resources international students need include filing guides, source-of-funds checklists, research articles, and tools tied to the Sept 30, 2026 deadline.';
+  `EB-5 resources international students need include guides, checklists, research, and tools for planning after the ${formatProgramDate(GRANDFATHERING_FILING_DEADLINE)} grandfathering date.`;
 const pageCanonical = `${SITE_CONFIG.url}/resources`;
 const ogTitle = seoTitle(title);
 const ogDescription = description;

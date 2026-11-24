@@ -6,6 +6,7 @@ metaTitle: "EB-5 Investor Q&A - Times, TEA, and Risk | StudentEB5"
 metaDescription: "EB-5 investor Q&A for June 2026 covers processing times, rural vs high-unemployment TEA projects, capital protection, and the Sept 30 grandfathering deadline."
 excerpt: A comprehensive Q&A for EB-5 investors covering project selection, rural and high unemployment area processing differences, green card timelines, capital tie-up periods, the grandfathering clause, L-1B to EB-5 transitions, and source of funds preparation timelines.
 date: June 11, 2026
+updatedDate: November 23, 2026
 category: EB-5 Program
 readTime: 6 min read
 image: ../../assets/blog-eb5-investor-qa.jpg
@@ -51,7 +52,7 @@ The repayment timeline is dictated by the loan documents between the EB-5 region
 
 ## What is the EB-5 grandfathering clause and how does it protect investors?
 
-The grandfathering clause was introduced by the EB-5 reform and Integrity Act of 2022 and protects investors from future legislative changes or program expirations. Any investor who files their I-526E petition before September 30, 2026, is grandfathered into the program. Even if congress fails to reauthorize the regional center program or changes the investment requirements after that date, the grandfathered applications will be processed under the rules in place at the time of filing and ensure the investor remains eligible for their green card.
+The grandfathering clause was introduced by the EB-5 reform and Integrity Act of 2022 and protects investors from future legislative changes or program expirations. A regional center petition properly filed on or before September 30, 2026 has statutory protection if the program later lapses. Even if congress fails to reauthorize the regional center program or changes the investment requirements after that date, the grandfathered applications will be processed under the rules in place at the time of filing and ensure the investor remains eligible for their green card.
 
 ## Can I transition from an L-1B visa to EB-5 and stay in the United States?
 
