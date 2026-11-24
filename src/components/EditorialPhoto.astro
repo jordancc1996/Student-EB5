@@ -28,6 +28,7 @@ const image = photo && asset ? await optimizeArticleImage(asset) : null;
         alt={photo.alt}
         loading="lazy"
         decoding="async"
+        fetchpriority="low"
         data-orientation={image.orientation}
       />
       <PhotoCredit photo={photo} />

@@ -68,7 +68,7 @@
 @font-face {
   font-family: 'Roboto Fallback';
   src: local('Arial');
-  size-adjust: 100.3%;
+  size-adjust: 100%;
   ascent-override: 92.8%;
   descent-override: 24.4%;
   line-gap-override: 0%;
