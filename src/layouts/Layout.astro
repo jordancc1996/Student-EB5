@@ -25,22 +25,39 @@ const { ogImage, ogImageAlt, fullBleedHero = false } = Astro.props;
 <!doctype html>
 <html lang="en">
 	<head>
-		<!-- Google Tag Manager -->
+		<!-- Hold idle work until after the hero paints. Analytics starts on its own timer. -->
 		<script is:inline>
-			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-			})(window,document,'script','dataLayer','GTM-PCXRXQ34');
-		</script>
-		<!-- End Google Tag Manager -->
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-YWB04H0R4C"></script>
-		<script is:inline>
+			(function () {
+				var nativeIdle = window.requestIdleCallback;
+				window.requestIdleCallback = function (callback, options) {
+					return setTimeout(function () {
+						if (typeof nativeIdle === 'function') nativeIdle.call(window, callback, options);
+						else callback({ didTimeout: true, timeRemaining: function () { return 0; } });
+					}, 800);
+				};
+			})();
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'G-YWB04H0R4C');
+			window.addEventListener('load', function () {
+				var start = function () {
+				(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','GTM-PCXRXQ34');
+				var analytics = document.createElement('script');
+				analytics.async = true;
+				analytics.src = 'https://www.googletagmanager.com/gtag/js?id=G-YWB04H0R4C';
+				document.head.appendChild(analytics);
+				gtag('js', new Date());
+				gtag('config', 'G-YWB04H0R4C');
+				var publisher = document.createElement('script');
+				publisher.async = true;
+				publisher.src = 'https://news.google.com/swg/js/v1/publisher.js';
+				document.body.appendChild(publisher);
+				};
+				setTimeout(start, 1500);
+			});
 		</script>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -62,9 +79,7 @@ const { ogImage, ogImageAlt, fullBleedHero = false } = Astro.props;
 		<!-- End Google Tag Manager (noscript) -->
 		<slot />
 		<WhatsAppCTA />
-		<PdfGuideOfferPopup client:load />
-		<CookieConsentBanner client:load />
-		<!-- After page markup so publisher.js can find google-add-preferred-source-btn on first scan -->
-		<script is:inline async src="https://news.google.com/swg/js/v1/publisher.js"></script>
+		<PdfGuideOfferPopup client:idle />
+		<CookieConsentBanner client:idle />
 	</body>
 </html>

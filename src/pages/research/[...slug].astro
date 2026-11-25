@@ -7,7 +7,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '@/components/Header';
 import SiteFooter from '@/components/SiteFooter.astro';
 import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
-import OptimizedImage from '@/components/OptimizedImage.astro';
+import { getResearchHero } from '@/lib/images/researchHero';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import ShareButtons from '@/components/ShareButtons';
@@ -96,6 +96,8 @@ if (!entry.body) {
 }
 
 const hasHero = !!post.heroImage;
+const hero = post.heroImage ? await getResearchHero(post.heroImage) : null;
+const inlineHero = !post.heroImage && post.image ? await getResearchHero(post.image, '(max-width: 768px) 100vw, 740px') : null;
 const pageCanonical = `${SITE_CONFIG.url}/research/${slug}`;
 const metaTitle = seoTitle(post.metaTitle);
 const ogCrop = post.heroImage
@@ -196,23 +198,51 @@ const relatedPosts = allPosts
         <script type="application/ld+json" set:html={JSON.stringify(graceAppSchema)} />
       )
     }
+    {
+      hero && (
+        <link
+          rel="preload"
+          as="image"
+          href={hero.src}
+          imagesrcset={hero.srcset}
+          imagesizes={hero.sizes}
+          type="image/webp"
+          fetchpriority="high"
+        />
+      )
+    }
+    {
+      inlineHero && (
+        <link
+          rel="preload"
+          as="image"
+          href={inlineHero.src}
+          imagesrcset={inlineHero.srcset}
+          imagesizes={inlineHero.sizes}
+          type="image/webp"
+          fetchpriority="high"
+        />
+      )
+    }
   </Fragment>
 
   <div class="min-h-screen bg-background research-article-page research-article-page--rail">
-    <Header client:load />
+    <Header client:idle />
 
     {
-      hasHero && post.heroImage && (
+      hero && (
         <section class="relative pt-[120px] min-h-[60vh] flex items-center overflow-hidden">
-          <OptimizedImage
-            src={post.heroImage}
+          <img
+            src={hero.src}
+            srcset={hero.srcset}
+            sizes={hero.sizes}
             alt={post.imageAlt}
-            width={post.heroImage.width}
-            height={post.heroImage.height}
-            className="absolute inset-0 w-full h-full object-cover"
+            width={hero.width}
+            height={hero.height}
+            class="absolute inset-0 w-full h-full object-cover"
             loading="eager"
-            fetchPriority="high"
-            sizes="100vw"
+            decoding="sync"
+            fetchpriority="high"
           />
           <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
           <div class="relative z-10 w-full py-16 text-white">
@@ -224,7 +254,7 @@ const relatedPosts = allPosts
             <h1 class="research-article-title mb-6 drop-shadow-lg text-white text-left">
               {post.title}
             </h1>
-            {isGraceCalculator && <H1bGracePeriodCalculator client:load />}
+            {isGraceCalculator && <H1bGracePeriodCalculator client:idle />}
             <div class="research-article-meta flex flex-wrap items-center justify-start gap-6 text-white/90 font-medium">
               <div class="flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
@@ -283,7 +313,7 @@ const relatedPosts = allPosts
           </div>
 
           {
-            !hasHero && (
+            inlineHero && (
               <header class="mb-8">
                 <div class="flex flex-wrap items-center gap-4 mb-4">
                   <div class="editorial-kicker">
@@ -308,14 +338,18 @@ const relatedPosts = allPosts
                 </h1>
 
                 <div class="aspect-video overflow-hidden rounded-lg mb-8">
-                  <OptimizedImage
-                    src={post.image}
+                  <img
+                    src={inlineHero.src}
+                    srcset={inlineHero.srcset}
+                    sizes={inlineHero.sizes}
                     alt={post.imageAlt}
                     title={post.title}
-                    className="w-full h-full object-cover"
+                    width={inlineHero.width}
+                    height={inlineHero.height}
+                    class="w-full h-full object-cover"
                     loading="eager"
-                    fetchPriority="high"
-                    sizes="(max-width: 768px) 100vw, 740px"
+                    decoding="sync"
+                    fetchpriority="high"
                   />
                 </div>
               </header>
@@ -450,5 +484,5 @@ const relatedPosts = allPosts
     <ArticleEmailContact />
     <SiteFooter />
   </div>
-  <Toaster client:load />
+  <Toaster client:idle />
 </Layout>

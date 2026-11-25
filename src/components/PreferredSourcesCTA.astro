@@ -41,11 +41,13 @@ const preferredSourceDeeplink = `https://www.google.com/preferences/source?q=${p
           '.preferred-sources-fallback',
         );
         if (!widget || !fallback) return;
-        window.setTimeout(function () {
-          if (widget.getAttribute('data-initialized') !== 'true') {
-            fallback.classList.remove('hidden');
-          }
-        }, 3000);
+        window.addEventListener('load', function () {
+          window.setTimeout(function () {
+            if (widget.getAttribute('data-initialized') !== 'true') {
+              fallback.classList.remove('hidden');
+            }
+          }, 3000);
+        });
       })();
     </script>
   </div>
