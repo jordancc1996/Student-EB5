@@ -27,7 +27,7 @@ keywords:
   - regional center due diligence
 relatedPosts:
   - complete-2027-eb5-guide
-  - h1b-to-eb5-transition-guide
+  - eb5-attorney-hiring-questions
   - f1-students/f1-to-eb5-green-card
 ---
 
