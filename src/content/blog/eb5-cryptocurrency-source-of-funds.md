@@ -24,9 +24,9 @@ keywords:
   - EB-5 mining source of funds
   - EB-5 liquidation to USD
 relatedPosts:
-  - eb5-timing-risks-petition-invalidation
-  - complete-2027-eb5-guide
-  - eb5-guide-indian-professionals-2026
+  - ways-to-fund-eb5-investment-2026
+  - f1-students/eb5-funding-strategies-students
+  - eb5-capital-stack
 ---
 
 <intro>EB-5 cryptocurrency source of funds cases still require the same $800,000 TEA or $1,050,000 standard investment, plus proof that every digital-asset dollar came from a lawful source. A core requirement of the program is that the EB-5 investor must prove the investment capital comes from a lawful source. The crypto market may be in a downturn, but digital assets have become extremely popular as wealth creation investments in recent years. Many prospective EB-5 investors are interested in using cryptocurrency as a source of investment capital. We hope this article provides clarity on the requirements, challenges, and viability of using crypto assets to fund an EB-5 investment.</intro>

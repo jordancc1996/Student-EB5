@@ -25,9 +25,9 @@ keywords:
   - Chinese H-1B EB-5 due diligence
   - international students EB-5 project selection
 relatedPosts:
-  - eb5-cryptocurrency-source-of-funds
-  - complete-2027-eb5-guide
-  - eb5-guide-indian-professionals-2026
+  - 19-questions-rural-eb5-project-due-diligence
+  - choosing-rural-eb5-regional-center-guide
+  - eb5-capital-stack
 ---
 
 <intro>EB-5 projects without I-956F approval still require regional centers to have filed Form I-956F before accepting investor capital, but many deals reach market while that application is pending. This application contains the foundational investment documents, including business plans, partnership agreements, operating agreements, loan agreements, and target employment area designation letters. For Indian and Chinese H-1B professionals and international students facing employment visa backlogs, the I-956F approval is a necessary component of project due diligence on their EB-5 journey.</intro>

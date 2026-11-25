@@ -39,7 +39,11 @@ import LastUpdated from '@/components/LastUpdated.astro';
 import ArticleSummary from '@/components/ArticleSummary.astro';
 import { resolveArticleLastUpdated, toIsoDate } from '@/lib/lastUpdated';
 import { resolveArticlePathway } from '@/lib/research/resolveArticlePathway';
-import { selectRelatedResearch } from '@/lib/research/relatedResearch';
+import {
+  selectBottomRelatedPosts,
+  selectRailRelatedResearch,
+  type RelatedArticleCandidate,
+} from '@/lib/research/relatedResearch';
 import { injectEditorialPhotos } from '@/lib/photos/injectEditorialPhotos';
 import PagePhotoCredits from '@/components/PagePhotoCredits.astro';
 import H1bGracePeriodCalculator from '@/components/H1bGracePeriodCalculator';
@@ -156,23 +160,32 @@ const articlePathway = resolveArticlePathway(slug, {
 });
 
 const allPosts = await getCollection('blog');
-const railRelated = selectRelatedResearch(
-  { href: `/research/${slug}`, category: post.category, keywords: post.keywords },
-  allPosts.map((p) => ({
-    title: p.data.title,
-    href: `/research/${p.data.slug}`,
-    date: p.data.date,
-    category: p.data.category,
-    keywords: p.data.keywords,
-    timestamp: new Date(p.data.date).getTime() || 0,
-    image: p.data.heroImage,
-  })),
+const researchCandidates: RelatedArticleCandidate[] = allPosts.map((p) => ({
+  slug: p.data.slug,
+  title: p.data.title,
+  href: `/research/${p.data.slug}`,
+  date: p.data.date,
+  category: p.data.category,
+  keywords: p.data.keywords,
+  timestamp: new Date(p.data.date).getTime() || 0,
+  image: p.data.heroImage,
+}));
+const bottomPicks = selectBottomRelatedPosts(
+  { href: `/research/${slug}`, slug, category: post.category, keywords: post.keywords },
+  post.relatedPosts,
+  researchCandidates,
 );
-const relatedPosts = allPosts
-  .filter((p) => p.data.slug !== slug)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, 3)
-  .map((p) => p.data);
+const postsBySlug = new Map(allPosts.map((p) => [p.data.slug, p.data]));
+const relatedPosts = bottomPicks.map((pick) => {
+  const related = postsBySlug.get(pick.slug);
+  if (!related) throw new Error(`Missing related post ${pick.slug} for ${slug}`);
+  return related;
+});
+const railRelated = selectRailRelatedResearch(
+  { href: `/research/${slug}`, category: post.category, keywords: post.keywords },
+  researchCandidates,
+  bottomPicks.map((pick) => pick.href),
+);
 ---
 
 <Layout fullBleedHero={hasHero} ogImage={ogImage} ogImageAlt={ogImageAlt}>

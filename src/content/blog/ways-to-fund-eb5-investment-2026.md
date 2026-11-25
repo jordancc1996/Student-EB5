@@ -25,9 +25,9 @@ keywords:
   - EB-5 gift funds
   - I-526E source of funds
 relatedPosts:
-  - h1b-eb5-financial-planning
-  - 19-questions-rural-eb5-project-due-diligence
-  - 5-reasons-switch-h1b-to-eb5
+  - f1-students/eb5-funding-strategies-students
+  - eb5-cryptocurrency-source-of-funds
+  - eb5-capital-stack
 ---
 
 <intro>Ways to fund EB-5 start from the same rule: every dollar of the $800,000 TEA or $1,050,000 standard investment must come from a lawful, fully documented source. The investment is $800,000 for projects in Targeted Employment Areas (areas with high unemployment or designated as rural) and $1,050,000 for projects in non-Targeted employment areas. One of the cornerstones of the EB-5 investment process is the requirement that every dollar of the investment originates from legitimate sources. USCIS mandates that applicants provide comprehensive and transparent documentation to prove the legitimacy of their funds. This article will provide a detailed overview of the primary funding methods for EB-5 applicants and explain the critical compliance concepts of source of funds and path of funds.</intro>

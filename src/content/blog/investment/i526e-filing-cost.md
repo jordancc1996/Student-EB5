@@ -28,7 +28,7 @@ keywords:
 relatedPosts:
   - investment/what-to-know-before-investing-in-eb5
   - complete-2027-eb5-guide
-  - h1b-to-eb5-transition-guide
+  - eb5-attorney-hiring-questions
 ---
 
 <intro>I-526E filing cost planning requires investors to look beyond the $800,000 EB-5 investment and account for attorney fees, USCIS filing fees, regional center administrative fees, and any additional forms needed for adjustment of status. F-1 students and H-1B professionals preparing to file should also select experienced EB-5 counsel, organize their source-of-funds documentation, and determine whether concurrent filing is available based on their circumstances. This guide explains the major costs and filing decisions prospective EB-5 investors should understand before submitting Form I-526E.</intro>
