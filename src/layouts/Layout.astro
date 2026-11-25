@@ -25,17 +25,7 @@ const { ogImage, ogImageAlt, fullBleedHero = false } = Astro.props;
 <!doctype html>
 <html lang="en">
 	<head>
-		<!-- Hold idle work until after the hero paints. Analytics starts on its own timer. -->
 		<script is:inline>
-			(function () {
-				var nativeIdle = window.requestIdleCallback;
-				window.requestIdleCallback = function (callback, options) {
-					return setTimeout(function () {
-						if (typeof nativeIdle === 'function') nativeIdle.call(window, callback, options);
-						else callback({ didTimeout: true, timeRemaining: function () { return 0; } });
-					}, 800);
-				};
-			})();
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			window.addEventListener('load', function () {
@@ -56,7 +46,11 @@ const { ogImage, ogImageAlt, fullBleedHero = false } = Astro.props;
 				publisher.src = 'https://news.google.com/swg/js/v1/publisher.js';
 				document.body.appendChild(publisher);
 				};
-				setTimeout(start, 1500);
+				if (typeof window.requestIdleCallback === 'function') {
+					window.requestIdleCallback(start, { timeout: 3000 });
+				} else {
+					setTimeout(start, 0);
+				}
 			});
 		</script>
 		<meta charset="utf-8" />
