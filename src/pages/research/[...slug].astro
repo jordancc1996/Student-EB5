@@ -52,6 +52,7 @@ import {
   USCIS_TERMINATION_LINK_LABEL,
   USCIS_TERMINATION_OPTIONS_URL,
   USCIS_TERMINATION_PAGE_ARCHIVED,
+  H1B_GRACE_PERIOD_MAX_DAYS,
 } from '@/data/program';
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -254,7 +255,58 @@ const relatedPosts = allPosts
             <h1 class="research-article-title mb-6 drop-shadow-lg text-white text-left">
               {post.title}
             </h1>
-            {isGraceCalculator && <H1bGracePeriodCalculator client:idle />}
+            {isGraceCalculator && <H1bGracePeriodCalculator />}
+            {isGraceCalculator && <script is:inline define:vars={{ graceDays: H1B_GRACE_PERIOD_MAX_DAYS }}>
+              (function () {
+                var last = document.getElementById('grace-last-day');
+                var i94 = document.getElementById('grace-i94');
+                if (!last || !i94 || !last.form) return;
+                var form = last.form;
+                var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                function addDays(iso, days) {
+                  var match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+                  if (!match) return null;
+                  var year = Number(match[1]);
+                  var month = Number(match[2]);
+                  var day = Number(match[3]);
+                  var date = new Date(Date.UTC(year, month - 1, day));
+                  if (date.getUTCFullYear() !== year || date.getUTCMonth() !== month - 1 || date.getUTCDate() !== day) return null;
+                  date.setUTCDate(date.getUTCDate() + days);
+                  return date.getUTCFullYear() + '-' + String(date.getUTCMonth() + 1).padStart(2, '0') + '-' + String(date.getUTCDate()).padStart(2, '0');
+                }
+                function format(iso) {
+                  var match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+                  if (!match) return iso;
+                  return months[Number(match[2]) - 1] + ' ' + Number(match[3]) + ', ' + match[1];
+                }
+                function sentence() {
+                  var sixty = addDays(last.value, graceDays);
+                  if (!sixty || !addDays(i94.value, 0)) return '';
+                  var end = sixty <= i94.value ? sixty : i94.value;
+                  var label = format(end);
+                  if (sixty < i94.value) return 'The grace period ends on ' + label + ' because ' + graceDays + ' days after the last day of employment is earlier than the I-94 date.';
+                  if (sixty > i94.value) return 'The grace period ends on ' + label + ' because the I-94 date is earlier than ' + graceDays + ' days after the last day of employment.';
+                  return 'The grace period ends on ' + label + ' because ' + graceDays + ' days after the last day of employment and the I-94 date are the same day.';
+                }
+                function render() {
+                  var existing = form.querySelector('[data-grace-result]');
+                  var text = sentence();
+                  if (!text) {
+                    if (existing) existing.remove();
+                    return;
+                  }
+                  if (!existing) {
+                    existing = document.createElement('p');
+                    existing.className = 'mt-3 text-sm text-foreground mb-0';
+                    existing.setAttribute('data-grace-result', '');
+                    form.insertBefore(existing, form.querySelector('p'));
+                  }
+                  existing.textContent = text;
+                }
+                form.addEventListener('input', render);
+                form.dataset.graceReady = 'true';
+              })();
+            </script>}
             <div class="research-article-meta flex flex-wrap items-center justify-start gap-6 text-white/90 font-medium">
               <div class="flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>

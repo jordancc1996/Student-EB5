@@ -140,8 +140,8 @@ const gridImages = await Promise.all(gridPosts.map((post) => optimizeArticleImag
               <div class="md:flex">
                 <div class="md:w-1/2">
                   <img
-                    data-src={featuredImage.src}
-                    data-srcset={featuredImage.srcset}
+                    src={featuredImage.src}
+                    srcset={featuredImage.srcset}
                     sizes={cardSizes}
                     alt={featuredPost.imageAlt}
                     width={featuredImage.width}
@@ -151,17 +151,6 @@ const gridImages = await Promise.all(gridPosts.map((post) => optimizeArticleImag
                     decoding="async"
                     fetchpriority="low"
                   />
-                  <noscript>
-                    <img
-                      src={featuredImage.src}
-                      srcset={featuredImage.srcset}
-                      sizes={cardSizes}
-                      alt={featuredPost.imageAlt}
-                      width={featuredImage.width}
-                      height={featuredImage.height}
-                      class="w-full h-64 md:h-full object-cover"
-                    />
-                  </noscript>
                 </div>
                 <div class="md:w-1/2 p-8">
                   <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 mb-4">
@@ -191,8 +180,8 @@ const gridImages = await Promise.all(gridPosts.map((post) => optimizeArticleImag
                 <div class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                   <div class="aspect-video overflow-hidden">
                     <img
-                      data-src={gridImages[index].src}
-                      data-srcset={gridImages[index].srcset}
+                      src={gridImages[index].src}
+                      srcset={gridImages[index].srcset}
                       sizes={cardSizes}
                       alt={post.imageAlt}
                       title={post.title}
@@ -203,17 +192,6 @@ const gridImages = await Promise.all(gridPosts.map((post) => optimizeArticleImag
                       decoding="async"
                       fetchpriority="low"
                     />
-                    <noscript>
-                      <img
-                        src={gridImages[index].src}
-                        srcset={gridImages[index].srcset}
-                        sizes={cardSizes}
-                        alt={post.imageAlt}
-                        width={gridImages[index].width}
-                        height={gridImages[index].height}
-                        class="w-full h-full object-cover"
-                      />
-                    </noscript>
                   </div>
                   <div class="flex flex-col space-y-1.5 p-6">
                     <div class="flex items-center gap-2 mb-2">
@@ -262,35 +240,6 @@ const gridImages = await Promise.all(gridPosts.map((post) => optimizeArticleImag
         </div>
       </div>
     </main>
-    <noscript><style>img[data-src]{display:none}</style></noscript>
-    <script is:inline>
-      (function () {
-        var started = false;
-        function reveal() {
-          var nodes = document.querySelectorAll('img[data-src]');
-          for (var i = 0; i < nodes.length; i++) {
-            var img = nodes[i];
-            var srcset = img.getAttribute('data-srcset');
-            if (srcset) img.setAttribute('srcset', srcset);
-            img.setAttribute('src', img.getAttribute('data-src'));
-            img.removeAttribute('data-src');
-            img.removeAttribute('data-srcset');
-          }
-        }
-        function start() {
-          if (started) return;
-          started = true;
-          setTimeout(reveal, 0);
-        }
-        try {
-          var observer = new PerformanceObserver(function (list) {
-            if (list.getEntries().length) start();
-          });
-          observer.observe({ type: 'largest-contentful-paint', buffered: true });
-        } catch (e) {}
-        setTimeout(start, 2500);
-      })();
-    </script>
     <ConsultationCTA client:visible />
     <SiteFooter />
   </div>
