@@ -4,11 +4,12 @@ import Header from '@/components/Header';
 import SiteFooter from '@/components/SiteFooter.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
-import OptimizedImage from '@/components/OptimizedImage.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
 import { getCollection } from 'astro:content';
 import blogHero from '@/assets/blog-hero.jpg';
+import { getResearchHero } from '@/lib/images/researchHero';
+import { optimizeArticleImage } from '@/lib/images/articleImage';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { generateBlogSchema } from '@/lib/seo/structured-data';
 
@@ -35,6 +36,10 @@ const keywords = [
 ];
 
 const structuredData = [generateBlogSchema()];
+const hero = await getResearchHero(blogHero, '100vw', [736]);
+const cardSizes = '(max-width: 768px) 100vw, 50vw';
+const featuredImage = await optimizeArticleImage(featuredPost.image);
+const gridImages = await Promise.all(gridPosts.map((post) => optimizeArticleImage(post.image)));
 ---
 
 <Layout fullBleedHero>
@@ -53,6 +58,15 @@ const structuredData = [generateBlogSchema()];
     {structuredData.map((data) => (
       <script type="application/ld+json" set:html={JSON.stringify(data).replace(/https:\/\/www\.studenteb5\.com/g, SITE_CONFIG.url)} />
     ))}
+    <link
+      rel="preload"
+      as="image"
+      href={hero.src}
+      imagesrcset={hero.srcset}
+      imagesizes={hero.sizes}
+      type="image/webp"
+      fetchpriority="high"
+    />
   </Fragment>
 
   <div class="min-h-screen bg-background">
@@ -62,11 +76,16 @@ const structuredData = [generateBlogSchema()];
     <section class="relative h-[55vh] min-h-[450px] flex items-center justify-center pt-[120px] pb-16">
       <div class="absolute inset-0">
         <img
-          src={blogHero.src}
+          src={hero.src}
+          srcset={hero.srcset}
+          sizes={hero.sizes}
           alt="New York City skyline at dusk representing opportunity and ambition"
+          width={hero.width}
+          height={hero.height}
           class="w-full h-full object-cover"
           loading="eager"
-          decoding="async"
+          decoding="sync"
+          fetchpriority="high"
         />
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60"></div>
       </div>
@@ -84,7 +103,7 @@ const structuredData = [generateBlogSchema()];
     <PreferredSourcesCTA />
 
     <main class="container mx-auto px-6 pt-4 pb-12">
-      <Breadcrumb client:load initialPathname="/research" />
+      <Breadcrumb client:idle initialPathname="/research" />
       <div class="max-w-4xl mx-auto">
         <!-- Header Section - Removed duplicate h1 -->
         <div class="text-center mb-12">
@@ -120,13 +139,17 @@ const structuredData = [generateBlogSchema()];
             <div class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
               <div class="md:flex">
                 <div class="md:w-1/2">
-                  <OptimizedImage
-                    src={featuredPost.image}
+                  <img
+                    src={featuredImage.src}
+                    srcset={featuredImage.srcset}
+                    sizes={cardSizes}
                     alt={featuredPost.imageAlt}
-                    className="w-full h-64 md:h-full object-cover"
-                    loading="eager"
-                    fetchPriority="high"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    width={featuredImage.width}
+                    height={featuredImage.height}
+                    class="w-full h-64 md:h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    fetchpriority="low"
                   />
                 </div>
                 <div class="md:w-1/2 p-8">
@@ -152,17 +175,22 @@ const structuredData = [generateBlogSchema()];
         <!-- Blog Posts Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           {
-            gridPosts.map((post) => (
+            gridPosts.map((post, index) => (
               <a href={`/research/${post.slug}`} class="block">
                 <div class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                   <div class="aspect-video overflow-hidden">
-                    <OptimizedImage
-                      src={post.image}
+                    <img
+                      src={gridImages[index].src}
+                      srcset={gridImages[index].srcset}
+                      sizes={cardSizes}
                       alt={post.imageAlt}
                       title={post.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      width={gridImages[index].width}
+                      height={gridImages[index].height}
+                      class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      decoding="async"
+                      fetchpriority="low"
                     />
                   </div>
                   <div class="flex flex-col space-y-1.5 p-6">
@@ -215,5 +243,5 @@ const structuredData = [generateBlogSchema()];
     <ConsultationCTA client:visible />
     <SiteFooter />
   </div>
-  <Toaster client:load />
+  <Toaster client:idle />
 </Layout>

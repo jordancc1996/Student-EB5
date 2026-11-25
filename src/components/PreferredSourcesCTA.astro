@@ -3,8 +3,9 @@ import { SITE_CONFIG } from '@/lib/seo/config';
 
 /**
  * Official Google Preferred Sources CTA.
- * Button markup must remain a bare div with google-add-preferred-source-btn;
- * publisher.js is loaded once from Layout.astro (end of body, after page markup).
+ * Button markup must remain a bare div with google-add-preferred-source-btn.
+ * publisher.js is loaded once from Layout.astro. The button slot keeps its
+ * final 40px height so the content below it does not move when the script runs.
  */
 const siteName = SITE_CONFIG.name;
 const preferredSourceHost = new URL(SITE_CONFIG.url).hostname;
@@ -21,7 +22,7 @@ const preferredSourceDeeplink = `https://www.google.com/preferences/source?q=${p
     </p>
     <div class="preferred-sources-widget">
       <div google-add-preferred-source-btn data-lang="en" data-theme="light"></div>
-      <p class="preferred-sources-fallback m-0 mt-3 hidden">
+      <p class="preferred-sources-fallback m-0 hidden">
         <a
           href={preferredSourceDeeplink}
           target="_blank"
@@ -41,12 +42,39 @@ const preferredSourceDeeplink = `https://www.google.com/preferences/source?q=${p
           '.preferred-sources-fallback',
         );
         if (!widget || !fallback) return;
-        window.setTimeout(function () {
-          if (widget.getAttribute('data-initialized') !== 'true') {
-            fallback.classList.remove('hidden');
+        var hideFallback = function () {
+          if (widget.getAttribute('data-initialized') === 'true') {
+            fallback.classList.add('hidden');
           }
-        }, 3000);
+        };
+        hideFallback();
+        new MutationObserver(hideFallback).observe(widget, {
+          attributes: true,
+          attributeFilter: ['data-initialized'],
+        });
+        window.addEventListener('load', function () {
+          window.setTimeout(function () {
+            if (widget.getAttribute('data-initialized') !== 'true') {
+              fallback.classList.remove('hidden');
+            }
+          }, 3000);
+        });
       })();
     </script>
   </div>
 </section>
+
+<style>
+  .preferred-sources-widget {
+    position: relative;
+  }
+  .preferred-sources-widget [google-add-preferred-source-btn] {
+    display: block;
+    min-height: 40px;
+  }
+  .preferred-sources-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+</style>
