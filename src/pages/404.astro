@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '@/components/Header';
+import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import NotFoundMainContent from '@/components/NotFoundMainContent';
@@ -24,7 +24,7 @@ const pageCanonical = `${SITE_CONFIG.url}/404`;
   </Fragment>
 
   <div class="min-h-screen bg-background">
-    <Header client:load />
+    <SiteHeader />
     <PreferredSourcesCTA />
     <NotFoundMainContent client:load />
     <SiteFooter />

@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '@/components/Header';
+import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -43,7 +43,7 @@ const lastUpdatedIso = getPageLastUpdated('/tools/opt-calculator');
     <script type="application/ld+json" set:html={JSON.stringify(generateFAQSchema(toolGuides.opt.faqs))} />
   </Fragment>
 
-  <Header client:load />
+  <SiteHeader />
 
   <section class="relative pt-[120px] bg-slate-900">
     <div class="mx-auto px-10 py-6 max-w-[900px]">

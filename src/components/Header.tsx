@@ -1,13 +1,12 @@
 import { Link } from '@/components/RouterLink';
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, GraduationCap, Clock, Calendar, DollarSign, Wallet, Dice5, Briefcase, Compass, Users, List, FileCheck, Baby, ListChecks, ShieldCheck } from 'lucide-react';
+import { Menu, ChevronDown, GraduationCap, Clock, Calendar, DollarSign, Wallet, Dice5, Briefcase, Compass, Users, List, FileCheck, Baby, ListChecks, ShieldCheck } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import ReadingProgressBar from '@/components/ReadingProgressBar';
 
 // transparent prop is no longer needed - nav automatically uses white text at top, dark when scrolled
@@ -17,7 +16,6 @@ interface HeaderProps {
 
 const Header = ({ transparent = false }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -38,27 +36,6 @@ const Header = ({ transparent = false }: HeaderProps) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isMobileMenuOpen]);
-
-  const mainNavLinks = [
-    { name: 'Research', href: '/research' },
-    { name: 'News', href: '/news' },
-    { name: 'Tools', href: '/eb5-investment-immigration-tools' },
-    { name: 'FAQ', href: '/faq' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-  ];
 
   const resourceCategories = [
     {
@@ -105,8 +82,9 @@ const Header = ({ transparent = false }: HeaderProps) => {
     { name: 'Regional Center Scorecard', href: '/tools/eb5-regional-center-scorecard', icon: ShieldCheck },
   ];
 
-  // Determine if we should use white text (over dark hero backgrounds)
-  const useWhiteText = !isScrolled && !isMobileMenuOpen;
+  // Determine if we should use white text (over dark hero backgrounds).
+  // The mobile menu's open state is applied in MobileNav.astro so the button works before this island hydrates.
+  const useWhiteText = !isScrolled;
 
   // Elegant navigation link styles - uppercase, letter-spaced, refined sizing
   // Larger tap targets via px-3 py-2, smooth color transitions, clear focus ring
@@ -127,7 +105,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
     <>
       <nav 
         className={`nav-simple fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled || isMobileMenuOpen
+          isScrolled
             ? 'bg-background/95 backdrop-blur-sm shadow-sm py-2' 
             : 'bg-transparent py-3'
         }`}
@@ -259,10 +237,10 @@ const Header = ({ transparent = false }: HeaderProps) => {
           <div className="lg:hidden flex items-center justify-between">
             <Link to="/" className={logoClasses} aria-label="StudentEB5 Home">StudentEB5</Link>
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              type="button"
               className={`p-3 -mr-2 rounded-sm transition-colors ${useWhiteText ? 'text-white hover:text-white/70' : 'text-foreground hover:text-foreground/70'}`}
-              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={isMobileMenuOpen}
+              aria-label="Open menu"
+              aria-expanded="false"
               aria-controls="mobile-nav-drawer"
             >
               <Menu size={24} />
@@ -270,90 +248,6 @@ const Header = ({ transparent = false }: HeaderProps) => {
           </div>
         </div>
       </nav>
-
-      {/* Mobile Drawer - right-side slide-in */}
-      <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-        <SheetContent
-          id="mobile-nav-drawer"
-          side="right"
-          className="w-[88%] max-w-sm p-0 bg-background flex flex-col"
-        >
-          <SheetHeader className="px-6 py-5 border-b border-border/40 text-left">
-            <SheetTitle className="text-[15px] uppercase tracking-[0.2em] font-semibold text-foreground">
-              StudentEB5
-            </SheetTitle>
-          </SheetHeader>
-          <nav
-            className="flex-1 overflow-y-auto px-2 py-4"
-            aria-label="Mobile navigation"
-          >
-            <div className="flex flex-col">
-              {mainNavLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="block px-4 py-4 text-foreground text-[15px] font-medium rounded-md hover:bg-muted/60 transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
-
-              <div className="mt-3 pt-3 border-t border-border/40">
-                <span className="px-4 text-[13px] font-medium text-muted-foreground uppercase tracking-wider mb-1 block">
-                  Pathways
-                </span>
-                {pathwayLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className="px-4 py-3 text-foreground text-[14px] rounded-md hover:bg-muted/60 transition-colors flex items-center gap-2.5"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <link.icon size={16} className="text-muted-foreground" />
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-
-              {resourceCategories.map((category) => (
-                <div key={category.label} className="mt-3 pt-3 border-t border-border/40">
-                  <span className="px-4 text-[13px] font-medium text-muted-foreground uppercase tracking-wider mb-1 block">
-                    {category.label}
-                  </span>
-                  {category.links.map((link) => (
-                    <Link
-                      key={link.href}
-                      to={link.href}
-                      className="block px-4 py-3 text-foreground text-[14px] rounded-md hover:bg-muted/60 transition-colors"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
-                </div>
-              ))}
-
-              <div className="mt-3 pt-3 border-t border-border/40">
-                <span className="px-4 text-[13px] font-medium text-muted-foreground uppercase tracking-wider mb-1 block">
-                  Tools
-                </span>
-                {toolLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className="px-4 py-3 text-foreground text-[14px] rounded-md hover:bg-muted/60 transition-colors flex items-center gap-2.5"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <link.icon size={16} className="text-muted-foreground" />
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </nav>
-        </SheetContent>
-      </Sheet>
       <ReadingProgressBar />
     </>
   );

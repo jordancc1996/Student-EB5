@@ -7,7 +7,7 @@ import PhilosophySection from '@/components/sections/PhilosophySection.astro';
 import BenefitsSection from '@/components/sections/BenefitsSection.astro';
 import PartnerCredibility from '@/components/sections/PartnerCredibility.astro';
 import CallToActionSection from '@/components/sections/CallToActionSection.astro';
-import Header from '@/components/Header';
+import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
@@ -68,7 +68,7 @@ const structuredData = [
   </Fragment>
 
   <div class="min-h-screen bg-background">
-    <Header client:load />
+    <SiteHeader />
     <main>
       <HeroSection />
       <PreferredSourcesCTA />

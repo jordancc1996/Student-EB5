@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '@/components/Header';
+import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import PlaybookInteractive from '@/components/PlaybookInteractive';
@@ -65,7 +65,7 @@ const structuredData = generateWebPageSchema(
   </Fragment>
 
   <div class="min-h-screen bg-background">
-    <Header client:load />
+    <SiteHeader />
     <PreferredSourcesCTA />
     <StudentPlaybookMainContent lastUpdatedIso={lastUpdatedIso} />
     <PlaybookInteractive client:load />

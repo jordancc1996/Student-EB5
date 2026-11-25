@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '@/components/Header';
+import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -60,7 +60,7 @@ const structuredData = generateWebPageSchema(
   </Fragment>
 
   <div class="min-h-screen bg-gradient-to-br from-background to-secondary/20">
-    <Header client:load />
+    <SiteHeader />
 
     <main class="container mx-auto px-6 pt-4 pb-8">
       <Breadcrumb client:load initialPathname="/resources" />

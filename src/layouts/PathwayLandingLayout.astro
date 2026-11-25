@@ -2,7 +2,7 @@
 import type { ImageMetadata } from 'astro';
 import { getCollection } from 'astro:content';
 import Layout from './Layout.astro';
-import Header from '@/components/Header';
+import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -129,7 +129,7 @@ const relatedResearchCards = relatedResearch.map((item) => {
   </Fragment>
 
   <div class="min-h-screen bg-background">
-    <Header client:load />
+    <SiteHeader />
 
     <main>
       <section

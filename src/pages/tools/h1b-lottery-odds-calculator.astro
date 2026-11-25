@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '@/components/Header';
+import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -46,7 +46,7 @@ const lastUpdatedIso = getPageLastUpdated('/tools/h1b-lottery-odds-calculator');
   </Fragment>
 
   <div class="min-h-screen bg-background">
-    <Header client:load />
+    <SiteHeader />
 
     <section
       class="relative pt-[120px] flex items-center justify-center bg-cover bg-center"

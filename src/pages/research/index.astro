@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '@/components/Header';
+import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -70,7 +70,7 @@ const gridImages = await Promise.all(gridPosts.map((post) => optimizeArticleImag
   </Fragment>
 
   <div class="min-h-screen bg-background">
-    <Header client:load />
+    <SiteHeader />
 
     <!-- Hero Section - matches home/contact pattern (offsets global body padding-top:120px) -->
     <section class="relative h-[55vh] min-h-[450px] flex items-center justify-center pt-[120px] pb-16">

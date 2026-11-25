@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '@/components/Header';
+import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -85,7 +85,7 @@ const structuredData = [
   </Fragment>
 
   <div class="min-h-screen bg-gradient-to-br from-background to-secondary/20">
-    <Header client:load />
+    <SiteHeader />
 
     <PreferredSourcesCTA />
 
