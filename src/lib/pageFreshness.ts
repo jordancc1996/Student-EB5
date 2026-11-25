@@ -32,7 +32,8 @@ export const LAST_UPDATED_EXCLUDED_PATHS = new Set([
 export const pageLastUpdated: Record<string, string> = {
   '/about': FEATURE_BASELINE_DATE,
   '/resources': FEATURE_BASELINE_DATE,
-  '/eb5-investment-process': FEATURE_BASELINE_DATE,
+  '/eb5-investment-process': '2026-11-25',
+  '/eb5-processing-times': '2026-11-25',
   '/eb5-green-card-international-students-playbook': FEATURE_BASELINE_DATE,
   '/tools/opt-calculator': '2026-11-23',
   '/tools/tuition-calculator': '2026-11-23',
@@ -45,6 +46,7 @@ export const pageLastUpdated: Record<string, string> = {
   '/tools/source-of-funds-calculator': '2026-11-23',
   '/tools/h1b-lottery-odds-calculator': '2026-11-23',
   '/faq/h1b-grace-period-eb5-options': '2026-11-24',
+  '/faq/eb5-process-timeline': '2026-11-25',
 };
 
 export function normalizePathname(pathname: string): string {

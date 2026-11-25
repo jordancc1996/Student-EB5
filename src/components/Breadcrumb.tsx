@@ -71,6 +71,7 @@ const routeNames: Record<string, string> = {
   'view-all': 'View All Pathways',
   'parents-and-families': 'Parents & Families',
   'eb5-investment-process': 'EB-5 Investment Process',
+  'eb5-processing-times': 'EB-5 Processing Time',
   'process': 'EB-5 Investment Process',
   'eb5-green-card-international-students-playbook':
     'EB-5 Green Card International Students Playbook',

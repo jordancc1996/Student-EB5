@@ -20,4 +20,4 @@ relatedFaqs:
   - minimum-investment-requirements
   - business-failure-consequences
 ---
-The typical EB-5 process can take 2-3 years from initial investment to receiving conditional permanent residence, followed by an additional 2 years before applying to remove conditions and obtain permanent residence. The timeline includes I-526E petition processing (12-24 months), consular processing or adjustment of status (6-12 months), and the conditional residence period (2 years).
+Current EB-5 processing time figures from USCIS are on the [EB-5 processing times](/eb5-processing-times) page. The typical EB-5 process can take 2-3 years from initial investment to receiving conditional permanent residence, followed by an additional 2 years before applying to remove conditions and obtain permanent residence. The timeline includes I-526E petition processing (12-24 months), consular processing or adjustment of status (6-12 months), and the conditional residence period (2 years).

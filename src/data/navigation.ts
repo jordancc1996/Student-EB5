@@ -78,6 +78,7 @@ export const resourceCategories: NavGroup[] = [
     links: [
       { name: 'The H-1B to EB-5 Guide', href: '/resources' },
       { name: 'H-1B Processing Timeline', href: '/pathways/h1b-to-green-card' },
+      { name: 'EB-5 Processing Times', href: '/eb5-processing-times' },
     ],
   },
   {

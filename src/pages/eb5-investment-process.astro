@@ -221,7 +221,7 @@ const faqs = [
   {
     question: 'How long does the full EB-5 process take?',
     answer:
-      'From first consultation to unconditional Green Card, the full timeline is typically 4–8 years. The longest single stage is I-526E processing at USCIS, currently 12–48+ months. Nationals of most countries then proceed to Adjustment of Status within 6–18 months of I-526E approval. The conditional Green Card period adds 2 years, followed by I-829 processing.',
+      'The path runs through I-526E, adjustment of status or consular processing, two years of conditional residence, and I-829. Current USCIS figures for those forms are on the EB-5 processing times page at /eb5-processing-times.',
   },
   {
     question: 'Can my family be included in my EB-5 petition?',
@@ -288,7 +288,8 @@ const structuredData = [
           <LastUpdated date={lastUpdatedIso} variant="onDark" class="mb-6" />
           <p class="text-white/85 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed editorial-prose">
             EB-5 gives you a path to a permanent Green Card that doesn't depend on your employer, your OPT clock, or
-            your H-1B lottery results. Here is exactly how the process works — step by step.
+            your H-1B lottery results. Here is exactly how the process works — step by step. Current USCIS figures are on the{' '}
+            <a href="/eb5-processing-times" class="text-white underline underline-offset-4 hover:text-white/90">EB-5 processing times</a> page.
           </p>
         </div>
       </section>
@@ -385,8 +386,14 @@ const structuredData = [
                         {
                           step.n === 7 ? (
                             <>
-                              USCIS issues a receipt notice confirming your priority date. Current I-526E processing
-                              times range from 12 to 48+ months. Important for F-1 and H-1B holders: If a visa number is
+                              USCIS issues a receipt notice confirming your priority date. Current USCIS figures are on the{' '}
+                              <a
+                                href="/eb5-processing-times"
+                                class="not-italic text-primary hover:underline underline-offset-4"
+                              >
+                                EB-5 processing times
+                              </a>{' '}
+                              page. Important for F-1 and H-1B holders: If a visa number is
                               immediately available for your country of birth, you may file Form I-485 (Adjustment of
                               Status) at the same time as your I-526E. This lets you stay in the US while your petition is
                               pending and apply for an Employment Authorization Document (EAD) and Advance Parole —

@@ -590,9 +590,10 @@ export const landingPages: LandingPage[] = [
     secondaryLinks: [
       '/research/j1-f1-h1b-eb5-concurrent-filing',
       '/eb5-investment-process',
+      '/eb5-processing-times',
     ],
     hasDedicatedContent: true,
-    lastReviewed: LAST_REVIEWED,
+    lastReviewed: '2026-11-25',
     publishDate: PUBLISH_DATE_RELEASED,
   },
   {

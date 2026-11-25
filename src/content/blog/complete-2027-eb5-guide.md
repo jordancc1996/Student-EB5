@@ -6,7 +6,7 @@ metaTitle: "EB-5 Investor Program - 2027 Guide | StudentEB5"
 metaDescription: "The EB-5 immigrant investor program 2027 still uses an $800,000 TEA minimum. The Sept 30, 2026 deadline for grandfathering protection has passed."
 excerpt: The EB-5 immigrant investor program is a clear pathway to receive a green card and eventually U.S. citizenship. It is one of the most direct and flexible immigration options in the world. The Reform and Integrity Act of 2022 has made the program much more investor friendly and significantly more attractive due to the introduction of concurrent filing.
 date: January 14, 2026
-updatedDate: November 23, 2026
+updatedDate: November 25, 2026
 category: Comprehensive Guide
 readTime: 20 min read
 image: ../../assets/blog-2027-eb5-guide.jpg
@@ -109,7 +109,7 @@ When evaluating potential projects, investors should consider:
 
 ### Step 2: Filing Form I-526E (Regional Center) or I-526 (Direct Investment)
 
-Once the investment is made, the investor's immigration attorney files Form I-526E with U.S. Citizenship and Immigration Services. This petition serves as the formal application for EB-5 classification. Processing times for I-526E petitions vary depending on the type of project and current USCIS workload. **Rural projects benefit from priority processing with some approvals occurring in as little as four months.**
+Once the investment is made, the investor's immigration attorney files Form I-526E with U.S. Citizenship and Immigration Services. This petition serves as the formal application for EB-5 classification. Processing times for I-526E petitions vary depending on the type of project and current USCIS workload. Current USCIS figures for I-526E, I-526, I-829, and I-485 are on the [EB-5 processing times](/eb5-processing-times) page. **Rural projects benefit from priority processing with some approvals occurring in as little as four months.**
 
 ### Step 3: Obtaining Conditional Permanent Residency
 
