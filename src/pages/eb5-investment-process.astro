@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '@/components/Header';
+import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import ProcessFaqAccordion from '@/components/ProcessFaqAccordion';
@@ -273,7 +273,7 @@ const structuredData = [
   </Fragment>
 
   <div class="min-h-screen bg-background">
-    <Header client:load />
+    <SiteHeader />
 
     <main>
       <section class="relative pt-[120px] min-h-[45vh] flex items-center justify-center bg-hero-dark">

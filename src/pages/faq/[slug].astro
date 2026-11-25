@@ -3,7 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import Header from '@/components/Header';
+import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import PreferredSourcesCTA from '@/components/PreferredSourcesCTA.astro';
 import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
@@ -99,7 +99,7 @@ const lastUpdatedIso = getPageLastUpdated(`/faq/${slug}`);
   </Fragment>
 
   <div class="min-h-screen bg-gradient-to-br from-background to-secondary/20 research-article-page">
-    <Header client:load />
+    <SiteHeader />
 
     <main class="pt-4 pb-16">
       <div class="article-editorial">

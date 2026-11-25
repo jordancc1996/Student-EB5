@@ -1,0 +1,192 @@
+---
+/**
+ * Mobile menu markup. An inline script opens it before the Header island hydrates.
+ * Desktop dropdowns stay in Header.tsx. Links and icons come from navigation.ts.
+ */
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { mainLinks, navIcons, pathwayLinks, resourceCategories, toolLinks, type NavIconName } from '@/data/navigation';
+
+function icon(name: NavIconName) {
+  const Icon = navIcons[name];
+  return renderToStaticMarkup(createElement(Icon, { size: 16, className: 'text-muted-foreground' }));
+}
+
+const mainClass = 'block px-4 py-4 text-foreground text-[15px] font-medium rounded-md hover:bg-muted/60 transition-colors';
+const textClass = 'block px-4 py-3 text-foreground text-[14px] rounded-md hover:bg-muted/60 transition-colors';
+const iconClass = 'px-4 py-3 text-foreground text-[14px] rounded-md hover:bg-muted/60 transition-colors flex items-center gap-2.5';
+const groupClass = 'mt-3 pt-3 border-t border-border/40';
+const labelClass = 'px-4 text-[13px] font-medium text-muted-foreground uppercase tracking-wider mb-1 block';
+---
+
+<div id="mobile-nav-overlay" hidden data-state="closed" class="fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" data-aria-hidden="true" aria-hidden="true" style="pointer-events: auto; display: none;"></div>
+<div role="dialog" id="mobile-nav-drawer" hidden aria-labelledby="mobile-nav-title" data-state="closed" class="fixed z-50 gap-4 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500 inset-y-0 right-0 h-full border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm w-[88%] max-w-sm p-0 bg-background flex flex-col" tabindex="-1" style="pointer-events: auto; display: none;"><div class="flex flex-col space-y-2 sm:text-left px-6 py-5 border-b border-border/40 text-left"><h2 id="mobile-nav-title" class="text-[15px] uppercase tracking-[0.2em] font-semibold text-foreground">StudentEB5</h2></div><nav class="flex-1 overflow-y-auto px-2 py-4" aria-label="Mobile navigation"><div class="flex flex-col">{mainLinks.map((link) => <a href={link.href} class={mainClass}>{link.name}</a>)}<div class={groupClass}><span class={labelClass}>Pathways</span>{pathwayLinks.map((link) => <a href={link.href} class={iconClass}><Fragment set:html={icon(link.icon!)} />{link.name}</a>)}</div>{resourceCategories.map((group) => <div class={groupClass}><span class={labelClass}>{group.label}</span>{group.links.map((link) => <a href={link.href} class={textClass}>{link.name}</a>)}</div>)}<div class={groupClass}><span class={labelClass}>Tools</span>{toolLinks.map((link) => <a href={link.href} class={iconClass}><Fragment set:html={icon(link.icon!)} />{link.name}</a>)}</div></div></nav><button type="button" class="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity data-[state=open]:bg-secondary hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg><span class="sr-only">Close</span></button></div>
+<script is:inline>
+  (function () {
+    var open = false;
+    var restore = null;
+    var hideTimer = 0;
+
+    function parts() {
+      return {
+        button: document.querySelector('button[aria-controls="mobile-nav-drawer"]'),
+        overlay: document.getElementById('mobile-nav-overlay'),
+        drawer: document.getElementById('mobile-nav-drawer'),
+      };
+    }
+
+    function focusable(drawer) {
+      return Array.prototype.filter.call(
+        drawer.querySelectorAll('a[href], button:not([disabled])'),
+        function (el) { return el.getClientRects().length > 0; },
+      );
+    }
+
+    function setShown(el, shown) {
+      el.hidden = !shown;
+      el.style.display = shown ? '' : 'none';
+    }
+
+    function setChrome(isOpen) {
+      var button = parts().button;
+      if (!button) return;
+      button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      button.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      if (isOpen) document.documentElement.setAttribute('data-mobile-nav', 'open');
+      else document.documentElement.removeAttribute('data-mobile-nav');
+    }
+
+    function watchChrome() {
+      if (!open) return;
+      setChrome(true);
+      window.requestAnimationFrame(watchChrome);
+    }
+
+    function show() {
+      var ui = parts();
+      if (!ui.drawer || !ui.overlay || !ui.button) return;
+      window.clearTimeout(hideTimer);
+      open = true;
+      restore = {
+        overflow: document.body.style.overflow,
+        pointerEvents: document.body.style.pointerEvents,
+      };
+      setShown(ui.overlay, true);
+      setShown(ui.drawer, true);
+      ui.overlay.setAttribute('data-state', 'closed');
+      ui.drawer.setAttribute('data-state', 'closed');
+      ui.drawer.getBoundingClientRect();
+      ui.overlay.setAttribute('data-state', 'open');
+      ui.drawer.setAttribute('data-state', 'open');
+      document.body.style.overflow = 'hidden';
+      document.body.style.pointerEvents = 'none';
+      document.body.setAttribute('data-scroll-locked', '1');
+      setChrome(true);
+      watchChrome();
+      var closeButton = ui.drawer.querySelector('button');
+      if (closeButton) closeButton.focus();
+    }
+
+    function hide() {
+      var ui = parts();
+      if (!ui.drawer || !ui.overlay) return;
+      open = false;
+      ui.overlay.setAttribute('data-state', 'closed');
+      ui.drawer.setAttribute('data-state', 'closed');
+      document.body.style.overflow = restore ? restore.overflow : '';
+      document.body.style.pointerEvents = restore ? restore.pointerEvents : '';
+      document.body.removeAttribute('data-scroll-locked');
+      setChrome(false);
+      var button = ui.button;
+      hideTimer = window.setTimeout(function () {
+        if (open) return;
+        setShown(ui.overlay, false);
+        setShown(ui.drawer, false);
+      }, 300);
+      if (button) button.focus();
+    }
+
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      if (!target || !target.closest) return;
+      if (target.closest('button[aria-controls="mobile-nav-drawer"]')) {
+        event.preventDefault();
+        if (open) hide();
+        else show();
+        return;
+      }
+      if (!open) return;
+      if (target === document.getElementById('mobile-nav-overlay') || target.closest('#mobile-nav-overlay')) {
+        hide();
+        return;
+      }
+      if (target.closest('#mobile-nav-drawer button')) {
+        event.preventDefault();
+        hide();
+        return;
+      }
+      if (target.closest('#mobile-nav-drawer a[href]')) hide();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (!open) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        hide();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      var drawer = parts().drawer;
+      if (!drawer) return;
+      var items = focusable(drawer);
+      if (!items.length) return;
+      var first = items[0];
+      var last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    document.addEventListener('focusin', function (event) {
+      if (!open) return;
+      var drawer = parts().drawer;
+      if (!drawer || drawer.contains(event.target)) return;
+      var closeButton = drawer.querySelector('button');
+      if (closeButton) closeButton.focus();
+    });
+
+    function park() {
+      var ui = parts();
+      if (!ui.overlay || !ui.drawer || !document.body) return;
+      if (document.body.lastElementChild === ui.drawer) return;
+      document.body.appendChild(ui.overlay);
+      document.body.appendChild(ui.drawer);
+    }
+
+    park();
+    new MutationObserver(park).observe(document.body, { childList: true });
+    document.documentElement.dataset.mobileNavReady = '1';
+  })();
+</script>
+
+<style is:global>
+  html[data-mobile-nav="open"] nav.nav-simple {
+    background-color: hsl(var(--background) / 0.95);
+    backdrop-filter: blur(4px);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    pointer-events: auto;
+  }
+  html[data-mobile-nav="open"] nav.nav-simple a,
+  html[data-mobile-nav="open"] nav.nav-simple button {
+    color: hsl(var(--foreground));
+  }
+  html[data-mobile-nav="open"] nav.nav-simple a:hover,
+  html[data-mobile-nav="open"] nav.nav-simple button:hover {
+    color: hsl(var(--foreground) / 0.7);
+  }
+</style>

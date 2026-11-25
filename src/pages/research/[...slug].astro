@@ -4,7 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import { getImage } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import Header from '@/components/Header';
+import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import LegalDisclaimer from '@/components/LegalDisclaimer.astro';
 import { getResearchHero } from '@/lib/images/researchHero';
@@ -241,7 +241,7 @@ const railRelated = selectRailRelatedResearch(
   </Fragment>
 
   <div class="min-h-screen bg-background research-article-page research-article-page--rail">
-    <Header client:load />
+    <SiteHeader />
 
     {
       hero && (

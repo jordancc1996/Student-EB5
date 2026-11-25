@@ -1,14 +1,28 @@
 import { Link } from '@/components/RouterLink';
-import { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, GraduationCap, Clock, Calendar, DollarSign, Wallet, Dice5, Briefcase, Compass, Users, List, FileCheck, Baby, ListChecks, ShieldCheck } from 'lucide-react';
+import { useState, useEffect, useRef, Fragment } from 'react';
+import { Menu, ChevronDown } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import ReadingProgressBar from '@/components/ReadingProgressBar';
+import {
+  desktopBarAfter,
+  desktopBarBefore,
+  homeLink,
+  navIcons,
+  pathwayLinks,
+  resourceCategories,
+  toolLinks,
+  type NavIconName,
+} from '@/data/navigation';
+
+function MenuIcon({ name }: { name: NavIconName }) {
+  const Icon = navIcons[name];
+  return <Icon size={16} className="text-muted-foreground" />;
+}
 
 // transparent prop is no longer needed - nav automatically uses white text at top, dark when scrolled
 interface HeaderProps {
@@ -17,7 +31,6 @@ interface HeaderProps {
 
 const Header = ({ transparent = false }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -39,74 +52,9 @@ const Header = ({ transparent = false }: HeaderProps) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isMobileMenuOpen]);
-
-  const mainNavLinks = [
-    { name: 'Research', href: '/research' },
-    { name: 'News', href: '/news' },
-    { name: 'Tools', href: '/eb5-investment-immigration-tools' },
-    { name: 'FAQ', href: '/faq' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-  ];
-
-  const resourceCategories = [
-    {
-      label: 'For Students',
-      links: [
-        { name: 'The F-1 Student Guide', href: '/eb5-green-card-international-students-playbook' },
-        { name: 'Student Timeline (Step-by-Step)', href: '/pathways/f1-to-eb5-self-sponsored-green-card' },
-      ],
-    },
-    {
-      label: 'For Professionals',
-      links: [
-        { name: 'The H-1B to EB-5 Guide', href: '/resources' },
-        { name: 'H-1B Processing Timeline', href: '/pathways/h1b-to-green-card' },
-      ],
-    },
-    {
-      label: 'Financial',
-      links: [
-        { name: 'Source of Funds Strategies', href: '/tools/source-of-funds-calculator' },
-      ],
-    },
-  ];
-
-  // Do not add items here. New landing pages go in src/lib/pathwayRoutes.ts and surface via /pathways/view-all, not this nav.
-  const pathwayLinks = [
-    { name: 'Find Your EB-5 Path', href: '/pathways', icon: Compass },
-    { name: 'International Students', href: '/pathways/f1-to-eb5-self-sponsored-green-card', icon: GraduationCap },
-    { name: 'H-1B Professionals', href: '/pathways/h1b-to-green-card', icon: Briefcase },
-    { name: 'Parents & Families', href: '/pathways/parents-and-families', icon: Users },
-    { name: 'View All Pathways', href: '/pathways/view-all', icon: List },
-  ];
-
-  const toolLinks = [
-    { name: 'H-1B Lottery Calculator', href: '/tools/h1b-lottery-odds-calculator', icon: Dice5 },
-    { name: 'Tuition Savings Calculator', href: '/tools/tuition-calculator', icon: GraduationCap },
-    { name: 'Grandfathering Countdown', href: '/tools/grandfathering-countdown', icon: Clock },
-    { name: 'OPT Calculator', href: '/tools/opt-calculator', icon: Calendar },
-    { name: 'EB-5 Feasibility Tool', href: '/tools/2026-eb5-investment-feasibility-calculator', icon: DollarSign },
-    { name: 'Source of Funds Calculator', href: '/tools/source-of-funds-calculator', icon: Wallet },
-    { name: 'Concurrent Filing Checker', href: '/tools/eb5-concurrent-filing-eligibility', icon: FileCheck },
-    { name: 'CSPA Age Calculator', href: '/tools/eb5-cspa-calculator', icon: Baby },
-    { name: 'Source of Funds Checklist', href: '/tools/eb5-source-of-funds-checklist', icon: ListChecks },
-    { name: 'Regional Center Scorecard', href: '/tools/eb5-regional-center-scorecard', icon: ShieldCheck },
-  ];
-
-  // Determine if we should use white text (over dark hero backgrounds)
-  const useWhiteText = !isScrolled && !isMobileMenuOpen;
+  // Determine if we should use white text (over dark hero backgrounds).
+  // The mobile menu's open state is applied in MobileNav.astro so the button works before this island hydrates.
+  const useWhiteText = !isScrolled;
 
   // Elegant navigation link styles - uppercase, letter-spaced, refined sizing
   // Larger tap targets via px-3 py-2, smooth color transitions, clear focus ring
@@ -127,7 +75,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
     <>
       <nav 
         className={`nav-simple fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled || isMobileMenuOpen
+          isScrolled
             ? 'bg-background/95 backdrop-blur-sm shadow-sm py-2' 
             : 'bg-transparent py-3'
         }`}
@@ -137,13 +85,14 @@ const Header = ({ transparent = false }: HeaderProps) => {
         <div className="container mx-auto px-4">
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center justify-center gap-x-1 xl:gap-x-3">
-            <Link to="/" className={`${logoClasses} px-3 py-2`} aria-label="StudentEB5 Home">StudentEB5</Link>
+            <Link to={homeLink.href} className={`${logoClasses} px-3 py-2`} aria-label="StudentEB5 Home">StudentEB5</Link>
             <span className={dotClasses} aria-hidden="true">•</span>
-            <Link to="/research" className={linkClasses}>Research</Link>
-            <span className={dotClasses} aria-hidden="true">•</span>
-
-            <Link to="/news" className={linkClasses}>News</Link>
-            <span className={dotClasses} aria-hidden="true">•</span>
+            {desktopBarBefore.map((link) => (
+              <Fragment key={link.href}>
+                <Link to={link.href} className={linkClasses}>{link.name}</Link>
+                <span className={dotClasses} aria-hidden="true">•</span>
+              </Fragment>
+            ))}
 
             {/* Pathways Dropdown */}
             <div
@@ -168,7 +117,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
                   {pathwayLinks.map((link) => (
                     <DropdownMenuItem key={link.href} asChild className="py-2.5 px-3 cursor-pointer">
                       <Link to={link.href} className="w-full cursor-pointer flex items-center gap-2.5">
-                        <link.icon size={16} className="text-muted-foreground" />
+                        {link.icon ? <MenuIcon name={link.icon} /> : null}
                         {link.name}
                       </Link>
                     </DropdownMenuItem>
@@ -240,7 +189,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
                   {toolLinks.map((link) => (
                     <DropdownMenuItem key={link.href} asChild className="py-2.5 px-3 cursor-pointer">
                       <Link to={link.href} className="w-full cursor-pointer flex items-center gap-2.5">
-                        <link.icon size={16} className="text-muted-foreground" />
+                        {link.icon ? <MenuIcon name={link.icon} /> : null}
                         {link.name}
                       </Link>
                     </DropdownMenuItem>
@@ -249,20 +198,22 @@ const Header = ({ transparent = false }: HeaderProps) => {
               </DropdownMenu>
             </div>
 
-            <span className={dotClasses} aria-hidden="true">•</span>
-            <Link to="/about" className={linkClasses}>About</Link>
-            <span className={dotClasses} aria-hidden="true">•</span>
-            <Link to="/contact" className={linkClasses}>Contact</Link>
+            {desktopBarAfter.map((link) => (
+              <Fragment key={link.href}>
+                <span className={dotClasses} aria-hidden="true">•</span>
+                <Link to={link.href} className={linkClasses}>{link.name}</Link>
+              </Fragment>
+            ))}
           </div>
 
           {/* Mobile Navigation */}
           <div className="lg:hidden flex items-center justify-between">
-            <Link to="/" className={logoClasses} aria-label="StudentEB5 Home">StudentEB5</Link>
+            <Link to={homeLink.href} className={logoClasses} aria-label="StudentEB5 Home">StudentEB5</Link>
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              type="button"
               className={`p-3 -mr-2 rounded-sm transition-colors ${useWhiteText ? 'text-white hover:text-white/70' : 'text-foreground hover:text-foreground/70'}`}
-              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={isMobileMenuOpen}
+              aria-label="Open menu"
+              aria-expanded="false"
               aria-controls="mobile-nav-drawer"
             >
               <Menu size={24} />
@@ -270,90 +221,6 @@ const Header = ({ transparent = false }: HeaderProps) => {
           </div>
         </div>
       </nav>
-
-      {/* Mobile Drawer - right-side slide-in */}
-      <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-        <SheetContent
-          id="mobile-nav-drawer"
-          side="right"
-          className="w-[88%] max-w-sm p-0 bg-background flex flex-col"
-        >
-          <SheetHeader className="px-6 py-5 border-b border-border/40 text-left">
-            <SheetTitle className="text-[15px] uppercase tracking-[0.2em] font-semibold text-foreground">
-              StudentEB5
-            </SheetTitle>
-          </SheetHeader>
-          <nav
-            className="flex-1 overflow-y-auto px-2 py-4"
-            aria-label="Mobile navigation"
-          >
-            <div className="flex flex-col">
-              {mainNavLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="block px-4 py-4 text-foreground text-[15px] font-medium rounded-md hover:bg-muted/60 transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
-
-              <div className="mt-3 pt-3 border-t border-border/40">
-                <span className="px-4 text-[13px] font-medium text-muted-foreground uppercase tracking-wider mb-1 block">
-                  Pathways
-                </span>
-                {pathwayLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className="px-4 py-3 text-foreground text-[14px] rounded-md hover:bg-muted/60 transition-colors flex items-center gap-2.5"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <link.icon size={16} className="text-muted-foreground" />
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-
-              {resourceCategories.map((category) => (
-                <div key={category.label} className="mt-3 pt-3 border-t border-border/40">
-                  <span className="px-4 text-[13px] font-medium text-muted-foreground uppercase tracking-wider mb-1 block">
-                    {category.label}
-                  </span>
-                  {category.links.map((link) => (
-                    <Link
-                      key={link.href}
-                      to={link.href}
-                      className="block px-4 py-3 text-foreground text-[14px] rounded-md hover:bg-muted/60 transition-colors"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
-                </div>
-              ))}
-
-              <div className="mt-3 pt-3 border-t border-border/40">
-                <span className="px-4 text-[13px] font-medium text-muted-foreground uppercase tracking-wider mb-1 block">
-                  Tools
-                </span>
-                {toolLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className="px-4 py-3 text-foreground text-[14px] rounded-md hover:bg-muted/60 transition-colors flex items-center gap-2.5"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <link.icon size={16} className="text-muted-foreground" />
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </nav>
-        </SheetContent>
-      </Sheet>
       <ReadingProgressBar />
     </>
   );

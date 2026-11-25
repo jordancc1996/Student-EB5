@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { getImage } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import Header from '@/components/Header';
+import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import { ConsultationCTA } from '@/components/ConsultationCTA';
 import { Toaster } from '@/components/ui/toaster';
@@ -97,7 +97,7 @@ const structuredData = faqSchema ? [articleSchema, faqSchema] : [articleSchema];
   </Fragment>
 
   <div class="min-h-screen bg-background research-article-page research-article-page--rail">
-    <Header client:load />
+    <SiteHeader />
     <NewsArticleLayout article={article} tocItems={tocItems}>
       {
         slug === 'eb5-visa-landscape-news-update-may-2026' ? (
