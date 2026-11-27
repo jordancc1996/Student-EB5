@@ -49,6 +49,16 @@
       "source": "/private-client-services/investor-resource-library/",
       "destination": "/contact",
       "statusCode": 301
+    },
+    {
+      "source": "/tools/eb5-i829-lifecycle-tracker",
+      "destination": "/eb5-processing-times",
+      "statusCode": 301
+    },
+    {
+      "source": "/tools/eb5-i829-lifecycle-tracker/",
+      "destination": "/eb5-processing-times",
+      "statusCode": 301
     }
   ]
 }
