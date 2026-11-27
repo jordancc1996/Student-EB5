@@ -5,10 +5,31 @@ import { ChevronDown } from 'lucide-react';
 export interface ProcessFaqItem {
   question: string;
   answer: string;
+  link?: { href: string; text: string };
 }
 
 interface Props {
   items: ProcessFaqItem[];
+}
+
+function FaqAnswer({ item }: { item: ProcessFaqItem }) {
+  if (!item.link) return item.answer;
+  const index = item.answer.indexOf(item.link.text);
+  if (index === -1) return item.answer;
+  return (
+    <>
+      {item.answer.slice(0, index)}
+      <a
+        href={item.link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-primary font-medium hover:underline"
+      >
+        {item.link.text}
+      </a>
+      {item.answer.slice(index + item.link.text.length)}
+    </>
+  );
 }
 
 export default function ProcessFaqAccordion({ items }: Props) {
@@ -36,9 +57,9 @@ export default function ProcessFaqAccordion({ items }: Props) {
                 aria-hidden="true"
               />
             </CollapsibleTrigger>
-            <CollapsibleContent className="px-5 pb-5">
+            <CollapsibleContent forceMount className="px-5 pb-5 data-[state=closed]:hidden">
               <p className="editorial-prose text-muted-foreground pt-1">
-                {item.answer}
+                <FaqAnswer item={item} />
               </p>
             </CollapsibleContent>
           </Collapsible>

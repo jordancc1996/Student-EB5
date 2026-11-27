@@ -15,6 +15,7 @@ import {
   EB5_SET_ASIDES_CURRENT,
   EB5_UNRESERVED_FAD_CHINA,
   EB5_UNRESERVED_FAD_INDIA,
+  USCIS_RURAL_PRIORITY_SOURCE,
   VISA_BULLETIN_LATEST_MONTH,
   VISA_BULLETIN_SOURCE,
   formatProgramDate,
@@ -44,16 +45,22 @@ const setAsideSentence = EB5_SET_ASIDES_CURRENT
   ? `In the ${VISA_BULLETIN_LATEST_MONTH} Visa Bulletin, EB-5 rural, high-unemployment, and infrastructure set-asides are current.`
   : `In the ${VISA_BULLETIN_LATEST_MONTH} Visa Bulletin, EB-5 set-asides are not listed as current.`;
 
+const overlapSentence =
+  'With concurrent filing, Form I-485 is filed with the I-526E and both are pending at the same time, so these times overlap and should not be added together.';
+const i526VisaSentence =
+  'USCIS generally first processes Form I-526 for investors for whom a visa is available or will soon be available.';
+const ruralPriorityQuote = 'The INA also requires us to prioritize processing petitions for rural areas.';
+
 const timeline = [
   {
     title: 'File Form I-526E',
     timing: formatProcessingMonths(i526e.months),
-    text: `Regional center investors file Form I-526E. USCIS completed 80% of those cases in ${formatProcessingMonths(i526e.months)} at the ${i526e.office}. ${i526e.note}`,
+    text: `Regional center investors file Form I-526E. USCIS completed 80% of those cases in ${formatProcessingMonths(i526e.months)} at the ${i526e.office}.`,
   },
   {
     title: 'I-485 with concurrent filing, or consular processing',
     timing: formatProcessingMonths(i485.months),
-    text: `Investors already in the United States can file Form I-485 with the I-526E when a visa number is available. USCIS completed 80% of employment-based I-485 cases at ${i485.office} in ${formatProcessingMonths(i485.months)}. ${i485.note} Investors abroad use consular processing after petition approval. USCIS does not publish a consular-processing time on this table. Concurrent filing can also include work and travel authorization. See EB-5 concurrent filing.`,
+    text: `Investors already in the United States can file Form I-485 with the I-526E when a visa number is available. The employment-based I-485 time for EB-5 at ${i485.office} is ${formatProcessingMonths(i485.months)}. Investors abroad use consular processing after petition approval. USCIS does not publish a consular-processing time on this table. Concurrent filing can also include work and travel authorization. See EB-5 concurrent filing.`,
   },
   {
     title: 'Conditional residence',
@@ -63,30 +70,31 @@ const timeline = [
   {
     title: 'File Form I-829',
     timing: formatProcessingMonths(i829.months),
-    text: `The investor files Form I-829 to remove conditions. USCIS completed 80% of those cases in ${formatProcessingMonths(i829.months)} at the ${i829.office}. ${i829.note}`,
+    text: `The investor files Form I-829 to remove conditions. USCIS completed 80% of those cases in ${formatProcessingMonths(i829.months)} at the ${i829.office}.`,
   },
 ];
 
 const faqs = [
   {
     question: 'How long does EB-5 take?',
-    answer: `EB-5 processing time for the I-526E petition is ${formatProcessingMonths(i526e.months)} at the ${i526e.office}. Form I-829 is ${formatProcessingMonths(i829.months)} at the same office. Employment-based Form I-485 for EB-5 is ${formatProcessingMonths(i485.months)} at ${i485.office}. After I-526E approval, conditional residence runs for two years before I-829. These are the times in which USCIS completed 80% of cases from ${PROCESSING_TIMES_WINDOW}. They are not a completion date for one petition.`,
+    answer: `EB-5 processing time for the I-526E petition is ${formatProcessingMonths(i526e.months)} at the ${i526e.office}. Form I-829 is ${formatProcessingMonths(i829.months)} at the same office. Employment-based Form I-485 for EB-5 is ${formatProcessingMonths(i485.months)} at ${i485.office}. After I-526E approval, conditional residence runs for two years before I-829. These are the times in which USCIS completed 80% of cases from ${PROCESSING_TIMES_WINDOW}. They are not a completion date for one petition. ${overlapSentence}`,
   },
   {
     question: 'How long does I-526E take?',
-    answer: `USCIS completed 80% of I-526E cases in ${formatProcessingMonths(i526e.months)} at the ${i526e.office}. ${i526e.note}`,
+    answer: `USCIS completed 80% of I-526E cases in ${formatProcessingMonths(i526e.months)} at the ${i526e.office}.`,
   },
   {
     question: 'How long does I-829 take?',
-    answer: `USCIS completed 80% of I-829 cases in ${formatProcessingMonths(i829.months)} at the ${i829.office}. ${i829.note}`,
+    answer: `USCIS completed 80% of I-829 cases in ${formatProcessingMonths(i829.months)} at the ${i829.office}.`,
   },
   {
     question: 'How long does I-485 take for an EB-5 case?',
-    answer: `USCIS completed 80% of employment-based I-485 cases at ${i485.office} in ${formatProcessingMonths(i485.months)}. ${i485.note}`,
+    answer: `USCIS completed 80% of employment-based I-485 cases at ${i485.office} in ${formatProcessingMonths(i485.months)}.`,
   },
   {
     question: 'Is rural EB-5 faster?',
-    answer: `USCIS publishes one I-526E time, ${formatProcessingMonths(i526e.months)} at the ${i526e.office}. It does not publish a separate rural processing time on the Check Case Processing Times page. Rural projects use a reserved set-aside of ${EB5_RESERVED_SHARE_RURAL}% of EB-5 visas. ${setAsideSentence} Unreserved final action dates in that bulletin are ${formatProgramDate(EB5_UNRESERVED_FAD_CHINA)} for China and ${formatProgramDate(EB5_UNRESERVED_FAD_INDIA)} for India. A current set-aside can change when a visa number is available. It does not change the published I-526E time.`,
+    answer: `USCIS publishes one I-526E time, ${formatProcessingMonths(i526e.months)} at the ${i526e.office}. It does not publish a separate rural processing time on the Check Case Processing Times page. Rural projects use a reserved set-aside of ${EB5_RESERVED_SHARE_RURAL}% of EB-5 visas. Unreserved final action dates in that bulletin are ${formatProgramDate(EB5_UNRESERVED_FAD_CHINA)} for China and ${formatProgramDate(EB5_UNRESERVED_FAD_INDIA)} for India. A current set-aside can change when a visa number is available. It does not change the published I-526E time. USCIS states: "${ruralPriorityQuote}"`,
+    link: { href: USCIS_RURAL_PRIORITY_SOURCE, text: `"${ruralPriorityQuote}"` },
   },
 ];
 
@@ -181,7 +189,9 @@ const structuredData = [
               processingTimes.map((entry) => (
                 <li class="text-muted-foreground leading-relaxed">
                   <strong class="text-foreground">{entry.form}. </strong>
-                  {entry.note}
+                  {entry.form === 'I-526' && entry.note.startsWith(i526VisaSentence)
+                    ? entry.note.slice(i526VisaSentence.length).trim()
+                    : entry.note}
                 </li>
               ))
             }
@@ -205,7 +215,7 @@ const structuredData = [
         <div class="container mx-auto px-4 max-w-4xl">
           <h2 class="editorial-h2 text-foreground mb-4 text-center mt-0">Total EB-5 timeline</h2>
           <p class="text-muted-foreground text-center mb-12 max-w-2xl mx-auto text-base">
-            The stages below use the current table. Concurrent filing and consular processing are different ways to reach conditional residence.
+            The stages below use the current table. Concurrent filing and consular processing are different ways to reach conditional residence. {overlapSentence}
           </p>
           <div class="space-y-6">
             {
@@ -244,7 +254,7 @@ const structuredData = [
         <div class="container mx-auto px-5 max-w-3xl editorial-prose">
           <h2 class="editorial-h2 text-foreground mb-4 mt-0">What can change your timeline</h2>
           <p class="text-muted-foreground leading-relaxed mb-4">
-            USCIS generally processes Form I-526 first for investors who have a visa available, or who will have one soon. {i526.note}
+            {i526VisaSentence}
           </p>
           <p class="text-muted-foreground leading-relaxed mb-4">
             Rural reserved-category projects draw from a set-aside of {EB5_RESERVED_SHARE_RURAL}% of EB-5 visas. <a href="/pathways/rural-eb5">Rural EB-5</a> explains that set-aside. {setAsideSentence} Unreserved final action dates in the {VISA_BULLETIN_LATEST_MONTH} bulletin are {formatProgramDate(EB5_UNRESERVED_FAD_CHINA)} for China and {formatProgramDate(EB5_UNRESERVED_FAD_INDIA)} for India. Source:{' '}<a href={VISA_BULLETIN_SOURCE} target="_blank" rel="noopener noreferrer">Visa Bulletin</a>.

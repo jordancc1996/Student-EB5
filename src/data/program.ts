@@ -31,6 +31,13 @@ export const EB5_RESERVED_SHARE_INFRASTRUCTURE = 2;
 export const EB5_RESERVED_SHARES_SOURCE =
   'https://www.uscis.gov/working-united-states/permanent-workers/employment-based-immigration-fifth-preference-eb-5/about-eb-5-visa';
 
+/**
+ * USCIS EB-5 Questions and Answers, Inventory Management.
+ * "The INA also requires us to prioritize processing petitions for rural areas."
+ */
+export const USCIS_RURAL_PRIORITY_SOURCE =
+  'https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-fifth-preference-eb-5/eb-5-questions-and-answers';
+
 /** Same November 2026 employment-based final action chart. EB-2 and EB-3. */
 export const EB2_FAD_INDIA = '2013-11-01';
 export const EB3_FAD_INDIA = '2014-01-22';
