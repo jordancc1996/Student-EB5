@@ -6,7 +6,7 @@ metaTitle: "Is EB-5 Worth It? Cost vs H-1B for Indian & Chinese Students"
 metaDescription: "Is EB-5 worth it? We compare EB-5 and H-1B lifetime costs for Indian and Chinese students, including investment, fees and years of waiting."
 excerpt: International students and their families often weigh the immediate cost of U.S. education and immigration without measuring the lifetime earnings gap created by visa choice. This analysis compares H-1B wage and mobility limits against the financial return of an EB-5 path for Indian and Chinese students.
 date: June 17, 2026
-updatedDate: November 23, 2026
+updatedDate: November 27, 2026
 category: Comparisons
 readTime: 9 min read
 image: ../../../assets/lifetime-costs-h1b-vs-eb5-hero.jpg
@@ -28,7 +28,7 @@ relatedPosts:
   - eb5-grandfathering-2026-2027-deadlines
 ---
 
-<intro>Understanding if EB-5 is worth it for Indian and Chinese International students comes down to an honest and comprehensive cost vs. benefit analysis between EB-5 and other visa alternatives. EB-5 can be worth considering when compared with the lifetime costs and uncertainty of the H-1B path for families that can afford the EB-5 initial investment. The current minimum investment for EB-5 in a TEA is $800,000 but the financial comparison extends beyond just initial investment amounts. Indian and Chinese students who remain in the United States can potentially earn millions of dollars more over their careers in the United States in comparison to their earning potential in their home country. EB-5 also provides a self-sponsored path to permanent residency that avoids the H-1B lottery, reduces dependence on an employer, and bypasses lengthy employment-based green card backlogs. The most important question we want international families to ask themselves is: does decades of immigration uncertainty and potentially lost U.S. earnings cost more or less than the initial $800,000 investment into an EB-5 program? The answer almost always favors the EB-5 investment.</intro>
+<intro>Is EB-5 worth it for Indian and Chinese international students? It comes down to an honest cost-benefit comparison between EB-5 and the alternatives, especially the H-1B path: the investment, the fees and the years of waiting. EB-5 can be worth considering when compared with the lifetime costs and uncertainty of the H-1B path for families that can afford the EB-5 initial investment. The current minimum investment for EB-5 in a TEA is $800,000 but the financial comparison extends beyond just initial investment amounts. Indian and Chinese students who remain in the United States can potentially earn millions of dollars more over their careers in the United States in comparison to their earning potential in their home country. EB-5 also provides a self-sponsored path to permanent residency that avoids the H-1B lottery, reduces dependence on an employer, and bypasses lengthy employment-based green card backlogs. The most important question we want international families to ask themselves is: does decades of immigration uncertainty and potentially lost U.S. earnings cost more or less than the initial $800,000 investment into an EB-5 program? The answer almost always favors the EB-5 investment.</intro>
 
 ## What Is the Lifetime Earnings Gap?
 
