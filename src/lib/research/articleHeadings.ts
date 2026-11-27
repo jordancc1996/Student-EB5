@@ -66,6 +66,44 @@ export interface TocItem {
   level: 2 | 3;
 }
 
+export interface ArticleFaq {
+  question: string;
+  answer: string;
+}
+
+/** Questions and answers under a "## Frequently Asked Questions" heading. */
+export function extractArticleFaqs(content: string): ArticleFaq[] {
+  const lines = content.split('\n');
+  const start = lines.findIndex((line) => line.trim() === '## Frequently Asked Questions');
+  if (start < 0) return [];
+
+  const faqs: ArticleFaq[] = [];
+  let question = '';
+  let answerLines: string[] = [];
+  const flush = () => {
+    const answer = answerLines.join(' ').replace(/\s+/g, ' ').trim();
+    if (question && answer) faqs.push({ question, answer });
+    question = '';
+    answerLines = [];
+  };
+
+  for (const line of lines.slice(start + 1)) {
+    const trimmed = line.trim();
+    if (trimmed.startsWith('## ')) break;
+    if (trimmed.startsWith('*The opinions')) break;
+    const heading = trimmed.match(/^<h3>(.+)<\/h3>$/);
+    if (heading) {
+      flush();
+      question = heading[1].trim();
+      continue;
+    }
+    if (!trimmed) continue;
+    if (question) answerLines.push(trimmed);
+  }
+  flush();
+  return faqs;
+}
+
 export function buildTocItems(
   headings: Array<ArticleH2 | ArticleHeading>,
   tocLabels?: Record<string, string>,

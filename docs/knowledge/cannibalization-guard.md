@@ -70,7 +70,7 @@ Site domain: https://www.studenteb5.com/
 | j1-f1-h1b-eb5-concurrent-filing | EB-5 concurrent filing J-1 F-1 H-1B |
 | post-reform-integrity-act-analysis | EB-5 Reform and Integrity Act |
 | regional-center-shutdown-eb5-investor-protections | regional center shutdown protections |
-| ways-to-fund-eb5-investment-2026 | **Ways to fund EB-5** / how to fund an EB-5 investment (generic); source and path of funds; crypto; unsecured and regional-center loans |
+| ways-to-fund-eb5-investment-2026 | **Ways to fund EB-5** / how to fund an EB-5 investment (generic); EB-5 loan; source and path of funds; crypto; unsecured and regional-center loans |
 
 ### Future backlog (not published)
 
@@ -185,7 +185,7 @@ These pages can share HELOC / IRA / SBLOC / gift methods but **do not compete fo
 
 | Page | Owns | Does not own |
 |------|------|--------------|
-| `ways-to-fund-eb5-investment-2026` | **Ways to fund EB-5** / **how to fund an EB-5 investment** (generic). Source and path of funds. HELOC, 401(k)/SDIRA, SBLOC, and gifts for any investor. Crypto. Unsecured and regional-center loans. Seven-year paper trail. | Student petitioner structure (under-21 derivative vs 21+ primary). F-1 concurrent-filing timing as a funding-calendar issue. Parental gift as the student default. |
+| `ways-to-fund-eb5-investment-2026` | **Ways to fund EB-5** / **how to fund an EB-5 investment** (generic). EB-5 loan. Source and path of funds. HELOC, 401(k)/SDIRA, SBLOC, and gifts for any investor. Crypto. Unsecured and regional-center loans. Seven-year paper trail. | Student petitioner structure (under-21 derivative vs 21+ primary). F-1 concurrent-filing timing as a funding-calendar issue. Parental gift as the student default. |
 | `f1-students/eb5-funding-strategies-students` | **EB-5 funding strategies for international students** / student-age petitioners. Who borrows vs who petitions (parent vs student). Parental gifts when the student is primary. F-1/H-1B status overlay on HELOC, SDIRA, SBLOC, and gifts. | Generic how/ways to fund an EB-5 investment. Crypto. Unsecured/RC loans. Sitewide SOF doctrine. |
 | `h1b-eb5-financial-planning` | H-1B → EB-5 budget / safety-net planning | Method catalog for students or generic how-to-fund |
 | `eb5-cryptocurrency-source-of-funds` | Cryptocurrency source of funds | Generic how-to-fund; student funding routes |
@@ -223,7 +223,7 @@ These pages can share 2026–2027 calendar overlap but **do not compete for the 
 | Role | Keyword |
 |------|---------|
 | Primary | Ways to fund EB-5 investment |
-| Secondary | How to fund an EB-5 investment; source and path of funds; HELOC / 401(k) / SBLOC / gift funds (generic) |
+| Secondary | How to fund an EB-5 investment; EB-5 loan; source and path of funds; HELOC / 401(k) / SBLOC / gift funds (generic) |
 | Forbidden (do not re-own) | EB-5 funding strategies for international students (`f1-students/eb5-funding-strategies-students`); student petitioner / derivative vs primary structure as primary frame |
 
 ### Keyword ownership — `investment/what-to-know-before-investing-in-eb5`

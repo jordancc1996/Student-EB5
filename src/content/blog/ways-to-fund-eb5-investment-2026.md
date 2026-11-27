@@ -2,11 +2,11 @@
 id: 30
 slug: ways-to-fund-eb5-investment-2026
 title: Ways to Fund EB-5 - Gifted, Loaned, and Crypto Paths in 2026
-metaTitle: "Ways to Fund EB-5 - Gifts, Loans, and Crypto | StudentEB5"
-metaDescription: "Ways to fund EB-5 in 2026 include gifts, loans, HELOC, retirement rollovers, and crypto, each with a seven-year source-of-funds paper trail USCIS will audit."
+metaTitle: "EB-5 Loan Rules and Other Ways to Fund EB-5 | StudentEB5"
+metaDescription: "An EB-5 loan can fund the investment. For petitions filed on or after May 14, 2022, USCIS allows borrowed funds loaned in good faith, if lawfully sourced."
 excerpt: One of the cornerstones of the EB-5 investment process is the requirement that every dollar originates from legitimate sources. This guide covers the primary funding methods and critical compliance concepts of source and path of funds.
 date: February 26, 2026
-updatedDate: April 14, 2026
+updatedDate: November 27, 2026
 category: Investment Guide
 readTime: 12 min read
 image: ../../assets/blog-funding-eb5-investment.jpg
@@ -14,6 +14,7 @@ heroImage: ../../assets/blog-funding-eb5-hero.jpg
 imageAlt: U.S. Capitol building at dusk representing EB-5 investment immigration
 author: StudentEB5 Team
 keywords:
+  - EB-5 loan
   - EB-5 funding sources
   - EB-5 investment funding
   - HELOC EB-5
@@ -31,6 +32,38 @@ relatedPosts:
 ---
 
 <intro>Ways to fund EB-5 start from the same rule: every dollar of the $800,000 TEA or $1,050,000 standard investment must come from a lawful, fully documented source. The investment is $800,000 for projects in Targeted Employment Areas (areas with high unemployment or designated as rural) and $1,050,000 for projects in non-Targeted employment areas. One of the cornerstones of the EB-5 investment process is the requirement that every dollar of the investment originates from legitimate sources. USCIS mandates that applicants provide comprehensive and transparent documentation to prove the legitimacy of their funds. This article will provide a detailed overview of the primary funding methods for EB-5 applicants and explain the critical compliance concepts of source of funds and path of funds.</intro>
+
+## Can you use a loan for EB-5?
+
+A loan can fund an EB-5 investment when the investor contributes the borrowed cash, or when the capital itself is qualifying indebtedness. For a petition filed on or after May 14, 2022, the <a href="https://www.uscis.gov/policy-manual/volume-6-part-g-chapter-2">USCIS Policy Manual</a> states that borrowed funds are permitted when they were loaned to the investor in good faith and were not loaned to circumvent limits on permissible sources of capital, including proceeds of illegal activity. The investor must be the legal owner of the capital and must have obtained it through lawful means.
+
+### When loan proceeds or indebtedness count as capital
+
+USCIS states that it no longer follows its interpretation of indebtedness as including the investment of loan proceeds, as of November 30, 2018, the date of the district court decision in Zhang v. USCIS.
+
+When the capital is the indebtedness itself, USCIS requires the investor to show three things. The investor is personally and primarily liable for the debt. The indebtedness is secured by assets the investor owns. The assets of the new commercial enterprise are not used to secure any of the indebtedness. The investor must have primary responsibility, under the loan documents, for repaying the debt used to satisfy the minimum required investment amount. The investor's own collateral must secure the indebtedness, and the value of that collateral must be sufficient to secure the amount that satisfies the minimum investment. Indebtedness qualifies as capital only up to the fair market value of the pledged assets.
+
+A promissory note can be capital when the investor is personally and primarily liable for the note and the investor's assets adequately secure it. USCIS states that any security interest must be perfected to the extent the jurisdiction where the asset is located provides. The assets securing the note cannot include assets of the company in which the investor is investing. Those assets must be specifically identified as securing the note, and they must be fully amenable to seizure by a U.S. noteholder. Nearly all of the money due under the note must be payable within 2 years, without provisions for extensions.
+
+<a href="https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-204/subpart-A/section-204.6">8 CFR 204.6(e)</a> defines capital to include indebtedness secured by assets owned by the investor, provided the investor is personally and primarily liable and the assets of the new commercial enterprise upon which the petition is based are not used to secure any of the indebtedness.
+
+### What cannot secure the loan
+
+USCIS states that the assets of the new commercial enterprise are not used to secure any of the indebtedness. 8 CFR 204.6(e) states the same limit: the assets of the new commercial enterprise upon which the petition is based are not used to secure any of the indebtedness. For a promissory note, the assets securing the note cannot include assets of the company in which the investor is investing.
+
+A loan from the investor to the new commercial enterprise does not count as a contribution of capital. Capital contributed in exchange for a note, bond, convertible debt, obligation, or any other debt arrangement between the investor and the new commercial enterprise is not a capital investment.
+
+### What USCIS expects in the loan file
+
+The investor must document the path of the funds. USCIS requires that record to show that the investment was made, or is actively in the process of being made, with the investor's own funds. For a petition filed on or after May 14, 2022, an investor who uses borrowed funds must show the lawful source of those funds with the source evidence the Policy Manual describes for the lender, unless the lender is a bank. Where the capital is secured borrowing, USCIS lists a loan or mortgage agreement, promissory note, security agreement, or other evidence of borrowing secured by the investor's own assets, other than those of the new commercial enterprise, for which the investor is personally and primarily liable.
+
+The <a href="/pathways/eb5-source-of-funds">EB-5 source of funds</a> page and the <a href="/tools/eb5-source-of-funds-checklist">EB-5 source of funds checklist</a> set out the records used to trace that path.
+
+### Common EB-5 loan types
+
+- A home equity line of credit borrows against the investor's home. See <a href="#home-equity-line-of-credit">home equity line of credit</a>.
+- A securities-based line of credit borrows against a portfolio. See <a href="#loans-against-securities">loans against securities</a>.
+- A 401(k) loan borrows against a vested balance in a current employer plan. See <a href="#retirement-accounts-401k">retirement accounts (401k)</a>.
 
 ## Source and Path of Funds
 
@@ -109,5 +142,17 @@ Unsecured personal loans lack tangible collateral which raises USCIS concerns ab
 <h3>What are the advantages of using a securities-based line of credit (SBLOC) to fund an EB-5 investment?</h3>
 
 SBLOC allows investors to borrow against publicly traded stocks, bonds, mutual funds or Restricted Stock Units without liquidating their portfolios, thereby avoiding capital gains taxes and preserving investment growth. Interest rates are competitive and loan-to-value ratios depend on portfolio diversification and offer a flexible and traceable funding method compatible with EB-5 compliance requirements.
+
+<h3>Can I use a loan for my EB-5 investment?</h3>
+
+Yes. For a petition filed on or after May 14, 2022, USCIS states that borrowed funds are permitted when they were loaned to the investor in good faith and were not loaned to circumvent limits on permissible sources of capital, including proceeds of illegal activity. The investor must show the lawful source of those funds. If the lender is not a bank, that evidence is the source evidence the USCIS Policy Manual describes for the lender.
+
+<h3>Can the EB-5 project's assets secure my loan?</h3>
+
+No. USCIS states that the assets of the new commercial enterprise are not used to secure any of the indebtedness. 8 CFR 204.6(e) states the same limit: the assets of the new commercial enterprise upon which the petition is based are not used to secure any of the indebtedness. For a promissory note, the assets securing the note cannot include assets of the company in which the investor is investing.
+
+<h3>When does a loan count as EB-5 capital?</h3>
+
+USCIS states that it no longer follows its interpretation of indebtedness as including the investment of loan proceeds, as of November 30, 2018. Indebtedness counts as capital when the investor is personally and primarily liable and the debt is secured by assets the investor owns. That indebtedness qualifies as capital only up to the fair market value of the pledged assets.
 
 *The opinions expressed on this website are solely those of the author/presenter. The information provided is for general informational purposes only and should not be considered professional or legal advice. Student EB5 and its contributors do not endorse or take responsibility for any actions taken based on the information presented here. Visitors are strongly advised to consult with qualified immigration attorneys and financial advisors before making any EB-5 investment decisions or taking any actions based on the content on this website.*
