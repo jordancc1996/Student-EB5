@@ -34,6 +34,7 @@ Site domain: https://www.studenteb5.com/
 | choosing-rural-eb5-regional-center-guide | rural EB-5 regional center selection |
 | comparisons/is-eb5-worth-it-indian-chinese-students | **Is EB-5 worth it for Indian and Chinese international students** (H-1B vs EB-5 lifetime cost / ROI / financial angle); former slug `comparisons/h1b-vs-eb5-lifetime-cost-indian-chinese-students` redirects |
 | complete-2027-eb5-guide | EB-5 program complete guide |
+| eb5-processing-times | EB-5 processing time |
 | eb5-2026-official-white-paper | EB-5 2026 white paper / attorney insights |
 | eb5-attorney-hiring-questions | **EB-5 attorney hiring questions** (experience, written fee scope, immigration advice versus project advice; not I-526E filing cost, not mandamus counsel) |
 | eb5-capital-stack | EB-5 capital stack |
@@ -128,6 +129,7 @@ Site domain: https://www.studenteb5.com/
 | 2026-11-10 | `eb5-job-creation-report` | EB-5 job creation report | OUTCOME B (report-reading guide; score about 46 vs rural due-diligence Q2 and Q5; links to that checklist; not capital stack, not pre-investment overview, not I-956F project review) |
 | 2026-11-11 | `eb5-attorney-hiring-questions` | EB-5 attorney hiring questions | OUTCOME B (hiring interview; score about 45 vs the short Attorney Selection section in `investment/i526e-filing-cost`; links to that cost page and to the mandamus hiring section; not a second mandamus URL) |
 | 2026-11-11 | `eb5-regional-center-vs-direct` | EB-5 regional center vs direct | OUTCOME B (comparison of the two routes; score about 42 vs the short direct/regional center notes in `complete-2027-eb5-guide` and the Reform and Integrity Act analysis; the FAQ at `/faq/direct-vs-regional-center-eb5` stays the short answer and links here) |
+| 2026-11-25 | `eb5-processing-times` | EB-5 processing time | OUTCOME B (USCIS 80% figures for I-526E, I-526, I-829, and EB-5 I-485; score about 45 vs `/faq/eb5-process-timeline`, which keeps the process-steps answer and links here; the FAQ title does not target "processing time", so it stays "EB-5 Process Timeline") |
 
 ### H-1B alternative cluster — keyword boundaries
 
@@ -329,3 +331,20 @@ Existing H2 overlap stays on `investment/i526e-filing-cost`: "Part 3: Attorney S
 - Match the route to your priorities
 
 Existing overlap stays short: `complete-2027-eb5-guide` still defines the two routes under Step 1, and `post-reform-integrity-act-analysis` still has the question "What is the difference between regional center and direct investment models?" `/faq/direct-vs-regional-center-eb5` stays a short answer and links to this page.
+
+### Keyword ownership — `eb5-processing-times`
+
+| Role | Keyword |
+|------|---------|
+| Primary | EB-5 processing time |
+| Secondary | I-526E processing time; I-829 processing time; I-485 EB-5 processing time |
+| Forbidden (do not re-own) | EB-5 process steps (`eb5-process-timeline`); EB-5 investment process (`eb5-investment-process`); complete EB-5 program guide (`complete-2027-eb5-guide`) |
+
+### H2 inventory — `eb5-processing-times`
+
+- How USCIS measures this
+- Total EB-5 timeline
+- What can change your timeline
+- Frequently Asked Questions
+
+The FAQ at `/faq/eb5-process-timeline` still answers how the process is structured. It links to this page for the current USCIS figures. Its title stays "EB-5 Process Timeline: How Long Does It Take?" because that title does not target "processing time".

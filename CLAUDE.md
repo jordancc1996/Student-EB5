@@ -38,7 +38,7 @@ content is client-rendered, so Astro's static HTML output should fix indexing.
 
 ## Current status
 - Astro 7.4.13 static site with React islands, deployed on Vercel. Production is https://studenteb5.com (apex; www redirects to the apex).
-- The build emits 126 pages, not counting 22 redirect stubs: 41 pathway pages, 11 tool pages (10 under `/tools` plus the tools hub), 43 research articles plus the `/research` index, 17 FAQ pages (16 answers and the index), 4 news pages (3 articles and the index), and 9 other pages (home, about, contact, resources, playbook, investment process, photo credits, privacy policy, and 404).
+- The build emits 127 pages, not counting 22 redirect stubs: 41 pathway pages, 11 tool pages (10 under `/tools` plus the tools hub), 43 research articles plus the `/research` index, 17 FAQ pages (16 answers and the index), 4 news pages (3 articles and the index), and 10 other pages (home, about, contact, resources, playbook, investment process, processing times, photo credits, privacy policy, and 404).
 - `src/data/program.ts` is the source for dates, investment thresholds, and Visa Bulletin constants. Update `VISA_BULLETIN_LATEST_MONTH` monthly.
 - `src/data/photoRegistry.ts` holds the photos and credits.
 - `src/lib/seo/` holds titles, canonicals, JSON-LD, and sitemap lastmod.
@@ -50,6 +50,10 @@ content is client-rendered, so Astro's static HTML output should fix indexing.
 - Full-bleed hero pages pass `fullBleedHero` to `Layout` instead of using a negative top margin.
 - In-body images use `loading="lazy"` and `fetchpriority="low"`. Hero images use `loading="eager"` and `fetchpriority="high"`.
 - Requires `VERCEL_DEEP_CLONE=true` so sitemap lastmod dates come from git history. A shallow clone makes those dates unavailable.
+
+## Rules already in force
+
+- Update `src/data/processingTimes.ts` and `PROCESSING_TIMES_AS_OF` monthly from the USCIS Check Case Processing Times page (https://egov.uscis.gov/processing-times/). Use the Immigrant Investor Program Office for I-526E, I-526, and I-829, and Service Center Operations for employment-based I-485 (the office USCIS lists for EB-5 adjustment). Store the figure USCIS shows as "80% of cases are completed within". Never copy third-party figures.
 
 ---
 
