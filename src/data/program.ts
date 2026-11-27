@@ -38,6 +38,24 @@ export const EB5_RESERVED_SHARES_SOURCE =
 export const USCIS_RURAL_PRIORITY_SOURCE =
   'https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-fifth-preference-eb-5/eb-5-questions-and-answers';
 
+/** 8 CFR 204.6(e), definition of capital. */
+export const ECFR_EB5_CAPITAL_URL =
+  'https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-204/subpart-A/section-204.6';
+
+/** USCIS Policy Manual, Volume 6, Part G, Chapter 2. Capital, indebtedness, and loan proceeds. */
+export const USCIS_EB5_CAPITAL_POLICY_URL =
+  'https://www.uscis.gov/policy-manual/volume-6-part-g-chapter-2';
+
+/** USCIS EB-5 Questions and Answers. Same page as USCIS_RURAL_PRIORITY_SOURCE. */
+export const USCIS_EB5_QA_URL = USCIS_RURAL_PRIORITY_SOURCE;
+
+/**
+ * IRS, Retirement plans FAQs regarding loans.
+ * The maximum a plan can permit is the lesser of $50,000 and the greater of $10,000 or 50% of the vested account balance.
+ */
+export const IRS_401K_LOAN_LIMITS_SOURCE =
+  'https://www.irs.gov/retirement-plans/retirement-plans-faqs-regarding-loans';
+
 /** Same November 2026 employment-based final action chart. EB-2 and EB-3. */
 export const EB2_FAD_INDIA = '2013-11-01';
 export const EB3_FAD_INDIA = '2014-01-22';

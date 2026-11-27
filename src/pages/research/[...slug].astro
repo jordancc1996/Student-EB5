@@ -18,7 +18,7 @@ import ArticleEmailContact from '@/components/ArticleEmailContact.astro';
 import RelatedResearchCard from '@/components/RelatedResearchCard.astro';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { seoTitle } from '@/lib/seo/documentTitle';
-import { generateArticleSchema } from '@/lib/seo/structured-data';
+import { generateArticleSchema, generateFAQSchema } from '@/lib/seo/structured-data';
 import {
   DEFAULT_OG_ALT,
   DEFAULT_OG_IMAGE,
@@ -31,7 +31,7 @@ import {
   splitArticleBeforeFirstH2,
   articleAlreadyHasPostIntroCta,
 } from '@/lib/research/renderArticleContent';
-import { extractArticleHeadings, buildTocItems } from '@/lib/research/articleHeadings';
+import { extractArticleFaqs, extractArticleHeadings, buildTocItems } from '@/lib/research/articleHeadings';
 import ArticleContents from '@/components/research/ArticleContents.astro';
 import ArticleSideRail from '@/components/research/ArticleSideRail.astro';
 import ArticleTocRail from '@/components/research/ArticleTocRail.astro';
@@ -84,6 +84,8 @@ const graceFaqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: item.answer },
   })),
 };
+const articleFaqs = slug === 'ways-to-fund-eb5-investment-2026' ? extractArticleFaqs(entry.body ?? '') : [];
+const articleFaqSchema = articleFaqs.length > 0 ? generateFAQSchema(articleFaqs) : null;
 const graceAppSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
@@ -205,6 +207,11 @@ const railRelated = selectRailRelatedResearch(
     {
       isGraceCalculator && (
         <script type="application/ld+json" set:html={JSON.stringify(graceFaqSchema)} />
+      )
+    }
+    {
+      articleFaqSchema && (
+        <script type="application/ld+json" set:html={JSON.stringify(articleFaqSchema)} />
       )
     }
     {
