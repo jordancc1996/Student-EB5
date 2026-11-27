@@ -93,7 +93,7 @@ const faqs = [
   },
   {
     question: 'Is rural EB-5 faster?',
-    answer: `USCIS publishes one I-526E time, ${formatProcessingMonths(i526e.months)} at the ${i526e.office}. It does not publish a separate rural processing time on the Check Case Processing Times page. Rural projects use a reserved set-aside of ${EB5_RESERVED_SHARE_RURAL}% of EB-5 visas. Unreserved final action dates in that bulletin are ${formatProgramDate(EB5_UNRESERVED_FAD_CHINA)} for China and ${formatProgramDate(EB5_UNRESERVED_FAD_INDIA)} for India. A current set-aside can change when a visa number is available. It does not change the published I-526E time. USCIS states: "${ruralPriorityQuote}"`,
+    answer: `USCIS publishes one I-526E time, ${formatProcessingMonths(i526e.months)} at the ${i526e.office}. It does not publish a separate rural processing time on the Check Case Processing Times page. Rural projects use a reserved set-aside of ${EB5_RESERVED_SHARE_RURAL}% of EB-5 visas. ${setAsideSentence} Unreserved final action dates in that bulletin are ${formatProgramDate(EB5_UNRESERVED_FAD_CHINA)} for China and ${formatProgramDate(EB5_UNRESERVED_FAD_INDIA)} for India. A current set-aside can change when a visa number is available. It does not change the published I-526E time. USCIS states: "${ruralPriorityQuote}"`,
     link: { href: USCIS_RURAL_PRIORITY_SOURCE, text: `"${ruralPriorityQuote}"` },
   },
 ];
