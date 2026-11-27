@@ -49,6 +49,13 @@ export const USCIS_EB5_CAPITAL_POLICY_URL =
 /** USCIS EB-5 Questions and Answers. Same page as USCIS_RURAL_PRIORITY_SOURCE. */
 export const USCIS_EB5_QA_URL = USCIS_RURAL_PRIORITY_SOURCE;
 
+/**
+ * IRS, Retirement plans FAQs regarding loans.
+ * The maximum a plan can permit is the lesser of $50,000 and the greater of $10,000 or 50% of the vested account balance.
+ */
+export const IRS_401K_LOAN_LIMITS_SOURCE =
+  'https://www.irs.gov/retirement-plans/retirement-plans-faqs-regarding-loans';
+
 /** Same November 2026 employment-based final action chart. EB-2 and EB-3. */
 export const EB2_FAD_INDIA = '2013-11-01';
 export const EB3_FAD_INDIA = '2014-01-22';

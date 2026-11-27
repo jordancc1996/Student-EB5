@@ -1,7 +1,7 @@
 ---
 id: 30
 slug: ways-to-fund-eb5-investment-2026
-title: Ways to Fund EB-5 - Gifted, Loaned, and Crypto Paths in 2026
+title: EB-5 Loans, Gifts and Other Ways to Fund Your Investment in 2026
 metaTitle: "EB-5 Loan Rules and Other Ways to Fund EB-5 | StudentEB5"
 metaDescription: "An EB-5 loan can fund the investment. For petitions filed on or after May 14, 2022, USCIS allows borrowed funds loaned in good faith, if lawfully sourced."
 excerpt: One of the cornerstones of the EB-5 investment process is the requirement that every dollar originates from legitimate sources. This guide covers the primary funding methods and critical compliance concepts of source and path of funds.
@@ -77,7 +77,7 @@ Most applicants combine several sources to assemble the $800,000 investment. A t
 
 ### Home Equity Line of Credit
 
-A HELOC is a popular funding vehicle that allows homeowners to borrow against the accumulated equity in their property. It functions as a revolving line of credit and is secured by the underlying real estate. A critical consideration when using a HELOC for an EB-5 investment is that USCIS will scrutinize the source of funds for the original property purchase itself. The applicant must be able to document how they acquired the property which includes the source of the down payment and the funds used for ongoing mortgage payments. If the down payment was made with undocumented cash, an informal loan from a friend or any other source that cannot be lawfully verified it will create significant complications.
+A HELOC is a popular funding vehicle that allows homeowners to borrow against the accumulated equity in their property. It functions as a revolving line of credit and is secured by the underlying real estate. A critical consideration when using a HELOC for an EB-5 investment is that USCIS will scrutinize the source of funds for the original property purchase itself. The applicant must be able to document how they acquired the property which includes the source of the down payment and the funds used for ongoing mortgage payments. The investor must show that the money used to buy the property was lawfully obtained. For a petition filed on or after May 14, 2022, borrowed funds used for that purchase must have been loaned in good faith, and their lawful source must be documented.
 
 ### Retirement Accounts (401k)
 
@@ -85,19 +85,19 @@ Retirement accounts are frequently used as a source for EB-5 investments. The ru
 
 #### Current Employer
 
-For a 401k with a current employer the options are limited. Applicants are generally restricted to taking a loan against their vested account balance. Federal law limits loans from a vested retirement account balance to the lesser of 50% of the vested balance or $50,000 (which would represent a small portion of the total EB-5 investment).
+For a 401k with a current employer the options are limited. Applicants are generally restricted to taking a loan against their vested account balance. Under <a href="https://www.irs.gov/retirement-plans/retirement-plans-faqs-regarding-loans">IRS rules</a>, a loan from a current employer's 401(k) is generally limited to the lesser of 50% of the vested balance or $50,000. It is still subject to the EB-5 capital rules above.
 
 #### Prior Employer
 
 Applicants have much more flexibility with 401k accounts held with previous employers. These funds are not subject to the same restrictions as active plans. An applicant can execute a rollover of the entire account balance into a self-directed IRA (SDIRA). A self-directed IRA gives the account holder control over a much wider range of investment choices including alternative assets like real estate and private equity (which includes EB-5 investments).
 
-Once the funds are in a SDIRA, the applicant can direct the custodian to invest the capital into the chosen EB-5 project. This is considered a direct rollover and not a withdrawal, which means it does not trigger early withdrawal penalties or income taxes. This is a significant advantage and allows the applicant to deploy their entire retirement savings tax free. In the specific case of SDIRA use, an exception is made for the Path of Funds rule. The funds can flow directly from the SDIRA to the EB-5 project without first being deposited into the applicant's personal bank account. This is permissible because the applicant maintains legal control over the funds throughout the transaction. When the EB-5 investment matures and the capital is returned, it is deposited back into the SDIRA and preserves its tax advantaged status.
+Once the funds are in a SDIRA, the applicant can direct the custodian to invest the capital into the chosen EB-5 project. This is considered a direct rollover and not a withdrawal, which means it does not trigger early withdrawal penalties or income taxes. This is a significant advantage and allows the applicant to deploy their entire retirement savings tax free. A transfer from a self-directed IRA to the project still has to be documented as the investor's own funds, including the path from the retirement account to the new commercial enterprise. When the EB-5 investment matures and the capital is returned, it is deposited back into the SDIRA and preserves its tax advantaged status.
 
 ### Loans Against Securities
 
 For applicants with a substantial investment portfolio, borrowing against securities is an excellent alternative to liquidating their position to fund the EB-5 investment. Selling a large block of appreciated stock can trigger significant capital gains taxes and reduce the net proceeds available for the EB-5 investment. A securities-based line of credit (SBLOC) avoids this issue by allowing the applicant to borrow against the value of their portfolio while the assets remain invested and continue to grow.
 
-The SBLOC is available for portfolios of publicly traded stocks, bonds and mutual funds as well as vested Restricted Stock Units (RSUs) held in a brokerage account. Major brokerage firms like Charles Schwab, E*TRADE, Fidelity and even Robinhood offer these products. The interest rates associated with the SBLOC are often competitive and sometimes as low as the prime rate (particularly for clients with large portfolios who qualify for premium tiers). The loan to value ratio depends on the diversification of the portfolio. A well-diversified portfolio of blue chip stocks might secure a loan for 70-80% of its value while a portfolio heavily concentrated in a single equity might only receive a 30% LTV.
+The SBLOC is available for portfolios of publicly traded stocks, bonds and mutual funds as well as vested Restricted Stock Units (RSUs) held in a brokerage account. A securities-backed loan can supply the cash. The cash still has to meet the borrowed-funds rules: lawful source, a documented path, and, for a petition filed on or after May 14, 2022, a loan made in good faith.
 
 ### Gift from Friends or Family
 
@@ -105,9 +105,9 @@ USCIS permits the use of gifted funds for an EB-5 investment as long as the orig
 
 ## Less Common and Higher Risk Funding Sources
 
-An unsecured personal loan is generally discouraged as a primary funding source for EB-5 investments. From the perspective of USCIS, these loans are not secured by any tangible collateral but are instead based on the applicants' future earning potential. This can lead an adjudicating officer to conclude that the applicant's capital is not truly at risk which is a core requirement of the EB-5 program. Relying heavily on unsecured debt can be a significant red flag and may result in a Request for Evidence (RFE) or even a denial.
+Cash the investor borrows and then contributes is not treated as indebtedness. For a petition filed on or after May 14, 2022, USCIS allows borrowed funds when they were loaned in good faith and were not loaned to circumvent limits on permissible sources of capital. If the capital contributed is the debt itself, the investor must be personally and primarily liable and the debt must be secured by assets the investor owns. The new commercial enterprise's assets cannot secure that debt.
 
-Some EB-5 regional centers offer loans to investors to help them meet the required investment amount. These arrangements have come under intense scrutiny from USCIS. Petitions involving RC loans have been receiving a high volume of RFEs and denials. The agency's position appears to be that these loans create a conflict of interest and may not meet the "at risk" requirement for an EB-5 investment.
+A loan from the investor to the new commercial enterprise does not count as a contribution of capital. Capital contributed in exchange for a note or any other debt arrangement with that enterprise is not a capital investment. Borrowed funds from a third party can be capital when they were loaned to the investor in good faith and the lawful source is documented.
 
 ## Simplicity and Traceability Are Paramount
 
@@ -117,7 +117,7 @@ Successfully funding an EB-5 investment and navigating the rigorous USCIS proces
 
 - USCIS Policy Manual — Vol. 6, Part G, Chapter 2: Immigrant Petition Eligibility Requirements. Covers the lawful source of funds requirement in detail, including what USCIS considers acceptable evidence. https://www.uscis.gov/policy-manual/volume-6-part-g-chapter-2
 
-- USCIS — EB-5 Questions and Answers. Official FAQ addressing common source of funds questions and acceptable capital sources. https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-fifth-preference-eb-5/eb-5-questions-and-answers
+- USCIS Policy Manual, Volume 6, Part G, Chapter 2, states the capital, indebtedness, and borrowed-funds rules used on this page. https://www.uscis.gov/policy-manual/volume-6-part-g-chapter-2
 
 - University of Hawaii — Investment Visa Program FAQ. Covers lawfully gained source of funds requirements and acceptable documentation methods for EB-5 petitions. https://www2.hawaii.edu/~remus/faq.html
 
@@ -133,15 +133,15 @@ USCIS mandates a strict anti-fraud protocol requiring a complete and unbroken ch
 
 <h3>How can retirement accounts be used to fund an EB-5 investment and what are the key differences between current and prior employer plans?</h3>
 
-For current employer-sponsored 401(k) plans, investors are typically limited to loans against their vested account balance and capped at the lesser of 50% of vested funds or $50,000. Prior employer plans offer more flexibility through direct rollovers into self-directed IRAs (SDIRAs) which allows investment into alternative assets like EB-5 projects without early withdrawal penalties or income taxes. The SDIRA can transfer funds directly to the EB-5 project which preserves tax-advantaged status and avoids the standard path of funds requirements.
+Under IRS rules, a loan from a current employer's 401(k) is generally limited to the lesser of 50% of the vested balance or $50,000. It is still subject to the EB-5 capital rules above. Prior employer plans offer more flexibility through direct rollovers into self-directed IRAs (SDIRAs) which allows investment into alternative assets like EB-5 projects without early withdrawal penalties or income taxes. A transfer from a self-directed IRA to the project still has to be documented as the investor's own funds, including the path from the retirement account to the new commercial enterprise.
 
 <h3>Why are unsecured personal loans and EB-5 regional center loans generally discouraged as funding sources?</h3>
 
-Unsecured personal loans lack tangible collateral which raises USCIS concerns about whether the capital is truly "at risk." These concerns usually trigger Requests for Evidence (RFEs) or immediate denials. EB-5 regional center loans face intense scrutiny due to potential conflicts of interest and similar "at risk" concerns. EB-5 RC loans often result in a high volume of RFEs and denials as well which makes them a high-risk funding option.
+Cash the investor borrows and then contributes is not treated as indebtedness. For a petition filed on or after May 14, 2022, USCIS allows borrowed funds when they were loaned in good faith and were not loaned to circumvent limits on permissible sources of capital. If the capital contributed is the debt itself, the investor must be personally and primarily liable and the debt must be secured by assets the investor owns. The new commercial enterprise's assets cannot secure that debt. A loan from the investor to the new commercial enterprise does not count as a contribution of capital. Capital contributed in exchange for a note or any other debt arrangement with that enterprise is not a capital investment. Borrowed funds from a third party can be capital when they were loaned to the investor in good faith and the lawful source is documented.
 
 <h3>What are the advantages of using a securities-based line of credit (SBLOC) to fund an EB-5 investment?</h3>
 
-SBLOC allows investors to borrow against publicly traded stocks, bonds, mutual funds or Restricted Stock Units without liquidating their portfolios, thereby avoiding capital gains taxes and preserving investment growth. Interest rates are competitive and loan-to-value ratios depend on portfolio diversification and offer a flexible and traceable funding method compatible with EB-5 compliance requirements.
+SBLOC allows investors to borrow against publicly traded stocks, bonds, mutual funds or Restricted Stock Units without liquidating their portfolios, thereby avoiding capital gains taxes and preserving investment growth. A securities-backed loan can supply the cash. The cash still has to meet the borrowed-funds rules: lawful source, a documented path, and, for a petition filed on or after May 14, 2022, a loan made in good faith.
 
 <h3>Can I use a loan for my EB-5 investment?</h3>
 
