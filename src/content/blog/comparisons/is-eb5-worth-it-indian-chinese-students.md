@@ -2,8 +2,8 @@
 id: 44
 slug: comparisons/is-eb5-worth-it-indian-chinese-students
 title: "Is EB-5 worth it for Indian and Chinese International Students? An analysis of H-1B vs EB-5 Lifetime Costs"
-metaTitle: "Is EB-5 Worth It for Indian and Chinese Students"
-metaDescription: "Is EB-5 worth it for Indian and Chinese International Students? An analysis of H-1B vs EB-5 Lifetime Costs"
+metaTitle: "Is EB-5 Worth It? Cost vs H-1B for Indian & Chinese Students"
+metaDescription: "Is EB-5 worth it? We compare EB-5 and H-1B lifetime costs for Indian and Chinese students, including investment, fees and years of waiting."
 excerpt: International students and their families often weigh the immediate cost of U.S. education and immigration without measuring the lifetime earnings gap created by visa choice. This analysis compares H-1B wage and mobility limits against the financial return of an EB-5 path for Indian and Chinese students.
 date: June 17, 2026
 updatedDate: November 23, 2026

@@ -85,7 +85,7 @@ Retirement accounts are frequently used as a source for EB-5 investments. The ru
 
 #### Current Employer
 
-For a 401k with a current employer the options are limited. Applicants are generally restricted to taking a loan against their vested account balance. Under <a href="https://www.irs.gov/retirement-plans/retirement-plans-faqs-regarding-loans">IRS rules</a>, a loan from a current employer's 401(k) is generally limited to the lesser of 50% of the vested balance or $50,000. It is still subject to the EB-5 capital rules above.
+For a 401k with a current employer the options are limited. Applicants are generally restricted to taking a loan against their vested account balance. Under <a href="https://www.irs.gov/retirement-plans/retirement-plans-faqs-regarding-loans">IRS rules</a>, a loan from a current employer's 401(k) is generally limited to the lesser of $50,000 or the greater of $10,000 or 50% of the vested balance. It is still subject to the EB-5 capital rules above.
 
 #### Prior Employer
 
@@ -133,7 +133,7 @@ USCIS mandates a strict anti-fraud protocol requiring a complete and unbroken ch
 
 <h3>How can retirement accounts be used to fund an EB-5 investment and what are the key differences between current and prior employer plans?</h3>
 
-Under IRS rules, a loan from a current employer's 401(k) is generally limited to the lesser of 50% of the vested balance or $50,000. It is still subject to the EB-5 capital rules above. Prior employer plans offer more flexibility through direct rollovers into self-directed IRAs (SDIRAs) which allows investment into alternative assets like EB-5 projects without early withdrawal penalties or income taxes. A transfer from a self-directed IRA to the project still has to be documented as the investor's own funds, including the path from the retirement account to the new commercial enterprise.
+Under IRS rules, a loan from a current employer's 401(k) is generally limited to the lesser of $50,000 or the greater of $10,000 or 50% of the vested balance. It is still subject to the EB-5 capital rules above. Prior employer plans offer more flexibility through direct rollovers into self-directed IRAs (SDIRAs) which allows investment into alternative assets like EB-5 projects without early withdrawal penalties or income taxes. A transfer from a self-directed IRA to the project still has to be documented as the investor's own funds, including the path from the retirement account to the new commercial enterprise.
 
 <h3>Why are unsecured personal loans and EB-5 regional center loans generally discouraged as funding sources?</h3>
 
