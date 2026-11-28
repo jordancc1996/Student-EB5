@@ -8,10 +8,10 @@ interface PhotoBase {
 }
 
 export interface UnsplashPhotoRecord extends PhotoBase {
-  unsplashId: string;
-  unsplashUrl: string;
-  photographer: string;
-  profileUrl: string;
+  unsplashId?: string;
+  unsplashUrl?: string;
+  photographer?: string;
+  profileUrl?: string;
   source: 'unsplash';
   license: 'unsplash';
 }
@@ -23,6 +23,19 @@ export interface SuppliedPhotoRecord extends PhotoBase {
 }
 
 export type PhotoRecord = UnsplashPhotoRecord | SuppliedPhotoRecord;
+
+export function hasUnsplashCredit(
+  photo: PhotoRecord,
+): photo is UnsplashPhotoRecord & {
+  photographer: string;
+  profileUrl: string;
+  unsplashUrl: string;
+} {
+  return (
+    photo.source === 'unsplash' &&
+    Boolean(photo.photographer && photo.profileUrl && photo.unsplashUrl)
+  );
+}
 
 export interface PhotoPlacement {
   id: string;

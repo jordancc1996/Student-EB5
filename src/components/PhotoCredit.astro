@@ -1,5 +1,5 @@
 ---
-import type { PhotoRecord } from '@/lib/photos/types';
+import { hasUnsplashCredit, type PhotoRecord } from '@/lib/photos/types';
 
 interface Props {
   photo: PhotoRecord;
@@ -9,12 +9,12 @@ const { photo } = Astro.props;
 ---
 
 {
-  photo.source === 'unsplash' ? (
+  hasUnsplashCredit(photo) ? (
     <p class="photo-credit">
       Photo by <a href={photo.profileUrl} target="_blank" rel="noopener noreferrer">{photo.photographer}</a> on
       <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>
     </p>
-  ) : (
+  ) : photo.source === 'supplied' ? (
     <p class="photo-credit">Photograph supplied for this page.</p>
-  )
+  ) : null
 }
