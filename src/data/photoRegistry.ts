@@ -273,6 +273,38 @@ export const photoRegistry: PhotoRecord[] = [
     alt: 'Hand writing with a pen on a printed sheet beside a laptop',
     containsRecognizablePeople: false,
   },
+  {
+    id: 'graduation-commencement-student-eb5',
+    filename: 'graduation-commencement-student-eb5.jpg',
+    source: 'unsplash',
+    license: 'unsplash',
+    alt: 'Graduate in cap and gown seen from behind at a university commencement ceremony',
+    containsRecognizablePeople: true,
+  },
+  {
+    id: 'calendar-student-eb5',
+    filename: 'calendar-student-eb5.jpg',
+    source: 'unsplash',
+    license: 'unsplash',
+    alt: 'Year calendar on a tablet, used to count days',
+    containsRecognizablePeople: false,
+  },
+  {
+    id: 'tech-workspace-student-eb5',
+    filename: 'tech-workspace-student-eb5.jpg',
+    source: 'unsplash',
+    license: 'unsplash',
+    alt: 'Open-plan loft office with desks and computer monitors under exposed ductwork',
+    containsRecognizablePeople: false,
+  },
+  {
+    id: 'mixed-use-building-student-eb5',
+    filename: 'mixed-use-building-student-eb5.jpg',
+    source: 'unsplash',
+    license: 'unsplash',
+    alt: 'Exterior of a completed modern commercial office tower',
+    containsRecognizablePeople: false,
+  },
 ];
 
 export const photoById = new Map(photoRegistry.map((photo) => [photo.id, photo]));
@@ -414,7 +446,7 @@ export const photoPlacementsByPath: Record<string, PhotoPlacement[]> = {
   '/pathways/eb5-for-graduate-students': [{ id: 'suzzallo-interior', layout: 'wide' }],
   '/pathways/eb5-for-indian-students': [{ id: 'university-quad-brick-hall', layout: 'wide' }],
   '/pathways/eb5-for-chinese-students': [{ id: 'university-library-arched-window', layout: 'wide' }],
-  '/pathways/f1-to-eb5-self-sponsored-green-card': [{ id: 'uw-campus', layout: 'wide' }],
+  '/pathways/f1-to-eb5-self-sponsored-green-card': [{ id: 'graduation-commencement-student-eb5', layout: 'wide' }],
   '/pathways/eb5-for-families-with-us-students': [{ id: 'campus-archway', layout: 'right' }],
   '/pathways/parents-and-families': [{ id: 'dc-pillars', layout: 'wide' }],
   '/pathways/eb5-for-h4-families': [{ id: 'dc-pillars', layout: 'left' }],
@@ -430,7 +462,7 @@ export const photoPlacementsByPath: Record<string, PhotoPlacement[]> = {
   '/pathways/eb5-for-tech-workers': [{ id: 'chicago-river', layout: 'wide' }],
   '/pathways/eb5-for-startup-founders': [{ id: 'chicago-river', layout: 'right' }],
   '/pathways/eb5-for-entrepreneurs': [{ id: 'nyc-financial', layout: 'wide' }],
-  '/pathways/h1b-to-green-card': [{ id: 'nyc-financial', layout: 'wide' }],
+  '/pathways/h1b-to-green-card': [{ id: 'tech-workspace-student-eb5', layout: 'wide' }],
   '/pathways/eb5-vs-h1b': [{ id: 'chicago-river', layout: 'wide' }],
   '/pathways/eb5-for-j1': [{ id: 'uw-campus', layout: 'right' }],
   '/pathways/eb5-for-l1': [{ id: 'nyc-financial', layout: 'left' }],
@@ -441,14 +473,14 @@ export const photoPlacementsByPath: Record<string, PhotoPlacement[]> = {
   '/pathways/eb5-vs-other-visa-options': [{ id: 'lisbon-sunset', layout: 'wide' }],
   '/pathways/rural-eb5': [{ id: 'rural-grader', layout: 'wide' }],
   '/pathways/eb5-project-due-diligence': [{ id: 'oregon-highway', layout: 'wide' }],
-  '/pathways/i956f-approved-eb5-projects': [{ id: 'rural-grader', layout: 'right' }],
+  '/pathways/i956f-approved-eb5-projects': [{ id: 'mixed-use-building-student-eb5', layout: 'right' }],
   '/pathways/eb5-risk-and-due-diligence': [{ id: 'oregon-highway', layout: 'left' }],
   '/pathways/eb5-source-of-funds': [{ id: 'chicago-river', layout: 'wide' }],
   '/pathways/eb5-gifted-funds': [{ id: 'suzzallo-interior', layout: 'right' }],
   '/pathways/eb5-business-income': [{ id: 'chicago-river', layout: 'wide' }],
   '/pathways/eb5-property-sale-funds': [{ id: 'nyc-financial', layout: 'right' }],
   '/pathways/eb5-child-aging-out': [{ id: 'dc-pillars', layout: 'wide' }],
-  '/pathways/h1b-60-day-clock': [{ id: 'chicago-river', layout: 'wide' }],
+  '/pathways/h1b-60-day-clock': [{ id: 'calendar-student-eb5', layout: 'wide' }],
 };
 
 export function getPlacementsForPath(pathname: string): PhotoPlacement[] {

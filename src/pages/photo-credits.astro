@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import { photoRegistry, photoPlacementsByPath } from '@/data/photoRegistry';
+import { hasUnsplashCredit } from '@/lib/photos/types';
 import { SITE_CONFIG } from '@/lib/seo/config';
 import { isNoindexPath } from '@/lib/seo/indexing';
 
@@ -46,14 +47,14 @@ const pageCanonical = `${SITE_CONFIG.url}/photo-credits`;
             <li>
               <p class="font-medium m-0">{photo.alt}</p>
               {
-                photo.source === 'unsplash' ? (
+                hasUnsplashCredit(photo) ? (
                   <p class="photo-credit m-0 mt-1">
                     Photo by <a href={photo.profileUrl}>{photo.photographer}</a> on
                     <a href={photo.unsplashUrl}>Unsplash</a>
                   </p>
-                ) : (
+                ) : photo.source === 'supplied' ? (
                   <p class="photo-credit m-0 mt-1">Photograph supplied for this page. No photographer is named on the file.</p>
-                )
+                ) : null
               }
               <p class="text-xs text-muted-foreground mt-2 mb-0">
                 Used on {(pagesByPhoto.get(photo.id) ?? []).join(', ') || 'registry only'}

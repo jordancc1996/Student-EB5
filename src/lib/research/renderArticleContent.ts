@@ -144,6 +144,7 @@ function creditMarkup(src: string): string {
   if (photo.source !== 'unsplash') {
     return `<p class="photo-credit">Photograph supplied for this page.</p>`;
   }
+  if (!photo.photographer || !photo.profileUrl) return '';
   return `<p class="photo-credit">Photo by <a href="${photo.profileUrl}" target="_blank" rel="noopener noreferrer">${photo.photographer}</a> on <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a></p>`;
 }
 

@@ -24,6 +24,10 @@ import suzzalloInterior from '@/assets/photos/suzzallo-interior.jpg';
 import universityLibraryWindow from '@/assets/photos/university-library-arched-window.jpg';
 import universityQuadHall from '@/assets/photos/university-quad-brick-hall.jpg';
 import uwCampus from '@/assets/photos/uw-campus.jpg';
+import graduationCommencement from '@/assets/photos/graduation-commencement-student-eb5.jpg';
+import calendarStudent from '@/assets/photos/calendar-student-eb5.jpg';
+import techWorkspace from '@/assets/photos/tech-workspace-student-eb5.jpg';
+import mixedUseBuilding from '@/assets/photos/mixed-use-building-student-eb5.jpg';
 
 export const photoAssets: Record<string, ImageMetadata> = {
   'apartment-building-balconies': apartmentBalconies,
@@ -51,4 +55,8 @@ export const photoAssets: Record<string, ImageMetadata> = {
   'university-library-arched-window': universityLibraryWindow,
   'university-quad-brick-hall': universityQuadHall,
   'uw-campus': uwCampus,
+  'graduation-commencement-student-eb5': graduationCommencement,
+  'calendar-student-eb5': calendarStudent,
+  'tech-workspace-student-eb5': techWorkspace,
+  'mixed-use-building-student-eb5': mixedUseBuilding,
 };
